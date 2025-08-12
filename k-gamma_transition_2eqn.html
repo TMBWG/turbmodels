@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>K-gamma 2-equation Transitional Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">K-gamma 2-equation Transitional Model</strong>
+
+<p style="color:red">Note: this model page was contributed by Jatinder Pal Singh Sandhu of IIT Madras, India.
+<!--It has not yet been independently reviewed.-->
+</p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for the
+k-gamma two-equation turbulence+transition model.
+The model given on this page is a linear eddy viscosity model, which uses the
+Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><a ID="lm-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">K-gamma 2-equation Transition Model<span style="color: blue">
+  (K-gamma-2021)</span></strong>
+
+<p>The reference for the k-gamma two-equation turbulence/transition model is:
+<ul>
+<li>Sandhu, J. P. S., and Ghosh, S., "A local correlation-based zero-equation transition model,"
+  <b>Computers &#38; Fluids</b>, Vol. 214, Jan 2021, p. 104758,
+  <a href="https://doi.org/10.1016/j.compfluid.2020.104758">https://doi.org/10.1016/j.compfluid.2020.104758</a>.
+</ul>
+<!--You are never talking about the k-gamma variable-SG -->
+<p>The transport equations of the k-gamma model are similar to the SST-2003 model with a few additional source terms for the <em>k</em> transport equation.
+The model (written in conservation form) is given as:
+<dl>
+<dd><img class="tex" alt="\frac{\partial(\rho k)}{\partial t}+\frac{\partial\left(\rho u_{j} k\right)}{\partial x_{j}}=P-\text{max}(\widetilde{\gamma},0.1)\beta^{*} \rho \omega k+\frac{\partial}{\partial x_{j}}\left[\left(\mu+\sigma_{k} \mu_{t}\right) \frac{\partial k}{\partial x_{j}}\right] + \Psi_{k_\gamma} "
+  src="Kgamma-trans-eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial(\rho \omega)}{\partial t}+\frac{\partial\left(\rho u_{j} \omega\right)}{\partial x_{j}}=\frac{\gamma}{\nu_{t}} P-\beta \rho \omega^{2}+\frac{\partial}{\partial x_{j}}\left[\left(\mu+\sigma_{\omega} \mu_{t}\right) \frac{\partial \omega}{\partial x_{j}}\right]+2\left(1-F_{1}\right) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_{j}} \frac{\partial \omega}{\partial x_{j}}"
+  src="Kgamma-trans-eqns/img3.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="\Psi_{k_\gamma} = P_{k_\gamma}+P_{k_\gamma}^{lim}- E_{k_\gamma}+ D_{k_\gamma} "
+  src="Kgamma-trans-eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="P_{k_\gamma} = F_{length} \phantom{I} \rho S (1-\widetilde{\gamma})F_{onset} k"
+  src="Kgamma-trans-eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="E_{k_\gamma} = \widetilde{\gamma} C_{e1}\ \rho\Omega F_{turb} k"
+  src="Kgamma-trans-eqns/img6.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="D_{k_\gamma} = -C_{d1}(\mu+\mu_t)\frac{\partial k}{\partial x_j}\frac{\partial \widetilde{\gamma}}{\partial x_j} "
+  src="Kgamma-trans-eqns/img7.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="P_k^{lim} = 5\left[\text{max}(\widetilde{\gamma} - 0.2, 0)(1-\widetilde{\gamma})F_{on}^{lim}\text{max}(3\mu - \mu_t,0)S\Omega\right] "
+  src="Kgamma-trans-eqns/img8.png" /></dd>
+</dl>
+<p>Here,
+<dl>
+<dd><img class="tex" alt="F_{on}^{lim} = \text{min}\left(\text{max}\left(\frac{Re_v}{2.2Re_{\theta c}^{lim}}-1, 0\right),3\right) "
+  src="Kgamma-trans-eqns/img9.png" /></dd>
+</dl>
+<p> and,
+<dl>
+<dd><img class="tex" alt="Re_{\theta c}^{lim} = 1100 "
+  src="Kgamma-trans-eqns/img10.png" /></dd>
+</dl>
+<p>The approximated intermittency <img class="tex" alt="\widetilde{\gamma}"
+  src="Kgamma-trans-eqns/img11.png" /> is modeled as:
+<dl>
+<dd><img class="tex" alt="\widetilde{\gamma} = \left(1-e^{-R_T}\right)^3 "
+  src="Kgamma-trans-eqns/img12.png" /></dd>
+</dl>
+<p> and its gradient is computed as:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \widetilde{\gamma}}{\partial x_i} = \frac{n\rho\widetilde{\gamma}^{2/3}}{\mu \omega} \left(\frac{\partial k}{\partial x_i} - \frac{k}{\omega}\frac{\partial \omega}{\partial x_i}\right)e^{-R_T} "
+  src="Kgamma-trans-eqns/img13.png" /></dd>
+</dl>
+<p>where
+<dl>
+<dd><img class="tex" alt="R_T = \frac{\rho k}{\omega \mu} "
+  src="Kgamma-trans-eqns/img14.png" /></dd>
+</dl>
+<p> is the turbulent Reynolds number.
+In order to obtain the gradient of approximated intermittency, the gradient of density and molecular viscosity have been ignored.
+  The functions which control transition are given as:
+<dl>
+<dd><img class="tex" alt="F_{turb} = e^{-\left(\frac{R_T}{2}\right)^4} "
+  src="Kgamma-trans-eqns/img15.png" /></dd>
+</dl>
+<!--<p>and the onset of transition is controlled by the following function-->
+<dl>
+<dd><img class="tex" alt="F_{onset}  = \text{max}(F_{onset2} - F_{onset3}, 0.0)  "
+  src="Kgamma-trans-eqns/img16.png" /></dd>
+</dl>
+<p> where
+<dl>
+<dd><img class="tex" alt="F_{onset2} = \text{min}(F_{onset1}, 2.0) "
+  src="Kgamma-trans-eqns/img17.png" /></dd>
+</dl>
+<p>and
+<dl>
+<dd><img class="tex" alt="F_{onset3} = \text{max}\left( 1 - \left(\frac{R_T}{3.5}\right)^3, 0\right) "
+  src="Kgamma-trans-eqns/img18.png" /></dd>
+</dl>
+The term <img class="tex" alt="F_{onset1}"
+  src="Kgamma-trans-eqns/img19.png" /> is defined as,
+<dl>
+<dd><img class="tex" alt="F_{onset1} = \frac{Re_v}{2.2Re_{\theta c}} "
+  src="Kgamma-trans-eqns/img20.png" /></dd>
+</dl>
+<p>where
+<dl>
+<dd><img class="tex" alt="Re_\text{v} = \frac{\rho d_w^2 S}{\mu} "
+  src="Kgamma-trans-eqns/img21.png" /></dd>
+</dl>
+<p>is the local strain-rate Reynolds number.
+Also,  <img class="tex" alt="Re_{\theta c}"
+  src="Kgamma-trans-eqns/img22.png" /> is calculated using the following correlation:
+<dl>
+<dd><img class="tex" alt=" Re_{\theta c} = 100.0 + 1000.0 ~exp(-Tu_L F_{PG}) "
+  src="Kgamma-trans-eqns/img23.png" /></dd>
+</dl>
+The effects of pressure gradient and local turbulence intensity are accounted for using the following functions:
+<dl>
+<dd><img class="tex" alt=" F_{PG} = \left\{ \begin{array}{ll} min(1 + 14.68\lambda_{\theta L}, 1.5) , &\quad\lambda_{\theta L} \geq 0\\ min(1 - 7.34\lambda_{\theta L}, 3.0) , &\quad\lambda_{\theta L} < 0 \end{array}\right."
+  src="Kgamma-trans-eqns/img24.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Tu_L = min\left(100\frac{\sqrt{2k/3}}{\omega d_w}, 100\right) "
+  src="Kgamma-trans-eqns/img25.png" /></dd>
+</dl>
+<p>Here, <img class="tex" alt="d_w" src="Kgamma-trans-eqns/img26.png" /> is the distance to the nearest wall.
+The pressure gradient  parameter, <img class="tex" alt="\lambda_{\theta L}" src="Kgamma-trans-eqns/img27.png" />, is defined as
+<dl>
+<dd><img class="tex" alt="\lambda_{\theta L} = -7.57. 10^{-3}\frac{d V}{dy}\frac{d_w^2}{\nu} + 0.0128 "
+  src="Kgamma-trans-eqns/img28.png" /></dd>
+</dl>
+<p>The term <img class="tex" alt="\frac{dV}{dy}"
+  src="Kgamma-trans-eqns/img29.png" /> can be computed as:
+<dl>
+<dd><img class="tex" alt="\frac{dV}{dy} = \nabla (\vec{n}.\vec{V}).\vec{n} "
+  src="Kgamma-trans-eqns/img30.png" /></dd>
+</dl>
+<p> where
+<dl>
+<dd><img class="tex" alt="\vec{n} = \frac{\nabla (d_w)}{|\nabla (d_w)|} "
+  src="Kgamma-trans-eqns/img31.png" /></dd>
+</dl>
+<p>The production term of the original transport equation is modified as <!-- Mention the Kato-Launder formulation - SG-->
+<dl>
+<dd><img class="tex" alt=" P = \widetilde{\gamma} \mu_t S\Omega   "
+  src="Kgamma-trans-eqns/img34.png" /></dd>
+</dl>
+<p>where the turbulent viscosity is defined as:
+<dl>
+<dd><img class="tex" alt="\mu_{t}=\frac{\rho a_{1} k}{\max \left(a_{1} \omega, \Omega F_{2}\right)} "
+  src="Kgamma-trans-eqns/img35.png" /></dd>
+</dl>
+<p>and
+<dl>
+<dd><img class="tex" alt="F_{2}=\tanh \left(\arg _{2}^{2}\right) "
+  src="Kgamma-trans-eqns/img36.png" /></dd>
+</dl>
+<p>where
+<dl>
+<dd><img class="tex" alt="\arg _{2}=\max \left(2 \frac{\sqrt{k}}{\beta^{*} \omega d}, \frac{500 \nu}{d^{2} \omega}\right) "
+  src="Kgamma-trans-eqns/img37.png" /></dd>
+</dl>
+<p>The recommended production limiter is
+<dl>
+<dd><img class="tex" alt="\min \left(P, 20 \beta^{*} \rho \omega k\right) "
+  src="Kgamma-trans-eqns/img38.png" /></dd>
+</dl>
+<p>In the SST model, the constants are a blend of an inner (1) and an outer (2) constant, blended via
+<dl>
+<dd><img class="tex" alt="\phi=F_{1} \phi_{1}+\left(1-F_{1}\right) \phi_{2} "
+  src="Kgamma-trans-eqns/img39.png" /></dd>
+</dl>
+The blending function F<sub>1</sub> is given as
+<dl>
+<dd><img class="tex" alt="F_1 = max \left( F_{1,SST},F_3 \right) "
+  src="Kgamma-trans-eqns/img41.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{1,SST}=\tanh \left(a r g_{1}^{4}\right) "
+  src="Kgamma-trans-eqns/img42.png" /></dd>
+</dl>
+<p> where
+<dl>
+<dd><img class="tex" alt="\arg _{1}=\min \left[\max \left(\frac{\sqrt{k}}{\beta^{*} \omega d}, \frac{500 \nu}{d^{2} \omega}\right), \frac{4 \rho \sigma_{\omega 2} k}{C D_{k \omega} d^{2}}\right] "
+  src="Kgamma-trans-eqns/img43.png" /></dd>
+</dl>
+<p>and <!-- F_3 is from?: SG -->
+<dl>
+<dd><img class="tex" alt="F_3 = exp \left[ - \left( \frac{R_y}{120} \right)^8 \right] "
+  src="Kgamma-trans-eqns/img44.png" /></dd>
+</dl>
+<p>where
+<dl>
+<dd><img class="tex" alt="R_y = \frac{\rho d \sqrt{k}}{\mu} "
+  src="Kgamma-trans-eqns/img45.png" /></dd>
+</dl>
+<p>The cross-diffusion term is defined as:
+<dl>
+<dd><img class="tex" alt="C D_{k \omega}=\max \left(2 \rho \sigma_{\omega 2} \frac{1}{\omega} \frac{\partial k}{\partial x_{j}} \frac{\partial \omega}{\partial x_{j}}, 10^{-10}\right) "
+  src="Kgamma-trans-eqns/img46.png" /></dd>
+</dl>
+The strain rate magnitude <img class="tex" alt="S" src="Kgamma-trans-eqns/img47.png" /> and vorticity magnitude <img class="tex" alt="\Omega" src="Kgamma-trans-eqns/img48.png" />  are defined as:
+<dl>
+<dd><img class="tex" alt="S = \sqrt{2S_{ij}S_{ij}} "
+  src="Kgamma-trans-eqns/img49.png" /></dd>
+</dl>
+<p> and
+<dl>
+<dd><img class="tex" alt="\Omega = \sqrt{2W_{ij}W_{ij}} "
+  src="Kgamma-trans-eqns/img50.png" /></dd>
+</dl>
+<p>where
+<dl>
+<dd><img class="tex" alt="S_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} +  \frac{\partial u_j}{\partial x_i} \right)"
+  src="Kgamma-trans-eqns/img51.png" /></dd>
+</dl>
+<p>and
+<dl>
+<dd><img class="tex" alt="W_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} -  \frac{\partial u_j}{\partial x_i} \right)"
+  src="Kgamma-trans-eqns/img52.png" /></dd>
+</dl>
+<p>The model constants are:
+<dl>
+<dd><img class="tex" alt=" \begin{array}{l}
+    F_{length} = 1.0\\[0.5cm]
+    C_{e1} = 0.03\\[0.5cm]
+    C_{d1} = 0.02
+  \end{array} "
+  src="Kgamma-trans-eqns/img53.png" /></dd>
+</dl>
+<p>The unchanged original SST-2003 model constants are:
+<dl>
+<dd><img class="tex" alt=" \gamma_{1}=\frac{\beta_{1}}{\beta^{*}}-\frac{\sigma_{\omega 1} \kappa^{2}}{\sqrt{\beta^{*}}}, \; \qquad \gamma_{2}=\frac{\beta_{2}}{\beta^{*}}-\frac{\sigma_{\omega 2} \kappa^{2}}{\sqrt{\beta^{*}}}"
+  src="Kgamma-trans-eqns/img54.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\[\arraycolsep=6pt\def\arraystretch{3.2}
+\begin{array}{lll}
+  \sigma_{k 1}=0.85 &\quad \sigma_{\omega 1}=0.5 &\quad \beta_{1}=0.075 \\[0.5cm]
+  \sigma_{k 2}=1.0 &\quad \sigma_{\omega 2}=0.856 &\quad \quad \beta_{2}=0.0828 \\[0.5cm]
+  \beta^{*}=0.09 &\quad \kappa=0.41 &\quad a_{1}=0.31
+\end{array}"
+  src="Kgamma-trans-eqns/img55.png" /></dd>
+</dl>
+
+<p>For boundary conditions, similar to the SST-2003 turbulence model, the following values are specified at a wall:
+<dl>
+<dd><img class="tex" alt="k_{wall} = 0 "
+  src="Kgamma-trans-eqns/img32.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega_{wall} = 10 \frac{6 \nu}{\beta_1 (\Delta d_1)^2} "
+  src="Kgamma-trans-eqns/img33.png" /></dd>
+</dl>
+The freestream values of k and omega should be set according to the desired (or specified) freestream levels of Tu and 
+<img class="tex" alt="\mu_t" src="Kgamma-trans-eqns/img56.png" />, using
+<dl>
+<dd><img class="tex" alt="Tu_{freestream}\% = 100 \sqrt{\frac{2}{3} \frac{k_{freestream}}{U_{ref}^2}}"
+  src="Kgamma-trans-eqns/img57.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\mu_{t, freestream} = \rho_{freestream}\frac{k_{freestream}}{\omega_{freestream}}"
+  src="Kgamma-trans-eqns/img58.png" /></dd>
+</dl>
+
+<p style="color:red"> A point to note is that although the use of turbulent Reynolds number (R<sub>T</sub>) in approximated intermittency is an obvious choice, it  makes the model sensitive to initial conditions for low freestream turbulence intensity cases. The  model is calibrated for freestream initial conditions.
+
+
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<!--<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+11/11/2018 - fixed typo in abs(u_e) equation for SST-2003-LM2009-CFC1 (removed "d")<br>-->
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

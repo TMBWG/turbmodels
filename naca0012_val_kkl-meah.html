@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D NACA 0012 Airfoil Validation - K-kL-MEAH2015m Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<br>&nbsp;
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="naca0012_val_sa.html">SA Results</a>,&nbsp;
+         <a href="naca0012_val_sarc.html">SA-RC Results</a>,&nbsp;
+         <a href="naca0012_val_sst.html">SSTm Results</a>,&nbsp;
+         <a href="naca0012_val_sstv.html">SST-Vm Results</a>,&nbsp;
+         <a href="naca0012_val_ssglrrrsm.html">SSG/LRR-RSM-w2012 Results</a>,&nbsp;
+         <a href="naca0012_val_w06.html">Wilcox2006-klim-m Results</a>,&nbsp;
+         <a href="naca0012_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="naca0012_val_kert.html">K-e-Rt Results</a></p>
+<p>Return to: <a href="naca0012_val.html">NACA 0012 Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2D NACA 0012 Airfoil 
+Validation Case</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">K-kL-MEAH2015m Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="kkl.html#kkl-meah2015">Link to K-kL-MEAH2015m equations</a>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA0012_validation/cl-kkl_C+F+T.jpg" border="1" title="K-kL-MEAH2015m - CL vs alpha" alt="K-kL-MEAH2015m - CL vs alpha">
+           <img
+src="NACA0012_validation/cd-kkl_C+F+T.jpg" border="1" title="K-kL-MEAH2015m - CD vs CL" alt="K-kL-MEAH2015m - CD vs CL">
+</p>
+        <p><img
+src="NACA0012_validation/cp-00-final_kkl_C+F+T.jpg" border="1" title="K-kL-MEAH2015m - Cp vs x/c at alpha=0" alt="K-kL-MEAH2015m - Cp vs x/c at alpha=0">
+           <img
+src="NACA0012_validation/cf-00-final_kkl_C+F+T.jpg" border="1" title="K-kL-MEAH2015m - Cf vs x/c at alpha=0" alt="K-kL-MEAH2015m - Cf vs x/c at alpha=0">
+</p>
+        <p><img
+src="NACA0012_validation/cp-10-final_kkl_C+F+T.jpg" border="1" title="K-kL-MEAH2015m - Cp vs x/c at alpha=10" alt="K-kL-MEAH2015m - Cp vs x/c at alpha=10">
+           <img
+src="NACA0012_validation/cf-10-final_kkl_C+F+T.jpg" border="1" title="K-kL-MEAH2015m - Cf vs x/c at alpha=10" alt="K-kL-MEAH2015m - Cf vs x/c at alpha=10">
+</p>
+        <p><img
+src="NACA0012_validation/cp-15-final_kkl_C+F+T.jpg" border="1" title="K-kL-MEAH2015m - Cp vs x/c at alpha=15" alt="K-kL-MEAH2015m - Cp vs x/c at alpha=15">
+           <img
+src="NACA0012_validation/cf-15-final_kkl_C+F+T.jpg" border="1" title="K-kL-MEAH2015m - Cf vs x/c at alpha=15" alt="K-kL-MEAH2015m - Cf vs x/c at alpha=15">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Previously on this page the results were reported as k-kL-MEAH2015 solutions, but more properly they should be referred
+to as k-kL-MEAH2015m.  Essentially no difference is expected.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Note that thorough
+grid studies were not performed for <u>validation</u> cases such as this one.
+Some effort was made to ensure reasonable grid resolutions, but there may still be
+small noticeable discretization errors.  Therefore, these validation results shown should be considered
+representative, but not "truth."
+(See the <a href="naca0012numerics_val.html">NACA 0012 Numerical Analysis Case</a> for a 
+representative verification exercise of this airfoil case.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Above k-kL-MEAH2015m results are from CFL3D, FUN3D, and TAU
+on the 897x257 grid.
+Both CFL3D and FUN3D used freestream turbulence intensity=0.052% and freestream turbulent viscosity (relative to laminar)=0.009
+(additional details can be found in the <a href="https://nasa.github.io/CFL3D/Cfl3dv6/cfl3dv6_v5manual.html">CFL3D User's Manual, Appendix H</a>),
+while TAU used freestream turbulence intensity=0.1% and freestream turbulent viscosity (relative to laminar)=0.1.
+Please read note 5 on <a href="noteonrunning.html">Notes on running CFD</a> page.
+Results are overall very close between the three codes, with the largest
+difference seen in drag at alpha=15 deg (approximately 2% difference).
+These discrepancies between codes are due to discretization errors,
+boundary condition differences, and/or
+possible code-to-code implementation-detail differences.
+See <a href="naca0012numerics_val.html">NACA 0012 Numerical Analysis Page</a> for more discussion
+about numerical issues associated with the NACA 0012 airfoil case.
+Note that these are compressible code results
+at "essentially incompressible" conditions of M=0.15.
+There may be a very small influence of compressibility.
+Only the CFD data files from CFL3D's k-kL-MEAH2015m results are given here for reference:
+<a href="NACA0012_validation/n0012clcd_cfl3d_kkl.dat">n0012clcd_cfl3d_kkl.dat</a>,
+<a href="NACA0012_validation/n0012cp_cfl3d_kkl.dat">n0012cp_cfl3d_kkl.dat</a>, and
+<a href="NACA0012_validation/n0012cf_cfl3d_kkl.dat">n0012cf_cfl3d_kkl.dat</a>.
+A typical CFL3D input file is:
+<a href="NACA0012_validation/n0012_cfl3d_typical_kkl.inp">n0012_cfl3d_typical_kkl.inp</a>.
+A typical FUN3D input file is:
+<a href="NACA0012_validation/fun3d.nml_typical_kkl_2">fun3d.nml_typical_kkl_2</a>.
+</p>
+
+<table style="text-align: center; width: 560px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">CODE<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">CL (alpha=0)<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">CL (alpha=10)<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">CL (alpha=15)<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">CD (alpha=0)<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">CD (alpha=10)<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">CD (alpha=15)<br> </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">CFL3D<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">approx 0<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">1.0700<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">1.4980<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">0.00831<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">0.01341<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">0.02428<br> </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">FUN3D<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">approx 0<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">1.0767<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">1.5048<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">0.00827<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">0.01358<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">0.02473<br> </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">TAU<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">approx 0<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">1.0772<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">1.5040<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">0.00836<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">0.01358<br> </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">0.02477<br> </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Behavior of model near CLmax:</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The behavior of the k-kL-MEAH2015m model near maximum lift for this 2-D case is shown in the following plots (CFL3D only).
+The cases were run every 1 deg (starting at 15 deg.), at least until C<sub>L,max</sub> was approximately attained.
+Note that the highest angle of attack run (alpha=19) did not converge well in this case.
+An approximate C<sub>L,max</sub> range from experiments (McCroskey, AGARD CP-429, July 1988; also NASA TM 100019, October 1987)
+is highlighted in the first plot by green dashed lines.
+Note, however, that experimental data near maximum lift no doubt contains a significant degree of three-dimensionality.
+Also, these CFD results are still on the 897x257 grid, and there is likely to be significantly more grid sensitivity
+for the higher angles of attack than for the lower angles of attack shown above.  Therefore, the results below
+should only be viewed qualitatively.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA0012_validation/clmax-alpha-kkl.jpg" border="1" title="K-kL-MEAH2015m - CL vs alpha near CLmax" alt="K-kL-MEAH2015m - CL vs alpha near CLmax">
+           <img
+src="NACA0012_validation/cdmax-alpha-kkl.jpg" border="1" title="K-kL-MEAH2015m - CD vs CL near CLmax" alt="K-kL-MEAH2015m - CD vs CL near CLmax">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="naca0012_val_sa.html">SA Results</a>,&nbsp;
+         <a href="naca0012_val_sarc.html">SA-RC Results</a>,&nbsp;
+         <a href="naca0012_val_sst.html">SSTm Results</a>,&nbsp;
+         <a href="naca0012_val_sstv.html">SST-Vm Results</a>,&nbsp;
+         <a href="naca0012_val_ssglrrrsm.html">SSG/LRR-RSM-w2012 Results</a>,&nbsp;
+         <a href="naca0012_val_w06.html">Wilcox2006-klim-m Results</a>,&nbsp;
+         <a href="naca0012_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="naca0012_val_kert.html">K-e-Rt Results</a></p>
+<p>Return to: <a href="naca0012_val.html">NACA 0012 Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+02/02/2018 - added TAU results<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/04/2025
+<br>&nbsp;
+
+</body>
+</html>

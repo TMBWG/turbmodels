@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>K-kL Two Equation Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction"> 
+under construction... please come back later-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">K-kL Turbulence Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various forms of the
+k-kL turbulence model. 
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><a ID="kkl-meah2015"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">K-kL 
+   Model from Menter/Egorov and Abdol-Hamid <span style="color: blue">(k-kL-MEAH2015)</span> and
+<span style="color: blue">(k-kL-MEAH2015m)</span></strong>
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction"> 
+under construction-->
+<p>This version of k-kL is an update of <span style="color: blue">k-kL-MEAH2013</span>.
+There are only a few relatively minor differences from the 2013 version.
+The reference is:
+<ul>
+<li>Abdol-Hamid, K. S., Carlson, J.-R., and Rumsey, C. L.,
+"Verification and Validation of the k-kL Turbulence Model in FUN3D and CFL3D Codes,"
+AIAA Paper 2016-3941, June 2016,
+<a href="https://doi.org/10.2514/6.2016-3941">https://doi.org/10.2514/6.2016-3941</a>.
+<li>Abdol-Hamid, K. S., Carlson, J.-R., and Rumsey, C. L.,
+"Verification and Validation of the k-kL Turbulence Model in FUN3D and CFL3D Codes,"
+NASA/TM-2015-218968, November 2015,
+<a href="https://ntrs.nasa.gov/citations/20160000768">https://ntrs.nasa.gov/citations/20160000768</a>.
+</ul>
+
+<p>The two-equation model (written in conservation form) is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - C_{\mu}^{3/4}\rho \frac{k^{5/2}}{(kL)} - 2 \mu \frac{k}{d^2}  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \sigma_k \mu_t \right)\frac{\partial k}{\partial x_j}\right]"
+  src="kkl_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho (kL))}{\partial t} + \frac{\partial (\rho u_j (kL))}{\partial x_j}
+  = C_{\phi 1}\frac{(kL)}{k} \cal P -
+  C_{\phi 2} \rho k^{3/2} - 6 \mu \frac{(kL)}{d^2}f_{\phi} + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\phi} \mu_t \right)
+  \frac{\partial (kL)}{\partial x_j} \right]"
+  src="kkl_eqns/img3.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="kkl_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}"
+  src="kkl_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)"
+  src="kkl_eqns/img6.png" /></dd>
+</dl>
+
+<p>and the turbulent eddy viscosity is computed from:
+<dl>
+<dd><img class="tex" alt="\mu_t = C_{\mu}^{1/4} \frac{\rho (kL)}{k^{1/2}}"
+  src="kkl_eqns/img7.png" /></dd>
+</dl>
+
+<p>Different from k-kL-MEAH-2013, the production term <i>P</i> in both the k and kL equations is limited, and gets replaced by:
+<dl>
+<dd><img class="tex" alt="min\left(P, 20 C_{\mu}^{3/4}\rho \frac{k^{5/2}}{(kL)}\right)"
+  src="kkl_eqns/img30.png" /></dd>
+</dl>
+
+<p>The functions are:
+<dl>
+<dd><img class="tex" alt="C_{\phi 1} = \left[ \zeta_1 - \zeta_2 \left( \frac{(kL)}{k L_{vk}} \right)^2 \right]"
+  src="kkl_eqns/img8.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{\phi 2} = \zeta_3"
+  src="kkl_eqns/img9.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_{\phi} = \frac{1+C_{d1} \xi}{1 + \xi^4}"
+  src="kkl_eqns/img10.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="L_{vk} = \kappa \left| \frac{U'}{U''} \right|"
+  src="kkl_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="U' = \sqrt{2 S_{ij} S_{ij}}"
+  src="kkl_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="U'' = \sqrt{ 
+  \left(\frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2} + \frac{\partial^2u}{\partial z^2} \right)^2 +
+  \left(\frac{\partial^2v}{\partial x^2} + \frac{\partial^2v}{\partial y^2} + \frac{\partial^2v}{\partial z^2} \right)^2 +
+  \left(\frac{\partial^2w}{\partial x^2} + \frac{\partial^2w}{\partial y^2} + \frac{\partial^2w}{\partial z^2} \right)^2 }"
+  src="kkl_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\xi = \frac{\rho d \sqrt{0.3 k}}{20 \mu}"
+  src="kkl_eqns/img14.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="\rho" src="kkl_eqns/img15.png" /> is the density,
+<img class="tex" alt="\mu" src="kkl_eqns/img16.png" /> is the
+molecular dynamic viscosity, and <em>d</em> is the distance from the field point to the nearest wall.
+Note that if U' = U'' = 0, then the (kL) production term should be identically zero.
+
+<p>A limiter (different from k-kL-MEAH-2013) is applied on <img class="tex" alt="L_{vk}" src="kkl_eqns/img17.png" />:
+<dl>
+<dd><img class="tex" alt="L_{vk,min} \leq L_{vk} \leq L_{vk,max}"
+  src="kkl_eqns/img18.png" /></dd>
+</dl>
+
+<p>with
+<dl>
+<dd><img class="tex" alt="L_{vk,min}=\frac{(kL)}{k C_{11}}"
+  src="kkl_eqns/img31.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="L_{vk,max}=C_{12} \kappa d f_p"
+  src="kkl_eqns/img32.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_p=min\left[ max\left(\frac{\cal P}{\left(C_{\mu}^{3/4} \rho k^{5/2}/(kL) \right)}
+ , 0.5 \right) , 1.0 \right]"
+  src="kkl_eqns/img33.png" /></dd>
+</dl>
+
+<p>The boundary conditions for the two turbulence variables <em>k</em> and (<em>kL</em>) at walls are:
+
+<dl>
+<dd><img class="tex" alt="k_{wall} = (kL)_{wall} = 0"
+  src="kkl_eqns/img19.png" /></dd>
+</dl>
+
+<p>Note: the zero BC for <i>k</i> can cause a divide-by-zero if one tries to compute turbulent eddy viscosity 
+at the wall (with equation given earlier).  However, the turbulent eddy viscosity at the wall is identically zero, 
+so this numerical issue can be bypassed.
+
+<p>Recommended farfield boundary conditions for most applications are:
+<dl>
+<dd><img class="tex" alt="k_{\infty} = 9 \times 10^{-9} a_{\infty}^2"
+  src="kkl_eqns/img34.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="(kL)_{\infty} = 1.5589 \times 10^{-6} \mu_{\infty}a_{\infty}/\rho_{\infty}"
+  src="kkl_eqns/img35.png" /></dd>
+</dl>
+<p>where <i>a</i> represents the speed of sound.
+
+<p>The constants are:
+<dl>
+<dd><img class="tex" alt="\zeta_1 = 1.2"
+  src="kkl_eqns/img20.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\zeta_2 = 0.97"
+  src="kkl_eqns/img21.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\zeta_3 = 0.13"
+  src="kkl_eqns/img22.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_k = 1.0"
+  src="kkl_eqns/img23.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\phi} = 1.0"
+  src="kkl_eqns/img24.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\kappa = 0.41"
+  src="kkl_eqns/img25.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\mu} = 0.09"
+  src="kkl_eqns/img26.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="C_{11} = 10.0"
+  src="kkl_eqns/img27.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{12} = 1.3"
+  src="kkl_eqns/img28.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{d1} = 4.7"
+  src="kkl_eqns/img29.png" /></dd>
+</dl>
+
+<p>Note: the <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" /> term
+in the Boussinesq approximation for tau_ij is sometimes ignored in the momentum and energy equations.
+Similarly, the production term in two-equation turbulence models is often approximated by <b>P = mu_t S<sup>2</sup></b>.
+This expression is exact for incompressible flows and is typically
+considered a very good approximation, except perhaps for very high Mach number flows (see items 4 and 7 on the page
+<a href="noteonrunning.html">Notes on Running the Cases with CFD</a>, and the
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a> page).
+When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be employed:  <span style="color: blue">(k-kL-MEAH2015m)</span>.
+
+<br>&nbsp;
+<p><a ID="kkl-meah2013"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">K-kL 
+   Model from Menter/Egorov and Abdol-Hamid <span style="color: blue">(k-kL-MEAH2013)</span> and
+<span style="color: blue">(k-kL-MEAH2013m)</span></strong>
+<p>This version of k-kL derives from three references:
+
+<ul>
+<li>Menter, F. R. and Egorov, Y., "The Scale-Adaptive Simulation Method for Unsteady
+Turbulent Flow Predictions. Part 1: Theory and Model Description,"
+<strong>Flow, Turbulence, and Combustion</strong>, Vol. 85, 2010, pp. 113-138,
+<a href="https://doi.org/10.1007/s10494-010-9264-5">https://doi.org/10.1007/s10494-010-9264-5</a>.
+<li>Abdol-Hamid, K. S., "Assessmants of k-kL Turbulence Model Based on Menter's Modification to Rotta's Two-Equation
+Model," <b>International Journal of Aerospace Engineering</b>, Vol. 2015, Article ID 987682,
+<a href="http://doi.org/10.1155/2015/987682">http://doi.org/10.1155/2015/987682</a>.
+<li>Abdol-Hamid, K. S., "Assessments of a Turbulence Model Based on Menter's Modification
+to Rotta's Two-Equation Model," AIAA Paper 2013-0341, January 2013,
+<a href="https://doi.org/10.2514/6.2013-341">https://doi.org/10.2514/6.2013-341</a>.
+</ul>
+
+<p>Although the first reference introduced this method, its focus was
+primarily on a hybrid model of different form; the second reference fine-tuned
+the k-kL version given below.  Note that there is some missing information in the second and third
+references:
+(1) kappa should be given as 0.41, and (2) C<sub>d1</sub> should be given as 4.7 for k-kL.
+In the third reference, the following typos are also noted:  
+(1) eqn 4 should have (p1-2) exponent rather than (p1-1.5),
+and (2) parentheses are missing in the diffusion terms.
+These have been corrected below.
+The compressibility correction factor from the second and third references is not included here.
+
+<p>The two-equation model (written in conservation form) is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - C_{\mu}^{3/4}\rho \frac{k^{5/2}}{(kL)} - 2 \mu \frac{k}{d^2}  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \sigma_k \mu_t \right)\frac{\partial k}{\partial x_j}\right]"
+  src="kkl_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho (kL))}{\partial t} + \frac{\partial (\rho u_j (kL))}{\partial x_j}
+  = C_{\phi 1}\frac{(kL)}{k} \cal P -
+  C_{\phi 2} \rho k^{3/2} - 6 \mu \frac{(kL)}{d^2}f_{\phi} + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\phi} \mu_t \right)
+  \frac{\partial (kL)}{\partial x_j} \right]"
+  src="kkl_eqns/img3.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="kkl_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}"
+  src="kkl_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)"
+  src="kkl_eqns/img6.png" /></dd>
+</dl>
+
+<p>and the turbulent eddy viscosity is computed from:
+<dl>
+<dd><img class="tex" alt="\mu_t = C_{\mu}^{1/4} \frac{\rho (kL)}{k^{1/2}}"
+  src="kkl_eqns/img7.png" /></dd>
+</dl>
+
+<p>The functions are:
+<dl>
+<dd><img class="tex" alt="C_{\phi 1} = \left[ \zeta_1 - \zeta_2 \left( \frac{(kL)}{k L_{vk}} \right)^2 \right]"
+  src="kkl_eqns/img8.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{\phi 2} = \zeta_3"
+  src="kkl_eqns/img9.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_{\phi} = \frac{1+C_{d1} \xi}{1 + \xi^4}"
+  src="kkl_eqns/img10.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="L_{vk} = \kappa \left| \frac{U'}{U''} \right|"
+  src="kkl_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="U' = \sqrt{2 S_{ij} S_{ij}}"
+  src="kkl_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="U'' = \sqrt{ 
+  \left(\frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2} + \frac{\partial^2u}{\partial z^2} \right)^2 +
+  \left(\frac{\partial^2v}{\partial x^2} + \frac{\partial^2v}{\partial y^2} + \frac{\partial^2v}{\partial z^2} \right)^2 +
+  \left(\frac{\partial^2w}{\partial x^2} + \frac{\partial^2w}{\partial y^2} + \frac{\partial^2w}{\partial z^2} \right)^2 }"
+  src="kkl_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\xi = \frac{\rho d \sqrt{0.3 k}}{20 \mu}"
+  src="kkl_eqns/img14.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="\rho" src="kkl_eqns/img15.png" /> is the density,
+<img class="tex" alt="\mu" src="kkl_eqns/img16.png" /> is the
+molecular dynamic viscosity, and <em>d</em> is the distance from the field point to the nearest wall.
+Note that if U' = U'' = 0, then the (kL) production term should be identically zero.
+
+<p>A limiter is applied on <img class="tex" alt="L_{vk}" src="kkl_eqns/img17.png" />:
+<dl>
+<dd><img class="tex" alt="\frac{(kL)}{k C_{11}} < L_{vk} < C_{12} \kappa d \left[
+  \frac{\cal P}{\left(C_{\mu}^{3/4} \rho k^{5/2}/(kL) \right)} \right]"
+  src="kkl_eqns/img18.png" /></dd>
+</dl>
+
+<p>The boundary conditions for the two turbulence variables <em>k</em> and (<em>kL</em>) at walls are:
+
+<dl>
+<dd><img class="tex" alt="k_{wall} = (kL)_{wall} = 0"
+  src="kkl_eqns/img19.png" /></dd>
+</dl>
+
+<p>No specific farfield boundary conditions have been recommended for this model.
+
+<p>The constants are:
+<dl>
+<dd><img class="tex" alt="\zeta_1 = 1.2"
+  src="kkl_eqns/img20.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\zeta_2 = 0.97"
+  src="kkl_eqns/img21.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\zeta_3 = 0.13"
+  src="kkl_eqns/img22.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_k = 1.0"
+  src="kkl_eqns/img23.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\phi} = 1.0"
+  src="kkl_eqns/img24.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\kappa = 0.41"
+  src="kkl_eqns/img25.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\mu} = 0.09"
+  src="kkl_eqns/img26.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="C_{11} = 10.0"
+  src="kkl_eqns/img27.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{12} = 1.3"
+  src="kkl_eqns/img28.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{d1} = 4.7"
+  src="kkl_eqns/img29.png" /></dd>
+</dl>
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be used:  <span style="color: blue">(k-kL-MEAH2013m)</span>.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+03/24/2021 - clarifications on use of "m" designation when P=mu_t S<sup>2</sup> and k term ignored in momentum and energy equations<br>
+03/27/2017 - mention how to handle turbulent eddy visocity at walls<br>
+06/30/2015 - mention Pr, Pr_t, and Sutherland's law<br>
+05/14/2015 - added journal article reference<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

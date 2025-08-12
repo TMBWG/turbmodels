@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>K-e-Rt Turbulence Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">K-e-Rt Turbulence
+Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for the three-equation k-e-Rt turbulence closure.
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">K-e-Rt Model
+   <span style="color: blue">(k-e-Rt)</span></strong>
+
+<p>This model's reference is:
+
+<ul>
+<li>Goldberg, U., Peroomian, O., Batten, P., Chakravarthy, S., 
+"The k-e-Rt Turbulence Closure," 
+<strong>Engineering Applications of Computational Fluid Mechanics</strong>, 
+Vol. 3, No. 2, 2009, pp. 175-183,
+<a href="https://doi.org/10.1080/19942060.2009.11015263">https://doi.org/10.1080/19942060.2009.11015263</a>.</li>
+</ul>
+
+<p>Two earlier related references are:
+
+<ul>
+<li>Goldberg, U., Peroomian, O., Chakravarthy, S.,
+"A Wall-Distance-Free k-e Model with Enhanced Near-Wall Treatment,"
+<strong>ASME Journal of Fluids Engineering</strong>, Vol. 120, No. 3, 1998, pp. 457-462,
+<a href="https://doi.org/10.1115/1.2820684">https://doi.org/10.1115/1.2820684</a>.</li>
+<li>Goldberg, U., "Turbulence Closure with a Topography-Parameter-Free
+Single Equation Model," <strong>International Journal of CFD</strong>,
+Vol. 17, No. 1, 2003, pp. 27-38,
+<a href="https://doi.org/10.1080/1061856031000083459">https://doi.org/10.1080/1061856031000083459</a>.
+</ul>
+
+<p>This three-equation model (written in conservation form) is given
+by the following:
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} 
+  + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \rho \varepsilon  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \frac{\mu_t}{\sigma_k} \right)\frac{\partial k}{\partial x_j}\right]"
+  src="kert_eqns/img2.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \varepsilon)}{\partial t} + 
+  \frac{\partial (\rho u_j \varepsilon)}{\partial x_j}
+  = \frac{1}{T_t} \left( C_{\varepsilon 1} \cal P -
+  C_{\varepsilon 2} \rho \varepsilon + 
+  C_{\varepsilon 3} E \right) + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \frac{\mu_t}{\sigma_{\varepsilon}} \right)
+  \frac{\partial \varepsilon}{\partial x_j} \right]"
+  src="kert_eqns/img3.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho R_t)}{\partial t} 
+  + \frac{\partial (\rho u_j R_t)}{\partial x_j}
+  = \left( C_1 - C_2f_2 \right) \sqrt{\rho R_t \cal P}
+  -\rho C_3 D + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \frac{\mu_t}{\sigma_{Rt}} \right)
+  \frac{\partial R_t}{\partial x_j} \right]"
+  src="kert_eqns/img4.png" /></dd>
+</dl>
+
+where <em>k</em> is the turbulence kinetic energy,
+<img class="tex" alt="\varepsilon" src="kert_eqns/img8.png" /> is the turbulence
+kinetic energy dissipation rate, and 
+<img class="tex" alt="R_t" src="kert_eqns/img41.png" /> is an undamped pseudo-eddy viscosity.
+
+<p>The production term is:
+
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij} \frac{\partial u_i}{\partial x_j}"
+src="kert_eqns/img5.png" /></dd>
+</dl>
+
+<p>with 
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = \mu_t \left(2S_{ij} 
+   - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}"
+src="kert_eqns/img6.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} 
+   + \frac{\partial u_j}{\partial x_i} \right)"
+src="kert_eqns/img7.png" /></dd>
+</dl>
+
+<p>The extra source term in the 
+<img class="tex" alt="\varepsilon" src="kert_eqns/img8.png" /> equation is:
+
+<dl>
+<dd><img class="tex" alt="E = \rho \sqrt{\varepsilon T_t} 
+   {\rm max}\left( \sqrt{k}, (\nu \varepsilon)^{1/4} \right)
+   {\rm max} \left( \frac{\partial k}{\partial x_j} 
+   \frac{\partial \tau}{\partial x_j},0 \right)"
+src="kert_eqns/img9.png" /></dd>
+</dl>
+
+The large eddy time scale is:
+
+<dl>
+<dd><img class="tex" alt="\tau = \frac{k}{\varepsilon}"
+src="kert_eqns/img10.png" /></dd>
+</dl>
+
+and the realizable time scale, which reduces to the corresponding
+Kolmogorov scale for small (dissipative) eddies, is:
+
+<dl>
+<dd><img class="tex" alt="T_t = \tau \left[ {\rm max} \left( 
+   1, \sqrt{\frac{2}{Re_t}} \right) \right]"
+src="kert_eqns/img11.png" /></dd>
+</dl>
+
+The turbulence Reynolds number 
+<img class="tex" alt="Re_t" src="kert_eqns/img45.png" /> (different from the transported
+pseudo-eddy viscosity
+<img class="tex" alt="R_t" src="kert_eqns/img41.png" />) is:
+
+<dl>
+<dd><img class="tex" alt="Re_t = \frac{k \tau}{\nu}"
+src="kert_eqns/img12.png" /></dd>
+</dl>
+
+The damping function is given by:
+
+<dl>
+<dd><img class="tex" alt="f_2 = \frac{{\rm tanh}\sqrt{\chi}}{{\rm tanh}\left(\sqrt{2} 
+   C_{\mu}^{1/4} \chi\right)}"
+src="kert_eqns/img13.png" /></dd>
+</dl>
+
+with
+
+<dl>
+<dd><img class="tex" alt="\chi = \frac{R_t}{C_{\mu} \nu}"
+src="kert_eqns/img14.png" /></dd>
+</dl>
+
+<p>Far from walls, 
+<img class="tex" alt="f_2 = 1" src="kert_eqns/img15.png" />.  Near walls, it
+grows to very large values.
+
+<p>The sink term <em>D</em> is given by:
+
+<dl>
+<dd><img class="tex" alt="D = \left\{
+  \begin{array}{l l}
+  \left(\partial R_t / \partial x_j\right)
+  \left(\partial R_t / \partial x_j\right), & \lambda>0 \\
+  0, & \lambda \leq 0
+  \end{array}\right."
+src="kert_eqns/img16.png" /></dd>
+</dl>
+
+where
+
+<dl>
+<dd><img class="tex" alt="\lambda = \frac{\partial Q}{\partial x_j} 
+   \frac{\partial R_t}{\partial x_j}"
+src="kert_eqns/img17.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Q = \sqrt{(U-U_0)^2 + (V-V_0)^2 + (W-W_0)^2}"
+src="kert_eqns/img18.png" /></dd>
+</dl>
+
+
+<p>where (<em>U</em><sub>0</sub>, <em>V</em><sub>0</sub>, <em>W</em><sub>0</sub>) 
+represents the velocity vector of the frame-of-reference.
+The <em>D</em> term is active only in the immediate vicinity of walls;
+further away, it vanishes.  In the present model the following damping
+functions are adopted:
+
+<dl>
+<dd><img class="tex" alt="f_{\mu,k-\varepsilon} = 
+   \frac{1-{\rm exp}(-A_{\mu}Re_t)}{1-{\rm exp}(-\sqrt{Re_t})}
+   {\rm max}\left( 1, \sqrt{2/Re_t} \right)"
+src="kert_eqns/img19.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_{\mu,Rt} = \frac{{\rm tanh}(\alpha \chi^2)}
+{{\rm tanh}(\beta \chi^2)}"
+src="kert_eqns/img20.png" /></dd>
+</dl>
+
+<p>The eddy viscosity is given by:
+
+<dl>
+<dd><img class="tex" alt="\mu_{t,k-\varepsilon} = {\rm min} 
+  \left( C_{\mu} f_{\mu,k-\varepsilon} \rho k \tau,
+  \frac{\phi \rho k}{|S|} \right)"
+src="kert_eqns/img21.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\mu_{t,Rt} = f_{\mu,Rt} \rho R_t"
+src="kert_eqns/img22.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\mu_t = {\rm max} 
+  \left( \mu_{t,k-\varepsilon},\mu_{t,Rt} \right)"
+src="kert_eqns/img23.png" /></dd>
+</dl>
+
+where <img class="tex" alt="|S|" src="kert_eqns/img24.png" /> is the
+mean strain magnitude.  There are two choices for the 
+<img class="tex" alt="\phi" src="kert_eqns/img25.png" /> parameter:
+<img class="tex" alt="\phi = 2/3" src="kert_eqns/img26.png" /> (for the
+Schwartz or "weak" realizability) and
+<img class="tex" alt="\phi = 0.31" src="kert_eqns/img27.png" /> (for the
+Bradshaw or "strong" realizability).
+The former is used in general, and is considered the standard for
+this model.
+However, the latter is usually recommended for high speed flows (e.g., 
+transonic and higher) as well as for impinging flows at all speeds.
+The particular <img class="tex" alt="\phi" src="kert_eqns/img25.png" /> value
+used should always be reported. 
+
+<p>The closure coefficients are:
+
+<dl>
+<dd><img class="tex" alt="\sigma_k = 1.0"
+  src="kert_eqns/img28.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\varepsilon} = 1.3"
+  src="kert_eqns/img29.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{Rt} = 1.0"
+  src="kert_eqns/img30.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\varepsilon 1} = 1.44"
+  src="kert_eqns/img31.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{\varepsilon 2} = 1.92"
+  src="kert_eqns/img32.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\varepsilon 3} = 0.3"
+  src="kert_eqns/img33.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="A_{\mu} = 0.007"
+  src="kert_eqns/img34.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\alpha = 0.00015"
+  src="kert_eqns/img35.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\beta = 0.2"
+  src="kert_eqns/img36.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_1 = C_2 + \kappa^2(C_3 - 1/\sigma_{Rt}) = 39.918"
+  src="kert_eqns/img37.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_2 = (12/11) \sqrt{\beta/\alpha} = 39.834"
+  src="kert_eqns/img38.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_3 = 3/(2 \sigma_{Rt}) = 1.5"
+  src="kert_eqns/img39.png" /></dd>
+</dl>
+
+<p>There are no specific farfield boundary conditions recommended for this model.
+Generally they are set based upon the desired freestream turbulence intensity
+and turbulence length scale. (In this model, the turbulence does not decay
+in the freestream.)
+
+<p>At the wall, the 
+<img class="tex" alt="k" src="kert_eqns/img40.png" /> and
+<img class="tex" alt="R_t" src="kert_eqns/img41.png" /> boundary
+conditions are simple Dirichlet, and
+<img class="tex" alt="\varepsilon" src="kert_eqns/img8.png" /> is finite:
+
+<dl>
+<dd><img class="tex" alt="k_w = 0"
+  src="kert_eqns/img42.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="R_{t,w} = 0"
+  src="kert_eqns/img43.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\varepsilon_w = 2 \nu \left(\frac{\partial \sqrt{k}}{\partial n} \right)_w^2"
+  src="kert_eqns/img44.png" /></dd>
+</dl>
+
+where <em>n</em> is the wall-normal coordinate direction.
+
+<br>&nbsp;
+
+<p><a ID="kertrc"><strong><span style="text-align: left; font-weight: 700; font-size: large">K-e-Rt Model with Rotation/Curvature Correction
+   <span style="color: blue">(k-e-Rt-RC)</span></strong>
+
+<p>This model applies the RC correction of Shur, M. L., Strelets, M. K., Travin, A. K., Spalart, P. R., 
+"Turbulence Modeling in Rotating and Curved Channels: Assessing the Spalart-Shur Correction," 
+<strong>AIAA Journal</strong> Vol. 38, No. 5, 2000, pp. 784-792,
+<a href="https://doi.org/10.2514/2.1058">https://doi.org/10.2514/2.1058</a>.
+
+<p>There is no formal reference for this model other than the CFD++ User's Manual.  However, the change is
+simply to multiply the production term of the 
+<img class="tex" alt="R_t" src="kertrc_eqns/img2.png" /> equation in <span style="color: blue">(k-e-Rt)</span> by the 
+<img class="tex" alt="f_{r1}" src="kertrc_eqns/img3.png" /> term from the above reference as follows:
+
+<dl>
+<dd><img class="tex" alt="f_{r1} \left( C_1 - C_2f_2 \right) \sqrt{\rho R_t \cal P}"
+  src="kertrc_eqns/img4.png" /></dd>
+</dl>
+
+where <img class="tex" alt="f_{r1}" src="kertrc_eqns/img3.png" /> 
+is described on the <a href="spalart.html#saRC">SA-RC</a> page.
+
+<br>&nbsp;
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+6/30/2015 - mention Pr, Pr_t, and Sutherland's law<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

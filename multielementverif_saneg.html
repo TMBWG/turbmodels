@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>SA-neg Expected Results - 2D Multielement Airfoil</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="multielementverif.html">2D Multielement Airfoil Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">SA-neg Expected Results - 2D Multielement Airfoil</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This case is different from
+many others on the TMR website, in that only unstructured grids are provided.  It was attempted to
+create a "family" of grids, but this can be difficult for unstructured grids (see discussion about the importance of grid families in
+<a href="noteonrunning.html">Notes on Running the Cases with CFD</a> - Note 10).
+<u>Results shown here used both the "Family 1" and "Family 2" sets of unstructured grids.</u>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Detailed results from only
+one "standard" RANS code (FUN3D) are given here, but reference solutions for 
+SA-neg exist from the adaptive and high-order
+papers AIAA-2020-3219,
+<a href="https://doi.org/10.2514/6.2020-3219">https://doi.org/10.2514/6.2020-3219</a> and AIAA-2020-3220,
+<a href="https://doi.org/10.2514/6.2020-3220">https://doi.org/10.2514/6.2020-3220</a>.  
+(Note that later verifications were made in AIAA-2021-1080,
+<a href="https://doi.org/10.2514/6.2021-1080">https://doi.org/10.2514/6.2021-1080</a>.)
+So these other solutions provide relevant comparisons,
+demonstrating that all solutions from the 7 different codes
+are approaching the same result as discretization error goes to zero.
+Also, subequently results from a separate RANS code (USM3D) were added (Family 1 only).  See near the bottom of the page.
+
+<p>Results here are from compressible codes,
+so that the user may compare their own compressible code results.  Multiple grids were
+used so the user can see trends with grid refinement.  Different codes will behave
+differently with grid refinement depending on many factors (including code order of accuracy
+and other numerics),
+but it would be expected that as the grid is refined the results
+will tend toward an "infinite grid" solution that is the same.
+Be careful when comparing details: any differences in boundary conditions or flow conditions
+may affect results.
+
+<p>The RANS code FUN3D was used to compute this
+2-D multielement airfoil case with the Spalart-Allmaras turbulence model
+(version <span style="color: blue">SA-neg</span> - see full description on
+<a href="spalart.html#saneg">Spalart-Allmaras page</a>). 
+Note that SA-neg results are expected to be essentially identical to SA. 
+The full series of 7 grids were used.  FUN3D
+is a node-centered unstructured-grid code, and 
+used Roe's Flux Difference
+Splitting and a UMUSCL upwind approach with kappa=0.5 employed.
+First-order upwinding for the advective terms of the turbulence model was employed by default,
+but a second set of runs on grid Family 1 was also done with second-order advection for the turbulence.
+Details about the code can be found on its website,
+the link for which are given on this site's 
+<a href="index.html">home page</a>.
+FUN3D was run to near machine-zero iterative convergence.
+It should be kept in mind that many of the files given below
+contain computed values directly from the code,
+using a precision <strong>greater</strong> than the convergence tolerance (i.e., the values
+in the files are not necessarily as precise as the number of digits given).
+
+<p>Note that this case should be run "fully turbulent." However, the results
+end up being transitional at this Reynolds number, 
+particularly on each element's lower surface. For verification
+purposes, this should still turn out to be consistent between codes, provided that the same
+recommended farfield boundary condition of
+<img class="tex" alt="\tilde \nu_{farfield} \geq 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" /> is used.
+ 
+<p>For the FUN3D test reported below, the turbulent inflow boundary condition used for SA-neg was:
+<img class="tex" alt="\tilde \nu_{farfield} \geq 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" />.
+For the interested reader, typical input files for this problem are given here:
+<p>FUN3D:
+<ul>
+<li><a href="Multielementverification/SAneg/fun3d.nml_typical">Typical Namelist Input File for 2D 
+Multielement Airfoil (Family 1)</a>
+<li><a href="Multielementverification/SAneg/fun3d.nml_typicalwithhanim">Typical Namelist Input File with HANIM for 2D 
+Multielement Airfoil (Family 2)</a>
+<li><a href="Multielementverification/SAneg/fun3d.nml_typicalwithhanim+2ndorder">Typical Namelist Input File with HANIM for 2D 
+Multielement Airfoil with 2nd Order Turbulent Advection (Family 1)</a>
+<li><a href="Multielementverification/SAneg/fun3d.info">Additional FUN3D Information</a>
+</ul>
+
+<p>The following plots show the airfoil lift coefficient, drag coefficient, pressure drag coefficient,
+viscous drag coefficient, and pitching moment (about x/c=0.25).
+In the plot the x-axis is plotting 1/N<sup>1/2</sup>, which is proportional to
+grid spacing (h).
+At the left of the plot, h=0 represents an infinitely fine grid.
+The FUN3D results on the uniformly-refined grids go toward approximately the same results from the
+adaptive and high-order solutions from AIAA-2020-3219,
+<a href="https://doi.org/10.2514/6.2020-3219">https://doi.org/10.2514/6.2020-3219</a> and AIAA-2020-3220,
+<a href="https://doi.org/10.2514/6.2020-3220">https://doi.org/10.2514/6.2020-3220</a>.
+Note that grid Family 2 approaches the grid-converged results with a lower slope than grid Family 1.
+In other words, for a given number of unknowns, grids from Family 2 yield less discretization error
+than grids from Family 1.  The effect of 2nd order turbulent advection (as opposed to 1st order) on
+the Family 1 results is relatively minor.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cl_convergence_sa_newgrids+lavagrids+adapted+2ndorder.png" border="1" height="650" title="convergence of CL
+    vs h" alt="convergence of CL vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cd_convergence_sa_newgrids+lavagrids+adapted+2ndorder.png" border="1" height="650" title="convergence of CD
+    vs h" alt="convergence of CD vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cdp_convergence_sa_newgrids+lavagrids+adapted+2ndorder.png" border="1" height="650" title="convergence of CDp
+    vs h" alt="convergence of CDp vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cdv_convergence_sa_newgrids+lavagrids+adapted+2ndorder.png" border="1" height="650" title="convergence of CDv
+    vs h" alt="convergence of CDv vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cmy_convergence_sa_newgrids+lavagrids+adapted+2ndorder.png" border="1" height="650" title="convergence of CMy
+    vs h" alt="convergence of CMy vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+FUN3D on the finest 3 grids yield the following:
+
+<p>Family 1:
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>C<sub>L</sub></td>
+<td> 0.22</td>
+<td> 0.406%</td>
+<td> 5.402%</td>
+<td> 1.083%</td>
+</tr>
+
+<tr>
+<td>C<sub>D</sub></td>
+<td> 0.73</td>
+<td> 1.585%</td>
+<td> 6.650%</td>
+<td> 4.630%</td>
+</tr>
+
+<tr>
+<td>C<sub>D,p</sub></td>
+<td> 0.75</td>
+<td> 1.881%</td>
+<td> 7.788%</td>
+<td> 5.513%</td>
+</tr>
+
+<tr>
+<td>C<sub>D,v</sub></td>
+<td> 2.20</td>
+<td> 0.091%</td>
+<td> 0.094%</td>
+<td> 0.118%</td>
+</tr>
+
+<tr>
+<td>C<sub>M,y</sub></td>
+<td> 0.91</td>
+<td> 0.542%</td>
+<td> 1.640%</td>
+<td> 1.635%</td>
+</tr>
+
+</table></center>
+
+<p>Family 1, 2nd order turbulence:
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>C<sub>L</sub></td>
+<td> 0.85</td>
+<td> 0.334%</td>
+<td> 1.097%</td>
+<td> 0.997%</td>
+</tr>
+
+<tr>
+<td>C<sub>D</sub></td>
+<td> 0.11</td>
+<td> 1.691%</td>
+<td>100.056%</td>
+<td> 4.431%</td>
+</tr>
+
+<tr>
+<td>C<sub>D,p</sub></td>
+<td>  0.14</td>
+<td>  1.994%</td>
+<td> 85.232%</td>
+<td>  5.249%</td>
+</tr>
+
+<tr>
+<td>C<sub>D,v</sub></td>
+<td>  7.40</td>
+<td>  0.011%</td>
+<td>  0.001%</td>
+<td>  0.176%</td>
+</tr>
+
+<tr>
+<td>C<sub>M,y</sub></td>
+<td>  0.99</td>
+<td>  0.489%</td>
+<td>  1.355%</td>
+<td>  1.717%</td>
+</tr>
+
+</table></center>
+
+<p>Family 2:
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>C<sub>L</sub></td>
+<td> negative</td>
+<td> 0.148%</td>
+<td> N/A</td>
+<td> N/A</td>
+</tr>
+
+<tr>
+<td>C<sub>D</sub></td>
+<td> negative</td>
+<td> 0.313%</td>
+<td> N/A</td>
+<td> N/A</td>
+</tr>
+
+<tr>
+<td>C<sub>D,p</sub></td>
+<td> negative</td>
+<td> 0.386%</td>
+<td> N/A</td>
+<td> N/A</td>
+</tr>
+
+<tr>
+<td>C<sub>D,v</sub></td>
+<td> negative</td>
+<td> 0.092%</td>
+<td> N/A</td>
+<td> N/A</td>
+</tr>
+
+<tr>
+<td>C<sub>M,y</sub></td>
+<td> negative</td>
+<td> 0.245%</td>
+<td> N/A</td>
+<td> N/A</td>
+</tr>
+
+</table></center>
+
+
+<p>The third table above indicates that all results from the finest three grids of Family 2 yield a
+<u>diverging</u> apparent order.  The most likely reason for this behavior is that the grid sequence is not
+very close to a proper "family" per se (see
+<a href="noteonrunning.html">Notes on Running the Cases with CFD</a> - Note 10).
+Recall that creating a proper family of unstructured grids is very difficult
+to achieve. Throughout most other pages of the TMR website, we use only structured grids and create proper
+families by successively removing every other grid point in each successively coarser grid level.
+However, this was not easy to do for the current multielement configuration.
+In spite of the diverging apparent order, Family 2 still shows generally consistent results compared to Family 1
+and the adapted results.
+
+<p>The data file that generated the above plots is given here:
+<a href="Multielementverification/SAneg/force_convergence_saneg.dat">force_convergence_saneg.dat</a>.
+
+<p>The surface pressure coefficient and absolute value of skin friction coefficient 
+from FUN3D on the finest (L7) grids
+are shown compared to adapted results from GGNS (lift-adapted).
+The results agree well with each other.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cp_final+lavagrids+2ndorder.png" border="1" height="650" title="surface pressure coefficient over the airfoil elements" 
+alt="surface pressure coefficient over the airfoil elements">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cfabs_final+lavagrids+2ndorder.png" border="1" height="650" title="absolute value of surface skin friction coefficient over the airfoil elements" 
+alt="absolute value of surface skin friction coefficient over the airfoil elements">
+</p> 
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plots is given here:
+<a href="Multielementverification/SAneg/cpcf_multielementairfoil_saneg_final.dat">cpcf_multielementairfoil_saneg_final.dat</a>.
+
+<p>The x-component of skin friction is also plotted below (for FUN3D only, on the L7 grids).  Here, the absolute value is not taken.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cfx_final+lavagrids+2ndorder.png" border="1" height="650" title="x-component of surface skin friction coefficient over the airfoil elements" 
+alt="x-component of surface skin friction coefficient over the airfoil elements">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given here:
+<a href="Multielementverification/SAneg/cfx_multielementairfoil_saneg_final.dat">cfx_multielementairfoil_saneg_final.dat</a>.
+
+<p>Some profiles over the airfoil upper surface along three specific x-locations are shown below 
+(for FUN3D only, on the L7 grids). The results within the boundary layers of each element are consistent between Family 1, Family 2,
+and 1st and 2nd order turbulent advection.
+However, over the main and flap elements, inside the wakes of the upstream elements, differences are apparent, especially in
+the eddy viscosity. Clearly, the grid density and turbulent advective scheme still have an influence in that region of 
+the flow, even on the finest L7 grid levels.  As a result, it is not entirely clear from these plots what the "grid-converged" answer is in the
+wake regions of the flowfield.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/extract_many_profiles+2ndorder.png" border="1" height="750" title="profiles of u, w, and eddy viscosity at specific x-locations over the airfoil elements" 
+alt="profiles of u, w, and eddy viscosity at specific x-locations over the airfoil elements">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plots is given here:
+<a href="Multielementverification/SAneg/profiles_3element.dat">profiles_3element.dat</a>.
+
+<p>Some indication of the trends in the wake eddy viscosity can be obtained by plotting profiles from the finest 3 grid levels.
+See plot below.
+Along x/c=0.4, between 0.072 &lt; z &lt; 0.088, the results using 1st order turbulent advection appear to be trending toward the right,
+heading toward the 2nd order turbulent advection results (which appear to be relatively insensitive to the grid density).
+The grid Family 2 results are more grid-sensitive (and less accurate) than the grid Family 1 results in this region.
+Furthermore, the higher-order results show a "tighter" upper extent of the eddy viscosity, whereas the low-order results tend to smear the edge region.
+All of these trends suggest that the results from Family 1 using 2nd order turbulent advection are probably closest to the
+"truth" (the grid-converged answer) in the wake regions.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/mut_main_x0p4_gridconvergence.png" border="1" height="750" title="effect of grid refinement on profiles of eddy viscosity along x/c=0.4" 
+alt="effect of grid refinement on profiles of eddy viscosity along x/c=0.4">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plots is given here:
+<a href="Multielementverification/SAneg/mut_x0p4_gridconvergence.dat">mut_x0p4_gridconvergence.dat</a>.
+
+<p>The eddy viscosity contours (nondimensionalized by freestream laminar viscosity)
+and Mach contours (along with streamlines computed on the fly in Tecplot)
+from FUN3D on the finest grid (L7) of Family 1 (with 1st order turbulent advection) are shown
+in the following plots. 
+(Note legends do not necessarily reflect min and max values.)
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/plot_mut_multi2d.jpeg" border="1" title="eddy viscosity contours for FUN3D" alt="eddy viscosity contours for FUN3D">
+           <img
+src="Multielementverification/SAneg/plot_machandstream_multi2d.jpeg" border="1" title="Mach contours and streamlines for FUN3D" alt="Mach contours and streamlines for FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plots are given here:
+<a href="Multielementverification/SAneg/machmut_contours_fun3d_saneg.dat.gz">machmut_contours_fun3d_saneg.dat.gz</a> (173.5 MB) (unstructured, at grid points). Note 
+that this is a gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted file, so you must either have Tecplot or know how to read their format in order to use these
+files.
+
+<p>The SA-neg model relies on the minimum distance to the nearest wall.  For this case,
+contours of this function 
+are shown in the following plot, for the finest grid.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/plot_slen_multi2d.jpeg" border="1" title="minimum distance function" alt="minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given in
+<a href="Multielementverification/SAneg/multi2d_mindist.dat.gz">multi2d_mindist.dat.gz</a> (gzipped file,
+127.8 MB, unstructured, at grid points). Note
+that this is a gzipped <a href="http://www.tecplot.com">Tecplot</a>
+formatted file, so you must either have Tecplot or know how to read their format in
+order to use it.
+
+It is important to note that computing minimum distance by searching along grid lines is
+incorrect, and is <strong>not</strong> the same as computing actual minimum distance to the nearest wall for this grid. Using
+the former method will yield differences in the results.  The following sketches
+demonstrate the concept of minimum distance.  Improperly-calculated minimum distance
+functions will particularly produce incorrect results for cases in which the
+grid lines are not perfectly normal to the body surface.
+Note that when the nearest wall point is a sharp convex corner or edge (like an airfoil or wing trailing edge) then the
+correct minimum distance is the distance to that corner or edge, which is not a wall normal.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/mindistsketch.jpg" border="1" width="500" title="sketch 1 demonstrating the concept of minimum distance function" alt="sketch 1 demonstrating the concept of minimum distance function">
+           <img
+src="Bump/mindistsketch2.jpg" border="1" width="500" title="sketch 2 demonstrating the concept of minimum distance function" alt="sketch 2 demonstrating the concept of minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Results from USM3D are shown alongside the FUN3D results below (on the Family 1 set of grids with 1st order turbulent advection only).
+Both codes are converging to the same results.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cl_convergence_sa_F+U.jpg" border="1" title="convergence of CL vs h,
+incl USM3D results" alt="convergence of CL vs h,
+incl USM3D results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cd_convergence_sa_F+U.jpg" border="1" title="convergence of CD vs h,
+incl USM3D results" alt="convergence of CD vs h,
+incl USM3D results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cdp_convergence_sa_F+U.jpg" border="1" title="convergence of CDp vs h,
+incl USM3D results" alt="convergence of CDp vs h,
+incl USM3D results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cdv_convergence_sa_F+U.jpg" border="1" title="convergence of CDv vs h,
+incl USM3D results" alt="convergence of CDv vs h,
+incl USM3D results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/cmy_convergence_sa_F+U.jpg" border="1" title="convergence of CMy vs h,
+incl USM3D results" alt="convergence of CMy vs h,
+incl USM3D results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<br>&nbsp;
+<p>The following profiles along three specific x-locations are taken from the L7 grid.
+The two codes yield essentially identical results.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/extract_many_profiles_F+U.jpg" border="1" title="profiles of u, w, and eddy viscosity at specific x-locations over the airfoil elements,
+incl USM3D results" alt="profiles of u, w, and eddy viscosity at specific x-locations over the airfoil elements,
+incl USM3D results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><a href="openfoam_issues.html">Note for users of OpenFOAM</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="multielementverif.html">2D Multielement Airfoil Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+08/18/2021 - added results using 2nd order turbulent advection<br>
+06/10/2021 - added results from unstructured grid Family 2<br>
+01/15/2021 - added results from USM3D<br>
+12/07/2020 - added Cfx plot and profile plots<br>
+11/10/2020 - mentioned the fact that "fully turbulent" results end up with some transition for this case<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/01/2023
+<br>&nbsp;
+
+</body>
+</html>

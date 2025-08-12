@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D NACA 4412 Airfoil Trailing Edge Separation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2DN44: 2D NACA 4412 Airfoil Trailing Edge Separation</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. A large sequence of nested grids of the same family are 
+provided here if desired. Data are also provided for comparison. For this 
+particular "essentially incompressible" airfoil case with upper surface trailing
+edge separation (from Coles & Wadcock), 
+the data are from an experiment.
+
+<p>The nominally 2D experiment utilized the NACA 4412 airfoil.  For purposes of the validation,
+for the primary C-grid used, the definition of the airfoil shape was slightly altered so that the airfoil closes at
+chord=1 with a sharp trailing edge.  This was done by replacing the 0.1015*x<sup>4</sup> term in the 
+expression for thickness with 0.1036*x<sup>4</sup>, which yields only a very small change in
+the airfoil shape (see: <a href="http://en.wikipedia.org/wiki/NACA_airfoil">NACA airfoil Wikipedia page</a>).
+An auxiliary O-grid with finite T.E. thickness was also provided by G. Gerolymos and I. Vallet (see Auxiliary Grids below).
+Flowfield characteristics were measured with a flying hot-wire for the airfoil at 13.87 degrees angle of attack.  
+The Reynolds number was 1.52 million per airfoil chord.
+Both the upper and lower boundary layers were tripped in the experiment (2.5%c upper surface and
+10.3%c lower surface).  However, in the CFD fully turbulent computations are performed.
+Also note that the CFD is performed here on grids with a farfield outer boundary extending to 100c, but the
+experiment was in a relatively small wind tunnel, which likely had some influence.
+Because of these issues, this validation case is considered somewhat weak, as there are uncertainties
+associated with running the case "correctly" vis-a-vis the experiment.  It is included here primarily
+because it was a very widely-used validation case for CFD for many decades, but the reader is cautioned to
+recognize its limitations.
+
+<p>The following plot shows the layout of the provided grids, along with typical boundary conditions. 
+(Note that particular variations of the BCs at the farfield boundaries 
+may also work and yield similar results for this problem.) 
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA4412sep_validation/grid_bcs.jpg" border="1" title="2D airfoil trailing edge separation case layout & BCs" alt="2D airfoil trailing edge separation case layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="naca4412sep_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a><br>
+<br>
+<a href="naca4412sep_auxgrids.html"><span style="text-align: left; font-weight: 400; font-size: medium">AUXILIARY GRIDS</a>
+
+<p>The experimental data for this case are provided at thousands of locations in the field surrounding the
+trailing edge region of the airfoil.  The plots below show surface Cp and normalized u-velocity field data.
+In the latter plot, lines are also shown
+where (traditionally) researchers in the past have compared CFD results with this experiment:
+x/c=0.6753, 0.7308, 0.7863, 0.8418, 0.8973, and 0.9528.
+It is important to note that the experimental u, v, and u'v' data were nondimensionalized with respect to
+a non-traditional velocity at a location only about 1 chord below and behind the airfoil.  This is different from a
+traditional "freestream" value.  As a result, u/Uinf and v/Uinf values from CFD 
+need to be divided by roughly 0.93 in order to be
+comparable to the experimental normalization u/Uref (where Uinf is the usual farfield freestream value
+and Uref is the experimental reference location).  Similarly, u'v'/(Uinf<sup>2</sup>) turbulence values from CFD need to be
+divided by approximately 0.93<sup>2</sup>.  However, the surface pressure coefficients from CFD agree 
+better with the experiment on the airfoil lower surface when no such correction is made (the matching of the 
+lower surface Cp is often used as a way to determine whether or not the flow conditions are consistent).  
+The reason for this inconsistency is not known.  Therefore, all comparisons for this case should only be 
+viewed in a qualitative sense.
+
+<p>The experimental data references are:  Coles, D. and Wadcock, A. J., "Flying-Hot-Wire Study of Flow
+Past an NACA 4412 Airfoil at Maximum Lift," AIAA Journal, Vol. 17, No. 4, April 1979, pp. 321-329, 
+<a href="https://doi.org/10.2514/3.61127">https://doi.org/10.2514/3.61127</a> and
+Wadcock, A. J., "Structure of the Turbulent Separated Flow Around a Stalled Airfoil," NASA-CR-152263, February 1979,
+<a href="https://ntrs.nasa.gov/citations/19790012839">https://ntrs.nasa.gov/citations/19790012839</a>.
+The freestream conditions listed in this reference are: velocity = 27.13 m/s and kinematic viscosity (nu) = 0.1605 cm<sup>2</sup>/s.
+The airfoil chord length was 90.12 cm.
+
+<p>(Note that there are other similar experimental data references for the NACA 4412:  Wadcock, A. J., "Investigation of
+Low-Speed Turbulent Separated Flow Around Airfoils," NASA CR 177450, August 1987,
+<a href="https://ntrs.nasa.gov/citations/19880003089">https://ntrs.nasa.gov/citations/19880003089</a>;
+Hastings, R. C. and Williams, B. R., "Studies of the Flow Field Near a NACA 4412 Aerofoil at Nearly Maximum Lift,"
+Aeronautical Journal, Vol. 91, No. 901, January 1987, pp. 29-44,
+<a href="https://doi.org/10.1017/S0001924000016079">https://doi.org/10.1017/S0001924000016079</a>; 
+and Pinkerton, R. M., "The Variation with Reynolds Number
+of Pressure Distribution Over an Airfoil Section," NACA-TR-613, 1938,
+<a href="https://ntrs.nasa.gov/citations/19930091689">https://ntrs.nasa.gov/citations/19930091689</a>.  
+Data from these references are not provided here.)
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA4412sep_validation/cp_exponly.jpg" border="1" title="2D airfoil trailing edge separation experiment, surface pressure coefficient" alt="2D airfoil trailing edge separation experiment, surface pressure coefficient">
+</p>
+<p><img
+src="NACA4412sep_validation/plot_uvel.jpg" border="1" title="2D airfoil trailing edge separation experiment, u-velocity" alt="2D airfoil trailing edge separation experiment, u-velocity">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The experimental data used are provided here:
+<ul>
+<li><a href="NACA4412sep_validation/naca4412.cp.expt.dat">NACA 4412 surface pressure coefficients</a></li>
+<li><a href="NACA4412sep_validation/naca4412.flowfield.expt.dat.gz">NACA 4412 flowfield data</a> (gzipped)</li>
+<li><a href="NACA4412sep_validation/exp.profiles.new.dat">NACA 4412 data extracted along 6 lines shown in figure 
+  above</a> <- updated 03/27/2015</li>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca4412sep_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca4412sep_val_sarc.html">SA-RC</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#saRC">SA-RC eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca4412sep_val_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-std">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca4412sep_val_bsl.html">BSLm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="bsl.html#bsl-std">BSLm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca4412sep_val_w06.html">Wilcox2006-klim-m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="wilcox.html#w06klim">Wilcox2006-klim-m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca4412sep_val_easmkos.html">EASMko2003-S</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="easmko.html#easmko-s">EASMko2003-S eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca4412sep_val_kert.html">K-e-Rt</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="ke-rt.html">K-e-Rt eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+<!--    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca4412sep_val_kkl-meah.html">K-kL-MEAH2013</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="kkl.html#kkl-meah2013">K-kL-MEAH2013 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr> -->
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca4412sep_val_glvy.html">GLVY-RSM-2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-glvystressepsilon.html#glvy-rsm-2012">GLVY-RSM-2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2 and SST
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+12/17/2018 - added SA-RC results page<br>
+03/22/2016 - added some information regarding experimental freestream conditions<br>
+03/27/2015 - updated extracted line data to remove questionable points, and add wall points<br>
+03/19/2014 - added link to GLVY-RSM-2012 results<br>
+03/10/2014 - added link to BSL results<br>
+02/12/2014 - added qualifying statement regarding experimental surface pressure coefficients
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/18/2021
+<br>&nbsp;
+
+</body>
+</html>

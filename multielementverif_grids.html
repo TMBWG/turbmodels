@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Geometry and Grids - 2D Multielement Airfoil Case</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="multielementverif.html">2D Multielement Airfoil Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Geometry and Grids - 2D Multielement Airfoil Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The geometry for this case
+(taken as a section of the CRM-HL wing) was defined for the
+<a href="http://www.gmgworkshop.com/gmgw25.shtml">Mesh Effects for CFD Solutions</a>
+special session at AIAA Aviation 2020, sponsored by the GMGW committee.
+The units in the geometry model files are meters.
+The local chord (measured with the flap and slat stowed) is 1 meter.
+The slat and flap deflection angles are 30 and 37 degrees, respectively. 
+The deflected geometry is given as:
+  <ul>
+    <li>IGES file: <a href="Multielementverification_grids/crmhl-2dcut.igs">crmhl-2dcut.igs</a>
+    <li>STEP file: <a href="Multielementverification_grids/crmhl-2dcut.stp">crmhl-2dcut.stp</a>
+    <li>EGADS file: <a href="Multielementverification_grids/crmhl-2dcut.egads">crmhl-2dcut.egads</a>
+  </ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large"><u>1. FAMILY 1 UNSTRUCTURED GRIDS FROM AEDC</u></span></strong>
+<!--This case is different from most others on the TMR webpages in that <b>only unstructured
+grids are provided</b>.--> 
+<p>Several different grid families are provided for this case.  In this section, 
+a series of seven 2-D unstructured grids are given, courtesy of James Masters,
+Arnold Engineering Development Complex.  An attempt was made to maintain the grids in a similar
+"family," although this can be difficult to guarantee for fully unstructured grids.
+The intent was to approximately double the 2-D planar point count (N) between 
+successive grid levels.  The resulting unstructured grids for Family 1 came out as follows:
+<br>&nbsp;
+<table style="text-align: left; height: 211px; width: 360px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">Grid Level<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">N<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">Approx delta y+ at walls<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">Approx stretching rate (r)<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L1 (coarsest)<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">173958<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">2<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1.25<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L2<br>
+      </td> 
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">294161<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1.4<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1.17<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L3<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">508099<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1.0<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1.12<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L4<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">930671<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">0.7<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1.08<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L5<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1679982<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">0.5<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1.06<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L6<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">3227904<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">0.35<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1.04<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L7 (finest)<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">5980721<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">0.25<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1.03<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<br>&nbsp;
+<p>In all cases, the farfield extent was maintained at about 1000c from the airfoil.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification_grids/grid_multi2d_Fam1_L5.png" border="1" height="650" title="Family 1 2-D multielement airfoil L5 grid" alt="Family 1 2-D multielement airfoil L5 grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: all grids are given with two planes (separated by unit distance y=1).  The x-direction
+runs downstream, the z-direction is up, and the y-direction runs into the page.
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">AFLR3 (UGRID) VERSION OF 
+FAMILY 1 UNSTRUCTURED GRIDS</strong>
+
+<p>Download the big-endian AFLR3 grids and corresponding mapbc files (with FUN3D's BC numbering) here:
+<ul>
+<li><a href="Multielementverification_grids/crmhl_1.b8.ugrid.gz">
+        L1 grid (173958 points per plane) (gzipped) </a> (10.7 MB)
+<li><a href="Multielementverification_grids/crmhl_2.b8.ugrid.gz">
+        L2 grid (294161 points per plane) (gzipped) </a> (17.8 MB)
+<li><a href="Multielementverification_grids/crmhl_3.b8.ugrid.gz">
+        L3 grid (508099 points per plane) (gzipped) </a> (30.6 MB)
+<li><a href="Multielementverification_grids/crmhl_4.b8.ugrid.gz">
+        L4 grid (930671 points per plane) (gzipped) </a> (56.5 MB)
+<li><a href="Multielementverification_grids/crmhl_5.b8.ugrid.gz">
+        L5 grid (1679982 points per plane) (gzipped) </a> (99.6 MB)
+<li><a href="Multielementverification_grids/crmhl_6.b8.ugrid.gz">
+        L6 grid (3227904 points per plane) (gzipped) </a> (190.2 MB)
+<li><a href="Multielementverification_grids/crmhl_7.b8.ugrid.gz">
+        L7 grid (5980721 points per plane) (gzipped) </a> (350.9 MB)
+</ul>
+
+The corresponding mapbc files (with FUN3D's BC numbering) all look like the following:
+<a href="Multielementverification_grids/crmhl_x.mapbc">crmhl_x.mapbc</a>.
+
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS VERSION OF
+FAMILY 1 UNSTRUCTURED GRIDS</strong>
+
+<p>The unstructured Family 1 grids are also available as CGNS files.
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>Download the grids in CGNS format (gzipped) here:
+<ul>
+<li><a href="Multielementverification_grids/crmhl_1.cgns.gz">
+        L1 grid (173958 points per plane) (gzipped) </a> (10.2 MB)
+<li><a href="Multielementverification_grids/crmhl_2.cgns.gz">
+        L2 grid (294161 points per plane) (gzipped) </a> (17.1 MB)
+<li><a href="Multielementverification_grids/crmhl_3.cgns.gz">
+        L3 grid (508099 points per plane) (gzipped) </a> (29.2 MB)
+<li><a href="Multielementverification_grids/crmhl_4.cgns.gz">
+        L4 grid (930671 points per plane) (gzipped) </a> (53.5 MB)
+<li><a href="Multielementverification_grids/crmhl_5.cgns.gz">
+        L5 grid (1679982 points per plane) (gzipped) </a> (95.6 MB)
+<li><a href="Multielementverification_grids/crmhl_6.cgns.gz">
+        L6 grid (3227904 points per plane) (gzipped) </a> (182.7 MB)
+<li><a href="Multielementverification_grids/crmhl_7.cgns.gz">
+        L7 grid (5980721 points per plane) (gzipped) </a> (337.0 MB)
+</ul>
+
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large"><u>2. FAMILY 2 UNSTRUCTURED GRIDS FROM NASA AMES</u></span></strong>
+<p>A set of seven unstructured grids, courtesy of Jacob Wagner and Cetin C. Kiris of NASA Ames, are provided here.  
+This set of grids have different spacings on the airfoil surface than Family 1 (paticularly more clustering
+near element trailing edges), along with more clustering
+in the airfoil wake.  The first cell height above the wall and stretching factors are intended to be consistent between the
+two families.  The farfield extents are the same.
+
+<p>The grid sizes for Family 2 are as follows:
+<br>&nbsp;
+<table style="text-align: left; height: 211px; width: 360px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">Grid Level<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">N<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L1 (coarsest)<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">134852<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L2<br>
+      </td> 
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">246762<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L3<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">379219<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L4<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">740869<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L5<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">1353167<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L6<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">2550989<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 200px; font-family: helvetica,arial,sans-serif;">L7 (finest)<br>
+      </td>
+      <td style="vertical-align: top; width: 150px; font-family: helvetica,arial,sans-serif;">4792411<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification_grids/grid_multi2d_Fam2_L5.png" border="1" height="650" title="Family 2 2-D multielement airfoil L5 grid" alt="Family 2 2-D multielement airfoil L5 grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The grids are given with two planes (separated by unit distance y=1).  The x-direction
+runs downstream, the z-direction is up, and the y-direction runs into the page.
+They are only provided in AFLR3 format.
+
+<p>Download the big-endian AFLR3 Family 2 grids and corresponding mapbc files (with FUN3D's BC numbering) here:
+<ul>
+<li><a href="Multielementverification_grids/2DMEA_RevM_wake_L1.b8.ugrid.gz">
+        L1 grid (134852 points per plane) (gzipped) </a> (8.7 MB)
+<li><a href="Multielementverification_grids/2DMEA_RevM_wake_L2.b8.ugrid.gz">
+        L2 grid (246762 points per plane) (gzipped) </a> (15.9 MB)
+<li><a href="Multielementverification_grids/2DMEA_RevM_wake_L3.b8.ugrid.gz">
+        L3 grid (379219 points per plane) (gzipped) </a> (24.4 MB)
+<li><a href="Multielementverification_grids/2DMEA_RevM_wake_L4.b8.ugrid.gz">
+        L4 grid (740869 points per plane) (gzipped) </a> (47.3 MB)
+<li><a href="Multielementverification_grids/2DMEA_RevM_wake_L5.b8.ugrid.gz">
+        L5 grid (1353167 points per plane) (gzipped) </a> (86.9 MB)
+<li><a href="Multielementverification_grids/2DMEA_RevM_wake_L6.b8.ugrid.gz">
+        L6 grid (2550989 points per plane) (gzipped) </a> (163.4 MB)
+<li><a href="Multielementverification_grids/2DMEA_RevM_wake_L7.b8.ugrid.gz">
+        L7 grid (4792411 points per plane) (gzipped) </a> (302.5 MB)
+</ul>
+
+The corresponding mapbc files (with FUN3D's BC numbering) all look like the following:
+<a href="Multielementverification_grids/2DMEA_RevM_wake_x.mapbc">2DMEA_RevM_wake_x.mapbc</a>.
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large"><u>3. STRUCTURED OVERSET GRIDS FROM NASA AMES</u></span></strong>
+<p>A set of seven structured overset grids, courtesy of POC Cetin C. Kiris of NASA Ames, are provided here.  This set of grids
+was "custom tailored" (by hand) to yield wake clustering that is appropriate for this test case.
+Total number of solution points per plane range from approximately 46,000 to 3.2 million.
+CFD results on these grids are currently <u>not</u> provided on this website.
+<ul>
+  <li><a href="Multielementverification_grids/2D_HL-CRM_LAVA_structured_grids.tar.gz">
+      2D_HL-CRM_LAVA_structured_grids.tar.gz</a> (gzipped tar file, 174 MB)
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large"><u>4. ADAPTED GRIDS FROM MIT</u></span></strong>
+<p>The adapted meshes are generated by MIT using an output-based mesh adaptation algorithm to minimize numerical 
+error in drag for the SA-neg turbulence model at alpha=16 deg, and are not suitable for any other angle of attack 
+or turbulence model. These meshes were used in 
+<a href="https://doi.org/10.2514/6.2021-1080">AIAA paper 2021-1080</a> and the 
+<a href="https://doi.org/10.2514/1.J060861">journal version of the same paper</a>, 
+where multiple different discretizations (both Finite Volume and Finite Element) demonstrated 
+reduced numerical error relative to expert-crafted meshes.
+
+<p>The total number of nodes (over a sequence of 7 grids) range from approximately 4k to 350k. The meshes are ASCII ugrid files, 
+fully 2D, with a farfield of 1000 chords. 
+
+<p>Note: Due to the intentional lack of orthogonality in the boundary layer of these meshes, the use of approximate minimum distance 
+function calculations are particularly ill-advised. Please see the
+<a href="spalart.html#mindistancefunction">min dist function description on the Spalart-Allmaras page</a> 
+for a rigorous description of accurate minimum distance function calculations.
+<ul>
+  <li><a href="Multielementverification_grids/2D_adapted_MIT_grids_CRMHL.tar.gz">
+      2D_adapted_MIT_grids_CRMHL.tar.gz</a> (gzipped tar file, 26 MB)
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="multielementverif.html">2D Multielement Airfoil Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+08/07/2024 - added adapted grids from MIT<br>
+06/10/2021 - added unstructured Family 2 grids<br>
+02/25/2021 - added structured overset grids<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 02/10/2025
+<br>&nbsp;
+
+</body>
+</html>

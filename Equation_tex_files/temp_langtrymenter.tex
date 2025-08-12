@@ -1,0 +1,284 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[8pt]{article}
+
+\title{Langtry-Menter Equations}
+\author{James G. Coder}
+
+\begin{document}
+
+\begin{equation}
+   \frac{\partial \left( \rho k \right)}{\partial t} + \frac{\partial \left( \rho u_j k \right)}{\partial x_j} = \hat P_k - \hat D_k  + \frac{\partial}{\partial x_j} \left[ \left( \mu + \sigma_k \mu_t \right) \frac{\partial k}{\partial x_j} \right]
+\end{equation}
+
+\begin{equation}
+   \frac{\partial \left( \rho \omega \right)}{\partial t} + \frac{\partial \left( \rho u_j \omega \right)}{\partial x_j} = P_{\omega} - D_{\omega}  + \frac{\partial}{\partial x_j} \left[ \left( \mu + \sigma_{\omega} \mu_t \right) \frac{\partial \omega}{\partial x_j} \right] + 2 \left( 1 - F_1 \right) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_j} \frac{ \partial \omega}{\partial x_j}
+\end{equation}
+
+\begin{equation}
+   \frac{\partial \left( \rho \gamma \right)}{\partial t} + \frac{\partial \left( \rho u_j \gamma \right)}{\partial x_j} = P_\gamma - E_\gamma + \frac{\partial}{\partial x_j} \left[ \left( \mu + \frac{\mu_t}{\sigma_f} \right) \frac{\partial \gamma}{\partial x_j} \right]
+\end{equation}
+
+\begin{equation}
+   \frac{\partial \left( \rho\hat Re_{\theta t} \right)}{\partial t} + \frac{\partial \left( \rho u_j \hat Re_{\theta t} \right)}{\partial x_j} = P_{\theta t} + \frac{\partial}{\partial x_j} \left[ \sigma_{\theta t} \left( \mu + \mu_t \right) \frac{\partial \hat Re_{\theta t}}{\partial x_j} \right]
+\end{equation}
+
+\begin{equation}
+   P_\gamma = F_{length} c_{a1} \rho S \left[ \gamma F_{onset} \right] ^{0.5} \left( 1 - c_{e1} \gamma \right)
+\end{equation}
+
+\begin{equation}
+   E_\gamma =c_{a2} \rho \Omega \gamma F_{turb} \left( c_{e2} \gamma - 1 \right)
+\end{equation}
+
+\begin{equation}
+   Re_V = \frac{\rho S d^2}{\mu}
+\end{equation}
+
+\begin{equation}
+   F_{onset1} = \frac{Re_V}{2.193 Re_{\theta c}}
+\end{equation}
+
+\begin{equation}
+   F_{onset2} = min \left( max \left( F_{onset1},F_{onset1}^4 \right), 2.0 \right)
+\end{equation}
+
+\begin{equation}
+   R_T = \frac{\rho k}{\mu \omega}
+\end{equation}
+
+\begin{equation}
+   F_{onset3} =  max \left[ 1 - \left( \frac{R_T}{2.5} \right)^3, 0 \right]
+\end{equation}
+
+\begin{equation}
+   F_{turb} = exp \left[ - \left( \frac{R_T}{4} \right) ^4 \right]
+\end{equation}
+
+\begin{equation}
+    F_{length} = F_{length,1} \left( 1 - F_{sublayer} \right) + 40.0 F_{sublayer}
+\end{equation}
+
+\begin{equation}
+    F_{length,1} = \left\{ 
+      \begin{array}{ll}
+         39.8189 + (-119.270 \cdot 10^{-4}) \hat Re_{\theta t} +  (-132.567 \cdot 10^{-6}) \hat Re_{\theta t}^2, & \hat Re_{\theta t} < 400; \\
+         263.404 + (-123.939 \cdot 10^{-2}) \hat Re_{\theta t}  + (194.548 \cdot 10^{-5}) \hat Re_{\theta t}^2 + (-101.695 \cdot 10^{-8}) \hat Re_{\theta t}^3, & 400 \leq \hat Re_{\theta t} < 596 ;\\
+         0.5 - (3.0\cdot 10^{-4})(\hat Re_{\theta t} - 596.0), & 596 \leq \hat Re_{\theta t} < 1200; \\
+         0.3188 & 1200 \leq \hat Re_{\theta t}
+      \end{array} \right.
+\end{equation}
+
+\begin{equation}
+    F_{sublayer} = exp \left[ - \left( \frac{Re_\omega}{200} \right) ^2 \right]
+\end{equation}
+
+\begin{equation}
+    Re_{\omega} = \frac{ \rho \omega d^2}{\mu}
+\end{equation}
+
+\begin{equation}
+   Re_{\theta c} = \left\{ 
+      \begin{array}{ll}
+         (-396.035 \cdot 10^{-2}) + (10120.656 \cdot 10^{-4}) \hat Re_{\theta t} + (-868.230 \cdot 10^{-6}) \hat Re_{\theta t}^2 + (696.506 \cdot 10^{-9}) \hat Re_{\theta t}^3 + (-174.105 \cdot 10^{-12}) \hat Re_{\theta t}^4, & \hat Re_{\theta t} \leq 1870; \\
+         \hat Re_{\theta t} - \left( 593.11 + 0.482 \left( \hat Re_{\theta t} - 1870.0 \right) \right) & 1870 < \hat Re_{\theta t}
+      \end{array} \right.
+\end{equation}
+
+\begin{equation}
+   \rho
+\end{equation}
+
+\begin{equation}
+   \mu
+\end{equation}
+
+\begin{equation}
+   d
+\end{equation}
+
+\begin{equation}
+   S = \sqrt{2S_{ij}S_{ij}}
+\end{equation}
+
+\begin{equation}
+   \Omega = \sqrt{2W_{ij}W_{ij}}
+\end{equation}
+
+\begin{equation}
+   S_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} +  \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+\begin{equation}
+   W_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} -  \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+\begin{equation}
+    P_{\theta t} = c_{\theta t} \frac{\rho}{T} \left( Re_{\theta t}^{eq} - \hat Re_{\theta t} \right) \left( 1.0 - F_{\theta t} \right)
+\end{equation}
+
+\begin{equation}
+    T = \frac{500 \mu}{\rho U^2}
+\end{equation}
+
+\begin{equation}
+    U = \sqrt{ u_k u_k}
+\end{equation}
+
+\begin{equation}
+    F_{\theta t} = min \left[ max \left( F_{wake} exp \left(- \left( \frac{d}{\delta} \right) ^4 \right) , 1.0 - \left( \frac{c_{e2}\gamma - 1}{c_{e2} - 1}\right) ^2 \right), 1.0 \right]
+\end{equation}
+
+\begin{equation}
+    \delta = \frac{375 \Omega \mu \hat Re_{\theta t} d}{\rho U^2}
+\end{equation}
+
+\begin{equation}
+    F_{wake} = exp \left[ - \left( \frac{Re_{\omega}}{1\cdot 10^{5}} \right) ^2 \right]
+\end{equation}
+
+\begin{equation}
+    \lambda_{\theta} = \frac{\rho \theta_t ^2}{\mu} \frac{dU}{ds}
+\end{equation}
+
+\begin{equation}
+    Tu = 100 \frac{\sqrt{2k/3}}{U}
+\end{equation}
+
+\begin{equation}
+    \frac{dU}{ds} = \frac{u_m u_n}{U^2}  \frac{\partial u_m}{\partial x_n}
+\end{equation}
+
+\begin{equation}
+   Re_{\theta t} ^{eq} = \left\{ 
+      \begin{array}{ll}
+         \left( 1173.51 - 589.428 Tu + 0.2196 Tu^{-2} \right) F \left( \lambda_{\theta} \right), & Tu \leq 1.3; \\
+         331.50 \left(Tu - 0.5658 \right) ^{-0.671} F \left( \lambda_{\theta} \right) & Tu > 1.3
+      \end{array} \right.
+\end{equation}
+
+\begin{equation}
+  F \left( \lambda_{\theta} \right) = \left\{ 
+      \begin{array}{ll}
+         1 + \left[ 12.986 \lambda_{\theta} + 123.66 \lambda_{\theta} ^2 + 405.689 \lambda_{\theta} ^3 \right] exp \left( -\left( \frac{Tu}{1.5} \right)^{1.5} \right), & \lambda_{\theta} \leq 0; \\
+         1 + 0.275 \left[1 - exp \left( -35.0 \lambda_{\theta} \right) \right] exp \left( - \frac{Tu}{0.5} \right) & \lambda_{\theta} > 0
+      \end{array} \right.
+\end{equation}
+
+\begin{equation}
+   Re_{\theta t} ^{eq} = \frac{\rho U \theta_t }{\mu}
+\end{equation}
+
+\begin{equation}
+   \begin{array}{l}
+      c_{a1} = 2.0 \\
+      c_{a2} = 0.06 \\
+      c_{e1} = 1.0 \\
+      c_{e2} = 50 \\
+      c_{\theta t} = 0.03 \\
+      s_1 = 2 \\
+      \sigma_{f} = 1.0 \\
+      \sigma_{\theta t} = 2.0
+   \end{array}
+\end{equation}
+
+\begin{equation}
+    \hat P_k = \gamma_{eff} P_{k,SST}
+\end{equation}
+
+\begin{equation}
+    \hat D_k = min \left( max \left( \gamma_{eff},0.1 \right), 1.0 \right) D_{k,SST}
+\end{equation}
+
+\begin{equation}
+    \gamma_{eff} = max \left( \gamma, \gamma_{sep} \right)
+\end{equation}
+
+\begin{equation}
+    \gamma_{sep} = min \left( s_1 max \left[0, \left( \frac{Re_V}{3.235 Re_{\theta c}} \right) - 1 \right] F_{reattach},2 \right) F_{\theta t}
+\end{equation}
+
+\begin{equation}
+    F_{reattach} = exp \left[ - \left( \frac{R_T}{20} \right) ^4 \right]
+\end{equation}
+
+\begin{equation}
+    R_y = \frac{\rho d \sqrt{k}}{\mu}
+\end{equation}
+
+\begin{equation}
+    F_3 = exp \left[ - \left( \frac{R_y}{120} \right)^8 \right]
+\end{equation}
+
+\begin{equation}
+    F_1 = max \left( F_{1,SST},F_3 \right)
+\end{equation}
+
+\begin{equation}
+   \gamma
+\end{equation}
+
+\begin{equation}
+   \hat Re_{\theta t}
+\end{equation}
+
+\begin{equation}
+   Re_{\theta t} ^{eq}
+\end{equation}
+
+\begin{equation}
+   \theta_t
+\end{equation}
+
+\begin{equation}
+   \lambda_{\theta}
+\end{equation}
+
+\begin{equation}
+   F_1
+\end{equation}
+
+\begin{equation}
+   \frac{\partial \gamma}{\partial n} \vert _{wall} = 0
+\end{equation}
+
+\begin{equation}
+   \gamma_{farfield} = 1
+\end{equation}
+
+\begin{equation}
+   \frac{\partial \hat Re_{\theta t}}{\partial n} \vert _{wall} = 0
+\end{equation}
+
+\begin{equation}
+   \hat Re_{\theta t, farfield} = \left\{ 
+      \begin{array}{ll}
+         \left( 1173.51 - 589.428 Tu _{\infty} + 0.2196 Tu_{\infty}^{-2} \right), & Tu_{\infty} \leq 1.3; \\
+         331.50 \left(Tu_{\infty} - 0.5658 \right) ^{-0.671} & Tu_{\infty} > 1.3
+      \end{array} \right.
+\end{equation}
+
+\begin{equation}
+   F_{turb}
+\end{equation}
+
+\begin{equation}
+   -0.1 \leq \lambda_{\theta} \leq 0.1
+\end{equation}
+
+\begin{equation}
+   Tu \geq 0.027
+\end{equation}
+
+\begin{equation}
+   Re_{\theta t} ^{eq} \geq 20
+\end{equation}
+
+\begin{equation}
+   F_{onset} = max \left(F_{onset2} - F_{onset3}, 0 \right)
+\end{equation}
+
+\end{document}
+
+

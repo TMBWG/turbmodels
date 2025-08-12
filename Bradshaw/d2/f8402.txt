@@ -1,0 +1,624 @@
+----------------- FILE NUMBER   846-----------------
+1.  FLOW TITLE:   CASE 8402;   LEWIS, J. E., GRAN, R. L., AND KUBOTA, T.;
+BOUNDARY LAYER IN ADVERSE PRESSURE GRADIENT.
+
+2.  REVISION DATE:   OCTOBER 30, 1981.
+
+3.  EVALUATOR:   RUBESIN, M. W., AND HORSTMAN, C. C.,  NASA AMES
+RESEARCH CENTER, MOFFETT FIELD,  CA. 94035.
+
+4.  DATE AND LOCATION:  1970,  ARNOLD AIR FORCE STATION, TN.
+
+5.  ABSTRACT:
+A WIND TUNNEL MODEL WAS DEVELOPED TO STUDY AN AXISYMMETRIC TURBULENT
+BOUNDARY LAYER IN ADVERSE AND FAVORABLE PRESSURE GRADIENTS WITHOUT THE EFFECTS
+OF STREAMWISE CURVATURE. EXPERIMENTS WERE PERFORMED AT MACH 4 WITH AN ADIABATIC
+WALL. MEAN-FLOW MEASUREMENTS WITHIN  THE BOUNDARY LAYER WERE OBTAINED. THE
+STUDY WAS CONDUCTED IN THE 40X40 INCH, (1.016X1.016  M). SUPERSONIC
+WIND TUNNEL A OF THE VON KARMAN GAS DYNAMICS FACILITY AT AN
+UNDISTURBED BOUNDARY-LAYER MOMENTUM THICKNESS REYNOLDS NUMBER OF 0.5X10**4.
+
+6.  REFERENCES:
+LEWIS, J. E., GRAN, R. L., AND KUBOTA, T., "AN EXPERIMENT ON THE ADIABATIC
+COMPRESSIBLE TURBULENT BOUNDARY-LAYER IN ADVERSE AND FAVORABLE PRESSURE
+GRADIENTS" J. FLUID MECH., VOL. 51, PART 4, PP. 657-672, FEB. 1972.
+
+FERNHOLZ, H. H., AND FINLEY, P. J., "A CRITICAL COMPILATION OF COMPRESSIBLE
+TURBULENT BOUNDARY LAYER DATA," AGARDOGRAPH 223, 1977 (FLOW 7201).
+
+7.  INSTRUMENTATION:
+STATIC PRESSURE ORIFICES AND THERMOCOUPLES WERE USED TO MEASURE WALL PRESSURE
+AND TEMPERATURE. STANTON PROBES WERE USED TO OBTAIN SURFACE SKIN FRICTION.
+MEAN FLOW PROFILES WERE OBTAINED FROM PITOT AND STATIC PRESSURE AND TOTAL
+TEMPERATURE SURVEYS ACROSS THE BOUNDARY LAYER.
+
+8.  EXPERIMENTAL PARAMETERS:
+        RZ    = -0.254
+        POD   =  4.9600*10**5  N/M**2.
+        TOD   =  3.1800*10**2  DEGREES  K.
+        TT    =  318  DEGREES  K.
+        TW    =  2.9300*10**2  DEGREES  K.
+        TD    =  2.9300*10**2  DEGREES  K.
+        PW/PD =  4.9214*10**3
+        SW    =  0.0000
+        MINF  =  3.98
+        TINF  =  76.294  DEGREES  K.
+        UINF  =  697.01  M/SEC.
+        PINF  =  3.3551*10**3  N/M**2.
+        DELTAINF  =  0.0058  M.
+        DELTAXINF  =  0.00199  M.
+        THETAINF  =  0.000252  M.
+TEST SURFACE WALL RADIUS  =  0.254  M.
+THE INFINITY CONDITIONS ARE DEFINED AT X =  0.2916  M.
+
+9.  MEASURED AND INFERRED VARIABLES:   THE X COORDINATE IS
+MEASURED IN THE STREAMWISE DIRECTION FROM THE MODEL LEADING EDGE.
+THE Y COORDINATE IS NORMAL TO THE TEST SURFACE.
+THE COMPILED FORM OF THE DATA ARE AS FOLLOWS
+       M               MACH NUMBER.
+       MD              MACH NUMBER AT D.
+       P               STATIC PRESSURE,  N/M**2.
+       PD              STATIC PRESSURE AT D,  N/M**2.
+       POD             STAGNATION PRESSURE AT D,  N/M**2.
+       PW              STATIC PRESSURE AT W,  N/M**2.
+       TOD             STAGNATION TEMPERATURE AT D,  DEGREES  K.
+       TO              STAGNATION TEMPERATURE, DEGREES K.
+       TW              TEMPERATURE AT W,  DEGREES K.
+       TR              RECOVERY TEMPERATURE,  DEGREES  K.
+       TW/TR=TWR       WALL RECOVERY TEMPERATURE RATIO.
+       SW              NUMBER INDICATING THE RELATIVE IMPORTANCE
+                       OF LONGITUDINAL CURVATURE IN A PRESSURE GRADIENT.
+       RZ              TRANSVERSE RADIUS OF CURVATURE.
+       RED2W           REYNOLDS NUMBER BASED ON D2,VISCOSITY TAKEN AT WALL.
+       RED2D           REYNOLDS NUMBER BASED ON D2,VISCOSITY TAKEN
+                       IN THE FREE-STREAM.
+       D               BOUNDARY LAYER THICKNESS SELECTED,  M.
+       D1              DISPLACEMENT THICKNESS.
+       D2=THETA        MOMENTUM DEFECT THICKNESS,  M.
+       D3              KINETIC ENERGY DEFECT THICKNESS.
+       D4              TOTAL ENTHALPY DEFECT THICKNESS.
+       D1K             DISPLACEMENT THICKNESS, (RHO/RHOD = 1).
+       D2K             MOMENTUM DEFECT THICKNESS, (RHO/RHOD = 1).
+       D3K             KINETIC ENERGY DEFECT THICKNESS, (RHO/RHOD = 1).
+       H12             SHAPE FACTOR, (D1/D2).
+       H32             SHAPE FACTOR, (D3/D2).
+       H42             SHAPE FACTOR, (D4/D2).
+       H12K            SHAPE FACTOR, (D1K/D2K).
+       H32K            SHAPE FACTOR., (D3K/D2K).
+       CF              SKIN FRICTION COEFFICIENT.
+       CFE=CFD         SKIN FRICTION COEFFICIENT AT D.
+       CQ              HEAT TRANSFER COEFFICIENT.
+       I               Y-STATION IDENTITY.
+       PI2             PRESSURE GRADIENT PARAMETER.
+       U               VELOCITY COMPONENT IN X-DIRECTION,  M/SEC.
+       UE=UD           VELOCITY COMPONENT IN X-DIRECTION AT D,  M/SEC.
+       U/UE = U/UD     NONDIMENSIONAL VELOCITY RATIO.
+       THETA           REFERENCE MOMENTUM THICKNESS,  M.
+       DELTAINF        BOUNDARY LAYER THICKNESS,  M.
+       DELTAXINF
+       PT2/P           NONDIMENSIONAL PRESSURE RATIO.
+       TO/TOD          NONDIMENSIONAL TEMPERATURE RATIO.
+       M/MD            NONDIMENSIONAL MACH NUMBER RATIO.
+       T/TD            NONDIMENSIONAL TEMPERATURE RATIO.
+       RHO/RHOD*(U/UD) NONDIMENSIONAL MASS FLUX * NONDIMENSIONAL VELOCITY.
+
+10. MEASUREMENT UNCERTAINTIES:
+UNCERTAINTIES ESTIMATED FROM BASIC MEASUREMENT UNCERTAINTY
+         PW  = +/- 2%
+         CFE = +/- 10%
+         U   = +/- 3%
+         H   = +/- 5%
+
+
+11. TAPE ORGANIZATION: THE TAPE IS A 2400 FOOT, 9 TRACK, ODD PARITY,
+PHASE ENCODED, UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS PER
+INCH ACCORDING TO EBCDIC CODE.  THE RECORD FORMAT IS FIXED AND
+BLOCKED; RECORD LENGTH = 80 BYTES: BLOCKSIZE = 8000 BYTES
+
+NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:
+XNORM = (X - XMIN)/(XMAX - XMIN)
+NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY 10000 AND
+ROUNDING UP OR DOWN TO THE NEAREST INTEGER.
+IXNORM = XNORM * 10000.
+THUS EACH NORMALIZED DATUM IS WRITTEN ONTO TAPE AS AN INTEGER
+VALUE BETWEEN 0 AND 10000.
+ALL NULL DATA ARE WRITTEN AS 20000
+THE EQUATION DESCRIBING THE RELATION BETWEEN ACTURAL DATA AND
+THE NORMALIZED DATA ON TAPE IS
+X = XMIN + (((XMAX - XMIN) * IXNORM)/10000.)
+WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS INTEGER.
+    FILE# NREC    CONTAINS                   FORMAT    COMMENTS
+
+     1     -      TEXT FILE                  -         CONTAINS ITEMS 1
+                                                       TO 11 OF THIS
+                                                       WRITE-UP
+
+     2     25     Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 1&2 - MAXIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).                     FOR X = 0.29159  M,
+                                                       MD = 3.9800,
+                                                       TW/TR = 1.0005,
+                                                       RED2W = 1480.3,
+                                                       RED2D = 4921.4,
+                                                       D2 = 0.00025217,
+                                                       CF = 0.0015154,
+                                                       PI2 = 0.00000,
+                                                       H12 = 7.9198,
+                                                       H32 = 1.8339,
+                                                       H42 = 0.1444,
+                                                       H12K = 1.4601,
+                                                       H32K = 1.8099,
+                                                       D2K  = 0.00046448,
+                                                       PW = PD= 3355.1 N/M**2,
+                                                       UD = 697.01  M/SEC,
+                                                       TD = 76.294 DEGREES K,
+                                                       TR = 292.86 DEGREES K.
+                  Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 3&4 - MINIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).
+
+                  Y,PT2/P,TO/TOD,M/MD,       7I6       RECORDS  5 - 25
+                  U/UD,T/TD,                           NORMALIZED VALUES
+                  RHO/RHOD*(U/UD).
+
+     3     22     Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 1&2 - MAXIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).                     FOR X = 0.31674  M,
+                                                       MD = 3.9800,
+                                                       TW/TR = 1.0005,
+                                                       RED2W = 1546.8,
+                                                       RED2D = 5142.5,
+                                                       D2 = 0.00026350,
+                                                       CF = 0.0015501,
+                                                       PI2 = 0.00000,
+                                                       H12 = 7.7648,
+                                                       H32 = 1.8416,
+                                                       H42 = 0.1450,
+                                                       H12K = 1.3919,
+                                                       H32K = 1.8169,
+                                                       D2K  = 0.00047561,
+                                                       PW = PD= 3355.1 N/M**2,
+                                                       UD = 697.01  M/SEC,
+                                                       TD = 76.294 DEGREES K,
+                                                       TR = 292.86 DEGREES K.
+                  Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 3&4 - MINIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).
+
+                  Y,PT2/P,TO/TOD,M/MD,        7I6      RECORDS  5 - 22
+                  U/UD,T/TD,                           NORMALIZED VALUES
+                  RHO/RHOD*(U/UD).
+     4     22     Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 1&2 - MAXIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).                     FOR X = 0.34265  M,
+                                                       MD = 3.9800,
+                                                       TW/TR = 1.0005,
+                                                       RED2W = 1514.3,
+                                                       RED2D = 5034.6,
+                                                       D2 = 0.00025797,
+                                                       CF = 0.0014530,
+                                                       PI2 = 0.00000,
+                                                       H12 = 7.8375,
+                                                       H32 = 1.8239,
+                                                       H42 = 0.1436,
+                                                       H12K = 1.4032,
+                                                       H32K = 1.7927,
+                                                       D2K  = 0.00048452,
+                                                       PW = PD= 3355.1 N/M**2,
+                                                       UD = 697.01  M/SEC,
+                                                       TD = 76.294 DEGREES K,
+                                                       TR = 292.86 DEGREES K.
+                  Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 3&4 - MINIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).
+
+                  Y,PT2/P,TO/TOD,M/MD,        7I6      RECORDS  5 - 22
+                  U/UD,T/TD,                           NORMALIZED VALUES
+                  RHO/RHOD*(U/UD).
+
+     5     30     Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 1&2 - MAXIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).                     FOR X = 0.43129  M,
+                                                       MD = 2.9209,
+                                                       TW/TR = 0.9860,
+                                                       RED2W = 4122.6,
+                                                       RED2D = 9026.8,
+                                                       D2 = 0.00026195,
+                                                       CF = 0.0012271,
+                                                       PI2 = 0.70225,
+                                                       H12 = 5.1226,
+                                                       H32 = 1.7594,
+                                                       H42 = 0.1283,
+                                                       H12K = 1.5220,
+                                                       H32K = 1.7373,
+                                                       D2K  = 0.00042337,
+                                                       PW = PD=15211.0 N/M**2,
+                                                       UD = 634.82  M/SEC,
+                                                       TD = 117.50 DEGREES K,
+                                                       TR = 297.15 DEGREES K.
+                  Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 3&4 - MINIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).
+
+                  Y,PT2/P,TO/TOD,M/MD,        7I6      RECORDS  5 - 30
+                  U/UD,T/TD,                           NORMALIZED VALUES
+                  RHO/RHOD*(U/UD).
+
+     6     26     Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 1&2 - MAXIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).                     FOR X = 0.45669  M,
+                                                       MD = 2.6169,
+                                                       TW/TR = 0.9803,
+                                                       RED2W = 5702.8,
+                                                       RED2D = 11040.0,
+                                                       D2 = 0.00027150,
+                                                       CF = 0.0015257,
+                                                       PI2 = 0.74629,
+                                                       H12 = 4.2220,
+                                                       H32 = 1.7956,
+                                                       H42 = 0.1263,
+                                                       H12K = 1.4395,
+                                                       H32K = 1.7808,
+                                                       D2K  = 0.00038797,
+                                                       PW = PD=24216.0 N/M**2,
+                                                       UD = 607.81  M/SEC,
+                                                       TD = 134.20 DEGREES K,
+                                                       TR = 298.88 DEGREES K.
+                  Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 3&4 - MINIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).
+
+                  Y,PT2/P,TO/TOD,M/MD,        7I6      RECORDS  5 - 26
+                  U/UD,T/TD,                           NORMALIZED VALUES
+                  RHO/RHOD*(U/UD).
+
+     7     25     Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 1&2 - MAXIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).                     FOR X = 0.46939  M,
+                                                       MD = 2.4661,
+                                                       TW/TR = 0.9772,
+                                                       RED2W = 6784.0,
+                                                       RED2D = 12357.0,
+                                                       D2 = 0.00028041,
+                                                       CF = 0.0017262,
+                                                       PI2 = 0.77286,
+                                                       H12 = 3.8493,
+                                                       H32 = 1.8182,
+                                                       H42 = 0.1252,
+                                                       H12K = 1.4210,
+                                                       H32K = 1.8086,
+                                                       D2K  = 0.00037717,
+                                                       PW = PD=30603.0 N/M**2,
+                                                       UD = 592.27  M/SEC,
+                                                       TD = 143.48 DEGREES K,
+                                                       TR = 299.85 DEGREES K.
+                  Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 3&4 - MINIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).
+
+                  Y,PT2/P,TO/TOD,M/MD,        7I6      RECORDS  5 - 25
+                  U/UD,T/TD,                           NORMALIZED VALUES
+                  RHO/RHOD*(U/UD).
+
+     8     27     Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 1&2 - MAXIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).                     FOR X = 0.48209  M,
+                                                       MD = 2.5545,
+                                                       TW/TR = 0.9790,
+                                                       RED2W = 6707.1,
+                                                       RED2D = 12661.0,
+                                                       D2 = 0.00030110,
+                                                       CF = 0.0018069,
+                                                       PI2 = -0.46879,
+                                                       H12 = 3.9027,
+                                                       H32 = 1.8399,
+                                                       H42 = 0.1280,
+                                                       H12K = 1.3467,
+                                                       H32K = 1.8298,
+                                                       D2K  = 0.00040063,
+                                                       PW = PD=26673.0 N/M**2,
+                                                       UD = 601.57  M/SEC,
+                                                       TD = 137.96 DEGREES K,
+                                                       TR = 299.28 DEGREES K.
+                  Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 3&4 - MINIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).
+
+                  Y,PT2/P,TO/TOD,M/MD,        7I6      RECORDS  5 - 27
+                  U/UD,T/TD,                           NORMALIZED VALUES
+                  RHO/RHOD*(U/UD).
+
+     9     36     Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 1&2 - MAXIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).                     FOR X = 0.67259  M,
+                                                       MD = 3.6361,
+                                                       TW/TR = 0.9966,
+                                                       RED2W = 4474.4,
+                                                       RED2D = 13032.0,
+                                                       D2 = 0.00055762,
+                                                       CF = 0.0016387,
+                                                       PI2 = -0.20772,
+                                                       H12 = 6.3213,
+                                                       H32 = 1.8922,
+                                                       H42 = 0.1457,
+                                                       H12K = 1.2365,
+                                                       H32K = 1.8710,
+                                                       D2K  = 0.00082026,
+                                                       PW = PD=53685.0 N/M**2,
+                                                       UD = 681.01  M/SEC,
+                                                       TD = 87.261 DEGREES K,
+                                                       TR = 294.00 DEGREES K.
+                  Y,PT2/P,TO/TOD,M/MD,       4E13.6/   RECORDS 3&4 - MINIMUM
+                  U/UD,T/TD,                 3E13.6    VALUES
+                  RHO/RHOD*(U/UD).
+
+                  Y,PT2/P,TO/TOD,M/MD,        7I6      RECORDS  5 - 36
+                  U/UD,T/TD,                           NORMALIZED VALUES
+                  RHO/RHOD*(U/UD).
+
+
+
+    A SAMPLE PROGRAM FOR READING FILE 3 AND PRINTING, IS SHOWN
+    BELOW.  THE JCL SHOWN IS FOR THE STANFORD CIT FACILITY.
+    CHECK WITH YOUR OWN COMPUTER INSTALLATION FOR THE EXACT JCL
+    NEEDED.
+
+    //TAPE  JOB  BZC$NJ
+    /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)
+    //  EXEC  FORTCG
+    //FORT.SYSIN  DD  *
+    C  TO READ FILE 3 OFF TAPE
+    C  PRINT MAXIMAS AND MINIMAS OF ALL THE VARIABLES
+    C  PRINT NORMALIZED INTEGERIZED VALUES OF ALL THE VARIABLES.
+           INTEGER Y(50),PT(50),TO(50),M(50),U(50),T(50),RHO(50)
+           READ  (23,30) YMAX,PTMAX,TOMAX,MMAX,UMAX,TMAX,RHOMAX
+           READ  (23,30) YMIN,PTMIN,TOMIN,MMIN,UMIN,TMIN,RHOMIN
+           DO  10   I = 1,  18
+    10     READ (23,40) Y(I),PT(I),TO(I),M(I),U(I),T(I),RHO(I)
+           WRITE (6,50) YMAX,PTMAX,TOMAX,MMAX,UMAX,TMAX,RHOMAX
+           WRITE (6,50) YMIN,PTMIN,TOMIN,MMIN,UMIN,TMIN,RHOMIN
+           DO  20  I = 1, 18
+    20     WRITE (6,60) Y(I),PT(I),TO(I),M(I),U(I),T(I),RHO(I)
+    30     FORMAT(4E13.6/3E13.6)
+    40     FORMAT(7I6)
+    50     FORMAT(1X,4E13.6/3E13.6)
+    60     FORMAT(1X,7I6)
+           STOP
+           END
+    //GO.FT23F001  DD  UNIT=T1600,VOI=SER=(TAPE LIBRARY NUMBER),
+    //  DISP=(OLD,KEEP),DCB=(RECFM=FE,LRECL=80,BLKSIZE=8000,DEN=3),
+    //  LABEL=(3,NL)
+    //
+-------------- END OF FILE NUMBER   846-------------
+----------------- FILE NUMBER   847-----------------
+ 0.895630E-02 0.208630E 02 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.384040E 01 0.100000E 01
+ 0.000000E 00 0.100000E 01 0.921380E 00 0.000000E 00
+ 0.000000E 00 0.100000E 01 0.000000E 00
+     0     0     0     0     0 10000     0
+   394  1238  3918  3799  6269  6067  2302
+   458  1231  3906  3790  6259  6079  2295
+   696  1830  4931  4503  7030  5056  2885
+   962  2591  5950  5268  7720  4039  3595
+  1426  3298  6699  5887  8190  3291  4232
+  1896  3886  7218  6356  8500  2774  4753
+  2465  4767  7861  7000  8870  2131  5524
+  3033  5681  8404  7610  9169  1590  6316
+  3590  6723  8908  8250  9440  1088  7210
+  4199  7785  9329  8855  9660   668  8119
+  4791  8787  9661  9390  9829   336  8971
+  5295  9398  9839  9702  9919   159  9490
+  5881  9843  9959  9923  9980    39  9868
+  6490 10000 10000 10000 10000     0 10000
+  7059 10000 10000 10000 10000     0 10000
+  7702  9921  9979  9961  9990    19  9933
+  8254 10000 10000 10000 10000     0 10000
+  8648 10000 10000 10000 10000     0 10000
+  9396 10000 10000 10000 10000     0 10000
+ 10000 10000 10000 10000 10000     0 10000
+-------------- END OF FILE NUMBER   847-------------
+----------------- FILE NUMBER   848-----------------
+ 0.780510E-02 0.208630E 02 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.384040E 01 0.100000E 01
+ 0.000000E 00 0.100000E 01 0.921380E 00 0.000000E 00
+ 0.000000E 00 0.100000E 01 0.000000E 00
+     0     0     0     0     0 10000     0
+   287  1264  3969  3833  6309  6016  2329
+   455  1218  3880  3773  6240  6104  2282
+   666  1984  5158  4668  7189  4829  3031
+  1016  2685  6059  5354  7789  3930  3680
+  1676  3333  6732  5916  8209  3258  4263
+  2223  3949  7269  6405  8529  2723  4809
+  2931  4849  7915  7057  8899  2078  5596
+  3597  5786  8459  7676  9200  1535  6406
+  4116  6679  8889  8224  9430  1107  7173
+  4943  7732  9310  8826  9649   687  8073
+  5652  8596  9603  9291  9800   395  8809
+  6220  9327  9820  9667  9909   179  9430
+  6886  9767  9940  9886  9969    59  9803
+  7482  9843  9959  9923  9980    39  9868
+  8155  9843  9959  9923  9980    39  9868
+  8779  9843  9959  9923  9980    39  9868
+ 10000 10000 10000 10000 10000     0 10000
+-------------- END OF FILE NUMBER   848-------------
+----------------- FILE NUMBER   849-----------------
+ 0.785990E-02 0.208630E 02 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.384040E 01 0.100000E 01
+ 0.000000E 00 0.100000E 01 0.921380E 00 0.000000E 00
+ 0.000000E 00 0.100000E 01 0.000000E 00
+     0     0     0     0     0 10000     0
+   191   793  2967  3155  5460  7017  1824
+   383  1244  3931  3808  6280  6054  2308
+   575  1628  4612  4277  6800  5374  2691
+   906  2295  5585  4985  7480  4403  3323
+  1296  2797  6184  5455  7870  3805  3782
+  2076  3684  7049  6199  8399  2943  4575
+  2724  4608  7756  6888  8809  2237  5386
+  3485  5681  8404  7610  9169  1590  6316
+  4199  6810  8946  8302  9459  1050  7286
+  4907  8005  9407  8975  9700   590  8306
+  5668  9051  9740  9526  9869   258  9195
+  6256  9692  9919  9848  9959    79  9739
+  7122  9843  9959  9923  9980    39  9868
+  7916  9921  9979  9961  9990    19  9933
+  8518  9921  9979  9961  9990    19  9933
+  9298 10000 10000 10000 10000     0 10000
+ 10000 10000 10000 10000 10000     0 10000
+-------------- END OF FILE NUMBER   849-------------
+----------------- FILE NUMBER   850-----------------
+ 0.852680E-02 0.115140E 02 0.100014E 01 0.100252E 01
+ 0.100100E 01 0.249357E 01 0.100404E 01
+ 0.000000E 00 0.100000E 01 0.921380E 00 0.000000E 00
+ 0.000000E 00 0.996980E 00 0.000000E 00
+     0     0     0     0     0 10000     0
+   178  1005  3205  3654  5284  7265  2527
+   370  1481  3991  4270  5994  6463  3042
+   577  1826  4483  4653  6403  5953  3381
+   821  2329  5120  5154  6903  5285  3849
+  1191  2929  5784  5690  7392  4580  4380
+  1354  3680  6504  6294  7892  3810  5020
+  1939  4555  7219  6928  8361  3040  5741
+  2285  5570  7921  7597  8801  2278  6557
+  2614  6558  8503  8195  9150  1644  7339
+  2936  7535  9000  8745  9440  1100  8102
+  3232  8357  9368  9183  9650   695  8738
+  3599  9248  9726  9634  9850   300  9424
+  3899  9639  9873  9826  9930   140  9724
+  4249  9947  9982  9974  9990    20  9959
+  4603 10000 10000 10000 10000     0 10000
+  4961  9895  9964  9949  9980    40  9919
+  5266  9791  9927  9900  9960    80  9840
+  5583  9740  9908  9875  9950   100  9801
+  5961  9791  9927  9900  9960    80  9840
+  6718  9791  9927  9900  9960    80  9840
+  7360  9791  9927  9900  9960    80  9840
+  8023  9791  9927  9900  9960    80  9840
+  8714  9689  9890  9850  9940   120  9762
+  9357  9440  9799  9729  9890   221  9572
+ 10000  9296  9746  9658  9860   280  9460
+-------------- END OF FILE NUMBER   850-------------
+----------------- FILE NUMBER   851-----------------
+ 0.101720E-01 0.929460E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.218334E 01 0.100000E 01
+ 0.000000E 00 0.100000E 01 0.921380E 00 0.000000E 00
+ 0.000000E 00 0.100000E 01 0.000000E 00
+     0     0     0     0     0 10000     0
+   151  1589  4108  4466  5950  6549  3352
+   291  2239  4933  5135  6639  5673  3972
+   413  2652  5394  5512  6999  5177  4340
+   797  3432  6163  6153  7570  4337  5002
+   997  3916  6588  6518  7870  3868  5398
+  1595  5280  7617  7445  8560  2718  6476
+  2138  6820  8555  8366  9150  1656  7650
+  2692  8438  9357  9234  9629   739  8855
+  3258  9501  9806  9762  9890   222  9635
+  3830  9953  9982  9977  9990    20  9965
+  4370 10000 10000 10000 10000     0 10000
+  4927 10000 10000 10000 10000     0 10000
+  5496 10000 10000 10000 10000     0 10000
+  6106 10000 10000 10000 10000     0 10000
+  6634  9906  9964  9956  9980    40  9932
+  7233  9860  9946  9934  9969    61  9898
+  7731  9724  9894  9869  9940   121  9798
+  8315  9634  9858  9826  9919   162  9733
+  8862  9457  9788  9740  9879   242  9603
+  9379  9327  9736  9677  9850   303  9508
+ 10000  9074  9632  9553  9789   423  9323
+-------------- END OF FILE NUMBER   851-------------
+----------------- FILE NUMBER   852-----------------
+ 0.101530E-01 0.830990E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.204209E 01 0.100000E 01
+ 0.000000E 00 0.100000E 01 0.921380E 00 0.000000E 00
+ 0.000000E 00 0.100000E 01 0.000000E 00
+     0     0     0     0     0 10000     0
+   183  2444  5145  5363  6740  5557  4268
+   391  3018  5736  5856  7200  4908  4763
+   694  3795  6442  6457  7720  4120  5400
+  1007  4352  6896  6854  8040  3608  5843
+  1581  5375  7635  7524  8539  2763  6630
+  2084  6684  8441  8302  9060  1830  7608
+  2642  8121  9188  9077  9520   957  8655
+  3195  9281  9708  9657  9829   344  9489
+  3795 10000 10000 10000 10000     0 10000
+  4390  9955  9982  9979  9990    20  9968
+  4922  9912  9965  9958  9980    40  9937
+  5484  9696  9879  9857  9929   142  9784
+  6017  9654  9862  9836  9919   163  9754
+  6599  9528  9810  9776  9890   223  9664
+  7165  9404  9759  9717  9860   284  9576
+  7740  9322  9725  9677  9840   324  9517
+  8214  9281  9708  9657  9829   344  9489
+  8876  9201  9674  9618  9810   384  9431
+  9433  9121  9641  9580  9789   425  9374
+ 10000  9043  9606  9541  9769   465  9318
+-------------- END OF FILE NUMBER   852-------------
+----------------- FILE NUMBER   853-----------------
+ 0.104200E-01 0.888000E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.212388E 01 0.100000E 01
+ 0.000000E 00 0.100000E 01 0.921380E 00 0.000000E 00
+ 0.000000E 00 0.100000E 01 0.000000E 00
+     0     0     0     0     0 10000     0
+   147  2288  4982  5197  6650  5667  4062
+   275  2659  5387  5531  6970  5227  4390
+   413  3545  6247  6252  7609  4282  5137
+   688  4329  6904  6822  8069  3550  5768
+   943  4558  7079  6980  8190  3352  5948
+  1239  4923  7348  7223  8370  3049  6233
+  1765  5789  7930  7769  8750  2387  6898
+  2295  6842  8551  8383  9139  1677  7689
+  2826  7860  9077  8937  9459  1071  8443
+  3438  8973  9584  9505  9760   483  9256
+  3943  9555  9825  9789  9900   203  9679
+  4459  9909  9965  9957  9980    40  9934
+  5086 10000 10000 10000 10000     0 10000
+  5688 10000 10000 10000 10000     0 10000
+  6183  9954  9982  9978  9990    20  9967
+  6724  9954  9982  9978  9990    20  9967
+  7249  9864  9947  9935  9969    61  9901
+  7790  9864  9947  9935  9969    61  9901
+  8367  9774  9912  9893  9950   101  9837
+  8800  9642  9860  9830  9919   162  9742
+  9433  9555  9825  9789  9900   203  9679
+ 10000  9427  9773  9726  9869   263  9586
+-------------- END OF FILE NUMBER   853-------------
+----------------- FILE NUMBER   854-----------------
+ 0.238430E-01 0.227410E 02 0.100580E 01 0.114386E 01
+ 0.103700E 01 0.335775E 01 0.126178E 01
+ 0.000000E 00 0.100000E 01 0.921380E 00 0.000000E 00
+ 0.000000E 00 0.821860E 00 0.000000E 00
+     0     0     0     0     0 10000     0
+    67   914  3464  3324  5805  6641  1903
+   127  1175  4020  3695  6268  6082  2178
+   195  1692  4943  4333  6972  5149  2693
+   323  2375  5903  5048  7637  4175  3337
+   420  2716  6301  5369  7897  3770  3650
+   751  3311  6897  5886  8273  3161  4188
+  1142  3939  7429  6387  8592  2623  4748
+  1487  4517  7842  6815  8833  2202  5259
+  1863  4835  8045  7039  8948  1996  5537
+  2246  5183  8250  7277  9064  1787  5842
+  2577  5434  8387  7444  9141  1646  6061
+  2960  5669  8509  7596  9209  1522  6265
+  3320  5881  8615  7731  9267  1415  6450
+  3666  6066  8702  7847  9315  1325  6611
+  4027  6300  8808  7992  9373  1217  6814
+  4365  6504  8898  8116  9421  1126  6991
+  4741  6719  8987  8244  9469  1034  7177
+  5101  6898  9059  8349  9508   961  7332
+  5477  7085  9131  8458  9546   887  7493
+  5860  7230  9186  8541  9575   832  7618
+  6221  7481  9276  8683  9623   739  7835
+  6513  7585  9312  8742  9643   702  7925
+  6927  7691  9349  8801  9662   665  8017
+  7302  7855  9404  8892  9691   609  8158
+  7588  7967  9440  8953  9710   571  8254
+  8046  8024  9459  8984  9720   552  8303
+  8369  8380  9569  9175  9778   439  8610
+  8692  8696  9662  9341  9826   344  8881
+  9083  9169  9793  9586  9893   211  9287
+  9391  9684  9925  9845  9961    77  9729
+ 10000 10000 10000 10000 10000     0 10000
+-------------- END OF FILE NUMBER   854-------------
+925  9845  9961    77  9729
+ 10000 10000 10000 10000 10000     0 10000
+-------------- END OF FILE 

@@ -1,0 +1,1289 @@
+           Mech. Engg. Dept., Stanford University
+                   STANFORD CA 94305-3030
+
+          Collaborative Testing of Turbulence Models
+
+                        DATA LIBRARY
+
+1. INTRODUCTION
+
+This library of experimental data and simulation results for
+turbulent flows was compiled for the project on
+Collaborative Testing of Turbulence Models funded by AFOSR,
+Army Research Office, NASA and ONR (see J. Fluids Engg vol.
+116, p. 243, 1996), and is available as images of 1.44MB
+3-1/2 in. MS-DOS diskettes. It falls into three parts:--
+
+(i) the six disks, D1-D6, distributed to modelers taking
+part in the Collaboration (containing many more cases than
+were actually used) - in this JFE Data Bank
+
+(ii)  seven disks, R1-R7 containing further selected, but
+mainly unedited, cases from the bank of undistributed data - 
+in this JFE Data Bank
+
+(iii) the remainder of the data, not given here.
+
+The three parts are described in order in Sections 2 to 4.
+Section 5 is a set of informal notes on data which are not
+in the library but may be available from the originators.
+
+The text material in the J. Fluids Engg Data Bank is a -
+hopefully self-contained - description of the data. It
+includes or excerpts some documents issued to Collaborators,
+but much of the project material (e.g. graphs of results
+submitted by the Collaborators) exists only as paper copies,
+in the full "Proceedings" of the project (Stanford Univ. ME
+Dept Rept MD-73: total 650 pages).
+
+
+2. DISTRIBUTED TEST CASES (Disks 1 to 6)
+
+2.1 Disk contents and format
+
+The basis for the test cases was the data library for the
+1980-81 AFOSR-IFP-Stanford Conference on Complex Turbulent
+Flows. Comparatively few of the 1980-81 cases were used:
+some of the newer test cases were almost direct replacements
+for 1980-81 data. Appendix A is a complete list of the 80-81
+test cases. The data were compiled in packed format by Brian
+Cantwell; all values are given as integers, "intval", in the
+range 0 to 10000, with maximum and minimum values in
+separate `files', so the real value is "(min)+(intval)*(max-
+min)/10000". The data were transcribed from tape to disk by
+Prof. G.M. Lilley of Southampton University. The data on
+disks 1-3 differ from the original tape only in that each
+case occupies only one disk file: the beginnings and ends of
+the original tape files, counting serially from "file 1" in
+the first test case, are marked in the disk file. Note that
+internal references to `file' numbers start from no. 1 in
+each test case. For most purposes users can ignore the tape
+file numbers. File F0112 (Hinze) as originally distributed
+had two spurious (repeated) lines after the end of tape-file
+33: these should be ignored.
+
+ We distributed the 80-81 data unaltered (on Disk 1 for
+incompressible flow and Disks 2 and 3 for compressible flow)
+and in full except for five very long files.   These
+exceptions are 0411 (circular cylinder), 0441 (stalled
+airfoil), 0511 (wing-body junction), 0512 (curved duct) and
+8602 (shock/BL interaction): they can be furnished on
+request. All files have the same names as the 80-81 cases,
+with prefix "F", e.g. F0141 for 80-81 case 0141,
+Samuel/Joubert boundary layer. For the 80-81 cases actually
+used in the Collaboration, we distributed unpacked and
+annotated data: these files are mostly on disk 4 onward, and
+have suffix "A": for example, unpacked and interpolated data
+for 80-81 case 0141 are on file F0141A. File 8501A (Disk 3)
+contains Papamoschou and Roshko's data for the spreading
+rate of compressible mixing layers, to replace the "Langley"
+correlation in 80-81 case 8501 (though it must be pointed
+out that the older correlation still has its adherents and
+that convective Mach number, the independent variable in
+F8501A, is not quite a unique parameter for two-stream
+mixing layers). The updated files for F0251 are in Directory 
+NLR3D on Disk D6.
+
+Some of the 80-81 cases were ignored in favor of more recent
+data sets for similar configurations.  These and other new
+cases are in the format supplied by the originators, but
+with some editing to produce reasonable uniformity. Since
+1981 it has become much easier to edit data files and we did
+not think it advisable to use Cantwell's format, which is
+easily read by machines but not by humans. The new test
+cases are labeled by the names of the originators (test
+cases actually used in the Collaboration were given code
+numbers, listed in Appendix B for the record). In Disks 1 to
+5 each test case is contained in one file. The more
+extensive complex-flow data on Disk 6 and in Disks R1 to R4
+are in separate directories for each case: Disk R5 contains
+only one case.
+
+For the new test cases, starting with Disk 4, the effort
+available allowed us, at most, to edit the data files so
+that a given line contains either alphabetic information
+(titles, etc) or numerical values, but not both. That is,
+modellers will merely have to edit out, or arrange their
+data-reading programs to ignore, lines that begin with alpha
+characters, and then use free-format reads for numerical
+data. We assume that all modelers are able to read free
+format numbers separated by spaces, e.g.
+
+1729 2.71828 6.6E-23 ........
+
+For the shorter data files such as correlations, which are
+more likely to be edited and plotted than read into the
+prediction program directly, we  inserted a "%" sign as the
+first character of every alphabetic line (this is the
+"comment" character in TeX: modellers who prefer another 
+"ignore this line" sign should be able to edit the "%" sign 
+into something else). For longer files, we  inserted a 
+standard "skip then read" line before each cluster of 
+alphabetic lines followed by data lines, as in the following 
+example..........
+
+  3  5  .... (2I3)  [skip three lines, then read five lines]
+In the second century of the Christian era, the Empire of
+Rome comprehended the fairest part of the earth, and the
+most civilised portion of mankind.
+4004
+8008
+8080
+8086
+80286
+  1  2              [another skip/read pair]
+
+94.305
+30.30
+
+................The modeller's program must be set up to
+read the two numbers on the "skip/read" line (NS, NR), then
+read NS lines into a dummy string, then read NR lines, then
+read the next skip/read pair. 
+
+Disk 5 contains selected test cases from the latest in the
+series of AGARDograph reviews of compressible flow data
+initiated by Hans Fernholz and John Finley, AGARDograph 315
+"A survey of measurements and measuring techniques in
+rapidly distorted compressible turbulent boundary layers" by
+H.H. Fernholz, P.J. Finley, J.P. Dussauge and A.J. Smits.
+The disk files are in the same format as the samples in the
+AGARDograph except that the double quote used for
+exponentiation has been replaced by the standard "E". The
+present organizers have added a few lower-case comments but
+made no other changes: in particular we have NOT inserted
+"skip then read" values. File names look similar to 80-81
+compressible cases but are distinct. The internal notation
+should be obvious, but note that "Pitot" pressure is the
+total pressure downstream of a normal shock. The full data
+set is available from  NASA Sci. and Tech. Info. Ctr., phone
+(301) 621-0204, or from the AGARD National Centers listed on
+p. 1-3 of AGARDograph 315.
+
+2.2 Test cases actually used
+
+Sections 2.2.1 and 2.2.2 are condensed versions of the
+descriptions and instructions for the simpler flows sent to 
+Collaborators: for more detail see file CASE15.TXT, but 
+note that section numbers do not correspond with those above.
+
+2.2.1 Simulation results for simple flows
+
+A major breakthrough since 1980-81 is the availability of
+simulation data, potentially including all possible
+turbulence statistics. Data for the NASA Ames simulations of
+a constant-pressure boundary layer (Spalart, J. Fluid Mech.
+187, 61) and a 2D duct ("channel") flow (Kim, Moin and
+Moser, e.g. J. Fluid Mech. 194, 15) are together in file
+SIMUL1.DAT on disk 4. These are nominally easy test cases,
+but provide a check on individual terms in turbulence models
+which cannot be measured directly and are especially useful 
+for testing near-wall ("low Reynolds number") models. The 
+Spalart boundary layer starts at an Retheta of only 300, and 
+initial conditions in a computation may obscure results.  
+One way of allowing initial conditions to decay is to start 
+at Retheta = 300 (or the lowest Reynolds number at which the 
+model allows turbulence to survive) and march forward, 
+increasing the viscosity at each step so that Retheta 
+remains constant, until the results cease to change: then 
+fix the viscosity and run on to Retheta = 600 and 1400.
+
+Complex-flow simulations are discussed in Section 2.2.4.
+
+2.2.2 Experimental data for simple incompressible flows
+
+Of the cases in the Stanford 80-81 data library, the Samuel-
+Joubert boundary layer in increasing adverse pressure
+gradient (case 0141) tests the ability to handle rapidly-
+growing flows, which can defeat transport equations for
+length scale (or time scale or dissipation).
+
+The homogeneous turbulence test cases (0371-0376) of the
+80-81 meeting are replaced by fewer and more recent data,
+except for the classical Comte-Bellot/Corrsin results (0371)
+for decay of isotropic turbulence. File PENVEN.DAT on Disk 4
+contains  data on response to plane strain and TAVOU.DAT on
+disk 4 contains homogeneous shear data (the latter data
+include microscale measurements from which dissipation can
+be deduced, but the answers proved to be not very accurate
+and it is suggested that initial dissipation rate be deduced
+from initial decay rate).
+
+In the Collaboration, free shear layer predictions were
+compared with consensus growth rates, and the only new free-
+shear-layer data set, the circular jet of Panchapakesan and
+Lumley (PANCH.DAT on Disk 4) was not used explicitly.
+
+The backward-facing step with inclined top wall was a
+"predictive" test case in 80-81, the measurements being
+reported by Driver and Seegmiller (AIAA J. 23, 163, 1985).
+The BAKSTP files on Disk 4 contain these and the same
+authors' data for a parallel top wall (the latter being a
+replacement for 80-81 test case 0420).
+
+2.2.3 Simple compressible flows
+
+The main compressible test cases were adiabatic and cold-
+wall constant-pressure flows up to M = 8 (80-81 test cases
+8101, 8201, approximately): most of the prediction methods
+produced results close to those of the Van Driest II skin-
+friction formula, and the predicted Reynolds-analogy factor
+St/(cf/2) did not vary significantly with wall temperature.
+Detailed comparisons with flat-plate data were not made.
+
+The mixing layer, case 8501 (new data in file F8501A), is
+the only flow which undoubtedly suffers from compressibility
+effects at non-hypersonic Mach numbers. None of the methods
+presented at the 1981 Stanford meeting could predict these
+effects, except by inserting arbitrary Mach-number-dependent
+coefficients. This happened again in the present
+Collaboration, with the difference that M-dependent terms
+with some physical basis are now the subject of active
+research. Two cautions should be issued: different workers
+use different definitions of mixing layer thickness, and
+doubts have been expressed about the use of "convection Mach
+number" to collapse data from two-stream mixing layers.
+
+The only case of a boundary layer in distributed adverse
+pressure gradient that was actually used was that of
+Fernando and Smits, starting at M=2.65 (AGARDograph 315,
+case 8601, and J. Fluid Mech. 211, 285, 1990). Mean-flow
+data are in file 8601 on disk 5, with turbulence data in
+8601T). A genuine boundary layer calculation using the
+measured wall pressure should be adequate, at least for skin
+friction determination. The skin friction coefficient in
+this flow happens to remain nearly constant but this is a
+coincidental balancing of pressure-gradient and Mach number
+effects: this is not a trivial test case.
+
+2.2.4 Complex (incompressible) flows
+
+Disk 6 contains incompressible complex flows, including
+computationally-simple 3-D and time-dependent flows. We give
+the full running instructions issued to the Collaborators,
+since the initial and boundary conditions in some of these
+flows need care. The data directories are as follows:--
+
+\SPALASK Two-dimensional sink-flow boundary layer
+         simulation.
+
+\ALVING  Two-dimensional boundary layer in and downstream of
+         a convex bend (stabilizing curvature: replaces 80-
+         81 case group 0230).
+
+\JOHNSON Two-dimensional boundary layer in  a concave bend
+         (destabilizing curvature: replaces 80-
+         81 case group 0230).
+
+\CASTRO  Two-dimensional stably-curved mixing layer (80-81
+         case 0331, edited).
+
+\LAUNDER Normally-impinging jet from a circular nozzle.
+
+\MORSE   Single-stream swirling jet in still air (80-81 case
+         0340, not used).
+
+\NLR3D   "Infinite" 35 deg. swept "wing" (80-81 case
+         0251, not used).
+
+\SPALA3D Pseudo-Ekman 3D boundary layer simulation.
+
+\JENSEN  One-dimensional time-periodic boundary layer.
+
+ All of these test cases are degenerate numerically,
+compared to fully-3D steady flow or 2D time-dependent flow,
+but they pose most of the modelling difficulties that appear
+in general flows, without posing the full numerical
+difficulties. Except for the simulations, dissipation data
+are not available. For the initial profiles, assume
+(dissipation) = (production), except for the swirling jet
+(see below).
+
+2.2.5 Running instructions for complex flows
+
+\SPALASK. Calculate two-dimensional sink-flow boundary
+layers (boundary-layer edge velocity inversely proportional
+to distance from sink) for the conditions of the three
+simulations by Spalart (J. Fluid Mech. 172, 307, 1986). The
+pressure-gradient parameter K=(nu/Ue2)dUe/dx defines the
+flow.  Note that (1/K) = Ue(x0 - x)/nu , where x0 is sink
+position. Values of K for the three cases are 1.5x10-6,
+2.5x10-6 and 2.75x10-6, in files SINK_K.150, SINK_K.250 and
+SINK_K.275 respectively. These flows are close to reverse
+transition, and Spalart's simulation at K = 3.0x10-6
+reverted to laminar flow. Therefore these are good test
+cases for near-wall models (shear stress gradient expressed
+in wall variables is large and negative). Simulation data
+are made dimensionless by wall variables and are exactly
+self-similar. Other nondimensionalizations are deducible as
+needed, given the value of U+ at the boundary layer edge,
+Ue+: for example delta+ = delta/[(x0 -x)KUe+]. For the three
+cases, the simulations give Ue+ = 20.015, 19.577, and
+19.418.
+
+Start by using the simulation data as initial conditions
+(the latter should of course be immaterial), and march until
+the results regain self-similarity or are obviously
+indicating reverse transition. Note that the tabulated
+"dissipation" in the budget for twice the turbulent kinetic
+energy is twice the rate of dissipation of turbulent energy!
+If possible, try other values of pressure-gradient parameter
+K, inside or outside the given range, to bracket your
+model's reverse-transition value of K. Plot cf, equal to
+2/(Ue+)2, against x u0 / nu, where u0 is initial value of
+friction velocity, until similarity is regained or until (x0
+- x) has halved, whichever distance is larger. Plot
+predicted similarity profiles against both y+ and ln y+, for
+U, -uv, and the highest-order quantities your model predicts
+(e.g. dissipation, pressure-strain term). Put simulation
+profiles on same graphs (use velocity-pressure-gradient term
+for pressure-strain data, provisionally: this implies
+neglect of transport by pressure fluctuations). If possible,
+"dissipation" should be true viscous dissipation of
+turbulent energy, nu(dui/dxj + dui/dxi)2/2, not the modified
+dissipation used in some turbulence models for convenience
+near the wall.
+
+
+\ALVING. Calculate a two-dimensional boundary layer in and
+downstream of a convex bend (stabilizing curvature: Alving,
+Smits and  Watmuff, J. Fluid Mech. vol. 211, p. 529, 1990;
+see also A.E. Alving, PhD thesis, Princeton University,
+1988). There is a full description of the experiment in
+README.TXT and dimensions, pressure coefficients, etc. in
+file INFO.DAT. The files have been left in exactly the
+(admirable) form prepared by Dr Alving. Note that no
+measurements were made within the bend, and that no
+turbulence measurements were reported at station 2, just
+downstream of the bend. Also note that static-pressure
+variations through the boundary layer were ignored, so that
+velocities evaluated from pitot traverses are actually the
+so-called "potential  velocity", Up, derived from
+Bernoulli's equation using the total pressure at height y
+and the static pressure at the wall. The velocity made using
+the external-stream total pressure and the wall static
+pressure is called the "potential wall velocity", Upw. A
+calculation using the boundary-layer approximation with the
+surface pressure as input will  - ideally - yield the
+potential velocity.
+
+Start the calculation at station 1, s = - 0.646m, and
+continue to station 9, s = 2.100m. Take the surface pressure
+coefficient from file CP1.DAT, noting that "Y" is the
+streamwise distance s. Interpolated pressure coefficients at
+the probe tip positions are in INFO.DAT. Unfortunately
+details of the contoured concave wall shape and of the
+quantity of suction applied to it are not available either
+in the journal paper or the thesis, making Navier-Stokes
+calculations difficult. Plot the experimental and calculated
+skin-friction coefficient against s (in meters). Plot
+experimental and calculated  shear-stress profiles in the
+form -uv / Uref2 against y (in meters) for each measured s-
+station excluding station 2, and include the wall values,
+utau2/Uref2. Use a separate graph for each station.
+
+
+\JOHNSON. Calculate a two-dimensional boundary layer in  a
+concave bend (destabilizing curvature: Johnson and Johnston,
+Rept MD-53, Mech Engg Dept, Stanford University, 1989).
+There is a full description of the experiment in file
+INDEX.TXT. Note that only the case with No turbulence grid
+is considered here, with data in the files whose names have
+an "N" as the second character, but grid data are also on
+the disk. The distance x is the arc length along the concave
+test surface measured from the start of curvature
+(represented by s in Alving's experiment). This experiment
+was done with an LDV in a low-speed water flow (with the
+bend in the horizontal plane) and no pressure measurements
+were made: as in Alving's experiment the walls were
+contoured to maintain constant pressure in and upstream of
+the bend but in this case the channel width is given as a
+function of x, in file xdata.dat. This file also contains
+some station data including the potential wall velocity Upw
+(as defined for Case 5.2).
+
+Start the calculation at station FN, x = - 56cm, and
+continue to station CN60, x = 142cm, after 60 deg. of
+turning. Note that the Reynolds number based on momentum
+thickness at station FN is only 1450. Plot the experimental
+and calculated skin-friction coefficient (based on Upw)
+against x (in cm). Plot experimental and calculated shear-
+stress profiles in the form -uv / Upw2 against y (in cm) for
+each measured x-station, and include the wall values, cf/2:
+use a separate graph for each station. Note that if Upw is
+really constant this is compatible with the plots against
+Uref requested for case 5.2.
+
+
+\CASTRO. Calculate the two-dimensional stably-curved mixing
+layer of Castro and Bradshaw (J. Fluid Mech. 73, 265, 1976).
+Data in 1980-81 format are in F0331 on Disk 1, but the Disk
+6 files have been completely reformatted into the same
+general style as the new test cases. The radial pressure
+gradient is large enough that thin-shear-layer calculations
+which neglect it are likely to give poor results. The data
+file includes the shape of a "reference streamline" within
+the irrotational core of the flow, and this is the most
+reliable choice for the inner boundary of a Navier-Stokes
+calculation. Conditions at "infinity" should not be
+critical, except that any constraint on entrainment through
+that boundary may lead to partial recirculation of the
+mixing layer, which should exit smoothly through the
+downstream end of the domain of integration (the "top" in
+the experiment).
+
+Start with a thin turbulent boundary layer at the nozzle
+exit, adjusting if necessary to obtain best agreement at the
+first measurement station. The upper boundary in a Navier-
+Stokes solution should be chosen well downstream of the last
+measurement station. Plot the maximum shear stress as a
+function of downstream distance and compare with the
+measurements.
+
+\LAUNDER. Calculate the normally-impinging jet from a
+circular nozzle two diameters above the impingement plate,
+with fully developed pipe flow at exit, at a Reynolds number
+of 23000 based on nozzle diameter and bulk-average velocity
+(Cooper, D.; Jackson, D.C.; Launder, B.E.; Liao, G.X.,
+Impinging jet studies for turbulence model assessment.  Part
+1 - Flow-field experiments, UMIST Mech Engg Dept TFD/92/5,
+1992).  If possible calculate heat transfer for a small
+temperature difference in air for the same conditions (Baugn
+and Shimizu, J. Heat Transfer 111, 1096, 1989), assuming
+uniform temperature at the pipe exit. This is a more
+complicated axisymmetric equivalent of the Castro flow.
+
+For initial conditions, use your own calculation of
+turbulent pipe flow at bulk-average Reynolds number of 23000
+and report cf or the pipe-flow friction factor. The nozzle
+lip thickness is 1/32 of the diameter. For the first
+calculation, assume atmospheric pressure over the whole of
+the exit plane and the cylindrical (or other) boundary at
+large distance from the jet axis. Assume that the exit plane
+is entirely an inflow boundary, with zero or negligibly
+small turbulence quantities everywhere outside the nozzle.
+Assume that the cylindrical boundary is entirely an outflow
+boundary, with zero radial gradient of (radius times
+variable) for all quantities, or take the boundary far
+enough away that "zero gradient of variable" is adequate.
+The real flow might have some inflow through the upper part
+of the cylindrical boundary. If this gives trouble, do
+further calculations, with your choice of boundary
+conditions for the nozzle lip and the outer boundaries, but
+still using your pipe-flow prediction to give total pressure
+at the nozzle exit. Plot the maximum resultant mean velocity
+against radial distance, and compare with data. If
+calculating heat transfer, plot Nusselt number (it is
+difficult to define a meaningful Stanton number).
+
+
+\MORSE. Calculate a single-stream swirling jet in still air,
+swirl number S = 0.4. This is the case of A.P. Morse (PhD
+thesis, London University, 1980: most accessible relevance
+is Gibson & Younis, Phys. Fluids 29, 38, 1986). The data,
+and a draft of the following instructions, were kindly
+supplied by Dr Younis. Data for max. axial and tangential
+velocity components (Umax and Wmax), and half-radius r1/2
+(where U=0.5Umax) are tabulated against x/D in file
+MORSE0.DAT (Wmax and r1/2 are given only at radial traverse
+stations). Profile data for x/D=0.5 (starting position),
+1.0, 2.0, 4.0, 6.0 and 10.0 are in files MORSE1.DAT to
+MORSE6.DAT, and include all mean velocity components and all
+Reynolds stresses. Reynolds number Uexit d / nu = 56000.
+
+Start at x/D=0.5. If needed, evaluate initial dissipation
+profile from inversion of the k, eps. formula for (x-r)-
+plane shear stress, as dissipation = cmu k2 (dU/dr)/(-uv),
+with cmu = 0.09. This is probably better than assuming
+(production) = (dissipation), but modelers are welcome to
+try the latter or other assumption, after trying the k, eps.
+derivation. For calculations by boundary layer methods,
+integrate the reduced radial momentum equation, dp/dr = - p
+W2/r and use upstream values to evaluate dp/dx (at x/D =
+0.5, assume  dp/dx = 0). Plot maximum circumferential mean
+velocity as a function of x and compare with data.
+
+
+\NLR3D. Calculate the "infinite" swept "wing" of van den
+Berg et al. (J. Fluid Mech. 70, 127, 1975).  Data in 1980-81
+format are in F0251 on Disk 1,  reformatted data on Disk 6.
+The normal pressure gradient is significant in the
+downstream region near separation, and Dr van den Berg has
+supplied a suggested pressure distribution along a line in
+the external stream, for use as the outer boundary condition
+in a Navier-Stokes calculation. In an N-S calculation, the
+streamwise pressure gradient should be relaxed at a short
+distance downstream of the last measurement station, to
+reattach the flow and ensure that the downstream boundary is
+an outflow boundary.
+
+Start a Navier-Stokes calculation with a thin turbulent
+boundary layer at the leading edge, adjusting if necessary
+to match the boundary layer at the first measurement
+station. In a boundary-layer calculation, use data at the
+first measurement station directly, and continue to the last
+measurement station or to separation, whichever comes first.
+Plot surface shear stress and wall flow angle (measured with
+respect to the x (tunnel) axis, not the local external
+stream) at each measurement station, and compare with data.
+
+
+\SPALA3D. Calculate the pseudo-Ekman 3D boundary layer of
+Spalart (J. Fluid Mech. 205, 319, 1989).  The variables are
+functions of y (vertical) and time t, but not of the
+horizontal coordinates x and z. Because of this simplicity,
+a program capable of computing steady flow over infinite
+swept wings (z coordinate along generators and d[ ]/dz=0)
+could be adapted: Ud[ ]/x becomes d[ ]/dt; Vd[ ]/dy and
+Wd[ ]/dz are zero - for different reasons - and the program
+can be stepped in time instead of marching in x. As for the
+self-similar sink flow, the initial conditions are
+immaterial and can therefore legally be taken straight from
+the data. Step in time until the periodic amplitude of one
+component of skin friction becomes constant again,
+indicating self-similarity. Report the peak-to-peak
+amplitude of skin friction coefficient.
+
+
+\JENSEN. Calculate the one-dimensional time-periodic
+boundary layer of Jensen, Sumer and Fredsoe (J. Fluid Mech.
+206, 265, 1989: only case 10 has been included here).
+Ensemble (phase) averages can be used in place of simple
+Reynolds averages. The convection term D/Dt reduces to
+partial d/dt, all spatial-derivative contributions being
+zero: thus a 2-D steady boundary-layer code can be easily
+adapted by equating Ud/dx to d/dt (U=constant=1 in that
+term) and imposing V=0, which follows from dU/dx=0.
+
+Start at t=0 with the experimental data for a suitable phase
+angle, and, using the measured, approximately-sinusoidal
+free-stream velocity as the outer boundary condition, march
+in time until the computed solution becomes periodic (same
+peak-to-peak amplitude in successive periods). Navier-Stokes
+codes should of course be run time-accurate, at least in the
+later stages of the calculation. Plot surface shear stress
+(normalized by the maximum free-stream dynamic pressure) as
+a function of phase angle and compare with the data.
+
+
+3. SELECTION OF "UNUSED" DATA
+
+This is not to be regarded as a definitive selection, but a
+set which happened to interest a particular expert. The
+names of the directories on Disks R1 to R7 are based on the
+names of the data originators, generally in alphabetical
+order. Because of the backup procedure used some data sets
+are split between two disks.
+
+Ahmed isothermal dump combustor with swirl (FAVALORO, S.C.
+et al., An experimental and computational investigation of
+isothermal swirling flow in an axisymmetric dump combustor,
+AIAA-89-0620)
+
+Anderson and Eaton 3D flow in wedge-plate junction
+(ANDERSON, S.D.; EATON, J.K., Reynolds stress development in
+pressure-driven three-dimensional boundary layers, J.Fluid
+Mech. 202, 263, 1989)
+
+Antonia wake with T fluctuations (ANTONIA, R.A.; BROWNE,
+L.W.B., Anisotropy of the temperature dissipation in a
+turbulent wake, J. Fluid Mech. 163, 393, 1986)
+
+Anwer curved pipe flow (ANWER, M.; SO, R.M.C.; LAI, Y.G.,
+Perturbation by and recovery from bend curvature of a fully
+developed turbulent pipe flow, Phys. Fluids A1, 1387, 1989.)
+
+Brereton unsteady boundary layer (Stanford rept TF-29 and
+Cornell TSF 5, plus free-stream vel from TF-18: BRERETON,
+G.J.; REYNOLDS, W.C.; JAYARAMAN, R., Response of a turbulent
+boundary layer to sinusoidal free-stream unsteadiness, J.
+Fluid Mech. 221, 131, 1990.
+
+Choi square-section duct, 180 deg bend, Re = 56, 690 (CHOI,
+Y.D.; MOON, C.; YANG, S.H., Measurememnt of turbulent flow
+characteristics of square duct with a 180o bend by hot wire
+anemometer, Proc. of Int. Sympo. on Engg Turb, Modeling and
+Meas., Dubrovnik 1990, and Trans Korea Soc. Mech Engrs 12,
+900, 1988).
+
+Davis transition duct (NASA TM 105210 [with data supplement]
+and DAVIS, D.O.; GESSNER, F.B., Experimental investigation
+of turbulent flow through a circular-to-rectangular
+transition duct, AIAA J. 30, 367, 1992).
+
+Devenport and Simpson wing/body junction with separation
+(DEVENPORT, W.J.; SIMPSON, R.L., Time-dependent and time-
+averaged turbulence structure near the nose of a wing-body
+junction, J. Fluid Mech. 210, 23, 1990).
+
+Kegelman and Roos delta wing (KEGELMAN, J.T.; ROOS, F.W.,
+The flowfields of bursting vortices over moderately swept
+delta wings, AIAA-90-0599, 1990). Two 1.2MB disks (R5A and
+R5B) or one 1.44 MB disk (R5).
+
+Nagano natural-convection boundary layer (TSUJI, T.; NAGANO,
+Y., Characteristics of a turbulent natural convection
+boundary layer along a vertical flat plate, Int. J. Heat and
+Mass Transf. 31, 1723, 1988).
+
+Nakabayashi Couette flow with fixed wavy wall (NAKABAYASHI,
+K.; KITOH, O.; IWATA, H., Turbulent Couette type flow with
+an alternating pressure gradient, Presented at 8th Symposium
+on Turbulent Shear Flows, Munich, poster no. I-13, 1991).
+
+Nakayama airfoil BL and wake (NAKAYAMA, A., Curvature and
+pressure-gradient effects on a small-defect wake, J.Fluid
+Mech. 175, 215, 1987)
+
+Pauley and Eaton vortices in boundary layer (Stanford rept.
+MD-51 and PAULEY, W.R.; EATON, J.K., Boundary layer
+turbulence structure in the presence of embedded streamwise
+vortex pairs, 7th Sympo. on Turbulent Shear Flows, Stanford
+Univ., 1989).
+
+Szczepura pipe expansion (axi. backstep: SZCZEPURA, R.T.,
+Flow characteristics of an axisymmetric sudden pipe
+expansion, British Central Elec. Gen. Board repts
+TPRD/B/0702/N85 and /0703/R86, 1986).
+
+Tavoularis homogeneous curved flow (HOLLOWAY, A.G.L.;
+TAVOULARIS, S., The effects of curvature on sheared
+turbulence, J. Fluid Mech. 237, 569, 1992).
+
+Zierke and Deutsch transitional cascade blade (NASA CR
+185118, 1989).
+
+4. OTHER DATA AVAILABLE ON DISK (mainly unedited)
+
+Bremhorst pulsed jet
+
+Brown cylinder-cone shock-BL interaction (NASA Ames)
+
+Coleman and Stollery M = 9 ramp (JFM 56, 741, 1972)
+
+Delville/Lemay/Bonnet boundary layer with LEBUs
+
+Dengel & Fernholz boundary layer near separation (Turbulent
+Shear Flows 7, paper 1.4, 1989)
+
+Driver spinning body (AIAA J. 25, 35, 1987)
+
+Driver axi. separation and reattachment (presented at Am.
+Phys. Soc. meeting, Nov. 89)
+
+Fujita square duct with two opposite rough walls,
+rectangular duct with one rough wall.
+
+Harvey hypersonic cone (mean profiles)
+
+Hastings/Wadcock stalled airfoil - 80-81 flow 0440
+
+Hoffmann ship stern (Hamburg Inst. fur Schiffbau Ber. 290,
+1976: see Larsson, SSPA-ITTC Workshop on Ship BLs 1980, SSPA
+pub. 90)
+
+Kawamura (i) reverse transition in strongly heated pipe flow
+(known inlet conditions but heat transfer measurements only)
+
+Karnik & Tavoularis diffusion from line source (J. Fluid
+Mech. 202, 233, 1989)
+
+Knight M=3 fin (AIAA 86-0343)
+
+Settles hypersonic fin shock/BL interaction
+
+SSPA, Gothenburg HSVA2 ship stern
+
+5. DATA VOLUNTEERED (OR RECOMMENDED) but not available in
+machine-readable form from the organizers: all enquiries
+should go to to the originators.
+
+Bandyopadhyay TBL on smooth-to-rough wall (JFM 180, 231,
+1987)
+Bandyopadhyay TBL on axi. bodies with various longitudinal
+curvature (AIAA J. 27, 274, 1989)
+Brune (i) 4-element high-lift airfoil (AIAA-83-0566) (ii)Pot
+- wake/plate interaction (NLR-TR 79063L, 1979)
+Castro (i) Johnson and Hancock impinging axi. jet (axi.
+equvalent of 0331, above; Turbulent Shear Flows 7, paper 28-
+5) (ii) Castro and Hacque normal plate and splitter (JFM
+179, 439, 1987)
+Chung (i) curved square-section duct with sheared and
+unsheared entry profiles (ii) swirling jets (iii) wall jet
+on convex surface
+Cimbala 2D momentumless wake (Turbulent Shear Flows 7, paper
+6.1)
+Coantic (i)Beguier - mixing layer and wake mixing with heat
+transfer  (ii) Elena - supersonic boundary layer on strongly
+heated wall (iii) Chauve - coaxial heated jet mixing in
+diffuser
+Comte-Bellot wall-pressure fluctuations statistics in 2D and
+3D boundary layers
+Dang simulations (i) homogeneous turbulence with strain or
+rotation, including scalar transport (ii) plane, curved or
+diverging channel flows
+Durst orifice plate (Turbulent Shear Flows 7, paper 10.4)
+Fernholz  3D flow over 2D normal plate - Jaroch and Fernholz
+J. Fluid Mech. 205, 523, 1989)
+Fujita (i) rectangular duct with one rough wall (Exptl.
+Thermo. and Fluid Sci. 2, 72, 1989) (ii) heat transfer in
+square duct with two rough facing walls (Chem. Engg. Comm.
+74, 95, 1988)
+Hanjalic (i) pulsating flow (Karlsruhe TSF) (ii) Deardorff
+buoyant flow
+Marasli plane wake (JFM 168, 31 - including x-wire rake
+traces)
+Miyake channel simulation with pseudo-wavy wall (represented
+by suction/injection)
+Pollard 3D wall jet (see 0264)
+Savill curved wake (IUTAM Complex Flow Sympo., Marseille)
+Simpson (i) separating diffuser flow (addition to 0431);
+(ii) unsteady versions of (i); (iv) Meier-like ellipsoid
+Squire transonic shock/BL interaction - interferometer
+density maps
+Van den Berg (i) GARTEUR (European collab.) swept wing - not
+available at end 1996 (iii) NLR airfoil with flap
+Vogel and Eaton heat transfer behind backstep (presented at
+TSF 5, Cornell 1985 - plus velocity field from Adams and
+Johnston, Expts. in Fluids 6, 400 and 493, 1988)
+Wood axi. diffuser with swirl.
+
+APPENDIX A      1980-81 TEST CASES
+
+This list is reproduced form the 1981 data tape. Details of
+publication, etc. are given in the individual data files:
+case numbers in CTTM are the 80-81 numbers prefixed by an
+"F" (and followed by an "A" if the data have been
+reformatted or otherwise upgraded). For full details of the
+1980-81 cases see the Proceedings,  "The 1980-81 AFOSR-HTTM-
+Stanford Conference on Complex Turbulent Flows" (S.J. Kline,
+B.J. Cantwell and G.M. Lilley, eds.), Mech. Engg Dept.,
+Stanford University, 1981: reprinted 1994.
+
+AFOSR-STANFORD LIBRARY OF EVALUATED TURBULENCE DATA -
+ INDEX TO THE TAPE
+
+CASE NUMBER       TITLE
+
+  0111            PO, J.K., LUND, E.G., &  
+                  GESSNER, F.B.;
+                  DEVELOPING FLOW IN A SQUARE
+                  DUCT.  (SECONDARY FLOW
+                  OF THE SECOND KIND)
+
+  0112            HINZE, J.O.;
+                  SECONDARY CURRENTS IN THE
+                  TURBULENT FLOW THROUGH A
+                  STRAIGHT CONDUIT.
+
+  0141            SAMUEL, A.E. & JOUBERT, P.N.;
+                  INCREASINGLY ADVERSE
+                  PRESSURE GRADIENT FLOW.
+
+  0142 & 0143     POZZORINI, R.;
+                  SIX-DEGREE CONICAL DIFFUSER
+                  FLOW, LOW AND HIGH CORE
+                  TURBULENCE.
+
+  0211            BRADSHAW, P., HANCOCK, P.E.;
+                  EFFECT OF FREE STREAM
+                  TURBULENCE.
+
+  0231 & 0232     HOFFMANN, P.H. & BRADSHAW, P.;
+                  TURBULENT BOUNDARY LAYERS
+                  ON SURFACES OF MILD
+                  LONGITUDINAL CURVATURE.
+
+  0233            GILLIS, J.C., JOHNSTON, J.P.;
+                  TURBULENT BOUNDARY LAYER
+                  ON A CONVEX, CURVED SURFACE.
+
+  0234            HUNT, I.A. & JOUBERT, P.N.;
+                  EFFECTS OF SMALL STREAMLINE
+                  CURVATURE ON TURBULENT DUCT
+                  FLOW.
+
+  0235            SMITS, A.J., YOUNG, S.T.B.
+                  & BRADSHAW, P.;
+                  THE EFFECTS OF SHORT REGIONS
+                  OF HIGH SURFACE CURVATURE ON
+                  TURBULENT BOUNDARY LAYERS.
+                  (CONVEX 30 DEGREES)
+
+  0241            ANDERSEN, P.S., KAYS, W.M.
+                  & MOFFAT, R.J.;
+                  ZERO PRESSURE GRADIENT
+                  CONSTANT INJECTION.
+
+  0242            ANDERSEN, P.S., KAYS, W.M.
+                  & MOFFAT, R.J.;
+                  ADVERSE PRESSURE GRADIENT
+                  WITH CONSTANT SUCTION.
+
+  0244            FAVRE, A., DUMAS, R.,
+                  VEROLLET, E. AND COANTIC, M.;
+                  ZERO PRESSURE GRADIENT WITH
+                  CONSTANT SUCTION.
+
+  0251            NLR INFINITE SWEPT WING
+                  EXPERIMENT.
+
+  0252            PART-ROTATING CYLINDER
+                  EXPERIMENT.
+                  (BISSONNETTE & MELLOR)
+
+  0253            CYLINDER ON A FLAT TEST
+                  PLATE.
+                  (DECHOW & FELSCH)
+
+  0254            PART-ROTATING CYLINDER.
+                  (LOHMANN)
+
+  0261, 0263, 0264TURBULENT WALL JET DATA
+                  COLLECTED FROM VARIOUS
+                  SOURCES.
+
+  0311            PLANAR MIXING LAYER
+                  DEVELOPING FROM TURBULENT
+                  WALL BOUNDARY LAYERS.
+
+  0331            CASTRO, I.P. & BRADSHAW, P.;
+                  THE TURBULENCE STRUCTURE
+                  OF A HIGHLY CURVED MIXING
+                  LAYER.
+
+  0361            CHEVRAY, R.;
+                  THE TURBULENT WAKE OF A
+                  BODY OF REVOLUTION.
+
+  0370 (0371,     HOMOGENOUS TURBULENT FLOWS.
+  0372, 0373,
+  0374, 0375,
+  0376)
+
+  0381 & 0382     ANDREOPOULOS, J. &
+                  BRADSHAW, P.;
+                  MEASUREMENTS OF INTERACTING
+                  TURBULENT SHEAR LAYERS IN
+                  THE NEAR WAKE OF AN AIRFOIL.
+
+  0411            CANTWELL, B.J. & COLES, D.;
+                  A FLYING HOT WIRE STUDY OF
+                  THE TURBULENT NEAR WAKE OF A
+                  CIRCULAR CYLINDER AT A
+                  REYNOLDS NUMBER OF 140000.
+
+  0421            KIM, J., KLINE, S.J. &
+                  JOHNSTON, J.P.;
+                  FLOW OVER A BACKWARD
+                  FACING STEP.
+
+  0431            CHEW, Y.T., SIMPSON, R.L. &
+                  SHIVAPRASAD, B.G.;
+                  SEPARATING ADVERSE PRESSURE
+                  GRADIENT FLOW.
+
+  0441            WADCOCK, A.J. & COLES, D.E.;
+                  FLYING-HOT WIRE STUDY OF
+                  TWO-DIMENSIONAL TURBULENT
+                  SEPARATION OF AN NACA 4412
+                  AIRFOIL AT MAXIMUM LIFT.
+
+  0471            VISWANATH, P.R., CLEARY,
+                  T.W., SEEGMILLER, H.L. &
+                  HORSTMAN, C.C.;
+                  TRAILING-EDGE FLOWS AT HIGH
+                  REYNOLDS NUMBER.
+
+  0511            SHABAKA, I.M.M.A;
+                  TURBULENT FLOW IN AN
+                  IDEALIZED WING-BODY JUNCTION.
+
+  0512            HUMPHREY, J.A.C.;
+                  TURBULENT FLOW IN A CURVED
+                  DUCT OF SQUARE CROSS-SECTION.
+
+  0612            WIEGHARDT, K.;
+                  ON THE TURBULENT FRICTION
+                  LAYER FOR RISING PRESSURE.
+
+  8301            THOMAS, G.D.;
+                  FAVORABLE PRESSURE GRADIENT
+                  AT SUPERSONIC SPEEDS WITH
+                  INJECTION.
+
+  8401            PEAKE, D.J., BRAKMANN, G. &
+                  ROMESKIE, J.M.;
+                  BOUNDARY LAYER IN ADVERSE
+                  PRESSURE GRADIENT.
+
+  8402            LEWIS, J.E., GRAN, R.L. &
+                  KUBOTA, T.;
+                  BOUNDARY LAYER IN ADVERSE
+                  PRESSURE GRADIENT.
+
+  8403            KUSSOY, M.I., HORSTMAN, C.C.
+                  & ACHARYA, M.;
+                  PRESSURE GRADIENT AND
+                  REYNOLDS NUMBER EFFECTS ON
+                  COMPRESSIBLE TURBULENT
+                  BOUNDARY LAYERS IN SUPER-
+                  SONIC FLOW.
+
+  8411            ZWARTS, F.J.;
+                  BOUNDARY LAYER IN ADVERSE
+                  PRESSURE GRADIENT.
+
+  8501            COMPRESSIBILITY EFFECTS
+                  ON FREE SHEAR LAYERS.
+                  (BRADSHAW)
+
+  8601            MATEER, G.C., BOSH, A. &
+                  VIEGAS, J.;
+                  NORMAL SHOCK-WAVE/TURBULENT
+                  BOUNDARY-LAYER INTERACTION
+                  AT TRANSONIC SPEEDS.
+
+  8602            KOOI, J.W.;
+                  INFLUENCE OF FREE STREAM
+                  MACH NUMBER ON TRANSONIC
+                  SHOCK-WAVE BOUNDARY LAYER
+                  INTERACTION.
+
+  8611            BACHALO, W.D. & JOHNSON,D.A.;
+                  TRANSONIC TURBULENT BOUNDARY
+                  LAYER SEPARATION ON AN
+                  AXISYMMETRIC BUMP.
+
+  8612            DELERY, J. & LE DUIZET;
+                  TRANSONIC FLOW OVER
+                  2-DIMENSIONAL BUMP, M = 1.37.
+
+  8621            COOK, P.H., MCDONALD, M.A. &
+                  FIRMIN, M.C.P.;
+                  AEROFOIL RAE 2822 - PRESSURE
+                  DISTRIBUTION AND BOUNDARY
+                  LAYER AND WAKE MEASUREMENTS.
+
+  8623            SPAID, F.W. & STIVERS, L.S.;
+                  SUPERCRITICAL AIRFOIL
+                  BOUNDARY LAYER MEASUREMENTS.
+
+  8631            SETTLES, G.S., FITZPATRICK,
+                  T.J. & BOGDONOFF, S.M.;
+                  ATTACHED AND SEPARATED
+                  COMPRESSION CORNER FLOW
+                  FIELDS IN HIGH REYNOLDS
+                  NUMBER SUPERSONIC FLOW.
+
+  8632            DUSSAUGE, J. & GAVIGLIO, J.;
+                  TURBULENT BOUNDARY-LAYER
+                  /EXPANSION INTERACTION AT
+                  SUPERSONIC SPEED.
+
+  8641            SETTLES, G.S., BACA, B.K.,
+                  WILLIAMS, D.R. & BOGDONOFF,
+                  S.M.;
+                  REATTACHING PLANAR FREE SHEAR
+                  LAYER. (SUPERSONIC)
+
+  8651            HORSTMAN, C.C. & KUSSOY, M.I.;
+                  HYPERSONIC SHOCK WAVE
+                  TURBULENT BOUNDARY LAYER
+                  INTERACTION-WITH AND WITHOUT
+                  SEPARATION.
+
+  8661            PEAKE, D.J.;
+                  THREE DIMENSIONAL SWEPT
+                  SHOCK/TURBULENT BOUNDARY
+                  LAYER INTERACTION.
+
+  8663            KUSSOY, M.I., VIEGAS, J.R.
+                  & HORSTMAN, C.C.;
+                  INVESTIGATION OF 3-D SHOCK
+                  SEPARATED TURBULENT BOUNDARY
+                  LAYER.
+
+  8671            POINTED AXISYMMETRIC BODIES
+                  AT ANGLE OF ATTACK
+                  -SUPERSONIC. (RAINBIRD)
+
+  8691            MCDEVITT, J.B., SEEGMILLER,
+                  H.L. & OKUNO, H.L.;
+                  NON-LIFTING TRANSONIC
+                  AIRFOIL, SHOCK-SEPARATED
+                  FLOW.
+
+(Hard copies of this document distributed from Stanford
+contain the more detailed list of test cases reproduced from
+vol. 1, pp. 624-632 of the 1980-81 Proceedings).
+
+Appendix B  SUMMARY OF DATA ACTUALLY USED (Disks 1 to 6)
+
+Note that identification numbers refer to the class of flow
+(incompressible/compressible/complex) and not the disk
+number.
+
+Entry test cases: flat plate skin friction and heat transfer
+at momentum-thickness Reynolds number of 10000:
+
+(i) M=0 adiabatic (ii) M=0 heat transfer with small
+temperature difference (iii) M=0 heat transfer with Tw/Te=6
+(iv) M=5 adiabatic.
+
+August 1990 test cases (canonical flows and backstep)
+
+(a) Incompressible flows (disks 1, 4)
+
+3.1 Boundary layer in increasing adverse pressure gradient -
+       80-81 case 0141, Samuel and Joubert
+3.2.1 Boundary layer simulation - Spalart
+3.2.2 Duct simulation - Kim, Moin and Moser
+3.3.1 Homogeneous turbulence, unstrained - 80-81 case 0371
+3.3.2 Homogeneous turbulence, strained - Le Penven et al.
+3.3.1 Homogeneous turbulence, sheared - Tavoularis & Karnik
+3.4.1 Round jet in still air          )
+3.4.2 Plane jet in still air          )Data correlations
+3.4.3 Plane mixing layer in still air )
+3.5.1 Backward-facing step in duct with 6 deg. expansion
+       angle - Driver and Seegmiller
+3.5.2 Backward-facing step in  duct with parallel top wall
+
+(b) Compressible flows
+
+4.1.1 Skin friction on an adiabatic wall at M = 2, 3 and 8
+4.1.2 Skin friction and heat transfer at M=5, for Tw/Taw =
+      0.2, 0.4, 0.6 and 0.8.
+4.2 Compressible mixing layer (plot spreading rate against
+    Mc)
+4.3.1 Boundary layer of Fernando and Smits (disk 5).
+
+
+August 1991 test cases - incompressible complex flows (disk
+6)
+
+5.1  Two-dimensional sink-flow boundary layer simulation -
+     Spalart
+5.2  Two-dimensional boundary layer in and downstream of a
+     convex bend (stabilizing curvature) - Alving
+5.3  Two-dimensional boundary layer in  a concave bend
+     (destabilizing curvature) - Johnson
+5.4  Two-dimensional stably-curved mixing layer - Castro.
+5.5  Normally-impinging jet from a circular nozzle - Cooper
+5.6  Single-stream swirling jet in still air - Morse
+5.7  "Infinite" 35 deg. swept "wing" - Van den Berg
+5.8  Pseudo-Ekman 3D boundary layer simulation - Coleman
+5.9  One-dimensional time-periodic boundary layer - Jensen
+
+
+
+APPENDIX C    DISK DIRECTORIES
+
+Disk 1: 80-81 incompressible data
+(0411, 0441, 0511, 0512 absent)
+
+DIR8081           1323 03-08-90  12:20p
+INDEX            14336 05-09-85   2:58a
+F0612            36736 05-24-85   1:51a
+F0111            82688 05-09-85   3:51a
+F0112            17920 05-09-85   4:11a
+F0141            62720 05-09-85   6:42a
+F0142           124948 01-01-80  12:22a
+F0211             7168 05-10-85   1:56a
+F0231            39936 01-01-80   3:40a
+F0233            57600 05-10-85   3:19a
+F0234            69120 05-10-85   3:59a
+F0235            36992 05-10-85   4:43a
+F0241            14720 05-10-85   5:05a
+F0242            23936 05-10-85   1:53a
+F0244            19968 05-13-85   5:31a
+F0251            42880 05-13-85   6:40a
+F0252            26496 05-13-85   7:15a
+F0253            40064 05-13-85   8:17a
+F0254            27520 05-14-85   7:06a
+F0261            26752 05-14-85   7:44a
+F0311            11008 05-15-85   1:32a
+F0331            73126 02-06-90   2:14p
+F0361            84304 01-01-80  12:44a
+F0370            24448 05-15-85   1:42a
+F0381            62208 05-15-85   3:39a
+F0421            37376 06-12-85   2:26a
+F0431            57088 06-12-85   3:07a
+F0471            61312 05-23-85   2:27a
+README   1        1231 03-08-90  12:19p
+PPLOT    DOC     16665 03-20-90  10:36a
+       30 file(s)    1202589 bytes
+                        6144 bytes free
+
+
+Disk 2: 80-81 compressible data, part 1
+(8602 absent)
+
+F8301            16000 05-24-85   2:59a
+F8401            18688 05-24-85   5:37a
+F8402            32768 05-28-85   1:23a
+F8403           228288 01-01-80   2:33a
+F8411            15616 05-29-85   3:00a
+F8501             5888 05-29-85   1:23a
+F8601            61440 05-29-85   2:48a
+F8611            27136 06-06-85   1:30a
+F8612            91392 06-06-85   2:24a
+F8621           237062 01-01-80   3:22a
+F8623           189666 01-01-80   3:29a
+F8631           222958 01-01-80   3:33a
+F8632            61952 06-07-85   3:43a
+DIR8081  2         749 03-08-90   1:20p
+README   2         351 03-08-90   1:19p
+       15 file(s)    1209954 bytes
+                        1024 bytes free
+
+
+Disk 3: 80-81 compressible data, part 2
+
+F8641            38144 06-07-85   4:09a
+F8651           194258 01-01-80   3:41a
+F8661            14592 06-08-85   1:16a
+F8663           196882 01-01-80   3:47a
+F8671            65792 01-11-85   1:51a
+F8691            26752 01-11-85   2:08a
+README   3         364 03-08-90   1:22p
+DIR8081  3         503 04-09-90  11:05a
+F8501A            1835 04-09-90  10:54a
+        9 file(s)     539122 bytes
+                      672768 bytes free
+
+
+Disk 4: new incompressible cases, part 1
+
+F0141A           45204 04-05-90   4:21p
+SIMUL1   DAT    215974 03-06-90  12:36p
+PENVEN   DAT      2873 04-04-90   4:04a
+SIMUL1   FOR       597 03-06-90  12:30p
+TAVOU    DAT      2351 04-05-90   5:43p
+PANCH    DAT    112590 04-06-90  12:49p
+BAKSTP1  DAT    110848 04-06-90  10:15a
+BAKSTP3  DAT     73895 04-06-90  10:18a
+BAKSTP2  DAT     18960 04-06-90  10:25a
+BAKSTP   FOR       709 02-16-90   4:14p
+DIR      4         508 04-09-90  11:08a
+DIR1-5            4537 04-09-90  11:16a
+       12 file(s)     589046 bytes
+                      621056 bytes free
+
+
+Disk 5: new compressible cases (AG-315)
+
+8701-S7T          5692 04-04-90   1:37a
+8601             73949 04-04-90   1:41a
+CONTENTS         10325 04-04-90   2:23a
+7904-S1          73669 04-04-90   1:09a
+8602-A           42485 04-04-90   1:15a
+7904-S2         125036 04-04-90   1:08a
+7904-S3         119548 04-04-90   1:10a
+7904-S4         191665 04-04-90   1:10a
+7904-S5          56855 04-04-90   1:11a
+8602-B           47938 04-04-90   1:16a
+8603             57590 04-04-90   1:16a
+8601T            18179 04-04-90   1:26a
+8602T             3261 04-04-90   1:28a
+8603T            16197 04-04-90   1:29a
+8701-S1T         42482 04-04-90   1:30a
+8701-S2T         10750 04-04-90   1:31a
+8701-S3T         25408 04-04-90   1:31a
+8701-S4T         15009 04-04-90   1:32a
+8701-S5T         16831 04-04-90   1:32a
+8701-S6T         14511 04-04-90   1:32a
+DIR315   5         918 04-09-90  11:10a
+       21 file(s)     968298 bytes
+                      211456 bytes free
+
+
+Disk 6: new incompressible cases, part 2
+
+SPALASK      <DIR>     06-12-90   1:53p
+SPALA3D      <DIR>     11-02-90   2:52p
+ALVING       <DIR>     11-02-90   2:53p
+JOHNSON      <DIR>     11-02-90   2:59p
+JENSEN       <DIR>     12-14-90   4:08p
+LAUNDER      <DIR>     01-03-91   8:50a
+NLR3D        <DIR>     01-03-91   1:39p
+MORSE        <DIR>     06-12-90   1:51p
+CASTRO       <DIR>     01-03-91   5:20p
+        9 file(s)          0 bytes
+                      631296 bytes free
+
+
+Disk R1: Selection of unused data, part 1
+
+AHMED        <DIR>     04-01-93   4:11p
+ANDER        <DIR>     04-01-93   4:13p
+ANTON        <DIR>     04-01-93   4:16p
+ANWER        <DIR>     04-01-93   4:17p
+BRERE        <DIR>     04-01-93   4:20p
+CONTENT           1229 04-01-93   5:32p
+        6 file(s)       1229 bytes
+                      185344 bytes free
+
+
+Disk R2: Selection of unused data, part 2
+
+CHOI         <DIR>     04-01-93   4:26p
+DEVEN        <DIR>     04-01-93   4:30p
+BRERE        <DIR>     04-01-93   4:23p
+        3 file(s)          0 bytes
+                      212992 bytes free
+
+
+Disk R3: Selection of unused data, part 3
+
+DEVEN        <DIR>     04-01-93   4:39p
+NAGANO       <DIR>     04-01-93   5:11p
+NAKAB        <DIR>     04-01-93   5:14p
+NAKAY        <DIR>     04-01-93   5:15p
+        4 file(s)          0 bytes
+                       86528 bytes free
+
+
+Disk R4: Selection of unused data, part 4
+
+PAULEY       <DIR>     04-01-93   5:17p
+SZCZE        <DIR>     04-01-93   5:23p
+TAVOUK       <DIR>     04-01-93   5:24p
+ZIERKE       <DIR>     04-01-93   5:27p
+        4 file(s)          0 bytes
+                      325632 bytes free
+
+
+Disk R5: Selection of unused data, part 5.
+Kegelman and Roos delta-wing data in PLOT3D
+"XYZ" and "Q" file format. (Split on to two
+disks, R5A and R5B, in 5-1/4" 1.2MB format.)
+
+QA733    FMT    527202 04-02-93   9:52a
+QP733    FMT    296202 04-02-93   9:52a
+XA733    FMT    316284 04-02-93   9:52a
+XP733    FMT    177684 04-02-93   9:52a
+VORTICIT COM       326 04-02-93   9:53a
+TPLOSS   COM       256 04-02-93   9:53a
+        6 file(s)    1317954 bytes
+                      138240 bytes free
+
+
+Disk R6: Selection of unused data, part 6
+ Volume in drive A has no label
+ Directory of A:\
+
+DAVTRAN      <DIR>     11-12-93   6:19p
+        1 file(s)          0 bytes
+                      187904 bytes free
+
+
+Disk R7: Selection of unused data, part 7
+
+ Volume in drive A has no label
+ Directory of A:\
+
+DAVTRAN      <DIR>     11-12-93   6:31p
+        1 file(s)          0 bytes
+                      625664 bytes free
+

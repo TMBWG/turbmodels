@@ -1,0 +1,796 @@
+\batchmode
+
+
+\usepackage[dvips]{color}
+
+
+\pagecolor[gray]{.7}
+
+\usepackage[]{inputenc}
+
+
+
+\makeatletter
+
+\makeatletter
+\count@=\the\catcode`\_ \catcode`\_=8 
+\newenvironment{tex2html_wrap}{}{}%
+\catcode`\<=12\catcode`\_=\count@
+\newcommand{\providedcommand}[1]{\expandafter\providecommand\csname #1\endcsname}%
+\newcommand{\renewedcommand}[1]{\expandafter\providecommand\csname #1\endcsname{}%
+  \expandafter\renewcommand\csname #1\endcsname}%
+\newcommand{\newedenvironment}[1]{\newenvironment{#1}{}{}\renewenvironment{#1}}%
+\let\newedcommand\renewedcommand
+\let\renewedenvironment\newedenvironment
+\makeatother
+\let\mathon=$
+\let\mathoff=$
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\global\topskip=2sp
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\liih@math{\ifmmode$\else\bad@math\fi}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\let\if@boxedmulticols=\iftrue
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize
+ \parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}%
+ \def\phantompar{\csname par\endcsname}\normalsize}%
+\def\lthtmltypeout#1{{\let\protect\string \immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup\kern.05em }%
+\newcommand\lthtmlhboxmathB{\adjustnormalsize\setbox\sizebox=\hbox to\hsize\bgroup\hfill }%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup %
+ \let\ifinner=\iffalse \let\)\liih@math }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\gdef\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\dimen0\ht\sizebox \advance\dimen0\dp\sizebox
+  \ifdim\dimen0>.95\vsize
+   \lthtmltypeout{%
+*** image for \lthtmlmathenv\space is too tall at \the\dimen0, reducing to .95 vsize ***}%
+   \ht\sizebox.95\vsize \dp\sizebox\z@ \fi
+  \lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlpictureA{\bgroup\catcode`\_=8 \lthtmlpictureB}%
+\newcommand\lthtmlpictureB[1]{\lthtmlmathtype{#1}\egroup
+       \let\@savefreelist\@freelist \lthtmlhboxmathB}%
+\newcommand\lthtmlpictureZ[1]{\hfill\lthtmlfigureZ}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA{\bgroup\catcode`\_=8 \lthtmldisplayAi}%
+\newcommand\lthtmldisplayAi[1]{\lthtmlmathtype{#1}\egroup\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA{\bgroup\catcode`\_=8 \lthtmlinlinemathB}
+\newcommand\lthtmlinlinemathB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA
+  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlineA{\bgroup\catcode`\_=8 \lthtmlinlineB}%
+\newcommand\lthtmlinlineB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA}%
+\newcommand\lthtmlinlineZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetinline}
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\newcommand\lthtmlindisplaymathZ{\egroup %
+  \centerinlinemath\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetinline{\hbox{\vrule width.1em \vtop{\vbox{%
+  \kern.1em\copy\sizebox}\ifdim\dp\sizebox>0pt\kern.1em\else\kern.3pt\fi
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\lthtmlsetmath{\hbox{\vrule width.1em\kern-.05em\vtop{\vbox{%
+  \kern.1em\kern0.8 pt\hbox{\hglue.17em\copy\sizebox\hglue0.8 pt}}\kern.3pt%
+  \ifdim\dp\sizebox>0pt\kern.1em\fi \kern0.8 pt%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{%
+  \dimen1=\ifdim\ht\sizebox<\dp\sizebox \dp\sizebox\else\ht\sizebox\fi
+  \advance\dimen1by.5pt \vrule width0pt height\dimen1 depth\dimen1 
+ \dp\sizebox=\dimen1\ht\sizebox=\dimen1\relax}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize 
+  \ifdim\wd\sizebox<\hsize\expandafter\hfill\fi \expandafter\vfill
+  \else\expandafter\vss\fi}%
+\providecommand{\selectlanguage}[1]{}%
+\makeatletter \tracingstats = 1 
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}\lthtmltypeout{}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\lthtmltypeout{}%
+\makeatother
+\setcounter{page}{1}
+\onecolumn
+
+% !!! IMAGES START HERE !!!
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath2}%
+\begin{displaymath}
+\tau_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath5}%
+\begin{displaymath}
+\overline \rho \hat R_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath8}%
+\begin{displaymath}
+-\tau_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath11}%
+\begin{displaymath}
+\overline \rho \hat R_{ij} = -\tau_{ij} = \overline {\rho u_i'' u_j''}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath16}%
+\begin{displaymath}
+\frac{\partial \overline \rho \hat R_{ij}}{\partial t} +
+\frac{\partial (\overline \rho \hat u_k \hat R_{ij})}{\partial x_k} = \overline \rho P_{ij} +
+\overline \rho \Pi_{ij} - \overline \rho \varepsilon_{ij} + \overline \rho D_{ij} +
+\overline \rho M_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath27}%
+\begin{displaymath}
+\overline \rho P_{ij} = - \overline \rho \hat R_{ik}
+\frac{\partial \hat u_j}{\partial x_k}
+- \overline \rho \hat R_{jk}
+\frac{\partial \hat u_i}{\partial x_k}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath36}%
+\begin{displaymath}
+\overline \rho \varepsilon_{ij} = \frac{2}{3} \overline \rho \varepsilon \delta_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath42}%
+\begin{displaymath}
+\varepsilon = C_{\mu} \hat k \omega
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath45}%
+\begin{displaymath}
+\hat k = \hat R_{ii}/2
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath48}%
+\begin{displaymath}
+\overline \rho \Pi_{ij} = - \left( C_1 \overline \rho \varepsilon +
+\frac{1}{2} C_1^* \overline \rho P_{kk} \right) \hat a_{ij} +
+C_2 \overline \rho \varepsilon \left( \hat a_{ik} \hat a_{kj} -
+\frac{1}{3} \hat a_{kl} \hat a_{kl} \delta_{ij} \right) +
+\left( C_3 - C_3^* \sqrt{\hat a_{kl} \hat a_{kl}} \right)
+\overline \rho \hat k \hat S_{ij}^* +
+C_4 \overline \rho \hat k \left( \hat a_{ik} \hat S_{jk} +
+\hat a_{jk} \hat S_{ik} - \frac{2}{3} \hat a_{kl} \hat S_{kl} \delta_{ij} \right) +
+C_5 \overline \rho \hat k \left( \hat a_{ik} \hat W_{jk} + \hat a_{jk} \hat W_{ik} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath78}%
+\begin{displaymath}
+\hat a_{ij} = \frac{\hat R_{ij}}{\hat k} - \frac{2}{3} \delta_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath86}%
+\begin{displaymath}
+\hat S_{ij} = \frac{1}{2} \left( \frac{\partial \hat u_i}{\partial x_j} +
+\frac{\partial \hat u_j}{\partial x_i} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath95}%
+\begin{displaymath}
+\hat S_{ij}^* = \hat S_{ij} - \frac{1}{3} \hat S_{kk} \delta_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath103}%
+\begin{displaymath}
+\hat W_{ij} = \frac{1}{2} \left( \frac{\partial \hat u_i}{\partial x_j} -
+\frac{\partial \hat u_j}{\partial x_i} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath112}%
+\begin{displaymath}
+\overline \rho D_{ij} = \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu \delta_{kl} + D \frac{\overline \rho \hat k \hat R_{kl}}{\varepsilon}
+\right) \frac{\partial \hat R_{ij}}{\partial x_l} \right]
+= \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu \delta_{kl} + D \frac{\overline \rho \hat R_{kl}}{C_{\mu} \omega}
+\right) \frac{\partial \hat R_{ij}}{\partial x_l} \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath129}%
+\begin{displaymath}
+\overline \rho M_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath132}%
+\begin{displaymath}
+\frac{\partial (\overline \rho \omega)}{\partial t} +
+  \frac{\partial (\overline \rho \hat u_k \omega)}{\partial x_k}
+  = \frac{\alpha_{\omega} \omega}{\hat k} \frac{\overline \rho P_{kk}}{2} -
+  \beta_{\omega} \overline \rho \omega^2 + \frac{\partial}{\partial x_k}
+  \left[ \left( \overline \mu + \sigma_{\omega} \frac{\overline \rho \hat k}{\omega} \right)
+  \frac{\partial \omega}{\partial x_k} \right] +
+  \sigma_d \frac{\overline \rho}{\omega} {\rm max} \left( \frac{\partial \hat k}{\partial x_j}
+  \frac{\partial \omega}{\partial x_j}, 0 \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath157}%
+\begin{displaymath}
+\phi = F_1 \phi^{(\omega)} + (1-F_1) \phi^{(\varepsilon)}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath161}%
+\begin{displaymath}
+F_1 = tanh(\zeta^4)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath163}%
+\begin{displaymath}
+\zeta = {\rm min} \left[ {\rm max} \left(
+\frac{\sqrt{\hat k}}{C_{\mu} \omega d} , \frac{500 \hat \mu}{\overline \rho \omega d^2} \right) ,
+\frac{4 \sigma_{\omega}^{(\varepsilon)}\overline \rho \hat k}
+{(CD) d^2} \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath174}%
+\begin{displaymath}
+(CD) = \sigma_d^{(\varepsilon)} \frac{\overline \rho}{\omega}
+{\rm max} \left( \frac{\partial \hat k}{\partial x_k}
+\frac{\partial \omega}{\partial x_k}, 0 \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath184}%
+\begin{displaymath}
+C_{\mu} = 0.09
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath187}%
+\begin{displaymath}
+\omega
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath189}%
+\begin{displaymath}
+\alpha_{\omega}^{(\omega)} = 0.5556
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath193}%
+\begin{displaymath}
+\beta_{\omega}^{(\omega)} = 0.075
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath197}%
+\begin{displaymath}
+\sigma_{\omega}^{(\omega)} = 0.5
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath201}%
+\begin{displaymath}
+\sigma_d^{(\omega)} = 0
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath204}%
+\begin{displaymath}
+C_1^{(\omega)} = 1.8
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath207}%
+\begin{displaymath}
+C_1^{*(\omega)} = 0
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath210}%
+\begin{displaymath}
+C_2^{(\omega)} = 0
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath213}%
+\begin{displaymath}
+C_3^{(\omega)} = 0.8
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath216}%
+\begin{displaymath}
+C_3^{*(\omega)} = 0
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath219}%
+\begin{displaymath}
+C_4^{(\omega)} = 0.5 (18 C_2^{(LRR)} + 12) / 11
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath223}%
+\begin{displaymath}
+C_5^{(\omega)} = 0.5 (-14 C_2^{(LRR)} + 20)/11
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath227}%
+\begin{displaymath}
+D^{(\omega)} = 0.75 C_{\mu}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath231}%
+\begin{displaymath}
+\varepsilon
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath233}%
+\begin{displaymath}
+\alpha_{\omega}^{(\varepsilon)} = 0.44
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath237}%
+\begin{displaymath}
+\beta_{\omega}^{(\varepsilon)} = 0.0828
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath241}%
+\begin{displaymath}
+\sigma_{\omega}^{(\varepsilon)} = 0.856
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath245}%
+\begin{displaymath}
+\sigma_d^{(\varepsilon)} = 1.712
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath248}%
+\begin{displaymath}
+C_1^{(\varepsilon)} = 1.7
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath251}%
+\begin{displaymath}
+C_1^{*(\varepsilon)} = 0.9
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath254}%
+\begin{displaymath}
+C_2^{(\varepsilon)} = 1.05
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath257}%
+\begin{displaymath}
+C_3^{(\varepsilon)} = 0.8
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath260}%
+\begin{displaymath}
+C_3^{*(\varepsilon)} = 0.65
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath263}%
+\begin{displaymath}
+C_4^{(\varepsilon)} = 0.625
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath266}%
+\begin{displaymath}
+C_5^{(\varepsilon)} = 0.2
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath269}%
+\begin{displaymath}
+D^{(\varepsilon)} = 0.22
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath272}%
+\begin{displaymath}
+c_p \overline {\rho u_j'' T''} \approx
+-\frac{c_p \mu_t}{Pr_t} \frac{\partial \hat T}{\partial x_j}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath279}%
+\begin{displaymath}
+\mu_t
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath281}%
+\begin{displaymath}
+\mu_t=\overline \rho \hat k / \omega
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath283}%
+\begin{displaymath}
+\frac{\partial}{\partial x_k} \left(
+\overline{\sigma_{ij} u_i''} - \frac{1}{2} \overline{\rho u_i'' u_i'' u_j''} \right) \approx
+\frac{1}{2} \left( \overline \rho T_{ii} + \overline \rho D_{ii}^{(\nu)} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath296}%
+\begin{displaymath}
+\overline \rho T_{ij} = \frac{\partial}{\partial x_k} \left(
+D \frac{\overline \rho \hat k \hat R_{kl}}{\varepsilon}
+\frac{\partial \hat R_{ij}}{\partial x_l} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath305}%
+\begin{displaymath}
+\overline \rho D_{ij}^{(\nu)} = \frac{\partial}{\partial x_k} \left(
+\overline \mu \frac{\partial \hat R_{ij}}{\partial x_k} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath313}%
+\begin{displaymath}
+\hat R_{ij, farfield} = \frac{2}{3} \hat k_{farfield} \delta_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath320}%
+\begin{displaymath}
+\omega_{farfield} = \frac{\overline \rho \hat k_{farfield}}{\mu_{t, farfield}}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath325}%
+\begin{displaymath}
+\hat k_{farfield}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath328}%
+\begin{displaymath}
+\mu_{t, farfield}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath331}%
+\begin{displaymath}
+\hat k_{farfield} = (3/2) (Tu)^2 U_{farfield}^2
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath335}%
+\begin{displaymath}
+\mu_{t, farfield}/\overline \mu_{farfield} = 0.1
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath339}%
+\begin{displaymath}
+\hat R_{ij, wall} = 0
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath342}%
+\begin{displaymath}
+\omega_{wall} = 10 \frac{6 \hat \nu}{\beta_{\omega}^{(\omega)} (\Delta d_1)^2}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath348}%
+\begin{displaymath}
+\Delta d_1
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath350}%
+\begin{displaymath}
+C_2^{(LRR)}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath353}%
+\begin{displaymath}
+D^{(\omega)}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath356}%
+\begin{displaymath}
+C_2^{(LRR)} = 0.52
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath359}%
+\begin{displaymath}
+C_4^{(\omega)}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath362}%
+\begin{displaymath}
+C_5^{(\omega)}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath365}%
+\begin{displaymath}
+\overline \rho D_{ij}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath368}%
+\begin{displaymath}
+\overline \rho D_{ij} = \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu + D \frac{\overline \rho \hat k^2}{\varepsilon}
+\right) \frac{\partial \hat R_{ij}}{\partial x_k} \right]
+= \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu + D \frac{\overline \rho \hat k}{C_{\mu} \omega}
+\right) \frac{\partial \hat R_{ij}}{\partial x_k} \right]
+= \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu + \frac{D}{C_{\mu}} \mu_t
+\right) \frac{\partial \hat R_{ij}}{\partial x_k} \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath389}%
+\begin{displaymath}
+D = 0.5 C_{\mu} F_1 + \frac{2}{3} 0.22 (1-F_1)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath394}%
+\begin{displaymath}
+\overline {\rho u_i'' u_i''} \geq 0
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath397}%
+\begin{displaymath}
+i \in {1,2,3}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath400}%
+\begin{displaymath}
+\left|\overline {\rho u_i'' u_j''}\right| \leq 
+\sqrt{\left(\overline {\rho u_i'' u_i''}\right) \left(\overline {\rho u_j'' u_j''}\right)}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath405}%
+\begin{displaymath}
+i,j \in {1,2,3}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath408}%
+\begin{displaymath}
+{\rm det}\left(\overline {\rho u_i'' u_j''}\right) \geq 0
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath412}%
+\begin{displaymath}
+B=1
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+
+\end{document}

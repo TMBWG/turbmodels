@@ -1,0 +1,2401 @@
+----------------- FILE NUMBER  1378-----------------                            
+1.   FLOW TITLE:   CASE 8663;   KUSSOY, M. I., VIEGAS, J. R., AND               
+HORSTMAN, C. C.; "INVESTIGATION OF 3-D SHOCK SEPARATED TURBULENT                
+BOUNDARY LAYER."                                                                
+                                                                                
+2.   REVISION DATE:   NOVEMBER 8, 1981.                                         
+                                                                                
+3.   EVALUATORS:   RUBESIN, M. W., AND HORSTMAN, C. C., NASA AMES               
+RESEARCH CENTER, MOFFETT FIELD, CA. 94035.                                      
+                                                                                
+4.   DATE AND LOCATION:   1979-1980,  HIGH REYNOLDS CHANNEL, NASA               
+AMES RESEARCH CENTER, MOFFETT FIELD, CA. 94035.                                 
+                                                                                
+5.   ABSTRACT:   A DETAILED INVESTIGATION OF A FLOW IN WHICH A                  
+THREE-DIMENSIONAL SHOCK WAVE SEPARATES A TWO-DIMENSIONAL TURBULENT              
+BOUNDARY LAYER HAS BEEN MADE.  THE RESULTING FLOW FIELD IS HIGHLY               
+THREE-DIMENSIONAL WITH A SIGNIFICANT PORTION OF FLOW SEPARATION ON              
+THE SURFACE AT THE  PHI = 0  DEGREE (WINDWARD) PLANE AS WELL AS A               
+LARGE ZONE OF SECONDARY SURFACE FLOW OFF THIS PLANE.  MEAN AND                  
+FLUCTUATING EXPERIMENTAL MEASUREMENTS WERE OBTAINED THROUGHOUT THE              
+ENTIRE FLOW FIELD.  THESE MEASUREMENTS INCLUDED MEAN PRESSURES,                
+FLOW ANGLES AND SHEAR ON THE SURFACES, AS WELL AS YAW ANGLES, STATIC            
+PRESSURES, TURBULENT SHEAR STRESSES AND TURBULENT KINETIC ENERGIES              
+ON SELECTED PLANES THROUGHOUT THE FLOW FIELD.                                   
+                                                                                
+6.   REFERENCES:                                                                
+                                                                                
+     1.  KUSSOY, M. I., VIEGAS, J. R., AND HORSTMAN, C. C.;                     
+     "AN EXPERIMENTAL AND NUMERICAL INVESTIGATION OF A 3-D SHOCK                
+     SEPARATED TURBULENT BOUNDARY LAYER.  AIAA PAPER #80-0002,                  
+     JAN. 1980.  ALSO TO BE PUBLISHED AS AN ARTICLE IN THE AIAA                 
+     JOURNAL, DEC. 1980, TO MARCH 1981.                                         
+                                                                                
+7.   INSTRUMENTATION:   MEAN FLOW:  WALL PRESSURE TAPS AND BURIED               
+WIRE GAGES WERE USED TO MEASURE PRESSURE AND SHEAR RESPECTIVELY                 
+ON THE SURFACE.  FLOW FIELD PITOT AND STATIC PRESSURE MEASUREMENTS              
+ON THE WINDWARD AND LEEWARD DATA PLANES WERE MADE USING SPECIALLY               
+DESIGNED MINIATURE PROBES.  YAW ANGLE AND PITOT MEASUREMENTS                    
+AT OTHER AZIMUTHAL DATA PLANES WERE MADE USING A COBRA PROBE. YAW               
+ANGLE MEASUREMENTS WERE ALSO OBTAINED WITH A DUAL HOT-FILM GAGE.                
+FLUCTUATING MEASUREMENTS:  BOTH SINGLE HOT-WIRE AND DUAL WEDGE                  
+HOT-FILM PROBES WERE USED TO OBTAIN THE THREE FLUCTUATING VELOCITY              
+COMPONENTS AND TURBULENT SHEAR STRESS IN THE WINDWARD AND LEEWARD               
+PLANES.                                                                         
+                                                                                
+8.   EXPERIMENTAL PARAMETERS:   THE TEST CONFIGURATION CONSISTED                
+OF A CONSTANT DIAMETER TUBE, O.2417 (M) IN DIAMETER AND 2.70 (M)                
+LONG WITH A 15 DEGREE HALF ANGLE CONE MOUNTED AT 15 DEGREE ANGLE OF             
+ATTACK INSIDE THE TUBE.  FREE-STREAM CONDITIONS (WITH ALL CONDITIONS            
+MEASURED AT X = 0.06 M., AND A  PT = 92850.0 N/M**2.) ARE AS FOLLOWS:           
+                                                                                
+      TT = 278  (DEG. K).                                                       
+      MINF = 2.17                                                               
+      PINF = 9101.1  (N/M**2).                                                  
+      TINF = 143.3  (DEG. K).                                                   
+      TW = 278  (DEG. K).                                                       
+      RHOINF = 0.2215  (KG/M**3).                                               
+      UINF = 519.9  (M/SEC.).                                                   
+      DEL0 = 0.044  (M).                                                        
+      DELSTAR0 = 0.0097  (M).                                                   
+      TAUWINF = 0.445                                                           
+      RE = 35.9*10E06/M                                                         
+      DELTA0 = 0.0028  (M).                                                     
+                                                                                
+9.   MEASURED AND INFERRED VARIABLES:                                           
+                                                                                
+        PHI              ANGLE, MEASURED COUNTERCLOCKWISE                       
+                         LOOKING AT THE MODEL IN THE DIRECTION                  
+                         OF THE FLOW,  FROM THE Y DIRECTION                     
+                         AT THE BOTTOM SIDE OF THE MODEL,  (DEGREES).           
+        X                MEASURED FROM THE TUBE ENTRANCE,  (M).                 
+        Y                MEASURED IN THE VERTICAL DIRECTION, (M).               
+        P                PRESSURE,  (N/M**2).                                   
+        PW               WALL PRESSURE,  (N/M**2).                              
+        PWINF            REFERENCE WALL PRESSURE,  (N/M**2).                    
+        TAU              SHEAR STRESS,  (N/M**2).                               
+        TAUW             WALL SHEAR STRESS,  (N/M**2).                          
+        ABSTAUW          ABSOLUTE VALUE OF TAUW.                                
+        TAUWINF          REFERENCE WALL SHEAR STRESS,  (N/M**2).                
+        ALPHA            ANGLE OF ATTACK,  (DEGREES).                           
+        ALPHAW           WALL ANGLE OF ATTACK,  (DEGREES).                      
+        RHO              DENSITY,  (KG/M**3).                                   
+        RHOU             MASS FLUX,  (KG/M**3).                                 
+        RHOUINF          LOCAL FREE-STREAM MASS FLUX,  (KG/M**3).               
+        RHOUPRIME        MASS FLUX FLUCTUATION,  (KG/M**3).                     
+        RHOPRIME         MASS FLUX FLUCTUATION,  (KG/M**3).                     
+        U                VELOCITY COMPONENT IN AXIAL                            
+                         DIRECTION,  (M/SEC.).                                  
+        V                VELOCITY COMPONENT IN TRANSVERSE                       
+                         DIRECTION,  (M/SEC.).                                  
+        UPRIME           VELOCITY FLUCTUATION,  (M/SEC.).                       
+        VPRIME           VELOCITY FLUCTUATION,  (M/SEC.).                       
+        UINF             FREE-STREAM VELOCITY,  (M/SEC.).                       
+        WPRIME           VELOCITY FLUCTUATION,  (M/SEC.).                       
+        M                MACH NUMBER.                                           
+        T                TEMPERATURE,  (DEG. K).                                
+        TINF             FREE-STREAM TEMPERATURE,  (DEG. K).                    
+        TT               STAGNATION TEMPERATUE,  (DEG. K).                      
+        TTINF            FREE-STREAM STAGNATION                                 
+                         TEMPERATURE,  (DEG. K).                                
+        DEL              BOUNDARY LAYER THICKNESS,  (M).                        
+        DELSTAR0         COMPRESSIBLE DISPLACEMENT THICKNESS,  (M).             
+        DELTA0           COMPRESSIBLE MOMENTUM THICKNESS,  (M).                 
+        K                TURBULENCE KINETIC ENERGY.                             
+        SQRTK                                                                   
+        RE               REYNOLDS NUMBER.                                       
+                                                                                
+MEASUREMENT UNCERTAINTIES:                                                      
+                                                                                
+    WINDWARD AND LEEWARD PLANES.                                                
+      P = +/- 10 PERCENT.                                                       
+      T = +/- 6 PERCENT.                                                        
+      RHO = +/- 12 PERCENT.                                                     
+                                                                                
+    OTHER DATA PLANES.                                                          
+      U = +/- 3 PERCENT.                                                        
+      PT = +/- 3 PERCENT.                                                       
+      ALPHA = 0.5 DEGREES.                                                      
+      Y = +/- 0.0001  (M).                                                      
+      PW = +/- 5 PERCENT.                                                       
+      TAU = TAUW = +/- 15 PERCENT.                                              
+                                                                                
+                                                                                
+    11. TAPE ORGANIZATION: THE TAPE IS A 2400 FOOT, 9 TRACK, ODD PARITY,        
+    PHASE ENCODED, UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS            
+    PER INCH ACCORDING TO EBCDIC CODE.  THE RECORD FORMAT IS FIXED AND          
+    BLOCKED; RECORD LENGTH = 80 BYTES; BLOCKSIZE = 8000 BYTES                   
+                                                                                
+    NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:                  
+    XNORM = (X - XMIN)/(XMAX - XMIN)                                            
+    NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY 10000 AND               
+    ROUNDING UP OR DOWN TO THE NEAREST INTEGER.                                 
+    IXNORM = XNORM * 10000.                                                     
+    THUS EACH NORMALIZED DATUM IS WRITTEN ONTO TAPE AS AN INTEGER               
+    VALUE BETWEEN 0 AND 10000.                                                  
+    ALL NULL DATA ARE WRITTEN AS 20000                                          
+    THE EQUATION DESCRIBING THE RELATION BETWEEN ACTUAL DATA AND                
+    THE NORMALIZED DATA ON TAPE IS                                              
+    X = XMIN + (((XMAX - XMIN) * IXNORM)/10000.)                                
+    WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS INTEGER.                      
+                                                                                
+    FILE# NREC    CONTAINS                   FORMAT    COMMENTS                 
+                                                                                
+     1     -      TEXT FILE                  -         CONTAINS ITEMS 1         
+                                                       TO 11 OF THIS            
+                                                       WRITE-UP                 
+                                                                                
+     2     28    X,PW/PWINF,                 4E13.6    RECORD  1 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MAXIMUM VALUES           
+                                                       FOR PHI = 0.0           
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4E13.6    RECORD  2 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MINIMUM VALUES           
+                                                       FOR PHI = 0.0            
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4I6       RECORDS 3 - 28           
+                 ABSTAUW/TAUWINF,ALPHAW                NORMALIZED VALUES        
+                                                       FOR PHI = 0.0            
+                                                       DEGREES.                 
+     3     28    X,PW/PWINF,                 4E13.6    RECORD  1 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MAXIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4E13.6    RECORD  2 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MINIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4I6       RECORDS 3 - 28           
+                 ABSTAUW/TAUWINF,ALPHAW                NORMALIZED VALUES        
+                                                       FOR PHI = 45             
+                                                       DEGREES.                 
+     4     30    X,PW/PWINF,                 4E13.6    RECORD  1 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MAXIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4E13.6    RECORD  2 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MINIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4I6       RECORDS 3 - 30           
+                 ABSTAUW/TAUWINF,ALPHAW                NORMALIZED VALUES        
+                                                       FOR PHI = 90             
+                                                       DEGREES.                 
+     5     33    X,PW/PWINF,                 4E13.6    RECORD  1 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MAXIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4E13.6    RECORD  2 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MINIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4I6       RECORDS 3 - 33           
+                 ABSTAUW/TAUWINF,ALPHAW                NORMALIZED VALUES        
+                                                       FOR PHI = 135            
+                                                       DEGREES.                 
+     6     33    X,PW/PWINF,                 4E13.6    RECORD  1 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MAXIMUM VALUES           
+                                                       FOR PHI = 180            
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4E13.6    RECORD  2 -              
+                 ABSTAUW/TAUWINF,ALPHAW                MINIMUM VALUES           
+                                                       FOR PHI = 180            
+                                                       DEGREES.                 
+                 X,PW/PWINF,                 4I6       RECORDS 3 - 33           
+                 ABSTAUW/TAUWINF,ALPHAW                NORMALIZED VALUES        
+                                                       FOR PHI = 180            
+                                                       DEGREES.                 
+     7     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0           
+                                                       DEGREES, AND             
+                                                       X = 0.06  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.06  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.06  (M).           
+     8     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0           
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+     9     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0           
+                                                       DEGREES, AND             
+                                                       X = 0.15  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.15  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.15  (M).           
+    10     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0           
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+    11     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0           
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 0.0            
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+    12     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.10  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.10  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.10  (M).           
+    13     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+    14     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+    15     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+    16     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+    17     60    Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  1 - 2           
+                 T/TINF,U/UINF,              4E13.6    MAXIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.30  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      4E13.6/   RECORDS  3 - 4           
+                 T/TINF,U/UINF,              4E13.6    MINIMUM VALUES           
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.30  (M).           
+                 Y,M,P/PINF,RHO/RHOINF,      8I6       RECORDS 5 - 60           
+                 T/TINF,U/UINF,                        NORMALIZED VALUES        
+                 RHOU/RHOUINF,TT/TTINF                 FOR PHI = 180            
+                                                       DEGREES, AND             
+                                                       X = 0.30  (M).           
+    18     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.06  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.06  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.06  (M).           
+    19     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+    20     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+    21     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+    22     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+    23     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.28  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.28  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 45             
+                                                       DEGREES, AND             
+                                                       X = 0.28  (M).           
+    24     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.10  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.10  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.10  (M).           
+    25     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+    26     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+    27     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+    28     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+    29     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.28  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.28  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 90             
+                                                       DEGREES, AND             
+                                                       X = 0.28  (M).           
+    30     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.10  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.10  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.10  (M).           
+    31     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.12  (M).           
+    32     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.16  (M).           
+    33     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.20  (M).           
+    34     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.26  (M).           
+    35     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.28  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.28  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.28  (M).           
+    36     21    Y,ALPHA                     2E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.32  (M).           
+                 Y,ALPHA                     2E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.32  (M).           
+                 Y,ALPHA                     2I6       RECORDS  3 - 21          
+                                                       NORMALIZED VALUES        
+                                                       FOR PHI = 135            
+                                                       DEGREES, AND             
+                                                       X = 0.32  (M).           
+    37     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0           
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.06  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.06  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.06  (M).           
+    38     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0           
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.12  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.12  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.12  (M).           
+    39     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0           
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.15  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.15  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.15  (M).           
+    40     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0           
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.20  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.20  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.20  (M).           
+    41     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0           
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.26  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.26  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 0.0            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.26  (M).           
+    42     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.10  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.10  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.10  (M).           
+    43     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.12  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.12  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.12  (M).           
+    44     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.16  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.16  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.16  (M).           
+    45     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.20  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.20  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.20  (M).           
+    46     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.26  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.26  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.26  (M).           
+    47     22    Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  1 - 2           
+                 RHOPRIME/RHOINF,            4E13.6    MAXIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.30  (M).           
+                 Y,RHOUPRIME/RHOUINF,        4E13.6/   RECORDS  3 - 4           
+                 RHOPRIME/RHOINF,            4E13.6    MINIMUM VALUES           
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.30  (M).           
+                 Y,RHOUPRIME/RHOUINF,        8I6       RECORDS 5 - 22           
+                 RHOPRIME/RHOINF,                      NORMALIZED VALUES        
+                 UPRIME/UINF,VPRIME/UINF,              FOR PHI = 180            
+                 WPRIME/UINF,SQRTK/UINF,               DEGREES, AND             
+                 TAU/(RHOU*UINF**2)                    X = 0.30  (M).           
+                                                                                
+                                                                                
+    A SAMPLE PROGRAM FOR READING FILE 2 AND PRINTING, IS SHOWN                  
+    BELOW.  THE JCL SHOWN IS FOR THE STANFORD CIT FACILITY.                     
+    CHECK WITH YOUR OWN COMPUTER INSTALLATION FOR THE EXACT JCL                 
+    NEEDED.                                                                     
+                                                                                
+    //TAPE  JOB  BZC$NJ                                                         
+    /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)                      
+    //  EXEC  FORTCG                                                            
+    //FORT.SYSIN  DD  *                                                         
+    C  TO READ FILE 2 OFF TAPE                                                  
+    C  PRINT MAXIMAS AND MINIMAS OF ALL THE VARIABLES                           
+    C  PRINT NORMALIZED INTEGERIZED VALUES OF ALL THE VARIABLES.                
+           INTEGER X(84),PW(84),TAUW(84),ALPH(84)                               
+           READ (23,30) XMX,PWMX,TAUWMX,ALPHMX                                  
+           READ (23,30) XMN,PWMN,TAUWMN,ALPHMN                                  
+           DO  10  I = 1, 26                                                    
+    10     READ (23,40) X(I),PW(I),TAUW(I),ALPHA(I)                             
+           WRITE (6,50) XMX,PWMX,TAUWMX,ALPHMX                                  
+           WRITE (6,50) XMN,PWMN,TAUWMN,ALPHMN                                  
+           DO  20  I = 1, 26                                                    
+    20     WRITE (6,60) X(I),PW(I),TAUW(I),ALPH(I)                              
+    30     FORMAT(4E13.6)                                                       
+    40     FORMAT(4I6)                                                          
+    50     FORMAT(1X,4E13.6)                                                    
+    60     FORMAT(1X,4I6)                                                       
+           STOP                                                                 
+           END                                                                  
+    //GO.FT23F001  DD  UNIT=T1600,VOL=SER=(TAPE LIBRARY NUMBER),                
+    //  DISP=(OLD,KEEP),DCB=(RECFM=FB,LRECL=80,BLKSIZE=8000,DEN=3),             
+    //  LABEL=(2,NL)                                                            
+    //                                                                          
+-------------- END OF FILE NUMBER  1378-------------                            
+----------------- FILE NUMBER  1379-----------------                            
+ 0.300000E 00 0.185000E 01 0.108000E 01 0.100000E 01                            
+ 0.500000E-01 0.810000E 00 0.230000E 00 0.000000E 00                            
+     0  1826  9058     0                                                        
+   400  1826  9058     0                                                        
+   800  1826  9058     0                                                        
+  1200  1826  8823     0                                                        
+  1600  1826  8235     0                                                        
+  2000  2403  6823     0                                                        
+  2400  5192  4823     0                                                        
+  2800  6538  2588     0                                                        
+  3200  7307     0     0                                                        
+  3600  8173   470     0                                                        
+  4000  9230  1882     0                                                        
+  4400  9807   588     0                                                        
+  4800 10000  3999     0                                                        
+  5200  9326  6352     0                                                        
+  5600  8557  7764     0                                                        
+  6000  7307  8705     0                                                        
+  6400  6346  9294     0                                                        
+  6800  5288  9764     0                                                        
+  7200  4230 10000     0                                                        
+  7600  3269 10000     0                                                        
+  8000  2499 10000     0                                                        
+  8400  1826  9764     0                                                        
+  8800  1250  9294     0                                                        
+  9200   769  8705     0                                                        
+  9600   384  8000     0                                                        
+ 10000     0 20000     0                                                        
+-------------- END OF FILE NUMBER  1379-------------                            
+----------------- FILE NUMBER  1380-----------------                            
+ 0.300000E 00 0.183000E 01 0.116000E 01 0.114000E 03                            
+ 0.500000E-01 0.840000E 00 0.420000E 00 0.000000E 00                            
+     0  1616  7837     0                                                        
+   400  1616  7837     0                                                        
+   800  1616  7837     0                                                        
+  1200  1616  7972     0                                                        
+  1600  1616  8108     0                                                        
+  2000  1616  8513     0                                                        
+  2400  2222  8783     0                                                        
+  2800  5151  5135   526                                                        
+  3200  6767  2567  2412                                                        
+  3600  7676  1216  4649                                                        
+  4000  8585   405  7324                                                        
+  4400  9393     0 10000                                                        
+  4800 10000   675  7894                                                        
+  5200  9898  3378  4956                                                        
+  5600  9090  5540  1999                                                        
+  6000  8181  6891  1140                                                        
+  6400  6969  7567   789                                                        
+  6800  5959  7837   526                                                        
+  7200  4848  8108   350                                                        
+  7600  3838  8243   219                                                        
+  8000  2929  8648   105                                                        
+  8400  2222  9054    43                                                        
+  8800  1515  9594     0                                                        
+  9200   909 10000     0                                                        
+  9600   505 20000     0                                                        
+ 10000     0 20000     0                                                        
+-------------- END OF FILE NUMBER  1380-------------                            
+----------------- FILE NUMBER  1381-----------------                            
+ 0.320000E 00 0.170000E 01 0.113000E 01 0.675000E 02                            
+ 0.500000E-01 0.840000E 00 0.630000E 00 0.000000E 00                            
+     0  1860  7399     0                                                        
+   370  1860  7399     0                                                        
+   740  1860  7399     0                                                        
+  1111  1860  7399     0                                                        
+  1481  1860  7600     0                                                        
+  1851  1860  8600     0                                                        
+  2222  1860  8999     0                                                        
+  2592  1860  9400     0                                                        
+  2962  1860  8999     0                                                        
+  3333  3488  6999   222                                                        
+  3703  6627  2399  3629                                                        
+  4074  8023     0  7037                                                        
+  4444  9186   199  9111                                                        
+  4814  9767   600 10000                                                        
+  5185 10000  1399  9333                                                        
+  5555  9767  2999  5703                                                        
+  5925  9186  4999  3481                                                        
+  6296  8255  6199  2370                                                        
+  6666  6976  7399  1851                                                        
+  7037  5930  8400  1407                                                        
+  7407  5000  9200  1111                                                        
+  7777  4069  9599   859                                                        
+  8148  3372 10000   622                                                        
+  8518  2558 20000   474                                                        
+  8888  1860 20000   325                                                        
+  9259  1162 20000   237                                                        
+  9629   581 20000   148                                                        
+ 10000     0 20000   118                                                        
+-------------- END OF FILE NUMBER  1381-------------                            
+----------------- FILE NUMBER  1382-----------------                            
+ 0.350000E 00 0.150000E 01 0.113000E 01 0.288000E 02                            
+ 0.500000E-01 0.910000E 00 0.700000E 00 0.000000E 00                            
+     0  1525  6976     0                                                        
+   333  1525  6976     0                                                        
+   666  1525  6976     0                                                        
+  1000  1525  6976     0                                                        
+  1333  1525  6976     0                                                        
+  1666  1525  6976     0                                                        
+  2000  1525  6976     0                                                        
+  2333  1525  6976     0                                                        
+  2666  1525  6976     0                                                        
+  3000  1525  6976     0                                                        
+  3333  1525  8604     0                                                        
+  3666  1525 10000     0                                                        
+  4000  2033 10000     0                                                        
+  4333  6610  3488  3472                                                        
+  4666  9491     0  8506                                                        
+  5000 10000  1627 10000                                                        
+  5333 10000  3023  9652                                                        
+  5666 10000  3720  9027                                                        
+  6000 10000  4418  8194                                                        
+  6333  9661  5116  7465                                                        
+  6666  8813  6511  6423                                                        
+  7000  7627  7441  5208                                                        
+  7333  6610  8372  3749                                                        
+  7666  5593  8837  2569                                                        
+  8000  4576  9302  1666                                                        
+  8333  3728  9534  1041                                                        
+  8666  2711 20000   520                                                        
+  9000  1864 20000   173                                                        
+  9333  1186 20000     0                                                        
+  9666   508 20000 20000                                                        
+ 10000     0 20000 20000                                                        
+-------------- END OF FILE NUMBER  1382-------------                            
+----------------- FILE NUMBER  1383-----------------                            
+ 0.350000E 00 0.149000E 01 0.114000E 01 0.100000E 01                            
+ 0.500000E-01 0.100000E 01 0.880000E 00 0.000000E 00                            
+     0     0  4615     0                                                        
+   333     0  4615     0                                                        
+   666     0  4615     0                                                        
+  1000     0  4615     0                                                        
+  1333     0  4615     0                                                        
+  1666     0  4615     0                                                        
+  2000     0  4615     0                                                        
+  2333     0  4615     0                                                        
+  2666     0  4615     0                                                        
+  3000     0  4615     0                                                        
+  3333     0  4615     0                                                        
+  3666     0  4615     0                                                        
+  4000     0  4615     0                                                        
+  4333     0  4615     0                                                        
+  4666  1632  3846     0                                                        
+  5000  3265  2692     0                                                        
+  5333  4489  1538     0                                                        
+  5666  5306   769     0                                                        
+  6000  6938   384     0                                                        
+  6333  8367     0     0                                                        
+  6666  9591     0     0                                                        
+  7000 10000   769     0                                                        
+  7333 10000  1923     0                                                        
+  7666  9591  3846     0                                                        
+  8000  8163  5384     0                                                        
+  8333  6326  7692     0                                                        
+  8666  4897 10000     0                                                        
+  9000  3469 20000     0                                                        
+  9333  2244 20000     0                                                        
+  9666  1428 20000     0                                                        
+ 10000   408 20000     0                                                        
+-------------- END OF FILE NUMBER  1383-------------                            
+----------------- FILE NUMBER  1384-----------------                            
+ 0.600000E-01 0.216700E 01 0.100000E 01 0.100000E 01                            
+ 0.193900E 01 0.100000E 01 0.100000E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.500000E 00 0.516000E 00                            
+ 0.100000E 01 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0 10000     0 10000     0     0 10000                                
+    83  3544 10000  1239  7827  4670  2689 10000                                
+   166  4554 10000  2066  6634  5799  3569 10000                                
+   249  5020 10000  2520  6048  6290  4010 10000                                
+   333  5334 10000  2830  5644  6600  4309 10000                                
+   416  5574 10000  3099  5335  6830  4549 10000                                
+   500  5768 10000  3326  5090  7009  4739 10000                                
+   583  5920 10000  3491  4888  7149  4900 10000                                
+   666  6017 10000  3615  4760  7239  5000 10000                                
+   749  6114 10000  3739  4632  7329  5099 10000                                
+   833  6211 10000  3842  4515  7409  5199 10000                                
+   999  6349 10000  4028  4334  7530  5350 10000                                
+  1166  6515 10000  4235  4121  7670  5529 10000                                
+  1333  6649 10000  4421  3951  7779  5680 10000                                
+  1499  6788 10000  4607  3759  7900  5839 10000                                
+  1666  6931 10000  4793  3588  8009  5989 10000                                
+  1833  7097 10000  5020  3375  8140  6179 10000                                
+  1999  7240 10000  5227  3194  8249  6349 10000                                
+  2166  7383 10000  5454  3003  8360  6520 10000                                
+  2333  7512 10000  5640  2843  8460  6669 10000                                
+  2500  7637 10000  5826  2694  8550  6819 10000                                
+  2666  7748 10000  5991  2555  8629  6959 10000                                
+  2833  7872 10000  6198  2406  8719  7110 10000                                
+  3000  7992 10000  6384  2257  8799  7260 10000                                
+  3166  8098 10000  6549  2129  8870  7390 10000                                
+  3333  8214 10000  6735  1991  8949  7540 10000                                
+  3500  8320 10000  6921  1874  9020  7670 10000                                
+  3666  8421 10000  7086  1746  9079  7799 10000                                
+  3833  8523 10000  7252  1629  9150  7940 10000                                
+  3999  8629 10000  7438  1501  9219  8080 10000                                
+  4166  8730 10000  7623  1384  9279  8209 10000                                
+  4333  8827 10000  7789  1277  9340  8339 10000                                
+  4499  8924 10000  7954  1171  9399  8470 10000                                
+  4666  9017 10000  8119  1064  9459  8600 10000                                
+  4833  9100 10000  8285   969  9509  8709 10000                                
+  5000  9183 10000  8429   873  9549  8830 10000                                
+  5166  9266 10000  8574   788  9599  8939 10000                                
+  5333  9358 10000  8760   681  9649  9070 10000                                
+  5500  9437 10000  8904   596  9700  9179 10000                                
+  5666  9506 10000  9028   521  9739  9279 10000                                
+  5833  9580 10000  9173   447  9779  9380 10000                                
+  6000  9658 10000  9318   362  9819  9499 10000                                
+  6166  9713 10000  9421   298  9850  9580 10000                                
+  6333  9773 10000  9545   234  9879  9660 10000                                
+  6500  9829 10000  9669   181  9909  9750 10000                                
+  6666  9870 10000  9731   138  9929  9810 10000                                
+  7000  9953 10000  9896    53  9980  9929 10000                                
+  7333 10000 10000 10000     0 10000 10000 10000                                
+  7666 10000 10000 10000     0 10000 10000 10000                                
+  8000 10000 10000 10000     0 10000 10000 10000                                
+  8333 10000 10000 10000     0 10000 10000 10000                                
+  8666 10000 10000 10000     0 10000 10000 10000                                
+  9000 10000 10000 10000     0 10000 10000 10000                                
+  9333 10000 10000 10000     0 10000 10000 10000                                
+  9666 10000 10000 10000     0 10000 10000 10000                                
+ 10000 10000 10000 10000     0 10000 10000 10000                                
+-------------- END OF FILE NUMBER  1384-------------                            
+----------------- FILE NUMBER  1385-----------------                            
+ 0.600000E-01 0.213100E 01 0.185200E 01 0.155500E 01                            
+ 0.193900E 01 0.991000E 00 0.138700E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.100000E 01 0.767000E 00                            
+ 0.101600E 01 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0  5739     0 10000     0     0 10000                                
+    83   558  5739    38  9945   776   425 10000                                
+   166  1191  5739   126  9739  1634   908 10000                                
+   249  1600  5739   228  9523  2189  1225 10000                                
+   333  2083  5739   393  9209  2825  1607 10000                                
+   416  2458  5739   545  8905  3309  1917 10000                                
+   500  2881  5739   736  8526  3844  2263 10000                                
+   583  3233  5739   926  8179  4268  2566 10000                                
+   666  3641  5739  1180  7746  4752  2919 10000                                
+   749  4030  5739  1446  7302  5196  3273 10000                                
+   833  4453  5598  1675  6803  5660  3633 10000                                
+   999  5025  5692  2208  6088  6256  4210 10000                                
+  1166  5349  5657  2487  5666  6589  4527 10000                                
+  1333  5570  5598  2652  5384  6801  4744 10000                                
+  1499  5743  5539  2779  5157  6962  4902 10000                                
+  1666  5884  5457  2868  4983  7093  5025 10000                                
+  1833  6020  5363  2931  4799  7214  5147 10000                                
+  1999  6175  5246  3007  4604  7356  5277 10000                                
+  2166  6335  5129  3096  4398  7497  5414 10000                                
+  2333  6485  5105  3236  4203  7618  5565 10000                                
+  2500  6719  4800  3261  3900  7820  5724 10000                                
+  2666  6926  4600  3337  3629  7981  5883 10000                                
+  2833  7142  4342  3388  3347  8163  6027 10000                                
+  3000  7362  4025  3375  3076  8324  6149 10000                                
+  3166  7578  3615  3286  2795  8486  6222 10000                                
+  3333  7832  3063  3109  2491  8668  6272 10000                                
+  3500  8099  2464  2906  2156  8859  6301 10000                                
+  3666  8376  1866  2677  1830  9041  6322 10000                                
+  3833  8582  1396  2487  1581  9182  6315 10000                                
+  3999  8765  1068  2385  1365  9293  6344 10000                                
+  4166  8930   727  2246  1180  9394  6337 10000                                
+  4333  9089   469  2170   996  9495  6366 10000                                
+  4499  9202   269  2106   866  9556  6373 10000                                
+  4666  9282   129  2055   780  9606  6380 10000                                
+  4833  9361    23  2043   693  9646  6395 10000                                
+  5000  9422     0  2081   628  9687  6445 10000                                
+  5166  9465     0  2131   574  9707  6488 10000                                
+  5333  9526     0  2195   509  9747  6546 10000                                
+  5500  9587     0  2271   444  9778  6611 10000                                
+  5666  9657     0  2347   368  9818  6683 10000                                
+  5833  9741     0  2449   281  9868  6762 10000                                
+  6000  9831     0  2550   184  9909  6856 10000                                
+  6166  9929     0  2664    75  9969  6957 10000                                
+  6333  9995    70  2817    10 10000  7065 10000                                
+  6500 10000   269  3032     0 10000  7188 10000                                
+  6666  9849   938  3553   162  9919  7418 10000                                
+  7000  8521  8931  9390  1657  9142  9841 10000                                
+  7333  8357  9741  9835  1852  9031  9949 10000                                
+  7666  8315 10000 10000  1895  9001 10000 10000                                
+  8000  8315 10000 10000  1895  9001 10000 10000                                
+  8333  8324  9870  9885  1885  9011  9956 10000                                
+  8666  8413  9330  9568  1776  9071  9855 10000                                
+  9000  8503  8802  9238  1668  9132  9754 10000                                
+  9333  8620  8133  8819  1538  9202  9610 10000                                
+  9666  8747  7464  8413  1397  9283  9480 10000                                
+ 10000  8840  6936  8071  1278  9344  9365 10000                                
+-------------- END OF FILE NUMBER  1385-------------                            
+----------------- FILE NUMBER  1386-----------------                            
+ 0.600000E-01 0.214800E 01 0.283000E 01 0.207700E 01                            
+ 0.193900E 01 0.995000E 00 0.162800E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.875000E 00 0.867000E 00                            
+ 0.100900E 01 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0  4593   388 10000     0     0 10000                                
+    83   554  4593   413  9946   773   429 10000                                
+   166   554  4593   413  9946   773   429 10000                                
+   249   554  4593   413  9946   773   429 10000                                
+   333   554  4593   413  9946   773   429 10000                                
+   416   554  4593   413  9946   773   429 10000                                
+   500   554  4593   413  9946   773   429 10000                                
+   583   628  4593   413  9924   874   485 10000                                
+   666   889  4593   446  9860  1226   687 10000                                
+   749  1322  4593   512  9677  1819  1031 10000                                
+   833  1643  4593   578  9494  2251  1289 10000                                
+   999  2127  4593   702  9172  2894  1683 10000                                
+  1166  2639  4593   876  8741  3547  2106 10000                                
+  1333  3151  4593  1082  8258  4180  2549 10000                                
+  1499  3766  4593  1380  7591  4914  3101 10000                                
+  1666  4162  4593  1595  7129  5356  3470 10000                                
+  1833  4487  4649  1851  6741  5718  3808 10000                                
+  1999  4757  4705  2082  6397  5999  4109 10000                                
+  2166  4981  4767  2297  6118  6231  4361 10000                                
+  2333  5148  4941  2595  5903  6402  4619 10000                                
+  2500  5260  5115  2867  5763  6512  4828 10000                                
+  2666  5386  5289  3148  5602  6633  5061 10000                                
+  2833  5474  5524  3462  5494  6723  5282 10000                                
+  3000  5544  5754  3776  5397  6783  5491 10000                                
+  3166  5572  6046  4107  5365  6814  5681 10000                                
+  3333  5586  6393  4495  5344  6824  5884 10000                                
+  3500  5609  6685  4834  5311  6854  6074 10000                                
+  3666  5633  6976  5165  5279  6874  6265 10000                                
+  3833  5633  7324  5545  5279  6874  6461 10000                                
+  3999  5665  7616  5884  5236  6904  6664 10000                                
+  4166  5730  7964  6338  5150  6964  6959 10000                                
+  4333  5851  8194  6727  5000  7075  7266 10000                                
+  4499  6024  8429  7181  4774  7236  7671 10000                                
+  4666  6191  8659  7644  4559  7376  8083 10000                                
+  4833  6415  8833  8132  4268  7577  8574 10000                                
+  5000  6606  9007  8595  4021  7738  9017 10000                                
+  5166  6713  9242  9016  3881  7829  9361 10000                                
+  5333  6755  9534  9421  3827  7859  9643 10000                                
+  5500  6769  9764  9710  3806  7869  9821 10000                                
+  5666  6769  9938  9917  3806  7869  9944 10000                                
+  5833  6778 10000 10000  3795  7879 10000 10000                                
+  6000  6815  9882  9917  3752  7909  9993 10000                                
+  6166  6983  9242  9404  3526  8050  9858 10000                                
+  6333  7318  8081  8462  3107  8301  9594 10000                                
+  6500  7783  6567  7181  2526  8643  9176 10000                                
+  6666  8221  5232  5966  1999  8954  8691 10000                                
+  7000  8561  3370  3793  1591  9175  7438 10000                                
+  7333  8980  2327  2710  1107  9437  6891 10000                                
+  7666  9301  1800  2239   741  9618  6689 10000                                
+  8000  9450  1508  1933   580  9708  6529 10000                                
+  8333  9576  1222  1595   440  9778  6332 10000                                
+  8666  9669   987  1314   344  9829  6160 10000                                
+  9000  9785   695   950   215  9889  5939 10000                                
+  9333  9855   465   636   150  9929  5730 10000                                
+  9666  9930   230   330    64  9969  5522 10000                                
+ 10000 10000     0     0     0 10000  5300 10000                                
+-------------- END OF FILE NUMBER  1386-------------                            
+----------------- FILE NUMBER  1387-----------------                            
+ 0.600000E-01 0.224700E 01 0.156800E 01 0.113500E 01                            
+ 0.193900E 01 0.101900E 01 0.103900E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.886000E 00 0.808000E 00                            
+ 0.965000E 00 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0 10000     0 10000     0     0 10000                                
+    83  3128 10000  2446  8213  4229  3686 10000                                
+   166  3373 10000  2844  7946  4524  4003 10000                                
+   249  3489 10000  3058  7823  4661  4148 10000                                
+   333  3551 10000  3180  7751  4739  4234 10000                                
+   416  3684  9970  3363  7607  4896  4408 10000                                
+   500  3827  9941  3577  7443  5063  4590 10000                                
+   583  3960  9897  3822  7279  5220  4773 10000                                
+   666  4107  9868  4067  7104  5377  4966 10000                                
+   749  4263  9838  4342  6919  5554  5168 10000                                
+   833  4405  9809  4617  6745  5711  5370 10000                                
+   999  4735  9765  5321  6324  6054  5832 10000                                
+  1166  5046  9721  5993  5934  6378  6284 10000                                
+  1333  5349  9662  6697  5544  6673  6718 10000                                
+  1499  5598  9589  7247  5215  6918  7093 10000                                
+  1666  5825  9501  7767  4928  7124  7420 10000                                
+  1833  6016  9413  8195  4671  7301  7699 10000                                
+  1999  6194  9281  8532  4445  7448  7940 10000                                
+  2166  6368  9164  8868  4219  7595  8180 10000                                
+  2333  6533  9002  9143  4004  7742  8402 10000                                
+  2500  6702  8841  9418  3788  7880  8614 10000                                
+  2666  6840  8665  9571  3613  7988  8787 10000                                
+  2833  7000  8416  9694  3408  8115  8950 10000                                
+  3000  7142  8255  9908  3234  8223  9133 10000                                
+  3166  7298  8005 10000  3039  8341  9287 10000                                
+  3333  7449  7668  9969  2854  8449  9393 10000                                
+  3500  7587  7419 10000  2679  8547  9518 10000                                
+  3666  7752  7082  9969  2484  8665  9643 10000                                
+  3833  7908  6759  9938  2299  8773  9749 10000                                
+  3999  8077  6422  9908  2094  8891  9865 10000                                
+  4166  8268  5997  9816  1878  9008  9971 10000                                
+  4333  8442  5498  9480  1673  9126 10000 10000                                
+  4499  8580  5000  9021  1519  9205  9961 10000                                
+  4666  8736  4340  8287  1344  9303  9836 10000                                
+  4833  8923  3504  7278  1129  9411  9663 10000                                
+  5000  9101  2756  6391   934  9519  9489 10000                                
+  5166  9198  2170  5535   831  9568  9278 10000                                
+  5333  9265  1671  4709   759  9607  9066 10000                                
+  5500  9256  1334  4036   770  9607  8854 10000                                
+  5666  9287  1011  3455   739  9617  8691 10000                                
+  5833  9350   674  2966   667  9656  8565 10000                                
+  6000  9359   498  2629   657  9666  8479 10000                                
+  6166  9341   498  2599   677  9646  8450 10000                                
+  6333  9332   498  2568   687  9646  8431 10000                                
+  6500  9323   498  2538   698  9636  8421 10000                                
+  6666  9332   498  2568   687  9646  8431 10000                                
+  7000  9354   498  2629   667  9656  8460 10000                                
+  7333  9381   498  2691   636  9676  8508 10000                                
+  7666  9434   498  2844   585  9705  8575 10000                                
+  8000  9528   337  2752   482  9754  8594 10000                                
+  8333  9621   249  2844   379  9803  8662 10000                                
+  8666  9697   175  2874   308  9842  8710 10000                                
+  9000  9755   175  3058   246  9872  8787 10000                                
+  9333  9804   175  3180   195  9892  8854 10000                                
+  9666  9906    87  3302    92  9950  8931 10000                                
+ 10000 10000     0  3394     0 10000  9008 10000                                
+-------------- END OF FILE NUMBER  1387-------------                            
+----------------- FILE NUMBER  1388-----------------                            
+ 0.600000E-01 0.227000E 01 0.100000E 01 0.980000E 00                            
+ 0.193900E 01 0.102400E 01 0.988000E 00 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.852000E 00 0.516000E 00                            
+ 0.955000E 00 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0 10000     0 10000     0     0 10000                                
+    83  3859 10000  1702  7388  5117  3157 10000                                
+   166  5092 10000  2952  5843  6445  4362 10000                                
+   249  5440 10000  3383  5396  6787  4726 10000                                
+   333  5524 10000  3491  5294  6865  4817 10000                                
+   416  5585 10000  3556  5203  6923  4888 10000                                
+   500  5634 10000  3620  5142  6962  4939 10000                                
+   583  5682 10000  3685  5081  7011  4989 10000                                
+   666  5744 10000  3771  4999  7070  5060 10000                                
+   749  5792 10000  3836  4939  7109  5111 10000                                
+   833  5867 10000  3943  4837  7177  5202 10000                                
+   999  5986 10000  4094  4684  7285  5334 10000                                
+  1166  6118 10000  4267  4512  7402  5485 10000                                
+  1333  6303 10000  4547  4278  7568  5698 10000                                
+  1499  6466  9864  4741  4075  7695  5870 10000                                
+  1666  6621  9662  4935  3871  7822  6042 10000                                
+  1833  6775  9527  5129  3678  7949  6214 10000                                
+  1999  6925  9391  5323  3485  8066  6386 10000                                
+  2166  7070  9256  5517  3302  8183  6548 10000                                
+  2333  7220  9054  5732  3119  8291  6720 10000                                
+  2500  7348  8918  5905  2957  8388  6872 10000                                
+  2666  7488  8783  6099  2784  8496  7034 10000                                
+  2833  7616  8648  6271  2632  8583  7176 10000                                
+  3000  7753  8445  6465  2469  8681  7338 10000                                
+  3166  7881  8243  6637  2306  8769  7479 10000                                
+  3333  8013  7905  6788  2154  8857  7621 10000                                
+  3500  8140  7702  6939  2002  8935  7763 10000                                
+  3666  8268  7432  7112  1859  9023  7904 10000                                
+  3833  8378  7229  7241  1727  9091  8036 10000                                
+  3999  8506  7027  7413  1585  9169  8178 10000                                
+  4166  8616  6756  7564  1463  9238  8299 10000                                
+  4333  8726  6554  7693  1331  9306  8421 10000                                
+  4499  8845  6216  7823  1209  9374  8542 10000                                
+  4666  8942  6013  7952  1097  9433  8653 10000                                
+  4833  9044  5743  8081   985  9492  8765 10000                                
+  5000  9145  5540  8189   884  9550  8866 10000                                
+  5166  9233  5337  8297   792  9599  8967 10000                                
+  5333  9321  5067  8405   691  9648  9058 10000                                
+  5500  9387  4864  8469   619  9677  9119 10000                                
+  5666  9458  4594  8534   548  9716  9180 10000                                
+  5833  9528  4459  8620   477  9755  9261 10000                                
+  6000  9581  4324  8685   426  9785  9321 10000                                
+  6166  9621  4189  8728   376  9804  9352 10000                                
+  6333  9656  3986  8728   345  9824  9382 10000                                
+  6500  9687  3851  8749   315  9843  9402 10000                                
+  6666  9687  3851  8749   315  9843  9402 10000                                
+  7000  9722  3445  8685   284  9853  9392 10000                                
+  7333  9753  3108  8642   243  9873  9382 10000                                
+  7666  9823  2297  8512   182  9912  9362 10000                                
+  8000  9859  1756  8426   142  9931  9331 10000                                
+  8333  9907  1148  8297    91  9951  9291 10000                                
+  8666  9942   540  8168    60  9970  9251 10000                                
+  9000  9991     0  8081    10  9990  9230 10000                                
+  9333 10000   810  8362     0 10000  9372 10000                                
+  9666  9850  3851  9094   152  9921  9645 10000                                
+ 10000  9691  7702 10000   304  9843 10000 10000                                
+-------------- END OF FILE NUMBER  1388-------------                            
+----------------- FILE NUMBER  1389-----------------                            
+ 0.600000E-01 0.216700E 01 0.111800E 01 0.108800E 01                            
+ 0.193900E 01 0.100000E 01 0.107200E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.100000E 01 0.516000E 00                            
+ 0.100000E 01 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0     0     0 10000     0     0 10000                                
+    83  3507     0  1031  7870  4620  2481 10000                                
+   166  4402     0  1625  6826  5640  3208 10000                                
+   249  4896     0  2027  6208  6159  3628 10000                                
+   333  5200     0  2290  5814  6470  3899 10000                                
+   416  5468     0  2517  5473  6729  4141 10000                                
+   500  5666     0  2709  5218  6909  4328 10000                                
+   583  5819     0  2867  5026  7059  4477 10000                                
+   666  5934     0  2972  4866  7170  4589 10000                                
+   749  6068     0  3111  4696  7279  4710 10000                                
+   833  6192     0  3234  4536  7400  4841 10000                                
+   999  6382     0  3444  4291  7559  5027 10000                                
+  1166  6557     0  3636  4057  7710  5205 10000                                
+  1333  6705     0  3793  3876  7829  5354 10000                                
+  1499  6848     0  3968  3695  7940  5503 10000                                
+  1666  6972     0  4108  3535  8040  5634 10000                                
+  1833  7097     0  4248  3375  8140  5764 10000                                
+  1999  7203     0  4388  3237  8220  5886 10000                                
+  2166  7318     0  4527  3088  8309  6007 10000                                
+  2333  7448     0  4685  2928  8410  6156 10000                                
+  2500  7577     0  4842  2768  8500  6296 10000                                
+  2666  7701     0  5017  2609  8600  6436 10000                                
+  2833  7826     0  5174  2460  8679  6576 10000                                
+  3000  7946     0  5332  2321  8769  6716 10000                                
+  3166  8075     0  5506  2161  8859  6865 10000                                
+  3333  8204     0  5681  2002  8939  7014 10000                                
+  3500  8329     0  5874  1853  9029  7173 10000                                
+  3666  8454     0  6048  1703  9110  7322 10000                                
+  3833  8578     0  6223  1565  9179  7472 10000                                
+  3999  8689     0  6381  1437  9250  7602 10000                                
+  4166  8804     0  6555  1299  9330  7751 10000                                
+  4333  8910     0  6713  1182  9390  7882 10000                                
+  4499  9030     0  6888  1043  9459  8031 10000                                
+  4666  9132     0  7062   926  9520  8171 10000                                
+  4833  9224     0  7202   830  9580  8292 10000                                
+  5000  9330     0  7360   713  9639  8423 10000                                
+  5166  9409     0  7482   628  9679  8526 10000                                
+  5333  9487     0  7604   543  9729  8628 10000                                
+  5500  9570     0  7744   457  9769  8740 10000                                
+  5666  9644     0  7867   372  9810  8843 10000                                
+  5833  9704     0  7972   308  9840  8917 10000                                
+  6000  9764     0  8059   244  9879  9001 10000                                
+  6166  9810     0  8146   202  9900  9067 10000                                
+  6333  9856     0  8216   149  9929  9132 10000                                
+  6500  9889     0  8269   117  9940  9169 10000                                
+  6666  9916     0  8321    85  9959  9216 10000                                
+  7000  9972     0  8409    31  9990  9291 10000                                
+  7333 10000     0  8461     0 10000  9328 10000                                
+  7666 10000     0  8461     0 10000  9328 10000                                
+  8000 10000     0  8461     0 10000  9328 10000                                
+  8333 10000     0  8461     0 10000  9328 10000                                
+  8666 10000     0  8461     0 10000  9328 10000                                
+  3999  9695  9237  9790   319  9840  9878 10000                                
+  9333  9695  9491  9860   319  9840  9916 10000                                
+  9666  9704  9830  9930   308  9840  9953 10000                                
+ 10000  9718 10000 10000   298  9850 10000 10000                                
+-------------- END OF FILE NUMBER  1389-------------                            
+----------------- FILE NUMBER  1390-----------------                            
+ 0.600000E-01 0.215700E 01 0.113400E 01 0.110300E 01                            
+ 0.193900E 01 0.998000E 00 0.108600E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.100000E 01 0.516000E 00                            
+ 0.100500E 01 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0     0     0 10000     0     0 10000                                
+    83  3667     0  1090  7698  4799  2559 10000                                
+   166  4547     0  1686  6648  5781  3268 10000                                
+   249  5044     0  2078  6027  6302  3692 10000                                
+   333  5340     0  2333  5642  6593  3959 10000                                
+   416  5549     0  2504  5385  6793  4143 10000                                
+   500  5744     0  2691  5128  6973  4318 10000                                
+   583  5878     0  2810  4946  7104  4447 10000                                
+   666  5961     0  2896  4839  7184  4530 10000                                
+   749  6063     0  2998  4710  7274  4622 10000                                
+   833  6142     0  3083  4603  7344  4696 10000                                
+   999  6286     0  3219  4421  7464  4834 10000                                
+  1166  6471     0  3407  4186  7625  5018 10000                                
+  1333  6648     0  3611  3950  7775  5193 10000                                
+  1499  6819     0  3798  3725  7915  5377 10000                                
+  1666  6991     0  3986  3511  8046  5543 10000                                
+  1833  7167     0  4190  3286  8186  5736 10000                                
+  1999  7338     0  4395  3072  8316  5920 10000                                
+  2166  7496     0  4582  2869  8436  6086 10000                                
+  2333  7626     0  4735  2719  8527  6224 10000                                
+  2500  7774     0  4940  2526  8637  6390 10000                                
+  2666  7899     0  5093  2376  8727  6528 10000                                
+  2833  8020     0  5247  2226  8807  6666 10000                                
+  3000  8127     0  5383  2098  8877  6795 10000                                
+  3166  8242     0  5536  1959  8957  6924 10000                                
+  3333  8335     0  5672  1852  9018  7034 10000                                
+  3500  8423     0  5792  1745  9078  7145 10000                                
+  3666  8525     0  5928  1627  9148  7265 10000                                
+  3833  8641     0  6098  1498  9218  7403 10000                                
+  3999  8748     0  6252  1370  9288  7532 10000                                
+  4166  8845     0  6388  1252  9348  7651 10000                                
+  4333  8952     0  6541  1134  9408  7780 10000                                
+  4499  9058     0  6695  1017  9478  7918 10000                                
+  4666  9165     0  6865   899  9539  8047 10000                                
+  4833  9267     0  7018   781  9599  8185 10000                                
+  5000  9374     0  7172   663  9659  8314 10000                                
+  5166  9471     0  7325   556  9709  8443 10000                                
+  5333  9582     0  7495   438  9769  8581 10000                                
+  5500  9670     0  7632   342  9819  8701 10000                                
+  5666  9749     0  7768   256  9859  8802 10000                                
+  5833  9828     0  7887   182  9909  8913 10000                                
+  6000  9884     0  7972   117  9939  8987 10000                                
+  6166  9935     0  8057    64  9959  9051 10000                                
+  6333  9972     0  8126    21  9979  9106 10000                                
+  6500  9990     0  8143    10  9989  9134 10000                                
+  6666 10000     0  8160     0 10000  9143 10000                                
+  7000 10000     0  8160     0 10000  9143 10000                                
+  7333  9717  5447  8909   289  9849  9401 10000                                
+  7666  9707  7611  9386   299  9839  9650 10000                                
+  8000  9758  8208  9608   246  9869  9788 10000                                
+  8333  9745  8805  9710   256  9859  9843 10000                                
+  8666  9745  9179  9778   267  9859  9880 10000                                
+  9000  9740  9477  9846   267  9859  9907 10000                                
+  9333  9745  9701  9897   267  9859  9944 10000                                
+  9666  9749  9850  9948   256  9869  9972 10000                                
+ 10000  9758 10000 10000   246  9869 10000 10000                                
+-------------- END OF FILE NUMBER  1390-------------                            
+----------------- FILE NUMBER  1391-----------------                            
+ 0.600000E-01 0.210600E 01 0.113600E 01 0.110600E 01                            
+ 0.193900E 01 0.985000E 00 0.108900E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.100000E 01 0.516000E 00                            
+ 0.102800E 01 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0     0     0 10000     0     0 10000                                
+    83  4064     0  1271  7288  5218  2791 10000                                
+   166  4947     0  1881  6212  6162  3498 10000                                
+   249  5413     0  2271  5609  6629  3893 10000                                
+   333  5664     0  2474  5290  6862  4113 10000                                
+   416  5864     0  2661  5027  7055  4288 10000                                
+   500  6020     0  2796  4818  7197  4435 10000                                
+   583  6158     0  2932  4643  7319  4563 10000                                
+   666  6277     0  3050  4489  7421  4674 10000                                
+   749  6405     0  3169  4324  7532  4793 10000                                
+   833  6519     0  3288  4182  7634  4903 10000                                
+   999  6690     0  3457  3951  7776  5068 10000                                
+  1166  6885     0  3661  3699  7939  5252 10000                                
+  1333  7046     0  3847  3501  8060  5417 10000                                
+  1499  7174     0  3983  3336  8162  5546 10000                                
+  1666  7302     0  4118  3172  8263  5674 10000                                
+  1833  7412     0  4254  3029  8345  5794 10000                                
+  1999  7530     0  4389  2875  8436  5913 10000                                
+  2166  7663     0  4542  2711  8538  6060 10000                                
+  2333  7796     0  4694  2546  8629  6198 10000                                
+  2500  7924     0  4864  2381  8730  6336 10000                                
+  2666  8062     0  5033  2217  8822  6483 10000                                
+  2833  8200     0  5203  2052  8913  6639 10000                                
+  3000  8323     0  5355  1899  8994  6776 10000                                
+  3166  8442     0  5508  1756  9076  6905 10000                                
+  3333  8561     0  5677  1624  9157  7043 10000                                
+  3500  8651     0  5796  1503  9218  7153 10000                                
+  3666  8755     0  5932  1383  9279  7272 10000                                
+  3833  8770  1029  6152  1372  9289  7382 10000                                
+  3999  8850  2205  6491  1284  9340  7594 10000                                
+  4166  8993  2941  6864  1108  9431  7851 10000                                
+  4333  9135  3529  7186   944  9512  8089 10000                                
+  4499  9235  4044  7440   834  9573  8273 10000                                
+  4666  9330  4485  7694   735  9624  8448 10000                                
+  4833  9415  4852  7898   636  9675  8595 10000                                
+  5000  9491  5147  8084   548  9725  8732 10000                                
+  5166  9558  5514  8254   472  9756  8861 10000                                
+  5333  9634  5882  8457   395  9807  9017 10000                                
+  5500  9677  6176  8593   340  9827  9100 10000                                
+  5666  9743  6323  8745   274  9857  9201 10000                                
+  5833  9800  6544  8864   208  9898  9302 10000                                
+  6000  9838  6764  8983   175  9918  9384 10000                                
+  6166  9862  7132  9101   142  9928  9458 10000                                
+  6333  9909  7352  9237    98  9949  9550 10000                                
+  6500  9933  7720  9355    65  9969  9623 10000                                
+  6666  9957  8014  9474    43  9979  9696 10000                                
+  7000  9966  8676  9627    32  9979  9788 10000                                
+  7333  9966  9191  9745    32  9979  9853 10000                                
+  7666  9957  9632  9830    43  9979  9889 10000                                
+  8000  9971  9852  9898    32  9989  9935 10000                                
+  8333  9981 10000  9966    10  9989  9972 10000                                
+  8666 10000 10000 10000     0 10000 10000 10000                                
+  9000  9990 10000  9983     0 10000  9990 10000                                
+  9333  9981 10000  9966    10  9989  9972 10000                                
+  9666  9966 10000  9932    32  9979  9954 10000                                
+ 10000  9957 10000  9915    43  9979  9935 10000                                
+-------------- END OF FILE NUMBER  1391-------------                            
+----------------- FILE NUMBER  1392-----------------                            
+ 0.600000E-01 0.215000E 01 0.115900E 01 0.110700E 01                            
+ 0.193900E 01 0.997000E 00 0.109000E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.103600E 01 0.598000E 00                            
+ 0.100500E 01 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0 10000     0 10000     0     0 10000                                
+    83  3548 10000  1355  7837  4653  2844 10000                                
+   166  4223 10000  1925  7066  5426  3449 10000                                
+   249  4609 10000  2298  6595  5837  3816 10000                                
+   333  4888  9918  2573  6241  6128  4091 10000                                
+   416  5148  9837  2848  5920  6399  4348 10000                                
+   500  5344  9674  3025  5663  6589  4532 10000                                
+   583  5516  9430  3202  5449  6750  4697 10000                                
+   666  5679  9268  3379  5235  6910  4862 10000                                
+   749  5827  9105  3516  5042  7041  5009 10000                                
+   833  5958  8780  3634  4882  7161  5128 10000                                
+   999  6181  8211  3850  4582  7362  5339 10000                                
+  1166  6404  7642  4027  4293  7552  5550 10000                                
+  1333  6581  7154  4204  4068  7713  5724 10000                                
+  1499  6753  6585  4341  3843  7843  5880 10000                                
+  1666  6916  6097  4479  3640  7983  6036 10000                                
+  1833  7069  5609  4597  3447  8104  6165 10000                                
+  1999  7204  5040  4715  3276  8204  6284 10000                                
+  2166  7339  4471  4813  3094  8314  6403 10000                                
+  2333  7493  3821  4911  2912  8425  6541 10000                                
+  2500  7641  3252  5029  2730  8535  6669 10000                                
+  2666  7786  3008  5206  2548  8635  6816 10000                                
+  2833  7911  3170  5442  2398  8726  6981 10000                                
+  3000  8037  3333  5677  2237  8816  7146 10000                                
+  3166  8162  3577  5913  2087  8896  7321 10000                                
+  3333  8269  3739  6129  1959  8966  7467 10000                                
+  3500  8390  3902  6385  1820  9047  7633 10000                                
+  3666  8511  3983  6601  1680  9127  7798 10000                                
+  3833  8618  4065  6817  1552  9197  7944 10000                                
+  3999  8725  4146  7013  1423  9257  8091 10000                                
+  4166  8832  4308  7229  1306  9327  8238 10000                                
+  4333  8930  4471  7445  1188  9388  8394 10000                                
+  4499  9032  4552  7662  1081  9448  8541 10000                                
+  4666  9125  4634  7838   974  9508  8669 10000                                
+  4833  9223  4715  8055   867  9558  8816 10000                                
+  5000  9311  4796  8251   760  9618  8944 10000                                
+  5166  9404  4959  8428   663  9669  9082 10000                                
+  5333  9469  5040  8585   588  9699  9192 10000                                
+  5500  9539  5121  8742   513  9739  9293 10000                                
+  5666  9618  5203  8919   438  9789  9412 10000                                
+  5833  9651  5365  9037   396  9799  9486 10000                                
+  6000  9683  5772  9174   364  9819  9568 10000                                
+  6166  9706  6097  9312   342  9829  9642 10000                                
+  6333  9720  6504  9430   321  9839  9697 10000                                
+  6500  9716  6829  9508   331  9839  9733 10000                                
+  6666  9720  7073  9567   321  9839  9761 10000                                
+  7000  9739  7479  9705   299  9849  9844 10000                                
+  7333  9758  7804  9803   278  9859  9899 10000                                
+  7666  9776  8048  9901   267  9869  9954 10000                                
+  8000  9795  8130  9980   246  9879  9990 10000                                
+  8333  9786  8373 10000   256  9879 10000 10000                                
+  8666  9772  8373  9960   267  9869  9972 10000                                
+  9000  9734  8373  9882   310  9849  9926 10000                                
+  9333  9865  5609  9508   171  9919  9807 10000                                
+  9666  9948  2764  9017    85  9959  9633 10000                                
+ 10000 10000     0  8506     0 10000  9431 10000                                
+-------------- END OF FILE NUMBER  1392-------------                            
+----------------- FILE NUMBER  1393-----------------                            
+ 0.600000E-01 0.228500E 01 0.148900E 01 0.117500E 01                            
+ 0.193900E 01 0.102700E 01 0.110700E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.812000E 00 0.767000E 00                            
+ 0.949000E 00 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0 10000     0 10000     0     0 10000                                
+    83  2293  9556  1053  8979  3193  2402 10000                                
+   166  3015 10000  1789  8303  4118  3215 10000                                
+   249  3417 10000  2303  7878  4615  3685 10000                                
+   333  3698 10000  2696  7555  4946  4019 10000                                
+   416  3908 10000  3014  7303  5189  4290 10000                                
+   500  4105 10000  3333  7070  5413  4534 10000                                
+   583  4253 10000  3553  6888  5579  4724 10000                                
+   666  4363 10000  3749  6757  5696  4859 10000                                
+   749  4494 10000  3970  6585  5842  5040 10000                                
+   833  4621 10000  4215  6434  5978  5203 10000                                
+   999  4875 10000  4681  6111  6241  5546 10000                                
+  1166  5094 10000  5122  5828  6465  5844 10000                                
+  1333  5291 10000  5514  5575  6660  6124 10000                                
+  1499  5470 10000  5882  5343  6825  6377 10000                                
+  1666  5654 10000  6299  5101  7000  6648 10000                                
+  1833  5829 10000  6691  4878  7156  6901 10000                                
+  1999  5964 10000  7009  4696  7283  7118 10000                                
+  2166  6122 10000  7377  4494  7419  7353 10000                                
+  2333  6253 10000  7696  4323  7536  7560 10000                                
+  2500  6367 10000  7965  4181  7633  7732 10000                                
+  2666  6490  9955  8235  4020  7731  7913 10000                                
+  2833  6608  9896  8455  3868  7828  8075 10000                                
+  3000  6726  9807  8676  3717  7925  8238 10000                                
+  3166  6862  9689  8872  3545  8033  8419 10000                                
+  3333  7002  9542  9044  3373  8140  8581 10000                                
+  3500  7137  9394  9215  3202  8247  8744 10000                                
+  3666  7273  9202  9362  3030  8344  8888 10000                                
+  3833  7417  9025  9509  2858  8451  9051 10000                                
+  3999  7571  8818  9656  2666  8558  9223 10000                                
+  4166  7733  8581  9803  2474  8675  9385 10000                                
+  4333  7894  8345  9926  2282  8782  9548 10000                                
+  4499  8043  8094 10000  2101  8880  9683 10000                                
+  4666  8183  7813 10000  1939  8977  9783 10000                                
+  4833  8332  7488  9950  1767  9065  9873 10000                                
+  5000  8472  7163  9877  1606  9162  9936 10000                                
+  5166  8599  6838  9754  1464  9240  9981 10000                                
+  5333  8722  6484  9583  1333  9308 10000 10000                                
+  5500  8831  6129  9338  1212  9376  9981 10000                                
+  5666  8919  5775  9044  1121  9425  9927 10000                                
+  5833  9002  5361  8627  1020  9474  9828 10000                                
+  6000  9080  4963  8186   939  9513  9719 10000                                
+  6166  9137  4579  7720   878  9552  9584 10000                                
+  6333  9203  4150  7230   808  9591  9448 10000                                
+  6500  9264  3781  6789   747  9620  9313 10000                                
+  6666  9339  3367  6299   666  9659  9177 10000                                
+  7000  9496  2540  5343   505  9746  8906 10000                                
+  7333  9632  1816  4460   363  9814  8644 10000                                
+  7666  9741  1270  3774   252  9873  8437 10000                                
+  8000  9877   768  3235   121  9941  8283 10000                                
+  8333  9969   428  2843    30  9980  8184 10000                                
+  8666  9934   339  2622    60  9970  8084 10000                                
+  9000 10000     0  2181     0 10000  7940 10000                                
+  9333  9466  2437  5098   535  9727  8807 10000                                
+  9666  9544  2614  5588   454  9766  9015 10000                                
+ 10000  9619  2274  5196   373  9805  8906 10000                                
+-------------- END OF FILE NUMBER  1393-------------                            
+----------------- FILE NUMBER  1394-----------------                            
+ 0.600000E-01 0.208200E 01 0.139800E 01 0.128000E 01                            
+ 0.193900E 01 0.979000E 00 0.121600E 01 0.100000E 01                            
+ 0.000000E 00 0.000000E 00 0.118200E 01 0.674000E 00                            
+ 0.103900E 01 0.000000E 00 0.000000E 00 0.500000E 00                            
+     0     0  5787     0 10000     0     0 10000                                
+    83  3016  5787   874  8433  3963  2319 10000                                
+   166  3967  5787  1518  7411  5086  3133 10000                                
+   249  4442  5787  1897  6855  5607  3569 10000                                
+   333  4692  5787  2112  6555  5873  3799 10000                                
+   416  4899  5787  2310  6288  6098  3996 10000                                
+   500  5076  5787  2475  6066  6271  4161 10000                                
+   583  5196  5787  2590  5922  6394  4276 10000                                
+   666  5292  5787  2706  5788  6486  4375 10000                                
+   749  5403  5787  2805  5644  6598  4490 10000                                
+   833  5513  5787  2920  5511  6700  4597 10000                                
+   999  5720  5787  3151  5244  6905  4802 10000                                
+  1166  5946  5787  3399  4944  7109  5041 10000                                
+  1333  6162  5787  3663  4666  7303  5271 10000                                
+  1499  6344  5787  3877  4433  7466  5460 10000                                
+  1666  6508  5787  4075  4222  7609  5641 10000                                
+  1833  6705  5787  4323  3966  7773  5855 10000                                
+  1999  6849  5740  4504  3777  7895  6019 10000                                
+  2166  7022  5601  4702  3555  8028  6200 10000                                
+  2333  7195  5509  4917  3333  8171  6389 10000                                
+  2500  7334  5416  5082  3144  8273  6546 10000                                
+  2666  7483  5324  5264  2966  8386  6710 10000                                
+  2833  7612  5138  5412  2800  8488  6842 10000                                
+  3000  7742  4953  5544  2633  8580  6973 10000                                
+  3166  7886  4768  5709  2455  8692  7138 10000                                
+  3333  8011  4629  5858  2300  8774  7269 10000                                
+  3500  8146  4398  5990  2133  8866  7409 10000                                
+  3666  8261  4212  6122  1988  8947  7524 10000                                
+  3833  8410  3935  6270  1811  9050  7680 10000                                
+  3999  8539  3657  6386  1655  9131  7804 10000                                
+  4166  8659  3472  6518  1511  9213  7927 10000                                
+  4333  8789  3240  6666  1355  9295  8067 10000                                
+  4499  8909  2916  6765  1222  9366  8182 10000                                
+  4666  9024  2685  6881  1088  9438  8289 10000                                
+  4833  9140  2407  6980   955  9509  8404 10000                                
+  5000  9269  2083  7095   811  9591  8519 10000                                
+  5166  9385  1759  7194   677  9662  8626 10000                                
+  5333  9505  1481  7293   544  9724  8733 10000                                
+  5500  9615  1157  7376   422  9785  8832 10000                                
+  5666  9721   833  7458   300  9846  8930 10000                                
+  5833  9807   509  7491   200  9897  8988 10000                                
+  6000  9889   185  7524   111  9938  9046 10000                                
+  6166  9956     0  7574    44  9979  9095 10000                                
+  6333  9980     0  7607    22  9989  9136 10000                                
+  6500  9980     0  7607    22  9989  9136 10000                                
+  6666 10000     0  7640     0 10000  9161 10000                                
+  7000  9462 10000 10000   588  9703 10000 10000                                
+  7333  9591  8194  9669   444  9775  9917 10000                                
+  7666  9615  7268  9405   411  9795  9802 10000                                
+  8000  9654  6296  9158   377  9805  9703 10000                                
+  8333  9682  5555  8960   344  9826  9629 10000                                
+  8666  9687  5231  8861   333  9826  9588 10000                                
+  9000  9678  5231  8844   344  9826  9572 10000                                
+  9333  9625  5787  8927   411  9795  9580 10000                                
+  9666  9668  6296  9174   355  9816  9728 10000                                
+ 10000  9745  5231  8976   277  9867  9671 10000                                
+-------------- END OF FILE NUMBER  1394-------------                            
+----------------- FILE NUMBER  1395-----------------                            
+ 0.450000E-01 0.300000E 00                                                      
+ 0.000000E 00-0.100000E 00                                                      
+     0  2500                                                                    
+   555  5000                                                                    
+  1111 10000                                                                    
+  1666  5000                                                                    
+  2222     0                                                                    
+  2777  2500                                                                    
+  3333  2500                                                                    
+  3888  2500                                                                    
+  4444     0                                                                    
+  5000     0                                                                    
+  5555     0                                                                    
+  6111     0                                                                    
+  6666  2500                                                                    
+  7222  2500                                                                    
+  7777  2500                                                                    
+  8333  2500                                                                    
+  8888  2500                                                                    
+  9444  2500                                                                    
+ 10000  2500                                                                    
+-------------- END OF FILE NUMBER  1395-------------                            
+----------------- FILE NUMBER  1396-----------------                            
+ 0.450000E-01 0.600000E 01                                                      
+ 0.000000E 00 0.000000E 00                                                      
+     0 10000                                                                    
+   555  4666                                                                    
+  1111  4166                                                                    
+  1666  3333                                                                    
+  2222  2666                                                                    
+  2777  1499                                                                    
+  3333   833                                                                    
+  3888   333                                                                    
+  4444   166                                                                    
+  5000     0                                                                    
+  5555   166                                                                    
+  6111     0                                                                    
+  6666     0                                                                    
+  7222     0                                                                    
+  7777     0                                                                    
+  8333     0                                                                    
+  8888   166                                                                    
+  9444   166                                                                    
+ 10000   166                                                                    
+-------------- END OF FILE NUMBER  1396-------------                            
+----------------- FILE NUMBER  1397-----------------                            
+ 0.450000E-01 0.114000E 03                                                      
+ 0.000000E 00 0.100000E 01                                                      
+     0 10000                                                                    
+   555  2115                                                                    
+  1111   858                                                                    
+  1666   486                                                                    
+  2222   362                                                                    
+  2777   327                                                                    
+  3333   265                                                                    
+  3888   238                                                                    
+  4444   238                                                                    
+  5000   230                                                                    
+  5555   230                                                                    
+  6111   221                                                                    
+  6666   221                                                                    
+  7222   238                                                                    
+  7777   256                                                                    
+  8333   274                                                                    
+  8888   159                                                                    
+  9444     8                                                                    
+ 10000     0                                                                    
+-------------- END OF FILE NUMBER  1397-------------                            
+----------------- FILE NUMBER  1398-----------------                            
+ 0.450000E-01 0.130000E 02                                                      
+ 0.000000E 00 0.100000E 01                                                      
+     0 10000                                                                    
+   555  6416                                                                    
+  1111  3916                                                                    
+  1666  3083                                                                    
+  2222  2166                                                                    
+  2777  1750                                                                    
+  3333  1666                                                                    
+  3888  1333                                                                    
+  4444  1083                                                                    
+  5000   833                                                                    
+  5555   583                                                                    
+  6111   250                                                                    
+  6666   166                                                                    
+  7222    83                                                                    
+  7777     0                                                                    
+  8333     0                                                                    
+  8888    83                                                                    
+  9444   333                                                                    
+ 10000   333                                                                    
+-------------- END OF FILE NUMBER  1398-------------                            
+----------------- FILE NUMBER  1399-----------------                            
+ 0.450000E-01 0.410000E 01                                                      
+ 0.000000E 00 0.500000E 00                                                      
+     0     0                                                                    
+   555 10000                                                                    
+  1111  8888                                                                    
+  1666  7777                                                                    
+  2222  5833                                                                    
+  2777  6111                                                                    
+  3333  5555                                                                    
+  3888  4722                                                                    
+  4444  4166                                                                    
+  5000  3888                                                                    
+  5555  3611                                                                    
+  6111  3611                                                                    
+  6666  3333                                                                    
+  7222  3611                                                                    
+  7777  3611                                                                    
+  8333  3611                                                                    
+  8888  3611                                                                    
+  9444  4166                                                                    
+ 10000  4444                                                                    
+-------------- END OF FILE NUMBER  1399-------------                            
+----------------- FILE NUMBER  1400-----------------                            
+ 0.450000E-01 0.380000E 01                                                      
+ 0.000000E 00 0.000000E 00                                                      
+     0     0                                                                    
+   555 10000                                                                    
+  1111  8947                                                                    
+  1666  7894                                                                    
+  2222  6842                                                                    
+  2777  6315                                                                    
+  3333  6052                                                                    
+  3888  6315                                                                    
+  4444  5263                                                                    
+  5000  4999                                                                    
+  5555  4736                                                                    
+  6111  4473                                                                    
+  6666  4473                                                                    
+  7222  4736                                                                    
+  7777  4736                                                                    
+  8333  4999                                                                    
+  8888  5263                                                                    
+  9444  5526                                                                    
+ 10000  5526                                                                    
+-------------- END OF FILE NUMBER  1400-------------                            
+----------------- FILE NUMBER  1401-----------------                            
+ 0.450000E-01 0.200000E 00                                                      
+ 0.000000E 00-0.200000E 00                                                      
+     0  5000                                                                    
+   555     0                                                                    
+  1111  7500                                                                    
+  1666  5000                                                                    
+  2222  5000                                                                    
+  2777  5000                                                                    
+  3333  7500                                                                    
+  3888  5000                                                                    
+  4444  2499                                                                    
+  5000  5000                                                                    
+  5555  5000                                                                    
+  6111  5000                                                                    
+  6666  5000                                                                    
+  7222  7500                                                                    
+  7777  7500                                                                    
+  8333  7500                                                                    
+  8888 10000                                                                    
+  9444 10000                                                                    
+ 10000 10000                                                                    
+-------------- END OF FILE NUMBER  1401-------------                            
+----------------- FILE NUMBER  1402-----------------                            
+ 0.450000E-01 0.100000E 00                                                      
+ 0.000000E 00-0.500000E 00                                                      
+     0  8333                                                                    
+   555     0                                                                    
+  1111  5000                                                                    
+  1666  5000                                                                    
+  2222  6666                                                                    
+  2777  8333                                                                    
+  3333  8333                                                                    
+  3888  8333                                                                    
+  4444  6666                                                                    
+  5000  6666                                                                    
+  5555  6666                                                                    
+  6111  8333                                                                    
+  6666  8333                                                                    
+  7222  8333                                                                    
+  7777  8333                                                                    
+  8333  8333                                                                    
+  8888  8333                                                                    
+  9444 10000                                                                    
+ 10000 10000                                                                    
+-------------- END OF FILE NUMBER  1402-------------                            
+----------------- FILE NUMBER  1403-----------------                            
+ 0.450000E-01 0.475000E 02                                                      
+ 0.000000E 00 0.400000E 00                                                      
+     0 10000                                                                    
+   555  2760                                                                    
+  1111  1231                                                                    
+  1666  1019                                                                    
+  2222   997                                                                    
+  2777   955                                                                    
+  3333   912                                                                    
+  3888   891                                                                    
+  4444   764                                                                    
+  5000   530                                                                    
+  5555   297                                                                    
+  6111    21                                                                    
+  6666     0                                                                    
+  7222    42                                                                    
+  7777    63                                                                    
+  8333   127                                                                    
+  8888   212                                                                    
+  9444   276                                                                    
+ 10000   339                                                                    
+-------------- END OF FILE NUMBER  1403-------------                            
+----------------- FILE NUMBER  1404-----------------                            
+ 0.450000E-01 0.385000E 02                                                      
+ 0.000000E 00 0.220000E 01                                                      
+     0 10000                                                                    
+   555  3719                                                                    
+  1111  1597                                                                    
+  1666   853                                                                    
+  2222   495                                                                    
+  2777   523                                                                    
+  3333   358                                                                    
+  3888   165                                                                    
+  4444     0                                                                    
+  5000    27                                                                    
+  5555     0                                                                    
+  6111    82                                                                    
+  6666   137                                                                    
+  7222   275                                                                    
+  7777   413                                                                    
+  8333   550                                                                    
+  8888   661                                                                    
+  9444   853                                                                    
+ 10000  1101                                                                    
+-------------- END OF FILE NUMBER  1404-------------                            
+----------------- FILE NUMBER  1405-----------------                            
+ 0.450000E-01 0.580000E 01                                                      
+ 0.000000E 00 0.150000E 01                                                      
+     0 10000                                                                    
+   555  6046                                                                    
+  1111  3488                                                                    
+  1666  2558                                                                    
+  2222  2558                                                                    
+  2777  2093                                                                    
+  3333   465                                                                    
+  3888   465                                                                    
+  4444   697                                                                    
+  5000     0                                                                    
+  5555   232                                                                    
+  6111     0                                                                    
+  6666   465                                                                    
+  7222   465                                                                    
+  7777   465                                                                    
+  8333   697                                                                    
+  8888   930                                                                    
+  9444   930                                                                    
+ 10000   930                                                                    
+-------------- END OF FILE NUMBER  1405-------------                            
+----------------- FILE NUMBER  1406-----------------                            
+ 0.450000E-01 0.320000E 01                                                      
+ 0.000000E 00 0.110000E 01                                                      
+     0 10000                                                                    
+   555 10000                                                                    
+  1111  7142                                                                    
+  1666  4285                                                                    
+  2222  2857                                                                    
+  2777  3809                                                                    
+  3333  3333                                                                    
+  3888   952                                                                    
+  4444     0                                                                    
+  5000   476                                                                    
+  5555   476                                                                    
+  6111   476                                                                    
+  6666   952                                                                    
+  7222  1428                                                                    
+  7777  1904                                                                    
+  8333  2857                                                                    
+  8888  2857                                                                    
+  9444  3809                                                                    
+ 10000  3809                                                                    
+-------------- END OF FILE NUMBER  1406-------------                            
+----------------- FILE NUMBER  1407-----------------                            
+ 0.450000E-01 0.200000E 00                                                      
+ 0.000000E 00-0.100000E 00                                                      
+     0  3333                                                                    
+   555     0                                                                    
+  1111  6666                                                                    
+  1666 10000                                                                    
+  2222  6666                                                                    
+  2777  6666                                                                    
+  3333  3333                                                                    
+  3888  3333                                                                    
+  4444  3333                                                                    
+  5000  3333                                                                    
+  5555  3333                                                                    
+  6111  3333                                                                    
+  6666  3333                                                                    
+  7222  3333                                                                    
+  7777  6666                                                                    
+  8333  6666                                                                    
+  8888  3333                                                                    
+  9444  6666                                                                    
+ 10000  6666                                                                    
+-------------- END OF FILE NUMBER  1407-------------                            
+----------------- FILE NUMBER  1408-----------------                            
+ 0.450000E-01 0.500000E 00                                                      
+ 0.000000E 00 0.000000E 00                                                      
+     0     0                                                                    
+   555  6000                                                                    
+  1111 10000                                                                    
+  1666  6000                                                                    
+  2222  3999                                                                    
+  2777  3999                                                                    
+  3333  2000                                                                    
+  3888     0                                                                    
+  4444     0                                                                    
+  5000     0                                                                    
+  5555     0                                                                    
+  6111     0                                                                    
+  6666     0                                                                    
+  7222     0                                                                    
+  7777  2000                                                                    
+  8333     0                                                                    
+  8888     0                                                                    
+  9444  2000                                                                    
+ 10000  2000                                                                    
+-------------- END OF FILE NUMBER  1408-------------                            
+----------------- FILE NUMBER  1409-----------------                            
+ 0.450000E-01 0.900000E 00                                                      
+ 0.000000E 00-0.300000E 00                                                      
+     0  2500                                                                    
+   555 10000                                                                    
+  1111  4166                                                                    
+  1666  8333                                                                    
+  2222  5833                                                                    
+  2777  6666                                                                    
+  3333  5833                                                                    
+  3888  5000                                                                    
+  4444  4166                                                                    
+  5000  4166                                                                    
+  5555  3333                                                                    
+  6111  3333                                                                    
+  6666     0                                                                    
+  7222  3333                                                                    
+  7777  2500                                                                    
+  8333  3333                                                                    
+  8888  5000                                                                    
+  9444  5833                                                                    
+ 10000  7500                                                                    
+-------------- END OF FILE NUMBER  1409-------------                            
+----------------- FILE NUMBER  1410-----------------                            
+ 0.450000E-01 0.288000E 02                                                      
+ 0.000000E 00 0.110000E 01                                                      
+     0 10000                                                                    
+   555  4259                                                                    
+  1111  2454                                                                    
+  1666  2057                                                                    
+  2222  1985                                                                    
+  2777  1768                                                                    
+  3333  1696                                                                    
+  3888  1371                                                                    
+  4444   830                                                                    
+  5000   361                                                                    
+  5555     0                                                                    
+  6111     0                                                                    
+  6666     0                                                                    
+  7222     0                                                                    
+  7777    36                                                                    
+  8333    72                                                                    
+  8888   144                                                                    
+  9444   144                                                                    
+ 10000   216                                                                    
+-------------- END OF FILE NUMBER  1410-------------                            
+----------------- FILE NUMBER  1411-----------------                            
+ 0.450000E-01 0.157000E 02                                                      
+ 0.000000E 00 0.390000E 01                                                      
+     0  9406                                                                    
+   555 10000                                                                    
+  1111  5508                                                                    
+  1666  3644                                                                    
+  2222  2881                                                                    
+  2777  2033                                                                    
+  3333  1271                                                                    
+  3888  1101                                                                    
+  4444   593                                                                    
+  5000   593                                                                    
+  5555   508                                                                    
+  6111   254                                                                    
+  6666     0                                                                    
+  7222     0                                                                    
+  7777    84                                                                    
+  8333    84                                                                    
+  8888   169                                                                    
+  9444   254                                                                    
+ 10000   423                                                                    
+-------------- END OF FILE NUMBER  1411-------------                            
+----------------- FILE NUMBER  1412-----------------                            
+ 0.450000E-01 0.123000E 02                                                      
+ 0.000000E 00 0.310000E 01                                                      
+     0  4673                                                                    
+   555 10000                                                                    
+  1111  6739                                                                    
+  1666  4347                                                                    
+  2222  2826                                                                    
+  2777  2173                                                                    
+  3333  1630                                                                    
+  3888  1413                                                                    
+  4444   978                                                                    
+  5000   434                                                                    
+  5555   326                                                                    
+  6111   217                                                                    
+  6666     0                                                                    
+  7222     0                                                                    
+  7777   108                                                                    
+  8333   217                                                                    
+  8888   434                                                                    
+  9444   652                                                                    
+ 10000   760                                                                    
+-------------- END OF FILE NUMBER  1412-------------                            
+----------------- FILE NUMBER  1413-----------------                            
+ 0.450000E-01 0.800000E 01                                                      
+ 0.000000E 00 0.500000E 00                                                      
+     0     0                                                                    
+   555 10000                                                                    
+  1111  8133                                                                    
+  1666  5999                                                                    
+  2222  4800                                                                    
+  2777  4266                                                                    
+  3333  3999                                                                    
+  3888  3466                                                                    
+  4444  3333                                                                    
+  5000  2933                                                                    
+  5555  2666                                                                    
+  6111  2533                                                                    
+  6666  2533                                                                    
+  7222  2533                                                                    
+  7777  2400                                                                    
+  8333  1333                                                                    
+  8888  1466                                                                    
+  9444  1466                                                                    
+ 10000  1733                                                                    
+-------------- END OF FILE NUMBER  1413-------------                            
+----------------- FILE NUMBER  1414-----------------                            
+ 0.450000E-01 0.730000E-01 0.350000E-01 0.670000E-01                            
+ 0.300000E-01 0.410000E-01 0.590000E-01 0.490000E-03                            
+ 0.250000E-02 0.900000E-02 0.400000E-02 0.500000E-02                            
+ 0.100000E-01 0.500000E-02 0.900000E-02 0.000000E 00                            
+     0  9062  9354 10000  8499 10000 10000 20000                                
+   588  9843 10000  9838  9499  9444  9799 10000                                
+  1176  9843 10000  9354  9499  8611  9199  9795                                
+  1764  9843  9677  8870 10000  8333  8999  9387                                
+  2352 10000  9677  8548  8999  8333  8799  8775                                
+  2941 10000  9677  8064  7999  8611  8199  6938                                
+  3529  9531  9354  7419  6999  7500  7399  6122                                
+  4117 10000  9677  7419  6499  6944  7200  5714                                
+  4705 10000  9677  7096  5999  6388  6800  4897                                
+  5294  9687  9354  6612  4999  5555  6199  3061                                
+  5882  9531  9032  6129  3999  4999  5600  2040                                
+  6470  9062  8709  5806  4499  4166  5199  1224                                
+  7058  6874  6451  4193  2499  2499  3399   816                                
+  7647  5781  5483  3387  2499  2499  2799   816                                
+  8235  4374  4193  2580  2499  1944  2199   612                                
+  8823  2656  2580  1451  1999  1388  1399   204                                
+  9411  1406  1290   806   999   555   599   204                                
+ 10000     0     0     0     0     0     0     0                                
+-------------- END OF FILE NUMBER  1414-------------                            
+----------------- FILE NUMBER  1415-----------------                            
+ 0.450000E-01 0.134000E 00 0.660000E-01 0.950000E-01                            
+ 0.920000E-01 0.610000E-01 0.850000E-01 0.110000E-03                            
+ 0.250000E-02 0.100000E-01 0.500000E-02 0.400000E-02                            
+ 0.500000E-02 0.300000E-02 0.500000E-02-0.350000E-03                            
+     0  4032  4590  6153  1954  5517  5875 20000                                
+   588  8870  9344 10000  4367  9827 10000 20000                                
+  1176 10000 10000  9780  4367 10000  9875 20000                                
+  1764  9516  9344  9010  4022  8793  9000 20000                                
+  2352  9032  8852  8241  3678  8275  8500     0                                
+  2941  8790  8360  7692  3563  7758  7750   217                                
+  3529  8629  8196  7252  3678  8275  7750   652                                
+  4117  8145  7704  6813  5402  7758  7875  7608                                
+  4705  7499  7049  6373  7931  7413  8874  8913                                
+  5294  6612  6229  5714 10000  5689  9375  7608                                
+  5882  5725  5409  4945  7931  4310  7625  8043                                
+  6470  5080  4754  4395  5402  3620  5750  8260                                
+  7058  4193  3934  3626  2988  2586  3875  8260                                
+  7647  3064  2786  2637  4482  1379  4125 10000                                
+  8235  2338  2131  1978  1379  1551  2000  8695                                
+  8823  1451  1311  1208  1264  1034  1500  7608                                
+  9411   322   327   109   114   172   125  7608                                
+ 10000     0     0     0     0     0     0  7608                                
+-------------- END OF FILE NUMBER  1415-------------                            
+----------------- FILE NUMBER  1416-----------------                            
+ 0.450000E-01 0.121000E 00 0.610000E-01 0.770000E-01                            
+ 0.720000E-01 0.520000E-01 0.740000E-01 0.520000E-03                            
+ 0.250000E-02 0.160000E-01 0.700000E-02 0.800000E-02                            
+ 0.180000E-01 0.600000E-02 0.170000E-01-0.128000E-02                            
+     0  2380 20000 20000 20000 20000 20000 20000                                
+   588  5333  6666  8405  2962  6956  7368 20000                                
+  1176  7714  8703  9855  4444  8913  9298 20000                                
+  1764  9142  9444 10000  5555 10000 10000 20000                                
+  2352 10000 10000  9565  5740  9782  9649 20000                                
+  2941 10000 10000  8840  4629  9565  8771 20000                                
+  3529  8857  8888  7101  2962  8043  6842  9388                                
+  4117  8857  8703  6376  2407  6739  5789 10000                                
+  4705  9047  9074  5942  2037  5869  5263  9499                                
+  5294  9428  9259  5652  1481  4130  4385  9111                                
+  5882  9333  8888  4927  1296  2826  3508  5833                                
+  6470  7904  7407  3623   740  3260  2631  4999                                
+  7058  4857  4629  1884   370  2826  1403  5833                                
+  7647  1714  1666   289     0  1304     0  6666                                
+  8235  1047  1111   144   370   652     0  6999                                
+  8823  3142  2962  1449  7222  1304  4561  3499                                
+  9411  3523  3148  2173 10000  2173  6666     0                                
+ 10000     0     0     0   925     0   175  6833                                
+-------------- END OF FILE NUMBER  1416-------------                            
+----------------- FILE NUMBER  1417-----------------                            
+ 0.450000E-01 0.900000E-01 0.450000E-01 0.600000E-01                            
+ 0.370000E-01 0.430000E-01 0.580000E-01 0.490000E-03                            
+ 0.250000E-02 0.130000E-01 0.600000E-02 0.800000E-02                            
+ 0.900000E-02 0.110000E-01 0.120000E-01-0.230000E-03                            
+     0  5714  6153  7307 10000  9374  8478 20000                                
+   588  8701  8974  9807 10000 10000 10000 20000                                
+  1176 10000 10000 10000  8928  9374  9782 10000                                
+  1764  9480  8974  8653  8214  8124  8478  9027                                
+  2352  8961  8461  7692  7142  6874  7391  9027                                
+  2941  8961  8461  7307  6071  5624  6739  7777                                
+  3529  9090  8461  7115  5357  5624  6304  8333                                
+  4117  9740  8974  7499  4999  4999  6521  6527                                
+  4705  9090  8461  6730  4285  4374  5652  5277                                
+  5294  7142  6410  5192  3571  3749  4565  3472                                
+  5882  5064  4615  3653  4642  3749  3913  2083                                
+  6470  3246  3076  2500  7142  3125  3695   833                                
+  7058  2597  2307  2115  7500  2812  3695     0                                
+  7647  1558  1538  1346  5357  2812  2826  1111                                
+  8235   909   769   769  2857  2187  1521  2083                                
+  8823   129   256   192   357   937   434  2777                                
+  9411   129   256   192   357   937   434  2916                                
+ 10000     0     0     0     0     0     0  3055                                
+-------------- END OF FILE NUMBER  1417-------------                            
+----------------- FILE NUMBER  1418-----------------                            
+ 0.450000E-01 0.710000E-01 0.330000E-01 0.580000E-01                            
+ 0.350000E-01 0.410000E-01 0.550000E-01 0.490000E-03                            
+ 0.250000E-02 0.180000E-01 0.800000E-02 0.100000E-01                            
+ 0.300000E-02 0.160000E-01 0.160000E-01 0.000000E 00                            
+     0  5849  6399  7916  9374  9599  8717 20000                                
+   588  6981  7199  8541 10000  8799  8974 20000                                
+  1176  8490  8799  9583  9062  8399  9487 20000                                
+  1764  9622 10000 10000  9374 10000 10000 10000                                
+  2352 10000 10000  9791  8124  8799  9487  8571                                
+  2941  9056  9199  8333  7187  7200  7948  5918                                
+  3529  9056  9199  7916  6562  6400  7179  5714                                
+  4117  9056  8799  7500  6874  5199  6666  4897                                
+  4705  9811  9600  7708  6249  4800  6666  4693                                
+  5294  9622  9600  7291  5937  3199  5897  3265                                
+  5882  8867  8799  6458  5625  2000  5128  2448                                
+  6470  9056  9199  6249  5625  2799  5128  1428                                
+  7058  7358  7199  5000  5000   799  3589   816                                
+  7647  5660  5599  3750  5000  1599  3076   612                                
+  8235  3207  3199  2083  3437     0  1282   408                                
+  8823  1698  1599  1249  3749     0   769   204                                
+  9411   754   799   624     0   400   512     0                                
+ 10000     0     0     0  2499   400     0     0                                
+-------------- END OF FILE NUMBER  1418-------------                            
+----------------- FILE NUMBER  1419-----------------                            
+ 0.450000E-01 0.740000E-01 0.350000E-01 0.670000E-01                            
+ 0.310000E-01 0.410000E-01 0.590000E-01 0.480000E-03                            
+ 0.250000E-02 0.800000E-02 0.400000E-02 0.400000E-02                            
+ 0.600000E-02 0.400000E-02 0.600000E-02 0.000000E 00                            
+     0  8484  9032  9682  8399 10000  9811 20000                                
+   588  9696 10000 10000  9600  9729 10000 10000                                
+  1176  9696  9677  9365 10000  8918  9433 10000                                
+  1764 10000 10000  9206 10000  8918  9433 10000                                
+  2352  9848  9677  8571  8799  8648  8679  8541                                
+  2941  9696  9677  8095  8399  8648  8301  7708                                
+  3529  9696  9677  7619  7599  8108  7735  6250                                
+  4117 10000 10000  7619  7599  7837  7735  6250                                
+  4705  9848  9677  6984  6799  6486  6981  3958                                
+  5294 10000 10000  6825  6000  6216  6603  3541                                
+  5882  9848  9677  6349  5200  5135  6037  1874                                
+  6470  8939  8709  5714  4399  4594  5283  1458                                
+  7058  7575  7419  4603  3999  2972  4150  1250                                
+  7647  5757  5483  3492  3599  2972  3396   625                                
+  8235  3636  3548  2222  2399  1891  2075   208                                
+  8823  2727  2580  1587  3199  1891  1886   208                                
+  9411  1212   967   793  1600   810   943     0                                
+ 10000     0     0     0     0     0     0     0                                
+-------------- END OF FILE NUMBER  1419-------------                            
+----------------- FILE NUMBER  1420-----------------                            
+ 0.450000E-01 0.760000E-01 0.360000E-01 0.670000E-01                            
+ 0.300000E-01 0.410000E-01 0.590000E-01 0.480000E-03                            
+ 0.250000E-02 0.800000E-02 0.400000E-02 0.400000E-02                            
+ 0.600000E-02 0.400000E-02 0.600000E-02 0.000000E 00                            
+     0  8235  8750  9682  8749 10000  9811 20000                                
+   588  9411 10000 10000 10000  9459 10000 10000                                
+  1176  9411  9375  9523 10000  9189  9622  9166                                
+  1764  9411  9375  9047 10000  8648  9056  8750                                
+  2352  9558  9375  8412  9166  8648  8679  7916                                
+  2941 10000 10000  8253  9166  8378  8490  8541                                
+  3529 10000  9687  7936  8749  7837  8113  7083                                
+  4117 10000  9687  7619  7916  7027  7547  5833                                
+  4705  9558  9375  6984  7083  6486  6981  3958                                
+  5294  9558  9375  6825  6250  5945  6603  3124                                
+  5882  9117  8750  6190  4999  4594  5660  1874                                
+  6470  8529  8437  5555  4999  4054  5094  1666                                
+  7058  7205  6875  4603  3749  2972  4150   833                                
+  7647  5735  5625  3492  3749  2972  3396   833                                
+  8235  3676  3437  2222  2499  2432  2264   416                                
+  8823  2794  2499  1746  3749  1621  2075   416                                
+  9411  1323  1250   793  1666  1081   943     0                                
+ 10000     0     0     0     0     0     0     0                                
+-------------- END OF FILE NUMBER  1420-------------                            
+----------------- FILE NUMBER  1421-----------------                            
+ 0.450000E-01 0.750000E-01 0.360000E-01 0.670000E-01                            
+ 0.300000E-01 0.410000E-01 0.590000E-01 0.460000E-03                            
+ 0.250000E-02 0.700000E-02 0.300000E-02 0.400000E-02                            
+ 0.500000E-02 0.300000E-02 0.500000E-02 0.000000E 00                            
+     0  8676  8787  9841  9199  9736  9814 20000                                
+   588  9852 10000 10000 10000 10000 10000 10000                                
+  1176  9852  9696  9365 10000  9210  9444  9782                                
+  1764  9852  9696  8888 10000  9210  9259 10000                                
+  2352  9705  9393  8412  9599  8684  8703  8913                                
+  2941  9852  9393  8253  9199  8157  8333  8043                                
+  3529  9852  9393  7777  8799  7894  7962  7173                                
+  4117  9852  9696  7460  8799  7368  7592  5000                                
+  4705  9705  9393  7142  7199  6578  7037  5217                                
+  5294 10000  9696  6825  6400  6315  6666  3695                                
+  5882  9558  9090  6031  5600  5526  5925  2391                                
+  6470  9117  8787  5555  5199  4736  5370  1956                                
+  7058  8235  7878  4761  4399  3684  4444  1086                                
+  7647  5735  5454  3174  3599  3157  3148   652                                
+  8235  3970  3939  2222  3599  2631  2592   434                                
+  8823  2500  2424  1269  3199  1578  1666   217                                
+  9411  1029  1212   476  1599   789   740     0                                
+ 10000     0     0     0     0     0     0     0                                
+-------------- END OF FILE NUMBER  1421-------------                            
+----------------- FILE NUMBER  1422-----------------                            
+ 0.450000E-01 0.820000E-01 0.390000E-01 0.690000E-01                            
+ 0.310000E-01 0.400000E-01 0.600000E-01 0.530000E-03                            
+ 0.250000E-02 0.600000E-02 0.300000E-02 0.300000E-02                            
+ 0.500000E-02 0.300000E-02 0.500000E-02 0.000000E 00                            
+     0  8552  9166  9545  9230 10000  9636 20000                                
+   588  9868 10000 10000  9615  9459 10000  9245                                
+  1176 10000 10000  9393 10000  9459  9636  9433                                
+  1764  9868  9722  8787 10000  9459  9090 10000                                
+  2352  9473  9444  8181 10000  8918  8545  9433                                
+  2941  9078  8888  7575  9230  8378  7999  7547                                
+  3529  9078  8888  7272  8076  7567  7454  5849                                
+  4117  9078  8888  6818  6538  7027  6909  5283                                
+  4705  9210  8888  6666  6538  6486  6545  3773                                
+  5294  8947  8611  6060  6153  5675  5999  2452                                
+  5882  8552  8333  5757  5000  4864  5454  1509                                
+  6470  7500  7222  4848  3846  4054  4545   943                                
+  7058  6184  6111  3787  3461  3243  3636   754                                
+  7647  4868  4722  2878  3846  2972  2909   566                                
+  8235  2894  2777  1666  3076  1891  1818   188                                
+  8823  1710  1666  1060  2692  1351  1272     0                                
+  9411   394   277   303   769   270   363     0                                
+ 10000     0     0     0     0     0     0     0                                
+-------------- END OF FILE NUMBER  1422-------------                            
+----------------- FILE NUMBER  1423-----------------                            
+ 0.450000E-01 0.113000E 00 0.540000E-01 0.730000E-01                            
+ 0.330000E-01 0.470000E-01 0.640000E-01 0.600000E-03                            
+ 0.250000E-02 0.600000E-02 0.300000E-02 0.300000E-02                            
+ 0.700000E-02 0.500000E-02 0.600000E-02-0.600000E-04                            
+     0  7009  7647  8999  9230 10000  9482 20000                                
+   588  8411  9019  9714 10000  9761 10000 20000                                
+  1176  9345  9411  9857  9615  9047  9827 20000                                
+  1764 10000 10000 10000 10000  9047 10000 10000                                
+  2352  9532  9411  8999  9230  8095  8965  9696                                
+  2941  9626  9607  8571  8846  7619  8620  8787                                
+  3529  9719  9607  8428  8076  6904  8275  9393                                
+  4117  9345  9019  7714  7307  6190  7413  6969                                
+  4705  9158  9019  7285  6538  5952  7068  5606                                
+  5294  8411  8235  6428  5384  5000  6034  3181                                
+  5882  8037  7843  6000  5000  4761  5689  2424                                
+  6470  6448  6274  4714  4615  4285  4655  2272                                
+  7058  4672  4509  3428  4230  3333  3620  1515                                
+  7647  3177  3137  2428  3846  3095  2931   303                                
+  8235  1869  1764  1428  3846  3095  2413     0                                
+  8823   747   784   571  1923  1428  1206   606                                
+  9411   186   196   142   769   714   517   606                                
+ 10000     0     0     0     0     0     0   757                                
+-------------- END OF FILE NUMBER  1423-------------                            
+----------------- FILE NUMBER  1424-----------------                            
+ 0.450000E-01 0.107000E 00 0.500000E-01 0.690000E-01                            
+ 0.330000E-01 0.450000E-01 0.630000E-01 0.650000E-03                            
+ 0.250000E-02 0.210000E-01 0.100000E-01 0.900000E-02                            
+ 0.120000E-01 0.120000E-01 0.140000E-01 0.000000E 00                            
+     0  5465  6249  8333  8571  9393  8571 20000                                
+   588  7558  7999 10000 10000 10000 10000 20000                                
+  1176  8372  8750 10000 10000  9696  9795 10000                                
+  1764  8488  8750  9499 10000  8787  9387  9692                                
+  2352  8720  8999  9166  9047  8181  8775  8461                                
+  2941  9069  8999  9000  8571  8181  8775  8307                                
+  3529  9534  9499  8833  8571  7878  8571  8000                                
+  4117 10000 10000  8833  9047  7575  8571  8307                                
+  4705  9302  9249  7999  6666  6666  7346  5384                                
+  5294  9069  8999  7499  5714  5454  6734  3230                                
+  5882  8604  8499  6833  4761  4242  5918  1538                                
+  6470  7790  7749  5999  3809  3333  4897   769                                
+  7058  6860  6749  5166  2380  2727  4081   615                                
+  7647  5697  5499  4166  3333  1818  3265   615                                
+  8235  5930  5749  4333  2857  2424  3469   461                                
+  8823  1627  1499  1333     0     0   612   153                                
+  9411   697   749   499     0     0   204     0                                
+ 10000     0     0     0   476     0     0     0                                
+-------------- END OF FILE NUMBER  1424-------------                            

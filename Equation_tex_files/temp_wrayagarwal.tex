@@ -1,0 +1,104 @@
+\begin{document}
+
+\begin{equation}
+\frac{\partial R}{\partial t} + \frac{\partial u_j R}{\partial x_j}
+= \frac{\partial}{\partial x_j} \left[(\sigma_R R + \nu) \frac{\partial R}{\partial x_j} \right]
++C_1RS + f_1 C_{2k\omega} \frac{R}{S} \frac{\partial R}{\partial x_j} \frac{\partial S}{\partial x_j}
+-(1-f_1)C_{2k\epsilon}R^2 \left(\frac{\frac{\partial S}{\partial x_j} \frac{\partial S}{\partial x_j}}{S^2} \right)
+\end{equation}
+
+\begin{equation}
+\mu_t = \rho f_{\mu} R
+\end{equation}
+
+\begin{equation}
+S=\sqrt{2 S_{ij} S_{ij} }
+\end{equation}
+
+\begin{equation}
+S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} +
+\frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+\begin{equation}
+f_{\mu} = \frac{\chi^3}{\chi^3 + C_w^3}
+\end{equation}
+
+\begin{equation}
+\chi = R/ \nu
+\end{equation}
+
+\begin{equation}
+\nu = \mu/ \rho
+\end{equation}
+
+\begin{equation}
+f_1 = \rm{min} \left(\rm{tanh} \left(arg_1^4 \right), 0.9 \right)
+\end{equation}
+
+\begin{equation}
+arg_1 = \frac{1+ \frac{d \sqrt{RS}}{\nu}}{1+
+\left[ \frac{\rm{max}(d \sqrt{RS}, 1.5 R)}{20 \nu} \right]^2}
+\end{equation}
+
+\begin{equation}
+C_{1k\omega}=0.0829
+\end{equation}
+
+\begin{equation}
+C_{1k\epsilon}=0.1127
+\end{equation}
+
+\begin{equation}
+C_1 = f_1(C_{1k\omega} - C_{1k\epsilon}) + C_{1k\epsilon}
+\end{equation}
+
+\begin{equation}
+\sigma_{k \omega} = 0.72
+\end{equation}
+
+\begin{equation}
+\sigma_{k \epsilon} = 1.0
+\end{equation}
+
+\begin{equation}
+\sigma_R = f_1(\sigma_{k \omega} - \sigma_{k \epsilon}) + \sigma_{k \epsilon}
+\end{equation}
+
+\begin{equation}
+C_{2k\omega} = \frac{C_{1k\omega}}{\kappa^2} + \sigma_{k \omega}
+\end{equation}
+
+\begin{equation}
+C_{2k\epsilon} = \frac{C_{1k\epsilon}}{\kappa^2} + \sigma_{k \epsilon}
+\end{equation}
+
+\begin{equation}
+\kappa = 0.41
+\end{equation}
+
+\begin{equation}
+C_w = 8.54
+\end{equation}
+
+\begin{equation}
+R_{wall} = 0
+\end{equation}
+
+\begin{equation}
+R_{farfield} = 3 \nu_{\infty} : to : 5 \nu_{\infty}
+\end{equation}
+
+\begin{equation}
+\rho
+\end{equation}
+
+\begin{equation}
+S = {\rm max}(S,10^{-16} s^{-1})
+\end{equation}
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

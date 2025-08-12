@@ -1,0 +1,223 @@
+%
+% `template_basic.tex' - A bare-bones example of using the AIAA class.
+%                        For a more advanced usage, see `template_advanced.tex'.
+%
+% Typical processing for PostScript (PS) output:
+%
+%  latex template_basic
+%  latex template_basic   (repeat as needed to resolve references)
+%
+%  xdvi template_basic    (onscreen draft display)
+%  dvips template_basic   (postscript)
+%  gv template_basic.ps   (onscreen display)
+%  lpr template_basic.ps  (hardcopy)
+%
+% Note: With the above, only Encapsulated PostScript (EPS) images can be used.
+%
+% Typical processing for Portable Document Format (PDF) output:
+%
+%  pdflatex template_basic
+%  pdflatex template_basic      (repeat as needed to resolve references)
+%
+%  acroread template_basic.pdf  (onscreen display)
+%
+% Note: If you have EPS figures, you will need to use the epstopdf
+% script to convert them to a form compatible with PDF.   Depending
+% on your version of pdflatex, it accepts a variety of other image
+% formats such as JPG, TIF, PNG, and so forth -- check your documentation.
+%
+% If you do *not* specify suffixes when using the graphicx package's
+% \includegraphics command, latex and pdflatex will automatically select
+% the appropriate figure format from those available.  This allows you
+% to produce PS and PDF output from the same LaTeX source file.
+%
+% To generate a large format (e.g., 11"x17") PostScript copy for editing
+% purposes, use
+%
+%  dvips -x 1467 -O -0.65in,0.85in -t tabloid template_basic
+%
+% Copyright (C) 2004 by Bil.Kleb@NASA.Gov, Bill.Wood@NASA.Gov,
+% and ErichK@AIAA.org.
+
+%\documentclass[]{aiaa-tc}% add 'draft' option to show overfull boxes
+\documentclass[handcarry]{aiaa-tc-mod}% add 'draft' option to show overfull boxes
+%\documentclass[submit]{aiaa-tc}% add 'draft' option to show overfull boxes
+\newif\ifpdf\ifx\pdfoutput\undefined\pdffalse\else\pdfoutput=1\pdftrue\fi
+
+\usepackage{subfigure}% subcaptions for subfigures
+\usepackage{subfigmat}% matrices of similar subfigures, aka small multiples
+\usepackage{graphicx}
+\usepackage{times}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\ieps{\varepsilon}
+\def\calP{{\cal P}}
+\def\calI{{\cal I}}
+\def\x{{\bf x}}
+\def\uh{\hat{u}}
+\def\ph{\hat{p}}
+\def\pdfP{{\mit P}}
+\def\prd{\partial}
+\def\ds{\displaystyle}
+\def\mitPi{{\mit\Pi}}
+\def\calD{{\cal D}}
+\def\etal{et al.}
+\def\tnu{\tilde \nu}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \title{Summary of Uncertainty Procedure}
+
+\author{9/12/2018}
+% C. L. Rumsey%
+%   \thanks{Research Scientist, Computational AeroSciences Branch,
+%    Mail Stop 128, Fellow AIAA.},
+%   {\normalsize\itshape
+%    NASA Langley Research Center, Hampton, VA  23681}\\
+%}
+
+ % Data used by 'handcarry' option if invoked
+ \AIAApapernumber{2018-xxxx}
+ \AIAAconference{Abstract for AIAA SciTech Meeting, January 7 -- 11, 2019,
+   San Diego, CA}
+% \AIAAcopyright{\AIAAcopyrightC{2014}}
+
+ % Define commands to assure consistent treatment throughout document
+ \newcommand{\eqnref}[1]{(\ref{#1})}
+ \newcommand{\class}[1]{\texttt{#1}}
+ \newcommand{\package}[1]{\texttt{#1}}
+ \newcommand{\file}[1]{\texttt{#1}}
+ \newcommand{\BibTeX}{\textsc{Bib}\TeX}
+
+\begin{document}
+
+\maketitle
+
+%\section{Description}
+
+The basic uncertainty estimation procedure from the Fluids Engineering Division of the 
+ASME [\citen{CELIK2008}] is employed, along with some minor variations.
+Three representative grid sizes, $h_i$, are
+obtained from the three finest grids.  This is done using:
+
+\begin{equation}
+h_i = \left(\frac{1}{N_i}\right)^A
+\end{equation}
+
+\noindent where $N_i$ is the number of unknowns (grid size) for the $i$th grid and $A = 1/2$ for 2-D and $1/3$ for 3-D.
+The grids should be in the same ``family."  For example, in a structured-grid family, each
+successively coarser grid is formed by taking every other grid point in each coordinate direction
+from the next finer grid.
+The grid ratios are defined as:
+
+\begin{equation}
+r_{21} \equiv h_2/h_1 \qquad r_{32} \equiv h_3/h_2
+\end{equation}
+
+\noindent where $h_1$ represents the finest of the three grids, and $h_3$ the coarsest.  Then,
+with $\phi_1$, $\phi_2$, and $\phi_3$ representing the corresponding three solutions on each grid, the
+solution differences are defined as:
+
+\begin{equation}
+\ieps_{21} \equiv \phi_2 - \phi_1 \qquad \ieps_{32} \equiv \phi_3 - \phi_2
+\end{equation}
+
+\noindent The apparent order $p$ is found using fixed point iteration from the following:
+
+\begin{eqnarray}
+p &=& \frac{1}{ln(r_{21})} (ln|\ieps_{32}/\ieps_{21}| + q(p)) \\
+q(p) &=& ln\left(\frac{r_{21}^p - s}{r_{32}^p - s} \right) \\
+s &=& 1 \times sign(\ieps_{32}/\ieps_{21})
+\end{eqnarray}
+
+\noindent Note that if $\ieps_{32}/\ieps_{21} \le 0$ then the convergence is ``oscillatory"
+(non-monotonic).  Also note that the above expression for $p$ above is different than the expression in
+Ref.~[\citen{CELIK2008}], in that the absolute value is {\it not} taken of the quantity
+$(ln|\ieps_{32}/\ieps_{21}| + q(p))$.  This is because we want to be able to recognize when
+the apparent computed order is non-positive (divergent).
+
+The approximate relative fine-grid error is:
+
+\begin{equation}
+e_a^{21} = \left| \frac{\phi_1 - \phi_2}{\phi_1} \right|
+\end{equation}
+
+The extrapolated relative fine-grid error is:
+
+\begin{equation}
+e_{ext}^{21} = \left| \frac{\phi_{ext}^{21} - \phi_1}{\phi_{ext}^{21}} \right|
+\end{equation}
+
+\noindent where $\phi_{ext}^{21}$ is the extrapolated value of the solution using:
+
+\begin{equation}
+\phi_{ext}^{21} = (r_{21}^p \phi_1 - \phi_2) / (r_{21}^p - 1)
+\end{equation}
+
+The basic fine-grid convergence index, $GCI_{fine}^{21}$, is computed from:
+
+\begin{equation}
+GCI_{fine}^{21} = \frac{1.25 e_a^{21}}{r_{21}^p - 1}
+\end{equation}
+
+\noindent where the $1.25$ in the expression is the recommended ``safety factor."
+The $GCI_{fine}^{21}$ is expressed in $\%$ by multiplying it by $100$.
+The solution itself can be expressed as the fine
+grid value plus or minus its uncertainty based on $GCI_{fine}^{21}$:
+
+\begin{equation}
+\phi \approx \phi_1 \pm (GCI_{fine}^{21}) |\phi_1|
+\end{equation}
+
+Further refinements to $GCI_{fine}^{21}$ have been made for many of the later
+results posted to the TMR website, based on ideas from
+E\c ca and Hoekstra [\citen{ECA2009}].
+When the computed apparent order $p$ is positive, but below some cutoff value $C_{low}$
+(taken here as $C_{low} = 0.95$),
+the $GCI_{fine}^{21}$ is limited based on a factor of the maximum difference (in absolute value) between any of the
+solutions, $\Delta_M = max (|\phi_2 - \phi_1|, |\phi_3 - \phi_2|, |\phi_3 - \phi_1|)$:
+
+\begin{equation}
+GCI_{fine}^{21} = min(\frac{1.25 e_a^{21}}{r_{21}^p - 1}, 1.25 \Delta_M/ |\phi_1|)
+\end{equation}
+
+\noindent When the computed apparent order $p$ is above some cutoff value $C_{hi}$
+(taken here as $C_{hi} = 3.05$), then
+an apparent order of $p \approx C_{hi}$ is imposed, and again $GCI_{fine}^{21}$ is limited based 
+on a factor of $\Delta_M$:
+
+\begin{equation}
+GCI_{fine}^{21} = max(\frac{1.25 e_a^{21}}{r_{21}^3 - 1}, 1.25 \Delta_M/ |\phi_1|)
+\end{equation}
+
+\noindent For cases with oscillatory convergence ($\ieps_{32}/\ieps_{21} \le 0$)
+or for cases with non-positive apparent order ($p \le 0$), then determination of $GCI_{fine}^{21}$
+is more difficult.  For the TMR website, no value is given (``N/A").  However, Ref.~[\citen{ECA2009}]
+suggests the following:
+
+\begin{equation}
+GCI_{fine}^{21} = 3 \Delta_M / |\phi_1|
+\end{equation}
+
+\noindent for non-monotonic convergence.
+
+
+%
+\begin{thebibliography}{9}% maximum number of references (for label width)
+%
+\bibitem{CELIK2008}
+Celik, I. B., Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+``Procedure for Estimation and Reporting of Uncertainty Due to Discretization in CFD Applications,"
+{\em Journal of Fluids Engineering}, Vol.~130, July 2008, 078001.
+%
+\bibitem{ECA2009}
+E\c ca, L. and Hoekstra, M.,
+``Evaluation of Numerical Error Estimation Based on Grid Refinement Studies with the Method
+of Manufactured Solutions,"
+{\em Computers and Fluids}, Vol.~38, 2009, pp. 1580--1591.
+\end{thebibliography}
+
+\end{document}
+
+% $Id: template_basic.tex,v 1.4 2004/04/03 13:48:43 kleb Exp $
+

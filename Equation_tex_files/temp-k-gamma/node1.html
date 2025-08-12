@@ -1,0 +1,1258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2012 (1.2)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>k-gamma model</TITLE>
+<META ID="description" CONTENT="k-gamma model">
+<META ID="keywords" CONTENT="temp-k-gamma">
+<META ID="resource-type" CONTENT="document">
+<META ID="distribution" CONTENT="global">
+
+<META ID="Generator" CONTENT="LaTeX2HTML v2012">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="temp-k-gamma.css">
+
+<LINK REL="next" HREF="node2.html">
+<LINK REL="previous" HREF="temp-k-gamma.html">
+<LINK REL="up" HREF="temp-k-gamma.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A ID="tex2html14"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<A ID="tex2html12"
+  HREF="temp-k-gamma.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up.png"></A> 
+<A ID="tex2html6"
+  HREF="temp-k-gamma.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A ID="tex2html15"
+  HREF="node2.html">About this document ...</A>
+<B> Up:</B> <A ID="tex2html13"
+  HREF="temp-k-gamma.html">temp-k-gamma</A>
+<B> Previous:</B> <A ID="tex2html7"
+  HREF="temp-k-gamma.html">temp-k-gamma</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A ID="SECTION00010000000000000000">
+k-gamma model</A>
+</H1>
+Reference:
+<BR>
+Sandhu, J. P. S., and Ghosh, S., “A local correlation-based zero-equation transition model,” Computers &amp; Fluids, vol. 214, Jan. 2021, p. 104758. doi:10.1016/j.compfluid.2020.104758.
+<BR>
+The k-gamma model based on SST2003 fully turbulent flow model and LCTM  gamma transition model.
+The transport equations of k-gamma are similar as SST2003 model with few additional source terms for k transport equation.
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{\partial(\rho k)}{\partial t}+\frac{\partial\left(\rho u_{j} k\right)}{\partial x_{j}}=P-\text{max}(\widetilde{\gamma},0.1)\beta^{*} \rho \omega k+\frac{\partial}{\partial x_{j}}\left[\left(\mu+\sigma_{k} \mu_{t}\right) \frac{\partial k}{\partial x_{j}}\right] + \Psi_{k_\gamma}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{\partial(\rho \omega)}{\partial t}+\frac{\partial\left(\rho u_{j} \omega\right)}{\partial x_{j}}=\frac{\gamma}{\nu_{t}} P-\beta \rho \omega^{2}+\frac{\partial}{\partial x_{j}}\left[\left(\mu+\sigma_{\omega} \mu_{t}\right) \frac{\partial \omega}{\partial x_{j}}\right]+2\left(1-F_{1}\right) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_{j}} \frac{\partial \omega}{\partial x_{j}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="517" HEIGHT="40" BORDER="0"
+ SRC="img2.png"
+ ALT="\begin{displaymath}
+\frac{\partial(\rho \omega)}{\partial t}+\frac{\partial\left...
+...tial k}{\partial x_{j}} \frac{\partial \omega}{\partial x_{j}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\Psi_{k_\gamma} = P_{k_\gamma}+P_{k_\gamma}^{lim}- E_{k_\gamma}+ D_{k_\gamma}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="561" HEIGHT="40" BORDER="0"
+ SRC="img3.png"
+ ALT="\begin{displaymath}
+\Psi_{k_\gamma} = P_{k_\gamma}+P_{k_\gamma}^{lim}- E_{k_\gamma}+ D_{k_\gamma}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+P_{k_\gamma} = F_{length} \phantom{I} \rho S (1-\widetilde{\gamma})F_{onset} k
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="216" HEIGHT="22" BORDER="0"
+ SRC="img4.png"
+ ALT="\begin{displaymath}
+P_{k_\gamma} = F_{length} \phantom{I} \rho S (1-\widetilde{\gamma})F_{onset} k
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+E_{k_\gamma} = \widetilde{\gamma} C_{e1}\ \rho\Omega F_{turb} k
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="220" HEIGHT="18" BORDER="0"
+ SRC="img5.png"
+ ALT="\begin{displaymath}
+E_{k_\gamma} = \widetilde{\gamma} C_{e1}\ \rho\Omega F_{turb} k
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+D_{k_\gamma} = -C_{d1}(\mu + \mu_t)\frac{\partial k}{\partial x_j}\frac{\partial \widetilde{\gamma}}{\partial x_j}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="144" HEIGHT="18" BORDER="0"
+ SRC="img6.png"
+ ALT="\begin{displaymath}
+D_{k_\gamma} = -C_{d1}(\mu + \mu_t)\frac{\partial k}{\partial x_j}\frac{\partial \widetilde{\gamma}}{\partial x_j}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(6)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+P_{k_\gamma}^{lim} = 5\left[\text{max}(\widetilde{\gamma} - 0.2, 0)(1-\widetilde{\gamma})F_{on}^{lim}\text{max}(3\mu - \mu_t,0)S\Omega\right]
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="200" HEIGHT="39" BORDER="0"
+ SRC="img7.png"
+ ALT="\begin{displaymath}
+P_{k_\gamma}^{lim} = 5\left[\text{max}(\widetilde{\gamma} -...
+...e{\gamma})F_{on}^{lim}\text{max}(3\mu - \mu_t,0)S\Omega\right]
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{on}^{lim} = \text{min}\left(\text{max}\left(\frac{Re_v}{2.2Re_{\theta c}^{lim}}-1, 0\right),3\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="399" HEIGHT="22" BORDER="0"
+ SRC="img8.png"
+ ALT="\begin{displaymath}
+F_{on}^{lim} = \text{min}\left(\text{max}\left(\frac{Re_v}{2.2Re_{\theta c}^{lim}}-1, 0\right),3\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(8)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Re_{\theta c}^{lim} = 1100
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="289" HEIGHT="40" BORDER="0"
+ SRC="img9.png"
+ ALT="\begin{displaymath}
+Re_{\theta c}^{lim} = 1100
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(9)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The approximated intermittency 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\widetilde{\gamma}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="93" HEIGHT="19" BORDER="0"
+ SRC="img10.png"
+ ALT="\begin{displaymath}
+\widetilde{\gamma}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(10)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+is given as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\widetilde{\gamma} = \left(1-e^{-R_T}\right)^3
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="9" HEIGHT="16" BORDER="0"
+ SRC="img11.png"
+ ALT="\begin{displaymath}
+\widetilde{\gamma} = \left(1-e^{-R_T}\right)^3
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(11)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{\partial \widetilde{\gamma}}{\partial x_i} = \frac{3\rho\widetilde{\gamma}^{2/3}}{\mu \omega} \left(\frac{\partial k}{\partial x_i} - \frac{k}{\omega}\frac{\partial \omega}{\partial x_i}\right)e^{-R_T}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="115" HEIGHT="25" BORDER="0"
+ SRC="img12.png"
+ ALT="\begin{displaymath}
+\frac{\partial \widetilde{\gamma}}{\partial x_i} = \frac{3\...
+...{k}{\omega}\frac{\partial \omega}{\partial x_i}\right)e^{-R_T}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(12)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where, 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+R_T = \frac{\rho k}{\omega \mu}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="249" HEIGHT="41" BORDER="0"
+ SRC="img13.png"
+ ALT="\begin{displaymath}
+R_T = \frac{\rho k}{\omega \mu}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(13)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+In order to obtain the gradient of approximated intermittency, the gradient of density and molecular viscosity  have been ignored. 
+Here,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{turb} = e^{-\left(\frac{R_T}{2}\right)^4}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="66" HEIGHT="37" BORDER="0"
+ SRC="img14.png"
+ ALT="\begin{displaymath}
+F_{turb} = e^{-\left(\frac{R_T}{2}\right)^4}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(14)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and the onset of transition is controlled by the following function:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{onset}  = \text{max}(F_{onset2} - F_{onset3}, 0.0)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="114" HEIGHT="26" BORDER="0"
+ SRC="img15.png"
+ ALT="\begin{displaymath}
+F_{onset} = \text{max}(F_{onset2} - F_{onset3}, 0.0)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(15)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where, 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{onset2} = \text{min}(F_{onset1}, 2.0)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="250" HEIGHT="16" BORDER="0"
+ SRC="img16.png"
+ ALT="\begin{displaymath}
+F_{onset2} = \text{min}(F_{onset1}, 2.0)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(16)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{onset3} = \text{max}\left( 1 - \left(\frac{R_T}{3.5}\right)^3, 0\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="186" HEIGHT="16" BORDER="0"
+ SRC="img17.png"
+ ALT="\begin{displaymath}
+F_{onset3} = \text{max}\left( 1 - \left(\frac{R_T}{3.5}\right)^3, 0\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(17)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The term 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{onset1}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="227" HEIGHT="48" BORDER="0"
+ SRC="img18.png"
+ ALT="\begin{displaymath}
+F_{onset1}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(18)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+is defined as, 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{onset1} = \frac{Re_v}{2.2Re_{\theta c}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="48" HEIGHT="14" BORDER="0"
+ SRC="img19.png"
+ ALT="\begin{displaymath}
+F_{onset1} = \frac{Re_v}{2.2Re_{\theta c}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(19)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Re_\text{v} = \frac{\rho d_w^2 S}{\mu}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="124" HEIGHT="35" BORDER="0"
+ SRC="img20.png"
+ ALT="\begin{displaymath}
+Re_\text{v} = \frac{\rho d_w^2 S}{\mu}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(20)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+is the local strain-rate Reynolds number.
+Also, 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Re_{\theta c}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="88" HEIGHT="40" BORDER="0"
+ SRC="img21.png"
+ ALT="\begin{displaymath}
+Re_{\theta c}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(21)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+is calculated using the following correlation:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Re_{\theta c} = 100.0 + 1000.0 ~exp(-Tu_L F_{PG})
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="32" HEIGHT="14" BORDER="0"
+ SRC="img22.png"
+ ALT="\begin{displaymath}
+Re_{\theta c} = 100.0 + 1000.0 ~exp(-Tu_L F_{PG})
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(22)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here, the terms Tu_L and F_PG are  functions that
+account for the effects of local turbulence intensity and pressure gradient in the flow.
+They are defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{PG} = \left\{
+    \begin{array}{ll}
+      min(1 + 14.68\lambda_{\theta L}, 1.5) , &\quad\lambda_{\theta L} \geq 0\\
+      min(1 - 7.34\lambda_{\theta L}, 3.0) , &\quad\lambda_{\theta L} < 0
+    \end{array}\right.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="262" HEIGHT="16" BORDER="0"
+ SRC="img23.png"
+ ALT="\begin{displaymath}
+F_{PG} = \left\{
+\begin{array}{ll}
+min(1 + 14.68\lambda_{...
+...ta L}, 3.0) , &amp;\quad\lambda_{\theta L} &lt; 0
+\end{array}\right.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(23)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Tu_L = min\left(100\frac{\sqrt{2k/3}}{\omega d_w}, 100\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="280" HEIGHT="39" BORDER="0"
+ SRC="img24.png"
+ ALT="\begin{displaymath}
+Tu_L = min\left(100\frac{\sqrt{2k/3}}{\omega d_w}, 100\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(24)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here, 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+d_w
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="212" HEIGHT="48" BORDER="0"
+ SRC="img25.png"
+ ALT="\begin{displaymath}
+d_w
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(25)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+is the wall distance.
+The pressure gradient  parameter, 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\lambda_{\theta L}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="18" HEIGHT="14" BORDER="0"
+ SRC="img26.png"
+ ALT="\begin{displaymath}
+\lambda_{\theta L}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(26)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+is defined as 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\lambda_{\theta L} = -7.57. 10^{-3}\frac{d V}{dy}\frac{d_w^2}{\nu} + 0.0128
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="24" HEIGHT="14" BORDER="0"
+ SRC="img27.png"
+ ALT="\begin{displaymath}
+\lambda_{\theta L} = -7.57. 10^{-3}\frac{d V}{dy}\frac{d_w^2}{\nu} + 0.0128
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(27)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The term 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{dV}{dy}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="235" HEIGHT="40" BORDER="0"
+ SRC="img28.png"
+ ALT="\begin{displaymath}
+\frac{dV}{dy}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(28)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+can be computed as:
+
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{dV}{dy} = \nabla (\vec{n}.\vec{V}).\vec{n}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="22" HEIGHT="37" BORDER="0"
+ SRC="img29.png"
+ ALT="\begin{displaymath}
+\frac{dV}{dy} = \nabla (\vec{n}.\vec{V}).\vec{n}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(29)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where, 
+
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\vec{n} = \frac{\nabla (d_w)}{|\nabla (d_w)|}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="111" HEIGHT="37" BORDER="0"
+ SRC="img30.png"
+ ALT="\begin{displaymath}
+\vec{n} = \frac{\nabla (d_w)}{\vert\nabla (d_w)\vert}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(30)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+At wall,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+k_{wall} = 0
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="86" HEIGHT="38" BORDER="0"
+ SRC="img31.png"
+ ALT="\begin{displaymath}
+k_{wall} = 0
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(31)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\omega_{wall} = 10 \frac{6 \nu}{\beta_1 (\Delta d_1)^2}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="62" HEIGHT="14" BORDER="0"
+ SRC="img32.png"
+ ALT="\begin{displaymath}
+\omega_{wall} = 10 \frac{6 \nu}{\beta_1 (\Delta d_1)^2}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(32)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The production term of orignal transport equation is modified as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+P = \widetilde{\gamma} \mu_t S\Omega
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="140" HEIGHT="36" BORDER="0"
+ SRC="img33.png"
+ ALT="\begin{displaymath}
+P = \widetilde{\gamma} \mu_t S\Omega
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(33)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where the turbulent viscosity is defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\mu_{t}=\frac{\rho a_{1} k}{\max \left(a_{1} \omega, \Omega F_{2}\right)}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="79" HEIGHT="16" BORDER="0"
+ SRC="img34.png"
+ ALT="\begin{displaymath}
+\mu_{t}=\frac{\rho a_{1} k}{\max \left(a_{1} \omega, \Omega F_{2}\right)}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(34)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{2}=\tanh \left(\arg _{2}^{2}\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="146" HEIGHT="37" BORDER="0"
+ SRC="img35.png"
+ ALT="\begin{displaymath}
+F_{2}=\tanh \left(\arg _{2}^{2}\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(35)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\arg _{2}=\max \left(2 \frac{\sqrt{k}}{\beta^{*} \omega d}, \frac{500 \nu}{d^{2} \omega}\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="115" HEIGHT="21" BORDER="0"
+ SRC="img36.png"
+ ALT="\begin{displaymath}
+\arg _{2}=\max \left(2 \frac{\sqrt{k}}{\beta^{*} \omega d}, \frac{500 \nu}{d^{2} \omega}\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(36)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The recommended production limiter is
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\min \left(P, 20 \beta^{*} \rho \omega k\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="196" HEIGHT="48" BORDER="0"
+ SRC="img37.png"
+ ALT="\begin{displaymath}
+\min \left(P, 20 \beta^{*} \rho \omega k\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(37)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+In the SST model, the constants are a blend of an inner (1) and outer (2) constant, blended via
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\phi=F_{1} \phi_{1}+\left(1-F_{1}\right) \phi_{2}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="118" HEIGHT="16" BORDER="0"
+ SRC="img38.png"
+ ALT="\begin{displaymath}
+\phi=F_{1} \phi_{1}+\left(1-F_{1}\right) \phi_{2}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(38)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The blending function <IMG
+ WIDTH="160" HEIGHT="16" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.png"
+ ALT="$F_1$"> is given as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_1 = max \left( F_{1,SST},F_3 \right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="27" BORDER="0"
+ SRC="img40.png"
+ ALT="\begin{displaymath}
+F_1 = max \left( F_{1,SST},F_3 \right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(39)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{1,SST}=\tanh \left(a r g_{1}^{4}\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="156" HEIGHT="18" BORDER="0"
+ SRC="img41.png"
+ ALT="\begin{displaymath}
+F_{1,SST}=\tanh \left(a r g_{1}^{4}\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(40)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\arg _{1}=\min \left[\max \left(\frac{\sqrt{k}}{\beta^{*} \omega d}, \frac{500 \nu}{d^{2} \omega}\right), \frac{4 \rho \sigma_{\omega 2} k}{C D_{k \omega} d^{2}}\right]
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="147" HEIGHT="21" BORDER="0"
+ SRC="img42.png"
+ ALT="\begin{displaymath}
+\arg _{1}=\min \left[\max \left(\frac{\sqrt{k}}{\beta^{*} \o...
+...\frac{4 \rho \sigma_{\omega 2} k}{C D_{k \omega} d^{2}}\right]
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(41)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_3 = exp \left[ - \left( \frac{R_y}{120} \right)^8 \right]
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="305" HEIGHT="48" BORDER="0"
+ SRC="img43.png"
+ ALT="\begin{displaymath}
+F_3 = exp \left[ - \left( \frac{R_y}{120} \right)^8 \right]
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(42)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where, 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+R_y = \frac{\rho d \sqrt{k}}{\mu}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="153" HEIGHT="48" BORDER="0"
+ SRC="img44.png"
+ ALT="\begin{displaymath}
+R_y = \frac{\rho d \sqrt{k}}{\mu}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(43)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The cross-diffusion term is defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+C D_{k \omega}=\max \left(2 \rho \sigma_{\omega 2} \frac{1}{\omega} \frac{\partial k}{\partial x_{j}} \frac{\partial \omega}{\partial x_{j}}, 10^{-10}\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="82" HEIGHT="40" BORDER="0"
+ SRC="img45.png"
+ ALT="\begin{displaymath}
+C D_{k \omega}=\max \left(2 \rho \sigma_{\omega 2} \frac{1}{...
+...x_{j}} \frac{\partial \omega}{\partial x_{j}}, 10^{-10}\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(44)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The strain rate magnitude 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+S
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="275" HEIGHT="40" BORDER="0"
+ SRC="img46.png"
+ ALT="\begin{displaymath}
+S
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(45)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and vorticity magnitude 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\Omega
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="11" HEIGHT="13" BORDER="0"
+ SRC="img47.png"
+ ALT="\begin{displaymath}
+\Omega
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(46)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+are defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+S = \sqrt{2S_{ij}S_{ij}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="11" HEIGHT="12" BORDER="0"
+ SRC="img48.png"
+ ALT="\begin{displaymath}
+S = \sqrt{2S_{ij}S_{ij}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(47)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\Omega = \sqrt{2W_{ij}W_{ij}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="98" HEIGHT="20" BORDER="0"
+ SRC="img49.png"
+ ALT="\begin{displaymath}
+\Omega = \sqrt{2W_{ij}W_{ij}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(48)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+S_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} +  \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="110" HEIGHT="20" BORDER="0"
+ SRC="img50.png"
+ ALT="\begin{displaymath}
+S_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(49)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+W_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} -  \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="155" HEIGHT="40" BORDER="0"
+ SRC="img51.png"
+ ALT="\begin{displaymath}
+W_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} - \frac{\partial u_j}{\partial x_i} \right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(50)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The model constants are:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\begin{array}{l}
+    F_{length} = 1.0\\[0.5cm]
+    C_{e1} = 0.03\\[0.5cm]
+    C_{d1} = 0.02
+  \end{array}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="159" HEIGHT="40" BORDER="0"
+ SRC="img52.png"
+ ALT="\begin{displaymath}
+\begin{array}{l}
+F_{length} = 1.0\\ [0.5cm]
+C_{e1} = 0.03\\ [0.5cm]
+C_{d1} = 0.02
+\end{array}\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(51)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\gamma_{1}=\frac{\beta_{1}}{\beta^{*}}-\frac{\sigma_{\omega 1} \kappa^{2}}{\sqrt{\beta^{*}}}, \; \qquad \gamma_{2}=\frac{\beta_{2}}{\beta^{*}}-\frac{\sigma_{\omega 2} \kappa^{2}}{\sqrt{\beta^{*}}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="89" HEIGHT="81" BORDER="0"
+ SRC="img53.png"
+ ALT="\begin{displaymath}
+\gamma_{1}=\frac{\beta_{1}}{\beta^{*}}-\frac{\sigma_{\omega...
+...eta^{*}}-\frac{\sigma_{\omega 2} \kappa^{2}}{\sqrt{\beta^{*}}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(52)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\begin{displaymath}\arraycolsep=6pt
+\begin{array}{lll}
+  \sigma_{k 1}=0.85 &\quad \sigma_{\omega 1}=0.5 &\quad \beta_{1}=0.075 \\[0.5cm]
+  \sigma_{k 2}=1.0 &\quad \sigma_{\omega 2}=0.856 &\quad \quad \beta_{2}=0.0828 \\[0.5cm]
+  \beta^{*}=0.09 &\quad \kappa=0.41 &\quad a_{1}=0.31
+\end{array}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="254" HEIGHT="41" BORDER="0"
+ SRC="img54.png"
+ ALT="\begin{displaymath}
+\begin{displaymath}\arraycolsep=6pt
+\begin{array}{lll}
+\si...
+...\beta^{*}=0.09 &amp;\quad \kappa=0.41 &amp;\quad a_{1}=0.31
+\end{array}\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(53)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\mu_t
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="275" HEIGHT="83" BORDER="0"
+ SRC="img55.png"
+ ALT="\begin{displaymath}
+\mu_t
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(54)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Tu_{freestream}\% = 100 \sqrt{\frac{2}{3} \frac{k_{freestream}}{U_{ref}^2}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="15" HEIGHT="11" BORDER="0"
+ SRC="img56.png"
+ ALT="\begin{displaymath}
+Tu_{freestream}\% = 100 \sqrt{\frac{2}{3} \frac{k_{freestream}}{U_{ref}^2}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(55)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\mu_{t, freestream} = \rho_{freestream}\frac{k_{freestream}}{\omega_{freestream}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="255" HEIGHT="48" BORDER="0"
+ SRC="img57.png"
+ ALT="\begin{displaymath}
+\mu_{t, freestream} = \rho_{freestream}\frac{k_{freestream}}{\omega_{freestream}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(56)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+B=1
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="264" HEIGHT="38" BORDER="0"
+ SRC="img58.png"
+ ALT="\begin{displaymath}
+B=1
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(57)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A ID="tex2html14"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<A ID="tex2html12"
+  HREF="temp-k-gamma.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up.png"></A> 
+<A ID="tex2html6"
+  HREF="temp-k-gamma.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A ID="tex2html15"
+  HREF="node2.html">About this document ...</A>
+<B> Up:</B> <A ID="tex2html13"
+  HREF="temp-k-gamma.html">temp-k-gamma</A>
+<B> Previous:</B> <A ID="tex2html7"
+  HREF="temp-k-gamma.html">temp-k-gamma</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Christopher Rumsey
+2021-02-18
+</ADDRESS>
+</BODY>
+</HTML>

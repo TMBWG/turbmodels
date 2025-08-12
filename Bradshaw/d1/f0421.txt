@@ -1,0 +1,1318 @@
+----------------- FILE NUMBER   538-----------------
+ 1. FLOW TITLE: CASE 0421;  KIM, J., KLINE, S. J., JOHNSTON, J. P.
+    "FLOW OVER A BACKWARD FACING STEP."
+
+ 2. REVISION DATE: NOVEMBER 8, 1981
+
+ 3. EVALUATOR: EATON, J. K., JOHNSTON, J. P., DEPARTMENT OF
+    MECHANICAL ENGINEERING, STANFORD UNIVERSITY, STANFORD
+    CA 94305
+
+ 4. EXPERIMENT LOCATION AND DATE: H.T.T.M. LABORATORY, DEPARTMENT
+    OF MECHANICAL ENGINEERING, STANFORD UNIVERSITY, STANFORD,
+    CA 94305                 1978
+
+ 5. ABSTRACT: THE CASE INCLUDES MEAN-VELOCITY PROFILES, PRESSURE
+    COEFFICIENT PROFILES, WALL STATIC PRESSURE AND TURBULENCE DATA
+    FOR THE FLOW OVER A BACKWARD FACING STEP.
+
+    THE EXPERIMENT WAS CONDUCTED IN A PARALLEL WALLED, SUDDEN
+    EXPANSION, AIR FLOW.  A STRAIGHT DUCT 0.0762 M WIDE AND
+    0.3048 M LONG WAS PLACED UPSTREAM OF THE 0.0381 M STEP TO
+    ALLOW A TURBULENT BOUNDARY LAYER TO DEVELOP UPSTREAM OF
+    SEPARATION.  THE LENGTH OF THE DUCT DOWNSTREAM OF THE STEP
+    IS 2.34 M.  THE WALLS ARE FAR ENOUGH APART TO INSURE THE
+    EXISTENCE OF A POTENTIAL CORE AND TO INSURE THAT THE OPPOSITE
+    WALL BOUNDARY LAYER DOES NOT INTERFERE WITH THE RECOVERING
+    BOUNDARY LAYER.
+
+    HOT WIRE ANEMOMETERS WERE USED TO MAKE THE TURBULENCE
+    MEASUREMENTS IN THE BOUNDARY LAYER DOWNSTREAM OF REATTACHMENT.
+
+    THE REFERENCE VELOCITY WAS HELD AT A CONSTANT VALUE OF 18.2 M/S
+    AT X = -.125 M.
+
+    THE PRESSURE COEFFICIENT PROFILES WERE DIGITIZED FROM GRAPHS
+    USING A HOUSTON INSTRUMENTS HI-PAD.  THE UNCERTAINTY INTRODUCED
+    BY DIGITIZING THE DATA ARE CONSIDERABLY LESS THAN THE MEASUREMENT
+    UNCERTAINTY ESTIMATE SUPPLIED BY THE EVALUATOR.
+
+ 6. REFERENCES: 1. KIM, J., KLINE, S. J., JOHNSTON, J. P.
+    "INVESTIGATION OF SEPARATION AND REATTACHMENT OF A TURBULENT
+    SHEAR LAYER.  FLOW OVER A BACKWARD-FACING STEP."  REPORT MD-37,
+    THERMOSCIENCES DIVISION, DEPARTMENT OF MECHANICAL ENGINEERING,
+    STANFORD UNIVERSITY      APRIL 1978
+                2. EATON, J. K., JOHNSTON, J. P. "AN EVALUATION
+    OF DATA FOR THE BACKWARD-FACING STEP FLOW: REPORT PREPARED
+    FOR THE 1980/81 CONFERENCE ON COMPLEX TURBULENT FLOWS"
+    DEPARTMENT OF MECHANICAL ENGINEERING, STANFORD UNIVERSITY
+    JANUARY 1980
+
+ 7. INSTRUMENTATION:
+    MEAN VELOCITY MEASUREMENTS: TOTAL PRESSURE TUBE.
+    TURBULENCE MEASUREMENTS:  X ARRAY OF HOT WIRES.
+    STATIC PRESSURE MEASUREMENT:  PITOT PROBE.
+    REATTACHMENT LENGTH MEASUREMENT:  TUFT VISUALIZATION AND OIL
+    FLOW VISUALIZATION.
+
+ 8. EXPERIMENTAL PARAMETERS:
+    FLOW INLET:                            FROM 18:1 CONTRACTION.
+    FLOW EXIT:                             TO A LARGE ROOM.
+    WINDTUNNEL ASPECT RATIO (B/H):         16
+    REFERENCE FREE-STREAM VELOCITY (UREF): 18.2 M/S
+    FREE-STREAM TURBULENCE INTENSITY:      0.003
+    KINEMATIC VISCOSITY (XNU):             0.155E-04 M**2/S
+    REATTACHMENT LENGTH:                   7 STEP HEIGHTS
+    STEP HEIGHT:                           0.0381 M
+
+ 9. MEASURED VARIABLES:
+    REFERENCE FREE-STREAM VELOCITY (UREF)
+    STREAMWISE MEAN VELOCITY (U)
+    STEP HEIGHT (H)
+    DISTANCE IN STREAMWISE DIRECTION (X)
+    DISTANCE IN TRANSVERSE DIRECTION (Y)
+    STATIC PRESSURE (P)
+    WALL STATIC PRESSURE (PW)
+    INLET STATIC PRESSURE (PO)
+    REYNOLDS STRESS (U2)
+    REYNOLDS STRESS (V2)
+    REYNOLDS STRESS (U1V1)
+
+    EACH MEASURING STATION INCLUDES DATA FOR THE FOLLOWING
+    MEASURED OR INFERRED QUANTITIES
+    X/H            NONDIMENSIONAL STREAMWISE DISTANCE.
+    U/UREF         NONDIMENSIONAL MEAN VELOCITY.
+    CPSW           NONDIMENSIONAL WALL PRESSURE COEFFICIENT (BASED
+                   ON PO AND UREF) ON STEP WALL.
+    CPOW           NONDIMENSIONAL WALL PRESSURE COEFFICIENT (BASED
+                   ON PO AND UREF) ON WALL OPPOSITE STEP WALL.
+    Y/H            NONDIMENSIONAL TRANSVERSE DISTANCE.
+    CP             NONDIMENSIONAL PRESSURE COEFFICIENT (BASED ON
+                   LOCAL STEP-WALL STATIC PRESSURE AND UREF) AT A
+                   GIVEN X/H,Y/H LOCATION.
+    DELS           DISPLACEMENT THICKNESS IN M
+    U2/(UREF**2)   NONDIMENSIONAL REYNOLDS STRESS
+    V2/(UREF**2)   NONDIMENSIONAL REYNOLDS STRESS
+    U1V1/(UREF**2) NONDIMENSIONAL REYNOLDS STRESS
+
+10. UNCERTAINTY:
+    MEAN VELOCITY:       FORWARD FLOW + OR - 0.15 M/S
+                        REVERSED FLOW + OR - 0.3 M/S
+    STATIC PRESSURE COEFFICIENT (CP): + OR - 0.01
+    REATTACHMENT LENGTH:              + OR - 0.5 STEP HEIGHT
+    TURBULENCE: FOR LOCAL TURBULENCE INTENSITIES LESS THAN
+    20 PERCENT                        + OR - 0.10
+                FOR LOCAL TURBULENCE INTENSITIES BETWEEN
+    20 AND 30 PERCENT                 + OR - 0.20
+                FOR LOCAL TURBULENCE INTENSITIES LARGER THAN
+    30 PERCENT                        + OR - GREATER THAN 0.20
+
+11. TAPE ORGANIZATION: THE TAPE IS A 2400 FOOT, 9 TRACK, ODD PARITY,
+    PHASE ENCODED, UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS PER
+    INCH ACCORDING TO EBCDIC CODE.  THE RECORD FORMAT IS FIXED AND
+    BLOCKED; RECORD LENGTH = 80 BYTES; BLOCKSIZE = 8000 BYTES
+
+    NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:
+    XNORM = (X - XMIN)/(XMAX - XMIN)
+    NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY 10000 AND
+    ROUNDING UP OR DOWN TO THE NEAREST INTEGER.
+    IXNORM = XNORM * 10000.
+    THUS EACH NORMALIZED DATUM IS WRITTEN ONTO TAPE AS AN INTEGER
+    VALUE BETWEEN 0 AND 10000.
+    ALL NULL DATA ARE WRITTEN AS 20000
+    THE EQUATION DESCRIBING THE RELATION BETWEEN ACTUAL DATA AND
+    THE NORMALIZED DATA ON TAPE IS
+    X = XMIN + (((XMAX - XMIN) * IXNORM)/10000.)
+    WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS INTEGER.
+
+FILE# NREC    CONTAINS        FORMAT   X LOCN.    COMMENTS
+
+ 1     -      TEXT FILE        -                  CONTAINS ITEMS 1
+                                                  TO 11 OF THIS
+                                                  WRITE-UP
+
+ 2     26     X/H,CPSW        2E13.6              RECORD 1- MAXIMUM
+                                                  VALUES
+              X/H,CPSW        2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              X/H,CPSW        2I6                 RECORDS 3-26
+                                                  NORMALIZED VALUES
+
+ 3     26     X/H,CPOW        2E13.6              RECORD 1- MAXIMUM
+                                                  VALUES
+              X/H,CPOW        2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              X/H,CPOW        2I6                 RECORDS 3-26
+                                                  NORMALIZED VALUES
+
+ 4     8      X/H,DELS        2E13.6              RECORD 1- MAXIMUM
+                                                  VALUES
+              X/H,DELS        2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              X/H,DELS        2I6                 RECORDS 3-8
+                                                  NORMALIZED VALUES
+
+ 5     15     Y/H,CP          2E13.6  X/H=0.000   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,CP          2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,CP          2I6                 RECORDS 3-15
+                                                  NORMALIZED VALUES
+
+ 6     19     Y/H,CP          2E13.6  X/H=1.310   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,CP          2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,CP          2I6                 RECORDS 3-19
+                                                  NORMALIZED VALUES
+
+ 7     20     Y/H,CP          2E13.6  X/H=2.671   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,CP          2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,CP          2I6                 RECORDS 3-20
+                                                  NORMALIZED VALUES
+
+ 8     25     Y/H,CP          2E13.6  X/H=5.355   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,CP          2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,CP          2I6                 RECORDS 3-25
+                                                  NORMALIZED VALUES
+
+ 9     15     Y/H,CP          2E13.6  X/H=7.188   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,CP          2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,CP          2I6                 RECORDS 3-15
+                                                  NORMALIZED VALUES
+
+ 10    21     Y/H,CP          2E13.6  X/H=8.012  RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,CP          2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,CP          2I6                 RECORDS 3-21
+                                                  NORMALIZED VALUES
+
+ 11    19     Y/H,CP          2E13.6  X/H=10.641  RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,CP          2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,CP          2I6                 RECORDS 3-19
+                                                  NORMALIZED VALUES
+
+ 12    18     Y/H,CP          2E13.6  X/H=-4.000  RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,CP          2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,CP          2I6                 RECORDS 3-18
+                                                  NORMALIZED VALUES
+
+ 13    21     Y/H,CP          2E13.6  X/H=16.000  RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,CP          2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,CP          2I6                 RECORDS 3-21
+                                                  NORMALIZED VALUES
+
+ 14    25     Y/H,U/UREF      2E13.6  X/H=-4.000  RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-25
+                                                  NORMALIZED VALUES
+
+ 15    26     Y/H,U/UREF      2E13.6  X/H=-1.000  RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-26
+                                                  NORMALIZED VALUES
+
+ 16    28     Y/H,U/UREF      2E13.6  X/H=0.000   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-28
+                                                  NORMALIZED VALUES
+
+ 17    57     Y/H,U/UREF      2E13.6  X/H=1.333   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-57
+                                                  NORMALIZED VALUES
+
+ 18    51     Y/H,U/UREF      2E13.6  X/H=2.667   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-51
+                                                  NORMALIZED VALUES
+
+ 19    53     Y/H,U/UREF      2E13.6  X/H=5.333   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-53
+                                                  NORMALIZED VALUES
+
+ 20    49     Y/H,U/UREF      2E13.6  X/H=6.220   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-49
+                                                  NORMALIZED VALUES
+
+ 21    46     Y/H,U/UREF      2E13.6  X/H=7.113   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-46
+                                                  NORMALIZED VALUES
+
+ 22    35     Y/H,U/UREF      2E13.6  X/H=8.000   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-35
+                                                  NORMALIZED VALUES
+
+ 23    37     Y/H,U/UREF      2E13.6  X/H=9.780   RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-37
+                                                  NORMALIZED VALUES
+
+ 24    36     Y/H,U/UREF      2E13.6  X/H=10.670  RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-36
+                                                  NORMALIZED VALUES
+
+ 25    45     Y/H,U/UREF      2E13.6  X/H=13.330  RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-45
+                                                  NORMALIZED VALUES
+
+ 26    42     Y/H,U/UREF      2E13.6  X/H=16.000  RECORD 1- MAXIMUM
+                                                  VALUES
+              Y/H,U/UREF      2E13.6              RECORD 2- MINIMUM
+                                                  VALUES
+              Y/H,U/UREF      2I6                 RECORDS 3-42
+                                                  NORMALIZED VALUES
+
+ 27    8      Y/H,            4E13.6  X/H=-1.333  RECORD 1- MAXIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4E13.6              RECORD 2- MINIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4I6                 RECORDS 3-8
+              U2/(UREF**2),                       NORMALIZED
+              V2/(UREF**2),                       VALUES
+              U1V1/(UREF**2)
+
+ 28   14      Y/H,            4E13.6  X/H=7.660   RECORD 1- MAXIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4E13.6              RECORD 2- MINIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4I6                 RECORDS 3-14
+              U2/(UREF**2),                       NORMALIZED
+              V2/(UREF**2),                       VALUES
+              U1V1/(UREF**2)
+
+ 29   11      Y/H,            4E13.6  X/H=8.553   RECORD 1- MAXIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4E13.6              RECORD 2- MINIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4I6                 RECORDS 3-11
+              U2/(UREF**2),                       NORMALIZED
+              V2/(UREF**2),                       VALUES
+              U1V1/(UREF**2)
+
+ 30   11      Y/H,            4E13.6  X/H=10.330  RECORD 1- MAXIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4E13.6              RECORD 2- MINIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4I6                 RECORDS 3-11
+              U2/(UREF**2),                       NORMALIZED
+              V2/(UREF**2),                       VALUES
+              U1V1/(UREF**2)
+
+ 31   12      Y/H,            4E13.6  X/H=13.000  RECORD 1- MAXIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4E13.6              RECORD 2- MINIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4I6                 RECORDS 3-12
+              U2/(UREF**2),                       NORMALIZED
+              V2/(UREF**2),                       VALUES
+              U1V1/(UREF**2)
+
+ 32   12      Y/H,            4E13.6  X/H=15.660  RECORD 1- MAXIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4E13.6              RECORD 2- MINIMUM
+              U2/(UREF**2),                       VALUES
+              V2/(UREF**2),
+              U1V1/(UREF**2)
+              Y/H,            4I6                 RECORDS 3-12
+              U2/(UREF**2),                       NORMALIZED
+              V2/(UREF**2),                       VALUES
+              U1V1/(UREF**2)
+
+
+
+
+    A SAMPLE PORGRAM FOR READING FILE 7 AND PRINTING IT IS SHOWN
+    BELOW.  THE JCL SHOWN IS FOR THE STANFORD CIT FACILITY.
+    CHECK WITH YOUR OWN COMPUTER INSTALLATION FOR THE EXACT JCL
+    NEEDED
+
+    //TAPE  JOB  BZC$NJ
+    /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)
+    //  EXEC  FORTCG
+    //FORT.SYSIN  DD  *
+    C  TO READ FILE 7 OFF TAPE
+    C  PRINT MAXIMAS AND MINIMAS OF ALL THE VARIABLES
+    C  PRINT NORMALIZED INTEGERIZED VALUES OF ALL THE VARIABLES.
+           INTEGER XH(18),CP(18)
+           READ (23,30) XHMX,CPMX
+           READ (23,30) XHMN,CPMN
+           DO  10  I = 1, 18
+    10     READ (23,40) XH(I),CP(I)
+           WRITE (6,50) XHMX,CPMX
+           WRITE (6,50) XHMN,CPMN
+           DO  20  I = 1, 18
+    20     WRITE (6,60) XH(I),CP(I)
+    30     FORMAT(2E13.2)
+    40     FORMAT(2I2)
+    50     FORMAT(1X,2E13.2)
+    60     FORMAT(1X,2I2)
+           STOP
+           END
+    //GO.FT23F001  DD  UNIT=T1200,VOL=SER=(TAPE LIBRARY NUMBER),
+    //  DISP=(OLD,KEEP),DCB=(RECFM=FB,LRECL=80,BLKSIZE=8000,DEN=3),
+    //  LABEL=(7,NL)
+    //
+-------------- END OF FILE NUMBER   538-------------
+----------------- FILE NUMBER   539-----------------
+ 0.240000E 02 0.352000E 00
+ 0.660000E 00-0.510000E-01
+     0   447
+   291   397
+   574   273
+   857    74
+  1148     0
+  1431   273
+  1714  1092
+  2005  2556
+  2288  4169
+  2571  5732
+  2862  7072
+  3145  8164
+  3428  8859
+  3719  9256
+  4002  9529
+  4284  9727
+  4576  9777
+  4859  9851
+  5141  9901
+  5433  9901
+  6572 10000
+  7712  9950
+  8860  9950
+ 10000  9926
+-------------- END OF FILE NUMBER   539-------------
+----------------- FILE NUMBER   540-----------------
+ 0.240000E 02 0.349000E 00
+ 0.660000E 00-0.160000E-01
+     0     0
+   291    27
+   574   192
+   857   247
+  1148   630
+  1431  1260
+  1714  2000
+  2005  2904
+  2288  3973
+  2571  5068
+  2862  6027
+  3145  6932
+  3428  7671
+  3719  8247
+  4002  8712
+  4284  9014
+  4576  9288
+  4859  9452
+  5141  9616
+  5433  9699
+  6572  9918
+  7686  9945
+  8860  9973
+ 10000 10000
+-------------- END OF FILE NUMBER   540-------------
+----------------- FILE NUMBER   541-----------------
+ 0.133333E 02 0.553720E-02
+-0.400000E 01 0.111760E-02
+     0     0
+  3077  1149
+  5385  3621
+  6923  6667
+  8462  9080
+ 10000 10000
+-------------- END OF FILE NUMBER   541-------------
+----------------- FILE NUMBER   542-----------------
+ 0.299400E 01 0.200000E-02
+ 0.103000E 01 0.000000E 00
+     0     0
+   362     0
+   988     0
+  1466     0
+  2495 10000
+  3167     0
+  3671     0
+  4582     0
+  5183     0
+  5733     0
+  6334     0
+  7077     0
+ 10000     0
+-------------- END OF FILE NUMBER   542-------------
+----------------- FILE NUMBER   543-----------------
+ 0.299400E 01 0.180000E-01
+ 0.300000E-02-0.100000E-01
+     0  3571
+   237  3571
+   963  3571
+  1434  2143
+  1876  1429
+  2364  1429
+  2962  1429
+  3149     0
+  3511  1429
+  3795  2500
+  3999  6071
+  4236  6071
+  4962  7500
+  5921  8571
+  6757 10000
+  7793 10000
+ 10000  8571
+-------------- END OF FILE NUMBER   543-------------
+----------------- FILE NUMBER   544-----------------
+ 0.300200E 01 0.360000E-01
+-0.110000E-01-0.130000E-01
+     0  2653
+   325  2653
+  1185  2245
+  1513  1429
+  2579  1429
+  2828     0
+  3375     0
+  3578  1429
+  4016  2653
+  4298  4082
+  4530  5510
+  4985  6327
+  5483  6939
+  5719  7755
+  6797  7755
+  7783 10000
+  8015  9184
+ 10000 10000
+-------------- END OF FILE NUMBER   544-------------
+----------------- FILE NUMBER   545-----------------
+ 0.300100E 01 0.390000E-01
+-0.120000E-01-0.350000E-01
+     0  4730
+   325  3919
+   670  2973
+  1231  2027
+  1547  1486
+  1952   541
+  2187     0
+  2420     0
+  2828   541
+  3372  1486
+  3578  2027
+  3810  2432
+  4013  3919
+  4248  5135
+  4451  5676
+  4716  6622
+  5247  7162
+  5436  7568
+  5795  8514
+  6591  9459
+  7547  9459
+  8218 10000
+ 10000  9459
+-------------- END OF FILE NUMBER   545-------------
+----------------- FILE NUMBER   546-----------------
+ 0.301400E 01 0.000000E 00
+-0.130000E-01-0.630000E-01
+     0 10000
+   588  6190
+  1150  3968
+  1741  1746
+  2253     0
+  2815     0
+  3327  1111
+  3842  3968
+  4589  5079
+  5411  7302
+  6409  6825
+  7621  6825
+ 10000  6984
+-------------- END OF FILE NUMBER   546-------------
+----------------- FILE NUMBER   547-----------------
+ 0.300000E 01 0.000000E 00
+ 0.330000E-01-0.520000E-01
+     0 10000
+   175  8846
+   334  7885
+   573  6731
+   890  6731
+  1143  4038
+  1335  4038
+  1540  1923
+  1780  2692
+  2016   577
+  2713     0
+  3111  2692
+  3478  1923
+  3714  4038
+  4159  5385
+  4446  4808
+  5652  4808
+  7668  5000
+ 10000  4231
+-------------- END OF FILE NUMBER   547-------------
+----------------- FILE NUMBER   548-----------------
+ 0.301300E 01 0.000000E 00
+ 0.000000E 00-0.380000E-01
+     0 10000
+    73  9474
+   309  7632
+   511  4737
+   793  5789
+  1059  2895
+  1543  2895
+  2011     0
+  2449     0
+  2858     0
+  3452  1053
+  4325  2895
+  5466  5789
+  6233  5789
+  6983  4737
+  7607  4737
+ 10000  5000
+-------------- END OF FILE NUMBER   548-------------
+----------------- FILE NUMBER   549-----------------
+ 0.307000E 01-0.200000E-02
+ 0.000000E 00-0.290000E-01
+     0 10000
+   208  8889
+   427  6296
+   792  5185
+  1290  1481
+  1958  1481
+  2664     0
+  3091  1111
+  3570   741
+  4020   741
+  4707  2222
+  5427  3704
+  6218  4444
+  6717  3333
+  7938  3704
+ 10000  4815
+-------------- END OF FILE NUMBER   549-------------
+----------------- FILE NUMBER   550-----------------
+ 0.261300E 01-0.200000E-02
+ 0.000000E 00-0.270000E-01
+     0 10000
+   122  8800
+   306  8800
+   509  6800
+   777  4800
+  1163  2800
+  1634  2800
+  2124  1600
+  2828   400
+  3219   400
+  3605     0
+  4099     0
+  5010  1600
+  5450  3200
+  5867  3200
+  6276  2800
+  6728  5600
+  7688  5200
+ 10000  5200
+-------------- END OF FILE NUMBER   550-------------
+----------------- FILE NUMBER   551-----------------
+ 0.421000E 00 0.990000E 00
+ 0.700000E-02 0.584000E 00
+     0     0
+    24   320
+    48   936
+    97  1650
+   193  2315
+   266  2956
+   338  3227
+   507  3941
+   749  4754
+  1159  5714
+  1546  6576
+  1957  7365
+  2367  7931
+  2754  8571
+  3164  9039
+  3575  9384
+  3961  9557
+  4783  9803
+  5169  9877
+  5990  9951
+  6787  9951
+  8406 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   551-------------
+----------------- FILE NUMBER   552-----------------
+ 0.433000E 00 0.998000E 00
+ 0.700000E-02 0.538000E 00
+     0     0
+    23   500
+    47   804
+    70  1283
+   141  2022
+   211  2457
+   376  3304
+   516  3848
+   681  4239
+   986  4978
+  1385  5826
+  1784  6522
+  2160  7043
+  2559  7630
+  2958  8065
+  3333  8478
+  3732  8783
+  4131  9152
+  4906  9543
+  5305  9674
+  6080  9783
+  6854  9891
+  8427 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   552-------------
+----------------- FILE NUMBER   553-----------------
+ 0.471000E 00 0.100000E 01
+ 0.700000E-02 0.582000E 00
+     0     0
+    43   526
+    86   933
+   151  1531
+   216  1914
+   302  2273
+   431  2823
+   582  3254
+   733  3684
+   862  4019
+  1013  4354
+  1379  5072
+  1724  5837
+  2091  6507
+  2457  7010
+  2802  7584
+  3168  7990
+  3534  8517
+  3879  8780
+  4246  9043
+  4957  9569
+  5690  9761
+  6401  9880
+  7112  9952
+  8556 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   553-------------
+----------------- FILE NUMBER   554-----------------
+ 0.151400E 01 0.100300E 01
+ 0.700000E-02-0.124000E 00
+     0   461
+    27   461
+    46   461
+    93   461
+   159   461
+   265   461
+   378   461
+   491   461
+   597   461
+   710   461
+   929   204
+  1155   204
+  1593   204
+  2037   204
+  2482   124
+  2920     0
+  3364     0
+  3809     0
+  4247   204
+  5574  2201
+  6019  3514
+  6131  3922
+  6238  4339
+  6350  4703
+  6463  5288
+  6503  5475
+  6549  5661
+  6616  5963
+  6682  6202
+  6729  6398
+  6795  6690
+  6835  6832
+  6901  7134
+  6948  7294
+  7014  7551
+  7080  7728
+  7147  8004
+  7213  8199
+  7279  8483
+  7346  8634
+  7412  8740
+  7478  8944
+  7565  9095
+  7677  9290
+  7790  9432
+  7896  9592
+  8009  9654
+  8122  9769
+  8228  9814
+  8354  9849
+  8454  9894
+  8673  9938
+  9117  9982
+  9555 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   554-------------
+----------------- FILE NUMBER   555-----------------
+ 0.158700E 01 0.100200E 01
+ 0.700000E-02-0.176000E 00
+     0   628
+    19   628
+    38   628
+    82   441
+   127   441
+   190   272
+   291   238
+   399   110
+   506     0
+   715     0
+   924     0
+  1139     0
+  1557   127
+  1981   272
+  2405   348
+  2823   441
+  3247   628
+  4089  2105
+  4513  2716
+  4937  3565
+  5146  3854
+  5354  4355
+  5570  4779
+  5778  5255
+  5987  5857
+  6095  6104
+  6203  6384
+  6304  6749
+  6411  6952
+  6519  7216
+  6620  7555
+  6728  7784
+  6835  8039
+  6937  8311
+  7044  8548
+  7152  8769
+  7253  8990
+  7361  9185
+  7468  9346
+  7570  9499
+  7677  9610
+  7785  9694
+  7886  9762
+  8101  9881
+  8310  9941
+  8734  9992
+  9152 10000
+  9576  9992
+ 10000  9992
+-------------- END OF FILE NUMBER   555-------------
+----------------- FILE NUMBER   556-----------------
+ 0.178700E 01 0.954000E 00
+ 0.700000E-02-0.239000E 00
+     0   302
+     6   193
+    11   193
+    17   101
+    34   101
+    73     0
+   112     0
+   169     0
+   258    67
+   354   126
+   449   193
+   635   411
+   820   520
+  1011   712
+  1197   947
+  1382  1249
+  2135  2456
+  2506  3051
+  2882  3663
+  3258  4225
+  3629  4895
+  3820  5189
+  4006  5457
+  4191  5767
+  4382  5968
+  4567  6303
+  4753  6630
+  4944  7049
+  5129  7360
+  5315  7712
+  5410  7871
+  5506  8064
+  5596  8181
+  5691  8324
+  5876  8525
+  6067  8894
+  6253  9095
+  6438  9279
+  6629  9455
+  6815  9598
+  7000  9715
+  7191  9807
+  7376  9891
+  7562  9925
+  7753  9958
+  8124  9992
+  8500 10000
+  8876  9975
+  9247  9992
+  9624  9975
+ 10000  9966
+-------------- END OF FILE NUMBER   556-------------
+----------------- FILE NUMBER   557-----------------
+ 0.178400E 01 0.920000E 00
+ 0.700000E-02-0.184000E 00
+     0   335
+    11   326
+    23   317
+    39   163
+    56   154
+    96     0
+   152   100
+   248   326
+   338   417
+   433   444
+   529   688
+   619   625
+   810  1005
+   996  1196
+  1559  2600
+  1745  2473
+  1936  2799
+  2122  3197
+  2499  3514
+  2870  4149
+  3247  4692
+  3624  5226
+  3995  5761
+  4187  6304
+  4373  6504
+  4558  6830
+  4750  7192
+  4935  7491
+  5121  7681
+  5312  7908
+  5498  8252
+  5684  8514
+  5875  8705
+  6061  8967
+  6246  9167
+  6438  9303
+  6624  9457
+  6809  9583
+  7001  9674
+  7186  9819
+  7372  9828
+  7749  9900
+  8126  9964
+  8497  9973
+  8875 10000
+  9252  9991
+ 10000  9973
+-------------- END OF FILE NUMBER   557-------------
+----------------- FILE NUMBER   558-----------------
+ 0.172000E 01 0.885000E 00
+ 0.700000E-02 0.950000E-01
+     0   139
+    18   152
+    76   228
+   175   342
+   269   177
+   368     0
+   467   114
+   560   190
+   660   266
+   759   329
+   952   190
+  1243   633
+  1436   519
+  1827  1304
+  2218  1759
+  2604  2494
+  2995  3215
+  3386  3861
+  3771  4443
+  4162  5152
+  4355  5595
+  4553  5835
+  4746  6228
+  4939  6671
+  5137  7076
+  5330  7430
+  5522  7646
+  5721  7987
+  5914  8241
+  6106  8544
+  6305  8747
+  6497  8937
+  6690  9190
+  6888  9253
+  7081  9468
+  7274  9608
+  7472  9658
+  7665  9747
+  8056  9823
+  8441  9924
+  8832  9962
+  9224 10000
+  9609 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   558-------------
+----------------- FILE NUMBER   559-----------------
+ 0.171900E 01 0.861000E 00
+ 0.700000E-02 0.128000E 00
+     0     0
+    12   259
+    70   546
+   169   409
+   269   709
+   461   859
+   654   955
+   853  1037
+  1437  1432
+  1822  1855
+  2214  2592
+  2605  3206
+  2991  3670
+  3382  4338
+  3773  4925
+  4159  5553
+  4550  6085
+  4743  6617
+  4942  6958
+  5134  7231
+  5327  7572
+  5718  7995
+  6110  8499
+  6495  8868
+  6887  9250
+  7278  9441
+  7664  9632
+  8055  9754
+  8446  9891
+  8832  9918
+  9223  9973
+  9614 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   559-------------
+----------------- FILE NUMBER   560-----------------
+ 0.191400E 01 0.822000E 00
+ 0.700000E-02 0.192000E 00
+     0     0
+    21   413
+    37   794
+    73   968
+   126  1476
+   210  1730
+   388  2048
+   561  2222
+   912  2587
+  1259  3032
+  1610  3349
+  1961  3635
+  2307  4111
+  2659  4587
+  3010  5127
+  3356  5556
+  3707  6127
+  4059  6476
+  4405  7079
+  4756  7508
+  5107  7968
+  5454  8349
+  5805  8603
+  6156  8952
+  6502  9190
+  6854  9429
+  7205  9587
+  7551  9730
+  7902  9810
+  8254  9889
+  8600  9937
+  8951 10000
+  9303 10000
+  9649 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   560-------------
+----------------- FILE NUMBER   561-----------------
+ 0.193900E 01 0.814000E 00
+ 0.700000E-02 0.224000E 00
+     0     0
+    10   203
+    31   746
+    83  1559
+   166  2034
+   342  2390
+   683  2864
+  1030  3068
+  1377  3356
+  1718  3864
+  2065  4220
+  2412  4627
+  2754  4915
+  3100  5373
+  3447  5881
+  3789  6339
+  4136  6780
+  4482  7237
+  4824  7559
+  5171  8000
+  5518  8288
+  5859  8627
+  6206  8847
+  6553  9102
+  6894  9288
+  7241  9525
+  7588  9610
+  7930  9763
+  8276  9864
+  8623  9898
+  8965  9966
+  9312  9966
+  9658 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   561-------------
+----------------- FILE NUMBER   562-----------------
+ 0.216100E 01 0.801000E 00
+ 0.700000E-02 0.251000E 00
+     0     0
+     5   364
+     9   545
+    14   873
+    19  1200
+    37  1636
+    65  2309
+    97  2582
+   176  3091
+   251  3327
+   409  3800
+   562  4036
+   715  4055
+  1026  4418
+  1337  4764
+  1643  4982
+  1955  5218
+  2266  5509
+  2572  5782
+  2883  6127
+  3194  6345
+  3500  6582
+  3812  6982
+  4123  7273
+  4429  7636
+  4740  7818
+  5051  8164
+  5357  8400
+  5669  8655
+  5980  8836
+  6286  9073
+  6597  9255
+  6908  9473
+  7214  9582
+  7526  9691
+  7837  9782
+  8143  9855
+  8454  9891
+  8765  9927
+  9071 10000
+  9383  9982
+  9694  9982
+ 10000  9982
+-------------- END OF FILE NUMBER   562-------------
+----------------- FILE NUMBER   563-----------------
+ 0.216100E 01 0.791000E 00
+ 0.700000E-02 0.266000E 00
+     0     0
+     5   362
+     9   629
+    19  1333
+    46  2305
+    79  2933
+   111  3162
+   158  3524
+   251  3981
+   325  4210
+   404  4324
+   557  4667
+   715  4876
+  1021  5181
+  1332  5429
+  1643  5676
+  1950  5905
+  2261  6095
+  2878  6457
+  3500  6971
+  4118  7295
+  4429  7600
+  4735  7886
+  5046  8038
+  5357  8305
+  5664  8457
+  5975  8762
+  6286  8876
+  6592  9048
+  6903  9181
+  7214  9371
+  7521  9562
+  7832  9733
+  8143  9771
+  8449  9905
+  8760  9943
+  9071 10000
+  9378  9981
+  9689  9981
+ 10000  9981
+-------------- END OF FILE NUMBER   563-------------
+----------------- FILE NUMBER   564-----------------
+ 0.775000E 00 0.474290E-02 0.493170E-02 0.149400E-02
+ 0.230000E-01 0.153000E-04 0.746000E-04-0.137400E-03
+     0 10000 10000 10000
+   239  9072  7032  9058
+  1130  7590  4251  6184
+  2899  1303   770   890
+  5559    13    58    16
+ 10000     0     0     0
+-------------- END OF FILE NUMBER   564-------------
+----------------- FILE NUMBER   565-----------------
+ 0.179200E 01 0.356800E-01 0.224300E-01 0.119600E-01
+ 0.459000E 00 0.765500E-03 0.114100E-02-0.780000E-04
+     0  9433  7402  7324
+   998 10000  9211  8820
+  1500  9943  9732  9801
+  1996 10000 10000 10000
+  2498  9714 10000  9859
+  3001  8935  9558  8987
+  3496  7981  8868  8169
+  3998  6981  7877  7099
+  4996  4375  6064  4817
+  6002  2293  3930  2029
+  7502   675  1528   620
+ 10000     0     0     0
+-------------- END OF FILE NUMBER   565-------------
+----------------- FILE NUMBER   566-----------------
+ 0.178500E 01 0.266530E-01 0.168487E-01 0.854720E-02
+ 0.452000E 00 0.859100E-03 0.131130E-02 0.520000E-05
+     0  9081  8307  8267
+   998 10000  9270  9907
+  2003  9364 10000 10000
+  2498  9420  9726  9695
+  3001  8636  9358  9027
+  4501  5871  7387  6356
+  6002  2790  4532  2715
+  7502  1020  2081  1137
+ 10000     0     0     0
+-------------- END OF FILE NUMBER   566-------------
+----------------- FILE NUMBER   567-----------------
+ 0.178500E 01 0.216050E-01 0.155757E-01 0.738050E-02
+ 0.519000E 00 0.131650E-02 0.213880E-02 0.329200E-03
+     0  9933  9490  9115
+  1051 10000  9793  9846
+  1580  9933 10000 10000
+  2101  9732  9793  9923
+  3160  8444  8792  8453
+  4210  6841  7463  6248
+  5790  3923  4775  3565
+  7370  1502  2619  1654
+ 10000     0     0     0
+-------------- END OF FILE NUMBER   567-------------
+----------------- FILE NUMBER   568-----------------
+ 0.211600E 01 0.163513E-01 0.126549E-01 0.522370E-02
+ 0.249000E 00 0.102900E-02 0.152010E-02 0.432500E-03
+     0  8648  6313  3405
+   718  9237  8273  5892
+  1789  9691  9667  9027
+  2501 10000 10000 10000
+  3214  9614  9778 10000
+  3931  8940  9014  9027
+  5003  6536  7363  6757
+  6427  3602  4819  4107
+  8216   884  1706  1081
+ 10000     0     0     0
+-------------- END OF FILE NUMBER   568-------------
+----------------- FILE NUMBER   569-----------------
+ 0.211000E 01 0.123635E-01 0.994830E-02 0.375030E-02
+ 0.110000E 00 0.183140E-02 0.219050E-02 0.614300E-03
+     0  8847  1673   166
+  1000  9133  6548  3637
+  2000 10000  8742  7025
+  3000  9899 10000  9671
+  3665  9804  9718 10000
+  4335  9703  9153  9671
+  5000  8847  8468  8596
+  6665  4921  5822  6115
+  8335  1627  2378  2810
+ 10000     0     0     0
+-------------- END OF FILE NUMBER   569-------------
+5  4921  5822  6115
+  8335  1627  2378  2810
+ 10000     0     0     0
+-------------- END OF FILE NUMBER   5

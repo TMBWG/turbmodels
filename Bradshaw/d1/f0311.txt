@@ -1,0 +1,280 @@
+----------------- FILE NUMBER   334-----------------
+     1.    FLOW TITLE: CASE 0311;  "PLANAR MIXING LAYER DEVELOPING FROM
+           TURBULENT WALL BOUNDARY LAYERS".
+
+     2.    REVISION DATE: FEBRUARY 12, 1981
+
+     3.    EVALUATOR: BIRCH, S., BOEING AEROSPACE CO., SEATTLE, WASHINGTON
+
+     4.    EXPERIMENT LOCATION AND DATE: SEE REFS. 1-3
+
+     5.    ABSTRACT: TEST CASE CONSISTS OF FOUR SETS OF DATA FOR SINGLE-
+           STREAM MIXING LAYERS, ALL DEVELOPING FROM NOMINALLY FULLY
+           DEVELOPED, TURBULENT WALL BOUNDARY LAYERS. THESE SELECTED SETS
+           ARE: GARTSHORE (1965), FOSS (1977), HUSAIN & HUSSAIN 1 (1979),
+           AND HUSAIN & HUSSAIN 2 (1979). ALL FOUR SETS OF DATA APPEAR TO
+           COLLAPSE TO A SINGLE CURVE WHEN NORMALIZED BY THE CORRESPONDING
+           MOMENTUM THICKNESS OF THE BOUNDARY LAYER AT THE SEPARATION
+           POINT.
+
+     6.    REFERENCES: 1. GARTSHORE, I. S., "THE STREAMWISE DEVELOPMENT
+           OF TWO-DIMENSIONAL TURBULENT SHEAR FLOWS", PH.D. THESIS, MCGILL
+           UNIVERSITY, AUGUST 1965.
+                       2. FOSS, J. F., "THE EFFECT OF LAMINAR/TURBULENT
+           BOUNDARY LAYER STATES ON THE DEVELOPMENT OF A PLANE MIXING
+           LAYER", PROCEEDINGS SYMPOSIUM ON TURBULENT SHEAR FLOWS, PP.
+           11.33-11.42, APRIL 18-20, 1977.
+                       3. HUSAIN, Z. D., AND HUSSAIN, A. K. M. F., "AXI-
+           SYMMETRIC MIXING LAYER: INFLUENCE OF THE INITIAL AND BOUNDARY
+           CONDITIONS", AIAA JOURNAL, VOL. 17, NO. 1, PP. 48-55, JANUARY
+           1979.
+
+     7.    INSTRUMENTATION: VARIOUS TECHNIQUES WERE USED.
+
+     8.    EXPERIMENTAL PARAMETERS:
+           1. GARTSHORE (1965); PLANE MIXING LAYER
+                   VELOCITY ...................  19.6 M/SEC
+                   THETA ......................  0.079 CM
+                   RE-THETA ...................  1.04 X (10**3)
+           2. FOSS (1977); PLANE MIXING LAYER WITH END PLATE
+                   VELOCITY ...................  18.3 M/SEC
+                   THETA ......................  0.081 CM
+                   RE-THETA ...................  1.07 X (10**3)
+           3. HUSSAIN 1 (1979); 12.7 CM DIAM. NOZZLE WITHOUT END PLATE
+                   VELOCITY ...................  30.0 M/SEC
+                   THETA ......................  0.0706 CM
+                   RE-THETA ...................  1.45 X (10**3)
+           4. HUSSAIN 2 (1979); 12.7 CM DIAM. NOZZLE WITH END PLATE
+                   VELOCITY ...................  30.0 M/SEC
+                   THETA ......................  0.0632 CM
+                   RE-THETA ...................  1.29 X (10**3)
+
+     9.    MEASURED AND INFERRED VARIABLES:
+           X                 DOWNSTREAM DISTANCE (M)
+           Y                 CROSS-STREAM DISTANCE (M)
+           L                 WIDTH FOR A MIXING LAYER BETWEEN THE POINTS
+                             AT WHICH U-U2 IS (0.1**.5)*(U1-U2) AND
+                             (0.9**.5)*(U1-U2); FOR THE WAKE REPLACE U1
+                             BY UE AND U2 BY UCL (M)
+           THETA             MOMENTUM THICKNESS (M)
+           U                 X-COMPONENT OF MEAN VELOCITY
+           DL1
+           UP
+           UC
+           U1                VALUE OF U ON THE HIGH SPEED SIDE OF A MIXING
+                             LAYER
+           U2                VALUE OF U ON THE LOW SPEED SIDE OF A MIXING
+                             LAYER
+           UE                VALUE OF U IN EXTERNAL STREAM
+           UCL               VALUE OF U ON WAKE CENTERLINE
+
+           FILE 2 OF THIS TAPE CONTAINS THE INITIAL CONDITIONS FOR THIS CASE.
+           THESE INITIAL CONDITIONS CORRESPOND TO REF 3:
+
+                  X = 0.005 CM, EXIT CENTERLINE VELOCITY = 30.0 M/S
+                  UP/UC = 0.0034,   OVERHEAT = 1.4
+                  RETHETA = 1.45*10**3, DELTA = 0.60190 CM
+                  DELTA* = 0.1011 CM , THETA = 0.07064 CM
+                  SHAPE FACTOR = 1.431, UTAU  = 1.366 M/S
+                  UPM/UC =  0.086671  , YUPM/DL1 = 0.1413
+
+    10.    MEASUREMENT UNCERTAINTY: NONE REPORTED
+
+    11.    TAPE ORGANIZATION:
+                       THE TAPE IS A 2400 FOOT, 9 TRACK, ODD PARITY,
+           PHASE ENCODED, UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600
+           BITS PER INCH ACCORDING TO EBCDIC CODE.  THE RECORD FORMAT
+           IS FIXED AND BLOCKED; RECORD LENGTH = 80 BYTES; BLOCKSIZE
+           =8000 BYTES.
+           NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:
+           XNORM = (X - XMIN)/(XMAX - XMIN)
+           NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY 10000 AND
+           ROUNDING UP OR DOWN TO THE NEAREST INTEGER.
+           IXNORM = XNORM * 10000.
+           THUS EACH NORMALIZED DATUM IS WRITTEN ONTO TAPE AS AN INTEGER
+           VALUE BETWEEN 0 AND 10000.
+           ALL NULL DATA ARE WRITTEN AS 20000
+           THE EQUATION DESCRIBING THE RELATION BETWEEN ACTUAL DATA AND
+           THE NORMALIZED DATA ON TAPE IS
+           X = XMIN + (((XMAX - XMIN) * IXNORM)/10000.)
+           WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS INTEGER.
+
+    FILE# NREC    CONTAINS                   FORMAT    COMMENTS
+
+     1     -      TEXT FILE                  -         CONTAINS ITEMS 1
+                                                       TO 11 OF THIS
+                                                       WRITE-UP
+
+
+
+     2      35                                         INITIAL CONDITIONS:
+                                                       X = 0.00005 M,
+                   Y,Y/DL1,U/UC,UP/UC        4E13.6    RECORD 1 MAXIMUM VALUES
+                   Y,Y/DL1,U/UC,UP/UC        4E13.6    RECORD 2 MINIMUM VALUES
+                   Y,Y/DL1,U.UC,UP/UC        4E13.6    RECORDS 3-35 NORMALIZED
+                                                       VALUES
+      3     13                                         FOSS DATA
+                   X/THETA, L/THETA                    RECORD 1 MAX VALUES
+                                                       RECORD 2 MINIMUM VALUES
+                                                       RECORD 3-13
+                                                       NORMALIZED VALUES
+
+      4      7                                         GARTSHORE DATA
+                   X/THETA, L/THETA                    RECORD 1 MAX VALUES
+                                                       RECORD 2 MINIMUM VALUES
+                                                       RECORDS 3-7
+                                                       NORMALIZED VALUES
+
+      5     19                                         HUSSAIN 1 DATA
+                   X/THETA, L/THETA                    RECORD 1 MAX VALUES
+                                                       RECORD 2 MIN VALUES
+                                                       RECORDS 3-19
+                                                       NORMALIZED VALUES
+
+      6     19                                         HUSSAIN 2 DATA
+                   X/THETA, L/THETA                    RECORD 1 MAX VALUES
+                                                       RECORD 2 MIN VALUES
+                                                       RECORDS 3-19
+                                                       NORMALIZED VALUES
+
+    A SAMPLE PROGRAM FOR READING FILE 7 AND PRINTING IT IS SHOWN
+    BELOW.  THE JCL SHOWN IS FOR THE STANFORD CIT FACILITY.
+    CHECK WITH YOUR OWN COMPUTER INSTALLATION FOR THE EXACT JCL
+    NEEDED
+
+    //TAPE  JOB  BZC$NJ
+    /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)
+    //  EXEC  FORTCG
+    //FORT.SYSIN  DD  *
+    C  TO READ FILE 2 OFF TAPE
+    C  PRINT MAXIMAS AND MINIMAS OF ALL THE VARIABLES
+    C  PRINT NORMALIZED INTEGERIZED VALUES OF ALL THE VARIABLES.
+           INTEGER VELRAT(17),CFRAT(17)
+           READ (23,30) VELRMX,CFRAMX
+           READ (23,30) VELRMN,CFRAMN
+           DO  10  I = 1, 17
+    10     READ (23,40) VELRAT(I),CFRAT(I)
+           WRITE (6,50) VELRMX,CFRAMX
+           WRITE (6,50) VELRMN,CFRAMN
+           DO  20  I = 1, 17
+    20     WRITE (6,60) VELRAT(I),CFRAT(I)
+    30     FORMAT(2E13.6)
+    40     FORMAT(2I6)
+    50     FORMAT(1X,2E13.6)
+    60     FORMAT(1X,2I6)
+           STOP
+           END
+    //GO.FT23F001  DD  UNIT=T1600,VOL=SER=(TAPE LIBRARY NUMBER),
+    //  DISP=(OLD,KEEP),DCB=(RECFM=FB,LRECL=80,BLKSIZE=8000,DEN=3),
+    //  LABEL=(2,NL)
+    //
+-------------- END OF FILE NUMBER   334-------------
+----------------- FILE NUMBER   335-----------------
+  0.776000E 00 0.767800E 01 0.100000E 01 0.866700E-01
+  0.200000E-02 0.160000E-01 0.149560E 00 0.654000E-02
+10000 10000 10000     0
+ 9018  9016  9996   396
+ 8036  8032  9933  1318
+ 7054  7049  9757  2652
+ 6059  6065  9445  3834
+ 5736  5737  9303  4168
+ 5413  5410  9196  4461
+ 5078  5081  9050  4818
+ 4755  4753  8896  5054
+ 4419  4426  8755  5239
+ 4096  4098  8584  5543
+ 3773  3771  8382  5883
+ 3437  3442  8211  5944
+ 3114  3114  8016  6083
+ 2946  2951  7913  6222
+ 2778  2786  7803  6232
+ 2623  2622  7689  6305
+ 2455  2459  7595  6437
+ 2287  2294  7489  6504
+ 2132  2131  7372  6529
+ 1964  1967  7255  6637
+ 1796  1802  7124  6628
+ 1641  1639  6989  6573
+ 1473  1475  6856  6846
+ 1305  1310  6699  6747
+ 1137  1147  6548  6788
+  982   983  6361  6949
+  814   820  6134  7041
+  646   655  5850  7130
+  491   491  5440  7639
+  323   328  4713  8343
+  155   163  3011 10000
+    0     0     0  7422
+-------------- END OF FILE NUMBER   335-------------
+----------------- FILE NUMBER   336-----------------
+  0.627160E 03 0.734600E 02
+  0.277800E 02 0.784000E 01
+    0     0
+  583   244
+ 1106   564
+ 1627   899
+ 2676  1628
+ 3722  2550
+ 4768  3772
+ 5815  5014
+ 6861  6181
+ 7907  7422
+10000 10000
+-------------- END OF FILE NUMBER   336-------------
+----------------- FILE NUMBER   337-----------------
+  0.137903E 04 0.173226E 03
+  0.232258E 03 0.245580E 02
+    0     0
+ 2511  2594
+ 5007  4927
+ 7574  7700
+10000 10000
+-------------- END OF FILE NUMBER   337-------------
+----------------- FILE NUMBER   338-----------------
+  0.683569E 03 0.826760E 02
+  0.899400E 01 0.705100E 01
+    0     0
+  133    38
+  267   157
+  400   205
+  533   281
+  667   295
+  933   495
+ 1200   614
+ 1467   671
+ 2000  1170
+ 2533  1594
+ 3067  1889
+ 4133  3154
+ 5200  4244
+ 6800  5866
+ 8415  7964
+10000 10000
+-------------- END OF FILE NUMBER   338-------------
+----------------- FILE NUMBER   339-----------------
+  0.763608E 03 0.922750E 02
+  0.100470E 02 0.751600E 01
+    0     0
+  133    85
+  267   161
+  400   199
+  533   284
+  667   351
+  933   488
+ 1200   692
+ 1467   806
+ 2000  1304
+ 2533  1726
+ 3067  2129
+ 4133  3134
+ 5200  4258
+ 6800  6325
+ 8400  8388
+10000 10000
+-------------- END OF FILE NUMBER   339-------------
+  2129
+ 4133  3134
+ 5200  4258
+ 6800  6325
+ 8400  8388
+10000 10

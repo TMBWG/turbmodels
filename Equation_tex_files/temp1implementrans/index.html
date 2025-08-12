@@ -1,0 +1,691 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>temp1implementrans</TITLE>
+<META ID="description" CONTENT="temp1implementrans">
+<META ID="keywords" CONTENT="temp1implementrans">
+<META ID="resource-type" CONTENT="document">
+<META ID="distribution" CONTENT="global">
+
+<META ID="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="temp1implementrans.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A ID="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/local/pkgs/latex2html2008/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/local/pkgs/latex2html2008/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/local/pkgs/latex2html2008/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A ID="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{\partial \overline\rho}{\partial t} + \frac{\partial}{\partial x_j}
+(\overline\rho \hat u_j) = 0
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{\partial (\overline\rho \hat u_i)}{\partial t} +
+\frac{\partial}{\partial x_j}(\hat u_j \overline\rho \hat u_i) =
+-\frac{\partial p}{\partial x_i} + \frac{\partial \overline\sigma_{ij}}{\partial x_j}
++\frac{\partial \tau_{ij}}{\partial x_j}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="134" HEIGHT="38" BORDER="0"
+ SRC="img2.png"
+ ALT="\begin{displaymath}
+\frac{\partial (\overline\rho \hat u_i)}{\partial t} +
+\frac...
+...a_{ij}}{\partial x_j}
++\frac{\partial \tau_{ij}}{\partial x_j}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{\partial (\overline\rho \hat E)}{\partial t} +
+\frac{\partial}{\partial x_j}(\hat u_j \overline\rho \hat H) =
+\frac{\partial}{\partial x_j} ( \overline \sigma_{ij} \hat u_i + \overline{\sigma_{ij} u_i''})
+-\frac{\partial}{\partial x_j} ( \overline q_j +
+c_p \overline {\rho u_j'' T''} - \hat u_i \tau_{ij} +
+\frac{1}{2} \overline{\rho u_i'' u_i'' u_j''})
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="310" HEIGHT="38" BORDER="0"
+ SRC="img3.png"
+ ALT="\begin{displaymath}
+\frac{\partial (\overline\rho \hat E)}{\partial t} +
+\frac{\...
+...u_i \tau_{ij} +
+\frac{1}{2} \overline{\rho u_i'' u_i'' u_j''})
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\hat H = \hat E + \overline p / \overline\rho
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="553" HEIGHT="41" BORDER="0"
+ SRC="img4.png"
+ ALT="\begin{displaymath}
+\hat H = \hat E + \overline p / \overline\rho
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\overline q_j = -\overline{k_T \partial T/\partial x_j}
+\approx -\frac{c_p \hat \mu}{Pr} \frac{\partial \hat T}{\partial x_j}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="92" HEIGHT="19" BORDER="0"
+ SRC="img5.png"
+ ALT="\begin{displaymath}
+\overline q_j = -\overline{k_T \partial T/\partial x_j}
+\approx -\frac{c_p \hat \mu}{Pr} \frac{\partial \hat T}{\partial x_j}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\tau_{ij} \equiv -\overline {\rho u_i''u_j''}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="209" HEIGHT="41" BORDER="0"
+ SRC="img6.png"
+ ALT="\begin{displaymath}
+\tau_{ij} \equiv -\overline {\rho u_i''u_j''}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(6)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\hat f = \overline{\rho f}/\overline\rho
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="94" HEIGHT="21" BORDER="0"
+ SRC="img7.png"
+ ALT="\begin{displaymath}
+\hat f = \overline{\rho f}/\overline\rho
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+f = \overline f + f' = \hat f + f''
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="64" HEIGHT="20" BORDER="0"
+ SRC="img8.png"
+ ALT="\begin{displaymath}
+f = \overline f + f' = \hat f + f''
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(8)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\overline p = (\gamma - 1)[\overline\rho \hat E -
+\frac{1}{2}\overline\rho ( \hat u^2 + \hat v^2 + \hat w^2) - \overline\rho k]
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="139" HEIGHT="19" BORDER="0"
+ SRC="img9.png"
+ ALT="\begin{displaymath}
+\overline p = (\gamma - 1)[\overline\rho \hat E -
+\frac{1}{2...
+...rline\rho ( \hat u^2 + \hat v^2 + \hat w^2) - \overline\rho k]
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(9)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\tau_{ij}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="285" HEIGHT="32" BORDER="0"
+ SRC="img10.png"
+ ALT="\begin{displaymath}
+\tau_{ij}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(10)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\overline{\sigma_{ij} u_i''}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="16" HEIGHT="12" BORDER="0"
+ SRC="img11.png"
+ ALT="\begin{displaymath}
+\overline{\sigma_{ij} u_i''}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(11)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+c_p \overline {\rho u_j'' T''}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="39" HEIGHT="19" BORDER="0"
+ SRC="img12.png"
+ ALT="\begin{displaymath}
+c_p \overline {\rho u_j'' T''}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(12)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{1}{2} \overline{\rho u_i'' u_i'' u_j''}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="60" HEIGHT="21" BORDER="0"
+ SRC="img13.png"
+ ALT="\begin{displaymath}
+\frac{1}{2} \overline{\rho u_i'' u_i'' u_j''}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(13)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\tau_{ij}=2 \hat \mu_t \left( \hat S_{ij} - \frac{1}{3}
+\frac{\partial \hat u_k}{\partial x_k} \delta_{ij} \right) - \frac{2}{3} \overline \rho k \delta_{ij}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="71" HEIGHT="32" BORDER="0"
+ SRC="img14.png"
+ ALT="\begin{displaymath}
+\tau_{ij}=2 \hat \mu_t \left( \hat S_{ij} - \frac{1}{3}
+\fra...
+...\delta_{ij} \right) - \frac{2}{3} \overline \rho k \delta_{ij}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(14)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\hat S_{ij} = (\partial \hat u_i / \partial x_j +
+\partial \hat u_j / \partial x_i) / 2
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="254" HEIGHT="39" BORDER="0"
+ SRC="img15.png"
+ ALT="\begin{displaymath}
+\hat S_{ij} = (\partial \hat u_i / \partial x_j +
+\partial \hat u_j / \partial x_i) / 2
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(15)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+c_p \overline {\rho u_j'' T''} \approx
+-\frac{c_p \hat \mu_t}{Pr_t} \frac{\partial \hat T}{\partial x_j}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="203" HEIGHT="20" BORDER="0"
+ SRC="img16.png"
+ ALT="\begin{displaymath}
+c_p \overline {\rho u_j'' T''} \approx
+-\frac{c_p \hat \mu_t}{Pr_t} \frac{\partial \hat T}{\partial x_j}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(16)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+k = [(\hat {u_i''})^2 + (\hat {v_i''})^2 + (\hat {w_i''})^2]/2
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="154" HEIGHT="41" BORDER="0"
+ SRC="img17.png"
+ ALT="\begin{displaymath}
+k = [(\hat {u_i''})^2 + (\hat {v_i''})^2 + (\hat {w_i''})^2]/2
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(17)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\overline{\sigma_{ij} u_i''} - \frac{1}{2} \overline{\rho u_i'' u_i'' u_j''} \approx
+\left( \hat \mu + \frac{\hat \mu_t}{\sigma_k} \right) \frac{\partial k}{\partial x_j}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="205" HEIGHT="21" BORDER="0"
+ SRC="img18.png"
+ ALT="\begin{displaymath}
+\overline{\sigma_{ij} u_i''} - \frac{1}{2} \overline{\rho u_...
+...{\hat \mu_t}{\sigma_k} \right) \frac{\partial k}{\partial x_j}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(18)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\sigma_k
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="254" HEIGHT="39" BORDER="0"
+ SRC="img19.png"
+ ALT="\begin{displaymath}
+\sigma_k
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(19)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\hat \mu_t
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="15" HEIGHT="10" BORDER="0"
+ SRC="img20.png"
+ ALT="\begin{displaymath}
+\hat \mu_t
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(20)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\overline\sigma_{ij} \approx 2 \hat \mu \left( \hat S_{ij} - \frac{1}{3} \frac{\partial \hat u_k}{\partial x_k}\delta_{ij} \right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="14" HEIGHT="14" BORDER="0"
+ SRC="img21.png"
+ ALT="\begin{displaymath}
+\overline\sigma_{ij} \approx 2 \hat \mu \left( \hat S_{ij} -...
+...}{3} \frac{\partial \hat u_k}{\partial x_k}\delta_{ij} \right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(21)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\hat \mu
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="184" HEIGHT="39" BORDER="0"
+ SRC="img22.png"
+ ALT="\begin{displaymath}
+\hat \mu
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(22)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+P = \tau_{ij} \frac{\partial \hat u_i}{\partial x_j}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="9" HEIGHT="14" BORDER="0"
+ SRC="img23.png"
+ ALT="\begin{displaymath}
+P = \tau_{ij} \frac{\partial \hat u_i}{\partial x_j}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(23)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+P_{inc} =
+  \frac{1}{2} \hat \mu_t \left( \frac{\partial \hat u_i}{\partial x_j}+ \frac{\partial \hat u_j}{\partial x_i} \right)
+                         \left( \frac{\partial \hat u_i}{\partial x_j}+ \frac{\partial \hat u_j}{\partial x_i} \right) =
+  \hat \mu_t \frac{\partial \hat u_i}{\partial x_j}
+                         \left( \frac{\partial \hat u_i}{\partial x_j}+ \frac{\partial \hat u_j}{\partial x_i} \right) =
+  2 \hat \mu_t \hat S_{ij} \hat S_{ij} \equiv \mu_t \hat S^2
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="79" HEIGHT="38" BORDER="0"
+ SRC="img24.png"
+ ALT="\begin{displaymath}
+P_{inc} =
+\frac{1}{2} \hat \mu_t \left( \frac{\partial \hat...
+... =
+2 \hat \mu_t \hat S_{ij} \hat S_{ij} \equiv \mu_t \hat S^2
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(24)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+M > 2-5
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="592" HEIGHT="39" BORDER="0"
+ SRC="img25.png"
+ ALT="\begin{displaymath}
+M &gt; 2-5
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(25)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+(2/3) \overline \rho k \delta_{ij}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="73" HEIGHT="12" BORDER="0"
+ SRC="img26.png"
+ ALT="\begin{displaymath}
+(2/3) \overline \rho k \delta_{ij}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(26)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\gamma
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="68" HEIGHT="17" BORDER="0"
+ SRC="img27.png"
+ ALT="\begin{displaymath}
+\gamma
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(27)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+B=1
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="9" HEIGHT="10" BORDER="0"
+ SRC="img28.png"
+ ALT="\begin{displaymath}
+B=1
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(28)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"></A>
+
+<UL>
+<LI><A ID="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A ID="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/local/pkgs/latex2html2008/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/local/pkgs/latex2html2008/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/local/pkgs/latex2html2008/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A ID="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Christopher Rumsey
+2017-01-10
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,1396 @@
+----------------- FILE NUMBER     2-----------------
+    1.   FLOW TITLE:   CASE 0111;  PO, J. K., LUND, E. G. AND
+    GESSNER, F. B.;  DEVELOPING FLOW IN A SQUARE DUCT (SECONDARY FLOW
+    OF THE SECOND KIND).
+
+    2.   REVISION DATE:    OCTOBER 30, 1981.
+
+    3.   EVALUATOR:    GESSNER, F. B., UNIVERSITY OF WASHINGTON,
+    DEPARTMENT OF MECHNICAL ENGINEERING, FU-10, SEATTLE, WASHINGTON
+    98195.
+
+    4.   DATE AND LOCATION OF EXPERIMENT:   UNIVERSITY OF WASHINGTON,
+    DEPARTMENT OF MECHNICAL ENGINEERING,  SEATTLE, WASHINGTON, 1975.
+
+    5.   ABSTRACT:    THIS EXPERIMENT IS CONCERNED WITH TURBULENT
+    FLOW IN A CONSTANT AREA SQUARE DUCT WHICH DEVELOPS IDEALLY FROM
+    A ZERO TURBULENCE LEVEL, UNIFORM MEAN FLOW AT THE DUCT INLET (U =
+    UB , V = W = 0).  THE BULK REYNOLDS NUMBER MAY BE REGARDED AS
+    BEING SUFFICIENTLY HIGH TO INITIATE TURBULENT BOUNDARY LAYER
+    DEVELOPMENT AT THE DUCT INLET (X/DH = 0).  A UNIQUE FEATURE OF
+    THIS FLOW IS THE STREAMWISE DEVELOPMENT OF TWO SECONDARY FLOW
+    CELLS IN EACH QUADRANT WHICH ARE CENTERED ABOVE THE CORNER
+    BISECTOR.  THESE CELLS CORRESPOND TO A FLOW PATTERN FORMED BY THE
+    VECTOR SUM OF THE TRANSVERSE MEAN-VELOCITY COMPONENTS
+    (V AND W) WHICH CAN BE REGARDED AS BEING SUPERIMPOSED UPON THE
+    PRIMARY MEAN FLOW.  THE FORMATION OF THESE CELLS IS THE DIRECT
+    RESULT OF REYNOLDS STRESS GRADIENTS ACTING IN THE CORNER REGION
+    WHICH ARE NOT PRESENT IN TWO-DIMENTIONAL BOUNDARY LAYER FLOWS.
+
+    RESULTS WERE OBTAINED IN THE NEAR ENTRANCE REGION OF THE DUCT IN
+    ORDER TO DETERMINE INLET FLOW CONDITIONS.  THE VIRTUAL ORIGIN OF
+    THE WALL BISECTOR BOUNDARY LAYER WAS FOUND BY EXTRAPOLATING
+    VALUES OF DEL EVALUATED AT X/DH = 0.2, 1, 2, AND 4 FROM VELOCITY
+    PROFILES MEASURED AT THESE LOCATIONS.  THE VIRTUAL ORIGIN WAS LOCATED
+    AT XS/DH = - 0.65, WHICH INDICATES THAT FLOW AT X/DH = 0 IS
+    ESSENTIALLY UNIFORM.  TURBULENCE INTENSITY MEASUREMENTS IN THE NEAR
+    ENTRANCE REGION INDICATED A CORE FLOW TURBULENCE LEVEL LESS THAN
+    0.0035 THE ISOTACH PATTERNS MEASURED IN A QUADRANT OF THE FLOW AT
+    X/DH = 8, 16, 24, 40, AND 84 EXHIBIT EXCELLENT SYMMETRY ABOUT THE
+    CORNER BISECTOR AND ARE INDICATIVE OF THE PRESENCE OF TWO SECONDARY
+    FLOW CELLS CENTERED ABOUT THE BISECTOR.
+
+    6.   REFERENCES:   1.  BEAVERS, G. S., SPARROW, E. M., AND
+    MAGNUSON, R. A.;  EXPERIMENTS ON HYDRODYNAMICALLY DEVELOPING FLOW
+    IN RECTANGULAR DUCTS OF ARBITRARY ASPECT RATIO, IJHMT, VOL. 13,
+    1970, PP. 689-702.
+
+                       2.  GOLDSTEIN, R. J., AND KREID, D. K.;
+    MEASUREMENT OF LAMINAR FLOW DEVELOPMENT IN A SQUARE DUCT USING A
+    LASER-DOPPLER FLOWMETER, J. APPL. MECH., TRANS. ASME, VOL. 34,
+    1967, PP. 813-818.
+
+                       3.  GESSNER, F. B.;  FINAL REPORT:  CORNER
+    FLOW DATA EVALUATION, DEPARTMENT OF MECHNICAL ENGINEERING, UNIVERSITY
+    OF WASHINGTON, 1980.
+
+                       4.  PO, J. K.;  DEVELOPING TURBULENT FLOW IN
+    THE ENTRANCE REGION OF A SQUARE DUCT, MS THESIS, DEPARTMENT OF
+    MECHNICAL ENGINEERING, UNIVERSITY OF WASHINGTON, 1975.
+
+                       5.  LUND, E. G.; MEAN FLOW AND TURBULENCE
+    CHARACTRISTICS IN THE NEAR CORNER REGION OF A SQUARE DUCT,
+    MS THESIS, DEPARTMENT OF MECHNICAL ENGINEERING, UNIVERSITY OF
+    WASHINGTON, 1977.
+
+                       6.  EPPICH, H. M.; DEVELOPMENT OF A PRESSURE-
+    STRAIN MODEL FOR TURBULENT FLOW ALONG A STREAMWISE CORNER,
+    MS THESIS, DEPARTMENT OF MECHNICAL ENGINEERING, UNIVERSITY OF
+    WASHINGTON (IN PREPARATION).
+
+                       7.  GESSNER, F. B., PO, J. K., AND EMERY, A. F.;
+    MEASUREMENTS OF TURBULENT FLOW IN A SQUARE DUCT. IN TURBULENT
+    SHEAR FLOWS I (EDITED DY DURST) SPINGER-VERLAG, NEW YORK, 1979.
+
+                       8.  GESSNER, F. B., AND EMERY, A. F.;  THE
+    NUMERICAL PREDICTION OF DEVELOPING TURBULENT FLOW IN RECTANGULAR
+    DUCTS, SYMPOSIUM ON TURBULENT SHEAR FLOWS, VOL. II, IMPERIAL
+    COLLEGE, LONDON, 1979, PP. 17.1-17.6.
+
+                       9.  EMERY, A. F., NEIGHBORS,P. K., AND GESSNER,
+    F. B.;  THE NUMERICAL PREDICTION OF DEVELOPING TURBULENT FLOW AND
+    HEAT TRANSFER IN A SQUARE DUCT, J. HEAT TRANSFER, TRANS. ASME,
+    VOL. 102, 1980, PP. 51-57.
+
+    7.   INSTRUMENTATION:  STATIC PRESSURE TAPS WERE LOCATED ON
+    OPPOSITE WALLS OF THE DUCT AT 1-DH INTERVALS BETWEEN X/DH = 1 AND
+    X/DH = 26, AND THEN AT 2-D INTERVALS BETWEEN X/DH = 26 AND X/DH = 84.
+    AXIAL MEAN VELOCITIES WERE MEASURED BY MEANS OF A MINIATURE KIEL
+    PROBE (UNITED SENSOR KAC-8) IN CONJUNCTION WITH A WALL STATIC
+    PRESSURE TAP.  DIFFERENTIAL PRESSURES WERE MEASURED WITH AN E. VERNON
+    HILL TYPE A MICROMANOMETER WITH MINOR SCALE DIVISIONS OF 0.0254
+    MM.
+    TURBULENCE MEASUREMENTS WERE MADE WITH HOT-WIRE PROBES SIMILAR IN
+    DESIGN TO CONFIGURATIONS RECOMMENDED BY COMTE-BELLOT AND HER
+    CO-WORKERS, FOR MINIMAL PRONG INTERFERENCE EFFECTS.  THE SENSING
+    ELEMENT OF EACH PROBE WAS TUNGSTEN WIRE, 3.8 MICROMETER
+    (0.00015 IN.) IN DIAMETER, AND WIRE LENGTH-TO-DIAMETER RATIO
+    VARIED BETWEEN 250 AND 450.  THE LONGITUDINAL NORMAL STRESS
+    COMPONENT WAS MEASURED BY MEANS OF A SINGLE WIRE NORMAL TO THE
+    FLOW WHICH WAS CALIBRATED BEFORE AND AFTER EACH DATA RUN IN THE
+    POTENTIAL CORE OF A FREE JET.  THE REMAINING RENOLDS STRESS
+    COMPONENTS WERE MEASURED BY MEANS OF A SINGLE INCLINED WIRE
+    ORIENTED AT THE NOMINAL ANGLE OF 45 DEGREES RELATIVE TO THE AXIAL
+    FLOW DIRECTION.  THE HOT-WIRE PROBES WERE OPERATED BY MEANS OF A
+    THERMO-SYSTEMS, INC. MODEL 1010 CONSTANT TEMPERATURE ANEMOMETER.
+    THE KIEL PROBE AND HOT-WIRE PROBES WERE MOUNTED ON A TRASVERSING
+    MECHANISM FOR PROBE TRANSLATION IN THE Y-Z PLANE.  PROBE POSITIONING
+    IN THE Y- AND Z-DIRECTIONS WAS ACCURATE TO WITHIN +/- 0.1 MM.
+    BOTH NORMAL AND INCLINED WIRE PROBES WERE MOUNTED WITH THE PROBE
+    STEM PARALLEL TO THE AXIAL FLOW DIRECTION.  BY MEANS OF A BEVEL
+    GEAR ARRANGEMENT THE INCLINED WIRE PROBE WAS ROTATED IN 45-DEGREE
+    INCREMENTS TO ORIENT THE WIRE IN THE X-Y AND X-Z PLANES, AND IN
+    THE PLANES WHICH BISECT THESE PLANES (8 ANGULAR POSITIONS).  THIS
+    ARRANGEMENT PERMITTED V2, W2, UV, UW, AND VW TO BE MEASURED
+    SIMULTANEOUSLY AT EACH POINT WHERE WALL INTERFERENCE EFFECTS ARE
+    NEGLIGIBLE (Y/A >= 0.05, Z/A >= 0.05), NO CORRECTIONS WERE APPLIED
+    TO MEASURED REYNOLDS STRESS VALUES.
+
+    8.   EXPERIMENTAL PARAMETERS:  THE TEST FACILITY CONSISTED OF A
+    FORMICA-LINED SQUARE DUCT APPROXIMATELY 22 M IN LENGTH. THE DUCT
+    WAS PRECEDED BY A CONTRACTION AND A SETTLING CHAMBER WITH SCREENS,
+    FILTERS, AND HONEYCOMB.  THE JOINT BETWEEN THE CONTRACTION AND
+    DUCT WAS SMOOTH, AND NO TRIPPING DEVICE WAS INSTALLED AT THE DUCT
+    INLET.  THE DISTANCE BETWEEN OPPOSITE WALLS OF THE DUCT WAS
+    MAINTAINED AT 0.254 M +/-0.025 MM OVER THE LENGTH OF THE DUCT,
+    AND ADJACENT WALLS WERE SET PERPENDICULAR TO WITHIN +/- 0.05
+    DEGREE.  THE BOTTOM WALL WAS MAINTAINED LEVEL TO WITHIN +/- 0.4
+    MM OVER ITS LENGTH.  THE TOP WALL WAS MADE OF REMOVABLE SECTIONS
+    SO THAT A TRAVERSING MECHANISM CAN BE POSITIONED AT DIFFERENT
+    STREAMWISE LOCATIONS.
+
+    DUCT DIMENSION:
+
+          A = 0.127 M (5.000 IN.)
+          L = 22 M
+          DH = 2A = 0.254 M (10.000 IN.)
+          (X/DH)MAX = 84
+
+    OPERATING CONDITIONS:
+
+          UB = 15.2 M/SEC. (50.0 FT/SEC.)
+          REB = 2.5*10**5
+
+    9.   MEASURED AND INFERRED VARIABLES:
+
+
+            X,Y,Z            CARTESIAN COORDINATES.
+            YPRIME,ZPRIME    DIAGONAL COORDINATES WITH ORIGINS
+                             AT THE DUCT CORNERS MEASURED POSITIVELY
+                             TOWARD THE DUCT CENTER.
+            XS               STARTING LENGTH.
+            L                LENGTH OF THE DUCT, (M).
+            A                HALF WIDTH OF THE DUCT, (M).
+            DH               HYDRAULIC DIAMETER OF THE DUCT
+                             (DH = 2A), (M).
+            APRIME           DIAGONAL HALF WIDTH OF THE DUCT, (M).
+            DEL              BOUNDARY LAYER THICKNESS, (M).
+            NU               KINEMATIC VISCOSITY.
+            CP               PRESSURE COEFFICIENT
+                             ( CP = (P0 - P)/(1/2*RHO*UB**2) ).
+            CPWA             PRESSURE COEFFICIENT AT WALL A
+            CPWB             PRESSURE COEFFICIENT AT WALL B
+            P                MEAN STATIC PRESSURE.
+            P0               MEAN STATIC PRESSURE AT X = 0.
+            REB              BULK REYNOLDS NUMBER (REB = UB*DH/NU)
+            U, V, W          MEAN-VELOCITY COMPONENTS IN X, Y, AND Z
+                             DIRECTIONS, RESPECTIVELY, (M/SEC.).
+            UB               BULK VELOCITY, (M/SEC.).
+            UC               AXIAL CENTERLINE VELOCITY, (M/SEC.).
+            USTAR            FRICTION VELOCITY (USTAR =SQRT(TAW/RHO),
+                             (M/SEC.).
+            U0               MEAN CENTERLINE VELOCITY, (M/SEC.).
+            VPRIME           MEAN-VELOCITY COMPONENT IN YPRIME
+                             DIRECTION, (M/SEC.).
+            YPLUS            DIMENSIONLESS COORDINATE
+                             (YPLUS = Y*USTAR/NU).
+            EPSILON          DISSIPATION VISCOSITY RATE OF TURBULENT
+                             MOTION, (M**2)/(SEC.**3).
+            RHO              FLUID DENSITY.
+            TAUW             LOCAL WALL SHEAR STRESS.
+            TAUWBAR          SPANWISE AVERAGED VALUE OF TAUW.
+            U2, V2, W2       REYNOLDS NORMAL STRESS COMPONENTS
+                             REFERRED TO THE X,Y,Z COORDINATE SYSTEM.
+            U*V,U*W,V*W      REYNOLDS SHEAR STRESS COMPONENTS
+                             REFERRED TO THE X,Y,Z COORDINATE SYSTEM.
+            UB2              REYNOLDS NORMAL STRESS IN THE X-DIRECTION.
+            H1               HORIZONTAL TRAVERSE ONE.
+            H2               HORIZONTAL TRAVERSE TWO (OPPOSITE WALL).
+            H1R              REPEAT OF H1.
+            VERT1            VERTICAL TRAVERSE ONE.
+            VERT2            VERTICAL TRAVERSE TWO.
+            D1               DIAGONAL TRAVERSE ONE.
+            D2               DIAGONAL TRAVERSE TWO.
+            D1R              REPEAT OF D1.
+            Y/A              NONDIMENSIONAL DISTANCE.
+            YPRIME/APRIME    NONDIMENSIONAL DISTANCE.
+            Z/A              NONDIMENSIONAL DISTANCE.
+            X/DH             NONDIMENSIONAL DISTANCE.
+            U0/UB            NONDIMENSIONAL VELOCITY
+            U/UB             NONDIMENSIONAL VELOCITY.
+            V/UB             NONDIMENSIONAL VELOCITY.
+            VPRIME/UB        NONDIMENSIONAL VELOCITY.
+            TAUW/TAUWBAR     NONDIMENSIONAL SHEAR STRESS.
+            U/UC             NONDIMENSIONAL VELOCITY.
+            K                TURBULENT KINETIC ENERGY
+
+    10.   MEASUREMENT UNCERTAINTY:
+               NONE SPECIFIED.
+
+    11. TAPE ORGANIZATION: THE TAPE IS A 2400 FOOT, 9 TRACK, ODD PARITY,
+    PHASE ENCODED, UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS
+    PER INCH ACCORDING TO EBCDIC CODE.  THE RECORD FORMAT IS FIXED AND
+    BLOCKED; RECORD LENGTH = 80 BYTES; BLOCKSIZE = 8000 BYTES
+
+    NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:
+    XNORM = (X - XMIN)/(XMAX - XMIN)
+    NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY 10000 AND
+    ROUNDING UP OR DOWN TO THE NEAREST INTEGER.
+    IXNORM = XNORM * 10000.
+    THUS EACH NORMALIZED DATUM IS WRITTEN ONTO TAPE AS AN INTEGER
+    VALUE BETWEEN 0 AND 10000.
+    ALL NULL DATA ARE WRITTEN AS 20000
+    THE EQUATION DESCRIBING THE RELATION BETWEEN ACTUAL DATA AND
+    THE NORMALIZED DATA ON TAPE IS
+    X = XMIN + (((XMAX - XMIN) * IXNORM)/10000.)
+    WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS INTEGER.
+
+    FILE# NREC    CONTAINS                   FORMAT    COMMENTS
+
+     1     -      TEXT FILE                  -         CONTAINS ITEMS 1
+                                                       TO 11 OF THIS
+                                                       WRITE-UP
+
+     2     31     (X/DH)/REB,CP,             5E13.6/   RECORDS 1&2 -
+                  (X/DH)/REB,CP,             5E13.6    MAXIMUM VALUES
+                  (X/DH)/REB,CP,                       FOR REB =
+                  (X/DH)/REB,CP,                       0.651*10**5,
+                  (X/DH)/REB,CP                        0.735*10**5,
+                                                       1.222*10**5,
+                                                       1.564*10**5, AND
+                                                       1.858*10**5,
+                                                       RESPECTIVELY.
+                  (X/DH)/REB,CP,             5E13.6/   RECORDS 3&4 -
+                  (X/DH)/REB,CP,             5E13.6    MINIMUM VALUES
+                  (X/DH)/REB,CP,                       FOR REB =
+                  (X/DH)/REB,CP,                       0.651*10**5,
+                  (X/DH)/REB,CP                        0.735*10**5,
+                                                       1.222*10**5,
+                                                       1.564*10**5, AND
+                                                       1.858*10**5,
+                                                       RESPECTIVELY.
+                  (X/DH)/REB,CP,             10I6      RECORDS 5 - 31
+                  (X/DH)/REB,CP,                       NORMALIZED VALUES
+                  (X/DH)/REB,CP,                       FOR REB =
+                  (X/DH)/REB,CP,                       0.651*10**5,
+                  (X/DH)/REB,CP                        0.735*10**5,
+                                                       1.222*10**5,
+                                                       1.564*10**5, AND
+                                                       1.858*10**5,
+                                                       RESPECTIVELY.
+     3     15     (X/DH)/REB,U0/UB,          5E13.6/   RECORDS 1&2 -
+                  (X/DH)/REB,U0/UB,          5E13.6    MAXIMUM VALUES
+                  (X/DH)/REB,U0/UB,                    FOR RUNS 1, 2,
+                  (X/DH)/REB,U0/UB,                    3, 4, AND 5
+                  (X/DH)/REB,U0/UB                     RESPECTIVELY.
+                  (X/DH)/REB,U0/UB,          5E13.6/   RECORDS 3&4 -
+                  (X/DH)/REB,U0/UB,          5E13.6    MINIMUM VALUES
+                  (X/DH)/REB,U0/UB,                    FOR RUNS 1, 2,
+                  (X/DH)/REB,U0/UB,                    3, 4, AND 5
+                  (X/DH)/REB,U0/UB                     RESPECTIVELY.
+                  (X/DH)/REB,U0/UB,          10I6      RECORDS 5 - 15
+                  (X/DH)/REB,U0/UB,                    NORMALIZED VALUES
+                  (X/DH)/REB,U0/UB,                    FOR RUNS 1, 2,
+                  (X/DH)/REB,U0/UB,                    3, 4, AND 5
+                  (X/DH)/REB,U0/UB                     RESPECTIVELY.
+     4     14     Y/A,U/UB(H1),U/UB(VERT1),  5E13.6/   RECORDS 1&2 -
+                  Y/A,U/UB(H1),              4E13.6    MAXIMUM VALUES
+                  Y/A,U/UB(H1R),                       NOTE: (X/DH)/REB =
+                  Y/A,U/UB(H2)                         0.0075 FOR
+                                                       COLUMNS 1 - 3, AND
+                                                       0.0200 FOR
+                                                       COLUMNS 4 - 9
+                                                       RESPECTIVELY.
+                  Y/A,U/UB(H1),U/UB(VERT1),  5E13.6/   RECORDS 3&4 -
+                  Y/A,U/UB(H1),              4E13.6    MINIMUM VALUES
+                  Y/A,U/UB(HIR),                       NOTE: (X/DH)/REB =
+                  Y/A,U/UB(H2)                         0.0075 FOR
+                                                       COLUMNS 1 - 3, AND
+                                                       0.0200 FOR
+                                                       COLUMNS 4 - 9
+                                                       RESPECTIVELY.
+                  Y/A,U/UB(H1),U/UB(VERT1),  9I6       RECORDS 5 - 14
+                  Y/A,U/UB(H1),                        NORMALIZED VALUES
+                  Y/A,U/UB(HIR),                       NOTE: (X/DH)/REB =
+                  Y/A,U/UB(H2)                         0.0075 FOR
+                                                       COLUMNS 1 - 3, AND
+                                                       0.0200 FOR
+                                                       COLUMNS 4 - 9
+                                                       RESPECTIVELY.
+     5     13     Y/A,U/UB(H1),              5E13.6/   RECORDS 1&2 -
+                  Y/A,U/UB(H1R),             5E13.6    MAXIMUM VALUES
+                  Y/A,U/UB(H2),                        NOTE: (X/DH)/REB =
+                  Y/A,U/UB(VERT1),                     0.1500 FOR ALL
+                  Y/A,U/UB(VERT2)                      COLUMNS.
+                  Y/A,U/UB(H1),              5E13.6/   RECORDS 3&4 -
+                  Y/A,U/UB(H1R),             5E13.6    MINIMUM VALUES
+                  Y/A,U/UB(H2),                        NOTE: (X/DH)/REB =
+                  Y/A,U/UB(VERT1),                     0.1500 FOR ALL
+                  Y/A,U/UB(VERT2)                      COLUMNS.
+                  Y/A,U/UB(H1),              10I6      RECORDS 5 - 13
+                  Y/A,U/UB(H1R),                       NORMALIZED VALUES
+                  Y/A,U/UB(H2),                        NOTE: (X/DH)/REB =
+                  Y/A,U/UB(VERT1),                     0.1500 FOR ALL
+                  Y/A,U/UB(VERT2)                      COLUMNS.
+     6     13     YPRIME/APRIME,U/UB(D1),    4E13.6/   RECORDS 1&2 -
+                  U/UB(D1R),U/UB(D1),        4E13.6    MAXIMUM VALUES
+                  YPRIME/APRIME,U/UB(D1),              NOTE: (X/DH)/REB =
+                  U/UB(D1R),U/UB(D2)                   0.0075 FOR
+                                                       COLUMNS 1 - 3, AND
+                                                       0.0200 FOR
+                                                       COLUMN 4 AND
+                                                       0.1500 FOR
+                                                       COLUMNS 5 - 8
+                                                       RESPECTIVELY.
+                  YPRIME/APRIME,U/UB(D1),    4E13.6/   RECORDS 3&4 -
+                  U/UB(D1R),U/UB(D1),        4E13.6    MINIMUM VALUES
+                  YPRIME/APRIME,U/UB(D1),              NOTE: (X/DH)/REB =
+                  U/UB(D1R),U/UB(D2)                   0.0075 FOR
+                                                       COLUMNS 1 - 3, AND
+                                                       0.0200 FOR
+                                                       COLUMN 4 AND
+                                                       0.1500 FOR
+                                                       COLUMNS 5 - 8
+                                                       RESPECTIVELY.
+                  YPRIME/APRIME,U/UB(D1),    8I6       RECORDS 5 - 13
+                  U/UB(D1R),U/UB(D1),                  NORMALIZED VALUES
+                  YPRIME/APRIME,U/UB(D1),              NOTE: (X/DH)/REB =
+                  U/UB(D1R),U/UB(D2)                   0.0075 FOR
+                                                       COLUMNS 1 - 3, AND
+                                                       0.0200 FOR
+                                                       COLUMN 4 AND
+                                                       0.1500 FOR
+                                                       COLUMNS 5 - 8
+                                                       RESPECTIVELY.
+     7     36     X/DH,CPWA,CPWB             3E13.6    RECORD 1 -
+                                                       MAXIMUM VALUES
+                  X/DH,CPWA,CPWB             3E13.6    RECORD 2 -
+                                                       MINIMUM VALUES
+                  X/DH,CPWA,CPWB             3I6      RECORD 3 - 36
+                                                       NORMALIZED VALUES
+     8     21     X/DH,U/UB,U/UB,U/UB,       5E13.6    RECORDS 1&2 -
+                  U/UB,U/UB,U/UB,U/UB,U/UB   4E13.6    MAXIMUM VALUES
+                                                       FOR Y/A = 0.02,
+                                                       0.04, 0.06, 0.10,
+                                                       0.20, 0.40, 0.60,
+                                                       1.00 RESPECTIVELY.
+                  X/DH,U/UB,U/UB,U/UB,       5E13.6    RECORDS 3&4 -
+                  U/UB,U/UB,U/UB,U/UB,U/UB   4E13.6    MINIMUM VALUES
+                                                       FOR Y/A = 0.02,
+                                                       0.04, 0.06, 0.10,
+                                                       0.20, 0.40, 0.60,
+                                                       1.00 RESPECTIVELY.
+                  X/DH,U/UB,U/UB,U/UB,       9I6       RECORDS 5 - 21
+                  U/UB,U/UB,U/UB,U/UB,U/UB             NORMALIZED VALUES
+                                                       FOR Y/A = 0.02,
+                                                       0.04, 0.06, 0.10,
+                                                       0.20, 0.40, 0.60,
+                                                       1.00 RESPECTIVELY.
+     9     21     X/DH,U/UB,U/UB,U/UB,       5E13.6    RECORDS 1&2 -
+                  U/UB,U/UB,U/UB,U/UB,U/UB   4E13.6    MAXIMUM VALUES
+                                                       FOR YPRIME/APRIME=
+                                                       0.02, 0.04, 0.06,
+                                                       0.10, 0.20, 0.40,
+                                                       0.60, 1.00       .
+                                                       RESPECTIVELY.
+                  X/DH,U/UB,U/UB,U/UB,       5E13.6    RECORDS 3&4 -
+                  U/UB,U/UB,U/UB,U/UB,U/UB   4E13.6    MINIMUM VALUES
+                                                       FOR YPRIME/APRIME=
+                                                       0.02, 0.04, 0.06,
+                                                       0.10, 0.20, 0.40,
+                                                       0.60, 1.00       .
+                                                       RESPECTIVELY.
+                  X/DH,U/UB,U/UB,U/UB,       9I6       RECORDS 5 - 21
+                  U/UB,U/UB,U/UB,U/UB,U/UB             NORMALIZED VALUES.
+                                                       FOR YPRIME/APRIME=
+                                                       0.02, 0.04, 0.06,
+                                                       0.10, 0.20, 0.40,
+                                                       0.60, 1.00       .
+                                                       RESPECTIVELY.
+     10    20     Y/A,V/UB,V/UB,             5E13.6    RECORD 1 -
+                  V/UB,V/UB                            MAXIMUM VALUES
+                                                       FOR X/DH = 40
+                                                       AND RUNS: 1, 2,
+                                                       3, AND 4
+                                                       RESPECTIVELY.
+                  Y/A,V/UB,V/UB,             5E13.6    RECORD 2 -
+                  V/UB,V/UB                            MINIMUM VALUES
+                                                       FOR X/DH = 40
+                                                       AND RUNS: 1, 2,
+                                                       3, AND 4
+                                                       RESPECTIVELY.
+                  Y/A,V/UB,V/UB,             5I6       RECORDS 3 - 20
+                  V/UB,V/UB                            NORMALIZED VALUES
+                                                       FOR X/DH = 40
+                                                       AND RUNS: 1, 2,
+                                                       3, AND 4
+                                                       RESPECTIVELY.
+     11    21     YPRIME/APRIME,             3E13.6    RECORD 1 -
+                  VPRIME/UB,VPRIME/UB                  MAXIMUM VALUES
+                                                       FOR X/DH = 40
+                                                       AND RUNS: 1, AND
+                                                       2 RESPECTIVELY.
+                  YPRIME/APRIME,             3E13.6    RECORD 2 -
+                  VPRIME/UB,VPRIME/UB                  MINIMUM VALUES
+                                                       FOR X/DH = 40
+                                                       AND RUNS: 1, AND
+                                                       2 RESPECTIVELY.
+                  YPRIME/APRIME,             3I6       RECORDS 3 - 21
+                  VPRIME/UB,VPRIME/UB                  NORMALIZED VALUES
+                                                       FOR X/DH = 40
+                                                       AND RUNS: 1, AND
+                                                       2 RESPECTIVELY.
+     12    17     Y/A,V/UB,V/UB,             6E13.6    RECORD 1 -
+                  YPRIME/APRIME,                       MAXIMUM VALUES
+                  VPRIME/UB,VPRIME/UB                  FOR X/DH = 84
+                                                       AND RUNS: 1, AND
+                                                       2 RESPECTIVELY.
+                  Y/A,V/UB,V/UB,             6E13.6    RECORD 2 -
+                  YPRIME/APRIME,                       MINIMUM VALUES
+                  VPRIME/UB,VPRIME/UB                  FOR X/DH = 84
+                                                       AND RUNS: 1, AND
+                                                       2 RESPECTIVELY.
+                  Y/A,V/UB,V/UB,             6I6       RECORDS 3 - 17
+                  YPRIME/APRIME,                       NORMALIZED VALUES
+                  VPRIME/UB,VPRIME/UB                  FOR X/DH = 84
+                                                       AND RUNS: 1, AND
+                                                       2 RESPECTIVELY.
+     13    27     Y/A,TAUW/TAUWBAR           2E13.6    RECORD 1 -
+                                                       MAXIMUM VALUES
+                                                       FOR X/DH = 84
+                  Y/A,TAUW/TAUWBAR           2E13.6    RECORD 2 -
+                                                       MINIMUM VALUES
+                                                       FOR X/DH = 84
+                  Y/A,TAUW/TAUWBAR           2I6       RECORDS 3 - 27
+                                                       NORMALIZED VALUES
+                                                       FOR X/DH = 84
+     14    32     Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MAXIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 8,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MINIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 8,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           10I6      RECORDS 5 - 32
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A                              FOR X/DH = 8,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+     15    35     Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MAXIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 16,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MINIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 16,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           10I6      RECORDS 5 - 35
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A                              FOR X/DH = 16,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+     16    27     Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MAXIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 24,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MINIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 24,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           10I6      RECORDS 5 - 27
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A                              FOR X/DH = 24,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+     17    24     Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MAXIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 40,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MINIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 40,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           10I6      RECORDS 5 - 24
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A                              FOR X/DH = 40,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+     18    24     Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MAXIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 84,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MINIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 84,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           10I6      RECORDS 5 - 24
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A                              FOR X/DH = 84,
+                                                       AND U/UC = 0.70,
+                                                       0.80, 0.85, 0.90,
+                                                       AND 0.95
+                                                       RESPECTIVELY.
+     19    15     Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MAXIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 24,
+                                                       AND -U*V/UB2*10**4
+                                                       = 2, 4, 6, 8,
+                                                       12, AND 16
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 3&4
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MINIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 24,
+                                                       AND -U*V/UB2*10**4
+                                                       = 2, 4, 6, 8,
+                                                       12, AND 16
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           12I6      RECORDS 5 - 15
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 24,
+                                                       AND -U*V/UB2*10**4
+                                                       = 2, 4, 6, 8,
+                                                       12, AND 16
+                                                       RESPECTIVELY.
+     20    26     Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MAXIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 24,
+                                                       AND K/UB2*10**4
+                                                       = 10, 20, 30, 40,
+                                                       50, AND 60
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MINIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 24,
+                                                       AND K/UB2*10**4
+                                                       = 10, 20, 30, 40,
+                                                       50, AND 60
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           12I6      RECORDS 5 - 26
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 24,
+                                                       AND K/UB2*10**4
+                                                       = 10, 20, 30, 40,
+                                                       50, AND 60
+                                                       RESPECTIVELY.
+     21    8      Y/A,Z/A                    2E13.6    RECORD 1 -
+                                                       MAXIMUM VALUES
+                                                       FOR X/DH = 24,
+                                                       AND K/UB2*10**4
+                                                       = 70
+                  Y/A,Z/A                    2E13.6    RECORD 2 -
+                                                       MINIMUM VALUES
+                                                       FOR X/DH = 24,
+                                                       AND K/UB2*10**4
+                                                       = 70
+                  Y/A,Z/A                    2I6       RECORDS 3 - 8
+                                                       NORMALIZED VALUES
+                                                       FOR X/DH = 24,
+                                                       AND K/UB2*10**4
+                                                       = 70
+     22    18     Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MAXIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 40,
+                                                       AND -U*V/UB2*10**4
+                                                       = 2, 4, 6, 8,
+                                                       AND 12
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           5E13.6    MINIMUM VALUES
+                  Y/A,Z/A                              FOR X/DH = 40,
+                                                       AND -U*V/UB2*10**4
+                                                       = 2, 4, 6, 8,
+                                                       AND 12
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           10I6      RECORDS 5 - 18
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A                              FOR X/DH = 40,
+                                                       AND -U*V/UB2*10**4
+                                                       = 2, 4, 6, 8,
+                                                       AND 12
+                                                       RESPECTIVELY.
+     23    12     Y/A,Z/A,Y/A,Z/A            4E13.6    RECORD 1 -
+                                                       MAXIMUM VALUES
+                                                       FOR X/DH = 40,
+                                                       AND -U*V/UB2*10**4
+                                                       = 16, AND 20
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A            4E13.6    RECORD 2 -
+                                                       MINIMUM VALUES
+                                                       FOR X/DH = 40,
+                                                       AND -U*V/UB2*10**4
+                                                       = 16, AND 20
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A            4I6       RECORDS 3 - 12
+                                                       NORMALIZED VALUES
+                                                       FOR X/DH = 40,
+                                                       AND -U*V/UB2*10**4
+                                                       = 16, AND 20
+                                                       RESPECTIVELY.
+     24    24     Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MAXIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 40,
+                                                       AND K/UB2*10**4
+                                                       = 20, 30, 40, 50,
+                                                       60, AND 70
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MINIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 40,
+                                                       AND K/UB2*10**4
+                                                       = 20, 30, 40, 50,
+                                                       60, AND 70
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           12I6      RECORDS 5 - 24
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 40,
+                                                       AND K/UB2*10**4
+                                                       = 20, 30, 40, 50,
+                                                       60, AND 70
+                                                       RESPECTIVELY.
+     25   12      Y/A,Z/A                    2E13.6    RECORD 1 -
+                                                       MAXIMUM VALUES
+                                                       FOR X/DH = 40,
+                                                       AND K/UB2*10**4
+                                                       = 80
+                  Y/A,Z/A                    2E13.6    RECORD 2 -
+                                                       MINIMUM VALUES
+                                                       FOR X/DH = 40,
+                                                       AND K/UB2*10**4
+                                                       = 80
+                  Y/A,Z/A                    2I6       RECORDS 3 - 12
+                                                       NORMALIZED VALUES
+                                                       FOR X/DH = 40,
+                                                       AND K/UB2*10**4
+                                                       = 80
+     26    16     Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MAXIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 84,
+                                                       AND -U*V/UB2*10**4
+                                                       = -3, -2, -1, 0,
+                                                       2, AND 4
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MINIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 84,
+                                                       AND -U*V/UB2*10**4
+                                                       = -3, -2, -1, 0,
+                                                       2, AND 4
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           12I6      RECORDS 5 - 16
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 84,
+                                                       AND -U*V/UB2*10**4
+                                                       = -3, -2, -1, 0,
+                                                       2, AND 4
+                                                       RESPECTIVELY.
+     27    15     Y/A,Z/A,Y/A,Z/A,           4E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           4E13.6    MAXIMUM VALUES
+                                                       FOR X/DH = 84,
+                                                       AND -U*V/UB2*10**4
+                                                       = 6, 8, 12,
+                                                       AND 16
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           4E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           4E13.6    MINIMUM VALUES
+                                                       FOR X/DH = 84,
+                                                       AND -U*V/UB2*10**4
+                                                       = 6, 8, 12,
+                                                       AND 16
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           8I6       RECORDS 5 - 15
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                                                       FOR X/DH = 84,
+                                                       AND -U*V/UB2*10**4
+                                                       = 6, 8, 12,
+                                                       AND 16
+                                                       RESPECTIVELY.
+     28    24     Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 1&2 -
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MAXIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 84,
+                                                       AND K/UB2*10**4
+                                                       = 20, 30, 40, 50,
+                                                       60, AND 70
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    RECORDS 3&4 -
+                  Y/A,Z/A,Y/A,Z/A,           6E13.6    MINIMUM VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 84,
+                                                       AND K/UB2*10**4
+                                                       = 20, 30, 40, 50,
+                                                       60, AND 70
+                                                       RESPECTIVELY.
+                  Y/A,Z/A,Y/A,Z/A,           12I6      RECORDS 5 - 24
+                  Y/A,Z/A,Y/A,Z/A,                     NORMALIZED VALUES
+                  Y/A,Z/A,Y/A,Z/A                      FOR X/DH = 84,
+                                                       AND K/UB2*10**4
+                                                       = 20, 30, 40, 50,
+                                                       60, AND 70
+                                                       RESPECTIVELY.
+
+
+    A SAMPLE PROGRAM FOR READING FILE 7 AND PRINTING, IS SHOWN
+    BELOW.  THE JCL SHOWN IS FOR THE STANFORD CIT FACILITY.
+    CHECK WITH YOUR OWN COMPUTER INSTALLATION FOR THE EXACT JCL
+    NEEDED.
+
+    //TAPE  JOB  BZC$NJ
+    /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)
+    //  EXEC  FORTCG
+    //FORT.SYSIN  DD  *
+    C  TO READ FILE 7 OFF TAPE
+    C  PRINT MAXIMAS AND MINIMAS OF ALL THE VARIABLES
+    C  PRINT NORMALIZED INTEGERIZED VALUES OF ALL THE VARIABLES.
+           INTEGER XDH(40),CPWA(40),CPWB(40)
+           READ (23,30) XDHMX,CPWAMX,CPWBMX
+           READ (23,30) XDHMN,CPWAMN,CPWBMN
+           DO  10  I = 1, 34
+    10     READ (23,40) XDH(I),CPWA(I),CPWB(I)
+           WRITE (6,50) XDHMX,CPWAMX,CPWBMX
+           WRITE (6,50) XDHMN,CPWAMN,CPWBMN
+           DO  20  I = 1, 34
+    20     WRITE (6,60) XDH(I),CPWA(I),CPWB(I)
+    30     FORMAT(3E13.6)
+    40     FORMAT(3I6)
+    50     FORMAT(1X,3E13.6)
+    60     FORMAT(1X,3I6)
+           STOP
+           END
+    //GO.FT23F001  DD  UNIT=T1600,VOL=SER=(TAPE LIBRARY NUMBER),
+    //  DISP=(OLD,KEEP),DCB=(RECFM=FB,LRECL=80,BLKSIZE=8000,DEN=3),
+    //  LABEL=(7,NL)
+    //
+-------------- END OF FILE NUMBER     2-------------
+----------------- FILE NUMBER     3-----------------
+ 0.747000E-01 0.660000E 01 0.715000E-01 0.644000E 01 0.740000E-01
+ 0.661000E 01 0.767000E-01 0.667000E 01 0.649000E-01 0.600000E 01
+ 0.130000E-02 0.155000E 01 0.280000E-01 0.383000E 01 0.900000E-03
+ 0.145000E 01 0.400000E-03 0.136000E 01 0.325000E-01 0.409000E 01
+     0     0     0     0     0     0     0     0     0     0
+    95   297  1241  1340   136   426    91   320  3302  3455
+   217   495  2528  2643   273   678   301   772  5000  5078
+   313   712  6275  6321   424   988   406   960  6635  6753
+   422   891  7517  7432   560  1182  1048  1902  8302  8429
+   517  1049  8758  8735   697  1453  1245  2128 10000 10000
+   626  1188 10000 10000   834  1608  1454  2391 20000 20000
+   722  1366 20000 20000   971  1763  1651  2617 20000 20000
+   831  1504 20000 20000  1381  2286  1874  2862 20000 20000
+  1035  1801 20000 20000  1682  2616  2096  3088 20000 20000
+  1253  2039 20000 20000  1983  2906  2293  3295 20000 20000
+  1457  2297 20000 20000  2243  3100  2503  3521 20000 20000
+  1662  2534 20000 20000  2489  3430  2896  3917 20000 20000
+  1866  2831 20000 20000  2790  3740  3342  4312 20000 20000
+  2084  2990 20000 20000  3091  4011  4141  5065 20000 20000
+  2288  3207 20000 20000  3351  4282  4980  5838 20000 20000
+  2520  3425 20000 20000  3912  4806  5819  6553 20000 20000
+  2929  3841 20000 20000  4487  5329  6657  7269 20000 20000
+  3337  4257 20000 20000  5540  6298  7483  7966 20000 20000
+  4128  4990 20000 20000  6662  7228  8335  8662 20000 20000
+  4986  5762 20000 20000  7783  8139  9174  9340 20000 20000
+  5817  6495 20000 20000  8891  9108 10000 10000 20000 20000
+  6648  7227 20000 20000 10000 10000 20000 20000 20000 20000
+  7493  7920 20000 20000 20000 20000 20000 20000 20000 20000
+  8324  8613 20000 20000 20000 20000 20000 20000 20000 20000
+  9155  9326 20000 20000 20000 20000 20000 20000 20000 20000
+ 10000 10000 20000 20000 20000 20000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER     3-------------
+----------------- FILE NUMBER     4-----------------
+ 0.160900E 00 0.208600E 01 0.175000E 00 0.208300E 01 0.890000E-01
+ 0.206800E 01 0.324000E-01 0.193400E 01 0.181000E-01 0.179100E 01
+ 0.170000E-01 0.172900E 01 0.637000E-01 0.204000E 01 0.381000E-01
+ 0.194600E 01 0.130000E-01 0.167000E 01 0.510000E-02 0.141100E 01
+     0     0     0     0     0     0     0     0     0     0
+   583  3949  1141  3953  2495  4508  3350  4507  2769  3342
+  1181  5854  2300  6279  4263  7704  6649  7575  2999  3526
+  1765  7254  4007 10000  7485  8770 10000 10000  4615  4842
+  2355  8123  4582 10000 10000 10000 20000 20000  6461  6263
+  3530  9103  5732 10000 20000 20000 20000 20000 10000 10000
+  4718  9411  6945  7441 20000 20000 20000 20000 20000 20000
+  5899  9579  7753  7441 20000 20000 20000 20000 20000 20000
+  7074  9859  8472  8372 20000 20000 20000 20000 20000 20000
+  8846 10000  8831  8372 20000 20000 20000 20000 20000 20000
+ 10000 10000 10000  9534 20000 20000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER     4-------------
+----------------- FILE NUMBER     5-----------------
+ 0.100000E 01 0.151800E 01 0.151800E 01 0.100000E 01 0.178700E 01
+ 0.956000E 00 0.178900E 01 0.936000E 00 0.178200E 01
+ 0.296000E 00 0.140500E 01 0.118600E 01 0.940000E-01 0.506000E 00
+ 0.132000E 00 0.604000E 00 0.108000E 00 0.393000E 00
+     0 20000     0     0     0     0     0     0     0
+  1420     0  7198  1125  2583  1237  3156  1256  4211
+  2869  3982  8373  2229  4832  2499  5932  2512  6018
+  4289  7876  9759  3333  6955  3762  7544  7512  9690
+  5710  8495  9789  4459  8243  5024  8810 10000 10000
+  7130  8407  9759  5562  8766  6237  9510 20000 20000
+  8579  9292  9759  6666  9367  7500  9831 20000 20000
+ 10000 10000 10000  7770  9750  8762  9881 20000 20000
+ 20000 20000 20000  8896  9843 10000 10000 20000 20000
+ 20000 20000 20000 10000 10000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER     5-------------
+----------------- FILE NUMBER     6-----------------
+ 0.818000E 00 0.203800E 01 0.934000E 00 0.208600E 01 0.980000E 00
+ 0.209100E 01 0.100000E 01 0.208800E 01 0.900000E 00 0.207100E 01
+ 0.150000E 00 0.555000E 00 0.130000E 00 0.538000E 00 0.176000E 00
+ 0.762000E 00 0.196000E 00 0.806000E 00 0.196000E 00 0.815000E 00
+     0     0     0     0     0     0     0     0     0     0
+  3982  6055  1243  2545  2487  4168  1243  2464  1420  2476
+  7005  8462  2487  4547  5000  7562  2487  4992  2840  5270
+ 10000 10000  3756  5936  7487  9360  3756  6076  4289  6321
+ 20000 20000  5000  7558 10000 10000  5000  7613  7130  8988
+ 20000 20000  6243  8242 20000 20000  6243  8728  8551  9641
+ 20000 20000  7512  9108 20000 20000  7487  9570 10000 10000
+ 20000 20000  8756  9780 20000 20000  8756  9898 20000 20000
+ 20000 20000 10000 10000 20000 20000 10000 10000 20000 20000
+-------------- END OF FILE NUMBER     6-------------
+----------------- FILE NUMBER     7-----------------
+ 0.100000E 01 0.152700E 01 0.150900E 01 0.178300E 01
+ 0.100000E 01 0.206500E 01 0.209200E 01 0.209500E 01
+ 0.196000E 00 0.133500E 01 0.124800E 01 0.439000E 00
+ 0.196000E 00 0.314000E 00 0.381000E 00 0.389000E 00
+     0 20000 20000     0     0     0     0     0
+  1243 20000 20000  2507  1243  2061  1829  1617
+  2487     0     0  4992  2487  3735  3465  3440
+  3756  5364  6360  6592  3756  5436  5365  5240
+  5000  8124  9118  8169  5000  7064  6797  6840
+  6243  9791  9118  9084  6243  8309  8229  8206
+  7487 10000  9846  9709  7487  9388  9222  9232
+  8756 10000 10000  9985  8756  9977  9824  9771
+ 10000  9531  9655 10000 10000 10000 10000 10000
+-------------- END OF FILE NUMBER     7-------------
+----------------- FILE NUMBER     8-----------------
+ 0.840000E 02 0.121600E 01 0.123800E 01
+ 0.100000E 01 0.140000E-01 0.320000E-01
+     0     0     0
+   120   266   116
+   240   415   215
+   361   565   447
+   481   815   464
+   602   915   729
+   722   865   878
+   843  1098  1061
+   963  1297  1144
+  1084  1397  1210
+  1325  1730  1542
+  1566  1963  1824
+  1807  2196  2056
+  2048  2479  2288
+  2289  2595  2537
+  2530  2945  2570
+  2771  3211  2852
+  3012  3444  3233
+  3253  3510  3482
+  3493  3860  3615
+  3734  4109  3980
+  4216  4276  4245
+  4698  4941  4859
+  5180  5091  5091
+  5662  5806  5638
+  6144  6272  6102
+  6626  6755  6500
+  7108  7304  7014
+  7590  7670  7263
+  8072  8252  7893
+  8554  8668  8291
+  9036  9184  8706
+  9518  9567  9237
+ 10000 10000 10000
+-------------- END OF FILE NUMBER     8-------------
+----------------- FILE NUMBER     9-----------------
+ 0.840000E 02 0.793000E 00 0.918000E 00 0.999000E 00 0.101700E 01
+ 0.103700E 01 0.111000E 01 0.116900E 01 0.123500E 01
+ 0.100000E 01 0.683000E 00 0.754000E 00 0.801000E 00 0.860000E 00
+ 0.948000E 00 0.101200E 01 0.101200E 01 0.101100E 01
+     0 10000 10000 10000  9745  7303     0     0     0
+   120  8818  7012  6868 10000  8202   918   573   446
+   360  2454  2073  2575  5859 10000  2550  1592  1160
+   843  1272   731   909  2484  9662  6530  4076  2901
+  1324     0     0     0   573  4943  8877  5668  4017
+  1806   545   304    50    63  2696 10000  7324  5178
+  2289   272   304     0    63  1348  8775  8917  6294
+  2770   545   426   101     0   561  7551  9745  7366
+  3253  1090   548   353   191   674  6224 10000  8482
+  3733  1545  1036   606   573     0  5714  9299  9375
+  4216  2272  1280   909   764   224  5102  8980  9910
+  4697  2181  1280   959   764     0  4285  8662 10000
+  5180  2181  1341   909   891   224  3673  7898  9464
+  5662  2181   853  1010   891   561  3979  7452  8794
+  7107  2454  1097  1060  1082   674  3061  6496  7232
+  8553  1909  1219   959  1082   898  3265  6624  7053
+ 10000  2272  1280  1161  1210   898  3877  6751  7142
+-------------- END OF FILE NUMBER     9-------------
+----------------- FILE NUMBER    10-----------------
+ 0.840000E 02 0.592000E 00 0.707000E 00 0.785000E 00 0.954000E 00
+ 0.103600E 01 0.109800E 01 0.115800E 01 0.123500E 01
+ 0.100000E 01 0.560000E 00 0.660000E 00 0.736000E 00 0.826000E 00
+ 0.934000E 00 0.101300E 01 0.101300E 01 0.101100E 01
+     0     0     0  1020 10000  7745     0     0     0
+   120  2812  3404  5306  6796  8529   941   551   446
+   361  8437  5744  7551  5546 10000  2823  1655  1160
+   843 10000 10000 10000  3671  6176  7411  4344  2901
+  1325  4374  4255  3061  1484  1764 10000  6068  4017
+  1807  4999  4255  2040   546   784  9529  7862  5178
+  2289  3437  1914     0     0     0  7058  9448  6294
+  2771  3437  1914     0     0   686  6117 10000  7366
+  3253  3437  2127   408   156  1568  5411  9793  8482
+  3734  2812  1914  1020   468  1960  4941  9172  9375
+  4216  5312  3404  1632   625  2058  4823  8344  9910
+  4698  6875  4680  3061  1250  2450  5411  8137 10000
+  5180  8125  5531  3061  1484  3235  5529  7724  9464
+  5662  8437  5531  3673  1640  3725  6000  7517  8794
+  7108  6875  5531  4285  1796  3627  6235  6689  7232
+  8554  6249  6170  5306  2343  4117  6823  6896  7053
+ 10000  6875  6170  4285  2031  3725  6588  6896  7142
+-------------- END OF FILE NUMBER    10-------------
+----------------- FILE NUMBER    11-----------------
+ 0.100000E 01 0.790000E-02 0.870000E-02 0.808000E-02 0.807000E-02
+ 0.100000E 00-0.410000E-03-0.210000E-03-0.640000E-03 0.210000E-03
+     0  6089  4781  5034  6030
+   555  7737 20000  6731  6781
+  1111  9663  8316  9759 20000
+  1666 10000 20000 10000 20000
+  2222 20000 10000  9724  9033
+  2777  9290 20000  9942 20000
+  3333  7761 20000  9346  9987
+  3888 20000  9259  8027  9503
+  4444  4632  7216  7511 20000
+  5000 20000  7025 20000 10000
+  5555  2478  5813  5286 20000
+  6111 20000  4320  3532  4363
+  6666 20000  2772   963  2862
+  7222 20000  2547 20000  1055
+  7777     0   707   206   254
+  8333 20000 20000 20000 20000
+  8888   240     0     0     0
+ 10000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER    11-------------
+----------------- FILE NUMBER    12-----------------
+ 0.100000E 01 0.173000E-02 0.480000E-03
+ 0.200000E-01-0.101900E-01-0.994000E-02
+     0 10000 20000
+   204 20000 10000
+   306  5696 20000
+   408 20000  6785
+   510  4354 20000
+   612 20000  4568
+   816  2944  3714
+  1326  2818  2984
+  1836  1912  2610
+  2346   394   681
+  2857     0     0
+  3367   906    57
+  3877  1191   623
+  4897  1828  2619
+  5918  4379  4222
+  6938  6392  7341
+  7959  8305  9261
+  8979  8305  8963
+ 10000 20000 20000
+-------------- END OF FILE NUMBER    12-------------
+----------------- FILE NUMBER    13-----------------
+ 0.100000E 01 0.886000E-02 0.902000E-02 0.100000E 01-0.280000E-03-0.281000E-02
+ 0.400000E-01-0.181000E-02-0.316000E-02 0.400000E-01-0.156200E-01-0.151800E-01
+     0     0     0     0   567  2312
+   312  1958 20000   312   625 20000
+   625  4489  5402   625    58     0
+  1145  3223 20000  1145  1199 20000
+  1666  8931  8793  1666  1121   687
+  2187  9447 20000  2187   430 20000
+  2708 10000  9293  2708   358  1301
+  3229  9615 20000  3229     0 20000
+  3749  9493 10000  3749   977   412
+  4791  7488 20000  4791  1479 20000
+  5833  5838  6855  5833  4348  4607
+  6874  4657 20000  6874  7040 20000
+  7916  3186  3916  7916  8898 10000
+  8958  1508 20000  8958 10000 20000
+ 10000 20000 20000 10000 20000 20000
+-------------- END OF FILE NUMBER    13-------------
+----------------- FILE NUMBER    14-----------------
+ 0.100000E 01 0.104930E 01
+ 0.300000E-02 0.181200E 00
+     0     0
+    10   784
+    20  1518
+    30  2253
+    50  3756
+    70  4356
+   120  4991
+   170  5258
+   270  5726
+   371  5993
+   471  6526
+   571  6883
+   672  7195
+   772  7390
+   872  7629
+   972  7784
+  1073  7946
+  1173  8063
+  1574  8530
+  1975  8865
+  2978  9432
+  3981  9766
+  5987 10000
+  7993  9532
+ 10000  9266
+-------------- END OF FILE NUMBER    14-------------
+----------------- FILE NUMBER    15-----------------
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.240000E-01 0.210000E-01 0.530000E-01 0.510000E-01 0.790000E-01
+ 0.750000E-01 0.104000E 00 0.101000E 00 0.134000E 00 0.132000E 00
+ 10000    40 10000    21 10000    54 10000    22 10000    11
+  8975    20  8944     0  8914     0  8883     0  8845     0
+  7950    10  7888     0  7828    32  7767     0  7690    11
+  6926     0  6832    52  6742    43  6651    44  6535    57
+  5901    10  5776    31  5656    54  5535    88  5381    69
+  4877    51  4720    94  4571   129  4419   200  4226   207
+  3852    71  3664   179  3485   194  3303   233  3071   334
+  3340    91  3136   189  2942   259  2745   333  1916   460
+  2827   122  2608   305  2399   313  2187   433  1339   541
+  2315   163  2080   326  1856   378  1629   456   565   783
+  1803   112  1552   284  1313   313  1071   444   554  1359
+  1290    81  1024   210   770   270   513   489   473  1935
+   778    91   496   189   456   302   401   656   334  3087
+   471   132   263   516   325   399   412  1101   207  4239
+   266   286   274  1043   271   810   401  1657   127  5391
+   153   806   285  1570   314  1351   390  2213    46  6543
+   122  1317   285  2096   325  1891   379  2769     0  7695
+   133  1828   285  2623   325  2432   267  3325    23  8847
+   153  2339   242  3150   249  2972   178  4438    34 10000
+   153  2849   190  3677   217  3513   156  5550 20000 20000
+   133  3360   105  4731   119  4594    66  6662 20000 20000
+    71  3871    73  5785    76  5675     0  7775 20000 20000
+    51  4892    42  6838     0  6756    55  8887 20000 20000
+    40  5914     0  7892     0  7837     0 10000 20000 20000
+     0  6935    42  8946    10  8918 20000 20000 20000 20000
+     0  7957    31 10000    10 10000 20000 20000 20000 20000
+     0  8978 20000 20000 20000 20000 20000 20000 20000 20000
+     0 10000 20000 20000 20000 20000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER    15-------------
+----------------- FILE NUMBER    16-----------------
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.480000E-01 0.480000E-01 0.120000E 00 0.118000E 00 0.168000E 00
+ 0.164000E 00 0.226000E 00 0.220000E 00 0.291000E 00 0.288000E 00
+ 10000     0 10000     0 10000    47 10000    25 10000    28
+  8949     0  8863    11  8798     0  8708     0  8589     0
+  7899     0  7727    45  7596    23  7416    12  7179    28
+  6848    21  6590    56  6394    83  6124   141  5768    56
+  5798    31  5454   170  5192   191  4832   282  4358   238
+  5273    84  4886   215  4591   275  4186   448  3653   337
+  4747   126  4318   272  3990   311  3540   551  2947   435
+  4222   220  3749   340  3389   430  2894   512  2242   365
+  3697   252  3181   430  2788   442  2248   512  1537   617
+  3172   262  2613   442  2187   478  1602   564   832  1025
+  2647   252  2045   442  1586   466   956   641   550  1573
+  2121   168  1477   340   985   442   478  1025   521  2275
+  1596   136   909   249   420   909   439  1666   535  2977
+  1071    84   340   374   384  1626   439  2307   550  3679
+   546   157   136   929   408  2224   452  2948   465  4382
+   357   315   170  1496   396  2822   465  3589   310  5786
+   252   546   250  2063   396  3421   452  4230   126  7191
+   178  1071   352  2630   384  4019   335  4871     0  8595
+   105  1596   409  3197   372  4617   206  6153    14 10000
+    42  2121   386  3764   276  5215    38  7435 20000 20000
+   136  2647   386  4331   144  6411     0  8717 20000 20000
+   231  3172   329  4897    60  7607    38 10000 20000 20000
+   283  3697   227  5464     0  8803 20000 20000 20000 20000
+   262  4222    45  6598     0 10000 20000 20000 20000 20000
+   231  4747     0  7732 20000 20000 20000 20000 20000 20000
+   147  5273     0  8866 20000 20000 20000 20000 20000 20000
+   126  5798     0 10000 20000 20000 20000 20000 20000 20000
+    42  6848 20000 20000 20000 20000 20000 20000 20000 20000
+     0  7899 20000 20000 20000 20000 20000 20000 20000 20000
+     0  8949 20000 20000 20000 20000 20000 20000 20000 20000
+    10 10000 20000 20000 20000 20000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER    16-------------
+----------------- FILE NUMBER    17-----------------
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.660000E-01 0.610000E-01 0.164000E 00 0.162000E 00 0.250000E 00
+ 0.241000E 00 0.330000E 00 0.320000E 00 0.433000E 00 0.417000E 00
+ 10000    10 10000    95 10000    92 10000    44 10000    68
+  8929    10  8803    71  8666    79  8507    14  8236    68
+  7858     0  7607    59  7333    26  7014     0  6472    68
+  6788     0  6411    71  5999    13  5522     0  4708     0
+  5717    85  5215   119  4666     0  4029     0  2945    17
+  4646   106  4019   214  3333    79  2537    73  1181   377
+  3576    85  2822   190  1999    65  1791   147   352  1423
+  2505    21  2224    83  1333   105  1044   338   123  3138
+  1970     0  1626    95   666   144   462  1176   123  4854
+  1434     0  1028     0    40   777   298  1911   105  6569
+   899   106   430   178    26  1436   298  2647    52  8284
+   396   415   179   453   120  2094   179  4117     0 10000
+   139   947     0  1050   266  3412   104  5588 20000 20000
+    53  1480    47  1646   253  4729     0  7058 20000 20000
+    10  2012    95  2243   120  6047     0  8529 20000 20000
+    21  2545   287  2840    13  7364     0 10000 20000 20000
+   149  3610   418  4033     0  8682 20000 20000 20000 20000
+   256  4675   358  5226     0 10000 20000 20000 20000 20000
+   160  5740   215  6420 20000 20000 20000 20000 20000 20000
+    53  6805    83  7613 20000 20000 20000 20000 20000 20000
+    10  7870    59  8806 20000 20000 20000 20000 20000 20000
+     0  8935   167 10000 20000 20000 20000 20000 20000 20000
+    21 10000 20000 20000 20000 20000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER    17-------------
+----------------- FILE NUMBER    18-----------------
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.770000E-01 0.800000E-01 0.208000E 00 0.210000E 00 0.343000E 00
+ 0.339000E 00 0.499000E 00 0.488000E 00 0.678000E 00 0.651000E 00
+ 10000   260 10000   518 10000   363 10000   351 10000     0
+  8916   195  8737   493  8477   332  8003   234  6894     0
+  7833   141  7474   506  6955   302  6007    58  3788   286
+  6749   130  6212   493  5433   287  4011    19  2236   601
+  5666   108  4949   316  3911     0  2015     0   590  1404
+  4582     0  3686   139  2389    15  1017   312   124  2836
+  3499    10  2424     0   867   181    59  1445    62  4269
+  2416     0  1161    12    76   922     0  2187     0  7134
+  1332    97   568   278     0  2435   219  4140    31 10000
+   790   206   126  1139   289  3948   399  6093 20000 20000
+   281   760     0  2405   624  5461   578  8046 20000 20000
+   151  1304    50  3670   882  6974   558 10000 20000 20000
+     0  2391   189  4936   974  8487 20000 20000 20000 20000
+    10  3478   542  6202   974 10000 20000 20000 20000 20000
+    10  4565   770  7468 20000 20000 20000 20000 20000 20000
+    75  5652   921  8734 20000 20000 20000 20000 20000 20000
+   227  6739   972 10000 20000 20000 20000 20000 20000 20000
+   325  7826 20000 20000 20000 20000 20000 20000 20000 20000
+   390  8913 20000 20000 20000 20000 20000 20000 20000 20000
+   390 10000 20000 20000 20000 20000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER    18-------------
+----------------- FILE NUMBER    19-----------------
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.480000E-01 0.390000E-01 0.127000E 00 0.111000E 00 0.200000E 00
+ 0.189000E 00 0.300000E 00 0.299000E 00 0.540000E 00 0.534000E 00
+ 10000   114 10000   551 10000  1011 10000  1312 10000   515
+  8949   114  8854   438  8749   813  8571  1298  7826   407
+  7899    41  7709   303  7500   554  7142  1027  5652   257
+  6848    10  6563   123  6249   258  5714   727  3478     0
+  5798     0  5418    11  5000   135  4285   413  1304   128
+  4747    31  4272     0  3750    24  2857    14   891   343
+  3697    20  3127    33  2499     0  1428     0    43  1416
+  2647    72  1981   123  1250   123   714   171     0  3562
+  1596   135   836   314   625   406   285   727   217  5708
+   546   395   252  1001   337   752    14  1440   326  7854
+   357   634    45  2125   124  1368     0  2867   434 10000
+   220  1675     0  3250     0  2601   357  4293 20000 20000
+    42  2715     0  4375   100  3834   757  5720 20000 20000
+    21  3756    34  5500   187  5067  1028  7146 20000 20000
+    10  4797   137  6625   437  6300  1314  8573 20000 20000
+     0  5837   274  7750   637  7533  1342 10000 20000 20000
+    21  6878   469  8875   887  8766 20000 20000 20000 20000
+    10  7918   481 10000   887 10000 20000 20000 20000 20000
+    10  8959 20000 20000 20000 20000 20000 20000 20000 20000
+    73 10000 20000 20000 20000 20000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER    19-------------
+----------------- FILE NUMBER    20-----------------
+ 0.527000E 00 0.100000E 01 0.470000E 00 0.100000E 01 0.999000E 00 0.100000E 01
+ 0.370000E 00 0.100000E 01 0.270000E 00 0.100000E 01 0.999000E 00 0.100000E 01
+ 0.111000E 00 0.500000E-01 0.100000E 00 0.750000E-01 0.100000E 00 0.900000E-01
+ 0.890000E-01 0.100000E 00 0.640000E-01 0.100000E 00 0.590000E-01 0.150000E 00
+     0     0     0     0     0     0     0     0     0     0     0     0
+  1298   526   675   270  1112  1175   747   555   776   555    31   588
+  3870  1578  2702  1135  2002  2307  1992  1111  1747  1111   340  1764
+  6370  2631  5405  2270  2892  3406  5373  2222  5291  2222   617  2941
+  8076  3684  7999  3513  3337  4505  8149  3333  8058  3333   702  4117
+  9350  4736  9270  4594  3503  5604  9644  4444  9514  4444   648  5294
+  9975  5789  9729  5675  3559  6703 10000  5555 10000  5555   436  6470
+  9879  6842  9918  6756  3448  7802 10000  6666  9902  6666   329  7647
+  9831  7894  9918  7837  3470  8901  9857  7777  9514  7777   287  8823
+  9879  8947  9972  8918  3537 10000  9644  8888  9126  8888   276 10000
+ 10000 10000 10000 10000 10000  9989  9644 10000  9029 10000 10000  9988
+-------------- END OF FILE NUMBER    20-------------
+----------------- FILE NUMBER    21-----------------
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.505000E 00 0.505000E 00 0.423000E 00 0.423000E 00 0.350000E 00 0.350000E 00
+ 0.105000E 00 0.105000E 00 0.700000E-01 0.700000E-01 0.400000E-01 0.400000E-01
+ 10000    60 10000   103 10000   123 10000  1731 10000  1172 10000   604
+  7979    40  8266    34  8461    15  8882  1754  8924  1193  8958   625
+  5959     0  6533     0  6923     0  7765  1877  7849  1279  7916   625
+  3939   242  4800   103  5384    76  6648  1955  6774  1290  6874   625
+  1919   565  3067   225  3846   138  5530  1944  5698  1279  5833   614
+  1050  1050  1334   502  2307    61  4413  1832  4623  1193  4791   552
+   565  1919   831   831   769    15  3296  1519  3548   978  3749   520
+   242  3939   502  1334   292   292  2178  1061  2473   731  2708   406
+     0  5959   225  3067    15   769  1061   458  1397   268  1666   187
+    40  7979   103  4800    61  2307   502   134   322    96  1145    52
+    60 10000     0  6533   138  3846     0     0   322     0   625     0
+ 20000 20000    34  8266    76  5384   134   502     0   322     0   625
+ 20000 20000   103 10000     0  6923   458  1061    96   860    52  1145
+ 20000 20000 20000 20000    15  8461  1061  2178   268  1397   187  1666
+ 20000 20000 20000 20000    76 10000  1519  3296   731  2473   406  2708
+ 20000 20000 20000 20000 20000 20000  1832  4413   978  3548   520  3749
+ 20000 20000 20000 20000 20000 20000  1944  5530  1193  4623   552  4791
+ 20000 20000 20000 20000 20000 20000  1955  6648  1279  5698   614  5833
+ 20000 20000 20000 20000 20000 20000  1877  7765  1290  6774   625  6874
+ 20000 20000 20000 20000 20000 20000  1754  8882  1279  7849   625  7916
+ 20000 20000 20000 20000 20000 20000  1731 10000  1193  8924   625  8958
+ 20000 20000 20000 20000 20000 20000 20000 20000  1172 10000   604 10000
+-------------- END OF FILE NUMBER    21-------------
+----------------- FILE NUMBER    22-----------------
+ 0.600000E 00 0.600000E 00
+ 0.500000E-01 0.500000E-01
+ 10000     0
+  8181    18
+  6363     0
+     0  6363
+    18  8181
+     0 10000
+-------------- END OF FILE NUMBER    22-------------
+----------------- FILE NUMBER    23-----------------
+ 0.853000E 00 0.100000E 01 0.760000E 00 0.100000E 01 0.691000E 00
+ 0.100000E 01 0.622000E 00 0.100000E 01 0.510000E 00 0.100000E 01
+ 0.300000E 00 0.690000E-01 0.150000E 00 0.420000E-01 0.100000E 00
+ 0.730000E-01 0.980000E-01 0.100000E 00 0.720000E-01 0.100000E 00
+  5424     0  4098     0     0     0     0     0     0     0
+  3616    21  2459   135  1692  1370  1354  1111  1255  1111
+  1808   107   819   156  2910  2448  2709  2222  2283  2222
+     0   558     0   396  4297  3527  4064  3333  3607  3333
+     0  1342   819  1022  5939  4606  5572  4444  5296  4444
+  1808  2040  1688  1649  7563  5685  7328  5555  7260  5555
+  3616  2696  3393  2693  8646  6763  8511  6666  8561  6666
+  5063  3555  5360  3736  9306  7842  9255  7777  9315  7777
+  6509  4629  6901  4780  9746  8921  9770  8888  9771  8888
+  7721  5703  8032  5824 10000 10000 10000 10000 10000 10000
+  8679  6777  9016  6868 20000 20000 20000 20000 20000 20000
+  9439  7851  9672  7912 20000 20000 20000 20000 20000 20000
+  9891  8925 10000  8956 20000 20000 20000 20000 20000 20000
+ 10000 10000 10000 10000 20000 20000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER    23-------------
+----------------- FILE NUMBER    24-----------------
+ 0.300000E 00 0.100000E 01 0.610000E-01 0.800000E 00
+ 0.700000E-01 0.150000E 00 0.500000E-01 0.300000E 00
+     0     0  4545     0
+   434   588  9090  1999
+  1739  1764 10000  3999
+  3652  2941  9090  6000
+  5739  4117  4545  7999
+  7826  5294     0 10000
+  9130  6470 20000 20000
+  9608  7647 20000 20000
+  9826  8823 20000 20000
+ 10000 10000 20000 20000
+-------------- END OF FILE NUMBER    24-------------
+----------------- FILE NUMBER    25-----------------
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.764000E 00 0.764000E 00 0.622000E 00 0.622000E 00 0.421000E 00 0.421000E 00
+ 0.108000E 00 0.108000E 00 0.610000E-01 0.610000E-01 0.500000E-01 0.500000E-01
+ 10000     0 10000     0 10000  1537 10000  2735 10000  1671 10000   452
+  6906  1525  7354   185  8272  1519  8878  2813  8935  1757  8947   631
+  4152  4152  4708   608  6545  1502  7757  2881  7870  1927  7894   947
+  1525  6906  1693  1693  4818  1226  6636  2847  6805  2012  6842  1136
+     0 10000   608  4708  3091   829  5515  2713  5740  1916  5789  1063
+ 20000 20000   185  7354  1364   172  4394  2320  4675  1586  4736   821
+ 20000 20000     0 10000     0     0  3273  1726  3610  1182  3684   494
+ 20000 20000 20000 20000   172  1364  2152   930  2545   713  2631   252
+ 20000 20000 20000 20000   829  3091  1031   269  1480   298  1578    84
+ 20000 20000 20000 20000  1226  4818     0     0   415     0  1052     0
+ 20000 20000 20000 20000  1502  6545   269  1031     0   415     0  1052
+ 20000 20000 20000 20000  1519  8272   930  2152   298  1480    84  1578
+ 20000 20000 20000 20000  1537 10000  1726  3273   713  2545   252  2631
+ 20000 20000 20000 20000 20000 20000  2320  4394  1182  3610   515  3684
+ 20000 20000 20000 20000 20000 20000  2713  5515  1586  4675   821  4736
+ 20000 20000 20000 20000 20000 20000  2847  6636  1916  5740  1063  5789
+ 20000 20000 20000 20000 20000 20000  2881  7757  2012  6805  1136  6842
+ 20000 20000 20000 20000 20000 20000  2813  8878  1927  7870   947  7894
+ 20000 20000 20000 20000 20000 20000  2735 10000  1757  8935   631  8947
+ 20000 20000 20000 20000 20000 20000 20000 20000  1671 10000   452 10000
+-------------- END OF FILE NUMBER    25-------------
+----------------- FILE NUMBER    26-----------------
+ 0.800000E 00 0.800000E 00
+ 0.510000E-01 0.510000E-01
+ 10000     0
+  8664   373
+  7329   507
+  5994   253
+  4659    53
+    53  4659
+   253  5994
+   507  7329
+   373  8664
+     0 10000
+-------------- END OF FILE NUMBER    26-------------
+----------------- FILE NUMBER    27-----------------
+ 0.800000E 00 0.282000E 00 0.800000E 00 0.434000E 00 0.800000E 00 0.525000E 00
+ 0.100000E 01 0.100000E 01 0.858000E 00 0.100000E 01 0.770000E 00 0.100000E 01
+ 0.730000E 00 0.188000E 00 0.590000E 00 0.800000E-01 0.550000E 00 0.800000E-01
+ 0.500000E 00 0.870000E-01 0.300000E 00 0.780000E-01 0.116000E 00 0.750000E-01
+ 10000     0 10000     0  5999     0  2000     0  3584     0     0     0
+  2857  2446  5238  1186  2000  1123     0  1237  1792   140   366   270
+     0  5531   476  2994     0  2696   360  2332     0   780  1773  1351
+  2857  8404     0  4802   399  4943  1260  3428   179  1323  2813  2291
+ 10000 10000   476  6214  2839  7191  2799  4523  1433  2407  3990  3513
+ 20000 20000  5238  9039  5999  8584  4520  5618  3082  3492  4954  4594
+ 20000 20000 10000 10000 10000 10000  6380  6714  4713  4577  6513  5675
+ 20000 20000 20000 20000 20000 20000  7999  7809  6308  5661  7996  6756
+ 20000 20000 20000 20000 20000 20000  9199  8904  7956  6746  9220  7837
+ 20000 20000 20000 20000 20000 20000 10000 10000  9283  7830  9724  8918
+ 20000 20000 20000 20000 20000 20000 20000 20000  9838  8915 10000 10000
+ 20000 20000 20000 20000 20000 20000 20000 20000 10000 10000 20000 20000
+-------------- END OF FILE NUMBER    27-------------
+----------------- FILE NUMBER    28-----------------
+ 0.684000E 00 0.100000E 01 0.599000E 00 0.100000E 01
+ 0.433000E 00 0.100000E 01 0.138000E 00 0.600000E 00
+ 0.101000E 00 0.900000E-01 0.880000E-01 0.100000E 00
+ 0.610000E-01 0.100000E 00 0.500000E-01 0.152000E 00
+     0     0     0     0     0     0     0     0
+   840   549  1448  1111  1559  1111  1704  1071
+  1852  1208  2602  2222  2634  2222  4090  3303
+  2761  2307  3561  3333  3494  3333  7727  5535
+  3704  3406  4344  4444  4220  4444  9204  7767
+  4734  4505  5870  5555  5403  5555 10000 10000
+  6260  5604  7671  6666  7419  6666 20000 20000
+  7735  6703  8943  7777  8548  7777 20000 20000
+  9090  7802  9608  8888  9758  8888 20000 20000
+  9742  8901 10000 10000 10000 10000 20000 20000
+ 10000 10000 20000 20000 20000 20000 20000 20000
+-------------- END OF FILE NUMBER    28-------------
+----------------- FILE NUMBER    29-----------------
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01 0.100000E 01
+ 0.850000E 00 0.850000E 00 0.462000E 00 0.462000E 00 0.233000E 00 0.233000E 00
+ 0.800000E-01 0.800000E-01 0.580000E-01 0.580000E-01 0.670000E-01 0.670000E-01
+ 10000     0 10000  3308 10000  3481 10000  3152 10000  1836 10000   589
+  3333  3333  8141  3122  8696  3311  8913  3043  8938  1804  8928   578
+     0 10000  6282  2713  7392  3024  7826  2826  7876  1709  7856   568
+ 20000 20000  4423  1821  6088  2307  6739  2391  6815  1380  6784   353
+ 20000 20000  2565   743  4784  1525  5652  1847  5753  1019  5712   192
+ 20000 20000   706     0  3481  1003  4565  1423  4692   859  4640    85
+ 20000 20000   111   111  2177   378  3478  1108  3630   668  3569     0
+ 20000 20000     0   706   873     0  2391   836  2569   477     0  3569
+ 20000 20000   743  2565   195   195  1304   434  1507   159    85  4640
+ 20000 20000  1821  4423     0   873   217     0   976     0   192  5712
+ 20000 20000  2713  6282   378  2177     0   217     0   976   353  6784
+ 20000 20000  3122  8141  1003  3481   434  1304   159  1507   568  7856
+ 20000 20000  3308 10000  1525  4784   836  2391   477  2569   578  8928
+ 20000 20000 20000 20000  2307  6088  1108  3478   668  3630   589 10000
+ 20000 20000 20000 20000  3024  7392  1423  4565   859  4692 20000 20000
+ 20000 20000 20000 20000  3311  8696  1847  5652  1019  5753 20000 20000
+ 20000 20000 20000 20000  3481 10000  2391  6739  1380  6815 20000 20000
+ 20000 20000 20000 20000 20000 20000  2826  7826  1709  7876 20000 20000
+ 20000 20000 20000 20000 20000 20000  3043  8913  1804  8938 20000 20000
+ 20000 20000 20000 20000 20000 20000  3152 10000  1836 10000 20000 20000
+-------------- END OF FILE NUMBER    29-------------
+20000 20000 20000 20

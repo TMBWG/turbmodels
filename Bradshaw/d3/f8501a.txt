@@ -1,0 +1,36 @@
+       Compressible mixing layer, case 8500 (revised)
+
+Papamoschou & Roshko (J. Fluid Mech. 197, 453, 1989) summarize old data - notably the compilation by Bogdanoff, AIAA J. 21, 926, 1983)  - and give new results. Their definition of thickness is the width of the Pitot-pressure (not total-pressure!) profile from 5% to 95% of the difference of the free-stream values, and it seems best to adopt this for the comparisons. Papamoschou and Roshko state that at low speeds, the Pitot thickness is typically 1.44 times the vorticity thickness used by Bogdanoff.
+
+Assume air flow with a stagnation temperature of 800K and a static pressure of 1 atm. (to avoid excessively low static temperatures at M1=5), and report the ratio of asymptotic growth rate to the value at zero Mach number. To avoid extensive calculations at low M, assume that, at low M, the growth rate is proportional to (U2-U1)/(U2+U1). Note that, as at low speeds, the real flow takes a long time to reach asymptotic conditions, though there are no definitive data for this: start, as in case 0310, with a turbulent boundary layer at low Reynolds number.
+
+COMPRESSIBLE MIXING LAYER:
+DATA DIGITIZED FROM JFM 197, 453
+
+DATA FROM PAPAMOSCHOU AND ROSHKO: delt,p is pitot-pressure
+thickness from 5% to 95% of difference in free-stream values
+
+       MC       DELT,P
+     0.269      1.00
+     0.326      0.70
+     0.384      0.72
+     0.538      0.50
+     0.634      0.21
+     0.884      0.22
+     1.038      0.30
+     1.442      0.18
+     1.807      0.22
+
+DATA FROM BOGDANOFF: delt,v is vorticity thickness,
+(U1-U2)/(dU/dy)max
+
+       MC       DELT,V
+     0.059      1.00
+     0.428      1.00
+     0.476      0.98
+     0.636      0.75
+     0.821      0.60
+     0.928      0.46
+     1.119      0.45
+     1.309      0.42
+     1.440      0.44

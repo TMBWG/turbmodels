@@ -1,0 +1,343 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.28)  25 OCT 2018 09:12
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**uncertainty_summary.tex
+(./uncertainty_summary.tex
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(./aiaa-tc-mod.cls
+
+LaTeX Warning: You have requested document class `aiaa-tc-mod',
+               but the document class provides `aiaa-tc'.
+
+Document Class: aiaa-tc 2004/04/03 v3.5 AIAA technical conference paper
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/geometry/geometry.s
+ty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/oberdiek/ifpdf.st
+y
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/oberdiek/ifvtex.s
+ty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/ifxetex/ifxetex.s
+ty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/graphics/graphicx.s
+ty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/graphics/graphics.s
+ty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/latexconfig/graphic
+s.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/pdftex-def/pdftex.d
+ef
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/oberdiek/infwarer
+r.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/oberdiek/ltxcmds.
+sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count90
+))
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen113
+\extrarowheight=\dimen114
+\NC@list=\toks16
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/cite/overcite.sty
+Package: overcite 2003/05/27  v 4.0
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+LaTeX Info: Redefining \cite on input line 441.
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/lastpage/lastpage.s
+ty
+Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.s
+ty
+\fancy@headwidth=\skip45
+\f@ncyO@elh=\skip46
+\f@ncyO@erh=\skip47
+\f@ncyO@olh=\skip48
+\f@ncyO@orh=\skip49
+\f@ncyO@elf=\skip50
+\f@ncyO@erf=\skip51
+\f@ncyO@olf=\skip52
+\f@ncyO@orf=\skip53
+)
+\c@aiaa@cthanks=\count91
+\c@aiaa@cfootnote=\count92
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/subfigure/subfigure
+.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip54
+\subfigcapskip=\skip55
+\subfigcaptopadj=\dimen115
+\subfigbottomskip=\skip56
+\subfigcapmargin=\dimen116
+\subfiglabelskip=\skip57
+\c@subfigure=\count93
+\c@lofdepth=\count94
+\c@subtable=\count95
+\c@lotdepth=\count96
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/subfigure/subfigure
+.cfg)
+\subfig@top=\skip58
+\subfig@bottom=\skip59
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/subfigmat/subfigmat
+.sty
+Package: subfigmat 1999/02/27 v1.0 Subfigure Matrix Package
+\sfm@width=\skip60
+\sfmcolsep=\skip61
+\c@sfm@count=\count97
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(./uncertainty_summary.aux)
+\openout1 = `uncertainty_summary.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 92.
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(54.2025pt, 668.4975pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=668.4975pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-55.06749pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/context/base/supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count98
+\scratchdimen=\dimen117
+\scratchbox=\box26
+\nofMPsegments=\count99
+\nofMParguments=\count100
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count101
+\MPscratchDim=\dimen118
+\MPnumerator=\count102
+\makeMPintoPDFobject=\count103
+\everyMPtoPDFconversion=\toks18
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/oberdiek/pdftexcm
+ds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/oberdiek/ifluatex
+.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/oberdiek/epstopdf-b
+ase.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/oberdiek/kvdefine
+keys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/oberdiek/kvoptions.
+sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/oberdiek/kvsetkey
+s.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/generic/oberdiek/etexcmds
+.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/misc/local/pkgs-modules/texlive_2015/texmf-dist/tex/latex/latexconfig/epstopd
+f-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package lastpage Info: Please have a look at the pageslts package at
+(lastpage)             https://www.ctan.org/pkg/pageslts
+(lastpage)             ! on input line 92.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 94.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 94.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 94.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 94.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 100.
+ [1
+
+{/misc/local/pkgs-modules/texlive_2015/texmf-var/fonts/map/pdftex/updmap/pdftex
+.map}]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 206.
+ 
+AED: lastpage setting LastPage
+[2] (./uncertainty_summary.aux) ) 
+Here is how much of TeX's memory you used:
+ 2565 strings out of 493109
+ 37894 string characters out of 6128732
+ 107435 words of memory out of 5000000
+ 5988 multiletter control sequences out of 15000+600000
+ 18765 words of font info for 39 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,11n,45p,348b,239s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/misc/local/pkgs-modules/texlive_2015/texmf-d
+ist/fonts/enc/dvips/base/8r.enc}</misc/local/pkgs-modules/texlive_2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmex10.pfb></misc/local/pkgs-modules/texlive_
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></misc/local/pkgs-mod
+ules/texlive_2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></misc/lo
+cal/pkgs-modules/texlive_2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
+fb></misc/local/pkgs-modules/texlive_2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr6.pfb></misc/local/pkgs-modules/texlive_2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb></misc/local/pkgs-modules/texlive_2015/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></misc/local/pkgs-modules/texlive_2015/te
+xmf-dist/fonts/type1/urw/times/utmb8a.pfb></misc/local/pkgs-modules/texlive_201
+5/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></misc/local/pkgs-modules/texlive
+_2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on uncertainty_summary.pdf (2 pages, 106246 bytes).
+PDF statistics:
+ 52 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

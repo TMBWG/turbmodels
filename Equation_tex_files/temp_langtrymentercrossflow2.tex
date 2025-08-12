@@ -1,0 +1,78 @@
+\begin{document}
+
+\begin{equation}
+F_{onset,CF} = \max\left(F_{onset2,CF} - F_{onset3,CF}, 0.0\right)
+\end{equation}
+
+\begin{equation}
+F_{onset1,CF} = \frac{Re_{He}}{C\ Re_{He,t}^{+}}
+\end{equation}
+
+\begin{equation}
+F_{onset2,CF} = \min\left(\max\left(F_{onset1,CF}, F_{onset1,CF}^4\right), 2.0\right)
+\end{equation}
+
+\begin{equation}
+F_{onset3,CF} = \max\left(1 - \left(\frac{R_T}{2}\right)^3, 0.0\right)
+\end{equation}
+
+\begin{equation}
+C = 0.7
+\end{equation}
+
+\begin{equation}
+Re_{He}
+\end{equation}
+
+\begin{equation}
+Re_{He} = \frac{\rho d^2}{\mu}
+\frac{He}{\left|\vec{u}\right|}
+\end{equation}
+
+\begin{equation}
+He = \vec{u} \cdot \left( \nabla \times \vec{u}\right)
+\end{equation}
+
+\begin{equation}
+Re_{He,t}^{+}
+\end{equation}
+
+\begin{equation}
+Re_{He,t}^{+} = \max\left(-456.83\, H_{12}^{+} + 1332.7, 150.0\right)
+\end{equation}
+
+\begin{equation}
+{H}_{12}^{+} = 4.02923 - \sqrt{-8838.4 \lambda^{+4} + 1105.1 \lambda^{+3} - 67.962
+\lambda^{+2} + 17.574 \lambda^{+} + 2.0593}
+\end{equation}
+
+\begin{equation}
+\lambda^{+} = \frac{\rho l^{2}}{\mu} \frac{d\left|\vec{u}_{e}\right|}{d\vec{s}}
+\end{equation}
+
+\begin{equation}
+l = \frac{1}{C_{He,max}} \frac{2}{15} d
+\end{equation}
+
+\begin{equation}
+C_{He,max} = 0.6944
+\end{equation}
+
+\begin{equation}
+\tilde \gamma
+\end{equation}
+
+\begin{equation}
+\frac{d \left| \vec{u}_e \right|}{d x_i} = -\frac{1}{\left| \vec{u}_e \right| \rho_{\infty}}
+\left( \frac{p}{p_{\infty}} \right)^{-1/ \tilde \gamma} \frac{dp}{dx_i}
+\end{equation}
+
+\begin{equation}
+\frac{d \left| \vec{u}_e \right|}{d \vec{s}}
+\end{equation}
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

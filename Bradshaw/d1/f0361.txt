@@ -1,0 +1,2221 @@
+----------------- FILE NUMBER   376-----------------
+1.  FLOW TITLE: CASE 0361;  CHEVRAY, R., "THE TURBULENT WAKE OF A BODY OF
+    REVOLUTION"
+
+2.  REVISION DATE:  FEBRUARY 8, 1981
+
+3.  EVALUATOR:  PATEL, V. C.; INSTITUTE OF HYDRAULIC RESEARCH, THE
+    UNIVERSITY OF IOWA, IOWA CITY, IOWA 52242.
+
+4.  DATE AND LOCATION OF EXPERIMENT:  1968, INSTITUTE OF HYDRAULIC
+    RESEARCH, THE UNIVERSITY OF IOWA.
+
+5.  ABSTRACT:  THE EXPERIMENT WAS CONDUCTED IN THE LARGE CLOSED-CIRCUIT
+    WIND TUNNEL OF THE IOWA INSTITUTE OF HYDRAULIC RESEARCH.  THE WORKING
+    SECTION WAS 7.32 M. LONG WITH A CROSS-SECTION IN THE FORM OF A 1.52
+    M. OCTAGON.  RECENT MEASUREMENTS IN THE TUNNEL INDICATE THAT THE
+    FREE-STREAM TURBULENCE LEVEL IS OF THE ORDER OF 0.2%.
+    THE MODEL WAS A SMOOTH 6:1, 1.52 M. LONG, 0.254 M. MAXIMUM DIA-
+    METER SPHEROID.  THE PRESSURE DISTRIBUTION ON THE MODEL SURFACE WAS
+    NOT MEASURED.  THE RECENT MEASUREMENTS OF PATEL ET AL U3,4e ON
+    MODELS OF SIMILAR DIMENSIONS IN THE SAME WIND TUNNEL INDICATE, HOW-
+    EVER, THAT THE TUNNEL BLOCKAGE EFFECTS WERE NEGLIGIBLE.  CONSEQUENT-
+    LY, THE POTENTIAL-FLOW SOLUTION MAY BE USED, IF REQUIRED, FOR THE
+    REGION BETWEEN THE NOSE AND A SHORT DISTANCE UPSTREAM OF THE OB-
+    SERVED SEPARATION POINT AT X/D = -0.12.  THE BOUNDARY LAYER ON THE
+    BODY WAS TRIPPED ARTIFICIALLY AT A DISTANCE 0.3 D FROM THE NOSE.
+    ALL TESTS WERE CONDUCTED AT A LENGTH REYNOLDS NUMBER, UI*L/XNU =
+    2.75E 06, WHICH CORRESPONDS TO A TUNNEL VELOCITY OF APPROXIMATELY
+    27.4 M/S.  UNDER THESE CONDITIONS, THE ZONE OF SEPARATED FLOW, AS
+    DETERMINED BY VISUAL STUDIES, EXTEND OVER -0.2 < X/DREF < 0.10 OR
+    -0.02 < X/LREF < 0.017 (DREF = 0.254 M., LREF = 1.52 M.)
+
+6.  REFERENCES:
+    1. CHEVRAY, R (1968), "THE TURBULENT WAKE OF A BODY OF REVOLUTION",
+       ASME, J. BASIC ENGINEERING, VOL. 90, PP. 275-284.
+    2) CHEVRAY, R. (1967), PH.D. DISSERTATION, THE UNIVERSITY OF IOWA.
+    3) PATEL, V. C., NAKAYAMA, A. AND DAMIAN, R. (1974), "MEASUREMENTS IN
+       THE THICK AXISYMMETRIC TURBULENT BOUNDARY LAYER NEAR THE TAIL
+       OF A BODY OF REVOLUTION", J. FLUID MECHANICS, VOL. 63,PP. 345-362,
+       (SEE IIHR REPORT NO. 142, 1973, FOR TABULATED DATA).
+    4) PATEL, V. C. AND LEE, Y. T. (1977), "THICK AXISYMMETRIC TURBULENT
+       BOUNDARY LAYER AND NEAR WAKE OF A LOW-DRAG BODY OF REVOLUTION",
+       IOWA INSTITUTE OF HYDRAULIC RESEARCH, THE UNIVERSITY OF IOWA,
+       IIHR REPORT NO. 210 (SEE ALSO TURBULENT SHEAR FLOWS 1, PP. 126-
+       153, SPRINGER-VERLAG, 1979).
+    5) NASA-SP-321 (1972), "FREE TURBULENT SHEAR FLOWS, VOL. I, CON-
+       FERENCE PROC., VOL. II, SUMMARY OF DATA," PROC. OF NASA
+       CONFERENCE, LANGLEY, JULY 20-21.
+
+7.  INSTRUMENTATION:  STATIC PRESSURE VARIATIONS ACROSS THE BOUNDARY
+    LAYER WERE MEASURED BY MEANS OF A STANDARD STATIC PROBE ALIGNED
+    IN THE FLOW DIRECTION.  ALL MEASURMENTS OF MEAN VELOCITIES AND
+    REYNOLDS STRESSES WERE MADE WITH LINEARIZED HOT-WIRE ANEMOMETRY.
+    THE MEASUREMENTS INCLUDE THE AXIAL COMPONENT OF MEAN VELOCITY,
+    U, THE AXIAL, U2, RADIAL, V2, AND CIRCUMFERENTIAL, W2, REYNOLDS
+    NORMAL STRESSES AND THE SHEAR STRESS, UV, AT 12 AXIAL STATIONS
+    IN THE RANGE -0.25 < X/DREF < 18.0.  THUS, THE MEASUREMENTS IN THE
+    BOUNDARY LAYER AT X/DREF = -0.25 DO NOT CORRESPOND TO THE USUAL
+    BOUNDARY LAYER COORDINATES.  SINCE, AT THIS STATION, THE ANGLE BE-
+    TWEEN THE SURFACE TANGENT AND THE AXIS IS 21 DEG. AND THE RATIO
+    DEL/R0 IS 1.0, WHERE R0 IS THE LOCAL TRANSVERSE RADIUS OF THE BODY,
+    THE DATA MAY NEED CORRECTION IF THEY ARE TO BE USED FOR COMPARISON
+    WITH BOUNDARY LAYER CALCULATIONS.
+
+8.  EXPERIMENTAL PARAMETERS:
+
+    LREF = LENGTH OF SPHEROID = 1.52 M.
+    DREF = MAXIMUM DIAMETER OF SPHEROID = 0.254 M.
+    RREF = MAXIMUM RADIUS OF SPHEROID = 0.127 M.
+    QREF = FREE-STREAM DYNAMIC PRESSURE =  VALUE NOT PROVIDED
+    UI   = FREE-STREAM VELOCITY = 27.4 M/S.
+
+9.  MEASURED AND INFERRED VARIABLES:
+
+    X/DREF         NON-DIMENSIONAL STREAMWISE COORDINATE.
+    R/RREF         NON-DIMENSIONAL TRANSVERSE COORDINATE.
+    PA/QREF        NON-DIMENSIONAL MEAN AMBIENT PRESSURE.
+    U/UI           NON-DIMENSIONAL MEAN AXIAL VELOCITY.
+    V/UI           NON-DIMENSIONAL MEAN RADIAL VELOCITY.
+    SQRT(U2)/UI    NON-DIMENSIONAL TURBULENCE INTENSITY.
+    SQRT(V2)/UI    NON-DIMENSIONAL TURBULENCE INTENSITY.
+    SQRT(W2)/UI    NON-DIMENSIONAL TURBULENCE INTENSITY.
+                   (W IS THE CIRCUMFERENTIAL COMPONENT OF VELOCITY)
+    U1V1/UI**2     NON-DIMENSIONAL TURBULENT SHEAR.
+
+10. MEASUREMENT UNCERTAINTY:
+
+    QREF       +/- 2 %
+
+11. TAPE ORGANIZATION:
+
+         THE TAPE IS A 2400 FT., 9 TRACK, ODD PARITY, PHASE ENCODED,
+    UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS PER INCH ACCORDING
+    TO EBCDIC CODE.  THE RECORD FORMAT IS FIXED AND BLOCKED; RECORD
+    LENGTH = 80 BYTES; 100 RECORDS PER BLOCK; BLOCKSIZE = 8000 BYTES.
+
+    NORMALIZED DATA IS CREATED FROM MEASURED DATA AS FOLLOWS:
+    XNORM = (X - XMIN)/(XMAX - XMIN)
+    ALL NULL DATA ARE WRITTEN AS 2.0.
+    THE EQUATION DESCRIBING THE RELATION BETWEEN ACTUAL DATA AND
+    THE NORMALIZED DATA ON THE TAPE IS
+    X = XMIN + ((XMAX - XMIN) * XNORM)
+    WHERE X, XMAX, XMIN AND XNORM ARE REAL.
+
+ FILE# NREC     CONTENTS           FORMAT       COMMENTS
+
+   1    709     TEXT FILE            -          CONTAINS ITEMS
+                                                1 TO 11 OF THIS
+                                                WRITE UP
+
+   2     13     R/RREF,PA/QREF     2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,PA/QREF     2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,PA/QREF     2E13.6       RECORD 3 - 13.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = -0.25
+
+   3     24     R/RREF,PA/QREF     2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,PA/QREF     2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,PA/QREF     2E13.6       RECORD 3 - 24.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.0
+
+   4     22     R/RREF,PA/QREF     2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,PA/QREF     2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,PA/QREF     2E13.6       RECORD 3 - 22.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.25
+
+   5     27     R/RREF,PA/QREF     2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,PA/QREF     2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,PA/QREF     2E13.6       RECORD 3 - 27.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.5
+
+   6     24     R/RREF,PA/QREF     2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,PA/QREF     2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,PA/QREF     2E13.6       RECORD 3 - 24.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  1.0
+
+   7     21     R/RREF,PA/QREF     2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,PA/QREF     2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,PA/QREF     2E13.6       RECORD 3 - 21.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  2.0
+
+   8     10     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 10.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = -0.25
+
+   9     21     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 21.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.0
+
+  10     15     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 15.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.25
+
+   11    25     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 25.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.5
+
+   12    11     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 11.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  1.0
+
+   13    18     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  2.0
+
+   14    18     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  3.0
+
+   15    18     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  6.0
+
+   16    18     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  9.0
+
+   17    16     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 16.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 12.0  
+
+   18    22     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 22.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 15.0
+
+   19    23     R/RREF,U/UI        2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U/UI        2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U/UI        2E13.6       RECORD 3 - 23.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 18.0
+
+   20    22     R/RREF,-V/UI       2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,-V/UI       2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,-V/UI       2E13.6       RECORD 3 - 22.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.0
+
+   21    22     R/RREF,-V/UI       2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,-V/UI       2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,-V/UI       2E13.6       RECORD 3 - 22.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.25
+
+   22    22     R/RREF,-V/UI       2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,-V/UI       2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,-V/UI       2E13.6       RECORD 3 - 22.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.5
+
+   23    22     R/RREF,-V/UI       2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,-V/UI       2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,-V/UI       2E13.6       RECORD 3 - 22.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  1.0
+
+   24    22     R/RREF,-V/UI       2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,-V/UI       2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,-V/UI       2E13.6       RECORD 3 - 22.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  2.0
+
+   25    13     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 13.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = -0.25
+
+   26    18     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.0
+
+   27    19     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 19.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.25
+
+   28    11     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 11.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.5
+
+   29    11     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 11.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  1.0
+
+   30    16     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 16.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  2.0
+
+   31    20     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 20.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  3.0
+
+   32    21     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 21.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  6.0
+
+   33    18     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  9.0
+
+   34    25     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 25.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 12.0
+
+   35    25     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 25.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 15.0
+
+   36    30     R/RREF,SQRT(U2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(U2)/UI 2E13.6       RECORD 3 - 30.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 18.0
+
+   37    11     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 11.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = -0.25
+
+   38    16     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 16.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.0
+
+   39    19     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 19.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.25
+
+   40    14     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 14.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.5
+
+   41    18     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  1.0
+
+   42    14     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 14.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  2.0
+
+   43    19     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 19.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  3.0
+
+   44    21     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 21.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  6.0
+
+   45    22     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 22.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  9.0
+
+   46    26     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 26.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 12.0
+
+   47    24     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 24.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 15.0
+
+   48    27     R/RREF,SQRT(V2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(V2)/UI 2E13.6       RECORD 3 - 27.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 18.0
+
+   49    12     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 12.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = -0.25
+
+   50    17     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 17.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.0
+
+   51    21     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 21.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.25
+
+   52    17     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 17.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.5
+
+   53    18     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  1.0
+
+   54    15     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 15.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  2.0
+
+   55    21     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 21.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  3.0
+
+   56    19     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 19.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  6.0
+
+   57    23     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 23.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  9.0
+
+   58    25     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 25.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 12.0
+
+   59    27     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 27.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  15.0
+
+   60    29     R/RREF,SQRT(W2)/UI 2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,SQRT(W2)/UI 2E13.6       RECORD 3 - 29.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 18.0
+
+   61    10     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 10.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = -0.25
+
+   62    16     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 16.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.0
+
+   63    16     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 16.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.25
+
+   64    17     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 17.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  0.5
+
+   65    18     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  1.0
+
+   66    14     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 14.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  2.0
+
+   67    17     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 17.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  3.0
+
+   68    18     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 18.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 6.0
+
+   69    17     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 17.
+                                                NORMALIZED VALUES
+                                                AT X/DREF =  9.0
+
+   70    23     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 23.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 12.0
+
+   71    24     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 24.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 15.0
+
+   72    16     R/RREF,U1V1/UI**2  2E13.6       RECORD 1. MAXIMUM
+                                                VALUES
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 2. MINIMUM
+                                                VALUE
+                R/RREF,U1V1/UI**2  2E13.6       RECORD 3 - 16.
+                                                NORMALIZED VALUES
+                                                AT X/DREF = 18.0
+
+         A SAMPLE PROGRAM FOR READING FILE 2 AND PRINTING IT IS
+    SHOWN BELOW.  THE JCL IS FOR THE STANFORD CIT FACILITY.
+    CHECK WITH YOUR OWN COMPUTER FACILITY FOR THE EXACT JCL
+    NEEDED.
+
+    //TAPE JOB BZC$NJ
+    /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)
+    // EXEC FORTCG
+    //FORT.SYSIN  DD  *
+    C  PROGRAM TO READ FILE 2 OFF THE TAPE AND
+    C  PRINT THE MAXIMAS AND MINIMAS ON ALL THE VARIABLES AND
+    C  PRINT THE NORMALIZED VALUES OF ALL THE VARIABLES.
+           REAL R(40),PA(40)
+           READ (23,30) RMX,PAMX
+           READ (23,30) RMN,PAMN
+    C  SET N = THE NUMBER OF RECORDS IN THE FILE MINUS 2
+           N = 36 - 2
+           DO 10 I = 1,N
+    10     READ (23,40) R(I),PA(I)
+           WRITE (6,50) RMX,PAMX
+           WRITE (6,50) RMN,PAMN
+           DO 20 I = 1,N
+    20     WRITE (6,60) R(I),PA(I)
+    30     FORMAT(2E13.6)
+    40     FORMAT(2E13.6)
+    50     FORMAT(2X,2E13.6)
+    60     FORMAT(2X,2E13.6)
+           STOP
+           END
+    //GO.FT23F001  DD  UNIT=T1600,VOL=SER=(TAPE LIBRARY NUMBER),
+    //  DISP=(OLD,KEEP),DCB=(RECFM=FB,LREC=80,BLKSIZE=8000,DEN=3),
+    //  LABEL=(2,NL)
+-------------- END OF FILE NUMBER   376-------------
+----------------- FILE NUMBER   377-----------------
+ 0.198561E 01 0.941931E-01
+ 0.434161E 00 0.917802E-02
+ 0.000000E 00 0.100000E 01
+ 0.103419E 00 0.862463E 00
+ 0.136217E 00 0.835351E 00
+ 0.231643E 00 0.743126E 00
+ 0.259535E 00 0.656129E 00
+ 0.315321E 00 0.489375E 00
+ 0.380895E 00 0.444225E 00
+ 0.510135E 00 0.310389E 00
+ 0.626420E 00 0.205553E 00
+ 0.870863E 00 0.412854E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   377-------------
+----------------- FILE NUMBER   378-----------------
+ 0.198566E 01 0.151069E 00
+ 0.161928E 00 0.670957E-02
+ 0.000000E 00 0.100000E 01
+ 0.236866E-01 0.980833E 00
+ 0.820740E-01 0.912572E 00
+ 0.107475E 00 0.875228E 00
+ 0.161631E 00 0.810168E 00
+ 0.213328E 00 0.701287E 00
+ 0.237074E 00 0.641494E 00
+ 0.265034E 00 0.588132E 00
+ 0.318345E 00 0.525207E 00
+ 0.372560E 00 0.424876E 00
+ 0.396280E 00 0.382192E 00
+ 0.417466E 00 0.335223E 00
+ 0.471627E 00 0.270159E 00
+ 0.529114E 00 0.243580E 00
+ 0.583261E 00 0.189204E 00
+ 0.630598E 00 0.162604E 00
+ 0.682185E 00 0.127465E 00
+ 0.742204E 00 0.998281E-01
+ 0.791231E 00 0.775026E-01
+ 0.838578E 00 0.476964E-01
+ 0.887599E 00 0.328523E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   378-------------
+----------------- FILE NUMBER   379-----------------
+ 0.197320E 01 0.132226E 00
+ 0.207976E-02 0.139576E-01
+ 0.000000E 00 0.996009E 00
+ 0.125520E-01 0.956911E 00
+ 0.218839E-01 0.100000E 01
+ 0.680979E-01 0.910137E 00
+ 0.143214E 00 0.834723E 00
+ 0.230945E 00 0.669326E 00
+ 0.254454E 00 0.613312E 00
+ 0.312353E 00 0.556099E 00
+ 0.352236E 00 0.536661E 00
+ 0.358567E 00 0.470160E 00
+ 0.375793E 00 0.444122E 00
+ 0.400013E 00 0.448114E 00
+ 0.437692E 00 0.308652E 00
+ 0.481523E 00 0.252703E 00
+ 0.543305E 00 0.222896E 00
+ 0.644228E 00 0.130604E 00
+ 0.699699E 00 0.150354E 00
+ 0.801377E 00 0.854556E-01
+ 0.892102E 00 0.348682E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   379-------------
+----------------- FILE NUMBER   380-----------------
+ 0.189167E 01 0.837917E-01
+ 0.276531E-01 0.746245E-02
+ 0.000000E 00 0.997817E 00
+ 0.123971E-01 0.999878E 00
+ 0.355383E-01 0.100000E 01
+ 0.562167E-01 0.981910E 00
+ 0.859782E-01 0.971946E 00
+ 0.110781E 00 0.961940E 00
+ 0.137260E 00 0.915594E 00
+ 0.150484E 00 0.915655E 00
+ 0.192676E 00 0.869348E 00
+ 0.205097E 00 0.831006E 00
+ 0.255545E 00 0.788803E 00
+ 0.266290E 00 0.792906E 00
+ 0.291976E 00 0.712179E 00
+ 0.319275E 00 0.679960E 00
+ 0.346582E 00 0.639656E 00
+ 0.411113E 00 0.553047E 00
+ 0.459916E 00 0.500738E 00
+ 0.497992E 00 0.430177E 00
+ 0.562499E 00 0.377928E 00
+ 0.617069E 00 0.343831E 00
+ 0.670003E 00 0.287479E 00
+ 0.716322E 00 0.245255E 00
+ 0.821343E 00 0.174998E 00
+ 0.915617E 00 0.100657E 00
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   380-------------
+----------------- FILE NUMBER   381-----------------
+ 0.194570E 01 0.248435E-01
+ 0.415951E-02 0.207350E-02
+ 0.000000E 00 0.979534E 00
+ 0.103072E-01 0.100000E 01
+ 0.325324E-01 0.966460E 00
+ 0.785539E-01 0.980821E 00
+ 0.129344E 00 0.934207E 00
+ 0.183308E 00 0.901212E 00
+ 0.234091E 00 0.902025E 00
+ 0.280128E 00 0.814756E 00
+ 0.330918E 00 0.781691E 00
+ 0.383303E 00 0.728366E 00
+ 0.431721E 00 0.661357E 00
+ 0.476171E 00 0.574023E 00
+ 0.524578E 00 0.527404E 00
+ 0.578551E 00 0.474084E 00
+ 0.629351E 00 0.420760E 00
+ 0.675371E 00 0.407954E 00
+ 0.723797E 00 0.307066E 00
+ 0.800772E 00 0.254150E 00
+ 0.895228E 00 0.133748E 00
+ 0.947614E 00 0.668744E-01
+ 0.972213E 00 0.537299E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   381-------------
+----------------- FILE NUMBER   382-----------------
+ 0.176547E 01 0.337870E-02
+ 0.369734E-01 0.161992E-03
+ 0.000000E 00 0.000000E 00
+ 0.561503E-01 0.575557E-02
+ 0.108735E 00 0.110312E-01
+ 0.170206E 00 0.736690E 00
+ 0.228139E 00 0.742927E 00
+ 0.278050E 00 0.748202E 00
+ 0.336865E 00 0.994246E 00
+ 0.393906E 00 0.100000E 01
+ 0.448283E 00 0.622061E 00
+ 0.499977E 00 0.627336E 00
+ 0.556136E 00 0.537170E 00
+ 0.617627E 00 0.639327E 00
+ 0.671998E 00 0.549160E 00
+ 0.723696E 00 0.410553E 00
+ 0.780746E 00 0.320865E 00
+ 0.835111E 00 0.326140E 00
+ 0.891264E 00 0.188489E 00
+ 0.945629E 00 0.289687E 00
+ 0.100000E 01 0.199520E 00
+-------------- END OF FILE NUMBER   382-------------
+----------------- FILE NUMBER   383-----------------
+ 0.767301E 00 0.974308E 00
+ 0.408172E 00 0.380998E 00
+ 0.000000E 00 0.000000E 00
+ 0.625039E-01 0.202924E 00
+ 0.202866E 00 0.349879E 00
+ 0.349178E 00 0.550463E 00
+ 0.478694E 00 0.706546E 00
+ 0.742881E 00 0.933701E 00
+ 0.879851E 00 0.986491E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   383-------------
+----------------- FILE NUMBER   384-----------------
+ 0.964000E 00 0.976000E 00
+ 0.980000E-01 0.530000E-01
+ 0.000000E 00 0.000000E 00
+ 0.531178E-01 0.509209E-01
+ 0.110855E 00 0.144095E 00
+ 0.166282E 00 0.281690E 00
+ 0.221709E 00 0.405200E 00
+ 0.278291E 00 0.529794E 00
+ 0.332563E 00 0.638137E 00
+ 0.391455E 00 0.729144E 00
+ 0.443418E 00 0.804984E 00
+ 0.500000E 00 0.867822E 00
+ 0.554273E 00 0.919827E 00
+ 0.610854E 00 0.966414E 00
+ 0.668591E 00 0.990249E 00
+ 0.720554E 00 0.994583E 00
+ 0.780600E 00 0.100000E 01
+ 0.832564E 00 0.995666E 00
+ 0.887991E 00 0.998917E 00
+ 0.943418E 00 0.100000E 01
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   384-------------
+----------------- FILE NUMBER   385-----------------
+ 0.629000E 00 0.956000E 00
+ 0.240000E-01 0.270000E 00
+ 0.000000E 00 0.000000E 00
+ 0.826446E-01 0.102041E-01
+ 0.165289E 00 0.670553E-01
+ 0.241322E 00 0.189504E 00
+ 0.325620E 00 0.329446E 00
+ 0.401653E 00 0.431487E 00
+ 0.480992E 00 0.529155E 00
+ 0.561983E 00 0.648688E 00
+ 0.641322E 00 0.744898E 00
+ 0.725620E 00 0.827988E 00
+ 0.796694E 00 0.886297E 00
+ 0.897521E 00 0.951895E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   385-------------
+----------------- FILE NUMBER   386-----------------
+ 0.992000E 00 0.986000E 00
+ 0.170000E-01 0.425000E 00
+ 0.000000E 00 0.000000E 00
+ 0.369231E-01 0.106952E-01
+ 0.758974E-01 0.499109E-01
+ 0.113846E 00 0.101604E 00
+ 0.151795E 00 0.203208E 00
+ 0.186667E 00 0.294118E 00
+ 0.225641E 00 0.377897E 00
+ 0.261538E 00 0.456328E 00
+ 0.300513E 00 0.529412E 00
+ 0.338462E 00 0.593583E 00
+ 0.374359E 00 0.677362E 00
+ 0.411282E 00 0.746880E 00
+ 0.447179E 00 0.818182E 00
+ 0.481026E 00 0.853832E 00
+ 0.522051E 00 0.898396E 00
+ 0.557949E 00 0.941176E 00
+ 0.594872E 00 0.955437E 00
+ 0.632820E 00 0.980392E 00
+ 0.672820E 00 0.987522E 00
+ 0.703590E 00 0.991087E 00
+ 0.742564E 00 0.991087E 00
+ 0.853333E 00 0.989305E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   386-------------
+----------------- FILE NUMBER   387-----------------
+ 0.761000E 00 0.991000E 00
+ 0.410000E-01 0.514000E 00
+ 0.000000E 00 0.000000E 00
+ 0.999999E-01 0.817609E-01
+ 0.197222E 00 0.224319E 00
+ 0.295833E 00 0.392033E 00
+ 0.400000E 00 0.545073E 00
+ 0.501389E 00 0.716981E 00
+ 0.597222E 00 0.830189E 00
+ 0.800000E 00 0.985325E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   387-------------
+----------------- FILE NUMBER   388-----------------
+ 0.743000E 00 0.100000E 01
+ 0.270000E-01 0.621000E 00
+ 0.000000E 00 0.000000E 00
+ 0.670391E-01 0.501319E-01
+ 0.134078E 00 0.118734E 00
+ 0.201117E 00 0.203166E 00
+ 0.269553E 00 0.306069E 00
+ 0.332402E 00 0.422164E 00
+ 0.402235E 00 0.530343E 00
+ 0.474860E 00 0.646438E 00
+ 0.537709E 00 0.728232E 00
+ 0.604749E 00 0.817942E 00
+ 0.670391E 00 0.891821E 00
+ 0.738827E 00 0.944591E 00
+ 0.801676E 00 0.970976E 00
+ 0.868715E 00 0.992084E 00
+ 0.942737E 00 0.994723E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   388-------------
+----------------- FILE NUMBER   389-----------------
+ 0.746000E 00 0.999000E 00
+ 0.200000E-02 0.636000E 00
+ 0.000000E 00 0.000000E 00
+ 0.309140E-01 0.826452E-02
+ 0.940860E-01 0.385675E-01
+ 0.163978E 00 0.126722E 00
+ 0.224462E 00 0.209366E 00
+ 0.291667E 00 0.322314E 00
+ 0.357527E 00 0.402204E 00
+ 0.422043E 00 0.504132E 00
+ 0.487903E 00 0.630854E 00
+ 0.551075E 00 0.716253E 00
+ 0.678763E 00 0.878788E 00
+ 0.743280E 00 0.933884E 00
+ 0.809140E 00 0.975207E 00
+ 0.872312E 00 0.991735E 00
+ 0.936828E 00 0.994490E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   389-------------
+----------------- FILE NUMBER   390-----------------
+ 0.797000E 00 0.997000E 00
+ 0.100000E-02 0.720000E 00
+ 0.000000E 00 0.000000E 00
+ 0.288945E-01 0.361011E-01
+ 0.917085E-01 0.577616E-01
+ 0.150754E 00 0.122744E 00
+ 0.212312E 00 0.209386E 00
+ 0.275126E 00 0.310469E 00
+ 0.330402E 00 0.379061E 00
+ 0.393216E 00 0.480144E 00
+ 0.461055E 00 0.574007E 00
+ 0.512563E 00 0.664260E 00
+ 0.575377E 00 0.743682E 00
+ 0.634422E 00 0.826715E 00
+ 0.694724E 00 0.884476E 00
+ 0.753769E 00 0.942238E 00
+ 0.816583E 00 0.978339E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   390-------------
+----------------- FILE NUMBER   391-----------------
+ 0.823000E 00 0.998000E 00
+ 0.500000E-02 0.805000E 00
+ 0.000000E 00 0.000000E 00
+ 0.550122E-01 0.155441E-01
+ 0.117359E 00 0.621760E-01
+ 0.174817E 00 0.932642E-01
+ 0.233496E 00 0.160622E 00
+ 0.293398E 00 0.264249E 00
+ 0.349633E 00 0.336787E 00
+ 0.410758E 00 0.440414E 00
+ 0.471883E 00 0.528497E 00
+ 0.528117E 00 0.632124E 00
+ 0.586797E 00 0.720207E 00
+ 0.705379E 00 0.870466E 00
+ 0.820293E 00 0.958549E 00
+ 0.880196E 00 0.979275E 00
+ 0.935208E 00 0.984456E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   391-------------
+----------------- FILE NUMBER   392-----------------
+ 0.723000E 00 0.990000E 00
+ 0.500000E-02 0.849000E 00
+ 0.000000E 00 0.709253E-02
+ 0.598886E-01 0.000000E 00
+ 0.132312E 00 0.496456E-01
+ 0.196379E 00 0.113475E 00
+ 0.264624E 00 0.141844E 00
+ 0.330083E 00 0.191489E 00
+ 0.402507E 00 0.312057E 00
+ 0.467967E 00 0.375887E 00
+ 0.536212E 00 0.489362E 00
+ 0.604457E 00 0.602837E 00
+ 0.800836E 00 0.822695E 00
+ 0.867688E 00 0.879432E 00
+ 0.937326E 00 0.943262E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   392-------------
+----------------- FILE NUMBER   393-----------------
+ 0.984000E 00 0.999000E 00
+ 0.400000E-02 0.887000E 00
+ 0.000000E 00 0.000000E 00
+ 0.214286E-01 0.178569E-01
+ 0.704082E-01 0.267854E-01
+ 0.121429E 00 0.714282E-01
+ 0.170408E 00 0.125000E 00
+ 0.219388E 00 0.178571E 00
+ 0.268367E 00 0.223214E 00
+ 0.318367E 00 0.294643E 00
+ 0.368367E 00 0.375000E 00
+ 0.414286E 00 0.428571E 00
+ 0.463265E 00 0.491071E 00
+ 0.612245E 00 0.705357E 00
+ 0.663265E 00 0.767857E 00
+ 0.713265E 00 0.839286E 00
+ 0.760204E 00 0.892857E 00
+ 0.807143E 00 0.919643E 00
+ 0.858163E 00 0.937500E 00
+ 0.895918E 00 0.973214E 00
+ 0.953061E 00 0.982143E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   393-------------
+----------------- FILE NUMBER   394-----------------
+ 0.963000E 00 0.995000E 00
+ 0.500000E-02 0.908000E 00
+ 0.000000E 00 0.000000E 00
+ 0.459290E-01 0.229889E-01
+ 0.970771E-01 0.344830E-01
+ 0.147182E 00 0.459771E-01
+ 0.198330E 00 0.919542E-01
+ 0.250522E 00 0.137931E 00
+ 0.298539E 00 0.195402E 00
+ 0.350731E 00 0.264368E 00
+ 0.400835E 00 0.344828E 00
+ 0.449896E 00 0.390804E 00
+ 0.508351E 00 0.482758E 00
+ 0.548017E 00 0.505747E 00
+ 0.600209E 00 0.609196E 00
+ 0.650313E 00 0.678161E 00
+ 0.699374E 00 0.735632E 00
+ 0.750522E 00 0.804597E 00
+ 0.799582E 00 0.850575E 00
+ 0.849478E 00 0.908046E 00
+ 0.898747E 00 0.942529E 00
+ 0.951983E 00 0.965517E 00
+ 0.100000E 01 0.100000E 01
+-------------- END OF FILE NUMBER   394-------------
+----------------- FILE NUMBER   395-----------------
+ 0.200043E 01 0.867708E-01
+ 0.989782E-01 0.234429E-01
+ 0.000000E 00 0.724310E-01
+ 0.473159E-01 0.495302E 00
+ 0.996427E-01 0.865251E 00
+ 0.156860E 00 0.100000E 01
+ 0.212281E 00 0.972166E 00
+ 0.259124E 00 0.881446E 00
+ 0.313311E 00 0.753828E 00
+ 0.366800E 00 0.601588E 00
+ 0.420265E 00 0.454265E 00
+ 0.469521E 00 0.361094E 00
+ 0.522686E 00 0.292592E 00
+ 0.579795E 00 0.243833E 00
+ 0.630461E 00 0.199951E 00
+ 0.679534E 00 0.156043E 00
+ 0.732578E 00 0.119563E 00
+ 0.789618E 00 0.892782E-01
+ 0.838629E 00 0.613837E-01
+ 0.890031E 00 0.359747E-01
+ 0.943017E 00 0.155050E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   395-------------
+----------------- FILE NUMBER   396-----------------
+ 0.200138E 01 0.491001E-01
+ 0.925453E-01 0.150974E-01
+ 0.000000E 00 0.706032E-01
+ 0.515413E-01 0.649510E 00
+ 0.103713E 00 0.918753E 00
+ 0.161843E 00 0.100000E 01
+ 0.213017E 00 0.971029E 00
+ 0.261891E 00 0.891550E 00
+ 0.314782E 00 0.798375E 00
+ 0.370148E 00 0.670841E 00
+ 0.423119E 00 0.538675E 00
+ 0.472065E 00 0.422516E 00
+ 0.524956E 00 0.331635E 00
+ 0.581797E 00 0.261470E 00
+ 0.632199E 00 0.216421E 00
+ 0.679412E 00 0.169031E 00
+ 0.736184E 00 0.135563E 00
+ 0.788955E 00 0.102030E 00
+ 0.841710E 00 0.799642E-01
+ 0.890478E 00 0.509460E-01
+ 0.946454E 00 0.174810E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   396-------------
+----------------- FILE NUMBER   397-----------------
+ 0.200225E 01 0.201929E-01
+ 0.967831E-01 0.689240E-02
+ 0.000000E 00 0.000000E 00
+ 0.476082E-01 0.500440E 00
+ 0.100961E 00 0.819383E 00
+ 0.160041E 00 0.968445E 00
+ 0.212818E 00 0.100000E 01
+ 0.261642E 00 0.972791E 00
+ 0.310490E 00 0.916199E 00
+ 0.367379E 00 0.801323E 00
+ 0.420251E 00 0.715590E 00
+ 0.469147E 00 0.594497E 00
+ 0.520438E 00 0.479388E 00
+ 0.578906E 00 0.393887E 00
+ 0.631754E 00 0.331612E 00
+ 0.680614E 00 0.263298E 00
+ 0.733446E 00 0.218671E 00
+ 0.790293E 00 0.162376E 00
+ 0.839126E 00 0.117574E 00
+ 0.890347E 00 0.904234E-01
+ 0.943184E 00 0.516031E-01
+ 0.100000E 01 0.364157E-01
+-------------- END OF FILE NUMBER   397-------------
+----------------- FILE NUMBER   398-----------------
+ 0.199807E 01 0.849441E-02
+ 0.972404E-01 0.283667E-02
+ 0.000000E 00 0.000000E 00
+ 0.487512E-01 0.501103E 00
+ 0.999720E-01 0.823270E 00
+ 0.156863E 00 0.966776E 00
+ 0.213794E 00 0.100000E 01
+ 0.260315E 00 0.976978E 00
+ 0.311648E 00 0.940722E 00
+ 0.368612E 00 0.877448E 00
+ 0.421589E 00 0.744831E 00
+ 0.472922E 00 0.722361E 00
+ 0.523487E 00 0.603253E 00
+ 0.580462E 00 0.484837E 00
+ 0.633418E 00 0.421147E 00
+ 0.680755E 00 0.356906E 00
+ 0.735321E 00 0.252136E 00
+ 0.790676E 00 0.216157E 00
+ 0.841206E 00 0.193685E 00
+ 0.890122E 00 0.198510E 00
+ 0.947081E 00 0.135236E 00
+ 0.100000E 01 0.168046E 00
+-------------- END OF FILE NUMBER   398-------------
+----------------- FILE NUMBER   399-----------------
+ 0.200293E 01 0.256681E-02
+ 0.944508E-01 0.496047E-03
+ 0.000000E 00 0.000000E 00
+ 0.502569E-01 0.578532E 00
+ 0.101353E 00 0.780791E 00
+ 0.159644E 00 0.909603E 00
+ 0.214750E 00 0.100000E 01
+ 0.261093E 00 0.824103E 00
+ 0.313802E 00 0.951414E 00
+ 0.368923E 00 0.853484E 00
+ 0.421640E 00 0.867797E 00
+ 0.470364E 00 0.880981E 00
+ 0.523086E 00 0.819960E 00
+ 0.579822E 00 0.647082E 00
+ 0.630942E 00 0.661019E 00
+ 0.681270E 00 0.561958E 00
+ 0.736403E 00 0.463652E 00
+ 0.789115E 00 0.477965E 00
+ 0.839448E 00 0.416572E 00
+ 0.890567E 00 0.430509E 00
+ 0.944888E 00 0.332203E 00
+ 0.100000E 01 0.347269E 00
+-------------- END OF FILE NUMBER   399-------------
+----------------- FILE NUMBER   400-----------------
+ 0.860227E 00 0.556692E-01
+ 0.406521E 00 0.108469E-04
+ 0.000000E 00 0.891729E 00
+ 0.506473E-01 0.998351E 00
+ 0.145178E 00 0.100000E 01
+ 0.253481E 00 0.877091E 00
+ 0.371917E 00 0.753514E 00
+ 0.476710E 00 0.638949E 00
+ 0.577078E 00 0.483307E 00
+ 0.691410E 00 0.297769E 00
+ 0.793080E 00 0.167190E 00
+ 0.906113E 00 0.651749E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   400-------------
+----------------- FILE NUMBER   401-----------------
+ 0.767541E 00 0.510980E-01
+ 0.451171E-01-0.197569E 00
+ 0.000000E 00 0.869039E 00
+ 0.597908E-01 0.907888E 00
+ 0.127651E 00 0.955936E 00
+ 0.199370E 00 0.988721E 00
+ 0.265671E 00 0.100000E 01
+ 0.325229E 00 0.996007E 00
+ 0.395888E 00 0.980651E 00
+ 0.469633E 00 0.967324E 00
+ 0.532021E 00 0.947129E 00
+ 0.595429E 00 0.927872E 00
+ 0.663267E 00 0.904568E 00
+ 0.732516E 00 0.873009E 00
+ 0.803705E 00 0.845657E 00
+ 0.864790E 00 0.806924E 00
+ 0.932130E 00 0.794836E 00
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   401-------------
+----------------- FILE NUMBER   402-----------------
+ 0.790536E 00 0.513630E-01
+ 0.232632E-01-0.894873E-04
+ 0.000000E 00 0.656176E 00
+ 0.597703E-01 0.786731E 00
+ 0.117584E 00 0.913505E 00
+ 0.179740E 00 0.999638E 00
+ 0.253616E 00 0.100000E 01
+ 0.307467E 00 0.891092E 00
+ 0.374195E 00 0.794290E 00
+ 0.435452E 00 0.752420E 00
+ 0.499586E 00 0.724126E 00
+ 0.563450E 00 0.611498E 00
+ 0.623109E 00 0.523702E 00
+ 0.689919E 00 0.417113E 00
+ 0.754271E 00 0.247263E 00
+ 0.814421E 00 0.102998E 00
+ 0.855053E 00 0.218796E-01
+ 0.870088E 00 0.144258E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   402-------------
+----------------- FILE NUMBER   403-----------------
+ 0.616326E 00 0.482120E-01
+ 0.327616E-01 0.841490E-02
+ 0.000000E 00 0.724299E 00
+ 0.114814E 00 0.954580E 00
+ 0.248307E 00 0.100000E 01
+ 0.375394E 00 0.876978E 00
+ 0.486927E 00 0.731503E 00
+ 0.620577E 00 0.608522E 00
+ 0.738646E 00 0.465994E 00
+ 0.861047E 00 0.278709E 00
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   403-------------
+----------------- FILE NUMBER   404-----------------
+ 0.614473E 00 0.427110E-01
+ 0.256914E-01 0.496635E-02
+ 0.000000E 00 0.732842E 00
+ 0.123450E 00 0.910011E 00
+ 0.259311E 00 0.100000E 01
+ 0.378559E 00 0.895919E 00
+ 0.495648E 00 0.737430E 00
+ 0.627906E 00 0.633421E 00
+ 0.748676E 00 0.501638E 00
+ 0.868483E 00 0.329818E 00
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   404-------------
+----------------- FILE NUMBER   405-----------------
+ 0.648353E 00 0.397401E-01
+ 0.236003E-01 0.358298E-02
+ 0.000000E 00 0.759339E 00
+ 0.718480E-01 0.825102E 00
+ 0.146012E 00 0.910161E 00
+ 0.228760E 00 0.994203E 00
+ 0.307193E 00 0.100000E 01
+ 0.378685E 00 0.948981E 00
+ 0.457853E 00 0.854073E 00
+ 0.533367E 00 0.757005E 00
+ 0.614926E 00 0.670671E 00
+ 0.696643E 00 0.563989E 00
+ 0.762447E 00 0.452938E 00
+ 0.844239E 00 0.336615E 00
+ 0.926790E 00 0.116366E 00
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   405-------------
+----------------- FILE NUMBER   406-----------------
+ 0.794720E 00 0.464363E-01
+-0.333720E-02 0.442565E-03
+ 0.000000E 00 0.654392E 00
+ 0.272197E-01 0.682278E 00
+ 0.884176E-01 0.819154E 00
+ 0.150607E 00 0.939142E 00
+ 0.209910E 00 0.976329E 00
+ 0.266303E 00 0.100000E 01
+ 0.328552E 00 0.978062E 00
+ 0.392764E 00 0.918098E 00
+ 0.452114E 00 0.858141E 00
+ 0.510512E 00 0.742421E 00
+ 0.575727E 00 0.617415E 00
+ 0.639949E 00 0.510142E 00
+ 0.699329E 00 0.385973E 00
+ 0.752884E 00 0.229702E 00
+ 0.812243E 00 0.139333E 00
+ 0.881328E 00 0.489648E-01
+ 0.938724E 00 0.843113E-02
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   406-------------
+----------------- FILE NUMBER   407-----------------
+ 0.840502E 00 0.449210E-01
+-0.568876E-02 0.948854E-03
+ 0.000000E 00 0.733051E 00
+ 0.256714E-01 0.764872E 00
+ 0.843329E-01 0.856787E 00
+ 0.142095E 00 0.897462E 00
+ 0.198025E 00 0.944312E 00
+ 0.253953E 00 0.100000E 01
+ 0.309899E 00 0.995609E 00
+ 0.373193E 00 0.973536E 00
+ 0.429158E 00 0.912590E 00
+ 0.484206E 00 0.874611E 00
+ 0.542941E 00 0.791566E 00
+ 0.603520E 00 0.666116E 00
+ 0.662282E 00 0.502660E 00
+ 0.712763E 00 0.405476E 00
+ 0.771543E 00 0.212870E 00
+ 0.832113E 00 0.120988E 00
+ 0.889931E 00 0.335341E-01
+ 0.944053E 00 0.880980E-02
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   407-------------
+----------------- FILE NUMBER   408-----------------
+ 0.944498E 00 0.415794E-01
+-0.568100E-02 0.639952E-03
+ 0.000000E 00 0.777816E 00
+ 0.129011E 00 0.906000E 00
+ 0.226176E 00 0.100000E 01
+ 0.276001E 00 0.998131E 00
+ 0.332358E 00 0.995303E 00
+ 0.487589E 00 0.882436E 00
+ 0.537421E 00 0.840694E 00
+ 0.589736E 00 0.737261E 00
+ 0.637371E 00 0.200000E 01
+ 0.687032E 00 0.431697E 00
+ 0.742614E 00 0.306446E 00
+ 0.794929E 00 0.190674E 00
+ 0.842328E 00 0.103376E 00
+ 0.890534E 00 0.550004E-01
+ 0.944450E 00 0.218009E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   408-------------
+----------------- FILE NUMBER   409-----------------
+ 0.100968E 01 0.368417E-01
+-0.335272E-02 0.172907E-02
+ 0.000000E 00 0.864806E 00
+ 0.444343E-01 0.884748E 00
+ 0.896193E-01 0.920182E 00
+ 0.141707E 00 0.968906E 00
+ 0.188432E 00 0.979993E 00
+ 0.235173E 00 0.961213E 00
+ 0.285728E 00 0.999969E 00
+ 0.338590E 00 0.100000E 01
+ 0.381492E 00 0.988958E 00
+ 0.427466E 00 0.957995E 00
+ 0.476505E 00 0.924830E 00
+ 0.525551E 00 0.868415E 00
+ 0.571548E 00 0.766631E 00
+ 0.616764E 00 0.708014E 00
+ 0.639763E 00 0.640522E 00
+ 0.667358E 00 0.589629E 00
+ 0.720258E 00 0.432526E 00
+ 0.766263E 00 0.303074E 00
+ 0.811486E 00 0.207930E 00
+ 0.858234E 00 0.142674E 00
+ 0.908821E 00 0.619145E-01
+ 0.955561E 00 0.364957E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   409-------------
+----------------- FILE NUMBER   410-----------------
+ 0.103528E 01 0.315177E-01
+-0.332168E-02 0.351682E-02
+ 0.000000E 00 0.894332E 00
+ 0.186812E-01 0.897121E 00
+ 0.702339E-01 0.915188E 00
+ 0.115816E 00 0.929106E 00
+ 0.165126E 00 0.949948E 00
+ 0.206973E 00 0.968015E 00
+ 0.252548E 00 0.981933E 00
+ 0.305602E 00 0.100000E 01
+ 0.351184E 00 0.993104E 00
+ 0.394524E 00 0.988968E 00
+ 0.440114E 00 0.973733E 00
+ 0.489440E 00 0.940470E 00
+ 0.537272E 00 0.901642E 00
+ 0.578609E 00 0.200000E 01
+ 0.623975E 00 0.764336E 00
+ 0.675557E 00 0.658900E 00
+ 0.721177E 00 0.506301E 00
+ 0.766767E 00 0.457760E 00
+ 0.812378E 00 0.299597E 00
+ 0.861720E 00 0.202501E 00
+ 0.908811E 00 0.137309E 00
+ 0.952921E 00 0.346635E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   410-------------
+----------------- FILE NUMBER   411-----------------
+ 0.126812E 01 0.291487E-01
+-0.176173E-02 0.161756E-02
+ 0.000000E 00 0.939058E 00
+ 0.140565E-01 0.939073E 00
+ 0.531704E-01 0.941924E 00
+ 0.965623E-01 0.946199E 00
+ 0.132003E 00 0.957521E 00
+ 0.166228E 00 0.981541E 00
+ 0.206558E 00 0.992873E 00
+ 0.248728E 00 0.992917E 00
+ 0.286008E 00 0.100000E 01
+ 0.319622E 00 0.992971E 00
+ 0.360575E 00 0.978900E 00
+ 0.399078E 00 0.957760E 00
+ 0.439420E 00 0.935204E 00
+ 0.473651E 00 0.895733E 00
+ 0.510937E 00 0.846363E 00
+ 0.551291E 00 0.763123E 00
+ 0.589807E 00 0.674249E 00
+ 0.627106E 00 0.576897E 00
+ 0.664398E 00 0.506373E 00
+ 0.703530E 00 0.373734E 00
+ 0.743879E 00 0.304624E 00
+ 0.778116E 00 0.236906E 00
+ 0.816629E 00 0.172013E 00
+ 0.856971E 00 0.129716E 00
+ 0.896093E 00 0.902265E-01
+ 0.933380E 00 0.465033E-01
+ 0.968832E 00 0.183193E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   411-------------
+----------------- FILE NUMBER   412-----------------
+ 0.791036E 00 0.335574E-01
+ 0.404738E 00 0.139527E-02
+ 0.000000E 00 0.100000E 01
+ 0.127614E 00 0.896335E 00
+ 0.265355E 00 0.820335E 00
+ 0.396973E 00 0.719076E 00
+ 0.512319E 00 0.566126E 00
+ 0.627645E 00 0.407172E 00
+ 0.758860E 00 0.220521E 00
+ 0.896303E 00 0.795606E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   412-------------
+----------------- FILE NUMBER   413-----------------
+ 0.671883E 00 0.359406E-01
+-0.246641E-02-0.576367E-04
+ 0.000000E 00 0.305713E 00
+ 0.649285E-01 0.543019E 00
+ 0.141551E 00 0.852290E 00
+ 0.217544E 00 0.959542E 00
+ 0.295577E 00 0.981905E 00
+ 0.357548E 00 0.100000E 01
+ 0.429711E 00 0.976166E 00
+ 0.508581E 00 0.898581E 00
+ 0.638760E 00 0.724159E 00
+ 0.710637E 00 0.608986E 00
+ 0.792659E 00 0.436831E 00
+ 0.861968E 00 0.229258E 00
+ 0.924603E 00 0.904674E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   413-------------
+----------------- FILE NUMBER   414-----------------
+ 0.768529E 00 0.321180E-01
+-0.139170E-02 0.618918E-05
+ 0.000000E 00 0.927373E 00
+ 0.582747E-01 0.936805E 00
+ 0.122615E 00 0.966704E 00
+ 0.190952E 00 0.988145E 00
+ 0.250230E 00 0.100000E 01
+ 0.311458E 00 0.987737E 00
+ 0.377696E 00 0.973054E 00
+ 0.440911E 00 0.951152E 00
+ 0.502079E 00 0.913605E 00
+ 0.560162E 00 0.845941E 00
+ 0.624161E 00 0.732491E 00
+ 0.693141E 00 0.600947E 00
+ 0.750894E 00 0.392354E 00
+ 0.808736E 00 0.224709E 00
+ 0.877665E 00 0.739030E-01
+ 0.935821E 00 0.375600E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   414-------------
+----------------- FILE NUMBER   415-----------------
+ 0.709830E 00 0.286838E-01
+ 0.317385E-01 0.109742E-02
+ 0.000000E 00 0.965461E 00
+ 0.342064E-01 0.962532E 00
+ 0.147167E 00 0.100000E 01
+ 0.188214E 00 0.999844E 00
+ 0.289693E 00 0.999492E 00
+ 0.430887E 00 0.917659E 00
+ 0.468479E 00 0.899305E 00
+ 0.567392E 00 0.778362E 00
+ 0.599238E 00 0.743196E 00
+ 0.754809E 00 0.469213E 00
+ 0.858032E 00 0.236079E 00
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   415-------------
+----------------- FILE NUMBER   416-----------------
+ 0.723685E 00 0.254642E-01
+-0.154634E-03 0.123784E-04
+ 0.000000E 00 0.953964E 00
+ 0.577120E-01 0.973495E 00
+ 0.114313E 00 0.968709E 00
+ 0.195546E 00 0.992692E 00
+ 0.266054E 00 0.100000E 01
+ 0.329021E 00 0.972387E 00
+ 0.399509E 00 0.967539E 00
+ 0.458160E 00 0.917153E 00
+ 0.542331E 00 0.813455E 00
+ 0.601944E 00 0.708347E 00
+ 0.645589E 00 0.635213E 00
+ 0.737108E 00 0.464628E 00
+ 0.799882E 00 0.341262E 00
+ 0.877484E 00 0.155524E 00
+ 0.931798E 00 0.778000E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   416-------------
+----------------- FILE NUMBER   417-----------------
+ 0.727589E 00 0.271276E-01
+ 0.431969E-01 0.630909E-03
+ 0.000000E 00 0.930727E 00
+ 0.723695E-01 0.962580E 00
+ 0.143598E 00 0.988598E 00
+ 0.218194E 00 0.100000E 01
+ 0.284790E 00 0.973472E 00
+ 0.355837E 00 0.917733E 00
+ 0.430218E 00 0.840082E 00
+ 0.504598E 00 0.753671E 00
+ 0.562055E 00 0.683391E 00
+ 0.633001E 00 0.582397E 00
+ 0.847862E 00 0.166983E 00
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   417-------------
+----------------- FILE NUMBER   418-----------------
+ 0.775027E 00 0.283560E-01
+-0.186809E-02-0.149641E-03
+ 0.000000E 00 0.912765E 00
+ 0.587032E-01 0.929856E 00
+ 0.121560E 00 0.980818E 00
+ 0.185171E 00 0.982933E 00
+ 0.245862E 00 0.100000E 01
+ 0.308460E 00 0.999414E 00
+ 0.368862E 00 0.956795E 00
+ 0.438991E 00 0.873400E 00
+ 0.497218E 00 0.794181E 00
+ 0.554312E 00 0.686479E 00
+ 0.622335E 00 0.578680E 00
+ 0.682310E 00 0.451975E 00
+ 0.744282E 00 0.326596E 00
+ 0.801376E 00 0.218892E 00
+ 0.864471E 00 0.119287E 00
+ 0.932652E 00 0.454009E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   418-------------
+----------------- FILE NUMBER   419-----------------
+ 0.890810E 00 0.303813E-01
+ 0.185729E-01-0.189468E-03
+ 0.000000E 00 0.941984E 00
+ 0.558176E-01 0.954087E 00
+ 0.114245E 00 0.957312E 00
+ 0.171037E 00 0.988378E 00
+ 0.225067E 00 0.997965E 00
+ 0.276407E 00 0.100000E 01
+ 0.334649E 00 0.964018E 00
+ 0.392954E 00 0.940669E 00
+ 0.443851E 00 0.850373E 00
+ 0.499190E 00 0.763820E 00
+ 0.557034E 00 0.645622E 00
+ 0.614127E 00 0.553995E 00
+ 0.663812E 00 0.394134E 00
+ 0.717221E 00 0.274721E 00
+ 0.776898E 00 0.169146E 00
+ 0.834149E 00 0.111672E 00
+ 0.884241E 00 0.365536E-01
+ 0.937306E 00 0.284461E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   419-------------
+----------------- FILE NUMBER   420-----------------
+ 0.100662E 01 0.322459E-01
+-0.122738E-02-0.112907E-03
+ 0.000000E 00 0.948725E 00
+ 0.428920E-01 0.948271E 00
+ 0.934968E-01 0.959671E 00
+ 0.142608E 00 0.980664E 00
+ 0.190923E 00 0.994477E 00
+ 0.233838E 00 0.100000E 01
+ 0.284367E 00 0.993486E 00
+ 0.337039E 00 0.953490E 00
+ 0.383654E 00 0.929092E 00
+ 0.425558E 00 0.877267E 00
+ 0.522241E 00 0.742395E 00
+ 0.570739E 00 0.623568E 00
+ 0.614796E 00 0.540650E 00
+ 0.668648E 00 0.419388E 00
+ 0.719621E 00 0.339973E 00
+ 0.765185E 00 0.251057E 00
+ 0.856591E 00 0.135363E 00
+ 0.908514E 00 0.977702E-01
+ 0.955082E 00 0.638097E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   420-------------
+----------------- FILE NUMBER   421-----------------
+ 0.115559E 01 0.314443E-01
+-0.267091E-02-0.279948E-03
+ 0.000000E 00 0.994919E 00
+ 0.406610E-01 0.996854E 00
+ 0.813285E-01 0.100000E 01
+ 0.125296E 00 0.995795E 00
+ 0.163950E 00 0.995306E 00
+ 0.204571E 00 0.985046E 00
+ 0.245179E 00 0.972355E 00
+ 0.292425E 00 0.953477E 00
+ 0.332973E 00 0.924931E 00
+ 0.412015E 00 0.853251E 00
+ 0.461140E 00 0.800219E 00
+ 0.498229E 00 0.737595E 00
+ 0.536511E 00 0.637173E 00
+ 0.579584E 00 0.572028E 00
+ 0.625870E 00 0.472728E 00
+ 0.666278E 00 0.407617E 00
+ 0.703320E 00 0.332804E 00
+ 0.746954E 00 0.238406E 00
+ 0.788741E 00 0.183034E 00
+ 0.831141E 00 0.116680E 00
+ 0.869692E 00 0.881709E-01
+ 0.910193E 00 0.474375E-01
+ 0.956012E 00 0.548480E-03
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   421-------------
+----------------- FILE NUMBER   422-----------------
+ 0.124591E 01 0.301509E-01
+-0.129686E-02-0.194881E-03
+ 0.000000E 00 0.997795E 00
+ 0.115134E 00 0.100000E 01
+ 0.188738E 00 0.984937E 00
+ 0.306212E 00 0.947604E 00
+ 0.343862E 00 0.915227E 00
+ 0.383467E 00 0.912116E 00
+ 0.422269E 00 0.855505E 00
+ 0.461719E 00 0.806523E 00
+ 0.497469E 00 0.761430E 00
+ 0.536889E 00 0.702255E 00
+ 0.578748E 00 0.634137E 00
+ 0.618100E 00 0.555849E 00
+ 0.653738E 00 0.477611E 00
+ 0.691183E 00 0.384072E 00
+ 0.733692E 00 0.323585E 00
+ 0.771224E 00 0.255517E 00
+ 0.804619E 00 0.248674E 00
+ 0.844548E 00 0.157645E 00
+ 0.887108E 00 0.111175E 00
+ 0.924728E 00 0.724134E-01
+ 0.962356E 00 0.323776E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   422-------------
+----------------- FILE NUMBER   423-----------------
+ 0.129873E 01 0.297600E-01
+-0.136633E-02 0.214563E-02
+ 0.000000E 00 0.993529E 00
+ 0.332741E-01 0.100000E 01
+ 0.712745E-01 0.999384E 00
+ 0.110456E 00 0.998754E 00
+ 0.147863E 00 0.998150E 00
+ 0.182259E 00 0.983588E 00
+ 0.220259E 00 0.982973E 00
+ 0.256449E 00 0.972583E 00
+ 0.405238E 00 0.887573E 00
+ 0.444272E 00 0.833735E 00
+ 0.477308E 00 0.758988E 00
+ 0.516360E 00 0.712150E 00
+ 0.555393E 00 0.658297E 00
+ 0.591422E 00 0.593313E 00
+ 0.629239E 00 0.529683E 00
+ 0.663516E 00 0.474527E 00
+ 0.704278E 00 0.402445E 00
+ 0.741488E 00 0.333231E 00
+ 0.774563E 00 0.273887E 00
+ 0.810606E 00 0.213103E 00
+ 0.852557E 00 0.141005E 00
+ 0.890492E 00 0.119385E 00
+ 0.921829E 00 0.726726E-01
+ 0.960910E 00 0.356362E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   423-------------
+----------------- FILE NUMBER   424-----------------
+ 0.839564E 00 0.346590E-01
+ 0.407058E 00 0.145997E-02
+ 0.000000E 00 0.100000E 01
+ 0.104225E 00 0.987753E 00
+ 0.207095E 00 0.940733E 00
+ 0.325665E 00 0.843203E 00
+ 0.443753E 00 0.697024E 00
+ 0.556175E 00 0.444204E 00
+ 0.657371E 00 0.199188E 00
+ 0.763770E 00 0.966964E-01
+ 0.885190E 00 0.385975E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   424-------------
+----------------- FILE NUMBER   425-----------------
+ 0.715706E 00 0.363271E-01
+-0.333711E-02 0.129024E-03
+ 0.000000E 00 0.261674E 00
+ 0.692619E-01 0.555429E 00
+ 0.131685E 00 0.832974E 00
+ 0.196328E 00 0.903572E 00
+ 0.268312E 00 0.952169E 00
+ 0.339803E 00 0.986941E 00
+ 0.399334E 00 0.100000E 01
+ 0.465905E 00 0.972993E 00
+ 0.537235E 00 0.909023E 00
+ 0.603722E 00 0.806633E 00
+ 0.668450E 00 0.618165E 00
+ 0.730841E 00 0.382884E 00
+ 0.801282E 00 0.186165E 00
+ 0.873619E 00 0.978189E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   425-------------
+----------------- FILE NUMBER   426-----------------
+ 0.815203E 00 0.343104E-01
+-0.312131E-02 0.814079E-04
+ 0.000000E 00 0.813713E 00
+ 0.577510E-01 0.942312E 00
+ 0.112177E 00 0.976441E 00
+ 0.171774E 00 0.970393E 00
+ 0.236193E 00 0.988153E 00
+ 0.295676E 00 0.985471E 00
+ 0.350998E 00 0.993806E 00
+ 0.408279E 00 0.100000E 01
+ 0.466386E 00 0.982643E 00
+ 0.530787E 00 0.919574E 00
+ 0.583999E 00 0.825630E 00
+ 0.641636E 00 0.685869E 00
+ 0.704228E 00 0.457650E 00
+ 0.768148E 00 0.218279E 00
+ 0.827038E 00 0.965468E-01
+ 0.849971E 00 0.606139E-01
+ 0.904069E 00 0.228634E-01
+ 0.964239E 00 0.000000E 00
+ 0.100000E 01 0.176132E-02
+-------------- END OF FILE NUMBER   426-------------
+----------------- FILE NUMBER   427-----------------
+ 0.689310E 00 0.314250E-01
+ 0.235678E-01 0.126605E-02
+ 0.000000E 00 0.835100E 00
+ 0.708713E-01 0.922434E 00
+ 0.137297E 00 0.973872E 00
+ 0.217545E 00 0.996638E 00
+ 0.291565E 00 0.100000E 01
+ 0.359611E 00 0.977615E 00
+ 0.428237E 00 0.970536E 00
+ 0.499895E 00 0.944484E 00
+ 0.574344E 00 0.905816E 00
+ 0.645297E 00 0.805816E 00
+ 0.712868E 00 0.672532E 00
+ 0.787467E 00 0.475854E 00
+ 0.865075E 00 0.229618E 00
+ 0.941468E 00 0.776174E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   427-------------
+----------------- FILE NUMBER   428-----------------
+ 0.763327E 00 0.305426E-01
+ 0.243771E-01 0.130291E-02
+ 0.000000E 00 0.762884E 00
+ 0.611591E-01 0.839673E 00
+ 0.123539E 00 0.942817E 00
+ 0.190674E 00 0.996255E 00
+ 0.262575E 00 0.100000E 01
+ 0.322357E 00 0.959733E 00
+ 0.383570E 00 0.939261E 00
+ 0.448557E 00 0.899270E 00
+ 0.519185E 00 0.846424E 00
+ 0.580469E 00 0.760233E 00
+ 0.640961E 00 0.603033E 00
+ 0.708681E 00 0.415968E 00
+ 0.778924E 00 0.215890E 00
+ 0.845892E 00 0.115543E 00
+ 0.935452E 00 0.268830E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   428-------------
+----------------- FILE NUMBER   429-----------------
+ 0.626683E 00 0.308740E-01
+-0.340647E-02 0.609484E-02
+ 0.000000E 00 0.707617E 00
+ 0.802631E-01 0.724232E 00
+ 0.226099E 00 0.944365E 00
+ 0.311206E 00 0.100000E 01
+ 0.388449E 00 0.996295E 00
+ 0.464663E 00 0.949090E 00
+ 0.533490E 00 0.865843E 00
+ 0.613912E 00 0.764584E 00
+ 0.688035E 00 0.669202E 00
+ 0.761315E 00 0.524153E 00
+ 0.835412E 00 0.354320E 00
+ 0.919945E 00 0.164871E 00
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   429-------------
+----------------- FILE NUMBER   430-----------------
+ 0.850648E 00 0.331442E-01
+ 0.197017E-01-0.552177E-04
+ 0.000000E 00 0.737827E 00
+ 0.661552E-01 0.812066E 00
+ 0.123003E 00 0.882853E 00
+ 0.149103E 00 0.915339E 00
+ 0.177080E 00 0.959454E 00
+ 0.234802E 00 0.100000E 01
+ 0.295202E 00 0.982367E 00
+ 0.359265E 00 0.932168E 00
+ 0.413035E 00 0.849425E 00
+ 0.467745E 00 0.769011E 00
+ 0.528879E 00 0.647873E 00
+ 0.590032E 00 0.532543E 00
+ 0.646434E 00 0.367221E 00
+ 0.697322E 00 0.233315E 00
+ 0.756634E 00 0.127300E 00
+ 0.822519E 00 0.619694E-01
+ 0.877322E 00 0.292400E-01
+ 0.931195E 00 0.000000E 00
+ 0.100000E 01 0.212845E-02
+-------------- END OF FILE NUMBER   430-------------
+----------------- FILE NUMBER   431-----------------
+ 0.799725E 00 0.363815E-01
+ 0.213860E-01 0.141133E-02
+ 0.000000E 00 0.745760E 00
+ 0.635986E-01 0.776512E 00
+ 0.126284E 00 0.849223E 00
+ 0.187005E 00 0.927455E 00
+ 0.247665E 00 0.980303E 00
+ 0.313228E 00 0.100000E 01
+ 0.373751E 00 0.988805E 00
+ 0.437171E 00 0.935637E 00
+ 0.494625E 00 0.881379E 00
+ 0.559882E 00 0.758634E 00
+ 0.623182E 00 0.651363E 00
+ 0.685392E 00 0.496611E 00
+ 0.740612E 00 0.323109E 00
+ 0.810782E 00 0.177179E 00
+ 0.863193E 00 0.842829E-01
+ 0.928629E 00 0.476681E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   431-------------
+----------------- FILE NUMBER   432-----------------
+ 0.100749E 01 0.370743E-01
+-0.397123E-02-0.803167E-04
+ 0.000000E 00 0.819040E 00
+ 0.504529E-01 0.842789E 00
+ 0.100913E 00 0.870684E 00
+ 0.143759E 00 0.907960E 00
+ 0.188902E 00 0.950426E 00
+ 0.240906E 00 0.986634E 00
+ 0.287524E 00 0.100000E 01
+ 0.337931E 00 0.994636E 00
+ 0.382953E 00 0.970588E 00
+ 0.428693E 00 0.915362E 00
+ 0.481232E 00 0.817503E 00
+ 0.527644E 00 0.714458E 00
+ 0.571795E 00 0.627015E 00
+ 0.618168E 00 0.496959E 00
+ 0.672944E 00 0.369992E 00
+ 0.720869E 00 0.256555E 00
+ 0.763462E 00 0.151453E 00
+ 0.811508E 00 0.105569E 00
+ 0.861825E 00 0.472142E-01
+ 0.908420E 00 0.470584E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   432-------------
+----------------- FILE NUMBER   433-----------------
+ 0.106003E 01 0.336376E-01
+-0.167657E-02-0.864949E-04
+ 0.000000E 00 0.887656E 00
+ 0.422071E-01 0.889785E 00
+ 0.902724E-01 0.913646E 00
+ 0.136874E 00 0.934083E 00
+ 0.177663E 00 0.959124E 00
+ 0.225729E 00 0.982985E 00
+ 0.271603E 00 0.100000E 01
+ 0.318162E 00 0.988367E 00
+ 0.362516E 00 0.967599E 00
+ 0.406113E 00 0.923927E 00
+ 0.454811E 00 0.885960E 00
+ 0.502731E 00 0.810207E 00
+ 0.524504E 00 0.774633E 00
+ 0.589045E 00 0.623255E 00
+ 0.636971E 00 0.553236E 00
+ 0.683378E 00 0.443146E 00
+ 0.723219E 00 0.320483E 00
+ 0.767493E 00 0.242452E 00
+ 0.817603E 00 0.174714E 00
+ 0.863384E 00 0.131033E 00
+ 0.906188E 00 0.438531E-01
+ 0.952002E 00 0.230716E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   433-------------
+----------------- FILE NUMBER   434-----------------
+ 0.120141E 01 0.318548E-01
+-0.170748E-02-0.213920E-03
+ 0.000000E 00 0.919385E 00
+ 0.372527E-01 0.921628E 00
+ 0.796427E-01 0.931067E 00
+ 0.118841E 00 0.948960E 00
+ 0.158027E 00 0.960831E 00
+ 0.200430E 00 0.976291E 00
+ 0.244765E 00 0.994162E 00
+ 0.283945E 00 0.100000E 01
+ 0.321178E 00 0.987804E 00
+ 0.358405E 00 0.975593E 00
+ 0.443705E 00 0.886107E 00
+ 0.477677E 00 0.837798E 00
+ 0.519996E 00 0.784625E 00
+ 0.562271E 00 0.696545E 00
+ 0.603209E 00 0.573547E 00
+ 0.638439E 00 0.499939E 00
+ 0.680707E 00 0.408236E 00
+ 0.719765E 00 0.316556E 00
+ 0.762058E 00 0.245322E 00
+ 0.799882E 00 0.193377E 00
+ 0.839010E 00 0.159494E 00
+ 0.884508E 00 0.834317E-01
+ 0.933265E 00 0.434797E-01
+ 0.962755E 00 0.000000E 00
+ 0.100000E 01 0.345574E-02
+-------------- END OF FILE NUMBER   434-------------
+----------------- FILE NUMBER   435-----------------
+ 0.127790E 01 0.292380E-01
+ 0.214246E-01-0.112366E-03
+ 0.000000E 00 0.966781E 00
+ 0.393601E-01 0.970528E 00
+ 0.781053E-01 0.976910E 00
+ 0.115621E 00 0.983291E 00
+ 0.153136E 00 0.989683E 00
+ 0.193732E 00 0.100000E 01
+ 0.236161E 00 0.999789E 00
+ 0.271820E 00 0.993026E 00
+ 0.345571E 00 0.962399E 00
+ 0.389192E 00 0.925340E 00
+ 0.424814E 00 0.890948E 00
+ 0.438951E 00 0.881674E 00
+ 0.459218E 00 0.857886E 00
+ 0.501561E 00 0.781369E 00
+ 0.542034E 00 0.683803E 00
+ 0.579445E 00 0.592843E 00
+ 0.615066E 00 0.553191E 00
+ 0.655551E 00 0.466163E 00
+ 0.696056E 00 0.393592E 00
+ 0.731628E 00 0.307893E 00
+ 0.769100E 00 0.274819E 00
+ 0.809602E 00 0.200934E 00
+ 0.848951E 00 0.194159E 00
+ 0.886397E 00 0.140034E 00
+ 0.918932E 00 0.898696E-01
+ 0.961297E 00 0.370346E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   435-------------
+----------------- FILE NUMBER   436-----------------
+ 0.787309E 00 0.100460E-02
+ 0.408829E 00 0.690983E-06
+ 0.000000E 00 0.100000E 01
+ 0.124464E 00 0.795055E 00
+ 0.255073E 00 0.603254E 00
+ 0.389743E 00 0.419958E 00
+ 0.514207E 00 0.239758E 00
+ 0.626445E 00 0.105966E 00
+ 0.757073E 00 0.216618E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   436-------------
+----------------- FILE NUMBER   437-----------------
+ 0.673000E 00 0.122700E 02
+ 0.000000E 00 0.170000E-04
+ 0.000000E 00 0.000000E 00
+ 0.139673E 00 0.766911E 00
+ 0.215453E 00 0.933170E 00
+ 0.289747E 00 0.970660E 00
+ 0.355126E 00 0.100000E 01
+ 0.423477E 00 0.947025E 00
+ 0.500743E 00 0.814181E 00
+ 0.566122E 00 0.674001E 00
+ 0.635958E 00 0.513447E 00
+ 0.711738E 00 0.337407E 00
+ 0.781575E 00 0.144253E 00
+ 0.852897E 00 0.268935E-01
+ 0.925706E 00 0.813611E-03
+ 0.100000E 01 0.162861E-02
+-------------- END OF FILE NUMBER   437-------------
+----------------- FILE NUMBER   438-----------------
+ 0.647000E 00 0.959000E 01
+ 0.250000E-01 0.290000E-03
+ 0.000000E 00 0.000000E 00
+ 0.691319E-01 0.594357E 00
+ 0.155948E 00 0.839411E 00
+ 0.228296E 00 0.948904E 00
+ 0.305466E 00 0.100000E 01
+ 0.382637E 00 0.963502E 00
+ 0.463022E 00 0.898850E 00
+ 0.541801E 00 0.845668E 00
+ 0.620579E 00 0.729919E 00
+ 0.692926E 00 0.598528E 00
+ 0.770096E 00 0.425426E 00
+ 0.848875E 00 0.236682E 00
+ 0.921222E 00 0.792214E-01
+ 0.100000E 01 0.145687E-01
+-------------- END OF FILE NUMBER   438-------------
+----------------- FILE NUMBER   439-----------------
+ 0.720000E 00 0.700000E 01
+ 0.000000E 00 0.121000E-03
+ 0.000000E 00 0.000000E 00
+ 0.597222E-01 0.462848E 00
+ 0.133333E 00 0.817140E 00
+ 0.197222E 00 0.928570E 00
+ 0.262500E 00 0.978571E 00
+ 0.331944E 00 0.100000E 01
+ 0.394444E 00 0.961428E 00
+ 0.472222E 00 0.871426E 00
+ 0.534722E 00 0.749996E 00
+ 0.600000E 00 0.582850E 00
+ 0.662500E 00 0.385704E 00
+ 0.734722E 00 0.225701E 00
+ 0.798611E 00 0.132842E 00
+ 0.865278E 00 0.528408E-01
+ 0.100000E 01 0.283991E-02
+-------------- END OF FILE NUMBER   439-------------
+----------------- FILE NUMBER   440-----------------
+ 0.745000E 00 0.563000E 01
+ 0.200000E-01 0.000000E 00
+ 0.000000E 00 0.170515E-04
+ 0.703447E-01 0.511545E 00
+ 0.135172E 00 0.783304E 00
+ 0.204138E 00 0.966252E 00
+ 0.273103E 00 0.100000E 01
+ 0.332414E 00 0.985790E 00
+ 0.404138E 00 0.925400E 00
+ 0.464828E 00 0.861457E 00
+ 0.536552E 00 0.765542E 00
+ 0.604138E 00 0.611012E 00
+ 0.667586E 00 0.415631E 00
+ 0.733793E 00 0.200710E 00
+ 0.797241E 00 0.568384E-01
+ 0.862069E 00 0.888099E-02
+ 0.931034E 00 0.000000E 00
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   440-------------
+----------------- FILE NUMBER   441-----------------
+ 0.577000E 00 0.600000E 01
+ 0.460000E-01 0.228000E-03
+ 0.000000E 00 0.000000E 00
+ 0.903954E-01 0.696655E 00
+ 0.178908E 00 0.891663E 00
+ 0.271186E 00 0.100000E 01
+ 0.365348E 00 0.995000E 00
+ 0.453861E 00 0.898329E 00
+ 0.542373E 00 0.816660E 00
+ 0.636535E 00 0.688321E 00
+ 0.725047E 00 0.531649E 00
+ 0.811676E 00 0.391643E 00
+ 0.907721E 00 0.209970E 00
+ 0.100000E 01 0.116633E 00
+-------------- END OF FILE NUMBER   441-------------
+----------------- FILE NUMBER   442-----------------
+ 0.722000E 00 0.708000E 01
+ 0.460000E-01 0.217000E-03
+ 0.000000E 00 0.000000E 00
+ 0.724852E-01 0.700556E 00
+ 0.143491E 00 0.901127E 00
+ 0.214497E 00 0.966101E 00
+ 0.286982E 00 0.100000E 01
+ 0.355030E 00 0.926551E 00
+ 0.426035E 00 0.862990E 00
+ 0.500000E 00 0.707618E 00
+ 0.569527E 00 0.556483E 00
+ 0.640532E 00 0.395462E 00
+ 0.711538E 00 0.234440E 00
+ 0.784024E 00 0.115792E 00
+ 0.853550E 00 0.366936E-01
+ 0.926035E 00 0.985665E-02
+ 0.100000E 01 0.138182E-02
+-------------- END OF FILE NUMBER   442-------------
+----------------- FILE NUMBER   443-----------------
+ 0.747000E 00 0.801000E 01
+ 0.240000E-01 0.000000E 00
+ 0.000000E 00 0.124844E-04
+ 0.650069E-01 0.418227E 00
+ 0.134163E 00 0.659176E 00
+ 0.201936E 00 0.905119E 00
+ 0.266943E 00 0.916355E 00
+ 0.337483E 00 0.100000E 01
+ 0.401106E 00 0.931336E 00
+ 0.467496E 00 0.880150E 00
+ 0.531120E 00 0.817728E 00
+ 0.593361E 00 0.656679E 00
+ 0.666667E 00 0.461923E 00
+ 0.728907E 00 0.297129E 00
+ 0.802213E 00 0.156055E 00
+ 0.860304E 00 0.599251E-01
+ 0.928077E 00 0.212235E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   443-------------
+----------------- FILE NUMBER   444-----------------
+ 0.747000E 00 0.800000E 01
+ 0.240000E-01 0.000000E 00
+ 0.000000E 00 0.207500E-04
+ 0.829875E-01 0.421250E 00
+ 0.132780E 00 0.657500E 00
+ 0.199170E 00 0.902500E 00
+ 0.329184E 00 0.100000E 01
+ 0.362379E 00 0.997500E 00
+ 0.403873E 00 0.936250E 00
+ 0.464730E 00 0.875000E 00
+ 0.594744E 00 0.652500E 00
+ 0.666667E 00 0.460000E 00
+ 0.731674E 00 0.297500E 00
+ 0.796681E 00 0.158750E 00
+ 0.863071E 00 0.600000E-01
+ 0.929461E 00 0.187500E-01
+ 0.100000E 01 0.000000E 00
+-------------- END OF FILE NUMBER   444-------------
+----------------- FILE NUMBER   445-----------------
+ 0.986000E 00 0.760000E 01
+ 0.220000E-01 0.114000E-03
+ 0.000000E 00 0.000000E 00
+ 0.508299E-01 0.361832E 00
+ 0.102697E 00 0.567099E 00
+ 0.152490E 00 0.731575E 00
+ 0.202282E 00 0.828945E 00
+ 0.252075E 00 0.901314E 00
+ 0.300830E 00 0.959210E 00
+ 0.352697E 00 0.100000E 01
+ 0.401452E 00 0.940788E 00
+ 0.448133E 00 0.884209E 00
+ 0.501037E 00 0.799997E 00
+ 0.548755E 00 0.661837E 00
+ 0.599585E 00 0.557888E 00
+ 0.652490E 00 0.411833E 00
+ 0.702282E 00 0.260515E 00
+ 0.748963E 00 0.155250E 00
+ 0.798755E 00 0.841967E-01
+ 0.849585E 00 0.394593E-01
+ 0.900415E 00 0.223538E-01
+ 0.949170E 00 0.130081E-02
+ 0.100000E 01 0.261662E-02
+-------------- END OF FILE NUMBER   445-------------
+----------------- FILE NUMBER   446-----------------
+ 0.110400E 01 0.548000E 01
+ 0.470000E-01 0.128000E-03
+ 0.000000E 00 0.000000E 00
+ 0.454116E-01 0.461666E 00
+ 0.889309E-01 0.614954E 00
+ 0.138127E 00 0.704373E 00
+ 0.181646E 00 0.817514E 00
+ 0.227058E 00 0.939780E 00
+ 0.272469E 00 0.948904E 00
+ 0.317881E 00 0.100000E 01
+ 0.363293E 00 0.976277E 00
+ 0.409650E 00 0.941604E 00
+ 0.455062E 00 0.877734E 00
+ 0.499527E 00 0.771892E 00
+ 0.544939E 00 0.673350E 00
+ 0.591296E 00 0.582107E 00
+ 0.637654E 00 0.414220E 00
+ 0.727531E 00 0.197061E 00
+ 0.775781E 00 0.124067E 00
+ 0.817408E 00 0.820953E-01
+ 0.863766E 00 0.401236E-01
+ 0.908231E 00 0.200501E-01
+ 0.954588E 00 0.127507E-01
+ 0.100000E 01 0.180150E-02
+-------------- END OF FILE NUMBER   446-------------
+----------------- FILE NUMBER   447-----------------
+ 0.120200E 01 0.347000E 01
+ 0.470000E-01 0.720000E-04
+ 0.000000E 00 0.000000E 00
+ 0.805195E-01 0.533131E 00
+ 0.168831E 00 0.763684E 00
+ 0.251082E 00 0.904897E 00
+ 0.333334E 00 0.100000E 01
+ 0.416451E 00 0.930834E 00
+ 0.499568E 00 0.769448E 00
+ 0.587014E 00 0.576360E 00
+ 0.624243E 00 0.475493E 00
+ 0.667533E 00 0.342926E 00
+ 0.752382E 00 0.195949E 00
+ 0.832036E 00 0.864363E-01
+ 0.915152E 00 0.316802E-01
+ 0.100000E 01 0.172707E-01
+-------------- END OF FILE NUMBER   447-------------
+00 0.864363E-01
+ 0.915152E 00 0.316802E-01
+ 0.100000E 01 0.172707E-01
+-------------- END OF FILE NUM

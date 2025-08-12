@@ -1,0 +1,332 @@
+\begin{document}
+
+\begin{equation}
+\frac{\partial \gamma}{\partial t} + u_j \frac{\partial \gamma}{\partial x_j} = P_\gamma  - D_\gamma  + \frac{\partial}{\partial x_j}\left[
+ \left( \nu + \frac{\nu_t}{\sigma_f}\right) \frac{\partial \gamma}{\partial x_j} \right]
+\end{equation}
+
+\begin{equation}
+\frac{\partial \widehat{Re}_{\theta,t}}{\partial t} + u_j \frac{\partial \widehat{Re}_{\theta,t} }{\partial x_j} = P_{\theta,t}  + \frac{\partial}{\partial x_j} \left[
+ \sigma_{\theta,t} \left( \nu + \nu_t \right) \frac{\partial \widehat{Re}_{\theta,t}}{\partial x_j} \right]
+\end{equation}
+
+\begin{equation}
+\gamma
+\end{equation}
+
+\begin{equation}
+P_\gamma = c_{a1} S \left[ \gamma  F_{onset} \right]^{0.5}  \left(1 - c_{e1} \gamma \right) F_{length}
+\end{equation}
+
+\begin{equation}
+D_\gamma = c_{a2} \Omega \gamma F_{turb} \left(c_{e2} \gamma -1\right)
+\end{equation}
+
+\begin{equation}
+P_\gamma
+\end{equation}
+
+\begin{equation}
+F_{onset}
+\end{equation}
+
+\begin{equation}
+F_{onset} =  max \left( F_{onset,2} - F_{onset,3}, 0  \right)
+\end{equation}
+
+\begin{equation}
+F_{onset,2} =  min \left( max \left( F_{onset,1} , F_{onset,1}^4  \right)  , 4\right)
+\end{equation}
+
+\begin{equation}
+F_{onset,3} =  max \left[\left( 2 - \left( \frac{R_T}{2.5}  \right)^3 \right), 0 \right]
+\end{equation}
+
+\begin{equation}
+F_{onset,1} = \frac{Re_\nu}{2.193 Re_{\theta,c}}
+\end{equation}
+
+\begin{equation}
+Re_\nu
+\end{equation}
+
+\begin{equation}
+R_T
+\end{equation}
+
+\begin{equation}
+Re_\nu  = \frac{S d^2}{\nu}
+\end{equation}
+
+\begin{equation}
+R_T = \frac{\nu_t}{\nu}
+\end{equation}
+
+\begin{equation}
+D_\gamma
+\end{equation}
+
+\begin{equation}
+F_{turb}
+\end{equation}
+
+\begin{equation}
+F_{turb} = \exp\left(-\frac{R_T}{4}\right)^4
+\end{equation}
+
+\begin{equation}
+\widehat{Re}_{\theta,t}
+\end{equation}
+
+\begin{equation}
+P_{\theta,t}  = \frac{c_{\theta,t}}{T} \left( Re_{\theta,t} - \widehat{Re_{\theta,t}} \right) \left(1- F_{\theta,t} \right)
+\end{equation}
+
+\begin{equation}
+F_{\theta,t} = min \left( 
+max \left( \exp\left(-\frac{d}{\delta}\right)^4 ,
+1 - \left( \frac{\gamma -1/c_{e2}}{1-1/c_{e2}} \right)^2 \right) , 1.0 \right)
+\end{equation}
+
+\begin{equation}
+\delta = \frac{375\Omega \nu \widehat{Re}_{\theta,t} d}{\left| U \right|^2}
+\end{equation}
+
+\begin{equation}
+U = \sqrt{u_i u_i}
+\end{equation}
+
+\begin{equation}
+T = \frac{500\nu}{\left| U \right|^2}
+\end{equation}
+
+\begin{equation}
+c_{a1}=2.0
+\end{equation}
+
+\begin{equation}
+c_{a2}=0.06
+\end{equation}
+
+\begin{equation}
+c_{e1}=1.0
+\end{equation}
+
+\begin{equation}
+c_{e2}=50
+\end{equation}
+
+\begin{equation}
+c_{\theta,t}=0.03
+\end{equation}
+
+\begin{equation}
+\sigma_{f}=1.0
+\end{equation}
+
+\begin{equation}
+\sigma_{\theta,t}=2.0
+\end{equation}
+
+\begin{equation}
+\frac{\partial \widehat \nu}{\partial t} + u_j \frac{\partial \widehat \nu}{\partial x_j} =
+P_{\widehat \nu} - D_{\widehat \nu} + 
+\frac{1}{\sigma} \left[ \frac{\partial}{\partial x_j}
+ \left( \left( \nu + \widehat \nu \right) \frac{\partial \widehat \nu}{\partial x_j} \right)
+ + {c_{b2}}\frac{\partial \widehat \nu}{\partial x_i} \frac{\partial \widehat \nu}{\partial x_i}
+ \right]
+\end{equation}
+
+\begin{equation}
+P_{\widehat \nu} = \gamma_{eff} \left( c_{b1}\widehat S \widehat \nu \right)
+\end{equation}
+
+\begin{equation}
+D_{\widehat \nu} = c_{w1} f_{w} \left( \frac{\widehat \nu}{{d}} \right)^2
+\end{equation}
+
+\begin{equation}
+\gamma_{eff} = max \left( \gamma, \gamma_{sep} \right)
+\end{equation}
+
+\begin{equation}
+\gamma_{sep} = min \left( 2.0 \cdot max \left[ 0 , \left( \frac{Re_\nu}{3.235 Re_{\theta,c}} \right) -1\right]
+F_{reattach}, 2.0 \right)F_{\theta,t}
+\end{equation}
+
+\begin{equation}
+F_{reattach} = \exp\left(-\frac{\mathrm{R_T}}{20}\right)^4
+\end{equation}
+
+\begin{equation}
+f_{v1} = \frac{\chi^3}{\left( \chi^3 + c_{v1}^3\right)}
+\end{equation}
+
+\begin{equation}
+f_{v2} = 1- \frac{\chi}{\left( 1 + \chi f_{v1}\right)}
+\end{equation}
+
+\begin{equation}
+g = r + c_{w2}\left( r^6 -r \right)
+\end{equation}
+
+\begin{equation}
+f_{w} = g\left[ \frac{1+c_{w3}^6}{g^6 + c_{w3}^6} \right]^{\frac{1}{6}}
+\end{equation}
+
+\begin{equation}
+\widehat S = \left[\Omega  + min\left( 0 , S-\Omega  \right)\right]  + \frac{\widehat{\nu}}{k^2d^2}f_{v2}
+\end{equation}
+
+\begin{equation}
+r = \left\{ \begin{array}{l} r_{max} ...{for}... \frac{\widehat{\nu}}{\widehat{S} k^2d^2}< 0\\
+              \min \left( \frac{\widehat{\nu}}{\widehat{S} k^2d^2}, r_{max} \right) ...{for}... \frac{\widehat{\nu}}{\widehat{S} k^2d^2} \ge 0 \end{array} \right
+\end{equation}
+
+\begin{equation}
+\chi=\widehat{\nu} / \nu
+\end{equation}
+
+\begin{equation}
+\Omega = \sqrt{2 W_{ij} W_{ij} }
+\end{equation}
+
+\begin{equation}
+S = \sqrt{2 S_{ij} S_{ij} }
+\end{equation}
+
+\begin{equation}
+c_{b1}=0.1355
+\end{equation}
+
+\begin{equation}
+c_{b2}=0.622
+\end{equation}
+
+\begin{equation}
+c_{v1}=7.1
+\end{equation}
+
+\begin{equation}
+\sigma=2/3
+\end{equation}
+
+\begin{equation}
+c_{w1}=\frac{c_{b1}}{k^2} + \frac{(1+c_{b2})}{\sigma}
+\end{equation}
+
+\begin{equation}
+c_{w2}=0.3
+\end{equation}
+
+\begin{equation}
+c_{w3}=2
+\end{equation}
+
+\begin{equation}
+k=0.41
+\end{equation}
+
+\begin{equation}
+\gamma-\widehat{Re_{\theta,t}}
+\end{equation}
+
+\begin{equation}
+Re_{\theta,t}
+\end{equation}
+
+\begin{equation}
+Re_{\theta,c}
+\end{equation}
+
+\begin{equation}
+F_{length}
+\end{equation}
+
+\begin{equation}
+Re_{\theta,t} = f\left(Tu, \lambda_\theta\right)
+\end{equation}
+
+\begin{equation}
+F_{length} = f\left( \widehat{Re_{\theta,t}} \right)
+\end{equation}
+
+\begin{equation}
+Re_{\theta,c}= f\left( \widehat{Re_{\theta,t}} \right)
+\end{equation}
+
+\begin{equation}
+\lambda_\theta
+\end{equation}
+
+\begin{equation}
+\lambda_\theta = \frac{\theta^2}{\nu} \frac{d\left| U \right|}{d s}
+\end{equation}
+
+\begin{equation}
+Re_{\theta,t} = \left\{ \begin{array}{l}
+\left( 1173.51  - 589.428 \cdot Tu + 0.2196/Tu^2 \right) F\left(\lambda_\theta \right) ...{for}... Tu \leq 1.3\\
+331.5\left(Tu - 0.5668\right)^{-0.671}F\left(\lambda_\theta \right) ...{for}... Tu>1.3
+\end{array}
+\end{equation}
+
+\begin{equation}
+F\left(\lambda_\theta \right) = \left\{ \begin{array}{l}
+1 + \left[12.986 \lambda_\theta + 123.66 \lambda_\theta^2 + 405.689 \lambda_\theta^3 \right] \exp\left( - \left( \frac{Tu}{1.5}  \right)^{1.5}\right) ...{for}... \lambda_\theta \leq 0\\
+1+ 0.275\left[1-\exp\left( -35 \lambda_\theta \right)\right] \exp\left( -\frac{Tu}{0.5}  \right) ...{for}...  \lambda_\theta >0
+\end{array}
+\end{equation}
+
+\begin{equation}
+Tu = Tu_\infty
+\end{equation}
+
+\begin{equation}
+\theta_t
+\end{equation}
+
+\begin{equation}
+\lambda_{\theta}
+\end{equation}
+
+\begin{equation}
+\widehat \nu
+\end{equation}
+
+\begin{equation}
+\widehat \nu_\infty=3\nu
+\end{equation}
+
+\begin{equation}
+\widehat \nu_{wall}=0
+\end{equation}
+
+\begin{equation}
+F_{length} = min \left( \exp\left( 7.168-0.01173\widehat{Re}_{\theta,t} \right) + 0.5 , 300\right)
+\end{equation}
+
+\begin{equation}
+Re_{\theta,c} = min \left( 0.615 \widehat{Re}_{\theta,t} + 61.5 , \widehat{Re}_{\theta,t} \right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial (\rho\gamma)}{\partial t} + \frac{\partial (\rho u_j \gamma)}{\partial x_j} = \rho P_\gamma  - \rho D_\gamma  + 
+ \frac{\partial}{\partial x_j}\left[
+ \left( \mu + \frac{\mu_t}{\sigma_f}\right) \frac{\partial \gamma}{\partial x_j} \right]
+\end{equation}
+
+\begin{equation}
+\frac{\partial (\rho \widehat{Re}_{\theta,t})}{\partial t} + \frac{\partial (\rho u_j \widehat{Re}_{\theta,t}) }{\partial x_j} = 
+ \rho P_{\theta,t}  + \frac{\partial}{\partial x_j} \left[
+ \sigma_{\theta,t} \left( \mu + \mu_t \right) \frac{\partial \widehat{Re}_{\theta,t}}{\partial x_j} \right]
+\end{equation}
+
+\begin{equation}
+max \left( min\left(\gamma, 0.5\right) ,1.0 \right)
+\end{equation}
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

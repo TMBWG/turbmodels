@@ -1,0 +1,994 @@
+----------------- FILE NUMBER   105-----------------
+      1.     FLOW TITLE:  CASE 0232, 0231;  HOFFMANN, P.H. & BRADSHAW P.
+                "TURBULENT BOUNDARY LAYERS ON SURFACES OF MILD
+                LONGITUDINAL CURVATURE"
+      2.     REVISION DATE: NOVEMBER 1, 1981
+      3.     EVALUATORS
+                SIMON, T. AND HONAMI, S., STANFORD UNIVERSITY
+      4.     EXPERIMENT LOCATION AND DATE
+                IMPERIAL COLLEGE OF SCIENCE AND TECHNOLOGY
+                DEPARTMENT OF AERONAUTICS
+                LONDON, ENGLAND.  1978
+      5.     ABSTRACT OF EXPERIMENT
+                MEASUREMENTS WERE MADE IN THE TURBULENT BOUNDARY LAYER
+             ON A WALL WHICH HAS MILD CURVATURE. THE BOUNDARY
+             LAYER THICKNESS TO RADIUS OF CURVATURE RATIO AT THE
+             START OF CURVATURE WAS APPROXIMATELY 0.01 . THE DATA
+             INCLUDES PROFILES OF MEAN STREAMWISE VELOCITY AND THEIR
+             INTEGRAL PARAMETERS FOR FIVE STREAMWISE STATIONS AND
+             PROFILES OF SECOND AND THIRD ORDER FLUCTUATING VELOCITY
+             QUANTITIES. FOURTH ORDER QUANTITIES WERE PUBLISHED BUT
+             NOT ENTERED ON THIS FILE. THE TUNNEL HEIGHT WAS 0.127 M
+             AND THE SPAN WAS 0.762 M.
+
+                THE LOCAL STATIC PRESSURE USED IN THE MEAN VELOCITY
+             MEASUREMENT IS DEDUCED FROM THE WALL STATIC PRESSURE
+             BY USING THE EULER-N EQUATION ASSUMING POTENTIAL FLOW:
+             (PTOT-PSTAT)/(PTOT-PSW)=EXP(-2*Y/R)
+             AS DONE BY SO AND MELLOR. THEN: U**2=2*(PTOT-PSTAT)/RHO
+             WHERE PTOT IS THE LOCAL TOTAL PRESSURE, PSTAT IS THE LOCAL
+             STATIC PRESSURE, PSW IS THE WALL STATIC PRESSURE, Y IS THE
+             DISTANCE NORMAL TO THE WALL AND R IS THE RADIUS OF CURVATURE
+             OF THE WALL
+
+                THE AUTHORS PRESENT PROFILES UPSTREAM OF CURVATURE.
+             THE UPSTREAM PROFILE ON THE WALL WHICH BECOMES THE
+             CONCAVE WALL IS LABELED PRE-CONCAVE AND THE PROFILE ON
+             THE WALL WHICH BECOMES THE CONVEX WALL IS LABELED PRE-
+             CONVEX.  THE PRE-CONVEX DATA ARE FOR MEAN VELOCITY ONLY,
+             WHEREAS PRE-CONCAVE DATA INCLUDE MEAN AS WELL AS
+             FLUCTUATING QUANTITIES.  THE PRE-CONCAVE FLUCTUATING
+             QUANTITY PROFILES ARE REPRESENTATIVE OF THE CONVEX WALL
+             AS WELL.
+                THE PRESSURE COEFFICIENT DATA AND THE SKIN FRICTION
+             COEFFICIENT DATA WERE DIGITIZED FROM GRAPHS USING A
+             HOUSTON INSTRUMENTS HI-PAD.
+      6.     REFERENCES
+             1. HOFFMANN AND BRADSHAW, "TURBULENT BOUNDARY LAYERS ON
+                SURFACES OF MILD LONGITUDINAL CURVATURE", JFM, VOL.    ,
+                PART  , PP    -   ,     198 . (TO BE ASSIGNED)
+             2. HOFFMANN AND BRADSHAW, "TURBULENT BOUNDARY LAYERS ON
+                SURFACES OF MILD LONGITUDINAL CURVATURE", IMPERIAL
+                COLLEGE AERO REPORT #78-04, DEC. 1978.
+             3. MERONEY AND BRADSHAW, "TURBULENT BOUNDARY LAYER GROWTH
+                OVER A LONGITUDINALLY CURVED SURFACE", AIAA JOURNAL,
+                VOL. 13, NO. 11, PP 1448-1453, NOV. 1975.
+             4. WEIR AND BRADSHAW, "APPARATUS AND PROGRAMS FOR DIGITAL
+                ANALYSIS OF FLUCTUATING QUANTITIES IN TURBULENT FLOW",
+                IMPERIAL COLLEGE AERO REPORT #74-09, 1974
+      7.     INSTRUMENTATION
+                THE MEAN VELOCITY MEASUREMENTS WERE TAKEN BY USING A
+                STAGNATION TUBE TO MEASURE THE TOTAL PRESSURE.  STATIC
+                PRESSURE PORTS IN THE TEST WALL WERE USED TO MEASURE
+                WALL STATIC PRESSURE.
+                FLUCTUATING QUANTITIES WERE MEASURED WITH
+                CROSS-WIRE CONSTANT TEMPERATURE HOT-WIRE
+                ANEMOMETRY. LINEARIZATION OF THE SIGNALS WAS DONE
+                DIGITALLY.
+      8.     EXPERIMENTAL PARAMETERS
+                1. TUNNEL HEIGHT AND SPAN ....... 0.127 BY 0.762 M
+                2. DEL995/RADIUS OF CURVATURE
+                   AT BEGINNING OF CURVE ........ 0.01
+                3. RADIUS OF CURVATURE .......... 2.54 M
+                4. TURNING ANGLE ................ 30 DEG
+                5. DEVELOPING LENGTH UPSTREAM
+                   OF BEND ...................... 1.45 M
+                6. REFERENCE VELOCITY ........... 30.5 M/SEC
+      9.     MEASURED VARIABLES
+                EACH MEASURING STATION INCLUDES DATA FOR THE FOLLOWING
+                MEASURED OR INFERRED QUANTITIES:
+                XS            STREAMWISE DISTANCE. M (REF. TO START OF CURVE)
+                CP            NONDIMENSIONAL PRESSURE COEFFICIENT.
+                CF            NONDIMENSIONAL SKIN FRICTION COEFFICIENT.
+                DEL995        BOUNDARY LAYER THICKNESS. M
+                UPW           POTENTIAL FLOW VELOCITY EXTRAPOLATED TO THE
+                              WALL. M/S
+                DELS          DISPLACEMENT THICKNESS. M
+                THETA         MOMENTUM THICKNESS. M
+                Y/DEL995      DISTANCE FROM WALL.
+                U/UPOT        LOCAL VELOCITY/LOCAL POTENTIAL VELOCITY.
+                U2/(UPW**2)   REYNOLDS STRESS.
+                V2/(UPW**2)   REYNOLDS STRESS.
+                U1V1/(UPW**2) REYNOLDS STRESS.
+                U2V1/(UPW**3) TRIPLE PRODUCT.
+                U1V2/(UPW**3) TRIPLE PRODUCT.
+                U3/(UPW**3)   TRIPLE PRODUCT.
+                V3/(UPW**3)   TRIPLE PRODUCT.
+
+     10.     MEASUREMENT UNCERTAINTY
+                ESTIMATED: +-5%  ON U2.
+                           +-10% ON OTHER REYNOLDS STRESSES.
+                           +-15% ON TRIPLE PRODUCTS.
+     11.     TAPE ORGANIZATION
+                THE TAPE IS A 2400 FOOT, 9-TRACK, ODD PARITY, PHASE ENCODED,
+                UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS PER INCH
+                ACCORDING TO EBCDIC CODE. THE RECORD FORMAT IS FIXED AND
+                BLOCKED; RECORD LENGTH = 80 BYTES; 100 RECORDS PER BLOCK;
+                BLOCKSIZE = 8000 BYTES.
+                NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:
+                XNORM=(X-XMIN)/(XMAX-XMIN)
+                NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY
+                10000 AND ROUNDING UP OR DOWN TO NEAREST INTEGER.
+                IXNORM=XNORM * 10000.
+                THUS EACH NORMALIZED DATUM IS WRITTEN ONTO TAPE AS AN
+                INTEGER VALUE BETWEEN 0 AND 10000.
+                ALL NULL DATA ARE WRITTEN AS 20000.
+                THE EQUATION DESCRIBING THE RELATIONSHIP BETWEEN ACTUAL
+                DATA AND NORMALIZED DATA IS:
+                X=XMIN + (((XMAX-XMIN) * IXNORM) /10000.)
+                WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS INTEGER.
+    FILE #  NREC   CONTENTS             FORMAT   COMMENTS
+     1             TEXT FILE                     CONTAINS ITEMS 1 TO 11
+                                                 OF THIS WRITE-UP
+     2       14    XS,CP                2E13.6   RECORD 1:MAX VALUES-
+                                                          CONVEX
+                   XS,CP                2E13.6   RECORD 2:MIN VALUES
+                   XS,CP                2I6      RECORDS 3-14 NORMALIZED
+                                                 VALUES
+     3       14    XS,CP                2E13.6   RECORD 1:MAX VALUES-
+                                                          CONCAVE
+                   XS,CP                2E13.6   RECORD 2:MIN VALUES
+                   XS,CP                2I6      RECORDS 3-14 NORMALIZED
+                                                 VALUES
+     4       7     XS,CF                2E13.6   RECORD 1:MAX VALUES-
+                                                          CONVEX
+                   XS,CF                2E13.6   RECORD 2:MIN VALUES
+                   XS,CF                2I6      RECORDS 3-7 NORMALIZED
+                                                 VALUES
+     5       7     XS,CF                2E13.6   RECORD 1:MAX VALUES-
+                                                          CONCAVE
+                   XS,CF                2E13.6   RECORD 2:MIN VALUES
+                   XS,CF                2I6      RECORDS 3-7 NORMALIZED
+                                                 VALUES
+     6       7     XS,DEL995,UPW,       5E13.6   RECORD 1:MAX VALUES-
+                   DELS,THETA                             CONVEX
+                   XS,DEL995,UPW,       5E13.6   RECORD 2:MIN VALUES-
+                   DELS,THETA                             CONVEX
+                   XS,DEL995,UPW,       5I6      RECORDS 3-7 :NORMALIZED
+                   DELS,THETA                                VALUES-
+                                                             CONVEX
+
+     7       7     XS,DEL995,UPW,       5E13.6   RECORD 1:MAX VALUES-
+                   DELS,THETA                             CONCAVE
+                   XS,DEL995,UPW,       5E13.6   RECORD 2:MIN VALUES-
+                   DELS,THETA                             CONCAVE
+                   XS,DEL995,UPW,       5I6      RECORDS 3-7 :NORMALIZED
+                   DELS,THETA                                VALUES-
+                                                             CONCAVE
+
+     FILES 8-26 CONTAIN PROFILE DATA AT FIVE STREAMWISE MEASURING
+     STATIONS CORRESPONDING TO THE XS STATIONS OF FILES 6 AND 7 RESPECTIVELY.
+     THE FIRST STATION, LABELED PRE-CONVEX, CONTAINS ONLY MEAN DATA
+     AND THE REMAINING STATIONS (WITHIN BEND) CONTAIN MEAN AND TURBULENCE
+     DATA.
+     8      28     Y/DEL995,U/UPOT      2E13.6   STATION: PRE-CONVEX
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-28
+                                                 NORMALIZED VALUES
+
+     9      28     Y/DEL995,U/UPOT      2E13.6   STATION: CONVEX-1
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-28
+                                                 NORMALIZED VALUES
+
+     10     30     Y/DEL995,U/UPOT      2E13.6   STATION: CONVEX-2
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-30
+                                                 NORMALIZED VALUES
+
+     11     30     Y/DEL995,U/UPOT      2E13.6   STATION: CONVEX-3
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-30
+                                                 NORMALIZED VALUES
+
+     12     31     Y/DEL995,U/UPOT      2E13.6   STATION: CONVEX-4
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-31
+                                                 NORMALIZED VALUES
+
+     13     16     Y/DEL995,            4E13.6   STATION: CONVEX-1
+                   U2/(UPW**2),V2/(UPW**2),      RECORD 1- MAXIMUM
+                   U1V1/(UPW**2)                 VALUES
+                   U2V1/(UPW**3),       4E13.6   RECORD 2- MAXIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            4E13.6   RECORD 3- MINIMUM
+                   U2/(UPW**2),V2/(UPW**2),      VALUES
+                   U1V1/(UPW**2)
+                   U2V1/(UPW**3),       4E13.6   RECORD 4- MINIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            8I6      RECORDS 5-16
+                   U2/(UPW**2),V2/(UPW**2),      NORMALIZED VALUES
+                   U1V1/(UPW**2),U2V1/(UPW**3),
+                   U1V2/(UPW**3),U3/(UPW**3),
+                   V3/(UPW**3)
+
+     14     17     Y/DEL995,            4E13.6   STATION: CONVEX-2
+                   U2/(UPW**2),V2/(UPW**2),      RECORD 1- MAXIMUM
+                   U1V1/(UPW**2)                 VALUES
+                   U2V1/(UPW**3),       4E13.6   RECORD 2- MAXIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            4E13.6   RECORD 3- MINIMUM
+                   U2/(UPW**2),V2/(UPW**2),      VALUES
+                   U1V1/(UPW**2)
+                   U2V1/(UPW**3),       4E13.6   RECORD 4- MINIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            8I6      RECORDS 5-17
+                   U2/(UPW**2),V2/(UPW**2),      NORMALIZED VALUES
+                   U1V1/(UPW**2),U2V1/(UPW**3),
+                   U1V2/(UPW**3),U3/(UPW**3),
+                   V3/(UPW**3)
+
+     15     17     Y/DEL995,            4E13.6   STATION: CONVEX-3
+                   U2/(UPW**2),V2/(UPW**2),      RECORD 1- MAXIMUM
+                   U1V1/(UPW**2)                 VALUES
+                   U2V1/(UPW**3),       4E13.6   RECORD 2- MAXIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            4E13.6   RECORD 3- MINIMUM
+                   U2/(UPW**2),V2/(UPW**2),      VALUES
+                   U1V1/(UPW**2)
+                   U2V1/(UPW**3),       4E13.6   RECORD 4- MINIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            8I6      RECORDS 5-17
+                   U2/(UPW**2),V2/(UPW**2),      NORMALIZED VALUES
+                   U1V1/(UPW**2),U2V1/(UPW**3),
+                   U1V2/(UPW**3),U3/(UPW**3),
+                   V3/(UPW**3)
+
+     16     17     Y/DEL995,            4E13.6   STATION: CONVEX-4
+                   U2/(UPW**2),V2/(UPW**2),      RECORD 1- MAXIMUM
+                   U1V1/(UPW**2)                 VALUES
+                   U2V1/(UPW**3),       4E13.6   RECORD 2- MAXIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            4E13.6   RECORD 3- MINIMUM
+                   U2/(UPW**2),V2/(UPW**2),      VALUES
+                   U1V1/(UPW**2)
+                   U2V1/(UPW**3),       4E13.6   RECORD 4- MINIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            8I6      RECORDS 5-17
+                   U2/(UPW**2),V2/(UPW**2),      NORMALIZED VALUES
+                   U1V1/(UPW**2),U2V1/(UPW**3),
+                   U1V2/(UPW**3),U3/(UPW**3),
+                   V3/(UPW**3)
+
+     17     26     Y/DEL995,U/UPOT      2E13.6   STATION: PRE-CONCAVE
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-26
+                                                 NORMALIZED VALUES
+
+     18     30     Y/DEL995,U/UPOT      2E13.6   STATION: CONCAVE-1
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-30
+                                                 NORMALIZED VALUES
+
+     19     31     Y/DEL995,U/UPOT      2E13.6   STATION: CONCAVE-2
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-31
+                                                 NORMALIZED VALUES
+
+     20     32     Y/DEL995,U/UPOT      2E13.6   STATION: CONCAVE-3
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-32
+                                                 NORMALIZED VALUES
+
+     21     31     Y/DEL995,U/UPOT      2E13.6   STATION: CONCAVE-4
+                                                 RECORD 1- MAXIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2E13.6   RECORD 2- MINIMUM
+                                                 VALUES
+                   Y/DEL995,U/UPOT      2I6      RECORDS 3-31
+                                                 NORMALIZED VALUES
+
+     22     14     Y/DEL995,            4E13.6   STATION: PRE-CONCAVE
+                   U2/(UPW**2),V2/(UPW**2),      RECORD 1- MAXIMUM
+                   U1V1/(UPW**2)                 VALUES
+                   U2V1/(UPW**3),       4E13.6   RECORD 2- MAXIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            4E13.6   RECORD 3- MINIMUM
+                   U2/(UPW**2),V2/(UPW**2),      VALUES
+                   U1V1/(UPW**2)
+                   U2V1/(UPW**3),       4E13.6   RECORD 4- MINIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            8I6      RECORDS 5-14
+                   U2/(UPW**2),V2/(UPW**2),      NORMALIZED VALUES
+                   U1V1/(UPW**2),U2V1/(UPW**3),
+                   U1V2/(UPW**3),U3/(UPW**3),
+                   V3/(UPW**3)
+
+     23     16     Y/DEL995,            4E13.6   STATION: CONCAVE-1
+                   U2/(UPW**2),V2/(UPW**2),      RECORD 1- MAXIMUM
+                   U1V1/(UPW**2)                 VALUES
+                   U2V1/(UPW**3),       4E13.6   RECORD 2- MAXIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            4E13.6   RECORD 3- MINIMUM
+                   U2/(UPW**2),V2/(UPW**2),      VALUES
+                   U1V1/(UPW**2)
+                   U2V1/(UPW**3),       4E13.6   RECORD 4- MINIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            8I6      RECORDS 5-16
+                   U2/(UPW**2),V2/(UPW**2),      NORMALIZED VALUES
+                   U1V1/(UPW**2),U2V1/(UPW**3),
+                   U1V2/(UPW**3),U3/(UPW**3),
+                   V3/(UPW**3)
+
+     24     17     Y/DEL995,            4E13.6   STATION: CONCAVE-2
+                   U2/(UPW**2),V2/(UPW**2),      RECORD 1- MAXIMUM
+                   U1V1/(UPW**2)                 VALUES
+                   U2V1/(UPW**3),       4E13.6   RECORD 2- MAXIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            4E13.6   RECORD 3- MINIMUM
+                   U2/(UPW**2),V2/(UPW**2),      VALUES
+                   U1V1/(UPW**2)
+                   U2V1/(UPW**3),       4E13.6   RECORD 4- MINIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            8I6      RECORDS 5-17
+                   U2/(UPW**2),V2/(UPW**2),      NORMALIZED VALUES
+                   U1V1/(UPW**2),U2V1/(UPW**3),
+                   U1V2/(UPW**3),U3/(UPW**3),
+                   V3/(UPW**3)
+
+     25     18     Y/DEL995,            4E13.6   STATION: CONCAVE-3
+                   U2/(UPW**2),V2/(UPW**2),      RECORD 1- MAXIMUM
+                   U1V1/(UPW**2)                 VALUES
+                   U2V1/(UPW**3),       4E13.6   RECORD 2- MAXIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            4E13.6   RECORD 3- MINIMUM
+                   U2/(UPW**2),V2/(UPW**2),      VALUES
+                   U1V1/(UPW**2)
+                   U2V1/(UPW**3),       4E13.6   RECORD 4- MINIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            8I6      RECORDS 5-18
+                   U2/(UPW**2),V2/(UPW**2),      NORMALIZED VALUES
+                   U1V1/(UPW**2),U2V1/(UPW**3),
+                   U1V2/(UPW**3),U3/(UPW**3),
+                   V3/(UPW**3)
+
+     26     19     Y/DEL995,            4E13.6   STATION: CONCAVE-4
+                   U2/(UPW**2),V2/(UPW**2),      RECORD 1- MAXIMUM
+                   U1V1/(UPW**2)                 VALUES
+                   U2V1/(UPW**3),       4E13.6   RECORD 2- MAXIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            4E13.6   RECORD 3- MINIMUM
+                   U2/(UPW**2),V2/(UPW**2),      VALUES
+                   U1V1/(UPW**2)
+                   U2V1/(UPW**3),       4E13.6   RECORD 4- MINIMUM
+                   U1V2/(UPW**3),U3/(UPW**3),    VALUES
+                   V3/(UPW**3)
+                   Y/DEL995,            8I6      RECORDS 5-19
+                   U2/(UPW**2),V2/(UPW**2),      NORMALIZED VALUES
+                   U1V1/(UPW**2),U2V1/(UPW**3),
+                   U1V2/(UPW**3),U3/(UPW**3),
+                   V3/(UPW**3)
+
+
+     A SAMPLE PROGRAM FOR READING FILE 8 AND PRINTING IT IS SHOWN BELOW.
+     THE JCL IS FOR THE STANFORD CIT FACILITY. CHECK WITH YOUR OWN
+     COMPUTER FACILITY FOR THE EXACT JCL NEEDED.
+     //TAPE  JOB  TWS$NJ
+     /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)
+     //  EXEC  FORTCG
+     //FORT.SYSIN  DD  *
+     C  TO READ FILE 8 OFF TAPE AND
+     C  PRINT THE MAXIMAS AND MINIMAS OF ALL THE VARIABLES AND PRINT
+     C  THE NORMALIZED AND INTEGERIZED VALUES OF ALL THE VARIABLES
+           INTEGER YU(30),U(30)
+           READ (23,30) YMX,UMX
+           READ (23,30) YMN,UMN
+           WRITE (6,50)  YMX,UMX
+           WRITE (6,50)  YMN,UMN
+     C   THE NEXT 27 RECORDS CONTAIN THE NORMALIZED PROFILE DATA
+           DO 10 I=1,27
+           READ (23,40) YU(I),U(I)
+           WRITE (6,60)  YU(I),U(I)
+        10 CONTINUE
+        30 FORMAT (2E13.6)
+        40 FORMAT (2I6)
+        50 FORMAT (1X,2E13.6)
+        60 FORMAT (1X,2I6)
+           STOP
+           END
+     //GO.FT23F001  DD  UNIT=T1600,VOL=SER=(TAPE LIBRARY),
+     //  DISP=(OLD,KEEP),DCP=(RECFM=FB,LREC=80,BLKSIZE=8000,DEN=3),
+     //  LABEL=(8,NL)
+//
+-------------- END OF FILE NUMBER   105-------------
+----------------- FILE NUMBER   106-----------------
+ 0.107018E 01-0.205000E 00
+-0.119250E 00-0.336000E 00
+     0 10000
+   459  9924
+   693  8321
+   924  7710
+  1261  7023
+  1681  6260
+  2364  5191
+  3181  6183
+  4074  6489
+  4890  4809
+  7455  1679
+ 10000     0
+-------------- END OF FILE NUMBER   106-------------
+----------------- FILE NUMBER   107-----------------
+ 0.113204E 01-0.148000E 00
+-0.163120E 00-0.224000E 00
+     0  2368
+   458  3421
+   746  1711
+  1031  2368
+  1205  1842
+  1942  7895
+  2553  7500
+  3357  8684
+  4236 10000
+  4996 10000
+  7399  3289
+ 10000     0
+-------------- END OF FILE NUMBER   107-------------
+----------------- FILE NUMBER   108-----------------
+ 0.995340E 00 0.301200E-02
+-0.701000E-01 0.236700E-02
+     0 10000
+  1401  9566
+  4319  3829
+  7164  2109
+ 10000     0
+-------------- END OF FILE NUMBER   108-------------
+----------------- FILE NUMBER   109-----------------
+ 0.113334E 01 0.311400E-02
+-0.145870E 00 0.280600E-02
+     0  5974
+  2414     0
+  4921  2695
+  7424  8117
+ 10000 10000
+-------------- END OF FILE NUMBER   109-------------
+----------------- FILE NUMBER   110-----------------
+  .990000E+00  .297000E-01  .384000E+02  .471000E-02  .331000E-02
+ -.760000E-01  .221000E-01  .367000E+02  .306000E-02  .219000E-02
+     0     0     0     0     0
+  1426  1053  5294   242   446
+  4278  5395  5294  4788  4911
+  7139  7632  8235  7333  7500
+ 10000 10000 10000 10000 10000
+-------------- END OF FILE NUMBER   110-------------
+----------------- FILE NUMBER   111-----------------
+ 0.112300E 01 0.406000E-01 0.371000E 02 0.472000E-02 0.365000E-02
+-0.152000E 00 0.191000E-01 0.359000E 02 0.294000E-02 0.208000E-02
+     0     0  7500     0     0
+  2447  2233  4167  3989  3376
+  4957  4698     0  7191  6433
+  7490  7163  6667  8371  8089
+ 10000 10000 10000 10000 10000
+-------------- END OF FILE NUMBER   111-------------
+----------------- FILE NUMBER   112-----------------
+  .127100E+01  .100000E+01
+  .316700E-01  .591000E+00
+     0     0
+    11   293
+    55   685
+   146  1222
+   241  1687
+   329  2054
+   431  2372
+   522  2689
+   716  3227
+   891  3594
+  1070  3985
+  1260  4328
+  1439  4621
+  1633  4939
+  2104  5623
+  2560  6210
+  3024  6748
+  3499  7262
+  3952  7726
+  4412  8142
+  5362  8802
+  6304  9389
+  7217  9755
+  8156  9927
+  9061  9975
+ 10000 10000
+-------------- END OF FILE NUMBER   112-------------
+----------------- FILE NUMBER   113-----------------
+  .122700E+01  .100000E+01
+  .305700E-01  .598000E+00
+     0     0
+    11   224
+    62   672
+   164  1194
+   252  1617
+   358  2015
+   442  2286
+   529  2587
+   723  3109
+   905  3582
+  1077  3930
+  1274  4328
+  1463  4602
+  1639  4876
+  2113  5547
+  2566  6095
+  3040  6642
+  3504  7114
+  3978  7562
+  4423  7985
+  5365  8682
+  6285  9254
+  7212  9677
+  8142  9900
+  9066  9975
+ 10000 10000
+-------------- END OF FILE NUMBER   113-------------
+----------------- FILE NUMBER   114-----------------
+  .126500E+01  .100000E+01
+  .267200E-01  .555000E+00
+     0     0
+     9   157
+    52   449
+   123   876
+   200  1281
+   287  1640
+   361  1910
+   438  2180
+   601  2697
+   752  3079
+   912  3483
+  1063  3820
+  1227  4180
+  1387  4427
+  1772  5079
+  2161  5708
+  2549  6225
+  2956  6719
+  3332  7124
+  3727  7506
+  4513  8180
+  5299  8764
+  6085  9258
+  6871  9618
+  7651  9865
+  8437  9977
+  9217 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   114-------------
+----------------- FILE NUMBER   115-----------------
+  .118800E+01  .100000E+01
+  .250900E-01  .546000E+00
+     0     0
+     9   132
+    52   440
+   126   881
+   213  1233
+   290  1520
+   360  1762
+   441  2048
+   601  2511
+   749  2841
+   912  3238
+  1063  3524
+  1223  3788
+  1384  4097
+  1769  4736
+  2166  5308
+  2564  5859
+  2955  6344
+  3340  6784
+  3732  7181
+  4512  7863
+  5297  8458
+  6086  8965
+  6869  9405
+  7652  9714
+  8428  9890
+  9217  9978
+ 10000 10000
+-------------- END OF FILE NUMBER   115-------------
+----------------- FILE NUMBER   116-----------------
+  .120200E+01  .100000E+01
+  .235700E-01  .525000E+00
+     0     0
+     9   147
+    49   442
+   117   821
+   197  1200
+   266  1474
+   349  1747
+   417  2000
+   557  2421
+   709  2842
+   846  3137
+   997  3432
+  1137  3726
+  1286  3979
+  1643  4589
+  2017  5158
+  2377  5642
+  2749  6105
+  3097  6526
+  3466  6926
+  4186  7621
+  4911  8210
+  5643  8737
+  6377  9221
+  7117  9558
+  7826  9810
+  8546  9937
+  9271  9979
+ 10000 10000
+-------------- END OF FILE NUMBER   116-------------
+----------------- FILE NUMBER   117-----------------
+  .134100E+01  .441000E-02  .127000E-02 -.200000E-05
+  .141400E-04 -.200000E-07  .100000E-07  .724000E-05
+  .119000E+00  .230000E-04  .160000E-04 -.102400E-02
+  .300000E-07 -.968000E-05 -.484000E-04  .840000E-07
+     0 10000 10000     0  8958     0  7872 10000
+   908  8245  8724  1468  8639  1356  4173  7731
+  1817  6626  7624  2730  9461  1170  1281  8341
+  2725  5441  6571  3894 10000   745     0  8344
+  3633  4210  5391  5147  9915   166   516  9204
+  4542  3321  4250  6360  8540   859  1301  9089
+  5458  2079  2839  7593  6889  2909  3656  7075
+  6367  1215  1922  8571  4330  5072  5949  5122
+  7275   506  1037  9325  2076  7609  8250  2963
+  8183   134   415  9804   624  9203  9570  1227
+  9092    30   112  9961    99  9886  9932   229
+ 10000     0     0 10000     0 10000 10000     0
+-------------- END OF FILE NUMBER   117-------------
+----------------- FILE NUMBER   118-----------------
+  .126900E+01  .483000E-02  .135000E-02 -.100000E-05
+  .155000E-04  .000000E+00  .325000E-05  .673800E-05
+  .104000E+00  .260000E-04  .190000E-04 -.110600E-02
+  .200000E-07 -.978000E-05 -.479000E-04  .660000E-07
+     0 10000 10000     0  5252   757 10000 10000
+   833  8106  8648  1430  7661  1288  4242  8165
+  1665  6607  7273  3050 10000     0     0  7806
+  2498  5108  5898  4652  8921  1912   215  6623
+  3330  4171  5124  5502  7028  2423  2424  7483
+  4163  3297  4035  6561  6208  3180  3187  6409
+  4996  2381  3155  7448  6001  3568  3421  5784
+  5828  1665  2329  8317  4180  4949  4809  4729
+  6669   905  1510  9014  2978  6370  6588  3558
+  7502   466   849  9529  1531  8098  7744  1894
+  8335   131   376  9846   426  9335  8991   853
+  9167    31   128  9964    71  9887  9325   261
+ 10000     0     0 10000     0 10000  9365     0
+-------------- END OF FILE NUMBER   118-------------
+----------------- FILE NUMBER   119-----------------
+  .118800E+01  .372000E-02  .888000E-03 -.100000E-05
+  .955000E-05 -.300000E-07 -.600000E-07  .409600E-05
+  .970000E-01  .320000E-04  .220000E-04 -.801000E-03
+  .500000E-07 -.593000E-05 -.345000E-04  .800000E-07
+     0 10000 10000     0  4989  3017  8853  9537
+   834  8210  8649  1225  7779  4322  3920  7590
+  1668  7099  7991  1788 10000     0     0 10000
+  2502  5662  6640  3400  8326  2780  1597  7032
+  3336  4468  5658  4700  8474  2407  1945  6887
+  4170  3465  4446  5862  6937  3373  4094  7099
+  5004  2557  3695  6875  5684  4390  4849  5739
+  5839  1836  2737  7850  4537  5237  5807  4263
+  6673  1112  1905  8725  3179  6136  6998  3653
+  7498   681  1328  9250  2126  7424  7970  2390
+  8332   222   658  9800 20000  7915 20000 20000
+  9166    54   231  9925   200  9712  9843   406
+ 10000     0     0 10000     0 10000 10000     0
+-------------- END OF FILE NUMBER   119-------------
+----------------- FILE NUMBER   120-----------------
+  .111700E+01  .383000E-02  .798000E-03 -.200000E-05
+  .898000E-05 -.700000E-07  .158000E-04  .337300E-05
+  .910000E-01  .430000E-04  .280000E-04 -.749000E-03
+  .900000E-07 -.499000E-05 -.314000E-04  .103000E-06
+     0 10000 10000     0   191  4634 10000 10000
+   838  8706  8662  1138 10000   630  1059  8315
+  1667  7148  7766  2396  8268     0  1208  8963
+  2505  5696  6688  3614  8830  2114   424  6960
+  3333  4824  5753  4592  8785  1768     0  6927
+  4171  3715  4779  5783  7267  3008  1547  6945
+  5000  2870  3844  6693  5883  3882  2436  5468
+  5838  2149  2935  7523  5332  4512  3008  4541
+  6667  1495  2078  8487  3712  5915  3792  3370
+  7505   821  1364  9143  2250  7276  4886  2168
+  8333   343   792  9638  1012  8577  5915  1297
+  9171    95   286  9920   292  9553  6409   501
+ 10000     0     0 10000     0 10000  6608     0
+-------------- END OF FILE NUMBER   120-------------
+----------------- FILE NUMBER   121-----------------
+  .120400E+01  .100000E+01
+  .366500E-01  .592000E+00
+     0     0
+    13   122
+    76   515
+   184  1103
+   309  1520
+   422  1961
+   529  2279
+   633  2524
+   870  3064
+  1108  3505
+  1323  3872
+  1557  4216
+  1799  4534
+  2010  4853
+  2589  5539
+  3167  6225
+  3732  6863
+  4289  7328
+  4868  7868
+  5428  8333
+  6590  9142
+  7748  9681
+  8856  9926
+ 10000 10000
+-------------- END OF FILE NUMBER   121-------------
+----------------- FILE NUMBER   122-----------------
+ 0.127741E 01 0.100000E 01
+ 0.292887E-01 0.574000E 00
+     0     0
+    10   141
+    60   563
+   174  1221
+   238  1549
+   322  1854
+   412  2160
+   489  2371
+   657  2817
+   848  3169
+  1006  3498
+  1183  3803
+  1344  4061
+  1509  4319
+  1958  4953
+  2357  5516
+  2819  6080
+  3245  6596
+  3641  7042
+  4073  7488
+  4583  8005
+  4925  8263
+  5773  8944
+  6634  9484
+  7503  9812
+  8320  9953
+  9182  9977
+ 10000 10000
+-------------- END OF FILE NUMBER   122-------------
+----------------- FILE NUMBER   123-----------------
+ 0.117774E 01 0.100000E 01
+ 0.239726E-01 0.582000E 00
+     0     0
+     9   263
+    50   670
+   125  1172
+   196  1555
+   279  1914
+   350  2129
+   424  2440
+   579  2871
+   724  3182
+   864  3469
+  1021  3708
+  1167  3995
+  1336  4187
+  1695  4665
+  2078  5096
+  2455  5478
+  2829  5885
+  3209  6316
+  3586  6651
+  3960  7010
+  4714  7703
+  5473  8325
+  6224  8923
+  6978  9378
+  7738  9689
+  8489  9904
+  9243  9976
+ 10000 10000
+-------------- END OF FILE NUMBER   123-------------
+----------------- FILE NUMBER   124-----------------
+ 0.114783E 01 0.999000E 00
+ 0.202899E-01 0.602000E 00
+     0     0
+     8   428
+    46   705
+    93  1184
+   154  1612
+   224  2040
+   290  2418
+   355  2670
+   481  3123
+   614  3476
+   748  3753
+   874  3980
+  1008  4156
+  1139  4408
+  1463  4811
+  1794  5164
+  2118  5516
+  2445  5793
+  2769  6121
+  3424  6675
+  4077  7229
+  4730  7758
+  5393  8287
+  6044  8741
+  6704  9144
+  7365  9496
+  8018  9748
+  8674  9899
+  9337  9975
+ 10000 10000
+-------------- END OF FILE NUMBER   124-------------
+----------------- FILE NUMBER   125-----------------
+ 0.127069E 01 0.100000E 01
+ 0.172414E-01 0.606000E 00
+     0     0
+     6   406
+    51   964
+   106  1574
+   153  1980
+   200  2284
+   250  2640
+   352  3173
+   456  3503
+   550  3858
+   654  4112
+   757  4340
+  1000  4797
+  1256  5203
+  1501  5457
+  1753  5736
+  2254  6269
+  2747  6701
+  3252  7132
+  3751  7538
+  4252  7944
+  4747  8325
+  5498  8858
+  6261  9315
+  7001  9619
+  7748  9848
+  8501  9949
+  9245 10000
+ 10000 10000
+-------------- END OF FILE NUMBER   125-------------
+----------------- FILE NUMBER   126-----------------
+  .135700E+01  .555000E-02  .145000E-02 -.100000E-05
+  .271300E-04  .100000E-07  .100000E-07  .105300E-04
+  .157000E+00  .190000E-04  .180000E-04 -.142000E-02
+  .200000E-07 -.141900E-04 -.830000E-04  .840000E-07
+     0 10000 10000        3987  4859  8625  6177
+  1117  8499  9162   909  7801  2232  3144  7423
+  2225  6944  8045  2220 10000     0     0 10000
+  3333  5227  6480  4151  8871   176   747  8922
+  4450  3509  4532  6166  7849   620  2024  8438
+  5558  2009  2989  7787  5500  3373  4337  6000
+  6667   750  1550  9140  2372  6676  7770  3334
+  7783   199   614  9774   550  9141  9522  1333
+  8892    27   126  9979    33  9972  9996   153
+ 10000     0     0 10000     0 10000 10000     0
+-------------- END OF FILE NUMBER   126-------------
+----------------- FILE NUMBER   127-----------------
+ 0.133700E 01 0.644000E-02 0.109000E-02-0.100000E-05
+ 0.256200E-04 0.000000E 00 0.100000E-07 0.930800E-05
+ 0.167000E 00 0.220000E-04 0.120000E-04-0.130700E-02
+ 0.100000E-07-0.129900E-04-0.963000E-04 0.300000E-07
+     0 10000 10000     0  8473   408  6105 10000
+   906  8754  9722   153 10000     0  1578  9052
+  1821  6728  8098  2167  9055  1178     0  8182
+  2726  5201  6902  3438  9235  1155  1153  7531
+  3641  4157  5668  4724  9570   931   727  6725
+  4547  2801  4174  6302  7267  2487  3655  5806
+  5453  1758  2801  7779  5264  4296  5192  4355
+  6368   860  1642  8951  2761  6813  7372  2464
+  7274   243   733  9678   773  9022  9356   979
+  8179    56   288  9946   113  9846  9943   281
+  9094    14    83 10000    16  9977 10000    80
+ 10000     0     0 20000     0 10000 10000     0
+-------------- END OF FILE NUMBER   127-------------
+----------------- FILE NUMBER   128-----------------
+ 0.118000E 01 0.710000E-02 0.129000E-02-0.500000E-05
+ 0.392900E-04-0.100000E-06-0.190000E-06 0.145200E-04
+ 0.137000E 00 0.510000E-04 0.360000E-04-0.147700E-02
+ 0.160000E-06-0.215100E-04-0.129500E-03 0.307000E-06
+     0 10000  9282   455  3363  5511  9871  7369
+   825  9064  9841    34  6455  5194  4787  6127
+  1659  8000 10000     0  5328  5586  4045  5299
+  2493  7305  9442   177  8513  2508  1129  8002
+  3327  6113  8325  1821  8715  2186   410  8417
+  4161  5219  7185  2833 10000     0     0 10000
+  4995  3914  5494  4626  9185   948   843  8318
+  5829  2822  3931  6257  7421  2816  2258  6343
+  6663  1772  2656  7717  5316  4568  4447  4649
+  7498   804  1523  8872  2471  7272  7540  2708
+  8332   298   750  9552   981  8856  9141  1300
+  9166    74   287  9871   202  9734  9870   398
+ 10000     0     0 10000     0 10000 10000     0
+-------------- END OF FILE NUMBER   128-------------
+----------------- FILE NUMBER   129-----------------
+ 0.107100E 01 0.671000E-02 0.132000E-02-0.300000E-04
+ 0.404600E-04-0.111000E-05-0.291000E-05 0.158500E-04
+ 0.115000E 00 0.980000E-04 0.780000E-04-0.139800E-02
+ 0.152000E-05-0.238600E-04-0.128600E-03 0.133500E-05
+     0 10000  8712   738  7108  7455  6293  8464
+   774  8911  9436     0  6703  5442  4408  5496
+  1548  7731 10000   300  4355  6567  5243  6052
+  2312  7187  9919   482  4928  5455  4105  6349
+  3086  6854  9517   322  7470  2422  1862  9573
+  3849  5947  8390  1732  8089  2004  1663  8347
+  4623  5387  7585  2376 10000   163     0  9931
+  5387  4419  6248  3933  9510     0   438 10000
+  6161  3270  4646  5365  9022   985  1082  8732
+  6925  2241  3253  6981  6628  3332  3151  5791
+  7699  1326  2182  8077  4661  5323  5378  4674
+  8462   605  1176  9042  2352  7530  7916  2580
+  9236   216   475  9664   855  9108  9213  1127
+ 10000     0     0 10000     0 10000 10000     0
+-------------- END OF FILE NUMBER   129-------------
+----------------- FILE NUMBER   130-----------------
+ 0.109800E 01 0.781000E-02 0.154000E-02-0.460000E-04
+ 0.491700E-04-0.237000E-05-0.406000E-05 0.240500E-04
+ 0.980000E-01 0.115000E-03 0.104000E-03-0.146000E-02
+ 0.284000E-05-0.313300E-04-0.137400E-03 0.327100E-05
+     0 10000  8329  9343  5858  5311  7155  4028
+   630  8506  8955    71  7444  4986  4380  2990
+  1250  7102  9652    21  5677  6796  3435  1962
+  1880  6283  9861   453  4401  6233  5197  3970
+  2500  6062 10000     0  4630  5784  4432  4937
+  3130  5750  9652   191  7272  3056  2310  7589
+  3750  5140  9025   962  6294  3954  2632  6641
+  4380  4789  8329  1216  8614  1899  1275  8186
+  5000  4269  7423  2291  9475     0   517 10000
+  5630  3710  6205  3303 10000   173     0  8903
+  6250  2801  4993  4943  9147   701  1200  8859
+  6880  2112  3935  6153  7421  2348  2617  7372
+  7500  1410  2799  7341  5709  4102  4575  5919
+  9060   192   592  9618   676  9230  9352   922
+ 10000     0     0 10000     0 10000 10000     0
+-------------- END OF FILE NUMBER   130-------------
+676  9230  9352   922
+ 10000     0     0 10000     0 10000 10000     0
+-------------- END OF FILE NUMBER   130

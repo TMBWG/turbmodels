@@ -1,0 +1,410 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2020.7.22)  16 AUG 2021 13:55
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./images.tex
+(./images.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 130.
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+\sizebox=\box26
+\lthtmlwrite=\write3
+
+LaTeX Warning: Unused global option(s):
+    [8pt].
+
+No file images.aux.
+\openout1 = `images.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+
+latex2htmlLength hsize=349.0pt
+
+latex2htmlLength vsize=633.0pt
+
+latex2htmlLength hoffset=0.0pt
+
+latex2htmlLength voffset=0.0pt
+
+latex2htmlLength topmargin=0.0pt
+
+latex2htmlLength topskip=0.00003pt
+
+latex2htmlLength headheight=0.0pt
+
+latex2htmlLength headsep=0.0pt
+
+latex2htmlLength parskip=0.0pt plus 1.0pt
+
+latex2htmlLength oddsidemargin=62.0pt
+
+latex2htmlLength evensidemargin=62.0pt
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 145.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 145.
+l2hSize :displaymath5:25.2207pt::0.0pt::349.0pt.
+[1
+
+
+
+]
+l2hSize :displaymath15:25.2207pt::0.0pt::349.0pt.
+[2
+
+
+]
+l2hSize :displaymath34:25.2207pt::0.0pt::349.0pt.
+[3
+
+
+]
+l2hSize :displaymath46:35.40025pt::0.0pt::349.0pt.
+[4
+
+
+]
+l2hSize :displaymath58:14.86108pt::0.0pt::349.0pt.
+[5
+
+
+]
+l2hSize :displaymath65:14.86108pt::0.0pt::349.0pt.
+[6
+
+
+]
+l2hSize :displaymath70:24.70906pt::0.0pt::349.0pt.
+[7
+
+
+]
+l2hSize :displaymath74:22.95789pt::0.0pt::349.0pt.
+[8
+
+
+]
+l2hSize :displaymath79:15.50006pt::0.0pt::349.0pt.
+[9
+
+
+]
+l2hSize :displaymath84:23.51347pt::0.0pt::349.0pt.
+[10
+
+
+]
+l2hSize :displaymath88:31.00029pt::0.0pt::349.0pt.
+[11
+
+
+]
+l2hSize :displaymath93:31.00029pt::0.0pt::349.0pt.
+[12
+
+
+]
+l2hSize :displaymath98:14.86108pt::0.0pt::349.0pt.
+[13
+
+
+]
+Overfull \hbox (168.12584pt too wide) detected at line 257
+\OML/cmm/m/it/10 F[] \OT1/cmr/m/n/10 = []
+ []
+
+l2hSize :displaymath104:53.289pt::0.0pt::349.0pt.
+[14
+
+
+]
+l2hSize :displaymath126:31.00029pt::0.0pt::349.0pt.
+[15
+
+
+]
+l2hSize :displaymath131:24.70906pt::0.0pt::349.0pt.
+[16
+
+
+]
+Overfull \hbox (281.03778pt too wide) detected at line 285
+\OML/cmm/m/it/10 Re[] \OT1/cmr/m/n/10 = []
+ []
+
+l2hSize :displaymath136:32.07242pt::0.0pt::349.0pt.
+[17
+
+
+]
+l2hSize :displaymath155:13.94444pt::0.0pt::349.0pt.
+[18
+
+
+]
+l2hSize :displaymath157:13.94444pt::0.0pt::349.0pt.
+[19
+
+
+]
+l2hSize :displaymath159:12.0pt::0.0pt::349.0pt.
+[20
+
+
+]
+l2hSize :displaymath161:15.07576pt::0.0pt::349.0pt.
+[21
+
+
+]
+l2hSize :displaymath165:15.07576pt::0.0pt::349.0pt.
+[22
+
+
+]
+l2hSize :displaymath169:25.2207pt::0.0pt::349.0pt.
+[23
+
+
+]
+l2hSize :displaymath178:25.2207pt::0.0pt::349.0pt.
+[24
+
+
+]
+l2hSize :displaymath187:18.85951pt::0.0pt::349.0pt.
+[25
+
+
+]
+l2hSize :displaymath197:23.01347pt::0.0pt::349.0pt.
+[26
+
+
+]
+l2hSize :displaymath201:14.65904pt::0.0pt::349.0pt.
+[27
+
+
+]
+l2hSize :displaymath204:31.00029pt::0.0pt::349.0pt.
+[28
+
+
+]
+l2hSize :displaymath212:26.04124pt::0.0pt::349.0pt.
+[29
+
+
+]
+l2hSize :displaymath216:31.00029pt::0.0pt::349.0pt.
+[30
+
+
+]
+l2hSize :displaymath221:24.70906pt::0.0pt::349.0pt.
+[31
+
+
+]
+l2hSize :displaymath228:24.15953pt::0.0pt::349.0pt.
+[32
+
+
+]
+l2hSize :displaymath232:23.06902pt::0.0pt::349.0pt.
+[33
+
+
+]
+l2hSize :displaymath240:26.23903pt::0.0pt::349.0pt.
+[34
+
+
+]
+l2hSize :displaymath251:31.32086pt::0.0pt::349.0pt.
+[35
+
+
+]
+l2hSize :displaymath268:23.51347pt::0.0pt::349.0pt.
+[36
+
+
+]
+l2hSize :displaymath274:97.0pt::0.0pt::349.0pt.
+[37
+
+
+]
+l2hSize :displaymath286:14.86108pt::0.0pt::349.0pt.
+[38
+
+
+]
+l2hSize :displaymath290:14.86108pt::0.0pt::349.0pt.
+[39
+
+
+]
+l2hSize :displaymath294:14.86108pt::0.0pt::349.0pt.
+[40
+
+
+]
+l2hSize :displaymath298:25.00023pt::0.0pt::349.0pt.
+[41
+
+
+]
+l2hSize :displaymath305:31.00029pt::0.0pt::349.0pt.
+[42
+
+
+]
+l2hSize :displaymath310:25.8912pt::0.0pt::349.0pt.
+[43
+
+
+]
+l2hSize :displaymath314:31.00029pt::0.0pt::349.0pt.
+[44
+
+
+]
+l2hSize :displaymath318:14.86108pt::0.0pt::349.0pt.
+[45
+
+
+]
+l2hSize :displaymath321:13.94444pt::0.0pt::349.0pt.
+[46
+
+
+]
+l2hSize :displaymath323:13.49998pt::0.0pt::349.0pt.
+[47
+
+
+]
+l2hSize :displaymath326:15.01659pt::0.0pt::349.0pt.
+[48
+
+
+]
+l2hSize :displaymath330:13.49998pt::0.0pt::349.0pt.
+[49
+
+
+]
+l2hSize :displaymath332:13.49998pt::0.0pt::349.0pt.
+[50
+
+
+]
+l2hSize :displaymath335:13.49998pt::0.0pt::349.0pt.
+[51
+
+
+]
+l2hSize :displaymath337:21.56903pt::0.0pt::349.0pt.
+[52
+
+
+]
+l2hSize :displaymath342:14.86108pt::0.0pt::349.0pt.
+[53
+
+
+]
+l2hSize :displaymath345:24.0968pt::0.0pt::349.0pt.
+[54
+
+
+]
+l2hSize :displaymath350:26.23903pt::0.0pt::349.0pt.
+[55
+
+
+]
+l2hSize :displaymath363:13.49998pt::0.0pt::349.0pt.
+[56
+
+
+]
+l2hSize :displaymath366:13.49998pt::0.0pt::349.0pt.
+[57
+
+
+]
+l2hSize :displaymath369:13.35971pt::0.0pt::349.0pt.
+[58
+
+
+]
+l2hSize :displaymath371:15.01659pt::0.0pt::349.0pt.
+[59
+
+
+]
+l2hSize :displaymath375:14.5pt::0.0pt::349.0pt.
+[60
+
+
+] (./images.aux) ) 
+Here is how much of TeX's memory you used:
+ 599 strings out of 495064
+ 7907 string characters out of 3182224
+ 52288 words of memory out of 3000000
+ 3852 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 23i,10n,19p,424b,156s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on images.dvi (60 pages, 22784 bytes).

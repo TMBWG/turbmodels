@@ -1,0 +1,257 @@
+\begin{document}
+
+%The model given on this page is linear eddy viscosity models.
+%Linear models use the Boussinesq assumption:
+%\begin{equation}
+%\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+%  \frac{2}{3} \rho k \delta_{ij}
+%\end{equation}
+%
+\section{k-gamma model}
+Reference:\\
+Sandhu, J. P. S., and Ghosh, S., “A local correlation-based zero-equation transition model,” Computers & Fluids, vol. 214, Jan. 2021, p. 104758. doi:10.1016/j.compfluid.2020.104758.\\
+The k-gamma model based on SST2003 fully turbulent flow model and LCTM  gamma transition model.
+The transport equations of k-gamma are similar as SST2003 model with few additional source terms for k transport equation.
+\begin{equation}
+  \frac{\partial(\rho k)}{\partial t}+\frac{\partial\left(\rho u_{j} k\right)}{\partial x_{j}}=P-\text{max}(\widetilde{\gamma},0.1)\beta^{*} \rho \omega k+\frac{\partial}{\partial x_{j}}\left[\left(\mu+\sigma_{k} \mu_{t}\right) \frac{\partial k}{\partial x_{j}}\right] + \Psi_{k_\gamma}
+\end{equation}
+\begin{equation}
+\frac{\partial(\rho \omega)}{\partial t}+\frac{\partial\left(\rho u_{j} \omega\right)}{\partial x_{j}}=\frac{\gamma}{\nu_{t}} P-\beta \rho \omega^{2}+\frac{\partial}{\partial x_{j}}\left[\left(\mu+\sigma_{\omega} \mu_{t}\right) \frac{\partial \omega}{\partial x_{j}}\right]+2\left(1-F_{1}\right) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_{j}} \frac{\partial \omega}{\partial x_{j}}
+\end{equation}
+where,
+\begin{equation}
+  \Psi_{k_\gamma} = P_{k_\gamma}+P_{k_\gamma}^{lim}- E_{k_\gamma}+ D_{k_\gamma}
+\end{equation}
+\begin{equation}
+  P_{k_\gamma} = F_{length} \phantom{I} \rho S (1-\widetilde{\gamma})F_{onset} k
+\end{equation}
+\begin{equation}
+  E_{k_\gamma} = \widetilde{\gamma} C_{e1}\ \rho\Omega F_{turb} k
+\end{equation}
+\begin{equation}
+  D_{k_\gamma} = -C_{d1}(\mu + \mu_t)\frac{\partial k}{\partial x_j}\frac{\partial \widetilde{\gamma}}{\partial x_j}
+\end{equation}
+\begin{equation}
+  P_{k_\gamma}^{lim} = 5\left[\text{max}(\widetilde{\gamma} - 0.2, 0)(1-\widetilde{\gamma})F_{on}^{lim}\text{max}(3\mu - \mu_t,0)S\Omega\right]
+\end{equation}
+Here,
+\begin{equation}
+  F_{on}^{lim} = \text{min}\left(\text{max}\left(\frac{Re_v}{2.2Re_{\theta c}^{lim}}-1, 0\right),3\right)
+\end{equation}
+and,
+\begin{equation}
+  Re_{\theta c}^{lim} = 1100
+\end{equation}
+The approximated intermittency 
+\begin{equation}
+\widetilde{\gamma}
+\end{equation}
+is given as:
+\begin{equation}
+\widetilde{\gamma} = \left(1-e^{-R_T}\right)^3
+\end{equation}
+and,
+\begin{equation}
+  \frac{\partial \widetilde{\gamma}}{\partial x_i} = \frac{3\rho\widetilde{\gamma}^{2/3}}{\mu \omega} \left(\frac{\partial k}{\partial x_i} - \frac{k}{\omega}\frac{\partial \omega}{\partial x_i}\right)e^{-R_T}
+\end{equation}
+where, 
+\begin{equation}
+    R_T = \frac{\rho k}{\omega \mu}
+\end{equation}
+In order to obtain the gradient of approximated intermittency, the gradient of density and molecular viscosity  have been ignored. 
+Here,
+\begin{equation}
+  F_{turb} = e^{-\left(\frac{R_T}{2}\right)^4}
+\end{equation}
+and the onset of transition is controlled by the following function:
+\begin{equation}
+ F_{onset}  = \text{max}(F_{onset2} - F_{onset3}, 0.0) 
+\end{equation}
+where, 
+\begin{equation}
+    F_{onset2} = \text{min}(F_{onset1}, 2.0)
+\end{equation}
+and
+\begin{equation}
+    F_{onset3} = \text{max}\left( 1 - \left(\frac{R_T}{3.5}\right)^3, 0\right)
+\end{equation}
+The term 
+\begin{equation}
+F_{onset1}
+\end{equation}
+is defined as, 
+\begin{equation} 
+F_{onset1} = \frac{Re_v}{2.2Re_{\theta c}}
+\end{equation}
+where,
+\begin{equation}
+  Re_\text{v} = \frac{\rho d_w^2 S}{\mu}
+\end{equation}
+is the local strain-rate Reynolds number.
+Also, 
+\begin{equation}
+Re_{\theta c}
+\end{equation}
+is calculated using the following correlation:
+\begin{equation}
+  Re_{\theta c} = 100.0 + 1000.0 ~exp(-Tu_L F_{PG})
+\end{equation}
+Here, the terms Tu_L and F_{PG} are  functions that
+account for the effects of local turbulence intensity and pressure gradient in the flow.
+They are defined as:
+%piecewise function for k_gamma
+\begin{equation}
+  F_{PG} = \left\{
+    \begin{array}{ll}
+      min(1 + 14.68\lambda_{\theta L}, 1.5) , &\quad\lambda_{\theta L} \geq 0\\
+      min(1 - 7.34\lambda_{\theta L}, 3.0) , &\quad\lambda_{\theta L} < 0
+    \end{array}\right.
+\end{equation}
+and
+\begin{equation}
+  Tu_L = min\left(100\frac{\sqrt{2k/3}}{\omega d_w}, 100\right)
+\end{equation}
+Here, 
+\begin{equation}
+d_w
+\end{equation}
+is the wall distance.
+The pressure gradient  parameter, 
+\begin{equation}
+\lambda_{\theta L}
+\end{equation}
+is defined as 
+\begin{equation}
+  \lambda_{\theta L} = -7.57. 10^{-3}\frac{d V}{dy}\frac{d_w^2}{\nu} + 0.0128
+\end{equation}
+{The term 
+\begin{equation}
+\frac{dV}{dy}
+\end{equation}
+can be computed as:}
+{
+\begin{equation}
+    \frac{dV}{dy} = \nabla (\vec{n}.\vec{V}).\vec{n}
+\end{equation}
+}
+where, 
+{
+\begin{equation}
+    \vec{n} = \frac{\nabla (d_w)}{|\nabla (d_w)|}
+\end{equation}
+}
+At wall,
+\begin{equation}
+    k_{wall} = 0
+\end{equation}
+\begin{equation}
+   \omega_{wall} = 10 \frac{6 \nu}{\beta_1 (\Delta d_1)^2}
+\end{equation}
+The production term of orignal transport equation is modified as
+\begin{equation} 
+  P = \widetilde{\gamma} \mu_t S\Omega  
+\end{equation}
+where the turbulent viscosity is defined as:
+\begin{equation}
+\mu_{t}=\frac{\rho a_{1} k}{\max \left(a_{1} \omega, \Omega F_{2}\right)}
+\end{equation}
+and
+\begin{equation}
+F_{2}=\tanh \left(\arg _{2}^{2}\right)
+\end{equation}
+where,
+\begin{equation}
+\arg _{2}=\max \left(2 \frac{\sqrt{k}}{\beta^{*} \omega d}, \frac{500 \nu}{d^{2} \omega}\right)
+\end{equation}
+The recommended production limiter is
+\begin{equation}
+\min \left(P, 20 \beta^{*} \rho \omega k\right)
+\end{equation}
+In the SST model, the constants are a blend of an inner (1) and outer (2) constant, blended via
+\begin{equation}
+\phi=F_{1} \phi_{1}+\left(1-F_{1}\right) \phi_{2}
+\end{equation}
+The blending function $F_1$ is given as
+\begin{equation}
+F_1 = max \left( F_{1,SST},F_3 \right)
+\end{equation}
+\begin{equation}
+F_{1,SST}=\tanh \left(a r g_{1}^{4}\right)
+\end{equation}
+where,
+\begin{equation}
+\arg _{1}=\min \left[\max \left(\frac{\sqrt{k}}{\beta^{*} \omega d}, \frac{500 \nu}{d^{2} \omega}\right), \frac{4 \rho \sigma_{\omega 2} k}{C D_{k \omega} d^{2}}\right]
+\end{equation}
+and
+\begin{equation}
+F_3 = exp \left[ - \left( \frac{R_y}{120} \right)^8 \right]
+\end{equation}
+where, 
+\begin{equation}
+  R_y = \frac{\rho d \sqrt{k}}{\mu}
+\end{equation}
+The cross-diffusion term is defined as:
+\begin{equation}
+C D_{k \omega}=\max \left(2 \rho \sigma_{\omega 2} \frac{1}{\omega} \frac{\partial k}{\partial x_{j}} \frac{\partial \omega}{\partial x_{j}}, 10^{-10}\right)
+\end{equation}
+The strain rate magnitude 
+\begin{equation}
+S
+\end{equation}
+and vorticity magnitude 
+\begin{equation}
+\Omega
+\end{equation}
+are defined as:
+\begin{equation}
+  S = \sqrt{2S_{ij}S_{ij}}
+\end{equation}
+and
+\begin{equation}
+  \Omega = \sqrt{2W_{ij}W_{ij}}
+\end{equation}
+where,
+\begin{equation}
+  S_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} +  \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+and
+\begin{equation}
+W_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} -  \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+The model constants are:
+\begin{equation}
+  \begin{array}{l}
+    F_{length} = 1.0\\[0.5cm]
+    C_{e1} = 0.03\\[0.5cm]
+    C_{d1} = 0.02
+  \end{array}
+\end{equation}
+\begin{equation}
+  \gamma_{1}=\frac{\beta_{1}}{\beta^{*}}-\frac{\sigma_{\omega 1} \kappa^{2}}{\sqrt{\beta^{*}}}, \; \qquad \gamma_{2}=\frac{\beta_{2}}{\beta^{*}}-\frac{\sigma_{\omega 2} \kappa^{2}}{\sqrt{\beta^{*}}}
+\end{equation}
+\begin{equation}
+  \[\arraycolsep=6pt\def\arraystretch{3.2}
+\begin{array}{lll}
+  \sigma_{k 1}=0.85 &\quad \sigma_{\omega 1}=0.5 &\quad \beta_{1}=0.075 \\[0.5cm]
+  \sigma_{k 2}=1.0 &\quad \sigma_{\omega 2}=0.856 &\quad \quad \beta_{2}=0.0828 \\[0.5cm]
+  \beta^{*}=0.09 &\quad \kappa=0.41 &\quad a_{1}=0.31
+\end{array}
+\end{equation}
+
+\begin{equation}
+\mu_t
+\end{equation}
+
+\begin{equation}
+Tu_{freestream}\% = 100 \sqrt{\frac{2}{3} \frac{k_{freestream}}{U_{ref}^2}}
+\end{equation}
+
+\begin{equation}
+\mu_{t, freestream} = \rho_{freestream}\frac{k_{freestream}}{\omega_{freestream}}
+\end{equation}
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

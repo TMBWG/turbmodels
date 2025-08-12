@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D NACA 0012 Airfoil Validation for Turbulence Model Numerical Analysis - SA Model Results with Point Vortex BC</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<br>&nbsp;
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<!--Jump to: <a href="flatplate_val_sst.html">SST Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-V Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006 Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2013 Results</a></p>-->
+<p>Return to: <a href="naca0012numerics_val_sa.html">2D NACA 0012 Airfoil Validation for Numerical Analysis SA Model Results Intro Page</a></p>
+<p>Return to: <a href="naca0012numerics_val.html">2D NACA 0012 Airfoil Validation for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2D NACA 0012 Airfoil Validation for Turbulence Model Numerical 
+            Analysis</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">SA Model Results 
+<u>with</u> Point Vortex BC
+for M = 0.15, Re<sub>c</sub> = 6 million, alpha = 10 deg, T<sub>ref</sub> = 540 R</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="spalart.html#sa">Link to SA equations</a>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+All results shown on this page included a
+farfield point vortex correction (see Thomas and Salas, AIAA Journal 24(7):1074-1080, 1986,
+<a href="https://doi.org/10.2514/3.9394">https://doi.org/10.2514/3.9394</a>).
+While this correction is relatively small for such a large farfield extent, its influence will
+be noticeable at the detailed levels being investigated here.  It is believed that results using
+the point vortex correction on the 500c grid will be better representative of results obtained on a grid
+with farfield boundary at infinity.
+For results with no farfield point vortex BC, go to:
+<a href="naca0012numerics_val_sa_withoutpv.html">2D NACA 0012 Airfoil Validation for Turbulence Model
+Numerical Analysis - SA Model Results without Point Vortex BC</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Plots are shown to illustrate grid convergence for the lift, drag, and pitching moment coefficients.
+The contributions to the drag coefficient due to the viscosity and pressure are presented separately.
+The pitching moment is computed with respect to the 0.25c point.
+<u>Unless otherwise noted, CFL3D was run with its default setting of 1st order for turbulence advection,
+whereas FUN3D was run with 2nd order for turbulence advection.</u>
+Recall that CFL3D was run with the
+<a href="spalart.html#sa">SA model</a>, whereas FUN3D used 
+<a href="spalart.html#saneg">SA-neg</a>.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA0012numerics_val/cl_grid_C+F_sa.jpg" border="1" title="SA - lift coefficient vs h, with PV" alt="SA - lift coefficient vs h, with PV">
+           <img
+src="NACA0012numerics_val/cd_grid_C+F_sa.jpg" border="1" title="SA - drag coefficient vs h, with PV" alt="SA - drag coefficient vs h, with PV">
+        </p>
+        <p><img
+src="NACA0012numerics_val/cdp_grid_C+F_sa.jpg" border="1" title="SA - pressure drag coefficient vs h, with PV" 
+alt="SA - pressure drag coefficient vs h, with PV">
+           <img
+src="NACA0012numerics_val/cdv_grid_C+F_sa.jpg" border="1" title="SA - viscous drag coefficient vs h, with PV" 
+alt="SA - viscous drag coefficient vs h, with PV">
+        </p>
+        <p><img
+src="NACA0012numerics_val/cmy_grid_C+F_sa.jpg" border="1" title="SA - moment coefficient about 1/4c vs h, with PV" 
+alt="SA - moment coefficient about 1/4c vs h, with PV">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data files:
+<a href="NACA0012numerics_val/fun3d_results_sa_withN.dat">fun3d_results_sa_withN.dat</a>, 
+<a href="NACA0012numerics_val/cfl3d_results_sa_withN.dat">cfl3d_results_sa_withN.dat</a> (both updated 2/8/2016).
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+It has been found that the trailing edge streamwise (TES) spacing has a profound influence on the NACA 0012 lift and moment 
+results. It is believed that the grid family II yields the most accurate results. Grid family II 
+results from FUN3D and CFL3D (in red) are reasonably consistent with each other, and appear 
+(when farfield PV correction is employed) to be approaching infinitely-refined results near:
+<ul>
+<li>CL = 1.0912 - 1.0913
+<li>CD = 0.01221 - 0.01222
+<li>CDp = 0.00601 - 0.00602
+<li>CDv = 0.006204 - 0.006205
+<li>Cm = 0.00677 - 0.00679
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Grid family I solutions appear to be approaching different values for lift and moment coefficients as 
+the grids are refined. See zoomed-in plots for CL and CM below.  
+It is believed that much finer grids than 7169x2049 would be required 
+for grid family I to start to converge to the correct results.
+As seen in the plots, solutions on the family III grids, which have TES spacing between family I 
+and II, are only just starting to turn toward the correct results for lift and moment on the 7169x2049 grid.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA0012numerics_val/cl_grid_C+F_sa_family13only.jpg" border="1" title="SA - lift coefficient vs h, with PV, zoom in families I and III only" alt="SA - lift coefficient vs h, with PV, zoom in families I and III only">
+           <img
+src="NACA0012numerics_val/cl_grid_C+F_sa_family123only.jpg" border="1" title="SA - lift coefficient vs h, with PV, zoom in family II" alt="SA - lift coefficient vs h, with PV, zoom in family II">
+        </p>
+        <p><img
+src="NACA0012numerics_val/cmy_grid_C+F_sa_family13only.jpg" border="1" title="SA - moment coefficient vs h, with PV, zoom in families I and III only" alt="SA - moment coefficient vs h, with PV, zoom in families I and III only">
+           <img
+src="NACA0012numerics_val/cmy_grid_C+F_sa_family123only.jpg" border="1" title="SA - moment coefficient vs h, with PV, zoom in family II" alt="SA - moment coefficient vs h, with PV, zoom in family II">
+        </p>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Surface Cp (pressure coefficient) and Cf,x (x-direction component of skin friction coefficient)
+are shown from both codes on the 7169x2049 family II grid in the 
+following figures. The largest differences between the codes occur at the suction peak and very near the trailing edge, and 
+are visible only in extreme zooms.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA0012numerics_val/cp_C+F_sa.jpg" border="1" title="SA, with PV - surface Cp on finest grid of family II" alt="SA, with PV - surface Cp on finest grid of family II">
+           <img
+src="NACA0012numerics_val/cfx_C+F_sa.jpg" border="1" title="SA, with PV - surface Cf,x on finest grid of family II" alt="SA, with PV - surface Cf,x on finest grid of family II">
+        </p>
+
+        <p><img
+src="NACA0012numerics_val/cp_LE_C+F_sa.jpg" border="1" title="SA, with PV - upper surface Cp near L.E. on finest grid of family II" alt="SA, with PV - upper surface Cp near L.E. on finest grid of family II">
+           <img
+src="NACA0012numerics_val/cfx_LE_C+F_sa.jpg" border="1" title="SA, with PV - upper surface Cf,x near L.E. on finest grid of family II" alt="SA, with PV - upper surface Cf,x near L.E. on finest grid of family II">
+        </p>
+
+        <p><img
+src="NACA0012numerics_val/cp_LEzoom_C+F_sa.jpg" border="1" title="SA, with PV - upper surface Cp near L.E. (zoom) on finest grid of family II" alt="SA, with PV - upper surface Cp near L.E. (zoom) on finest grid of family II">
+           <img
+src="NACA0012numerics_val/cfx_LEzoom_C+F_sa.jpg" border="1" title="SA, with PV - upper surface Cf,x near L.E. (zoom) on finest grid of family II" alt="SA, with PV - upper surface Cf,x near L.E. (zoom) on finest grid of family II">
+        </p>
+
+        <p><img
+src="NACA0012numerics_val/cp_TE_C+F_sa.jpg" border="1" title="SA, with PV - surface Cp near T.E. on finest grid of family II" alt="SA, with PV - surface Cp near T.E. on finest grid of family II">
+           <img
+src="NACA0012numerics_val/cfx_TE_C+F_sa.jpg" border="1" title="SA, with PV - surface Cf,x near T.E. on finest grid of family II" alt="SA, with PV - surface Cf,x near T.E. on finest grid of family II">
+        </p>
+
+        <p><img
+src="NACA0012numerics_val/cp_TEzoom_C+F_sa.jpg" border="1" title="SA, with PV - surface Cp near T.E. (zoom) on finest grid of family II" alt="SA, with PV - surface Cp near T.E. (zoom) on finest grid of family II">
+           <img
+src="NACA0012numerics_val/cfx_TEzoom_C+F_sa.jpg" border="1" title="SA, with PV - surface Cf,x near T.E. (zoom) on finest grid of family II" alt="SA, with PV - surface Cf,x near T.E. (zoom) on finest grid of family II">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data files:
+<a href="NACA0012numerics_val/fun3d_cp_sa.dat">fun3d_cp_sa.dat</a>,
+<a href="NACA0012numerics_val/cfl3d_cp_sa.dat">cfl3d_cp_sa.dat</a>,
+<a href="NACA0012numerics_val/fun3d_cf_sa.dat">fun3d_cf_sa.dat</a>,
+<a href="NACA0012numerics_val/cfl3d_cf_sa.dat">cfl3d_cf_sa.dat</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<!--Jump to: <a href="flatplate_val_sst.html">SST Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-V Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006 Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2013 Results</a></p>-->
+<p>Return to: <a href="naca0012numerics_val_sa.html">2D NACA 0012 Airfoil Validation for Numerical Analysis SA Model Results Intro Page</a></p>
+<p>Return to: <a href="naca0012numerics_val.html">2D NACA 0012 Airfoil Validation for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+02/08/2016 - Added N to files for force and moment grid convergence<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/10/2021
+<br>&nbsp;
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D NACA 0012 Airfoil Validation for Turbulence Model Numerical Analysis - SA Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<!--<br>&nbsp;-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<!--Jump to: <a href="flatplate_val_sst.html">SST Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-V Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006 Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2013 Results</a></p>-->
+<p>Return to: <a href="naca0012numerics_val.html">2D NACA 0012 Airfoil Validation for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2D NACA 0012 Airfoil Validation for Turbulence Model Numerical 
+            Analysis</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">SA Model Results
+for M = 0.15, Re<sub>c</sub> = 6 million, alpha = 10 deg, T<sub>ref</sub> = 540 R</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="spalart.html#sa">Link to SA equations</a>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Please refer to AIAA Journal, Vol. 54, No. 9, 2016, pp. 2563-2588,
+<a href="https://doi.org/10.2514/1.J054555">https://doi.org/10.2514/1.J054555</a> and AIAA Paper 2015-1746,
+<a href="https://doi.org/10.2514/6.2015-1746">https://doi.org/10.2514/6.2015-1746</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results are shown for the NACA 0012 at M=0.15, Re=6 million based on chord, and alpha=10 deg.
+Two different CFD codes (FUN3D and CFL3D) and 3 different grid families have been employed
+in an effort to try to discern the grid-converged result for this case. 
+(For the case without farfield point vortex correction BC, 
+<a href="http://tau.dlr.de/startseite/" target="_blank">TAU</a> results are also included.)
+Results here
+are for the "standard" <a href="spalart.html#sa">SA model</a>.  However, note that FUN3D and TAU make use of
+the <a href="spalart.html#saneg">SA-neg</a> variant, which was designed for improved numerical
+behavior.  SA-neg is passive to the
+original (SA) model in well-resolved flowfields, and hence is expected to yield essentially identical
+results for the cases here.
+Furthermore, FUN3D and TAU both used clipping method "c" for <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" />,
+while CFL3D used clipping method "a" (see <u>Note 1</u> on
+<a href="spalart.html">the Spalart-Allmaras equation page</a>).
+For both codes, the farfield value of the Spalart turbulence variable is
+<img class="tex" alt="\tilde \nu_{farfield} \geq 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" />.
+In both codes the Prandtl number Pr is taken to be constant at 0.72, and turbulent Prandtl
+number Pr<sub>t</sub> is taken to be constant at 0.9.
+The dynamic viscosity is computed using
+Sutherland's Law (See White, F. M., "Viscous Fluid Flow," McGraw Hill, New York, 1974, p. 28).
+In Sutherland's Law, the local value of dynamic viscosity is determined by plugging the local value of temperature 
+(<i>T</i>) into the following formula:
+
+<dl>
+<dd><img class="tex" alt="\mu = \mu_0 \left( \frac{T}{T_0} \right)^{3/2} \left(
+\frac{T_0 + S}{T+S} \right)"
+  src="sutherland_eqns/img2.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_0 = 1.716 \times 10^{-5} kg/(ms)" src="sutherland_eqns/img3.png" />,
+<img class="tex" alt="T_0 = 491.6 R" src="sutherland_eqns/img4.png" />, and
+<img class="tex" alt="S = 198.6 R" src="sutherland_eqns/img5.png" />.
+The same formula can be found <a href="http://www.cfd-online.com/Wiki/Sutherland%27s_law" target="_blank">online</a>
+(with temperature constants given in degrees K and some small conversion differences).
+Note that in terms of the reference quantities <u>for this particular case</u>, Sutherland's Law can equivalently be written:
+
+<dl>
+<dd><img class="tex" alt="\left( \frac{\mu}{\mu_{ref}} \right) = \left( \frac{T}{T_{ref}} \right)^{3/2} \left(
+\frac{T_{ref} + S}{T+S} \right)"
+  src="sutherland_eqns/img6.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_{ref}" src="sutherland_eqns/img7.png" />
+is the reference dynamic viscosity that corresponds to the freestream in this case, and
+freestream <img class="tex" alt="T_{ref}" src="sutherland_eqns/img8.png" /> (as defined on the 
+<a href="naca0012numerics_val.html">previous</a> 
+page) is 540R.  This latter form may be more convenient for nondimensional codes.
+(Specific details regarding an implementation of Sutherland's Law in nondimensional codes can be found in
+<a href="Papers/sutherland_notes_cfl3d_fun3d.pdf">handwritten notes describing Sutherland's Law in CFL3D and FUN3D</a>.)
+
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium"><span style="color: blue">NOTE: The results below
+used the original
+posted grids, which  were based on the scaled NACA 0012 airfoil shape with a small typo in one of the coefficients.  Through
+testing, the typo has been found to make insignificant differences in the CFD results.  Even though results are
+expected to be essentially the same, they will be updated to reflect the
+corrected grids at some point in the future.</span></p>-->
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The difference between
+the three grid families is in their trailing edge streamwise (TES) spacing: the grid family I has the
+coarsest TES spacing (similar to the spacing used for the
+<a href="naca0012_val.html">2D NACA 0012 Airfoil Validation Case</a>),
+the grid family II has the finest TES spacing, and the grid family III has an intermediate TES
+spacing. All grids have a farfield extent of about 500c.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results are given both without and with a farfield Point Vortex correction BC:
+<ul>
+<li><a href="naca0012numerics_val_sa_withoutpv.html">SA Without Point Vortex Correction BC</a>
+<li><a href="naca0012numerics_val_sa_withpv.html">SA With Point Vortex Correction BC</a>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<!--Jump to: <a href="flatplate_val_sst.html">SST Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-V Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006 Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2013 Results</a></p>-->
+<p>Return to: <a href="naca0012numerics_val.html">2D NACA 0012 Airfoil Validation for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+03/10/2015 - added description of clipping method for <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" /> used
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/10/2021
+<br>&nbsp;
+
+</body>
+</html>

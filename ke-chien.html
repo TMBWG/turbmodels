@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Chien k-epsilon Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+Under Construction... come back later-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The Chien k-epsilon
+   Turbulence Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various forms of the
+Chien k-epsilon turbulence model.
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><em>The first version listed <span style="color: blue">(KE-Chien)</span> is the original published version
+of this model.</em>
+<br>&nbsp;
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Chien k-epsilon 
+   Two-Equation Model <span style="color: blue">(KE-Chien)</span></strong>
+<p>The reference for this model is:
+
+<ul>
+<li>Chien, K.-Y., "Predictions of Channel and Boundary-Layer Flows with a Low-Reynolds-Number
+Turbulence Model,"
+<strong>AIAA Journal</strong>, Vol. 20, No. 1, 1982, pp. 33-38,
+<a href="https://doi.org/10.2514/3.51043">https://doi.org/10.2514/3.51043</a>.
+</ul>
+
+<p>The two-equation model (written in conservation form) is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \rho \epsilon  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \frac{\mu_t}{\sigma_k} \right)\frac{\partial k}{\partial x_j}\right]
+  + \rho L_k"
+  src="kechien_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \epsilon)}{\partial t} + \frac{\partial (\rho u_j \epsilon)}{\partial x_j}
+  = C_{\epsilon 1} f_1 \frac{\epsilon}{k} \cal P -
+  C_{\epsilon 2} f_2 \frac{\rho \epsilon^2}{k} + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \frac{\mu_t}{\sigma_{\epsilon}} \right)
+  \frac{\partial \epsilon}{\partial x_j} \right] +
+  \rho L_{\epsilon}"
+  src="kechien_eqns/img3.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="kechien_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}"
+  src="kechien_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)"
+  src="kechien_eqns/img6.png" /></dd>
+</dl>
+
+<p>and the turbulent eddy viscosity is computed from:
+<dl>
+<dd><img class="tex" alt="\mu_t = C_{\mu} f_{\mu} \frac{\rho k^2}{\epsilon}"
+  src="kechien_eqns/img7.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\rho" src="kechien_eqns/img8.png" /> is the density
+and
+<img class="tex" alt="\mu" src="kechien_eqns/img9.png" /> is the
+molecular dynamic viscosity.
+
+<p>There are no specific farfield boundary conditions recommended for this model.
+At solid walls, the boundary conditions are:
+
+<dl>
+<dd><img class="tex" alt="k_{wall} = 0"
+  src="kechien_eqns/img10.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\epsilon_{wall} = 0"
+  src="kechien_eqns/img11.png" /></dd>
+</dl>
+
+<p>The constants and auxiliary functions are:
+<dl>
+<dd><img class="tex" alt="\sigma_k = 1.0"
+  src="kechien_eqns/img12.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\epsilon} = 1.3"
+  src="kechien_eqns/img13.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="C_{\mu} = 0.09"
+  src="kechien_eqns/img14.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\epsilon 1} = 1.35"
+  src="kechien_eqns/img15.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\epsilon 2} = 1.80"
+  src="kechien_eqns/img16.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_1 = 1"
+  src="kechien_eqns/img17.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="f_2 = 1 - \frac{0.4}{1.8} e^{-Re_T^2/36}"
+  src="kechien_eqns/img18.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="Re_T = \frac{\rho k^2}{\mu \epsilon}"
+  src="kechien_eqns/img19.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_{\mu} = 1 - e^{-0.0115 d^+}"
+  src="kechien_eqns/img20.png" /></dd>
+</dl>
+
+<p>with <img class="tex" alt="d^+" src="kechien_eqns/img21.png" /> a <u>non-local</u> function of distance to
+the wall (in wall variables), and thus dependent on properties at the nearest wall location.
+<dl>
+<dd><img class="tex" alt="d+ = d \rho u_{\tau} / \mu"
+  src="kechien_eqns/img22.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="u_{\tau} = \sqrt{\tau_w/\rho_w}"
+  src="kechien_eqns/img23.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\tau_w = \mu_w \left( \frac{\partial U}{\partial n} \right)_w"
+  src="kechien_eqns/img24.png" /></dd>
+</dl>
+
+<p>with <em>U</em> the velocity parallel to the wall, <em>n</em> the direction normal to
+the wall, and <em>d</em> the minimum distance to the wall.
+
+<dl>
+<dd><img class="tex" alt="L_k = -2 \frac{\mu k}{\rho d^2}"
+  src="kechien_eqns/img25.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="L_{\epsilon} = -2 \frac{\mu \epsilon}{\rho d^2} e^{-d^+/2}"
+  src="kechien_eqns/img26.png" /></dd>
+</dl>
+
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Chien k-epsilon
+   Two-Equation Model with Compressibility Correction <span style="color: blue">(KE-Chien-comp)</span></strong>
+<p>A reference for this version of the model is:
+
+<ul>
+<li>Kaul, U. K., "Effect of Inflow Boundary Conditions on the Turbulence Solution in
+Internal Flows,"
+AIAA Journal, Vol. 49, No. 2, pp. 426-432,
+<a href="https://doi.org/10.2514/1.J050532">https://doi.org/10.2514/1.J050532</a>.
+<li>Kaul, U. K., "Effect of Inflow Boundary Conditions on the Solution of Transport Equations
+for Internal Flows," AIAA Paper 2010-4743, June-July 2010,
+<a href="https://doi.org/10.2514/6.2010-4743">https://doi.org/10.2514/6.2010-4743</a>.
+</ul>
+
+<p>This version of the Chien k-epsilon model is the same as for
+<span style="color: blue">(KE-Chien)</span> with the exception that the destruction term in the
+k-equation has an additional compressibility correction:
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \rho \epsilon (1 + M_t^2)  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \frac{\mu_t}{\sigma_k} \right)\frac{\partial k}{\partial x_j}\right]
+  + \rho L_k"
+  src="kechien-kaul2010_eqns/img2.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="M_t = \sqrt{1.5 k / a^2}" src="kechien-kaul2010_eqns/img3.png" /> and
+<em>a</em> is the local speed of sound
+<img class="tex" alt="a = sqrt{\gamma p / \rho}" src="kechien-kaul2010_eqns/img4.png" />.
+
+<p>Other versions of the Chien k-epsilon model have also made use of a <u>non-local</u> curvature
+correction term dependent on the rotational Richardson number, which modifies the 
+<img class="tex" alt="C_{\epsilon 2}"  src="kechien-kaul2010_eqns/img5.png" /> term in the
+epsilon equation. But because it is not possible to implement this particular curvature correction for general
+flows, it is not included here.  The interested reader is referred to:
+Kaul, NASA CR-4141, 1989.
+
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+6/30/2015 - mention Pr, Pr_t, and Sutherland's law<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

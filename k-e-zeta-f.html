@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>K-e-zeta-f Turbulence Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">K-e-zeta-f Turbulence
+Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for the three-equation (plus elliptic relaxation equation, for a total of four equations) k-e-zeta-f turbulence closure.
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">K-e-zeta-f2004 Model
+   <span style="color: blue">(k-e-zeta-f2004)</span></strong>
+
+<p>This model's references are:
+
+<ul>
+<li>Hanjalic, K., Popovac, M., Hadziabdic, M.,
+"A Robust Near-Wall Elliptic-Relaxation Eddy-Viscosity Turbulence Model for CFD,"
+<strong>International Journal of Heat and Fluid Flow</strong>, 
+Vol. 25, 2004, pp. 1047-1051,
+<a href="https://doi.org/10.1016/j.ijheatfluidflow.2004.07.005">https://doi.org/10.1016/j.ijheatfluidflow.2004.07.005</a>.</li>
+<li>Popovac, M., Hanjalic, K.,
+"Compound Wall Treatment for RANS Computation of Complex Turbulent Flows and Heat Transfer,"
+<strong>Flow, Turbulence, and Combustion</strong>, Vol. 78, 2007, pp. 177-202,
+<a href="https://doi.org/10.1007/s10494-006-9067-x">https://doi.org/10.1007/s10494-006-9067-x</a>.</li>
+</ul>
+
+<p>Note the latter reference has a typo in the equation for the time scale, T.
+
+<p>This model is based on original ideas of Durbin (see, e.g., the k-e-v<sup>2</sup>-f model as described in
+AIAA Journal, Vol. 33, No. 4, 1995, pp. 659-664,
+<a href="https://doi.org/10.2514/3.12628">https://doi.org/10.2514/3.12628</a>).
+Note that <img class="tex" alt="\zeta = v^2 / k" src="k-e-zeta-f_eqns/img29.png" />.
+The k-e-zeta-f2004 model is also described
+online at:
+
+<ul>
+<li>CFD Online, "Zeta-f model," 
+<a href="http://www.cfd-online.com/Wiki/Zeta-f_model" target="_blank">http://www.cfd-online.com/Wiki/Zeta-f_model</a>.</li>
+</ul>
+
+<p>This model (written in conservation form) is given
+by the following:
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial \rho k}{\partial t} +
+\frac{\partial (\rho u_j k)}{\partial x_j} = P - \rho \varepsilon +
+\frac{\partial}{\partial x_j} \left[
+\left( \mu + \frac{\mu_t}{\sigma_k} \right) \frac{\partial k}{\partial x_j} \right]"
+  src="k-e-zeta-f_eqns/img2.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial \rho \varepsilon}{\partial t} +
+\frac{\partial (\rho u_j \varepsilon)}{\partial x_j} = 
+\frac{C_{\varepsilon 1} P - C_{\varepsilon 2} \rho \varepsilon}{T}
++ \frac{\partial}{\partial x_j} \left[
+\left( \mu + \frac{\mu_t}{\sigma_{\varepsilon}} \right) \frac{\partial \varepsilon}{\partial x_j} \right]"
+  src="k-e-zeta-f_eqns/img3.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial \rho \zeta}{\partial t} +
+\frac{\partial (\rho u_j \zeta)}{\partial x_j} = \rho f - \frac{\zeta}{k}P +
+\frac{\partial}{\partial x_j} \left[
+\left( \mu + \frac{\mu_t}{\sigma_{\zeta}} \right) \frac{\partial \zeta}{\partial x_j} \right]"
+  src="k-e-zeta-f_eqns/img4.png" /></dd>
+</dl>
+
+<p>Non-locality is represented by an <u>elliptic relaxation equation</u> for <i>f</i>:
+<dl>
+<dd><img class="tex" alt="L^2\nabla^2 f - f = L^2\frac{\partial}{\partial x_j}\left(\frac{\partial f}{\partial x_j}\right) -f = 
+\frac{1}{T} \left(C_1 - 1 + C_2' \frac{P}{\rho \varepsilon} \right) 
+\left(\zeta - \frac{2}{3} \right)"
+  src="k-e-zeta-f_eqns/img5.png" /></dd>
+</dl>
+
+where
+
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij} \frac{\partial u_i}{\partial x_j}"
+src="k-e-zeta-f_eqns/img6.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}"
+src="k-e-zeta-f_eqns/img7.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)"
+src="k-e-zeta-f_eqns/img8.png" /></dd>
+</dl>
+
+<p>Note for incompressible flows, the production term exactly becomes:
+
+<dl>
+<dd><img class="tex" alt="P = \mu_t S^2"
+src="k-e-zeta-f_eqns/img10.png" /></dd>
+</dl>
+
+<p>(which is often taken as a good approximation except for very high Mach numbers;
+see <a href="noteonrunning.html">Notes on Running the Cases with CFD, note 4</a>).
+Here, <img class="tex" alt="S=\sqrt{2 S_{ij} S_{ij}}" src="k-e-zeta-f_eqns/img11.png" />.
+
+<p>The turbulent eddy viscosity is computed from:
+
+<dl>
+<dd><img class="tex" alt="\mu_t = \rho C_{\mu} \zeta k T"
+src="k-e-zeta-f_eqns/img9.png" /></dd>
+</dl>
+
+<p>The time scale and length scale are computed from:
+
+<dl>
+<dd><img class="tex" alt="T = {\rm max} \left[ {\rm min} \left(
+\frac{k}{\varepsilon}, \frac{0.6}{\sqrt{6} C_{\mu} |S| \zeta} \right),
+C_T \left( \frac{\nu}{\varepsilon} \right)^{1/2} \right]"
+src="k-e-zeta-f_eqns/img12.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="L = C_L {\rm max} \left[ {\rm min} \left(
+\frac{k^{3/2}}{\varepsilon},
+\frac{k^{1/2}}{\sqrt{6} C_{\mu} |S| \zeta} \right),
+C_{\eta} \left( \frac{\nu^3}{\varepsilon} \right)^{1/4} \right]"
+src="k-e-zeta-f_eqns/img13.png" /></dd>
+</dl>
+
+<p>The closure coefficients are:
+
+<dl>
+<dd><img class="tex" alt="C_{\mu} = 0.22"
+  src="k-e-zeta-f_eqns/img14.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_k = 1.0"
+  src="k-e-zeta-f_eqns/img15.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{\varepsilon} = 1.3"
+  src="k-e-zeta-f_eqns/img16.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\zeta} = 1.2"
+  src="k-e-zeta-f_eqns/img17.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{\varepsilon 1} = 1.4[1+(0.012/\zeta)]"
+  src="k-e-zeta-f_eqns/img18.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\varepsilon 2} = 1.9"
+  src="k-e-zeta-f_eqns/img19.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_1 = 1.4"
+  src="k-e-zeta-f_eqns/img20.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_2' = 0.65"
+  src="k-e-zeta-f_eqns/img21.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_T = 6"
+  src="k-e-zeta-f_eqns/img22.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_L = 0.36"
+  src="k-e-zeta-f_eqns/img23.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\eta} = 85"
+  src="k-e-zeta-f_eqns/img24.png" /> </dd>
+</dl>
+
+<p>There are no specific farfield boundary conditions recommended for this model.
+
+<p>At the wall, the 
+boundary conditions are:
+
+<dl>
+<dd><img class="tex" alt="k_w = 0"
+  src="k-e-zeta-f_eqns/img25.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\varepsilon_w = \lim_{d\to0}{\frac{2 \nu k}{d^2}}"
+  src="k-e-zeta-f_eqns/img26.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\zeta_w = 0"
+  src="k-e-zeta-f_eqns/img27.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_w = \lim_{d\to0}{\frac{-2 \nu \zeta}{d^2}}"
+  src="k-e-zeta-f_eqns/img28.png" /></dd>
+</dl>
+
+<p>with <i>d</i> = distance to the wall, and numerical implementation details for the limit terms are unspecified
+in the original papers.
+As implied in Kalitzin (AIAA 99-3780), a typical implementation for these terms might be:
+
+<dl>
+<dd><img class="tex" alt="\varepsilon_w = \frac{2 \nu_1 k_1}{d_1^2}"
+  src="k-e-zeta-f_eqns/img37.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_w = -\frac{2 \nu_1 \zeta_1}{d_1^2}"
+  src="k-e-zeta-f_eqns/img38.png" /></dd>
+</dl>
+
+<p>where the subscript "1" indicates the value at the first interior grid point  or cell center above the wall.
+Note that another common wall BC used for 
+<img class="tex" alt="\varepsilon" src="k-e-zeta-f_eqns/img30.png" />
+is:
+
+<dl>
+<dd><img class="tex" alt="\varepsilon_w = 2 \nu \left( \frac{\partial k^{1/2}}{\partial \eta} \right)^2 |_w"
+  src="k-e-zeta-f_eqns/img31.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\eta" src="k-e-zeta-f_eqns/img32.png" /> is the
+direction normal to the wall (see Hanjalic and Launder, Modelling Turbulence in Engineering and the Environment,
+Cambridge University Press, 2011, section 6.2).
+
+<p>(Although not described in detail here, it is also possible to manipulate the 
+<img class="tex" alt="\varepsilon" src="k-e-zeta-f_eqns/img30.png" />
+and <i>f</i> equations so that
+<img class="tex" alt="\tilde \varepsilon_w = 0" src="k-e-zeta-f_eqns/img33.png" />
+and
+<img class="tex" alt="\tilde f_w = 0" src="k-e-zeta-f_eqns/img34.png" />, using
+
+<dl>
+<dd><img class="tex" alt="\tilde \varepsilon = \varepsilon - \frac{2 \nu k}{d^2}"
+  src="k-e-zeta-f_eqns/img35.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\tilde f = f + \frac{2 \nu \zeta}{d^2}"
+  src="k-e-zeta-f_eqns/img36.png" /></dd>
+</dl>
+
+<p>See Hanjalic and Launder, Modelling Turbulence in Engineering and the Environment,
+Cambridge University Press, 2011, sections 6.2 and 7.4.)
+
+<br>&nbsp;
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

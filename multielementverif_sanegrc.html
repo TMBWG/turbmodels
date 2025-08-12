@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>SA-neg-RC Expected Results - 2D Multielement Airfoil</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="multielementverif.html">2D Multielement Airfoil Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">SA-neg-RC Expected Results - 2D Multielement Airfoil</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: large; color: red">NOTE: this case is NOT exhibiting
+asymptotic grid convergence.  Therefore, as it currently stands, it is not appropriate as a verification
+case. Even though two different codes are exhibiting similar results, it is unclear from the grid
+convergence plots what the "fully converged" results should be (as h approaches 0).  Results from finer and/or adapted grids may
+eventually help to settle this issue.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This case is different from
+many others on the TMR website, in that only unstructured grids are provided.  It was attempted to
+create a "family" of grids, but this can be difficult for unstructured grids (see discussion about the importance of grid families in
+<a href="noteonrunning.html">Notes on Running the Cases with CFD</a> - Note 10).
+<u>Results shown here used the "Family 1" set of unstructured grids.</u>
+
+<p>Results here are from 2 compressible codes,
+so that the user may compare their own compressible code results.  Multiple grids were
+used so the user can see trends with grid refinement.  Different codes will behave
+differently with grid refinement depending on many factors (including code order of accuracy
+and other numerics),
+but it would be expected that as the grid is refined the results
+will tend toward an "infinite grid" solution that is the same.
+Be careful when comparing details: any differences in boundary conditions or flow conditions
+may affect results.
+
+<p>The RANS codes FUN3D and USM3D were used to compute this
+2-D multielement airfoil case with the Spalart-Allmaras turbulence model
+with Rotation-Curvature correction
+(version <span style="color: blue">SA-neg-RC</span> - see full description on
+<a href="spalart.html#saRC">Spalart-Allmaras page</a>). 
+Note that SA-neg-RC results are expected to be essentially identical to SA-RC. 
+The full series of 7 grids were used.  FUN3D
+is a node-centered unstructured-grid code, and 
+used Roe's Flux Difference
+Splitting and a UMUSCL upwind approach with kappa=0.5 employed.
+First-order upwinding for the advective terms of the turbulence model was employed.
+Details about the code can be found on its website,
+the link for which are given on this site's 
+<a href="index.html">home page</a>.
+FUN3D was run to near machine-zero iterative convergence, but for this case
+it required the use of HANIM (see AIAA-2021-0857,
+<a href="https://doi.org/10.2514/6.2021-0857">https://doi.org/10.2514/6.2021-0857</a>).
+It should be kept in mind that many of the files given below
+contain computed values directly from the code,
+using a precision <strong>greater</strong> than the convergence tolerance (i.e., the values
+in the files are not necessarily as precise as the number of digits given).
+Details about USM3D are not provided here, but can be found at:
+<a href="https://tetruss.larc.nasa.gov/usm3d/" target=_blank>https://tetruss.larc.nasa.gov/usm3d/</a>.
+
+<p>Note that this case should be run "fully turbulent." However, the results
+end up being transitional at this Reynolds number, 
+especially on the flap and on each element's lower surface. For verification
+purposes, this should still turn out to be consistent between codes, provided that the same
+recommended farfield boundary condition of
+<img class="tex" alt="\tilde \nu_{farfield} \geq 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" /> is used.
+ 
+<p>For the FUN3D and USM3D tests reported below, the turbulent inflow boundary condition used for SA-neg-RC was:
+<img class="tex" alt="\tilde \nu_{farfield} \geq 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" />.
+For the interested reader, typical input files for this problem are given here:
+<p>FUN3D:
+<ul>
+<li><a href="Multielementverification/SAnegRC/fun3d.nml_typical">Typical Namelist Input File for 2D 
+Multielement Airfoil</a>  (note this version of FUN3D was pre-release, so some aspects of the namelist file may change)
+<li><a href="Multielementverification/SAnegRC/fun3d.info">Additional FUN3D Information</a>
+</ul>
+
+<p>The following plots show the airfoil lift coefficient, drag coefficient, pressure drag coefficient,
+viscous drag coefficient, and pitching moment (about x/c=0.25).
+In the plot the x-axis is plotting 1/N<sup>1/2</sup>, which is proportional to
+grid spacing (h).
+At the left of the plot, h=0 represents an infinitely fine grid.
+The FUN3D and USM3D results are very similar.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAnegRC/cl_convergence_sarc_F+U.jpg" border="1" title="convergence of CL
+    vs h" alt="convergence of CL vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAnegRC/cd_convergence_sarc_F+U.jpg" border="1" title="convergence of CD
+    vs h" alt="convergence of CD vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAnegRC/cdp_convergence_sarc_F+U.jpg" border="1" title="convergence of CDp
+    vs h" alt="convergence of CDp vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAnegRC/cdv_convergence_sarc_F+U.jpg" border="1" title="convergence of CDv
+    vs h" alt="convergence of CDv vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAnegRC/cmy_convergence_sarc_F+U.jpg" border="1" title="convergence of CMy
+    vs h" alt="convergence of CMy vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: large; color: red">
+Other than for CDv, it appears that the CFD results are not converging with a reasonable grid-convergence order for this case
+(they are not in the asymptotic regime of grid convergence).  This is possibly because the grids are not fine enough, but it is
+also possible that the transitional behavior of the flowfield (particularly on the upper surface of the flap) is playing a part.
+Therefore, we do not provide any uncertainty estimations here.
+
+<p><span style="text-align: left; font-weight: 400; font-size: large; color: black">
+The data file that generated the above plots is given here:
+<a href="Multielementverification/SAnegRC/force_convergence_sanegrc.dat">force_convergence_sanegrc.dat</a>.
+
+<p>The surface pressure coefficient and x-component of skin friction coefficient 
+on the finest (L7) grid are shown below.
+The results from FUN3D and USM3D agree well with each other.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAnegRC/cp_grid7_sarc_F+U.jpg" border="1" title="surface pressure coefficient over the airfoil elements" 
+alt="surface pressure coefficient over the airfoil elements">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAnegRC/cfx_grid7_sarc_F+U.jpg" border="1" title="x-component of surface skin friction coefficient over the airfoil elements" 
+alt="x-component of surface skin friction coefficient over the airfoil elements">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plots is given here:
+<a href="Multielementverification/SAnegRC/cp_multielementairfoil_sanegrc.dat">cp_multielementairfoil_sanegrc.dat</a> and
+<a href="Multielementverification/SAnegRC/cfx_multielementairfoil_sanegrc.dat">cfx_multielementairfoil_sanegrc.dat</a>.
+
+<p>Some profiles over the airfoil upper surface along three specific x-locations are shown below 
+(on the L7 grid).  Results between the two codes are very close.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAnegRC/extract_many_profiles_sanegrc.jpg" border="1" title="profiles of u, w, and eddy viscosity at specific x-locations over the airfoil elements" 
+alt="profiles of u, w, and eddy viscosity at specific x-locations over the airfoil elements">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plots is given here:
+<a href="Multielementverification/SAnegRC/profiles_3element_sanegrc.dat">profiles_3element_sanegrc.dat</a>.
+
+<p>The eddy viscosity contours (nondimensionalized by freestream laminar viscosity)
+and Mach contours (along with streamlines computed on the fly in Tecplot)
+from FUN3D on the finest grid (L7) are shown
+in the following plots. 
+(Note legends do not necessarily reflect min and max values.)
+USM3D results (not shown) are nearly identical.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAnegRC/plot_mut_multi2d_sarc.jpg" border="1" title="eddy viscosity contours for FUN3D" alt="eddy viscosity contours for FUN3D">
+           <img
+src="Multielementverification/SAnegRC/plot_machandstream_multi2d_sarc.jpg" border="1" title="Mach contours and streamlines for FUN3D" alt="Mach contours and streamlines for FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plots are given here:
+<a href="Multielementverification/SAnegRC/machmut_contours_fun3d_sanegrc.dat.gz">machmut_contours_fun3d_sanegrc.dat.gz</a> (173.6 MB) (unstructured, at grid points). Note 
+that this is a gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted file, so you must either have Tecplot or know how to read their format in order to use these
+files.
+
+<p>The SA-neg-RC model relies on the minimum distance to the nearest wall.  For this case,
+contours of this function 
+are shown in the following plot, for the finest grid.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Multielementverification/SAneg/plot_slen_multi2d.jpeg" border="1" title="minimum distance function" alt="minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given in
+<a href="Multielementverification/SAneg/multi2d_mindist.dat.gz">multi2d_mindist.dat.gz</a> (gzipped file,
+127.8 MB, unstructured, at grid points). Note
+that this is a gzipped <a href="http://www.tecplot.com">Tecplot</a>
+formatted file, so you must either have Tecplot or know how to read their format in
+order to use it.
+
+It is important to note that computing minimum distance by searching along grid lines is
+incorrect, and is <strong>not</strong> the same as computing actual minimum distance to the nearest wall for this grid. Using
+the former method will yield differences in the results.  The following sketches
+demonstrate the concept of minimum distance.  Improperly-calculated minimum distance
+functions will particularly produce incorrect results for cases in which the
+grid lines are not perfectly normal to the body surface.
+Note that when the nearest wall point is a sharp convex corner or edge (like an airfoil or wing trailing edge) then the
+correct minimum distance is the distance to that corner or edge, which is not a wall normal.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/mindistsketch.jpg" border="1" width="500" title="sketch 1 demonstrating the concept of minimum distance function" alt="sketch 1 demonstrating the concept of minimum distance function">
+           <img
+src="Bump/mindistsketch2.jpg" border="1" width="500" title="sketch 2 demonstrating the concept of minimum distance function" alt="sketch 2 demonstrating the concept of minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="multielementverif.html">2D Multielement Airfoil Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/01/2023
+<br>&nbsp;
+
+</body>
+</html>

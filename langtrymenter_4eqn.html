@@ -1,0 +1,799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Langtry-Menter 4-equation Transitional SST Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The Langtry-Menter 4-equation Transitional SST Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various forms of the
+Langtry-Menter transitional shear stress transport turbulence model. 
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><a ID="lm-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Langtry-Menter 4-equation Transitional SST Model <span style="color: blue">
+  (SST-2003-LM2009)</span></strong>
+<p>This model is also sometimes known as the "gamma-Retheta-SST" model, because it makes use of equations for "gamma" and "Retheta" in
+addition to SST's "k" and "omega" equations.  The primary reference for the standard implementation of the Langtry-Menter 4-equation Transitional SST
+model is:
+
+<ul>
+<li>Langtry, R. B. and Menter, F. R., "Correlation-Based Transition Modeling for Unstructured Parallelized Computational Fluid Dynamics Codes,"
+<strong>AIAA Journal</strong>, Vol. 47, No. 12, December 2009, pp. 2894-2906,
+<a href="https://doi.org/10.2514/1.42362">https://doi.org/10.2514/1.42362</a>.
+</ul>
+
+Note that this reference is missing a key functional definition
+(<img class="tex" alt="F_{turb}" src="langtrymenter_eqns/img56.png" />). The missing definition for the "standard" implementation is instead taken from:
+<ul>
+<li>Menter, F. R., Langtry, R., and Volker, S., "Transition Modelling for General Purpose CFD Codes,"
+<strong>Flow, Turbulence and Combustion</strong>, Vol. 77, No. 1, Nov. 2006, pp. 277-303,
+<a href="https://doi.org/10.1007/s10494-006-9047-1">https://doi.org/10.1007/s10494-006-9047-1</a>.
+</ul>
+
+<p>In the interest of clarity and to remove ambiguity in the implementation of this model, some nomenclature and the presentations of some functional definitions have been altered from the original reference.
+
+<p>Also note that there is some minor confusion in the literature for this model. The papers 
+mostly reference the original (standard) <a href="sst.html#sst-std">Menter SST model</a>, but the PhD thesis from which the 
+model was derived as well as Flow, Turbulence, and Combustion 77(1):277-303, 2006 both make use of the
+<a href="sst.html#sst-2003">SST-2003</a> base model.  Thus, the default four-equation model here is based on the 
+two-equation <a href="sst.html#sst-2003">SST-2003</a> model, augmented by two additional equations to 
+describe the laminar-turbulent transition process.  (See ending paragraph for naming conventions when basing
+this transition model off of different SST base models.)
+The model is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \left( \rho k \right)}{\partial t} + \frac{\partial \left( \rho u_j k \right)}{\partial x_j} = \hat P_k - \hat D_k  + \frac{\partial}{\partial x_j} \left[ \left( \mu + \sigma_k \mu_t \right) \frac{\partial k}{\partial x_j} \right]
+" src="langtrymenter_eqns/img1.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt=" \frac{\partial \left( \rho \omega \right)}{\partial t} + \frac{\partial \left( \rho u_j \omega \right)}{\partial x_j} = P_{\omega} - D_{\omega}  + \frac{\partial}{\partial x_j} \left[ \left( \mu + \sigma_{\omega} \mu_t \right) \frac{\partial \omega}{\partial x_j} \right] + 2 \left( 1 - F_1 \right) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_j} \frac{ \partial \omega}{\partial x_j}" src="langtrymenter_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt=" \frac{\partial \left( \rho \gamma \right)}{\partial t} + \frac{\partial \left( \rho u_j \gamma \right)}{\partial x_j} = P_\gamma - E_\gamma + \frac{\partial}{\partial x_j} \left[ \left( \mu + \frac{\mu_t}{\sigma_f} \right) \frac{\partial \gamma}{\partial x_j} \right]" src="langtrymenter_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial \left( \rho\hat Re_{\theta t} \right)}{\partial t} + \frac{\partial \left( \rho u_j \hat Re_{\theta t} \right)}{\partial x_j} = P_{\theta t} + \frac{\partial}{\partial x_j} \left[ \sigma_{\theta t} \left( \mu + \mu_t \right) \frac{\partial \hat Re_{\theta t}}{\partial x_j} \right]" src="langtrymenter_eqns/img4.png" /></dd>
+</dl>
+
+<p>The equations have been
+written above to be in proper conservation form, consistent with, e.g., Wilcox (in Turbulence Modeling for CFD,
+DCW Industries, Inc., La Canada, CA, 2006), Menter et al (in Turbulence, Heat and Mass Transfer 4, 2003, pp. 625-632),
+and Menter (in NASA TM 103975, 1992,
+<a href="https://ntrs.nasa.gov/citations/19930013620">https://ntrs.nasa.gov/citations/19930013620</a>).
+
+<p>The source terms for the <img class="tex" alt="\gamma" src="langtrymenter_eqns/img46.png" /> equation are defined as:
+<dl>
+<dd><img class="tex" alt=" P_\gamma = F_{length} c_{a1} \rho S \left[ \gamma F_{onset} \right] ^{0.5} \left( 1 - c_{e1} \gamma \right)" src="langtrymenter_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="E_\gamma =c_{a2} \rho \Omega \gamma F_{turb} \left( c_{e2} \gamma - 1 \right)" src="langtrymenter_eqns/img6.png" /></dd>
+</dl>
+where
+<dl>
+<dd><img class="tex" alt="F_{onset1} = \frac{Re_V}{2.193 Re_{\theta c}}" src="langtrymenter_eqns/img8.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re_V = \frac{\rho S d^2}{\mu}" src="langtrymenter_eqns/img7.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt=" F_{onset2} = min \left( max \left( F_{onset1},F_{onset1}^4 \right), 2.0 \right)" src="langtrymenter_eqns/img9.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="R_T = \frac{\rho k}{\mu \omega}" src="langtrymenter_eqns/img10.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset3} =  max \left[ 1 - \left( \frac{R_T}{2.5} \right)^3, 0 \right]" src="langtrymenter_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset} = max \left(F_{onset2} - F_{onset3}, 0 \right)" src="langtrymenter_eqns/img60.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{turb} = exp \left[ - \left( \frac{R_T}{4} \right) ^4 \right]" src="langtrymenter_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{length} = F_{length,1} \left( 1 - F_{sublayer} \right) + 40.0 F_{sublayer}" src="langtrymenter_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt=" F_{length,1} = \left\{ 
+      \begin{array}{ll}
+         39.8189 + (-119.270 \cdot 10^{-4}) \hat Re_{\theta t} +  (-132.567 \cdot 10^{-6}) \hat Re_{\theta t}^2, & \hat Re_{\theta t} < 400; \\
+         263.404 + (-123.939 \cdot 10^{-2}) \hat Re_{\theta t}  + (194.548 \cdot 10^{-5}) \hat Re_{\theta t}^2 + (-101.695 \cdot 10^{-8}) \hat Re_{\theta t}^3, & 400 \leq \hat Re_{\theta t} < 596 ;\\
+         0.5 - (3.0\cdot 10^{-4})(\hat Re_{\theta t} - 596.0), & 596 \leq \hat Re_{\theta t} < 1200; \\
+         0.3188 & 1200 \leq \hat Re_{\theta t}
+      \end{array} \right." src="langtrymenter_eqns/img14.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{sublayer} = exp \left[ - \left( \frac{Re_\omega}{200} \right) ^2 \right]" src="langtrymenter_eqns/img15.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re_{\omega} = \frac{ \rho \omega d^2}{\mu}" src="langtrymenter_eqns/img16.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re_{\theta c} = \left\{ 
+      \begin{array}{ll}
+         (-396.035 \cdot 10^{-2}) + (10120.656 \cdot 10^{-4}) \hat Re_{\theta t} + (-868.230 \cdot 10^{-6}) \hat Re_{\theta t}^2 + (696.506 \cdot 10^{-9}) \hat Re_{\theta t}^3 + (-174.105 \cdot 10^{-12}) \hat Re_{\theta t}^4, & \hat Re_{\theta t} \leq 1870; \\
+         \hat Re_{\theta t} - \left( 593.11 + 0.482 \left( \hat Re_{\theta t} - 1870.0 \right) \right) & 1870 < \hat Re_{\theta t}
+      \end{array} \right." src="langtrymenter_eqns/img17.png" /></dd>
+</dl>
+
+
+(Note that this last expression looks slightly different from Eq. (16) of AIAA Journal 47(12):2894-2906, 2009 because two of the terms have been combined:
+(10120.656x10<sup>-4</sup>)<img class="tex" alt="\hat Re_{\theta t}" src="langtrymenter_eqns/img47.png" /> = 
+<img class="tex" alt="\hat Re_{\theta t}" src="langtrymenter_eqns/img47.png" /> + 120.656x10<sup>-4</sup>
+<img class="tex" alt="\hat Re_{\theta t}" src="langtrymenter_eqns/img47.png" />.)
+In the above, <img class="tex" alt="\rho" src="langtrymenter_eqns/img18.png" /> is the density, <img class="tex" alt="\mu" src="langtrymenter_eqns/img19.png" />  is the molecular dynamic viscosity, <img class="tex" alt="d" src="langtrymenter_eqns/img20.png" /> is the distance from the field point to the nearest wall, <img class="tex" alt="S = \sqrt{2S_{ij}S_{ij}}" src="langtrymenter_eqns/img21.png" />  is the strain rate magnitude, and <img class="tex" alt="\Omega = \sqrt{2W_{ij}W_{ij}}" src="langtrymenter_eqns/img22.png" />  is the vorticity magnitude, with
+
+<dl>
+<dd><img class="tex" alt="S_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} +  \frac{\partial u_j}{\partial x_i} \right)" src="langtrymenter_eqns/img23.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="W_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} -  \frac{\partial u_j}{\partial x_i} \right)" src="langtrymenter_eqns/img24.png" /></dd>
+</dl>
+
+<p>The source term of the <img class="tex" alt="\hat Re_{\theta t}" src="langtrymenter_eqns/img47.png" /> equation is defined as:
+<dl>
+<dd><img class="tex" alt="P_{\theta t} = c_{\theta t} \frac{\rho}{T} \left( Re_{\theta t}^{eq} - \hat Re_{\theta t} \right) \left( 1.0 - F_{\theta t} \right)" src="langtrymenter_eqns/img25.png" /></dd>
+</dl>
+for which
+<dl>
+<dd><img class="tex" alt="T = \frac{500 \mu}{\rho U^2}" src="langtrymenter_eqns/img26.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="U = \sqrt{ u_k u_k}" src="langtrymenter_eqns/img27.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{\theta t} = min \left[ max \left( F_{wake} exp \left(- \left( \frac{d}{\delta} \right) ^4 \right) , 1.0 - \left( \frac{c_{e2}\gamma - 1}{c_{e2} - 1}\right) ^2 \right), 1.0 \right]" src="langtrymenter_eqns/img28.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\delta = \frac{375 \Omega \mu \hat Re_{\theta t} d}{\rho U^2}" src="langtrymenter_eqns/img29.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{wake} = exp \left[ - \left( \frac{Re_{\omega}}{1\cdot 10^{5}} \right) ^2 \right]" src="langtrymenter_eqns/img30.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\lambda_{\theta} = \frac{\rho \theta_t ^2}{\mu} \frac{dU}{ds}" src="langtrymenter_eqns/img31.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Tu = 100 \frac{\sqrt{2k/3}}{U}" src="langtrymenter_eqns/img32.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{dU}{ds} = \frac{u_m u_n}{U^2}  \frac{\partial u_m}{\partial x_n}" src="langtrymenter_eqns/img33.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re_{\theta t} ^{eq} = \left\{ 
+      \begin{array}{ll}
+         \left( 1173.51 - 589.428 Tu + 0.2196 Tu^{-2} \right) F \left( \lambda_{\theta} \right), & Tu \leq 1.3; \\
+         331.50 \left(Tu - 0.5658 \right) ^{-0.671} F \left( \lambda_{\theta} \right) & Tu > 1.3
+      \end{array} \right." src="langtrymenter_eqns/img34.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F \left( \lambda_{\theta} \right) = \left\{ 
+      \begin{array}{ll}
+         1 + \left[ 12.986 \lambda_{\theta} + 123.66 \lambda_{\theta} ^2 + 405.689 \lambda_{\theta} ^3 \right] exp \left( -\left( \frac{Tu}{1.5} \right)^{1.5} \right), & \lambda_{\theta} \leq 0; \\
+         1 + 0.275 \left[1 - exp \left( -35.0 \lambda_{\theta} \right) \right] exp \left( - \frac{Tu}{0.5} \right) & \lambda_{\theta} > 0
+      \end{array} \right." src="langtrymenter_eqns/img35.png" /></dd>
+</dl>
+
+<p>IMPORTANT: The expression for <img class="tex" alt="Re_{\theta t}^{eq}" src="langtrymenter_eqns/img48.png" />  is an implicit function of <img class="tex" alt="\theta_t" src="langtrymenter_eqns/img49.png" />  through the presence of <img class="tex" alt="\lambda_{\theta}" src="langtrymenter_eqns/img50.png" /> since
+<dl>
+<dd><img class="tex" alt="Re_{\theta t} ^{eq} = \frac{\rho U \theta_t }{\mu}" src="langtrymenter_eqns/img36.png" /></dd>
+</dl>
+(the equations for <img class="tex" alt="Re_{\theta t}^{eq}" src="langtrymenter_eqns/img48.png" /> are typically
+solved by iterating on the value of <img class="tex" alt="\theta_t" src="langtrymenter_eqns/img49.png" />).
+Note that in the nomenclature of AIAA Journal 47(12):2894-2906, 2009, the expression for
+<img class="tex" alt="Re_{\theta t}^{eq}" src="langtrymenter_eqns/img48.png" /> uses a "local freestream velocity" for <i>U</i>, which is actually
+intended to be the velocity at the edge of the boundary layer.  But in the functionality
+of the model, this velocity needs to be the local velocity.  Although
+<img class="tex" alt="Re_{\theta t}^{eq}" src="langtrymenter_eqns/img48.png" /> is small for small velocities (i.e. near the wall 
+in a boundary layer), this effect is accounted for in the model with the F_theta_t term. Outside of the boundary layer, the transported 
+<img class="tex" alt="\hat Re_{\theta t}" src="langtrymenter_eqns/img47.png" /> is "attracted" to the equilibrium value
+(<img class="tex" alt="Re_{\theta t}^{eq}" src="langtrymenter_eqns/img48.png" />) and is physically correct at the edge of the boundary layer. 
+Inside the boundary layer, the attraction is suppressed and the value at the edge is diffused into the boundary layer.
+
+<p>The calibration constants for the Langtry-Menter model are:
+<dl>
+<dd><img class="tex" alt="\begin{array}{l}
+      c_{a1} = 2.0 \\
+      c_{a2} = 0.06 \\
+      c_{e1} = 1.0 \\
+      c_{e2} = 50 \\
+      c_{\theta t} = 0.03 \\
+      s_1 = 2 \\
+      \sigma_{f} = 1.0 \\
+      \sigma_{\theta t} = 2.0
+   \end{array}" src="langtrymenter_eqns/img37.png" /></dd>
+</dl>
+The boundary conditions for <img class="tex" alt="\gamma" src="langtrymenter_eqns/img46.png" /> and <img class="tex" alt="\hat Re_{\theta t}" src="langtrymenter_eqns/img47.png" /> are:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \gamma}{\partial n} \vert _{wall} = 0" src="langtrymenter_eqns/img52.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\gamma_{farfield} = 1" src="langtrymenter_eqns/img53.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial \hat Re_{\theta t}}{\partial n} \vert _{wall} = 0" src="langtrymenter_eqns/img54.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\hat Re_{\theta t, farfield} = \left\{ 
+      \begin{array}{ll}
+         \left( 1173.51 - 589.428 Tu _{\infty} + 0.2196 Tu_{\infty}^{-2} \right), & Tu_{\infty} \leq 1.3; \\
+         331.50 \left(Tu_{\infty} - 0.5658 \right) ^{-0.671} & Tu_{\infty} > 1.3
+      \end{array} \right." src="langtrymenter_eqns/img55.png" /></dd>
+</dl>
+
+
+
+<p>The effects of laminar-turbulent transition are introduced to the underlying SST model by modifying the turbulent-kinetic-energy source terms as:
+<dl>
+<dd><img class="tex" alt="\hat P_k = \gamma_{eff} P_{k,SST}" src="langtrymenter_eqns/img38.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\hat D_k = min \left( max \left( \gamma_{eff},0.1 \right), 1.0 \right) D_{k,SST}" src="langtrymenter_eqns/img39.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\gamma_{eff} = max \left( \gamma, \gamma_{sep} \right)" src="langtrymenter_eqns/img40.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\gamma_{sep} = min \left( s_1 max \left[0, \left( \frac{Re_V}{3.235 Re_{\theta c}} \right) - 1 \right] F_{reattach},2 \right) F_{\theta t}" src="langtrymenter_eqns/img41.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{reattach} = exp \left[ - \left( \frac{R_T}{20} \right) ^4 \right]" src="langtrymenter_eqns/img42.png" /></dd>
+</dl>
+where the subscript 'SST' refers to the functional definitions of the base SST model being used. The form of the specific dissipation equation is unaltered.
+
+<p>A modification to the SST <img class="tex" alt="F_1" src="langtrymenter_eqns/img51.png" /> blending function is required with the Langtry-Menter model:
+<dl>
+<dd><img class="tex" alt="R_y = \frac{\rho d \sqrt{k}}{\mu}" src="langtrymenter_eqns/img43.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_3 = exp \left[ - \left( \frac{R_y}{120} \right)^8 \right]" src="langtrymenter_eqns/img44.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_1 = max \left( F_{1,SST},F_3 \right)" src="langtrymenter_eqns/img45.png" /></dd>
+</dl>
+
+<p>For numerical robustness, the following three limits are enforced:
+<dl>
+<dd><img class="tex" alt="-0.1 \leq \lambda_{\theta} \leq 0.1" src="langtrymenter_eqns/img57.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Tu \geq 0.027" src="langtrymenter_eqns/img58.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re_{\theta t} ^{eq} \geq 20" src="langtrymenter_eqns/img59.png" />
+<span style="color: red">(missing "eq" added 8/16/2021)</span></dd>
+</dl>
+
+<p>Unless stated otherwise above, the functional definitions and calibration constants of the underlying 
+<a href="sst.html#sst-2003">SST-2003</a> turbulence model should not be altered when used with the Langtry-Menter transition model. 
+This includes the definition of the turbulent eddy viscosity, which should be calculated in an identical manner to that of the 
+<a href="sst.html#sst-2003">SST-2003</a> model.
+
+<p>If the Langtry-Menter model
+is applied to a different base SST model, the naming of the model should reflect it.  As mentioned above, the
+<span style="color: blue">SST-2003-LM2009</span> model is based off of the 
+<span style="color: blue">SST-2003</span> model.  If based off of the 
+"standard" <a href="sst.html#sst-std">SST</a> model instead, then
+the transition model should be referred to as <span style="color: blue">SST-LM2009</span>.
+Similarly, if based off of 
+<a href="sst.html#sst-2003">SST-2003m</a>, it would be <span style="color: blue">SST-2003m-LM2009</span>.
+Or, if adding Langtry-Menter transition to 
+<a href="sst.html#sst-v">SST-V</a>, the model should be referred to as
+<span style="color: blue">SST-V-LM2009</span>, etc.
+
+<p>This model is not Galilean invariant, due to its explicit use of the velocity vector.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><a ID="lm-cross-2015"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Langtry-Menter 4-equation 
+Transitional SST Model with Stationary Crossflow Extension <span style="color: blue">
+  (SST-2003-LM2015)</span></strong>
+<p>The SST-2003-LM2015 version represents an extension to the SST-2003-LM2009 model.  It incorporates transition due to
+stationary crossflow (SCF) instability.  
+The reference for this version of the model is:
+<ul>  
+<li>Langtry, R. B., Sengupta, K., Yeh, D. T., and Dorgan, A. J., "Extending the Gamma-Rethetat Local Correlation Based 
+Transition Model for Crossflow Effects," AIAA Paper 2015-2474, June 2015,
+<a href="https://doi.org/10.2514/6.2015-2474">https://doi.org/10.2514/6.2015-2474</a>.
+</ul>
+
+<p><i>
+As discussed in AIAA-2020-1034, the SST-2003-LM2009 and SST-2003-LM2015 models are supposed to be implemented with
+SST-2003 as their underlying turbulence model.  However, the calibration of SST-2003-LM2015 reported in AIAA-2015-2474 was 
+likely done based on an implementation with the original (SST) model version as its underlying turbulence model.
+Therefore, the calibration may need to be revisited.
+</i>
+
+<p>The model is the same as SST-2003-LM2009, except that it
+adds the term <i>D<sub>SCF</sub></i> to the right-hand-side of the transport equation for
+<img class="tex" alt="\rho\hat Re_{\theta t}" src="langtrymentercross2015_eqns/img2.png" />.
+<i>D<sub>SCF</sub></i> is a new sink term that accounts for the SCF effects.  It takes the form:
+
+<dl>
+<dd><img class="tex" alt="D_{SCF} = c_{\theta t} \frac{\rho}{T} c_{CF} min
+\left[(Re_{\theta t})_{SCF} - \hat Re_{\theta t}, 0 \right] (F_{\theta t 2})"
+   src="langtrymentercross2015_eqns/img3.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="c_{CF} = 0.6" src="langtrymentercross2015_eqns/img4.png" />; and
+<img class="tex" alt="c_{\theta t}" src="langtrymentercross2015_eqns/img19.png" /> is the same as in the
+SST-2003-LM2009 model.  However, the timescale <i>T</i> has been limited here to improve robustness
+for some high unit Reynolds number flows:
+
+<dl>
+<dd><img class="tex" alt="T = min \left( \frac{500 \mu}{\rho U^2} ,
+\frac{\rho L^2}{(\mu + \mu_t)} \right)"
+   src="langtrymentercross2015_eqns/img20.png" />(added 10/13/2021)</dd>
+</dl>
+
+<p>with <i>L</i> being the local grid length.
+The quantity <img class="tex" alt="(Re_{\theta t})_{SCF}" src="langtrymentercross2015_eqns/img5.png" />
+represents the transition onset momentum thickness Reynolds number corresponding to SCF induced transition. 
+Details pertaining to the evaluation of this quantity are given below.  The last term in the equation for <i>D<sub>SCF</sub></i>,
+<img class="tex" alt="F_{\theta t 2}" src="langtrymentercross2015_eqns/img6.png" />,
+has been included to ensure that the sink term is only active within the laminar parts of the boundary layer.
+It is expressed as:
+
+<dl>
+<dd><img class="tex" alt="F_{\theta t 2} = min \left(F_{wake} e^{-(y/\delta)^4}, 1 \right)"
+   src="langtrymentercross2015_eqns/img7.png" /></dd>
+</dl>
+
+<p>where <i>F<sub>wake</sub></i> takes on the same value as that used in the formulation of the
+production term in the original SST-2003-LM2009 model.
+
+<p>Since a dominant source for the excitation of the stationary crossflow instability is believed to be the 
+surface roughness,
+<img class="tex" alt="(Re_{\theta t})_{SCF}" src="langtrymentercross2015_eqns/img5.png" /> is 
+correlated as a logarithmic function of the nondimensional rms amplitude of the surface roughness: 
+
+<dl>
+<dd><img class="tex" alt="(Re_{\theta t})_{SCF} = \frac{\rho \theta_t \left(U/0.82 \right)}{\mu} =
+-35.088 ln \left( \frac{h_{roughness}}{\theta_t} \right) + 319.51 + f(\Delta H_{CF+}) - f(\Delta H_{CF-})"
+   src="langtrymentercross2015_eqns/img8.png" /></dd>
+</dl>
+
+<p>The <i>h<sub>roughness</sub></i> is a required input to this model.
+It should be noted that the above equation involves 
+<img class="tex" alt="\theta_t" src="langtrymentercross2015_eqns/img9.png" /> on both sides, so it must be 
+solved iteratively by using a procedure such as the Newton-Raphson or the shooting method.
+Note that this correlation was derived on the basis of transition measurements for the NLF(2)-0415 45 degree
+swept aifoil, together with additional data derived from the stability computations of the same NLF(2)-0415 
+airfoil at various sweep angles. The last two terms on the right hand side of the above correlation
+represent the shifts needed to account for the changes in the crossflow strength relative to that in the 
+NLF(2)-0415 experiment.
+They are defined as:
+
+<dl>
+<dd><img class="tex" alt="f(\Delta H_{CF+}) = 6200(\Delta H_{CF+}) + 50000(\Delta H_{CF+})^2"
+   src="langtrymentercross2015_eqns/img10.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f(\Delta H_{CF-}) = 75.0 tanh \left( \frac{\Delta H_{CF-}}{0.0125} \right)"
+   src="langtrymentercross2015_eqns/img11.png" /></dd>
+</dl>
+
+where
+
+<dl>
+<dd><img class="tex" alt="\Delta H_{CF+} = max(0.1066 - \Delta H_{CF}, 0)"
+   src="langtrymentercross2015_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\Delta H_{CF-} = max[-1.0(0.1066 - \Delta H_{CF}), 0]"
+   src="langtrymentercross2015_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\Delta H_{CF} = H_{CF} \left[1.0 + min \left(\frac{\mu_t}{\mu}, 0.4 \right) \right]"
+   src="langtrymentercross2015_eqns/img18.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="H_{CF} = \frac{\Omega_{streamwise} d}{U}"
+   src="langtrymentercross2015_eqns/img14.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\Omega_{streamwise} = | \vec U \cdot \vec \Omega |"
+   src="langtrymentercross2015_eqns/img15.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\vec U = \left(
+\frac{u}{\sqrt{u^2+v^2+w^2}}, \frac{v}{\sqrt{u^2+v^2+w^2}}, \frac{w}{\sqrt{u^2+v^2+w^2}} \right)"
+   src="langtrymentercross2015_eqns/img16.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\vec \Omega = \left[
+\left(\frac{\partial w}{\partial y}-\frac{\partial v}{\partial z} \right), 
+\left(\frac{\partial u}{\partial z}-\frac{\partial w}{\partial x} \right), 
+\left(\frac{\partial v}{\partial x}-\frac{\partial u}{\partial y} \right) \right]"
+   src="langtrymentercross2015_eqns/img17.png" /></dd>
+</dl>
+
+This model is not Galilean invariant, due to its explicit use of the velocity vector.
+
+
+<br>&nbsp;
+<br>&nbsp; 
+<p><a ID="lm-cross-general"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Wing-like Crossflow-Extension 
+  to the Langtry-Menter 4-equation Transitional SST Model <span style="color: blue">
+  (SST-2003-LM2009-CFC1)</span></strong>
+<p>The SST-2003-LM2009 model was extended to predict transition due to crossflow instability in three-dimensional
+boundary layers. This model is identical to the SST-2003-LM2009 model except for the source term in the
+<img class="tex" alt="\gamma" src="langtrymentercross_eqns/img2.png" /> equation. To account for the additional transition 
+mechanism it is changed to:
+
+<dl>
+<dd><img class="tex" alt="P_{\gamma} = \left(F_{length} [\gamma F_{onset}]^{0.5} + F_{length,CF} [\gamma F_{onset,CF}]^{0.5}\right) 
+   c_{a1} \rho S \left(1 - c_{e1} \gamma\right)"
+   src="langtrymentercross_eqns/img3.png" /></dd>
+</dl>
+
+<p>The primary reference of the Crossflow-Extension is:
+<ul>  
+<li>Grabe, C., Nie, S. and Krumbein, A., 
+"Transport Modeling for the Prediction of Crossflow Transition," 
+AIAA Journal, Vol. 56, No. 8, 2018, pp. 3167-3178, 
+<a href="https://doi.org/10.2514/1.J056200">https://doi.org/10.2514/1.J056200</a>.
+<!--
+<li>Grabe, C., Nie, S. and Krumbein, A., 
+"Transition Transport Modeling for the Prediction of Crossflow Transition," 
+34th AIAA Applied Aerodynamics Conference, AIAA Aviation Forum (AIAA 2016-3572), June 2016.
+-->
+</ul>
+
+<p>This model is one of two different approaches described in the above
+reference. While this approach (SST-2003-LM2009-CFC1) strongly relies on the 
+infinite yawed wedge flow at zero angle of attack and the C1-criterion, the other 
+approach (SST-2003-LM2009-CFHE, described below) 
+is based on the local helicity in the flow. Both approaches are not 
+Galilean invariant due to the explicit use of the velocity vector.
+
+<p>For both approaches a function <img class="tex" alt="F_{length,CF}" src="langtrymentercross_eqns/img4.png" /> is introduced:
+<dl>
+<dd><img class="tex" alt="F_{length,CF} = 5"
+   src="langtrymentercross_eqns/img5.png" /></dd>
+</dl>
+
+<p><u>The application of the SST-2003-LM2009-CFC1 approach is restricted to 
+wing-like geometries.</u> Applying it to arbitrary geometries is beyond the model's scope.
+
+<p>The <img class="tex" alt="F_{onset,CF}" src="langtrymentercross_eqns/img6.png" /> functions are defined by:
+
+<dl>
+<dd><img class="tex" alt="F_{onset,CF} = \max\left(F_{onset2,CF} - F_{onset3,CF}, 0.0\right)"
+   src="langtrymentercross_eqns/img7.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset1,CF} = \frac{Re_{\delta 2}^{\star}}{C\ Re_{\delta 2t}^{\star}}"
+   src="langtrymentercross_eqns/img8.png" /></dd>
+</dl> 
+<dl>
+<dd><img class="tex" alt="F_{onset2,CF} = \min\left(\max\left(F_{onset1,CF}, F_{onset1,CF}^4\right), 2.0\right)"
+   src="langtrymentercross_eqns/img9.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset3,CF} = \max\left(1 - \left(\frac{R_T}{1.5}\right)^3, 0.0\right)"
+   src="langtrymentercross_eqns/img10.png" /></dd>
+</dl>
+
+where <img class="tex" alt="C = 0.75" src="langtrymentercross_eqns/img11.png" />.
+The local crosswise displacement thickness Reynolds number <img class="tex" alt="Re_{\delta 2}^{\star}" src="langtrymentercross_eqns/img12.png" />
+in the numerator of <img class="tex" alt="F_{onset1,CF}" src="langtrymentercross_eqns/img13.png" /> is defined by:
+
+<dl>
+<dd><img class="tex" alt="Re_{\delta 2}^{\star} = \frac{Re_{\nu,max} \sin
+\vartheta^{\star}} {f_{corr} (H_{12}^{\star}, \vartheta^{\star})}"
+   src="langtrymentercross_eqns/img14.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_{corr} (H_{12}^{\star}, \vartheta^{\star}) = 4.3 \times 10^{-7} \exp(f_1 + f_2 + f_3 + f_4)"
+   src="langtrymentercross_eqns/img15.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_1 = 6.6588 \, H_{12}^{\star}"
+   src="langtrymentercross_eqns/img16.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_2 = \frac{1}{2} \sin^2 \vartheta^{\star}"
+   src="langtrymentercross_eqns/img17.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_3 = 0.12 \cos\left(2 \vartheta^{\star}\right)"
+   src="langtrymentercross_eqns/img18.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_4 = -1.8 \sin\left(2 \vartheta^{\star}\right) \left(H_{12}^{\star} - 2.3\right)"
+   src="langtrymentercross_eqns/img19.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\cos \vartheta^{\star} = \frac{\vec{u}}{\left|\vec{u}\right|} \cdot
+\left.\frac{dp}{d\vec{x}}\right|_{pr} /
+\left|\frac{dp}{d\vec{x}}\right|_{pr}"
+   src="langtrymentercross_eqns/img20.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\left.\frac{dp}{dx}\right|_{pr} =
+\frac{dp}{dx} - 
+\left(\frac{dp}{dx} n_{x} +
+\frac{dp}{dy} n_{y} +
+\frac{dp}{dz} n_{z}\right) 
+\frac{n_{x}}{\left|\vec{n}\right|^2}"
+   src="langtrymentercross_eqns/img21.png" /></dd>
+</dl>
+
+<p>In the denominator of <img class="tex" alt="F_{onset1,CF}" src="langtrymentercross_eqns/img13.png" />,
+the local crosswise displacement thickness Reynolds number at transition onset
+<img class="tex" alt="Re_{\delta 2t}^{\star}" src="langtrymentercross_eqns/img22.png" /> is determined by the C1 criterion:
+
+<dl>
+<dd><img class="tex" alt="Re^{\star}_{\delta 2t} = \frac{300}{\pi} \arctan \left[
+\frac{0.106}{\left(H_{12}^{\star}-2.3\right)^{2.052}} \right],"
+   src="langtrymentercross_eqns/img23.png" /> &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="2.3 < H^{\star}_{12} \le 2.7"
+   src="langtrymentercross_eqns/img24.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re^{\star}_{\delta 2t} = 150.0,"
+   src="langtrymentercross_eqns/img25.png" /> &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="H^{\star}_{12} \leq 2.3"
+   src="langtrymentercross_eqns/img26.png" /></dd>
+</dl>
+
+<p>The approximated local shape factor is defined by:
+
+<dl>
+<dd><img class="tex" alt="H_{12}^{\star} = \max\left(-7.349 \lambda^{\star} + 2.5916,
+H_{12,min}^{\star}\right),"
+   src="langtrymentercross_eqns/img27.png" /> &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\lambda^{\star} > 0"
+   src="langtrymentercross_eqns/img28.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="H_{12}^{\star} = \min\left(-6.3215 \lambda^{\star} + 2.5916, 4.0\right),"
+   src="langtrymentercross_eqns/img29.png" /> &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\lambda^{\star} \leq 0"
+   src="langtrymentercross_eqns/img30.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="H_{12,min}^{\star} = \max\left(0.0085 \vartheta^{\star} + 1.818, 2.35\right)"
+   src="langtrymentercross_eqns/img31.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\lambda^{\star} = \frac{\rho \theta^{\star 2}}{\mu}
+\frac{d\left|\vec{u}_{e}\right|}{d\vec{s}}"
+   src="langtrymentercross_eqns/img32.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\theta^{\star} = \frac{\left.d^2 \Omega\right|_{max}}{2.193
+\left|\vec{u}_{e}\right|}"
+   src="langtrymentercross_eqns/img33.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\left|\vec{u}_{e}\right| = \sqrt{u_\infty^2 + \frac{2
+\tilde\gamma}{\tilde\gamma - 1} \left[1 -
+\left(\frac{p}{p_{\infty}}\right)^{1-\frac{1}{\tilde\gamma}}\right]
+\frac{p_\infty}{\rho_{\infty}}}"
+   src="langtrymentercross_eqns/img34.png" /> <- typo fixed 11/11/2018 </dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{d\left|\vec{u}_{e}\right|}{d\vec{s}} = 
+\frac{u}{\left|\vec{u}\right|}
+\frac{d\left|\vec{u}_{e}\right|}{dx} + 
+\frac{v}{\left|\vec{u}\right|}
+\frac{d\left|\vec{u}_{e}\right|}{dy} + 
+\frac{w}{\left|\vec{u}\right|}
+\frac{d\left|\vec{u}_{e}\right|}{dz}"
+   src="langtrymentercross_eqns/img35.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{d \left| \vec{u}_e \right|}{d x_i} = -\frac{1}{\left| \vec{u}_e \right| \rho_{\infty}}
+\left( \frac{p}{p_{\infty}} \right)^{-1/ \tilde \gamma} \frac{dp}{dx_i}"
+   src="langtrymentercross2_eqns/img17.png" /></dd>
+</dl>
+where <img class="tex" alt="\tilde \gamma" src="langtrymentercross2_eqns/img16.png" /> is the heat capacity ratio.
+
+<br>&nbsp; 
+<br>&nbsp;
+<p><a ID="lm-cross-general"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">General Crossflow-Extension 
+  to the Langtry-Menter 4-equation Transitional SST Model <span style="color: blue">
+  (SST-2003-LM2009-CFHE)</span></strong>
+<p>The SST-2003-LM2009 model was extended to predict transition due to crossflow instability in three-dimensional
+boundary layers. This model is identical to the SST-2003-LM2009 model except for the source term in the
+<img class="tex" alt="\gamma" src="langtrymentercross_eqns/img2.png" /> equation. To account for the additional transition
+mechanism it is changed to:
+
+<dl>
+<dd><img class="tex" alt="P_{\gamma} = \left(F_{length} [\gamma F_{onset}]^{0.5} + F_{length,CF} [\gamma F_{onset,CF}]^{0.5}\right) 
+   c_{a1} \rho S \left(1 - c_{e1} \gamma\right)"
+   src="langtrymentercross_eqns/img3.png" /></dd>
+</dl>
+
+<p>The primary reference of the Crossflow-Extension is:
+<ul>
+<li>Grabe, C., Nie, S. and Krumbein, A., "Transition Transport Modeling for the Prediction of Crossflow Transition,"
+34th AIAA Applied Aerodynamics Conference, AIAA Aviation Forum (AIAA 2016-3572), June 2016,
+<a href="https://doi.org/10.2514/6.2016-3572">https://doi.org/10.2514/6.2016-3572</a>.
+</ul>
+
+<p>This model is one of two different approaches described in the above
+reference. This approach (SST-2003-LM2009-CFHE) 
+is based on the local helicity in the flow.  The other approach
+(SST-2003-LM2009-CFC1, described above) strongly relies on the
+infinite yawed wedge flow at zero angle of attack and the C1-criterion.
+Both approaches are not
+Galilean invariant due to the explicit use of the velocity vector.
+
+<p>For both approaches a function <img class="tex" alt="F_{length,CF}" src="langtrymentercross_eqns/img4.png" /> is introduced:
+<dl>
+<dd><img class="tex" alt="F_{length,CF} = 5"
+   src="langtrymentercross_eqns/img5.png" /></dd>
+</dl>
+
+<p>There are no restrictions concerning the application of the SST-2003-LM2009-CFHE approach to arbitrary geometries.
+
+<dl>
+<dd><img class="tex" alt="F_{onset,CF} = \max\left(F_{onset2,CF} - F_{onset3,CF}, 0.0\right)"
+   src="langtrymentercross2_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset1,CF} = \frac{Re_{He}}{C\ Re_{He,t}^{+}}"
+   src="langtrymentercross2_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset2,CF} = \min\left(\max\left(F_{onset1,CF}, F_{onset1,CF}^4\right), 2.0\right)"
+   src="langtrymentercross2_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset3,CF} = \max\left(1 - \left(\frac{R_T}{2}\right)^3, 0.0\right)"
+   src="langtrymentercross2_eqns/img5.png" /></dd>
+</dl>
+
+where <img class="tex" alt="C = 0.7" src="langtrymentercross2_eqns/img6.png" />.  Note that this constant also
+appears in the SST-2003-LM2009-CFC1 model, but <i>with a different numerical value</i>.
+The local Helicity Reynolds number <img class="tex" alt="Re_{He}" src="langtrymentercross2_eqns/img7.png" /> is defined by:
+
+<dl>
+<dd><img class="tex" alt="Re_{He} = \frac{\rho d^2}{\mu}
+\frac{He}{\left|\vec{u}\right|}"
+   src="langtrymentercross2_eqns/img8.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="He = \vec{u} \cdot \left( \nabla \times \vec{u}\right)"
+   src="langtrymentercross2_eqns/img9.png" /></dd>
+</dl>
+
+<p>The Helicitiy Reynolds number at transition onset <img class="tex" alt="Re_{He,t}^{+}" src="langtrymentercross2_eqns/img10.png" /> is
+given by an empirical criterion:
+
+<dl>
+<dd><img class="tex" alt="Re_{He,t}^{+} = \max\left(-456.83\, H_{12}^{+} + 1332.7, 150.0\right)"
+   src="langtrymentercross2_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{H}_{12}^{+} = 4.02923 - \sqrt{-8838.4 \lambda^{+4} + 1105.1 \lambda^{+3} - 67.962
+\lambda^{+2} + 17.574 \lambda^{+} + 2.0593}"
+   src="langtrymentercross2_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\lambda^{+} = \frac{\rho l^{2}}{\mu} \frac{d\left|\vec{u}_{e}\right|}{d\vec{s}}"
+   src="langtrymentercross2_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="l = \frac{1}{C_{He,max}} \frac{2}{15} d"
+   src="langtrymentercross2_eqns/img14.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{He,max} = 0.6944"
+   src="langtrymentercross2_eqns/img15.png" /></dd>
+</dl>
+
+<p>See above <span style="color: blue">SST-2003-LM2009-CFC1</span> section
+(or the original reference) for details on how to compute the 
+<img class="tex" alt="\frac{d \left| \vec{u}_e \right|}{d \vec{s}}" src="langtrymentercross2_eqns/img18.png" /> term.
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<hr WIDTH="100%">
+<p>Jim Coder of Penn State is acknowledged for putting together the SST-2003-LM2009 portion of this webpage, and 
+Cornelia Grabe of DLR is acknowledged for putting together the SST-2003-LM2009-CFC1
+and SST-2003-LM2009-CFHE portions of this webpage.
+Balaji Venkatachari of NIA is acknowledged for his help with SST-2003-LM2015.
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+10/13/2021 - inserted missing equation for limited timescale in SST-2003-LM2015<br>
+08/16/2021 - added clarification about equation for Re_theta_c; fixed typo in limit term<br>
+04/06/2021 - added description of SST-2003-LM2015<br>
+02/25/2021 - added a few clarifying equations regarding the computation of d|u<sub>e</sub>|/ds<br>
+11/11/2018 - fixed typo in abs(u_e) equation for SST-2003-LM2009-CFC1 (removed "d")<br>
+09/14/2018 - added notes describing apparent differences between SST-2003-LM2009 and the original AIAA Journal<br>
+11/09/2017 - added SST-2003-LM2009-CFC1 and SST-2003-LM2009-CFHE models<br>
+05/24/2017 - fixed typo in E_gamma equation (it was missing a gamma)<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/10/2022
+<br>&nbsp;
+
+</body>
+</html>

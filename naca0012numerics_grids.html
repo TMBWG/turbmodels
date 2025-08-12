@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - NACA 0012 Airfoil for Turbulence Model Numerical Analysis</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="naca0012numerics_val.html">Numerical Analysis of 2D NACA 0012 Airfoil Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids - NACA 0012 Airfoil Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><span style="color: blue">NOTE: The original
+posted grids were based on the scaled NACA 0012 airfoil shape with a small typo in one of the coefficients.  Although at
+this time the typo is believed to make insignificant difference in the results, all grids have been re-generated with the
+corrected airfoil shape as of 6/23/2014.</span></p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Three families of grids are provided.  All have a farfield extent of approximately
+500 c. Each family's finest grid is
+7169 x 2049, with minimum spacing at the wall of 1 x 10<sup>-7</sup> and average stretching rate normal to the wall
+of about 1.02 for the points near the wall.  
+The leading edge spacing along the airfoil in all families is the same:  0.0000125 c.
+The difference between the families is in their trailing edge streamwise spacing:
+<ul>
+<li>Family I: T.E. spacing = 0.000125 c
+<li>Family II: T.E. spacing = 0.0000125 c (10 x finer than Family I)
+<li>Family III: T.E. spacing = 0.0000375 c (3.3333 x finer than Family I, and 3 x coarser than Family II)
+</ul>
+
+Note that none of these grid families is identical to the original family of grids supplied for the 
+<a href="naca0012_val.html">NACA 0012 Validation Case</a>.  However, Family I should be reasonably similar.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A series of 7 nested 2-D grids are provided for Families I and II,
+whereas in the interest of space only the finest grid is provided for Family III.  
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from the finest 7169 x 2049 to the coarsest 113 x 33 grid.
+(Please contact the page curator if you are unable to extract coarser levels for Family III.)
+The topology is a so-called "C-grid," with the grid wrapping around the
+airfoil from downstream farfield, around the lower surface to the upper, then back to
+the downstream farfield again; the grid connects to itself in a
+1-to-1 fashion in the wake.  There are 4097 points on the airfoil surface on the finest
+grid, with 1537 points along the wake from the
+airfoil trailing edge to the outflow boundary.
+The figures below show views of the 449 x 129 grid for each family.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA0012numerics_grids/familyI_grid.jpg" border="1" title="Family I NACA 0012 449 x 129 grid" alt="Family I NACA 0012 449 x 129 grid">
+
+</p>
+        <p><img
+src="NACA0012numerics_grids/familyII_grid.jpg" border="1" title="Family II NACA 0012 449 x 129 grid" alt="Family II NACA 0012 449 x 129 grid">
+</p>
+        <p><img
+src="NACA0012numerics_grids/familyIII_grid.jpg" border="1" title="Family III NACA 0012 449 x 129 grid" alt="Family III NACA 0012 449 x 129 grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><u>FAMILY I</u></strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">FAMILY I STRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>The structured PLOT3D grids are given in two different ways, as 2-D grids (x-y plane) or as 3-D grids (two 
+identical x-z planes, separated by a distance y=1,
+giving one spanwise cell for all grid levels). You may use whichever is more convenient for your particular
+application.
+
+<p>Format for the structured 2D grids is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((x(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((y(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 2-D version of the FAMILY I grids in PLOT3D format (gzipped) here:
+<ul>
+<li><a href="NACA0012numerics_grids/n0012familyI.1.p2dfmt.gz">
+        FAMILY I (2-D) 7169 x 2049 (4097 points on airfoil surface) </a> (242 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.2.p2dfmt.gz">
+        FAMILY I (2-D) 3585 x 1025 (2049 points on airfoil surface) </a> (58 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.3.p2dfmt.gz">
+        FAMILY I (2-D) 1793 x 513 (1025 points on airfoil surface) </a> (13 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.4.p2dfmt.gz">
+        FAMILY I (2-D) 897 x 257 (513 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.5.p2dfmt.gz">
+        FAMILY I (2-D) 449 x 129 (257 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.6.p2dfmt.gz">
+        FAMILY I (2-D) 225 x 65 (129 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.7.p2dfmt.gz">
+        FAMILY I (2-D) 113 x 33 (65 points on airfoil surface) </a> (&lt; 10 MB)
+</ul>
+
+<p>Format for the structured 3D grid is PLOT3D-type, formatted, MG, 3D (nbl=1, and idim in this case is 2) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),kdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) (((x(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((y(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((z(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 3-D version of the FAMILY I grids in PLOT3D format (gzipped) here:
+<ul>
+<li><a href="NACA0012numerics_grids/n0012familyI.1.p3dfmt.gz">
+        FAMILY I (3-D) 2 x 7169 x 2049 (4097 points on airfoil surface) </a> (322 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.2.p3dfmt.gz">
+        FAMILY I (3-D) 2 x 3585 x 1025 (2049 points on airfoil surface) </a> (79 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.3.p3dfmt.gz">
+        FAMILY I (3-D) 2 x 1793 x 513 (1025 points on airfoil surface) </a> (19 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.4.p3dfmt.gz">
+        FAMILY I (3-D) 2 x 897 x 257 (513 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.5.p3dfmt.gz">
+        FAMILY I (3-D) 2 x 449 x 129 (257 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.6.p3dfmt.gz">
+        FAMILY I (3-D) 2 x 225 x 65 (129 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.7.p3dfmt.gz">
+        FAMILY I (3-D) 2 x 113 x 33 (65 points on airfoil surface) </a> (&lt; 10 MB)
+</ul>
+
+<p>If desired, example Neutral Map Files 
+associated with 3-D version of the grids are given here (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="NACA0012numerics_grids/n0012familyI.1.nmf">
+        FAMILY I Neutral Map File for (3-D) 2 x 7169 x 2049 </a>
+<li><a href="NACA0012numerics_grids/n0012familyI.2.nmf">
+        FAMILY I Neutral Map File for (3-D) 2 x 3585 x 1025 </a>
+<li><a href="NACA0012numerics_grids/n0012familyI.3.nmf">
+        FAMILY I Neutral Map File for (3-D) 2 x 1793 x 513 </a>
+<li><a href="NACA0012numerics_grids/n0012familyI.4.nmf">
+        FAMILY I Neutral Map File for (3-D) 2 x 897 x 257 </a>
+<li><a href="NACA0012numerics_grids/n0012familyI.5.nmf">
+        FAMILY I Neutral Map File for (3-D) 2 x 449 x 129 </a>
+<li><a href="NACA0012numerics_grids/n0012familyI.6.nmf">
+        FAMILY I Neutral Map File for (3-D) 2 x 225 x 65 </a>
+<li><a href="NACA0012numerics_grids/n0012familyI.7.nmf">
+        FAMILY I Neutral Map File for (3-D) 2 x 113 x 33 </a>
+</ul>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">FAMILY I UNSTRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The unstructured versions of the same grids are all given as CGNS files.  
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.  
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>The unstructured grids are all given as 3-D grids (two identical x-z planes, separated by a 
+distance y=1, giving one spanwise cell for all grid levels).  They are given 
+as hexahedra (quadrilaterals in the x-z plane).
+Note that duplicate gridpoints in the C-mesh wakes are removed when writing the structured grids as unstructured.
+
+<p>Download the unstructured FAMILY I CGNS grids (gzipped) as 3-D hexahedra (quadrilaterals in x-z plane) here:
+<ul>
+<li><a href="NACA0012numerics_grids/n0012familyI.1.hex.cgns.gz">
+        FAMILY I (3-D) unstructured quad version of 2 x 7169 x 2049 (2 x 4097 points on airfoil surface) </a> (643 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.2.hex.cgns.gz">
+        FAMILY I (3-D) unstructured quad version of 2 x 3585 x 1025 (2 x 2049 points on airfoil surface) </a> (171 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.3.hex.cgns.gz">
+        FAMILY I (3-D) unstructured quad version of 2 x 1793 x 513 (2 x 1025 points on airfoil surface) </a> (43 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.4.hex.cgns.gz">
+        FAMILY I (3-D) unstructured quad version of 2 x 897 x 257 (2 x 513 points on airfoil surface) </a> (11 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.5.hex.cgns.gz">
+        FAMILY I (3-D) unstructured quad version of 2 x 449 x 129 (2 x 257 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.6.hex.cgns.gz">
+        FAMILY I (3-D) unstructured quad version of 2 x 225 x 65 (2 x 129 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyI.7.hex.cgns.gz">
+        FAMILY I (3-D) unstructured quad version of 2 x 113 x 33 (2 x 65 points on airfoil surface) </a> (&lt; 10 MB)
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><u>FAMILY II</u></strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">FAMILY II STRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>The structured PLOT3D grids are given in two different ways, as 2-D grids (x-y plane) or as 3-D grids (two 
+identical x-z planes, separated by a distance y=1,
+giving one spanwise cell for all grid levels). You may use whichever is more convenient for your particular
+application.
+
+<p>Format for the structured 2D grids is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((x(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((y(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 2-D version of the FAMILY II grids in PLOT3D format (gzipped) here:
+<ul>
+<li><a href="NACA0012numerics_grids/n0012familyII.1.p2dfmt.gz">
+        FAMILY II (2-D) 7169 x 2049 (4097 points on airfoil surface) </a> (242 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.2.p2dfmt.gz">
+        FAMILY II (2-D) 3585 x 1025 (2049 points on airfoil surface) </a> (58 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.3.p2dfmt.gz">
+        FAMILY II (2-D) 1793 x 513 (1025 points on airfoil surface) </a> (13 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.4.p2dfmt.gz">
+        FAMILY II (2-D) 897 x 257 (513 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.5.p2dfmt.gz">
+        FAMILY II (2-D) 449 x 129 (257 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.6.p2dfmt.gz">
+        FAMILY II (2-D) 225 x 65 (129 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.7.p2dfmt.gz">
+        FAMILY II (2-D) 113 x 33 (65 points on airfoil surface) </a> (&lt; 10 MB)
+</ul>
+
+<p>Format for the structured 3D grid is PLOT3D-type, formatted, MG, 3D (nbl=1, and idim in this case is 2) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),kdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) (((x(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((y(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((z(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 3-D version of the FAMILY II grids in PLOT3D format (gzipped) here:
+<ul>
+<li><a href="NACA0012numerics_grids/n0012familyII.1.p3dfmt.gz">
+        FAMILY II (3-D) 2 x 7169 x 2049 (4097 points on airfoil surface) </a> (321 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.2.p3dfmt.gz">
+        FAMILY II (3-D) 2 x 3585 x 1025 (2049 points on airfoil surface) </a> (79 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.3.p3dfmt.gz">
+        FAMILY II (3-D) 2 x 1793 x 513 (1025 points on airfoil surface) </a> (19 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.4.p3dfmt.gz">
+        FAMILY II (3-D) 2 x 897 x 257 (513 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.5.p3dfmt.gz">
+        FAMILY II (3-D) 2 x 449 x 129 (257 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.6.p3dfmt.gz">
+        FAMILY II (3-D) 2 x 225 x 65 (129 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.7.p3dfmt.gz">
+        FAMILY II (3-D) 2 x 113 x 33 (65 points on airfoil surface) </a> (&lt; 10 MB)
+</ul>
+
+<p>If desired, example Neutral Map Files 
+associated with 3-D version of the grids are given here (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="NACA0012numerics_grids/n0012familyII.1.nmf">
+        FAMILY II Neutral Map File for (3-D) 2 x 7169 x 2049 </a>
+<li><a href="NACA0012numerics_grids/n0012familyII.2.nmf">
+        FAMILY II Neutral Map File for (3-D) 2 x 3585 x 1025 </a>
+<li><a href="NACA0012numerics_grids/n0012familyII.3.nmf">
+        FAMILY II Neutral Map File for (3-D) 2 x 1793 x 513 </a>
+<li><a href="NACA0012numerics_grids/n0012familyII.4.nmf">
+        FAMILY II Neutral Map File for (3-D) 2 x 897 x 257 </a>
+<li><a href="NACA0012numerics_grids/n0012familyII.5.nmf">
+        FAMILY II Neutral Map File for (3-D) 2 x 449 x 129 </a>
+<li><a href="NACA0012numerics_grids/n0012familyII.6.nmf">
+        FAMILY II Neutral Map File for (3-D) 2 x 225 x 65 </a>
+<li><a href="NACA0012numerics_grids/n0012familyII.7.nmf">
+        FAMILY II Neutral Map File for (3-D) 2 x 113 x 33 </a>
+</ul>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">FAMILY II UNSTRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The unstructured versions of the same grids are all given as CGNS files.  
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.  
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>The unstructured grids are all given as 3-D grids (two identical x-z planes, separated by a 
+distance y=1, giving one spanwise cell for all grid levels).  They are given 
+as hexahedra (quadrilaterals in the x-z plane).
+Note that duplicate gridpoints in the C-mesh wakes are removed when writing the structured grids as unstructured.
+
+<p>Download the unstructured FAMILY II CGNS grids (gzipped) as 3-D hexahedra (quadrilaterals in x-z plane) here:
+<ul>
+<li><a href="NACA0012numerics_grids/n0012familyII.1.hex.cgns.gz">
+        FAMILY II (3-D) unstructured quad version of 2 x 7169 x 2049 (2 x 4097 points on airfoil surface) </a> (648 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.2.hex.cgns.gz">
+        FAMILY II (3-D) unstructured quad version of 2 x 3585 x 1025 (2 x 2049 points on airfoil surface) </a> (172 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.3.hex.cgns.gz">
+        FAMILY II (3-D) unstructured quad version of 2 x 1793 x 513 (2 x 1025 points on airfoil surface) </a> (43 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.4.hex.cgns.gz">
+        FAMILY II (3-D) unstructured quad version of 2 x 897 x 257 (2 x 513 points on airfoil surface) </a> (11 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.5.hex.cgns.gz">
+        FAMILY II (3-D) unstructured quad version of 2 x 449 x 129 (2 x 257 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.6.hex.cgns.gz">
+        FAMILY II (3-D) unstructured quad version of 2 x 225 x 65 (2 x 129 points on airfoil surface) </a> (&lt; 10 MB)
+<li><a href="NACA0012numerics_grids/n0012familyII.7.hex.cgns.gz">
+        FAMILY II (3-D) unstructured quad version of 2 x 113 x 33 (2 x 65 points on airfoil surface) </a> (&lt; 10 MB)
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><u>FAMILY III</u></strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">FAMILY III STRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>In order to save space, the structured PLOT3D grid for this family is only given for the finest level as a 2-D grid (x-y plane).
+Please contact the page curator if you are unable to extract coarser levels (which are simply every other
+grid point in each coordinate direction for each successively-coarser level), or if you require an
+unstructured CGNS version of a Family III grid.
+Format for the structured 2D grid is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((x(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((y(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 2-D version of the finest FAMILY III grid in PLOT3D format (gzipped) here:
+<ul>
+<li><a href="NACA0012numerics_grids/n0012familyIII.1.p2dfmt.gz">
+        FAMILY III (2-D) 7169 x 2049 (4097 points on airfoil surface) </a> (242 MB)
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="naca0012numerics_val.html">Numerical Analysis of 2D NACA 0012 Airfoil Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/26/2019
+<br>&nbsp;
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D NACA 0012 Airfoil Validation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2DN00: 2D NACA 0012 Airfoil
+Validation Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a validation
+case for turbulence models.  Unlike verification, which seeks to establish that a model has been implemented
+correctly, validation compares CFD results against data in an effort to establish a model's
+ability to reproduce physics. A large sequence of nested grids
+of the same family are provided here if desired.  Data are also provided for comparison.
+For this particular "essentially incompressible" NACA 0012 airfoil case, the data are from experiments.
+
+<p>For the purposes of this validation, the definition of the NACA 0012 airfoil
+is slightly altered from the original definition so that the airfoil closes at chord=1 with a sharp trailing edge.
+To do this, the exact NACA 0012 formula
+
+<p>y= +- 0.6*[0.2969*sqrt(x) - 0.1260*x - 0.3516*x<sup>2</sup> + 0.2843*x<sup>3</sup> - 0.1015*x<sup>4</sup>]
+
+<p>is used to create an airfoil between x=0 and x=1.008930411365 (the T.E. is sharp
+at this location).  Then the airfoil is scaled down by
+1.008930411365.  Thus, the resulting airfoil is a perfect scaled copy of the 0012, with maximum thickness of approximately 11.894% relative
+to its chord (the original NACA 0012 has a maximum thickness of 12% relative to its <u>blunted</u> chord, but it, too,
+has a maximum thickness of 11.894% relative to its chord extended to 1.008930411365).
+The revised definition is:
+
+<p>y= +- 0.594689181*[0.298222773*sqrt(x) - 0.127125232*x
+- 0.357907906*x<sup>2</sup> + 0.291984971*x<sup>3</sup>
+- 0.105174606*x<sup>4</sup>]
+
+<p>A set of surface points that have been defined using this altered formula are provided here, if desired:
+<a href="NACA0012_grids/n0012points_superbig_clust_fix.dat">n0012points_superbig_clust_fix.dat</a>.
+
+<p>NOTE: Prior to 6/23/2014, there was a typo in the original scaled formula provided on this page. It was written:
+y= +- 0.594689181*[0.298222773*sqrt(x) - 0.127125232*x
+- 0.357907906*x<sup>2</sup> + 0.291984971*x<sup>3</sup>
+- 0.1051746<u>9</u>6*x<sup>4</sup>] (typo underlined).
+With the typo, there was a slight order 10<sup>-8</sup>
+non-closure at the trailing edge (T.E.) (and very small influence throughout).  At this time, the provided grids 
+in the link below have used the incorrect formula and were closed at the T.E. by setting y to be
+exactly 0 at x=1.  However, the influence of the typo is insignificant.
+
+<p>Note that the grids supplied in the link below are considered to be appropriate for the
+level of validation explored here, but are likely <u>not</u> fine enough when high accuracy is required.  
+Convergence properties ("goodness" of
+results as a function of grid size) are explored in more detail with different grid families in
+<a href="naca0012numerics_val.html">Numerical Analysis of 2D NACA 0012 Airfoil Validation Case</a>.
+The finer grids on the "Numerical Analysis" page also include the correction in the scaled NACA 0012 formula.
+
+<p>The turbulent NACA 0012 airfoil case should be run at
+essentially incompressible conditions (the recommendation here is to run M = 0.15 in compressible CFD codes).
+The Reynolds number per chord is Re = 6 million.
+Boundary layers should be fully turbulent over most of the airfoil.
+Inflow conditions for the turbulence variables should be reported.
+To minimize issues associated with 
+<a href="naca0012_val_ffeffect.html">effect of the farfield boundary</a> (which can particularly
+influence drag and lift levels
+at high lift conditions), the farfield boundary in the grids provided have been located almost
+500 chords away from the airfoil. Otherwise, a "farfield point vortex" boundary
+condition correction should be employed (see Thomas and Salas, AIAA Journal 24(7):1074-1080, 1986,
+<a href="https://doi.org/10.2514/3.9394">https://doi.org/10.2514/3.9394</a>).
+The following plot shows the layout of the provided NACA 0012
+grids, along with typical boundary conditions.
+(Note that particular variations of the BCs at the farfield boundaries
+may also work and yield similar results for this problem.)
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA0012_grids/grid_bcs.jpg" border="1" title="NACA 0012 grid layout & BCs" alt="NACA 0012 grid layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="naca0012_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<p>Note: significantly finer grids for this NACA 0012 case can be found from the:
+<a href="naca0012numerics_val.html">Numerical Analysis of 2D NACA 0012 Airfoil Validation Case</a> page.
+
+<p>The quantities of interest for comparison are as follows:
+<ul>
+<li>Lift coefficient (C<sub>L</sub>) vs. angle of attack (alpha) (for 0 &lt; alpha &lt; a<sub>max</sub>)</li>
+<li>Drag coefficient (C<sub>D</sub>) vs. C<sub>L</sub> for 0 &lt; alpha &lt; a<sub>max</sub>)</li>
+<li>Surface pressure coefficient (C<sub>p</sub>) vs. x/c (for alpha = 0, 10, 15)</li>
+<li>Surface skin friction coefficient (C<sub>f</sub>) vs. x/c (for alpha = 0, 10, 15)</li>
+</ul>
+
+where a<sub>max</sub> is the maximum angle of attack at which the CFD yields steady-state
+results with no force oscillations.
+
+<p>There are experimental data available for validation, but it should be recognized
+that two-dimensional experiments are extremely difficult to achieve,
+particularly at higher angles of attack approaching stall.
+Therefore, the experimental data provided here should be used with that in mind.
+There are no known surface skin friction data available for this case for validation;
+however, CFD predictions of this quantity are still of interest.
+
+<p>Experimental curves for comparison at Re=6 million (essentially incompressible conditions)
+are given below. 
+As can be seen, there are some differences between various experimental results.
+In particular, these differences occur near stall where the experiments are
+no doubt very far from being two-dimensional any more.
+A useful paper that discusses many NACA 0012 experiments conducted over the years is:
+McCroskey, W. J., "A Critical Assessment of Wind Tunnel Results for the NACA 0012
+Airfoil," AGARD CP-429, July 1988; also NASA TM 100019, October 1987
+<a href="https://ntrs.nasa.gov/citations/19880002254">https://ntrs.nasa.gov/citations/19880002254</a>.
+In particular, it is important to note that experimental drag coefficient levels are
+greatly affected by tripping the boundary layer at Reynolds numbers in this range.  For
+comparing with "fully turbulent" CFD drag results, tripped experimental data are
+more appropriate than untripped.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA0012_validation/CL_expdata.jpg" border="1" title="NACA 0012 experimental CL vs alpha" alt="NACA 0012 experimental CL vs alpha">
+           <img
+src="NACA0012_validation/CD_expdata.jpg" border="1" title="NACA 0012 experimental CD vs CL" alt="NACA 0012 experimental CD vs CL">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The Abbott and von Doenhoff data (Abbott, I. H. and von Doenhoff, A. E., "Theory
+of Wing Sections," Dover Publications, New York, 1959) were not tripped.
+The Gregory and O'Reilly data (Gregory, N. and O'Reilly, C. L., "Low-Speed
+Aerodynamic Characteristics of NACA 0012 Aerofoil Sections, including the Effects
+of Upper-Surface Roughness Simulation Hoar Frost," R&M 3726, Jan 1970)
+were tripped, but were at a lower Re of 3 million.  Lift data are not
+affected too significantly between 3 million and 6 million, but drag data are (e.g.,
+according to McCroskey, tripped C<sub>D,0</sub> at Re=3 million is about 10% higher
+than tripped C<sub>D,0</sub> at Re=6 million).
+
+<p>The Ladson tripped data (Ladson, C. L., "Effects of Independent Variation of Mach and
+Reynolds Numbers on the Low-Speed Aerodynamic Characteristics of the NACA 0012
+Airfoil Section," NASA TM 4074, October 1988,
+<a href="https://ntrs.nasa.gov/citations/19880019495">https://ntrs.nasa.gov/citations/19880019495</a>) 
+appear to be the most appropriate
+of these data sets for comparison with fully turbulent CFD forces at Re=6 million.  
+
+<p>For comparing with surface pressure coefficients, data of 
+Ladson et al (Ladson, C. L., Hill, A. S., and Johnson, Jr., W. G., "Pressure
+Distributions from High Reynolds Number Transonic Tests of an NACA 0012 Airfoil in
+the Langley 0.3-Meter Transonic Cryogenic Tunnel," NASA TM 100526, December 1987,
+<a href="https://ntrs.nasa.gov/citations/19880009181">https://ntrs.nasa.gov/citations/19880009181</a>)
+do not appear to resolve the leading edge upper surface pressure
+peak well.  Gregory and O'Reilly CP data (at Re=3 million) appear to be better resolved.
+The Gregory and O'Reilly data also show some noticeable differences
+from the Ladson et al pressure data levels over the front half of the airfoil
+at alpha=10 and 15.
+It is believed that the Gregory data are likely more two-dimensional and hence more appropriate
+for CFD validation of surface pressures.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NACA0012_validation/CP_expdata_0.jpg" border="1" title="NACA 0012 experimental CP vs x/c at alpha=0" alt="NACA 0012 experimental CP vs x/c at alpha=0">
+           <img
+src="NACA0012_validation/CP_expdata_10.jpg" border="1" title="NACA 0012 experimental CP vs x/c at alpha=10" alt="NACA 0012 experimental CP vs x/c at alpha=10">
+           <img
+src="NACA0012_validation/CP_expdata_15.jpg" border="1" title="NACA 0012 experimental CP vs x/c at alpha=15" alt="NACA 0012 experimental CP vs x/c at alpha=15">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The experimental data for comparison are provided here:
+<ul>
+<li><a href="NACA0012_validation/0012.abbottdata.cl.dat">Digitized Abbott and von Doenhoff CL data</a></li>
+<li><a href="NACA0012_validation/0012.abbottdata.cd.dat">Digitized Abbott and von Doenhoff CD data</a></li>
+<li><a href="NACA0012_validation/CL_Gregory_expdata.dat">Digitized Gregory CL data</a></li>
+<li><a href="NACA0012_validation/CLCD_Ladson_expdata.dat">Ladson force data</a></li>
+<li><a href="NACA0012_validation/0012.mccroskeydata.cl.dat">McCroskey CL-alpha best fit line</a></li>
+<li><a href="NACA0012_validation/CP_Ladson.dat">Ladson et al pressure data</a></li>
+<li><a href="NACA0012_validation/CP_Gregory_expdata.dat">Gregory & O'Reilly pressure data</a></li>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca0012_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca0012_val_sarc.html">SA-RC</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#saRC">SA-RC equations</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca0012_val_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-std">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca0012_val_sstv.html">SST-Vm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-v">SST-Vm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca0012_val_ssglrrrsm.html">SSG/LRR-RSM-w2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-ssglrr.html#ssg-lrrRSM">SSG/LRR-RSM-w2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca0012_val_w06.html">Wilcox2006-klim-m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="wilcox.html#w06klim">Wilcox2006-klim-m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca0012_val_kkl-meah.html">K-kL-MEAH2015m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="kkl.html#kkl-meah2015">K-kL-MEAH2015m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr> 
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca0012_val_easmkos.html">EASMko2003-S</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="easmko.html#easmko-s">EASMko2003-S eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="naca0012_val_kert.html">K-e-Rt</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="ke-rt.html">K-e-Rt eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2, SST, and SST-V
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+09/08/2022 - added the altered 0012 surface points file<br>
+08/28/2020 - changed SST-V naming to SST-Vm<br>
+08/01/2019 - included more of the experimental data files plotted (note some are digitized, so are only approximate)<br>
+06/28/2016 - added SA-RC results<br>
+06/23/2014 - correction to scaled NACA 0012 formula<br>
+01/28/2014 - new link showing effect of farfield boundary & link to numerics page
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 09/08/2022
+<br>&nbsp;
+
+</body>
+</html>

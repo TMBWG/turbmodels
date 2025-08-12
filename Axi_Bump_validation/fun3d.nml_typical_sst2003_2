@@ -1,0 +1,57 @@
+ &version_number
+    input_version = 2.0
+    namelist_verbosity = "on"
+ /
+ &project
+    project_rootname = "bump_newaxi_721"
+ /
+&raw_grid
+     grid_format = 'aflr3'
+     data_format = 'stream'
+     twod_mode   = .false.
+/
+ &reference_physical_properties
+    temperature_units = "Rankine"
+    mach_number =  0.875
+    reynolds_number =  2763000.
+    temperature =  540.0
+    angle_of_attack =  0.0
+ /
+ &force_moment_integ_properties
+    area_reference  =  1.0
+    x_moment_length =  1.0
+    y_moment_length =  1.0
+    x_moment_center =  0.0
+    y_moment_center =  0.0
+    z_moment_center =  0.0
+ /
+ &inviscid_flux_method
+    flux_limiter = "none"
+ /
+ &turbulent_diffusion_models
+    turbulence_model = "sst-2003"
+ /
+ &nonlinear_solver_parameters
+    schedule_iteration =  1   500
+    schedule_cfl =      10.   30.
+    schedule_cflturb =   2.   10.
+ /
+&linear_solver_parameters
+  linear_projection = .true.
+ /
+ &code_run_control
+    steps =  50000
+    restart_write_freq =  5000
+    restart_read = "off"
+ /
+&global
+  boundary_animation_freq=-1
+/
+&boundary_output_variables
+number_of_boundaries = 2
+boundary_list = '1,5'
+skinfr = .true.
+cp = .true.
+mu_t = .true.
+uwprime = .true.
+/

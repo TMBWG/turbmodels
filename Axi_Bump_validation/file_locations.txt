@@ -1,0 +1,51 @@
+axibump_val.html
+	bcs.jpg										/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/bcs.lay
+	cp.exp.jpg									/ump/fldmd/home/dkeithly/Cases/Website_Transbump/BumpExperiment/cp.exp.lay
+	exp.uprofile.jpg								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/BumpExperiment/exp.uprofile.lay
+	exp.upvpprofile.jpg								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/BumpExperiment/exp.upvprofile.lay
+	cp.exp.dat									/ump/fldmd/home/dkeithly/Cases/Website_Transbump/BumpExperiment/cp.exp.dat
+	exp.uprofile.dat								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/BumpExperiment/exp.uprofile.dat
+	exp.upvpprofile.dat								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/BumpExperiment/exp.upvprofile.dat
+axibump_grids.html
+	grid_zoomed.jpg									/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/grid_zoomed.lay
+	bump_newaxi_1441.p2dfmt.gz							provided by chris
+	bump_newaxi_721.p2dfmt.gz							provided by chris
+	bump_newaxi_361.p2dfmt.gz                                                       provided by chris
+	bump_newaxi_181.p2dfmt.gz                                                       provided by chris
+	bump_newaxi_91.p2dfmt.gz                                                        provided by chris
+	bump_newaxi_1441.p3dfmt.gz							provided by chris
+        bump_newaxi_761.p3dfmt.gz                                                       provided by chris
+        bump_newaxi_361.p3dfmt.gz                                                       provided by chris
+        bump_newaxi_181.p3dfmt.gz                                                       provided by chris
+        bump_newaxi_91.p3dfmt.gz                                                        provided by chris
+	bump_newaxi_1441.nmf								provided by chris
+        bump_newaxi_761.nmf                                                             provided by chris
+        bump_newaxi_361.nmf                                                             provided by chris
+        bump_newaxi_181.nmf                                                             provided by chris
+        bump_newaxi_91.nmf                                                              provided by chris
+axibump_val_sa.html
+	sa-cp_withFUN3D.jpg								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/1levdn/sa-cp_withFUN3D.lay
+	cf_vs_x_sa_1levdn_CFL3D_FUN3D.jpg						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/1levdn/cf_vs_x_sa_1levdn_CFL3D_FUN3D.lay
+	z-z0_vs_u_1levdn_SA_withFUN3D.jpg						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/1levdn/z-z0_vs_u_1levdn_SA_withfun3d.lay
+	z-z0_vs_uv_1levdn_SA_withFUN3D.jpg						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/1levdn/z-z0_vs_uv_1levdn_SA_withFUN3D.lay
+	axibump_cfl3d_cp_sa.dat								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/1levdn/sa-cp_withFUN3D.dat
+	cf_vs_x_sa_1levdn_CFL3D_FUN3D.dat						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/1levdn/cf_vs_x_sa_1levdn_CFL3D_FUN3D.dat
+	axibump_cfl3d_u_sa.dat								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/1levdn/z-z0_vs_u_1levdn_SA_withfun3d.dat
+	axibump_cfl3d_uv_sa.dat								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SA/1levdn/z-z0_vs_uv_1levdn_SA_withfun3d.dat
+axibump_val_sst.html	
+	cp_vs_x_1lvdn_sst_zoomed_withFUN3D.jpg						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SST/1levdn/cp_vs_x_1lvdn_sst_withFUN3D.lay
+	cf_vs_x_1levdn_sst_FUN3D_CFL3D.jpg						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SST/1levdn/cf_vs_x_1levdn_sst_FUN3D_CFL3D.lay
+	yc_vs_uvel_fun3d_cfl3d_data_sst_1levdn.jpg					/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SST/1levdn/yc_vs_uvel_redone_cfl3d_fun3d_data_sst.lay	
+	z-z0_vs_uv_1levdn_SST_withFUN3D.jpg						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SST/1levdn/z-z0_vs_uv_1levdn_SST_withFUN3D.lay
+	axibump_cfl3d_cp_sst.dat							/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SST/1levdn/cp_vs_x_1levdn_sst_withFUN3D.dat
+	cf_vs_x_1levdn_sst_FUN3D_CFL3D.dat						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SST/1levdn/cf_vs_x_1levdn_sst_FUN3D_CFL3D.dat
+	axibump_cfl3d_u_sst.dat								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SST/1levdn/yc_vs_uvel_cfl3d_fun3d_data_sst_1levdn.dat
+	axibump_cfl3d_uv_sst.dat							/ump/fldmd/home/dkeithly/Cases/Website_Transbump/SST/1levdn/z-z0_vs_uv_1levdn_SST_withFUN3D.dat
+axibump_val_w06.html
+	axibump_cfl3d_cp_w06.dat							/ump/fldmd/home/dkeithly/Cases/Website_Transbump/W06/1levdn/1levdn_cp_x_DATA_FUN3D_CFL3D.dat
+	1levdn_cp_vs_x_W06_FUN3D_CFL3D_DATA.jpg						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/W06/1levdn/1levdn_cp_vs_x_W06_FUN3D_CFL3D_DATA.jpg
+	axibump_cfl3d_u_w06.dat								/ump/fldmd/home/dkeithly/Cases/Website_Transbump/W06/1levdn/uvel_1levdn_CFL3D_FUN3D_DATA.dat
+	uvel_1levdn_CFL3D_FUN3D_DATA_w06.jpg						/ump/fldmd/home/dkeithly/Cases/Website_Transbump/W06/1levdn/uvel_1levdn_CFL3D_FUN3D_DATA_w06.jpg
+	axibump_cfl3d_uv_w06.dat							/ump/fldmd/home/dkeithly/Cases/Website_Transbump/W06/1levdnuwprime_1levdn_CFL3D_FUN3D_DATA.dat
+	uwprime_vs_z-z0_1levdn_W06_FUN3D_CFL3D_DATA.jpg					/ump/fldmd/home/dkeithly/Cases/Website_Transbump/W06/1levdn/uwprime_vs_z-z0_1levdn_W06_FUN3D_CFL3D_DATA.jpg
+	axibump_cfl3d_typical_w06.inp							????Chris added this one????

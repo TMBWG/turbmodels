@@ -1,0 +1,6 @@
+# Best fit line from McCroskey, AGARD CP-429, 1988
+# Fig 3, dCL/dalpha=(0.1025 + 0.00485*log10(Re/10^6))/(sqrt(1-M^2))
+# line below is for Re=6 million, M=0.15
+variables="alpha, deg","cl"
+ -0.1000000E+02 -0.1074902E+01
+  0.1000000E+02  0.1074902E+01

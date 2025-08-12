@@ -1,0 +1,7 @@
+# NACA 0012, 897x257 grid, CFL3D with SA model, tildenu freestream=3
+# Lifting results have point vortex farfield correction on
+# (Results here given to greater accuracy than convergence tolerance)
+variables="alpha, deg","cl","cd"
+0. -0.68553224298E-05  0.81924676041E-02
+10. 0.10909146672E+01  0.12310544747E-01
+15. 0.15460981214E+01  0.21236647158E-01

@@ -1,0 +1,7 @@
+# NACA 0012, 897x257 grid, CFL3D with Wilcox2006-klim model
+# Lifting results have point vortex farfield correction on
+# (Results here given to greater accuracy than convergence tolerance)
+variables="alpha, deg","cl","cd"
+0. -0.91132591825E-05  0.85414050747E-02
+10. 0.10957969071E+01  0.12594795214E-01
+15. 0.15685531174E+01  0.20544358597E-01

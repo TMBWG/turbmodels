@@ -1,0 +1,8 @@
+variables="alpha, deg","cl","cd"
+# 0012, 897x257 grid, CFL3D with SA-RC model, tildenu freestream=3
+# Lifting results have point vortex farfield correction on
+# (makes only a little difference with 500c farfield extent)
+zone, t="897x257, cfl3d SA-RC"
+0. -0.71722335305E-05  0.79257664751E-02
+10. 0.10947425435E+01  0.11793922954E-01
+15. 0.15560342010E+01  0.20662385870E-01

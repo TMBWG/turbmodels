@@ -1,0 +1,10 @@
+# NACA 0012, 897x257 grid, CFL3D with k-kL-MEAH2015 model, 
+# freestream k/a_inf^2=9.e-9
+# freestream (kL)*rho_inf/(mu_inf*a_inf)=1.5589e-6
+# Lifting results have point vortex farfield correction on
+# (Results here given to greater accuracy than convergence tolerance)
+# (Note that alpha=0 case did not converge, so those results are not reliable)
+variables="alpha, deg","cl","cd"
+0. -0.68653612168E-05  0.83147340261E-02
+10. 0.10700379438E+01  0.13407162191E-01
+15. 0.14980372801E+01  0.24277338429E-01

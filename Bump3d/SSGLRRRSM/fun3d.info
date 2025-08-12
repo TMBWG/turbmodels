@@ -1,0 +1,18 @@
+Rev 73045
+
+Note that to avoid odd-even point decoupling on the finest grids, FUN3D required the following for this problem (see input file):
+  &mapping
+    nc_mapped_lsq = .true.
+    type_fit      = 'linear'
+  /
+
+FUN3D's mapbc file contents:
+           8
+    1   6662
+    2   6662
+    3   7011
+    4   5051
+    5   6663
+    6   4000
+    7   6663
+    8   6663

@@ -1,0 +1,82 @@
+ &global
+    boundary_animation_freq = -1
+ /
+
+ &reference_physical_properties
+    mach_number       = 0.2
+    reynolds_number   = 5.0e+6
+    temperature       = 540.0
+    temperature_units = 'Rankine'
+ /
+
+ &force_moment_integ_properties
+    area_reference = 2.0
+/
+ &inviscid_flux_method
+    flux_limiter = 'none' 
+ /
+
+ &turbulent_diffusion_models
+    turbulence_model = 'bsl' 
+ /
+
+ &nonlinear_solver_parameters
+    schedule_iteration = 1  500
+    schedule_cfl       = 50. 50.
+    schedule_cflturb   =   30. 30.
+ /
+ &inviscid_flux_method
+    kappa_umuscl = 0.5
+ /
+&linear_solver_parameters
+  linear_projection = .true.
+ /
+
+ &code_run_control
+    steps              = 00001
+    restart_write_freq = 2000
+    restart_read       = 'on' 
+ /
+
+ &boundary_conditions
+      total_pressure_ratio(3) = 1.02828
+   total_temperature_ratio(3) = 1.0080
+     static_pressure_ratio(4) = 1.
+ /
+
+  &sampling_parameters
+! verbose=T
+    number_of_geometries  = 1 
+    type_of_geometry(1)   = 'line'
+    p1_line(:,1)          = 0.97008,-0.5,-1.
+    p2_line(:,1)          = 0.97008,-0.5, 1.
+    boundary(1)           = 6 
+    boundary_point(:,1)   = 0.97008,-0.5,0.
+    need_wall_data(1)     = T
+    reference_length      = 2.0
+    sampling_frequency(1) = -1
+    variable_list(1)='x,y,z,rho,u,v,w,p,mu_t,turb1,yplus,uplus,kplus,t11plus,t12plus,t13plus,t22plus,t23plus,t33plus,yplusretau,b11,b22,b33,b12,b13,b23,cmu_star,turb2'
+  /
+
+
+ &boundary_output_variables
+    number_of_boundaries=2
+    boundary_list='1,6'
+    primitive_variables=T
+    y=F
+    z=T
+    skinfr=T
+    turb1  = T
+    turb2  = T
+    mu_t   = T
+ /
+
+ &project
+    project_rootname = 'flatplate_clust2_0levelsdown_545x385'
+ /
+
+ &raw_grid
+    grid_format = 'aflr3'
+    data_format = 'stream'
+    twod_mode   = .true.
+ /

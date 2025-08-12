@@ -1,0 +1,2 @@
+Note that before being used in CFL3D, the C-grids were divided into 2 zones, one over the airfoil proper,
+and one in the wake (the 2 halves of the C-grid in the wake were merged into a single zone).

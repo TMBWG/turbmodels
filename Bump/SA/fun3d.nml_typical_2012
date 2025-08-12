@@ -1,0 +1,76 @@
+&version_number
+    input_version =    2.2
+    namelist_verbosity = "on"
+ /
+ &project
+    project_rootname='bump_4levelsdown_89x41'
+ /
+&raw_grid
+     grid_format = 'aflr3'
+     data_format = 'stream'
+     twod_mode   = .true.
+/
+ &reference_physical_properties
+    mach_number =   0.2
+    reynolds_number =    3000000.0
+    temperature =    540.0
+    angle_of_attack =   00.0
+    temperature_units = "Rankine"
+ /
+ &force_moment_integ_properties
+    area_reference =    1.5
+    x_moment_length =    1.5
+    y_moment_length =    1.0
+ /
+ &turbulent_diffusion_models
+    turb_model = "sa"
+ /
+ &inviscid_flux_method
+    kappa_umuscl = 0.5
+ /
+ &nonlinear_solver_parameters
+    schedule_iteration =     1     200
+    schedule_cfl =        1.0     50.0
+    schedule_cflturb =    10.0    30.0
+ /
+&linear_solver_parameters
+  linear_projection = .true.
+ /
+ &code_run_control
+    steps =   30000
+    stopping_tolerance = 1.0e-13
+    restart_write_freq = 1000
+    restart_read = "off"
+ /
+
+&boundary_conditions
+total_pressure_ratio(3)=1.02828,
+total_temperature_ratio(3)=1.0080,
+static_pressure_ratio(4)=1,
+/
+&spalart
+turbinf=3.0
+/
+
+&global
+  boundary_animation_freq=-1
+/
+&boundary_output_variables
+number_of_boundaries = -1
+boundary_list = '6'
+skinfr = .true.
+cp = .true.
+/
+&sampling_output_variables
+cp = .true.
+/
+&sampling_parameters
+ number_of_geometries = 1
+        type_of_geometry(1)='boundary_point'
+           boundary_list ='6'
+      sampling_frequency(1) = -1
+        number_of_points(1) = 3
+                  points(:,1,1) = 0.7500000, -0.5, 0.0
+                  points(:,1,2) = 0.6321975, -0.5, 0.0
+                  points(:,1,3) = 0.8678025, -0.5, 0.0
+/

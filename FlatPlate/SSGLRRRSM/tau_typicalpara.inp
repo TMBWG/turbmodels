@@ -1,0 +1,142 @@
+ -----------------------------------------------------
+ BOUNDARY MAPPING
+ -----------------------------------------------------
+ -----------------------------------------------------
+ BOUNDARY MAPPING
+ -----------------------------------------------------
+
+            Markers: 1
+               Type: viscous wall
+            Subtype: turbulent
+               Name: Flat plate
+Write surface data (0/1): 1
+ block end
+ ---------------------------
+
+            Markers: 2
+               Type: symmetry plane
+               Name: Symmetry left
+Write surface data (0/1): 1
+ block end
+ ---------------------------
+
+            Markers: 3
+               Type: reservoir-pressure inflow
+   Inflow direction: 1,0,0
+      Total density: 1.356516946 #1.020119048*rhoref
+     Total pressure: 117730.4778908 #1.02828*Pref
+               Name: inflow 
+Write surface data (0/1): 0
+ block end
+ ---------------------------
+
+            Markers: 4
+               Type: exit-pressure outflow
+Exit pressure: 114492.626415762
+               Name: outflow
+Write surface data (0/1): 0 
+ block end
+ ---------------------------
+
+            Markers: 5
+               Type: symmetry plane
+               Name: Symmetry top
+Write surface data (0/1): 0 
+ block end
+ ---------------------------
+
+            Markers: 6
+               Type: symmetry plane
+               Name: symmetry bottom
+Write surface data (0/1): 0 
+ block end
+ ---------------------------
+
+            Markers: 7
+               Type: symmetry plane
+               Name: symmetry right
+Write surface data (0/1): 0 
+ block end
+ ---------------------------
+-----------------------------------------------------
+    Logfile control ---------------------------------: -
+           Enable logfile output on all domains (0/1): 1
+                                      Use Theta (0/1): 0
+     Files/IO ----------------------------------------: -
+                             Boundary mapping filename: (thisfile)
+                                 Primary grid filename: grid_hexa_545x385_vol.tau
+                                           Grid prefix: dualgrid
+                                   Output files prefix: SSG-LRR-w
+                       Surface output description file: (thisfile)
+                         Field output description file: (thisfile)
+                      Automatic parameter update (0/1): 1
+                   Write pointdata dimensionless (0/1): 1
+-------------------------------------------------------
+ PREPROCESSING
+-------------------------------------------------------
+     Parameter ---------------------------------------: -
+                            Number of multigrid levels: 8
+                                          Output level: 5
+                                           Grid metric: Cell_Vertex
+     Runtime optimisation ----------------------------: -
+                 Cache-coloring (0/max_faces in color): 0
+                          Bandwidth optimisation (0/1): 1
+                    2D offset vector (0 / x=1,y=2,z=3): 2
+                           Compute lusgs mapping (0/1): 1
+     Agglomeration -----------------------------------: -
+                                 Type of agglomeration: private
+                                 Agglomeration version: 1
+                            Structured grid coarsening: 0.5
+-------------------------------------------------------
+ SOLVER
+-------------------------------------------------------
+      Timestepping Start/Stop -------------------------: -
+                                          Output period: 1000000
+                                    Field output period: 1000000
+                                  Surface output period: 1000000
+                               Maximal time step number: 1
+
+                                       Minimum residual: 1e-16
+      Geometry ----------------------------------------: -
+                                             Grid scale: 1.0
+      Transport coefficients --------------------------: -
+                                        Reynolds number: 5.e6
+      References --------------------------------------: -
+                                        Reynolds length: 1.0
+                                  Reference Mach number: 0.2
+                                  Reference temperature: 300.
+                                Reference relation area: 2.
+      Monitoring --------------------------------------: -
+                                  Monitor history (0/1): 1
+                         Residual monitoring type (0/1): 1
+                                      Monitoring values: Residual_dr11/dt_dr22/dt_dr33/dt_dr13/dt_dw-rsm/dt_C-lift_C-drag_C-my
+      Flux main ---------------------------------------: -
+                      Inviscid flux discretization type: Central
+                       Viscous flux type TSL/Full (0/1): 1
+      Central flux ------------------------------------: -
+                             Central dissipation scheme: Matrix_dissipation
+                       Central convective meanflow flux: Average_of_flux
+                     Central convective turbulence flux: Roe
+                      2nd order dissipation coefficient: 0.0
+              Inverse 4th order dissipation coefficient: 64
+                  Use modified dissipation for 2D (0/1): 1
+      Relaxation --------------------------------------: -
+                                      Relaxation solver: Backward_Euler
+    Multigrid ------------------------------------------------: -
+                                       MG description filename: v
+                                     Number of MG-cycle levels: 6
+                      Turbulence equations use multigrid (0/1): 1
+    Use source terms in coarse grid turbulence equations (0/1): 1
+             Use face gradient correction on coarse grid (0/1): 1
+                Set boundary fluxes for forcing function (0/1): 1
+             Timestepsize ------------------------------------: -
+                                                    CFL number: 5.
+             Preconditioning ---------------------------------: -
+                                               Preconditioning: PrimNew
+                                                 Cut-off value: 1
+             Turbulence --------------------------------------: -
+                                      Turbulence model version: RSM
+
+-------------------------------------------------
+ UPDATE
+-------------------------------------------------

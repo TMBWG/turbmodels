@@ -1,0 +1,523 @@
+#!MC 1410
+$!VarSet |LFDSFN1| = '"cf_convergence.dat"'
+$!VarSet |LFDSVL1| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f,x=0.97"'
+$!VarSet |LFDSFN2| = '"cf_convergence_fun3d.dat"'
+$!VarSet |LFDSVL2| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f,x=0.97"'
+$!VarSet |LFDSFN3| = '"cf_gridconvresults_sa_vulcan.dat"'
+$!VarSet |LFDSVL3| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f,x=0.97"'
+$!VarSet |LFDSFN4| = '"cf_convergence_sa_overflow.dat"'
+$!VarSet |LFDSVL4| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f,x=0.97"'
+$!VarSet |LFDSFN5| = '"USM3D/grid_convergence_x=0.97/cf_convergence.dat"'
+$!VarSet |LFDSVL5| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f,x=0.97"'
+$!VarSet |LFDSFN6| = '"cf_convergence_refresco.dat"'
+$!VarSet |LFDSVL6| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f,x=0.97"'
+$!SetStyleBase Factory
+$!GlobalPaper 
+  PaperSizeInfo
+    {
+    Letter
+      {
+      Width = 8.5
+      Height = 11
+      LeftHardClipOffset = 0.125
+      RightHardClipOffset = 0.125
+      TopHardClipOffset = 0.125
+      BottomHardClipOffset = 0.125
+      }
+    A3
+      {
+      Width = 11.693
+      Height = 16.535
+      }
+    A4
+      {
+      Width = 8.2677
+      Height = 11.693
+      }
+    Custom1
+      {
+      Height = 8.5
+      }
+    Custom2
+      {
+      Width = 11
+      Height = 8
+      }
+    }
+$!Page 
+  Name = ''
+  PaperAttributes
+    {
+    BackgroundColor = White
+    IsTransparent = Yes
+    OrientPortrait = No
+    ShowGrid = Yes
+    ShowRuler = No
+    ShowPaper = No
+    PaperSize = Letter
+    RulerSpacing = OneInch
+    PaperGridSpacing = HalfInch
+    RegionInWorkArea
+      {
+      X1 = 1
+      Y1 = 0.25
+      X2 = 10
+      Y2 = 8.25
+      }
+    }
+### Frame Number 1 ###
+$!ReadDataSet  '|LFDSFN1|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL1|'
+$!RemoveVar |LFDSVL1|
+$!RemoveVar |LFDSFN1|
+$!ReadDataSet  '|LFDSFN2|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL2|'
+$!RemoveVar |LFDSVL2|
+$!RemoveVar |LFDSFN2|
+$!ReadDataSet  '|LFDSFN3|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL3|'
+$!RemoveVar |LFDSVL3|
+$!RemoveVar |LFDSFN3|
+$!ReadDataSet  '|LFDSFN4|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL4|'
+$!RemoveVar |LFDSVL4|
+$!RemoveVar |LFDSFN4|
+$!ReadDataSet  '|LFDSFN5|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL5|'
+$!RemoveVar |LFDSVL5|
+$!RemoveVar |LFDSFN5|
+$!ReadDataSet  '|LFDSFN6|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL6|'
+$!RemoveVar |LFDSVL6|
+$!RemoveVar |LFDSFN6|
+$!FrameLayout 
+  ShowHeader = No
+  HeaderColor = Red
+  XYPos
+    {
+    X = 1
+    Y = 0.25
+    }
+  Width = 9
+  Height = 8
+$!ThreeDAxis 
+  AspectRatioLimit = 25
+  BoxAspectRatioLimit = 25
+$!PlotType  = XYLine
+$!FrameName  = 'Frame 001'
+$!GlobalTime 
+  SolutionTime = 0
+$!DeleteLineMaps 
+$!ActiveLineMaps  =  [1-6]
+$!GlobalLinePlot 
+  DataLabels
+    {
+    DistanceSkip = 5
+    }
+  Legend
+    {
+    Show = Yes
+    Box
+      {
+      BoxType = Filled
+      Margin = 5
+      }
+    XYPos
+      {
+      X = 69.138
+      Y = 85.966
+      }
+    }
+$!LineMap  [1]
+  Name = 'CFL3D, SA'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Blue
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Blue
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [2]
+  Name = 'FUN3D, SA'
+  Assign
+    {
+    Zone = 2
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Red
+    LinePattern = Dashed
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Del
+      }
+    Color = Red
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [3]
+  Name = 'VULCAN, SA-noft2'
+  Assign
+    {
+    Zone = 3
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = DashDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Grad
+      }
+    Color = Black
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [4]
+  Name = 'OVERFLOW, SA-noft2'
+  Assign
+    {
+    Zone = 4
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Custom36
+    LinePattern = DashDotDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = RTri
+      }
+    Color = Custom36
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [5]
+  Name = 'USM3D, SA'
+  Assign
+    {
+    Zone = 5
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Custom47
+    LinePattern = LongDash
+    PatternLength = 0.8
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Diamond
+      }
+    Color = Custom47
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [6]
+  Name = 'REFRESCO, SA'
+  Assign
+    {
+    Zone = 10
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Custom3
+    LinePattern = DashDot
+    PatternLength = 0.8
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!XYLineAxis 
+  DepXToYRatio = 1
+  ViewportPosition
+    {
+    X1 = 21
+    }
+$!XYLineAxis 
+  XDetail 1
+    {
+    CoordScale = Linear
+    RangeMin = 0
+    RangeMax = 0.02999999999999999889
+    AutoGrid = No
+    GRSpacing = 0.005
+    TickLabel
+      {
+      TextShape
+        {
+        Height = 4
+        }
+      }
+    Gridlines
+      {
+      Show = Yes
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = 'h = (1/N)<sup>1/2'
+      TextShape
+        {
+        Height = 4.6
+        }
+      Offset = 6
+      }
+    }
+$!XYLineAxis 
+  YDetail 1
+    {
+    CoordScale = Linear
+    RangeMin = 0.0026800000000000000905
+    RangeMax = 0.0027799999999999999191
+    GRSpacing = 2E-05
+    TickLabel
+      {
+      TextShape
+        {
+        Height = 4
+        }
+      }
+    Gridlines
+      {
+      Show = Yes
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = 'C<sub>f</sub> at x=0.97'
+      TextShape
+        {
+        Height = 4.6
+        }
+      Offset = 16
+      }
+    }
+$!LinePlotLayers 
+  ShowSymbols = Yes
+$!AttachText 
+  AnchorPos
+    {
+    X = 77.45578769708148
+    Y = 59.51704545454546
+    }
+  Text = '35 x 25'
+$!AttachText 
+  AnchorPos
+    {
+    X = 61.67659936542547
+    Y = 45.02840909090909
+    }
+  Text = '69 x 49'
+$!AttachText 
+  AnchorPos
+    {
+    X = 42.11040583417194
+    Y = 33.66477272727273
+    }
+  Text = '137 x 97'
+$!AttachText 
+  AnchorPos
+    {
+    X = 31.12809075533931
+    Y = 38.92045454545454
+    }
+  Text = '273 x 193'
+$!AttachText 
+  AnchorPos
+    {
+    X = 22.29174528961196
+    Y = 43.03977272727273
+    }
+  Text = '545 x 385'
+$!AttachText 
+  AnchorPos
+    {
+    X = 39.71196920776024
+    Y = 89.36237373737373
+    }
+  TextShape
+    {
+    Height = 16
+    }
+  Text = 'Turbulent flat plate,\nM=0.2, Re<sub>L</sub>=5 million (L=1),\nSA turbulence model'
+$!AttachGeom 
+  AnchorPos
+    {
+    X = 0.002952336971215707
+    Y = 0.002720503246753247
+    }
+  RawData
+1
+2
+0 0 
+-0.000734792032745 -1.27287485157E-05 
+$!AttachGeom 
+  AnchorPos
+    {
+    X = 0.005608892857500486
+    Y = 0.00271478453364817
+    }
+  RawData
+1
+2
+0 0 
+-0.00113044935279 -6.27213694315E-06 
+$!AttachGeom 
+  AnchorPos
+    {
+    X = 0.02720047474177251
+    Y = 0.002746883116883117
+    }
+  ArrowheadStyle = Filled
+  ArrowheadAttachment = AtEnd
+  ArrowheadSize = 3
+  RawData
+1
+2
+0 0 
+0.00197828630917 1.10684768515E-05 
+$!FrameControl ActivateByNumber
+  Frame = 1
+$!SetStyleBase Config

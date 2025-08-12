@@ -1,0 +1,6 @@
+&boundary_conditions
+total_pressure_ratio(3)=1.02828,
+total_temperature_ratio(3)=1.0080,
+static_pressure_ratio(4)=1,
+static_temperature_ratio(4)=1,
+/

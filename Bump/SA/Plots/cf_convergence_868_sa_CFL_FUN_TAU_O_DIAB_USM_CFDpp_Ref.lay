@@ -1,0 +1,643 @@
+#!MC 1410
+$!VarSet |LFDSFN1| = '"cf_convergence_sa.dat"'
+$!VarSet |LFDSVL1| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f"'
+$!VarSet |LFDSFN2| = '"cf_convergence_sa_tau.dat"'
+$!VarSet |LFDSVL2| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f"'
+$!VarSet |LFDSFN3| = '"cf_convergence_sa_overflow.dat"'
+$!VarSet |LFDSVL3| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f"'
+$!VarSet |LFDSFN4| = '"cf_convergence_sa_diablo.dat"'
+$!VarSet |LFDSVL4| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f"'
+$!VarSet |LFDSFN5| = '"USM3D/cf_grid_convergence_3stations/cf_convergence_sa.dat"'
+$!VarSet |LFDSVL5| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f"'
+$!VarSet |LFDSFN6| = '"cf_convergence_sa_cfd++.dat"'
+$!VarSet |LFDSVL6| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f"'
+$!VarSet |LFDSFN7| = '"cf_convergence_sa_refresco.dat"'
+$!VarSet |LFDSVL7| = '"N" "h^2=1/N" "h=sqrt(1/N)" "C_f"'
+$!SetStyleBase Factory
+$!GlobalPaper 
+  PaperSizeInfo
+    {
+    Letter
+      {
+      Width = 8.5
+      Height = 11
+      LeftHardClipOffset = 0.125
+      RightHardClipOffset = 0.125
+      TopHardClipOffset = 0.125
+      BottomHardClipOffset = 0.125
+      }
+    A3
+      {
+      Width = 11.693
+      Height = 16.535
+      }
+    A4
+      {
+      Width = 8.2677
+      Height = 11.693
+      }
+    Custom1
+      {
+      Height = 8.5
+      }
+    Custom2
+      {
+      Width = 11
+      Height = 8
+      }
+    }
+$!Page 
+  Name = ''
+  PaperAttributes
+    {
+    BackgroundColor = White
+    IsTransparent = Yes
+    OrientPortrait = No
+    ShowGrid = Yes
+    ShowRuler = No
+    ShowPaper = No
+    PaperSize = Letter
+    RulerSpacing = OneInch
+    PaperGridSpacing = HalfInch
+    RegionInWorkArea
+      {
+      X1 = 1
+      Y1 = 0.25
+      X2 = 10
+      Y2 = 8.25
+      }
+    }
+### Frame Number 1 ###
+$!ReadDataSet  '|LFDSFN1|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL1|'
+$!RemoveVar |LFDSVL1|
+$!RemoveVar |LFDSFN1|
+$!ReadDataSet  '|LFDSFN2|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL2|'
+$!RemoveVar |LFDSVL2|
+$!RemoveVar |LFDSFN2|
+$!ReadDataSet  '|LFDSFN3|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL3|'
+$!RemoveVar |LFDSVL3|
+$!RemoveVar |LFDSFN3|
+$!ReadDataSet  '|LFDSFN4|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL4|'
+$!RemoveVar |LFDSVL4|
+$!RemoveVar |LFDSFN4|
+$!ReadDataSet  '|LFDSFN5|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL5|'
+$!RemoveVar |LFDSVL5|
+$!RemoveVar |LFDSFN5|
+$!ReadDataSet  '|LFDSFN6|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL6|'
+$!RemoveVar |LFDSVL6|
+$!RemoveVar |LFDSFN6|
+$!ReadDataSet  '|LFDSFN7|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL7|'
+$!RemoveVar |LFDSVL7|
+$!RemoveVar |LFDSFN7|
+$!FrameLayout 
+  ShowHeader = No
+  HeaderColor = Red
+  XYPos
+    {
+    X = 1
+    Y = 0.25
+    }
+  Width = 9
+  Height = 8
+$!ThreeDAxis 
+  AspectRatioLimit = 25
+  BoxAspectRatioLimit = 25
+$!PlotType  = XYLine
+$!FrameName  = 'Frame 001'
+$!GlobalTime 
+  SolutionTime = 0
+$!DeleteLineMaps 
+$!ActiveLineMaps  =  [1-8]
+$!GlobalLinePlot 
+  DataLabels
+    {
+    DistanceSkip = 5
+    }
+  Legend
+    {
+    Show = Yes
+    Box
+      {
+      BoxType = Filled
+      Margin = 5
+      }
+    XYPos
+      {
+      X = 69.96
+      Y = 85.191
+      }
+    }
+$!LineMap  [1]
+  Name = 'CFL3D, SA'
+  Assign
+    {
+    Zone = 5
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Blue
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Blue
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [2]
+  Name = 'FUN3D, SA'
+  Assign
+    {
+    Zone = 6
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Red
+    LinePattern = Dashed
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Del
+      }
+    Color = Red
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [3]
+  Name = 'TAU, SA-noft2'
+  Assign
+    {
+    Zone = 9
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Custom36
+    LinePattern = DashDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Grad
+      }
+    Color = Custom36
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [4]
+  Name = 'OVERFLOW, SA-noft2'
+  Assign
+    {
+    Zone = 12
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = DashDotDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = RTri
+      }
+    Color = Black
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [5]
+  Name = 'DIABLO, SA'
+  Assign
+    {
+    Zone = 18
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Custom30
+    LinePattern = LongDash
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = LTri
+      }
+    Color = Custom30
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [6]
+  Name = 'USM3D, SA'
+  Assign
+    {
+    Zone = 25
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Custom47
+    LinePattern = LongDash
+    PatternLength = 0.8
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Diamond
+      }
+    Color = Custom47
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [7]
+  Name = 'CFD++, SA'
+  Assign
+    {
+    Zone = 30
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Custom39
+    LinePattern = LongDash
+    PatternLength = 0.4
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom39
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!LineMap  [8]
+  Name = 'REFRESCO, SA'
+  Assign
+    {
+    Zone = 39
+    XAxisVar = 3
+    YAxisVar = 4
+    }
+  Lines
+    {
+    Color = Custom3
+    LinePattern = DashDot
+    PatternLength = 1.4
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    SymbolShape
+      {
+      GeomShape = Circle
+      }
+    Color = Custom3
+    FillColor = Blue
+    Size = 1.5
+    LineThickness = 0.4
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+$!XYLineAxis 
+  DepXToYRatio = 1
+  ViewportPosition
+    {
+    X1 = 21
+    }
+$!XYLineAxis 
+  XDetail 1
+    {
+    CoordScale = Linear
+    RangeMin = 0
+    RangeMax = 0.01200000000000000025
+    GRSpacing = 0.002
+    TickLabel
+      {
+      TextShape
+        {
+        Height = 4
+        }
+      }
+    Gridlines
+      {
+      Show = Yes
+      }
+    MinorGridlines
+      {
+      Show = Yes
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = 'h = (1/N)<sup>1/2'
+      TextShape
+        {
+        Height = 4.6
+        }
+      Offset = 6
+      }
+    }
+$!XYLineAxis 
+  YDetail 1
+    {
+    CoordScale = Linear
+    RangeMin = 0.0025999999999999998807
+    RangeMax = 0.0032000000000000001533
+    GRSpacing = 0.0001
+    TickLabel
+      {
+      TextShape
+        {
+        Height = 4
+        }
+      }
+    Gridlines
+      {
+      Show = Yes
+      }
+    MinorGridlines
+      {
+      Show = Yes
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = 'C<sub>f</sub> at x=0.8678025'
+      TextShape
+        {
+        Height = 4.6
+        }
+      Offset = 16
+      }
+    }
+$!LinePlotLayers 
+  ShowSymbols = Yes
+$!AttachText 
+  AnchorPos
+    {
+    X = 37.94470011461476
+    Y = 89.17297979797979
+    }
+  TextShape
+    {
+    Height = 16
+    }
+  Text = 'Turbulent Bump-in-channel,\nM=0.2, Re<sub>L</sub>=3 million (L=1),\nSA turbulence model'
+$!AttachText 
+  AnchorPos
+    {
+    X = 27.47327626805493
+    Y = 40.90909090909091
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '1409 x 641'
+$!AttachText 
+  AnchorPos
+    {
+    X = 34.41816692342915
+    Y = 34.23295454545453
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '705 x 321'
+$!AttachText 
+  AnchorPos
+    {
+    X = 38.69484081013631
+    Y = 27.13068181818181
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '353 x 161'
+$!AttachText 
+  AnchorPos
+    {
+    X = 58.6395486986727
+    Y = 35.36931818181818
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '177 x 81'
+$!AttachText 
+  AnchorPos
+    {
+    X = 72.14914018804639
+    Y = 52.27272727272727
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 17
+    }
+  Text = '89 x 41'
+$!AttachGeom 
+  AnchorPos
+    {
+    X = 0.01050365596261118
+    Y = 0.002944753541912632
+    }
+  ArrowheadStyle = Filled
+  ArrowheadAttachment = AtEnd
+  ArrowheadSize = 3
+  RawData
+1
+2
+0 0 
+0.00133589736652 3.6894922232E-05 
+$!AttachGeom 
+  AnchorPos
+    {
+    X = 0.003190183748827098
+    Y = 0.002775036894923257
+    }
+  ArrowheadStyle = Filled
+  ArrowheadAttachment = AtEnd
+  ArrowheadSize = 3
+  RawData
+1
+2
+0 0 
+-0.000928335473873 -7.47122176108E-05 
+$!AttachGeom 
+  AnchorPos
+    {
+    X = 0.00203542497822961
+    Y = 0.002823000295159385
+    }
+  ArrowheadStyle = Filled
+  ArrowheadAttachment = AtEnd
+  ArrowheadSize = 3
+  RawData
+1
+2
+0 0 
+-0.000928335473873 -0.000128209852846 
+$!FrameControl ActivateByNumber
+  Frame = 1
+$!SetStyleBase Config

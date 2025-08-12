@@ -1,0 +1,16 @@
+        15
+         1      6662  BCSymmetryPlane                 6662_QUAD_4_Bdy   1             
+         2      6662  BCSymmetryPlane                 6662_QUAD_4_Bdy   2             
+         3      6662  BCSymmetryPlane                 6662_QUAD_4_Bdy   3             
+         4      6662  BCSymmetryPlane                 6662_QUAD_4_Bdy   4             
+         5      6662  BCSymmetryPlane                 6662_QUAD_4_Bdy   5             
+         6      6662  BCSymmetryPlane                 6662_QUAD_4_Bdy   6             
+         7      7011  BCTunnelInflow                  7011_QUAD_4_Bdy   7             
+         8      7011  BCTunnelInflow                  7011_QUAD_4_Bdy   8             
+         9      5051  BCTunnelOutflow                 5051_QUAD_4_Bdy   9             
+        10      6663  BCSymmetryPlane                 6663_QUAD_4_Bdy  10             
+        11      4000  BCWallViscous                   4000_QUAD_4_Bdy  11             
+        12      6663  BCSymmetryPlane                 6663_QUAD_4_Bdy  12             
+        13      4000  BCWallViscous                   4000_QUAD_4_Bdy  13             
+        14      6663  BCSymmetryPlane                 6663_QUAD_4_Bdy  14             
+        15      6663  BCSymmetryPlane                 6663_QUAD_4_Bdy  15             

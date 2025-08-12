@@ -1,0 +1,9 @@
+         8
+         1      6662  BCSymmetryPlane                 6662_TRI_3_Bdy    1             
+         2      6662  BCSymmetryPlane                 6662_TRI_3_Bdy    2             
+         3      7011  BCTunnelInflow                  7011_TRI_3_Bdy    3             
+         4      5051  BCTunnelOutflow                 5051_TRI_3_Bdy    4             
+         5      6663  BCSymmetryPlane                 6663_TRI_3_Bdy    5             
+         6      4000  BCWallViscous                   4000_TRI_3_Bdy    6             
+         7      6663  BCSymmetryPlane                 6663_TRI_3_Bdy    7             
+         8      6663  BCSymmetryPlane                 6663_TRI_3_Bdy    8             

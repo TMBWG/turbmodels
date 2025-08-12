@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Axisymmetric Cold Supersonic Jet</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">ACSSJ: Axisymmetric Cold Supersonic Jet</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">See the related
+<a href="jetsupersonichot_val.html">axisymmetric hot supersonic jet</a> case.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. A small sequence of nested grids of the same family are 
+provided here if desired. Data are also provided for comparison. For this 
+particular supersonic cold jet case, the data are from experiment. 
+
+<p>The experiment involved a jet with diameter 9.144 cm.
+The jet was run with a fully-expanded plume Mach number of M=2.0.
+In the experiment, the axisymmetric jet exits into quiescent (non-moving) air.  However, because flow into 
+quiescent air is difficult to achieve for some CFD codes, here the CFD is computed with a low
+background ambient conditions
+(M<sub>ref</sub>=0.01, moving left-to-right, in the same direction as the jet).
+This boundary condition difference probably has some effect, but testing for a related 
+<a href="jetsubsonic_val.html">"cold" subsonic jet</a>
+has indicated that the influence is
+<a href="jetsubsonic_val_mrefeffect.html">relatively small</a>. 
+The Reynolds number and reference static temperature used in the CFD are estimated based on the available
+experimental data.
+The appropriate jet conditions are achieved by setting total pressure and temperature at
+the inflow face within the jet, as shown in the figure below.
+
+<p>It is important to note that this axisymmetric case is not a 2-D computation; it uses a
+periodic (rotated) grid system with appropriate boundary conditions on the periodic sides of the grid.
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Jetsupersoniccold_validation/bcs_seiner_cold.jpg" border="1" title="Axisymmetric cold supersonic jet layout & BCs" alt="Axisymmetric cold supersonic jet layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="jetsupersoniccold_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<p>The experiment yielded measured quantities along the centerline downstream of the jet.
+The experimental data reference is:  
+<ul>
+<li>Seiner, J. M., Ponton, M. K., Jansen, B. J., Lagen, N. T., "The Effects of Temperature on Supersonic Jet Noise Emission,"
+Paper DGLR/AIAA 92-02-046, DGLR/AIAA 14th Aeroacoustics Conference, Aachen, Germany, May 11-14, 1992.
+<li>(See also <a href="http://www.grc.nasa.gov/WWW/wind/valid/seiner/Seiner.html" target="_blank">NPARC Alliance Validation Archive</a>
+for related computations.)
+</ul>
+
+<p>Note, however, that the data was obtained independently of the paper referenced above, so there are some minor differences in
+the test conditions.
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Jetsupersoniccold_validation/exp_mach_cold.jpg" border="1" title="Axisymmetric cold supersonic jet experiment, Mach number along y=0" alt="Axisymmetric cold supersonic jet experiment, Mach number along y=0">
+           <img
+src="Jetsupersoniccold_validation/exp_pt_cold.jpg" border="1" title="Axisymmetric cold supersonic jet experiment, total pressure along y=0" alt="Axisymmetric cold supersonic jet experiment, total pressure along y=0">
+           <img
+src="Jetsupersoniccold_validation/exp_tt_cold.jpg" border="1" title="Axisymmetric cold supersonic jet experiment, total temperature along y=0" alt="Axisymmetric cold supersonic jet experiment, total temperature along y=0">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The experimental data shown above are provided here:
+<ul>
+<li><a href="Jetsupersoniccold_validation/exp_cold_data.dat">Axisymmetric cold supersonic jet flowfield data</a></li>
+</ul>
+
+<p>The broader set of Seiner data for round Mach 2.0 jets are provided here:
+<ul>
+<li><a href="Jetsupersoniccold_validation/Seiner_NJG_data.txt">Seiner_NJG_data.txt</a></li>
+</ul>
+<p>Note: In the cases for Tt=104 F (563.67 R) through 1550 F = 2009.67 R, Ps is assumed to be a constant value equal
+to the ambient static pressure (per this data supplied by Jack Seiner).  For the data listed corresponding to the
+hottest test case (Tt = 2000F = 2459.67), the static pressure is shown to vary (for locations up to x/D = 17.5) and
+was measured using a novel static pressure probe discussed in Lagen and Seiner, NASA TM-102612, 1990,
+<a href="https://ntrs.nasa.gov/citations/19900016329">https://ntrs.nasa.gov/citations/19900016329</a>.  Beyond x/D = 17.5,
+the static pressure is shown to be constant for this case. It has always been extremely difficult to simultaneously
+measure (same spatial location) static and total pressures.  This is especially the case in a jet potential core with
+even small compression and expansion waves.  Assuming constant static pressure would likely lead to errors in some
+of the other derived quantities.  Beyond the end of the potential core, the constant static pressure assumption
+may not be too erroneous. For further discussion, please see AIAA-2021-0596,
+<a href="https://doi.org/10.2514/6.2021-0596">https://doi.org/10.2514/6.2021-0596</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="jetsupersoniccold_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+03/02/2021 - posted broader set of Seiner data for round Mach 2.0 jets<br>
+10/31/2018 - minor revision of BC figure to mention adiabatic<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/18/2021
+<br>&nbsp;
+
+</body>
+</html>

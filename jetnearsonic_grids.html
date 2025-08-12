@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - Axisymmetric Near-Sonic Jet</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="jetnearsonic_val.html">Axisymmetric Near-Sonic Jet Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids - Axisymmetric Near-Sonic
+Jet Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Note that these grids are identical to the grids
+for the 
+<a href="jetsubsonic_val.html">Axisymmetric Subsonic Jet Case.</a>  
+A series of 4 nested grids
+are provided.  Each is made up of 3 zones.  Each grid has been scaled relative to the jet
+exit radius (i.e., r<sub>jet</sub>=1). 
+<!--Note that this is different by a factor of 2 from the
+experimental data, which have been scaled by jet exit diameter.-->
+All grid files have been gzipped.
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from the finest 193x193; 121x193; 513x449
+to the coarsest 25x25; 16x25; 65x57 grid.
+The following figure shows a portion of
+the 49x49; 31x49; 129x113 (2 levels down from the finest grid).
+Note that the jet exit is at x=0, at the boundary of zones 1 and 3.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Jetsubsonic_grids/axijet_grid.jpg" border="1" title="view of axisymmetric jet grid" alt="view of axisymmetric jet grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">STRUCTURED VERSIONS OF 
+GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>The structured PLOT3D grids are given in two different ways, as 2-D grids (x-y plane) or as 3-D 
+axisymmetric grids (two planes rotated through 1 deg from each other; one plane rotated +0.5 deg
+from the x-z plane, and the other plane rotated -0.5 deg from the x-z plane).
+You may use whichever is more convenient for your particular
+application.  <u>If you get the 2-D grid version, then you must create an axisymmetric grid from
+it on your own.</u>
+
+<p>Format for the structured 2D grids is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((x(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((y(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 2-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="Jetsubsonic_grids/arn_3zone_513.p2dfmt.gz">
+        (2-D) 193x193; 121x193; 513x449 (gzipped) </a> (3.1 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_257.p2dfmt.gz">
+        (2-D) 97x97; 61x97; 257x225 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_129.p2dfmt.gz">
+        (2-D) 49x49; 31x49; 129x113 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_65.p2dfmt.gz">
+        (2-D) 25x25; 16x25; 65x57 (gzipped) </a> (&lt; 1 MB)
+</ul>
+
+<p>Format for the 2-rotated-plane structured 3D grid is PLOT3D-type, 
+formatted, MG, 3D (nbl=1, and idim in this case is 2) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),kdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) (((x(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((y(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((z(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 3-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="Jetsubsonic_grids/arn_3zone_513.p3dfmt.gz">
+        (3-D) 2x193x193; 2x121x193; 2x513x449 (gzipped) </a> (8.4 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_257.p3dfmt.gz">
+        (3-D) 2x97x97; 2x61x97; 2x257x225 (gzipped) </a> (2.2 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_129.p3dfmt.gz">
+        (3-D) 2x49x49; 2x31x49; 2x129x113 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_65.p3dfmt.gz">
+        (3-D) 2x25x25; 2x16x25; 2x65x57 (gzipped) </a> (&lt; 1 MB)
+</ul>
+
+<p>If desired, example Neutral Map Files 
+associated with 3-D version of the grids are given here (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="Jetsubsonic_grids/arn_3zone_513.nmf">
+        Neutral Map File for (3-D) 2x193x193; 2x121x193; 2x513x449</a>
+<li><a href="Jetsubsonic_grids/arn_3zone_257.nmf">
+        Neutral Map File for (3-D) 2x97x97; 2x61x97; 2x257x225</a>
+<li><a href="Jetsubsonic_grids/arn_3zone_129.nmf">
+        Neutral Map File for (3-D) 2x49x49; 2x31x49; 2x129x113</a>
+<li><a href="Jetsubsonic_grids/arn_3zone_65.nmf">
+        Neutral Map File for (3-D) 2x25x25; 2x16x25; 2x65x57</a>
+</ul>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The structured grids are also available as CGNS files (3-D versions only).
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>Download the 3-D version of the grids in CGNS format (gzipped) here:
+<ul>
+<li><a href="Jetsubsonic_grids/arn_3zone_513.cgns.gz">
+        (3-D) 2x193x193; 2x121x193; 2x513x449 (gzipped)</a> (5.8 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_257.cgns.gz">
+        (3-D) 2x97x97; 2x61x97; 2x257x225 (gzipped)</a> (1.5 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_129.cgns.gz">
+        (3-D) 2x49x49; 2x31x49; 2x129x113 (gzipped)</a> (&lt; 1 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_65.cgns.gz">
+        (3-D) 2x25x25; 2x16x25; 2x65x57 (gzipped)</a> (&lt; 1 MB)
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">UNSTRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The unstructured versions of the same grids are all given as CGNS files.
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>The unstructured grids are all given as 3-D grids.
+They are given as hexahedra, <u>with degenerate faces along the jet symmetry plane</u> (i.e., the degenerate
+elements have NOT been redefined as pentahedra).
+
+<p>Download the unstructured CGNS grids (gzipped) here:
+<ul>
+<li><a href="Jetsubsonic_grids/arn_3zone_513_quad.cgns.gz">
+        (3-D) unstructured quad version of 2x193x193; 2x121x193; 2x513x449 (gzipped)</a> (15.8 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_257_quad.cgns.gz">
+        (3-D) unstructured quad version of 2x97x97; 2x61x97; 2x257x225 (gzipped)</a> (4.0 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_129_quad.cgns.gz">
+        (3-D) unstructured quad version of 2x49x49; 2x31x49; 2x129x113 (gzipped)</a> (&lt; 1 MB)
+<li><a href="Jetsubsonic_grids/arn_3zone_65_quad.cgns.gz">
+        (3-D) unstructured quad version of 2x25x25; 2x16x25; 2x65x57 (gzipped)</a> (&lt; 1 MB)
+</ul>
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="jetnearsonic_val.html">Axisymmetric Near-Sonic Jet Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+02/28/2022 - added CGNS versions of grids<br>
+05/04/2015 - fixed bug in three of Neutral Map Files<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/02/2022
+<br>&nbsp;
+
+</body>
+</html>

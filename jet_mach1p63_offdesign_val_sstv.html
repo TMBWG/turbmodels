@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Off-Design Mach 1.63 Axisymmetric Jet - SST-Vm Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<br>&nbsp;
+
+   </center>
+
+<br>&nbsp;
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="jetnearsonic_val_sa.html">SA Results</a></p>-->
+<p>Return to: <a href="jet_mach1p63_offdesign_val.html">Off-Design Mach 1.63 Axisymmetric Jet Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Off-Design Mach 1.63 Axisymmetric Jet
+Case</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">SST-Vm Model Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="sst.html#sst-v">Link to SST-Vm equations</a>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+        <p><img
+src="Jet_mach1p63_offdesign_validation/U_shock_CL.png" width="450" border="1" title="SST-Vm - u-velocity along centerline" alt="SST-Vm - u-velocity along centerline">
+           <img
+src="Jet_mach1p63_offdesign_validation/TKE_shock_CL.png" width="450" border="1" title="SST-Vm - TKE along centerline" alt="SST-Vm - TKE along centerline">
+</p>
+           <img
+src="Jet_mach1p63_offdesign_validation/temp_shock_CL.png" width="450" border="1" title="SST-Vm - static temperature along centerline" alt="SST-Vm - static temperature along centerline">
+</p>
+        <p><img
+src="Jet_mach1p63_offdesign_validation/U_shock_profiles.png" width="900" border="1" title="SST-Vm - u-velocities at x-stations" alt="SST-Vm - u-velocities at x-stations">
+</p>
+           <img
+src="Jet_mach1p63_offdesign_validation/TKE_shock_profiles.png" width="900" border="1" title="SST-Vm - TKE at x-stations" alt="SST-Vm - TKE at x-stations">
+</p>
+        <p><img
+src="Jet_mach1p63_offdesign_validation/uv_shock_profiles.png" width="900" border="1" title="SST-Vm - u'v' at x-stations" alt="SST-Vm - u'v' at x-stations">
+</p>
+        <p><img
+src="Jet_mach1p63_offdesign_validation/temp_shock_profiles_Vulcan_default.png" width="900" border="1" title="SST-Vm - static temperature at x-stations showing default Vulcan results" alt="SST-Vm - static temperature at x-stations showing default Vulcan results">
+</p>
+        <p><img
+src="Jet_mach1p63_offdesign_validation/temp_shock_profiles_Vulcan_wo_TKE.png" width="900" border="1" title="SST-Vm - static temperature at x-stations showing Vulcan results without TKE in energy expression" alt="SST-Vm - static temperature at x-stations showing Vulcan results without TKE in energy expression">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Note that thorough
+grid studies were not always performed for <u>validation</u> cases such as this one.
+Some effort was made to ensure reasonable grid resolutions, but there may still be
+small noticeable discretization errors.  Therefore, these validation results shown should be considered
+representative, but not "truth."
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The plots shown compare the SST-Vm results from three independent
+CFD codes: WIND-US, FUN3D, and Vulcan, along with experimental data.
+FUN3D used freestream turbulence intensity=0.775% and freestream turbulent viscosity (relative to laminar)=0.009
+(additional details can be found in the <a href="https://nasa.github.io/CFL3D/Cfl3dv6/cfl3dv6_v5manual.html">CFL3D User's Manual, Appendix H</a>,
+which uses the same default freestream turbulence settings).
+WIND-US used freestream turbulence intensity=0.1317% and freestream turbulent viscosity (relative to laminar)=0.001.
+Vulcan used freestream turbulence intensity=0.1% and freestream turbulent viscosity (relative to laminar)=0.01.
+Please read note 5 on <a href="noteonrunning.html">Notes on running CFD</a> page.
+These results are from the finest posted grid (401x281; 201x161; 961x481).
+All three codes gave nearly identical results to each other.
+Notes:
+(1) For axisymmetric cases such as this (with singular axis of symmetry), it is important to
+solve the turbulence dissipation terms in a strong conservation form;
+(2) These are compressible code results run on a supersonic case. There may be influence of compressibility.
+Although they could be beneficial for this case, <u>no specific turbulence model compressibility corrections have been employed here.</u>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+In compressible flow problems, the energy equation contains extra terms from the time-averaging process that are typically 
+ignored in incompressible or low Mach number situations.  These terms are the molecular diffusion and turbulent transport of turbulent kinetic energy.  
+The derivation of these terms, using Favre averaging, is described in detail on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, and also in Wilcox, D. C., 
+"Turbulence Modeling for CFD," 2006, DCW Industries, La Canada, CA.  For the jet flow problems considered here, these 
+contributions remain small.  The total energy has a contribution from turbulent 
+kinetic energy, k, which may not be significant for subsonic flows and where the turbulent transport of heat is not a 
+focus of the analysis.  For these heated jet flows, k is a non-trivial component of the overall energy.  The default 
+solution procedures for two of the codes used to obtain results here (and used typically for lower speed flow analyses), 
+FUN3D and Wind-US, do not consider the contribution of k in the total energy expression.  (It is noted that an alternate 
+formulation available in FUN3D intended for high Mach number applications does have this capability.)  The default 
+procedure in Vulcan <i>does</i> consider contribution of k in the total energy expression.  Examining the centerline 
+comparisons first, it may be observed that the centerline mean velocities and k show very close agreement with each other, 
+regardless of treatment of k in the total energy equation.  The centerline static temperature comparisons, however, show 
+a significant effect of this treatment.  The default solution procedure of the three codes, shown by solid lines, 
+shows close agreement between FUN3D and Wind-US, but not Vulcan.  When we take this Vulcan solution and as simple 
+post-processing step add k back into the total energy (which is essentially the same as never having subtracted out 
+k from E when processing T, thus yielding a result that ignores the contribution of k in E), 
+we arrive at centerline temperatures that are in close agreement with the two other codes; this is shown 
+by the dashed black line, denoted as "Vulcan w/o k in E".  
+The net change in calculated static temperature at every point in the flow = k*(gamma-1)/R.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Further comparisons of profiles at several axial stations exhibit the same trends.  The mean velocity, turbulent kinetic 
+energy (k), and turbulent shear stress of the three codes are very similar.  The static temperatures using the default 
+procedures, however, differ depending on how the result from Vulcan is treated.  The default solutions from the three codes
+yield profiles in the first temperature profile plots (with all solid lines), which show Vulcan differing from 
+FUN3D and Wind-US.  The second temperature profiles plot, with the Vulcan solution essentially ignoring the contribution of k
+in E (shown with a dashed line and denoted as "Vulcan w/o k in E") results in very close agreement with solutions 
+from the other two codes.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The key result exhibited by these jet results is that ignoring the contribution of turbulent kinetic energy in the 
+total energy variable may not be an accurate assumption for flows at Mach numbers higher than unity, and especially 
+where the turbulent transport of heat is important to the analysis.  A similar result is evident for the 
+<a href="jet_mach1p63_hot_val_sstv.html">Heated Mach 1.63 Axisymmetric Jet Case - SST-Vm model results</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The data files from experiment and all three codes are given here.
+For all centerline data except temperature:
+ <ul>
+  <li><a href="Jet_mach1p63_offdesign_validation/Exp_shock_ucl.dat">Exp_shock_ucl.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/Wind-US_shock_ucl.dat">Wind-US_shock_ucl.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/FUN3D_shock_ucl.dat">FUN3D_shock_ucl.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/Vulcan_shock_ucl.dat">Vulcan_shock_ucl.dat</a>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">For temperature centerline data:
+ <ul>
+  <li><a href="Jet_mach1p63_offdesign_validation/Exp_shock_tcl.dat">Exp_shock_tcl.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/Wind-US_shock_tcl.dat">Wind-US_shock_tcl.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/FUN3D_shock_tcl.dat">FUN3D_shock_tcl.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/Vulcan_shock_tcl_default.dat">Vulcan_shock_tcl_default.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/Vulcan_shock_tcl_wo_TKE.dat">Vulcan_shock_tcl_wo_TKE.dat</a>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">For all profile data except temperature
+(here each file contains all results for a particular x/D location):
+ <ul>
+  <li><a href="Jet_mach1p63_offdesign_validation/U_Profile_data_XD02_shock.dat">U_Profile_data_XD02_shock.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/U_Profile_data_XD04_shock.dat">U_Profile_data_XD04_shock.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/U_Profile_data_XD08_shock.dat">U_Profile_data_XD08_shock.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/U_Profile_data_XD12_shock.dat">U_Profile_data_XD12_shock.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/U_Profile_data_XD16_shock.dat">U_Profile_data_XD16_shock.dat</a>
+ </ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">For temperature profile data
+(here each file contains all results for a particular x/D location):
+ <ul>
+  <li><a href="Jet_mach1p63_offdesign_validation/T_Profile_data_XD02_shock.dat">T_Profile_data_XD02_shock.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/T_Profile_data_XD04_shock.dat">T_Profile_data_XD04_shock.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/T_Profile_data_XD08_shock.dat">T_Profile_data_XD08_shock.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/T_Profile_data_XD12_shock.dat">T_Profile_data_XD12_shock.dat</a>
+  <li><a href="Jet_mach1p63_offdesign_validation/T_Profile_data_XD16_shock.dat">T_Profile_data_XD16_shock.dat</a>
+ </ul>
+<!--(Note: the profiles have been interpolated using Tecplot software onto pre-set points, that may or may
+not correspond to the actual grid points or grid cells used in the computation.)-->
+A typical FUN3D input file is:
+<a href="Jet_mach1p63_offdesign_validation/fun3d_SSJet_Shocks.nml">fun3d_SSJet_Shocks.nml</a>.
+</p>
+
+<br>&nbsp;
+<br>&nbsp;
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="jetnearsonic_val_sa.html">SA Results</a></p>-->
+<p>Return to: <a href="jet_mach1p63_offdesign_val.html">Off-Design Mach 1.63 Axisymmetric Jet Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 09/06/2024
+<br>&nbsp;
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - 3D Hemisphere Cylinder (NEW) for Turbulence Model Numerical Analysis</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="hc3dnumericspart2_val.html">Numerical Analysis of 3D Hemisphere Cylinder Validation Case (NEW) Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids -
+	    3D Hemisphere Cylinder (NEW)</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A paper describing the grid generation
+for this case is AIAA-2018-1101,
+<a href="https://doi.org/10.2514/6.2018-1101">https://doi.org/10.2514/6.2018-1101</a>. For the 3D Hemisphere Cylinder,
+a set of Fortran programs are provided to create both unstructured and structured grids.
+These grids have cylinder diameter unity.  This also corresponds with the experiment (in inches).
+<ul>
+  <a href="HCnumericspart2_grids/hc_release_040224.tar.gz">hc_release_040224.tar.gz</a> <- updated on 04/04/2024
+(Bug fix in grid generation code and new option in coarsening code)
+</ul>
+
+<p>The gzipped tar file above includes both a grid generation program as well as a coarsening program, with
+sample inputs and readme file.  
+<!--(Latest update: main code to version 8p6 (added option to skip volume and planarity checks) and 
+coarsening code to version 3p8 (reduced memory requirement, added option to skip prolongation and rmp files.)-->
+<!--Version 8p4 does not change the grids generated; it fixes the following: (1) hemisphere and cylinder can now be fixed as
+separate boundary groups, (2) fixed error in little endian suffix (l8 to lb8), (3) fixed a bug in the formatted version
+of the ugrid file, (4) fixed a bug in the formatted version of the rmp file, and (5) coarsening now stops when a line has
+only 1 node.-->
+<!--A description of the grid generator program is given here:
+<a href="Onerawingnumerics_grids/hcf-grid-generator_description_v4.pdf">hcf-grid-generator_description_v4.pdf</a>.-->
+
+<br>&nbsp;
+<p>Recommended input files for large-size grids are:
+<ul>
+  <li><a href="HCnumericspart2_grids/input.nml_hc_tetra_stt">input.nml_hc_tetra_stt</a> for Tetrahedral grids <- updated on 04/30/2018
+  <li><a href="HCnumericspart2_grids/input.nml_hc_strct_stt">input.nml_hc_strct_stt</a> for Structured grids <- updated on 04/30/2018
+</ul>  
+(Note: input files need to be renamed as input.nml when used. Set generate_su2grid_file = T to write .su2 file.)
+
+<br>&nbsp;
+<p>Recommended input files for coarsening the grids (to be used with the coarsening program) are:
+<ul>
+  <li><a href="HCnumericspart2_grids/input_coarsen.nml_hc_tetra_stt">input_coarsen.nml_hc_tetra_stt</a> for Tetrahedral grids <- updated on 04/30/2018
+  <li><a href="HCnumericspart2_grids/input_coarsen.nml_hc_strct_stt">input_coarsen.nml_hc_strct_stt</a> for Structured grids <- updated on 04/30/2018
+</ul>
+(Note: input files need to be renamed as input_coarsen.nml when used. Set generate_su2grid_file = T to write .su2 file.)
+
+
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="hc3dnumericspart2_val.html">Numerical Analysis of 3D Hemisphere Cylinder Validation Case (NEW) Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+04/04/2024 - updated to version hc_release_040224.tar.gz<br>
+07/29/2019 - updated to version hc_release_072319.tar.gz<br>
+04/30/2018 - updated to version hc_release_043018.tar.gz and updated input files<br>
+04/02/2018 - updated Fortran programs to version 8p5 (corrected mapbc and added option to write .su2 grid files)<br>
+11/27/2017 - updated Fortran programs to version 8p4<br>
+07/26/2017 - updated Fortran programs (fixed bug in coarsening program)<br>
+07/07/2017 - updated all files, including the Fortran programs<br>
+06/12/2017 - revised the files Sample-input-for-tet-grid and Sample-input-for-structured-grid<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 04/04/2024
+<br>&nbsp;
+
+</body>
+</html>

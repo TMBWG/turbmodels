@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - Axisymmetric Hot Supersonic Jet</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="jetsupersonichot_val.html">Axisymmetric Hot Supersonic Jet Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids - Axisymmetric Hot Supersonic
+Jet Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Note that these grids are identical to the grids
+for the
+<a href="jetsupersoniccold_val.html">Axisymmetric Cold Supersonic Jet Case.</a>
+A series of 4 nested grids
+are provided.  Each is made up of 3 zones.  Each grid has been scaled relative to the jet
+exit diameter (i.e., D<sub>jet</sub>=1). 
+<!--Note that this is different by a factor of 2 from the
+experimental data, which have been scaled by jet exit diameter.-->
+All grid files have been gzipped.
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from the finest 481x161; 81x121; 401x345
+to the coarsest 61x21; 11x16; 51x44 grid.
+The following figure shows the finest grid.
+Note that the jet exit is at x=0, at the boundary of zones 1 and 3.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Jetsupersonichot_grids/grid_seiner_fine.jpg" border="1" title="view of axisymmetric supersonic Seiner et al grid" alt="view of axisymmetric supersonic Seiner et al grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">STRUCTURED VERSIONS OF 
+GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>The structured PLOT3D grids are given in two different ways, as 2-D grids (x-y plane) or as 3-D 
+axisymmetric grids (two planes rotated through 5 deg from each other; one plane on the y=0 axis and
+one rotated 5 deg from the x-z plane).
+You may use whichever is more convenient for your particular
+application.  <u>If you get the 2-D grid version, then you must create an axisymmetric grid from
+it on your own.</u>
+
+<p>Format for the structured 2D grids is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((x(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((y(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 2-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="Jetsupersonichot_grids/Seiner.p2dfmt.gz">
+        (2-D) 481x161; 81x121; 401x345 (gzipped) </a> (1.4 MB)
+<li><a href="Jetsupersonichot_grids/Seiner_half.p2dfmt.gz">
+        (2-D) 241x81; 41x61; 201x173 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Jetsupersonichot_grids/Seiner_quarter.p2dfmt.gz">
+        (2-D) 121x41; 21x31; 101x87 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Jetsupersonichot_grids/Seiner_eighth.p2dfmt.gz">
+        (2-D) 61x21; 11x16; 51x44 (gzipped) </a> (&lt; 1 MB)
+</ul>
+
+<p>Format for the 2-rotated-plane structured 3D grid is PLOT3D-type, 
+formatted, MG, 3D (nbl=1, and idim in this case is 2) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),kdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) (((x(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((y(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((z(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 3-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="Jetsupersonichot_grids/Seiner.p3dfmt.gz">
+        (3-D) 2x481x161; 2x81x121; 2x401x345 (gzipped) </a> (4.3 MB)
+<li><a href="Jetsupersonichot_grids/Seiner_half.p3dfmt.gz">
+        (3-D) 2x241x81; 2x41x61; 2x201x173 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Jetsupersonichot_grids/Seiner_quarter.p3dfmt.gz">
+        (3-D) 2x121x41; 2x21x31; 2x101x87 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Jetsupersonichot_grids/Seiner_eighth.p3dfmt.gz">
+        (3-D) 2x61x21; 2x11x16; 2x51x44 (gzipped) </a> (&lt; 1 MB)
+</ul>
+
+<p>If desired, example Neutral Map Files 
+associated with 3-D version of the grids are given here (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="Jetsupersonichot_grids/Seiner.nmf">
+        Neutral Map File for (3-D) 2x481x161; 2x81x121; 2x401x345</a>
+<li><a href="Jetsupersonichot_grids/Seiner_half.nmf">
+        Neutral Map File for (3-D) 2x241x81; 2x41x61; 2x201x173</a>
+<li><a href="Jetsupersonichot_grids/Seiner_quarter.nmf">
+        Neutral Map File for (3-D) 2x121x41; 2x21x31; 2x101x87</a>
+<li><a href="Jetsupersonichot_grids/Seiner_eighth.nmf">
+        Neutral Map File for (3-D) 2x61x21; 2x11x16; 2x51x44</a>
+</ul>
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="jetsupersonichot_val.html">Axisymmetric Hot Supersonic Jet Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+08/27/2018 - repaired pointers to 3-D version of grids<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/13/2019
+<br>&nbsp;
+
+</body>
+</html>

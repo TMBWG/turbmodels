@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>3D Hemisphere Cylinder Validation (NEW) for Turbulence Model Numerical Analysis - SA-neg Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<!--Jump to: <a href="flatplate_val_sst.html">SST Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-V Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006 Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2013 Results</a></p>-->
+<p>Return to: <a href="hc3dnumericspart2_val.html">3D Hemisphere Cylinder Validation (NEW) for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">3D Hemisphere Cylinder Validation (NEW)</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">SA-neg Model Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="spalart.html#saneg">Link to SA-neg equations</a>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results are shown for the 3D Hemisphere Cylinder Validation (NEW),
+<!--Three different CFD codes (FUN3D, USM3D, and CFL3D) have been employed
+in an effort to try to discern the grid-converged result for this case. -->
+for the <a href="spalart.html#saneg">SA-neg</a> variant of the SA model.
+Note that SA-neg is passive to the
+original (SA) model in well-resolved flowfields, and hence is expected to yield essentially identical
+results as SA for the cases here.
+<!--FUN3D and USM3D both used clipping method "a" with cutoff 0.00001 for <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" />,
+while CFL3D used clipping method "c" (see <u>Note 1</u> on
+<a href="spalart.html">the Spalart-Allmaras equation page</a>).-->
+For all results, the farfield value of the Spalart turbulence variable is
+<img class="tex" alt="\tilde \nu_{farfield} = 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" />.
+In all codes the Prandtl number Pr is taken to be constant at 0.72, and turbulent Prandtl
+number Pr<sub>t</sub> is taken to be constant at 0.9.
+The dynamic viscosity is computed using
+Sutherland's Law (See White, F. M., "Viscous Fluid Flow," McGraw Hill, New York, 1974, p. 28).
+In Sutherland's Law, the local value of dynamic viscosity is determined by plugging the local value of temperature 
+(<i>T</i>) into the following formula:
+
+<dl>
+<dd><img class="tex" alt="\mu = \mu_0 \left( \frac{T}{T_0} \right)^{3/2} \left(
+\frac{T_0 + S}{T+S} \right)"
+  src="sutherland_eqns/img2.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_0 = 1.716 \times 10^{-5} kg/(ms)" src="sutherland_eqns/img3.png" />,
+<img class="tex" alt="T_0 = 491.6 R" src="sutherland_eqns/img4.png" />, and
+<img class="tex" alt="S = 198.6 R" src="sutherland_eqns/img5.png" />.
+The same formula can be found <a href="http://www.cfd-online.com/Wiki/Sutherland%27s_law" target="_blank">online</a>
+(with temperature constants given in degrees K and some small conversion differences).
+Note that in terms of the reference quantities <u>for this particular case</u>, Sutherland's Law can equivalently be written:
+
+<dl>
+<dd><img class="tex" alt="\left( \frac{\mu}{\mu_{ref}} \right) = \left( \frac{T}{T_{ref}} \right)^{3/2} \left(
+\frac{T_{ref} + S}{T+S} \right)"
+  src="sutherland_eqns/img6.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_{ref}" src="sutherland_eqns/img7.png" />
+is the reference dynamic viscosity that corresponds to the freestream in this case, and
+freestream <img class="tex" alt="T_{ref}" src="sutherland_eqns/img8.png" /> 
+is 540R.  This latter form may be more convenient for nondimensional codes.
+(Specific details regarding an implementation of Sutherland's Law in nondimensional codes can be found in
+<a href="Papers/sutherland_notes_cfl3d_fun3d.pdf">handwritten notes describing Sutherland's Law in CFL3D and FUN3D</a>.)
+
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">Note that FUN3D and USM3D both ran this
+case with first order spatial accuracy on the turbulence advection term, whereas CFL3D used second order.-->
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The results on this page have been reported in AIAA Paper 2018-1102,
+<a href="https://doi.org/10.2514/6.2018-1102">https://doi.org/10.2514/6.2018-1102</a>. Also, many of the other papers from two special 
+sessions at AIAA SciTech 2018 dealt with this case: see AIAA Papers 2018-1101 through 1104, and AIAA Papers 2018-1566 through 1570.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+Grid Convergence Behavior of Forces, Moment, and Maximum Eddy Viscosity
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Plots are shown to illustrate grid convergence for the lift, drag,
+moment coefficient, and nondimensional maximum eddy viscosity for the hemisphere-cylinder
+at several different angles of attack.
+The contributions to the drag coefficient due to the viscosity and pressure are also
+presented separately.
+For forces and moment, results from 4 different codes (on different versions of the grids) appear
+to be approaching nearly the same results as the grid is refined
+(i.e., as h approaches zero).  CFL3D is a structured-grid code, while all others are
+unstructured-grid codes.
+For eddy viscosity, it is not as clear that all results are approaching the same answer
+in all cases; finer grids are likely required.
+Recall that all codes were run using <a href="spalart.html#saneg">SA-neg</a>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<u>Alpha=0</u>:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/a0_CL.jpeg" border="1" title="SA-neg - lift coefficient vs h for alpha=0" 
+alt="SA-neg - lift coefficient vs h for alpha=0">
+           <img
+src="HCnumericspart2_val/SA/a0_CD.jpeg" border="1" title="SA-neg - drag coefficient vs h for alpha=0" 
+alt="SA-neg - drag coefficient vs h for alpha=0">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a0_CDp.jpeg" border="1" title="SA-neg - pressure drag coefficient vs h for alpha=0" 
+alt="SA-neg - pressure drag coefficient vs h for alpha=0">
+           <img
+src="HCnumericspart2_val/SA/a0_CDv.jpeg" border="1" title="SA-neg - viscous drag coefficient vs h for alpha=0" 
+alt="SA-neg - viscous drag coefficient vs h for alpha=0">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a0_CMy.jpeg" border="1" title="SA-neg - moment coefficient vs h for alpha=0" 
+alt="SA-neg - moment coefficient vs h for alpha=0">
+           <img
+src="HCnumericspart2_val/SA/a0_mut.jpeg" border="1" title="SA-neg - max eddy viscosity vs h for alpha=0" 
+alt="SA-neg - max eddy viscosity vs h for alpha=0">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<u>Alpha=5</u>:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/a5_CL.jpeg" border="1" title="SA-neg - lift coefficient vs h for alpha=5" 
+alt="SA-neg - lift coefficient vs h for alpha=5">
+           <img
+src="HCnumericspart2_val/SA/a5_CD.jpeg" border="1" title="SA-neg - drag coefficient vs h for alpha=5" 
+alt="SA-neg - drag coefficient vs h for alpha=5">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a5_CDp.jpeg" border="1" title="SA-neg - pressure drag coefficient vs h for alpha=5" 
+alt="SA-neg - pressure drag coefficient vs h for alpha=5">
+           <img
+src="HCnumericspart2_val/SA/a5_CDv.jpeg" border="1" title="SA-neg - viscous drag coefficient vs h for alpha=5" 
+alt="SA-neg - viscous drag coefficient vs h for alpha=5">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a5_CMy.jpeg" border="1" title="SA-neg - moment coefficient vs h for alpha=5" 
+alt="SA-neg - moment coefficient vs h for alpha=5">
+           <img
+src="HCnumericspart2_val/SA/a5_mut.jpeg" border="1" title="SA-neg - max eddy viscosity vs h for alpha=5" 
+alt="SA-neg - max eddy viscosity vs h for alpha=5">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<u>Alpha=10</u>:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/a10_CL.jpeg" border="1" title="SA-neg - lift coefficient vs h for alpha=10" 
+alt="SA-neg - lift coefficient vs h for alpha=10">
+           <img
+src="HCnumericspart2_val/SA/a10_CD.jpeg" border="1" title="SA-neg - drag coefficient vs h for alpha=10" 
+alt="SA-neg - drag coefficient vs h for alpha=10">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a10_CDp.jpeg" border="1" title="SA-neg - pressure drag coefficient vs h for alpha=10" 
+alt="SA-neg - pressure drag coefficient vs h for alpha=10">
+           <img
+src="HCnumericspart2_val/SA/a10_CDv.jpeg" border="1" title="SA-neg - viscous drag coefficient vs h for alpha=10" 
+alt="SA-neg - viscous drag coefficient vs h for alpha=10">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a10_CMy.jpeg" border="1" title="SA-neg - moment coefficient vs h for alpha=10" 
+alt="SA-neg - moment coefficient vs h for alpha=10">
+           <img
+src="HCnumericspart2_val/SA/a10_mut.jpeg" border="1" title="SA-neg - max eddy viscosity vs h for alpha=10" 
+alt="SA-neg - max eddy viscosity vs h for alpha=10">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<u>Alpha=15</u>:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/a15_CL.jpeg" border="1" title="SA-neg - lift coefficient vs h for alpha=15" 
+alt="SA-neg - lift coefficient vs h for alpha=15">
+           <img
+src="HCnumericspart2_val/SA/a15_CD.jpeg" border="1" title="SA-neg - drag coefficient vs h for alpha=15" 
+alt="SA-neg - drag coefficient vs h for alpha=15">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a15_CDp.jpeg" border="1" title="SA-neg - pressure drag coefficient vs h for alpha=15" 
+alt="SA-neg - pressure drag coefficient vs h for alpha=15">
+           <img
+src="HCnumericspart2_val/SA/a15_CDv.jpeg" border="1" title="SA-neg - viscous drag coefficient vs h for alpha=15" 
+alt="SA-neg - viscous drag coefficient vs h for alpha=15">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a15_CMy.jpeg" border="1" title="SA-neg - moment coefficient vs h for alpha=15" 
+alt="SA-neg - moment coefficient vs h for alpha=15">
+           <img
+src="HCnumericspart2_val/SA/a15_mut.jpeg" border="1" title="SA-neg - max eddy viscosity vs h for alpha=15" 
+alt="SA-neg - max eddy viscosity vs h for alpha=15">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<u>Alpha=19</u>:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/a19_CL.jpeg" border="1" title="SA-neg - lift coefficient vs h for alpha=19" 
+alt="SA-neg - lift coefficient vs h for alpha=19">
+           <img
+src="HCnumericspart2_val/SA/a19_CD.jpeg" border="1" title="SA-neg - drag coefficient vs h for alpha=19" 
+alt="SA-neg - drag coefficient vs h for alpha=19">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a19_CDp.jpeg" border="1" title="SA-neg - pressure drag coefficient vs h for alpha=19" 
+alt="SA-neg - pressure drag coefficient vs h for alpha=19">
+           <img
+src="HCnumericspart2_val/SA/a19_CDv.jpeg" border="1" title="SA-neg - viscous drag coefficient vs h for alpha=19" 
+alt="SA-neg - viscous drag coefficient vs h for alpha=19">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/a19_CMy.jpeg" border="1" title="SA-neg - moment coefficient vs h for alpha=19" 
+alt="SA-neg - moment coefficient vs h for alpha=19">
+           <img
+src="HCnumericspart2_val/SA/a19_mut.jpeg" border="1" title="SA-neg - max eddy viscosity vs h for alpha=19" 
+alt="SA-neg - max eddy viscosity vs h for alpha=19">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data
+file:
+<a href="HCnumericspart2_val/SA/HC_combined_forces_pitchmom_maxmut.dat">
+HC_combined_forces_pitchmom_maxmut.dat</a>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+Comparisons of Cp, Cfx, Cftangent, and Offbody Quantities at Alpha=19 on Finest (L1) Grids
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Plots are shown to illustrate behavior of various quantities, for alpha=19 deg only.
+Comparisons between codes on the finest (L1) grid are made as follows.
+Surface Cp and Cfx are shown along the symmetry plane (y=0).
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_y0.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0" 
+alt="SA-neg - Cp vs x for alpha=19 at y=0">
+           <img
+src="HCnumericspart2_val/SA/cf_19_y0.jpeg" border="1" title="SA-neg - Cfx vs x for alpha=19 at y=0" 
+alt="SA-neg - Cfx vs x for alpha=19 at y=0">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Surface Cp, Cfx, and Cftangent are shown along z=0
+(the tangential direction is defined on the hemisphere-cylinder surface as a unit vector tangential
+to the surface, normal to the x-direction, and pointing up.)
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_z0.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at z=0"
+alt="SA-neg - Cp vs x for alpha=19 at z=0">
+           <img
+src="HCnumericspart2_val/SA/cf_19_z0.jpeg" border="1" title="SA-neg - Cfx vs x for alpha=19 at z=0"
+alt="SA-neg - Cfx vs x for alpha=19 at z=0">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cftangent_19_z0.jpeg" border="1" title="SA-neg - Cftangent vs x for alpha=19 at z=0"
+alt="SA-neg - Cftangent vs x for alpha=19 at z=0">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Surface Cp, Cfx, and Cftangent are shown versus azimuthal angle (phi) in the cross-flow plane corresponding
+to x=5.  The azimuthal angles phi=0 deg and phi=180 deg correspond to the leeside and windside, respectively
+in the symmetry plane (y=0).  The azimuthal angle phi=90 deg corresponds to the horizontal plane z=0.
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_x5.jpeg" border="1" title="SA-neg - Cp vs phi for alpha=19 at x=5"
+alt="SA-neg - Cp vs phi for alpha=19 at x=5">
+           <img
+src="HCnumericspart2_val/SA/cf_19_x5.jpeg" border="1" title="SA-neg - Cfx vs phi for alpha=19 at x=5"
+alt="SA-neg - Cfx vs phi for alpha=19 at x=5">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cftangent_19_x5.jpeg" border="1" title="SA-neg - Cftangent vs phi for alpha=19 at x=5"
+alt="SA-neg - Cftangent vs phi for alpha=19 at x=5">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Offbody plots of p, u, v, and w are shown off the upper surface along a vertical line 
+corresponding to x=5, y=0.21.
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center> 
+       <tr align="center" valign="bottom"> 
+
+        <p><img
+src="HCnumericspart2_val/SA/p_19_offbody.jpeg" border="1" title="SA-neg - upper surface offbody nondimensional 
+p for alpha=19 along x=5 and y=0.21"
+alt="SA-neg - upper surface offbody nondimensional p for alpha=19 along x=5 and y=0.21">
+           <img
+src="HCnumericspart2_val/SA/u_19_offbody.jpeg" border="1" title="SA-neg - upper surface offbody nondimensional 
+u for alpha=19 along x=5 and y=0.21"
+alt="SA-neg - upper surface offbody nondimensional u for alpha=19 along x=5 and y=0.21">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/v_19_offbody.jpeg" border="1" title="SA-neg - upper surface offbody nondimensional 
+v for alpha=19 along x=5 and y=0.21"
+alt="SA-neg - upper surface offbody nondimensional v for alpha=19 along x=5 and y=0.21">
+           <img
+src="HCnumericspart2_val/SA/w_19_offbody.jpeg" border="1" title="SA-neg - upper surface offbody nondimensional 
+w for alpha=19 along x=5 and y=0.21"
+alt="SA-neg - upper surface offbody nondimensional w for alpha=19 along x=5 and y=0.21">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+Grid Convergence Behavior of of Cp, Cfx, Cftangent, and Offbody Quantities at Alpha=19
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Plots are shown to illustrate grid convergence behavior of various quantities for each code, for alpha=19 deg only.
+First, surface Cp is plotted near the leeside minimum Cp location (along y=0).
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_y0_usm3d.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using USM3D on 4 grids near leeside min"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using USM3D on 4 grids near leeside min">
+           <img
+src="HCnumericspart2_val/SA/cp_19_y0_cfl3d.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using CFL3D on 4 grids near leeside min"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using CFL3D on 4 grids near leeside min">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_y0_fun3d.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using FUN3D on 4 grids near leeside min"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using FUN3D on 4 grids near leeside min">
+           <img
+src="HCnumericspart2_val/SA/cp_19_y0_sfe.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using SFE on 4 grids near leeside min"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using SFE on 4 grids near leeside min">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Surface Cp is plotted near the leeside outflow (along y=0).
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_y0_usm3d_outflow.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using USM3D on 4 grids near outflow"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using USM3D on 4 grids near outflow">
+           <img
+src="HCnumericspart2_val/SA/cp_19_y0_cfl3d_outflow.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using CFL3D on 4 grids near outflow"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using CFL3D on 4 grids near outflow">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_y0_fun3d_outflow.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using FUN3D on 4 grids near outflow"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using FUN3D on 4 grids near outflow">
+           <img
+src="HCnumericspart2_val/SA/cp_19_y0_sfe_outflow.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using SFE on 4 grids near outflow"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using SFE on 4 grids near outflow">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Surface Cfx is plotted on the leeside near x=6 (along y=0).
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cf_19_y0_usm3d.jpeg" border="1" title="SA-neg - Cfx vs x for alpha=19 at y=0
+using USM3D on 4 grids near x=6"
+alt="SA-neg - Cfx vs x for alpha=19 at y=0 using USM3D on 4 grids near x=6">
+           <img
+src="HCnumericspart2_val/SA/cf_19_y0_cfl3d.jpeg" border="1" title="SA-neg - Cfx vs x for alpha=19 at y=0
+using CFL3D on 4 grids near x=6"
+alt="SA-neg - Cfx vs x for alpha=19 at y=0 using CFL3D on 4 grids near x=6">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cf_19_y0_fun3d.jpeg" border="1" title="SA-neg - Cfx vs x for alpha=19 at y=0
+using FUN3D on 4 grids near x=6"
+alt="SA-neg - Cfx vs x for alpha=19 at y=0 using FUN3D on 4 grids near x=6">
+           <img
+src="HCnumericspart2_val/SA/cf_19_y0_sfe.jpeg" border="1" title="SA-neg - Cfx vs x for alpha=19 at y=0
+using SFE on 4 grids near x=6"
+alt="SA-neg - Cfx vs x for alpha=19 at y=0 using SFE on 4 grids near x=6">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Surface Cfx is plotted along x=5.
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cf_19_x5_usm3d.jpeg" border="1" title="SA-neg - Cfx vs phi for alpha=19 at x=5
+using USM3D on 4 grids"
+alt="SA-neg - Cfx vs phi for alpha=19 at x=5 using USM3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/cf_19_x5_cfl3d.jpeg" border="1" title="SA-neg - Cfx vs phi for alpha=19 at x=5
+using CFL3D on 4 grids"
+alt="SA-neg - Cfx vs phi for alpha=19 at x=5 using CFL3D on 4 grids">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cf_19_x5_fun3d.jpeg" border="1" title="SA-neg - Cfx vs phi for alpha=19 at x=5
+using FUN3D on 4 grids"
+alt="SA-neg - Cfx vs phi for alpha=19 at x=5 using FUN3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/cf_19_x5_sfe.jpeg" border="1" title="SA-neg - Cfx vs phi for alpha=19 at x=5
+using SFE on 4 grids"
+alt="SA-neg - Cfx vs phi for alpha=19 at x=5 using SFE on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Surface Cp is plotted near the minimum Cp location along x=5.
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_x5_usm3d_mincp.jpeg" border="1" title="SA-neg - Cp vs phi for alpha=19 at x=5
+using USM3D on 4 grids near min"
+alt="SA-neg - Cp vs phi for alpha=19 at x=5 using USM3D on 4 grids near min">
+           <img
+src="HCnumericspart2_val/SA/cp_19_x5_cfl3d_mincp.jpeg" border="1" title="SA-neg - Cp vs phi for alpha=19 at x=5
+using CFL3D on 4 grids near min"
+alt="SA-neg - Cp vs phi for alpha=19 at x=5 using CFL3D on 4 grids near min">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_x5_fun3d_mincp.jpeg" border="1" title="SA-neg - Cp vs phi for alpha=19 at x=5
+using FUN3D on 4 grids near min"
+alt="SA-neg - Cp vs phi for alpha=19 at x=5 using FUN3D on 4 grids near min">
+           <img
+src="HCnumericspart2_val/SA/cp_19_x5_sfe_mincp.jpeg" border="1" title="SA-neg - Cp vs phi for alpha=19 at x=5
+using SFE on 4 grids near min"
+alt="SA-neg - Cp vs phi for alpha=19 at x=5 using SFE on 4 grids near min">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Surface Cfx is plotted near the minimum Cp location along x=5.
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cf_19_x5_usm3d_mincp.jpeg" border="1" title="SA-neg - Cfx vs phi for alpha=19 at x=5
+using USM3D on 4 grids near min Cp"
+alt="SA-neg - Cfx vs phi for alpha=19 at x=5 using USM3D on 4 grids near min Cp">
+           <img
+src="HCnumericspart2_val/SA/cf_19_x5_cfl3d_mincp.jpeg" border="1" title="SA-neg - Cfx vs phi for alpha=19 at x=5
+using CFL3D on 4 grids near min Cp"
+alt="SA-neg - Cfx vs phi for alpha=19 at x=5 using CFL3D on 4 grids near min Cp">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cf_19_x5_fun3d_mincp.jpeg" border="1" title="SA-neg - Cfx vs phi for alpha=19 at x=5
+using FUN3D on 4 grids near min Cp"
+alt="SA-neg - Cfx vs phi for alpha=19 at x=5 using FUN3D on 4 grids near min Cp">
+           <img
+src="HCnumericspart2_val/SA/cf_19_x5_sfe_mincp.jpeg" border="1" title="SA-neg - Cfx vs phi for alpha=19 at x=5
+using SFE on 4 grids near min Cp"
+alt="SA-neg - Cfx vs phi for alpha=19 at x=5 using SFE on 4 grids near min Cp">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Offbody plots of p, u, v, and w are shown off the upper surface along a vertical line along x=5, y=0.21.
+
+<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/p_19_offbody_usm3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional p for alpha=19 along x=5 and y=0.21 using USM3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional p for alpha=19 along x=5 and y=0.21 using USM3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/p_19_offbody_cfl3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional p for alpha=19 along x=5 and y=0.21 using CFL3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional p for alpha=19 along x=5 and y=0.21 using CFL3D on 4 grids">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/p_19_offbody_fun3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional p for alpha=19 along x=5 and y=0.21 using FUN3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional p for alpha=19 along x=5 and y=0.21 using FUN3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/p_19_offbody_sfe.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional p for alpha=19 along x=5 and y=0.21 using SFE on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional p for alpha=19 along x=5 and y=0.21 using SFE on 4 grids">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/u_19_offbody_usm3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional u for alpha=19 along x=5 and y=0.21 using USM3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional u for alpha=19 along x=5 and y=0.21 using USM3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/u_19_offbody_cfl3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional u for alpha=19 along x=5 and y=0.21 using CFL3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional u for alpha=19 along x=5 and y=0.21 using CFL3D on 4 grids">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/u_19_offbody_fun3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional u for alpha=19 along x=5 and y=0.21 using FUN3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional u for alpha=19 along x=5 and y=0.21 using FUN3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/u_19_offbody_sfe.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional u for alpha=19 along x=5 and y=0.21 using SFE on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional u for alpha=19 along x=5 and y=0.21 using SFE on 4 grids">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/v_19_offbody_usm3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional v for alpha=19 along x=5 and y=0.21 using USM3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional v for alpha=19 along x=5 and y=0.21 using USM3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/v_19_offbody_cfl3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional v for alpha=19 along x=5 and y=0.21 using CFL3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional v for alpha=19 along x=5 and y=0.21 using CFL3D on 4 grids">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/v_19_offbody_fun3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional v for alpha=19 along x=5 and y=0.21 using FUN3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional v for alpha=19 along x=5 and y=0.21 using FUN3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/v_19_offbody_sfe.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional v for alpha=19 along x=5 and y=0.21 using SFE on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional v for alpha=19 along x=5 and y=0.21 using SFE on 4 grids">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/w_19_offbody_usm3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional w for alpha=19 along x=5 and y=0.21 using USM3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional w for alpha=19 along x=5 and y=0.21 using USM3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/w_19_offbody_cfl3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional w for alpha=19 along x=5 and y=0.21 using CFL3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional w for alpha=19 along x=5 and y=0.21 using CFL3D on 4 grids">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/w_19_offbody_fun3d.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional w for alpha=19 along x=5 and y=0.21 using FUN3D on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional w for alpha=19 along x=5 and y=0.21 using FUN3D on 4 grids">
+           <img
+src="HCnumericspart2_val/SA/w_19_offbody_sfe.jpeg" border="1" title="SA-neg - upper surface offbody 
+nondimensional w for alpha=19 along x=5 and y=0.21 using SFE on 4 grids"
+alt="SA-neg - upper surface offbody nondimensional w for alpha=19 along x=5 and y=0.21 using SFE on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in data files in the following tarred gzipped directory:
+<a href="HCnumericspart2_val/SA/HC_data_alpha19.tar.gz">
+HC_data_alpha19.tar.gz</a>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+Effect of 2nd Order Turbulence Advection at Alpha=19
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The effects of 2nd order accuracy for the convection in the SA model are shown below for FUN3D solutions
+at alpha=19 deg.
+The major difference is seen in the skin friction near x=6. The effects on surface 
+pressure (shown) and integrated lift and drag (not shown) are less significant.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_y0_1st_vs_2nd_turb.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using FUN3D comparing 1st vs. 2nd order turb advection"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using FUN3D comparing 1st vs. 2nd order turb advection">
+           <img
+src="HCnumericspart2_val/SA/cf_19_y0_1st_vs_2nd_turb.jpeg" border="1" title="SA-neg - Cfx vs x for alpha=19 at y=0
+using FUN3D comparing 1st vs. 2nd order turb advection"
+alt="SA-neg - Cfx vs x for alpha=19 at y=0 using FUN3D comparing 1st vs. 2nd order turb advection">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cp_19_y0_fun3d_2nd_turb.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using FUN3D with 2nd order turb advection on 4 grids near min Cp"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using FUN3D with 2nd order turb advection on 4 grids near min Cp">
+           <img
+src="HCnumericspart2_val/SA/cp_19_y0_fun3d_outflow_2nd_turb.jpeg" border="1" title="SA-neg - Cp vs x for alpha=19 at y=0
+using FUN3D with 2nd order turb advection on 4 grids near outflow"
+alt="SA-neg - Cp vs x for alpha=19 at y=0 using FUN3D with 2nd order turb advection on 4 grids near outflow">
+        </p>
+        <p><img
+src="HCnumericspart2_val/SA/cf_19_y0_fun3d_2nd_turb.jpeg" border="1" title="SA-neg - Cfx vs x for alpha=19 at y=0
+using FUN3D with 2nd order turb advection on 4 grids near x=6"
+alt="SA-neg - Cfx vs x for alpha=19 at y=0 using FUN3D with 2nd order turb advection on 4 grids near x=6">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data files:
+<a href="HCnumericspart2_val/SA/HC_A19_Z0_FUN3D_2ndSA.dat">HC_A19_Z0_FUN3D_2ndSA.dat</a>,
+<a href="HCnumericspart2_val/SA/HC_A19_Y0_FUN3D_2ndSA.dat">HC_A19_Y0_FUN3D_2ndSA.dat</a>,
+<a href="HCnumericspart2_val/SA/HC_A19_X5_FUN3D_2ndSA.dat">HC_A19_X5_FUN3D_2ndSA.dat</a>.
+The forces, moment, and max mu_t are give in the file:
+<a href="HCnumericspart2_val/SA/HC_combined_forces_pitchmom_maxmut_aoa19_fun3d_2ndSA.dat">
+HC_combined_forces_pitchmom_maxmut_aoa19_fun3d_2ndSA.dat</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Sample input files are available for FUN3D and CFL3D:
+<a href="HCnumericspart2_val/SA/fun3d.nml_HC_L2MIX">fun3d.nml_HC_L2MIX</a>,
+<a href="HCnumericspart2_val/SA/cfl3d_HCsampleinput_L3.inp">cfl3d_HCsampleinput_L3.inp</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<p>Return to: <a href="hc3dnumericspart2_val.html">3D Hemisphere Cylinder Validation (NEW) for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+04/17/2019 - added sample input files for FUN3D and CFL3D<br>
+06/19/2018 - added FUN3D results using 2nd order turbulence advection at alpha=19 deg<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/10/2021
+<br>&nbsp;
+
+</body>
+</html>

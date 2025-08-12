@@ -1,0 +1,44 @@
+ARN sp3 Axisymmetric Jet. run.dat
+Turbulent flow - MACH 0.5 cold test case
+Axisymmetric flow.
+
+freestream static 0.01 14.3 530.0 0.0 0.0
+
+ turbulence spalart 
+
+axisymmetric 0.0 5.0
+
+gas 1.4 0.72 0.70 1716.0
+
+downstream pressure freestream zone 3
+
+ implicit boundary on zone 1-3
+
+convergence level 1.0e-9
+
+sequence 1 1 0 zone 1
+sequence 1 1 0 zone 2
+sequence 1 1 0 zone 3
+
+dq limiter on drmax 0.1 dtmax 0.1
+
+cycles 2000
+iterations per cycle 1
+
+ cfl seconds 0.5e-6 zone all
+
+tvd factor 2 zone 1
+tvd factor 2 zone 2
+tvd factor 2 zone 3
+
+arbitrary inflow
+  total
+  hold_totals 
+  zone 1
+  uniform 0.2 17.113 530.0 0.0 0.0
+  zone 2
+  uniform 0.01 14.30 530.0 0.0 0.0
+endinflow
+
+end
+

@@ -1,0 +1,63 @@
+&version_number
+    input_version = 2.0
+    namelist_verbosity = "on"
+ /
+ &project
+    project_rootname = "case3.struct.4"
+ /
+ &reference_physical_properties
+    temperature_units = "Rankine"
+    mach_number =  0.1
+    reynolds_number =  936000.
+    temperature =  537.0
+    angle_of_attack =  0.0
+ /
+ &force_moment_integ_properties
+    area_reference  =  1.0
+    x_moment_length =  1.0
+    y_moment_length =  1.0
+    x_moment_center =  0.0
+    y_moment_center =  0.0
+    z_moment_center =  0.0
+ /
+ &inviscid_flux_method
+    flux_limiter = "none"
+    kappa_umuscl = 0.5
+ /
+ &turbulent_diffusion_models
+    turbulence_model = "sst"
+ /
+ &nonlinear_solver_parameters
+    schedule_iteration =  1   500
+    schedule_cfl =     30.   30.
+    schedule_cflturb = 20.   20.
+ /
+ &code_run_control
+    steps =   40000
+    restart_write_freq =  5000
+    restart_read = "on"
+ /
+ &boundary_conditions
+    total_pressure_ratio(10)=1.007,
+    total_temperature_ratio(10)=1.002,
+    static_pressure_ratio(11)=0.99962,
+ /
+ &global
+    boundary_animation_freq=-1
+ /
+ &boundary_output_variables
+    number_of_boundaries = 7
+    boundary_list = '1,2,3,4,12,13,16'
+    mach = .true.
+    uwprime = .true.
+    uuprime = .true.
+    wwprime = .true.
+    vvprime = .true.
+    cp = .true.
+    skinfr = .true.
+ /
+ &raw_grid
+    grid_format = 'aflr3'
+    data_format = 'stream'
+    twod_mode   = .true.
+ /

@@ -1,0 +1,55 @@
+&version_number
+    input_version = 2.0
+    namelist_verbosity = "on"
+ /
+ &project
+    project_rootname = "Delville_mmfinal4_047"
+ /
+ &reference_physical_properties
+    temperature_units = "Rankine"
+    mach_number =  0.121108
+    reynolds_number =  2900.
+    temperature =  528.0
+    angle_of_attack =  0.0
+ /
+ &force_moment_integ_properties
+    area_reference  =  497.0
+    x_moment_length =  497.0
+    y_moment_length =  1.0
+    x_moment_center =  0.0
+    y_moment_center =  0.0
+    z_moment_center =  0.0
+ /
+ &inviscid_flux_method
+    flux_limiter = "none"
+ /
+ &turbulent_diffusion_models
+    turbulence_model = "sa"
+ /
+ &nonlinear_solver_parameters
+    schedule_iteration =  1   500
+    schedule_cfl =      50.   50.
+    schedule_cflturb =  20.   20.
+ /
+ &code_run_control
+    steps =  15000
+    restart_write_freq =  5000
+    restart_read = "off"
+ /
+ &boundary_conditions
+    total_pressure_ratio(7)=1.00299,
+    total_temperature_ratio(7)=1.00085,
+    total_pressure_ratio(8)=1.01031,
+    total_temperature_ratio(8)=1.00293,
+    static_pressure_ratio(9)=1.000,
+ /
+ &boundary_output_variables
+    number_of_boundaries = 3
+    boundary_list = '1,2,3'
+    mach = .true.
+    mu_t = .true.
+    uwprime = .true.
+    uuprime = .true.
+    wwprime = .true.
+    vvprime = .true.
+ /

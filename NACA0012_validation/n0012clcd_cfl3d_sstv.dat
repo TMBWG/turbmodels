@@ -1,0 +1,9 @@
+# NACA 0012, 897x257 grid, CFL3D with SST-V model, 
+# freestream k/a_inf^2=9.e-9
+# freestream omega*mu_inf/(rho_inf*a_inf^2)=1.e-6
+# Lifting results have point vortex farfield correction on
+# (Results here given to greater accuracy than convergence tolerance)
+variables="alpha, deg","cl","cd"
+0.  -0.78047247051E-05  0.82810872042E-02
+10.  0.10778392767E+01  0.12454118920E-01
+15.  0.15060407291E+01  0.22236599237E-01

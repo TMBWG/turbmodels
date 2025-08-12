@@ -1,0 +1,52 @@
+ &version_number
+    input_version =    2.2
+    namelist_verbosity = "on"
+ /
+ &project
+    project_rootname = "n0012_897-257"
+ /
+ &reference_physical_properties
+    mach_number =   0.15
+    reynolds_number =    6.0e6
+    temperature =    540.0
+    angle_of_attack =  0.0
+    temperature_units = "Rankine"
+ /
+ &force_moment_integ_properties
+    area_reference =    1.0
+    x_moment_length =    1.0
+ /
+ &inviscid_flux_method
+    flux_limiter = "none" 
+    kappa_umuscl = 0.5
+ /
+ &turbulent_diffusion_models
+    turbulence_model = "sst-v"
+ /
+ &nonlinear_solver_parameters
+    schedule_iteration =     1     250
+    schedule_cfl =        1.0     30.0
+    schedule_cflturb =    1.0     20.0
+ /
+ &code_run_control
+    steps =  24000
+    restart_write_freq = 2000
+    restart_read = "off" 
+ /
+ &linear_solver_parameters
+    linear_projection = .true.
+ /
+ &global
+    boundary_animation_freq=-1
+ /
+&boundary_output_variables
+number_of_boundaries = 1
+boundary_list = '5'
+skinfr = .true.
+cp = .true.
+/
+&raw_grid
+    grid_format = 'aflr3'
+    data_format = 'stream'
+    twod_mode = .true.
+/

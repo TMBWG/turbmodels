@@ -1,0 +1,19 @@
+variables="x","cf_ue","cf_uref (approx)"
+# The following Cf based on Ue are the original data from the reference 
+# J. Fluid Mech., Vol. 94, Part 2, 1979, pp. 209-242 (Table 2).
+# They are given in terms of a "crest" and a "trough" value, reflecting spanwise variations caused by 
+# longitudinal Gortler vortices along the concave wall.
+# The Cf based on Uref were derived from the experimental cf_ue
+# (making use of approx Ue at nearby values and Uref=31.9 m/s).
+zone, t="concave, crest"
+0.025  .004116  .00510
+0.178  .003836  .00468
+0.330  .003686  .00451
+0.483  .003370  .00417
+0.940  .003196  .00403
+1.245  .003056  .00395
+zone, t="concave, trough"
+0.025  .003828  .00474
+0.178  .003576  .00436
+0.330  .003166  .00387
+0.940  .002680  .00338

@@ -1,0 +1,69 @@
+ &version_number
+    input_version =    2.2
+    namelist_verbosity = "on"
+ /
+ &project
+    project_rootname = "duct_half"
+ /
+ &reference_physical_properties
+    mach_number =   3.9
+    reynolds_number =    508000.
+    temperature =    520.0
+    angle_of_attack =   00.0
+    temperature_units = "Rankine"
+ /
+ &force_moment_integ_properties
+    area_reference =    1.0
+    x_moment_length =    1.0
+    y_moment_length =    1.0
+    x_moment_center =   0.00
+ /
+ &inviscid_flux_method
+    flux_limiter = "none" 
+ /
+ &turbulent_diffusion_models
+    turbulence_model = "sst" 
+ /
+ &nonlinear_solver_parameters
+    schedule_iteration =     1     150
+    schedule_cfl =        10.0    50.0
+    schedule_cflturb =     5.0    30.0
+ /
+ &code_run_control
+    steps =   10000
+    restart_write_freq = 2000
+    restart_read = "on"
+/
+&raw_grid
+    grid_format = 'aflr3'
+    data_format = 'stream'
+    patch_lumping = 'none'
+    twod_mode   = .false.
+/
+&global
+  volume_animation_freq=0
+  boundary_animation_freq=-1
+/
+&boundary_output_variables
+number_of_boundaries = -1
+boundary_list = '3'
+skinfr = .true.
+cp = .true.
+/
+&sampling_parameters
+    number_of_geometries = 2
+    type_of_geometry(1) = 'quad'
+      sampling_frequency(1)=-1
+      label(1) = 'quadx40'
+      corner1(:,1)= 40.,  500., -500.
+      corner2(:,1)= 40., -500., -500.
+      corner3(:,1)= 40., -500.,  500.
+      corner4(:,1)= 40.,  500.,  500.
+    type_of_geometry(2) = 'quad'
+      sampling_frequency(2)=-1
+      label(2) = 'quadx50'
+      corner1(:,2)= 50.,  500., -500.
+      corner2(:,2)= 50., -500., -500.
+      corner3(:,2)= 50., -500.,  500.
+      corner4(:,2)= 50.,  500.,  500.
+/

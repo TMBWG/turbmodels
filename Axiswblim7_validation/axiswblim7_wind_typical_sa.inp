@@ -1,0 +1,32 @@
+SWBLI - Kussoy Flare, 2 zones
+Turbulent flow
+Wind US V3
+
+freestream total 7.11 364.8 1600.0  0.0 0.0
+
+turbulence spalart
+
+downstream pressure  extrapolate order 1  zone 2
+
+axisymmetric 0.0 5.0
+
+convergence level 1.0e-9
+
+sequence 0 0 0 zone all
+
+wall temperature 559.8 zone all
+
+rhs hllc
+
+tvd factor 2  zone all
+
+dq limiter on drmax 0.1 dtmax 0.1
+
+cycles 4000
+
+cfl 0.4
+
+end
+
+
+

@@ -1,0 +1,428 @@
+#!MC 1410
+$!VarSet |LFDSFN1| = '"FUN3D/Skinfriction_Y0_X40_50/G2_cf_x.dat" "FUN3D/Skinfriction_Y0_X40_50/G3_cf_x.dat" "FUN3D/Skinfriction_Y0_X40_50/G4_cf_x.dat"'
+$!VarSet |LFDSVL1| = '"x" "y" "z" "cp" "cfx" "cfy" "cfz"'
+$!VarSet |LFDSFN2| = '"USM3D/Skinfriction_Y0_X40_50/cf_Y0_X40_USM3D_HexG1.dat" "USM3D/Skinfriction_Y0_X40_50/cf_Y0_X40_USM3D_HexG2.dat" "USM3D/Skinfriction_Y0_X40_50/cf_Y0_X40_USM3D_HexG3.dat" "USM3D/Skinfriction_Y0_X40_50/cf_Y0_X40_USM3D_HexG4.dat" "USM3D/Skinfriction_Y0_X40_50/cf_Y0_X50_USM3D_HexG1.dat" "USM3D/Skinfriction_Y0_X40_50/cf_Y0_X50_USM3D_HexG2.dat" "USM3D/Skinfriction_Y0_X40_50/cf_Y0_X50_USM3D_HexG3.dat" "USM3D/Skinfriction_Y0_X40_50/cf_Y0_X50_USM3D_HexG4.dat"'
+$!VarSet |LFDSVL2| = '"x" "y" "z" "cp" "cfx" "cfy" "cfz" "2z/D" "cfmag"'
+$!VarSet |LFDSFN3| = '"FUN3D/Skinfriction_Y0_X40_50/G1_cf_x.dat"'
+$!VarSet |LFDSVL3| = '"x" "y" "z" "cp" "cfx" "cfy" "cfz" "2z/D" "cfmag"'
+$!SetStyleBase Factory
+$!GlobalPaper 
+  PaperSizeInfo
+    {
+    Letter
+      {
+      Width = 8.5
+      Height = 11
+      LeftHardClipOffset = 0.125
+      RightHardClipOffset = 0.125
+      TopHardClipOffset = 0.125
+      BottomHardClipOffset = 0.125
+      }
+    Custom1
+      {
+      Height = 8.5
+      }
+    Custom2
+      {
+      Width = 11
+      Height = 8
+      }
+    }
+$!Page 
+  Name = 'Untitled'
+  PaperAttributes
+    {
+    BackgroundColor = White
+    IsTransparent = Yes
+    OrientPortrait = No
+    ShowGrid = Yes
+    ShowRuler = No
+    ShowPaper = No
+    PaperSize = Letter
+    RulerSpacing = OneInch
+    PaperGridSpacing = HalfInch
+    RegionInWorkArea
+      {
+      X1 = 1
+      Y1 = 0.25
+      X2 = 10
+      Y2 = 8.25
+      }
+    }
+### Frame Number 1 ###
+$!ReadDataSet  '|LFDSFN1|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL1|'
+$!RemoveVar |LFDSVL1|
+$!RemoveVar |LFDSFN1|
+$!AlterData 
+  Equation = '{2z/D}={z}*2'
+$!AlterData 
+  Equation = '{cfmag}=sqrt({cfx}**2+{cfy}**2+{cfz}**2)'
+$!ReadDataSet  '|LFDSFN2|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL2|'
+$!RemoveVar |LFDSVL2|
+$!RemoveVar |LFDSFN2|
+$!AlterData  [7-14]
+  Equation = '{2z/D}={z}*2'
+$!ReadDataSet  '|LFDSFN3|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL3|'
+$!RemoveVar |LFDSVL3|
+$!RemoveVar |LFDSFN3|
+$!AlterData  [15-16]
+  Equation = '{2z/D}={z}*2'
+$!AlterData  [15-16]
+  Equation = '{cfmag}=sqrt({cfx}**2+{cfy}**2+{cfz}**2)'
+$!FrameLayout 
+  ShowHeader = No
+  HeaderColor = Red
+  XYPos
+    {
+    X = 1
+    Y = 0.25
+    }
+  Width = 9
+  Height = 8
+$!ThreeDAxis 
+  AspectRatioLimit = 25
+  BoxAspectRatioLimit = 25
+$!PlotType  = XYLine
+$!FrameName  = 'Frame 001'
+$!GlobalTime 
+  SolutionTime = 9494
+$!DeleteLineMaps 
+$!ActiveLineMaps  =  [1-8]
+$!GlobalLinePlot 
+  DataLabels
+    {
+    DistanceSkip = 5
+    }
+  Legend
+    {
+    Show = Yes
+    Box
+      {
+      BoxType = Filled
+      }
+    XYPos
+      {
+      X = 84.878
+      Y = 51.052
+      }
+    }
+$!LineMap  [1]
+  Name = 'FUN3D, Grid 1'
+  Assign
+    {
+    Zone = 2
+    XAxisVar = 8
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Color = Red
+    LinePattern = DashDotDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [2]
+  Name = 'FUN3D, Grid 2'
+  Assign
+    {
+    Zone = 2
+    XAxisVar = 8
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Color = Red
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [3]
+  Name = 'FUN3D, Grid 3'
+  Assign
+    {
+    Zone = 4
+    XAxisVar = 8
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Color = Red
+    LinePattern = Dashed
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [4]
+  Name = 'FUN3D, Grid 4'
+  Assign
+    {
+    Zone = 6
+    XAxisVar = 8
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Color = Red
+    LinePattern = DashDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [5]
+  Name = 'USM3D, Grid 1'
+  Assign
+    {
+    Zone = 11
+    XAxisVar = 8
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = DashDotDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [6]
+  Name = 'USM3D, Grid 2'
+  Assign
+    {
+    Zone = 12
+    XAxisVar = 8
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Color = Black
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [7]
+  Name = 'USM3D, Grid 3'
+  Assign
+    {
+    Zone = 13
+    XAxisVar = 8
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = Dashed
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [8]
+  Name = 'USM3D, Grid 4'
+  Assign
+    {
+    Zone = 14
+    XAxisVar = 8
+    YAxisVar = 9
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = DashDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!XYLineAxis 
+  DepXToYRatio = 1
+  ViewportPosition
+    {
+    X1 = 16
+    }
+$!XYLineAxis 
+  XDetail 1
+    {
+    RangeMin = 0
+    RangeMax = 1
+    GRSpacing = 0.1
+    TickLabel
+      {
+      TextShape
+        {
+        Height = 4
+        }
+      }
+    Gridlines
+      {
+      Show = Yes
+      }
+    Title
+      {
+      TextShape
+        {
+        Height = 4.6
+        }
+      Offset = 5
+      }
+    }
+$!XYLineAxis 
+  YDetail 1
+    {
+    RangeMin = 0
+    RangeMax = 0.002500000000000000052
+    GRSpacing = 0.0005
+    TickLabel
+      {
+      TextShape
+        {
+        Height = 4
+        }
+      }
+    Gridlines
+      {
+      Show = Yes
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = 'C<sub>f'
+      TextShape
+        {
+        Height = 4.6
+        }
+      Offset = 12
+      }
+    }
+$!AttachText 
+  AnchorPos
+    {
+    X = 46.21951219512193
+    Y = 92.59908536585367
+    }
+  Zone = 2
+  TextShape
+    {
+    IsBold = No
+    Height = 23
+    }
+  Text = 'x/D=50'
+$!FrameControl ActivateByNumber
+  Frame = 1
+$!SetStyleBase Config

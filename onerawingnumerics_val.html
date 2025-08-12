@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>3D ONERA M6 Wing Validation for Turbulence Model Numerical Analysis</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">3D ONERA M6 Wing Validation Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The purpose here is to provide a test case for a turbulent flow over a transonic wing.
+Over the years, the ONERA M6 experiment
+(Schmitt, V. and Charpin, F., "Pressure Distributions on the ONERA-M6-Wing at Transonic Mach Numbers," Experimental
+Data Base for Computer Program Assessment. Report of the Fluid Dynamics Panel Working Group 04, AGARD
+AR-138, May 1979,
+<a href="https://www.sto.nato.int/publications/AGARD/AGARD-AR-138/AGARD-AR-138.pdf">
+https://www.sto.nato.int/publications/AGARD/AGARD-AR-138/AGARD-AR-138.pdf</a>) has been a widely used case for CFD "validation."
+This wing is used here primarily for numerical
+analysis of turbulence model simulations; e.g., convergence properties, effect of order of accuracy, etc.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_grids/view-of-ONERA.jpg" border="1" width="390" title="view of ONERA M6 wing to orient viewer" alt="view of ONERA M6 wing to orient viewer">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Recently, a group at ONERA has looked into the M6 model and its past experiments in greater detail.  See
+AIAA Papers 2015-1745,
+<a href="https://doi.org/10.2514/6.2015-1745">https://doi.org/10.2514/6.2015-1745</a> and 2016-1357,
+<a href="https://doi.org/10.2514/6.2016-1357">https://doi.org/10.2514/6.2016-1357</a>.  
+As part of this effort, the group has created a CAD geometry for the wing, provided below.
+In this geometry, the trailing edge of the wing has been made <u>sharp</u> for the purposes of this particular CFD
+exercise, as described in AIAA Paper 2016-1357.
+(The original ONERA M6 wing has a moderately thick trailing edge; see 
+<a href="Onerawingnumerics_grids/AileM6_with_thick_TE.igs">AileM6_with_thick_TE.igs</a>.)
+Additional details are provided in:
+<a href="Onerawingnumerics_val/ONERA_M6_Test_Case_TMR.pdf">ONERA_M6_Test_Case_TMR.pdf</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+For reference, the ONERA section coordinates (with <u>blunt</u> T.E.) are provided below.  The first file corresponds to the ONERA-D wing section
+that lies normal to a generator build at 40.18% chord (the generator build line is shown as a dash-dot line in Figure 1 of 
+<a href="Onerawingnumerics_val/ONERA_M6_Test_Case_TMR.pdf">ONERA_M6_Test_Case_TMR.pdf</a>).
+The second file (taken from
+<a href="https://www.grc.nasa.gov/WWW/wind/valid/m6wing/m6wing.html">https://www.grc.nasa.gov/WWW/wind/valid/m6wing/m6wing.html</a>),
+corresponds to the streamwise coordinates taken along the root (y=0).  Both files are scaled to have 0 &lt; x &lt; 1.
+<ul>
+  <li><a href="Onerawingnumerics_val/profile_ONERA-D.dat">profile_ONERA-D.dat</a>
+  <li><a href="Onerawingnumerics_val/profile_M6_streamwise_alongy=0.dat">profile_M6_streamwise_alongy=0.dat</a>
+</ul>
+
+<p><span style="text-align: left; font-weight: 700; font-size: x-large">CAD Geometry (with sharp T.E.):</span>
+<ul>
+  <li><a href="Onerawingnumerics_grids/AileM6_with_sharp_TE.igs">IGS file</a>
+  <li><a href="Onerawingnumerics_grids/AileM6_with_sharp_TE.stp">STP file</a>
+  <li><a href="Onerawingnumerics_grids/AileM6_with_sharp_TE.x_t">Parasolid (x_t) file</a>
+</ul>
+
+Note that the units for the IGS and STP files is mm, but the Parasolid file has a default units of meters.
+
+<p>Some of the wing geometry data extracted from the CAD:
+<ul>
+  <li>Root chord: 810.491484086 mm
+  <li>Semispan (last section): 1196.300000084 mm
+  <li>Tip chord (last section): 455.914415721 mm
+  <li>Leading Edge Sweep: 29.9990 degrees
+  <li>Trailing Edge Sweep: 15.6918 degrees
+  <li>Rounded Tip Semispan: 1218.535 mm
+</ul>
+
+<p><span style="text-align: left; font-weight: 700; font-size: x-large">Test cases description:</span>
+<ul>
+  <li><u>Case 2308</u>:  M<sub>inf</sub>=0.84, Re<sub>c_root</sub>=14.6 x 10<sup>6</sup>, AoA=3.06 deg, T<sub>inf</sub>=540 R.
+  <li><u>Case 2565</u>:  M<sub>inf</sub>=0.84, Re<sub>c_root</sub>=14.6 x 10<sup>6</sup>, AoA=6.06 deg, T<sub>inf</sub>=540 R.
+  <li>For the purposes of the CFD V&V exercise performed here (for comparisons between codes), only 
+      the wing with the SHARP trailing edge should be used.
+      The Reynolds number of the original experiment (based on the blunt mean aerodynamic chord of 646.07 mm of the model), 
+      was Re<sub>MAC</sub>=11.72 x 10<sup>6</sup> for Case 2308 and 
+      Re<sub>MAC</sub>=11.71 x 10<sup>6</sup> for Case 2565.  However, for the
+      purposes of this CFD exercise, Re<sub>c_root</sub>=14.6 x 10<sup>6</sup> (based on root chord with sharp trailing edge) 
+      should be used for both cases.  This value approximately corresponds with the original experiment.
+  <li>Note that Cp data are available for 7 span stations:  eta = y/b = 0.2, 0.44, 0.65, 0.8, 0.9, 0.96, and 0.99. The original reference
+      (and some other websites) list the 6th station to be at eta = y/b = 0.95, but recent measurements on the ONERA model have
+      confirmed that it should be 0.96 instead.
+<!--  <li>For computing forces, the reference mean aerodynamic chord of this case is taken as 646.07 mm and the reference area is taken as
+      753,200 mm<sup>2</sup>.-->
+</ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_grids/onera_bcs.jpg" border="1" width="600" title="ONERA M6 boundary conditions" alt="ONERA M6 boundary conditions">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Grid generation programs are available in the following link.  Note that the programs create grids that are
+normalized so that the root chord = 1.  With the new scaling, the following geometry information for computing 
+forces and moment should be used:
+<ul>
+  <li>Reference area = 1.15315084119231
+  <li>Reference mean aerodynamic chord = 0.801672958512342
+  <li>Reference semispan = 1.47601797621980
+  <li>The x,y,z moment centers are all taken to be 0.0
+</ul>
+
+<p>
+<a href="onerawingnumerics_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+<!--<span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS (not available yet)-->
+
+<p><span style="text-align: left; font-weight: 700; font-size: x-large">Experimental Cp data:</span>
+<ul>
+  <li><a href="Onerawingnumerics_val/case_2308.dat">Case_2308.dat</a>
+  <li><a href="Onerawingnumerics_val/case_2565.dat">Case_2565.dat</a>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="onerawingnumerics_val_sa.html">SA-neg</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#saneg">SA-neg eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/10/2021
+<br>&nbsp;
+
+</body>
+</html>

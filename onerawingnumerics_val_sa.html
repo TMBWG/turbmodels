@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>3D ONERA M6 Wing Validation for Turbulence Model Numerical Analysis - SA-neg Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<!--Jump to: <a href="flatplate_val_sst.html">SST Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-V Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006 Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2013 Results</a></p>-->
+<p>Return to: <a href="onerawingnumerics_val.html">3D ONERA M6 Validation for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">3D ONERA M6 Wing Validation</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">SA-neg Model Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="spalart.html#saneg">Link to SA-neg equations</a>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Preliminary results are shown for the 3D ONERA M6 wing,
+<!--Three different CFD codes (FUN3D, USM3D, and CFL3D) have been employed
+in an effort to try to discern the grid-converged result for this case. -->
+for the <a href="spalart.html#saneg">SA-neg</a> variant of the SA model.
+Note that SA-neg is passive to the
+original (SA) model in well-resolved flowfields, and hence is expected to yield essentially identical
+results as SA for the cases here.
+<!--FUN3D and USM3D both used clipping method "a" with cutoff 0.00001 for <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" />,
+while CFL3D used clipping method "c" (see <u>Note 1</u> on
+<a href="spalart.html">the Spalart-Allmaras equation page</a>).-->
+For all results, the farfield value of the Spalart turbulence variable is
+<img class="tex" alt="\tilde \nu_{farfield} = 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" />.
+In all codes the Prandtl number Pr is taken to be constant at 0.72, and turbulent Prandtl
+number Pr<sub>t</sub> is taken to be constant at 0.9.
+The dynamic viscosity is computed using
+Sutherland's Law (See White, F. M., "Viscous Fluid Flow," McGraw Hill, New York, 1974, p. 28).
+In Sutherland's Law, the local value of dynamic viscosity is determined by plugging the local value of temperature 
+(<i>T</i>) into the following formula:
+
+<dl>
+<dd><img class="tex" alt="\mu = \mu_0 \left( \frac{T}{T_0} \right)^{3/2} \left(
+\frac{T_0 + S}{T+S} \right)"
+  src="sutherland_eqns/img2.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_0 = 1.716 \times 10^{-5} kg/(ms)" src="sutherland_eqns/img3.png" />,
+<img class="tex" alt="T_0 = 491.6 R" src="sutherland_eqns/img4.png" />, and
+<img class="tex" alt="S = 198.6 R" src="sutherland_eqns/img5.png" />.
+The same formula can be found <a href="http://www.cfd-online.com/Wiki/Sutherland%27s_law" target="_blank">online</a>
+(with temperature constants given in degrees K and some small conversion differences).
+Note that in terms of the reference quantities <u>for this particular case</u>, Sutherland's Law can equivalently be written:
+
+<dl>
+<dd><img class="tex" alt="\left( \frac{\mu}{\mu_{ref}} \right) = \left( \frac{T}{T_{ref}} \right)^{3/2} \left(
+\frac{T_{ref} + S}{T+S} \right)"
+  src="sutherland_eqns/img6.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_{ref}" src="sutherland_eqns/img7.png" />
+is the reference dynamic viscosity that corresponds to the freestream in this case, and
+freestream <img class="tex" alt="T_{ref}" src="sutherland_eqns/img8.png" /> 
+is 540R.  This latter form may be more convenient for nondimensional codes.
+(Specific details regarding an implementation of Sutherland's Law in nondimensional codes can be found in
+<a href="Papers/sutherland_notes_cfl3d_fun3d.pdf">handwritten notes describing Sutherland's Law in CFL3D and FUN3D</a>.)
+
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">Note that FUN3D and USM3D both ran this
+case with first order spatial accuracy on the turbulence advection term, whereas CFL3D used second order.-->
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The results on this page have been reported in AIAA Paper 2018-1102,
+<a href="https://doi.org/10.2514/6.2018-1102">https://doi.org/10.2514/6.2018-1102</a>. Also, many of the other papers from two special
+sessions at AIAA SciTech 2018 dealt with this case: see AIAA Papers 2018-1101 through 1104, and AIAA Papers 2018-1566 through 1570.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<u>Case 2308, AoA=3.06 deg</u>: Grid Convergence Behavior of Forces, Moment, and Maximum Eddy Viscosity
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Plots are shown to illustrate grid convergence for the lift, drag,
+moment coefficient, and nondimensional maximum eddy viscosity for the ONERA M6 AoA=3.06 deg case.
+(Note: the moment is about the y-moment center.)
+The contributions to the drag coefficient due to the viscosity and pressure are also
+presented separately.
+For forces and moment, results from 4 different codes (on different versions of the grids) appear
+to be approaching nearly the same results as the grid is refined
+(i.e., as h approaches zero).  CFL3D is a structured-grid code, while all others are
+unstructured-grid codes.
+For eddy viscosity, it is not as clear that all results are approaching the same answer;
+finer grids are likely required.
+Recall that all codes were run using <a href="spalart.html#saneg">SA-neg</a>.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/CL.jpeg" border="1" title="SA-neg - lift coefficient vs h for ONERA M6 alpha=3.06" 
+alt="SA-neg - lift coefficient vs h for ONERA M6 alpha=3.06">
+           <img
+src="Onerawingnumerics_val/SA/CD.jpeg" border="1" title="SA-neg - drag coefficient vs h for ONERA M6 alpha=3.06" 
+alt="SA-neg - drag coefficient vs h for ONERA M6 alpha=3.06">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/CDp.jpeg" border="1" title="SA-neg - pressure drag coefficient vs h for ONERA M6 alpha=3.06" 
+alt="SA-neg - pressure drag coefficient vs h for ONERA M6 alpha=3.06">
+           <img
+src="Onerawingnumerics_val/SA/CDv.jpeg" border="1" title="SA-neg - viscous drag coefficient vs h for ONERA M6 alpha=3.06" 
+alt="SA-neg - viscous drag coefficient vs h for ONERA M6 alpha=3.06">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/CM.jpeg" border="1" title="SA-neg - moment coefficient vs h for ONERA M6 alpha=3.06" 
+alt="SA-neg - moment coefficient vs h for ONERA M6 alpha=3.06">
+           <img
+src="Onerawingnumerics_val/SA/maxMUT.jpeg" border="1" title="SA-neg - maximum eddy viscosity vs h for ONERA M6 alpha=3.06" 
+alt="SA-neg - maximum eddy viscosity vs h for ONERA M6 alpha=3.06">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data 
+file:
+<a href="Onerawingnumerics_val/SA/combined_forces_pitchmom_maxmut.dat">
+combined_forces_pitchmom_maxmut.dat</a>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<u>Case 2308, AoA=3.06 deg</u>: Surface Pressure and Skin Friction Coefficients
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+First, plots are shown to illustrate differences between three different CFD codes on the finest L1 grids 
+(experimental data are also included for comparison).
+The "eta" refers to the span station (0=root, 1=tip), and the x-locations are nondimensionalized by local chord.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_20.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.20" 
+alt="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.20">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_20_C+F.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.20" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.20">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_44.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.44" 
+alt="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.44">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_44_C+F.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.44" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.44">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_65.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.65" 
+alt="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.65">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_65_C+F.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.65" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.65">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_80.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.80" 
+alt="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.80">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_80_C+F.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.80" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.80">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_90.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.90" 
+alt="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.90">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_90_C+F.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.90" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.90">
+        </p>
+           <img
+src="Onerawingnumerics_val/SA/cp_onera_96.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.96" 
+alt="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.96">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_96_C+F.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.96" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.96">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_99.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.99" 
+alt="SA-neg - Cp vs x/c for ONERA M6 alpha=3.06 at eta=0.99">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_99_C+F.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.99"
+alt="SA-neg - Cfx vs x/c for ONERA M6 alpha=3.06 at eta=0.99">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following plots show grid convergence behavior of upper surface pressure coefficients and x-component
+of skin friction for individual codes (not available for USM3D yet), for eta=0.20, 0.80, and 0.99.  
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_20_fun3d.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20, using FUN3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20, using FUN3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_20_fun3d.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20, using FUN3D on 4 grids" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20, using FUN3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_20_usm3d.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20, using USM3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20, using USM3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_20_cfl3d.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20, using CFL3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20, using CFL3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_20_cfl3d.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20, using CFL3D on 4 grids" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20, using CFL3D on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_80_fun3d.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.80, using FUN3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.80, using FUN3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_80_fun3d.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.80, using FUN3D on 4 grids" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.80, using FUN3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_80_usm3d.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.80, using USM3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.80, using USM3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_80_cfl3d.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.80, using CFL3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.80, using CFL3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_80_cfl3d.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.80, using CFL3D on 4 grids" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.80, using CFL3D on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_99_fun3d.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99, using FUN3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99, using FUN3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_99_fun3d.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99, using FUN3D on 4 grids" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99, using FUN3D on 4 grids">
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_99_usm3d.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99, using USM3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99, using USM3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_99_cfl3d.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99, using CFL3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99, using CFL3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/om6_cf_99_cfl3d.jpg" border="1" title="SA-neg - Cfx vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99, using CFL3D on 4 grids" 
+alt="SA-neg - Cfx vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99, using CFL3D on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following plots show grid convergence behavior of upper surface pressure coefficients near the trailing edge 
+for each code, for eta=0.20.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_20_fun3d_te.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20 near TE, using FUN3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20 near TE, using FUN3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/cp_onera_20_usm3d_te.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20 near TE, using USM3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20 near TE, using USM3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_20_cfl3d_te.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20 near TE, using CFL3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20 near TE, using CFL3D on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following plots show grid convergence behavior of upper surface pressure coefficients near the minimum Cp location 
+for each code, for eta=0.20.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_20_fun3d_mincp.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20 near min Cp location, using FUN3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20 near min Cp location, using FUN3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/cp_onera_20_usm3d_mincp.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20 near min Cp location, using USM3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20 near min Cp location, using USM3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_20_cfl3d_mincp.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.20 near min Cp location, using CFL3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.20 near min Cp location, using CFL3D on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following plots show grid convergence behavior of upper surface pressure coefficients near the shock intersection location             
+for each code, for eta=0.80.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_80_fun3d_shock.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.80 near shock intersection, using FUN3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.80 near shock intersection, using FUN3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/cp_onera_80_usm3d_shock.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.80 near shock intersection, using USM3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.80 near shock intersection, using USM3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_80_cfl3d_shock.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.80 near shock intersection, using CFL3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.80 near shock intersection, using CFL3D on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following plots show grid convergence behavior of upper surface pressure coefficients near the trailing edge
+for each code, for eta=0.99.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_99_fun3d_te.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99 near TE, using FUN3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99 near TE, using FUN3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/cp_onera_99_usm3d_te.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99 near TE, using USM3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99 near TE, using USM3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_99_cfl3d_te.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99 near TE, using CFL3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99 near TE, using CFL3D on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following plots show grid convergence behavior of upper surface pressure coefficients near the minimum Cp location
+for each code, for eta=0.99.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_99_fun3d_mincp.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99 near min Cp location, using FUN3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99 near min Cp location, using FUN3D on 4 grids">
+           <img
+src="Onerawingnumerics_val/SA/cp_onera_99_usm3d_mincp.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99 near min Cp location, using USM3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99 near min Cp location, using USM3D on 4 grids">
+        </p>
+        <p><img
+src="Onerawingnumerics_val/SA/cp_onera_99_cfl3d_mincp.jpeg" border="1" title="SA-neg - Cp vs x/c for ONERA M6 upper surface 
+alpha=3.06 at eta=0.99 near min Cp location, using CFL3D on 4 grids" 
+alt="SA-neg - Cp vs x/c for ONERA M6 upper surface alpha=3.06 at eta=0.99 near min Cp location, using CFL3D on 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data
+files:
+<a href="Onerawingnumerics_val/SA/FUN3D_OM6_A3p06_CPCF.dat">FUN3D_OM6_A3p06_CPCF.dat</a>,
+<a href="Onerawingnumerics_val/SA/USM3D_OM6_A3p06_CP.dat">USM3D_OM6_A3p06_CP.dat</a>,
+<a href="Onerawingnumerics_val/SA/CFL3D_OM6_A3p06_CPCF.dat">CFL3D_OM6_A3p06_CPCF.dat</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Sample input files are available for FUN3D and CFL3D: 
+<a href="Onerawingnumerics_val/SA/fun3d.nml_OM6_L2MIXcorrected">fun3d.nml_OM6_L2MIXcorrected</a>,
+<a href="Onerawingnumerics_val/SA/cfl3d_OM6sampleinput_L2.inp">cfl3d_OM6sampleinput_L2.inp</a>.
+(Note: it was discovered after-the-fact that FUN3D,FV was mistakenly 
+run with conditions slightly different than
+those specified for this case.  It used: reynolds_number=14.623131633937641e6, temperature=536R, 
+area_reference=1.159316400000000, x_moment_length=0.801469910371319, y_moment_length=1.4844.
+However, these differences are believed to be small enough that the results, to plotting
+accuracy, would be very close. The incorrect values have been corrected in the input
+file provided here.)
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<p>Return to: <a href="onerawingnumerics_val.html">3D ONERA M6 Validation for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+04/17/2019 - added sample input files for FUN3D and CFL3D<br>
+06/22/2018 - added skin friction results from FUN3D and CFL3D<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/10/2021
+<br>&nbsp;
+
+</body>
+</html>

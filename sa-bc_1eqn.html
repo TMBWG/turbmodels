@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Spalart-Allmaras 1-equation BCM Transitional Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The Spalart-Allmaras 1-equation BCM Transitional Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for the
+SA-BCM (and earlier version SA-BC) transitional turbulence model. 
+This model is a linear eddy viscosity model.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><a ID="lm-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras 1-equation BCM Transitional Model<span style="color: blue">
+  (SA-BCM)</span></strong>
+<p>This transition model is a modification update to SA-BC, which had a few issues (see red text below).
+The SA-BCM version fixes these issues with a different definition of 
+<img class="tex" alt="Term_2" src="sabc_eqns/img18.png" /> and
+<img class="tex" alt="\chi_2" src="sabc_eqns/img24.png" />.
+This version of the SA one-equation model is based on SA without the ft2 term
+(<a href="spalart.html#sanoft2">SA-noft2</a>). The production term of the 
+SA-noft2 is multiplied with a 
+<img class="tex" alt="\gamma_{BC}" src="sabc_eqns/img2.png" /> intermittency function in order to damp turbulence production 
+until some transition criteria is achieved. From that point on, the damping effect of the transition model is 
+disabled and the rest of the flowfield is allowed to be fully turbulent. The proposed 
+<img class="tex" alt="\gamma_{BC}" src="sabc_eqns/img2.png" /> intermittency function is calculated using local 
+flow variables and transition onset is determined based on experimental correlations. The references are:
+
+<ul>
+<li>Cakmakcioglu, S. C., Bas, O., Mura, R., and Kaynak, U., "A Revised One-Equation Transitional Model for External Aerodynamics,"
+AIAA Paper 2020-2706, June 2020, 
+<a href="https://doi.org/10.2514/6.2020-2706">https://doi.org/10.2514/6.2020-2706</a>.
+<li>Mura, R. and Cakmakcioglu, S. C., "A Revised One-Equation Transitional Model for External
+Aerodynamics - Part I: Theory, Validation and Base Cases,"
+AIAA Paper 2020-2714, June 2020, 
+<a href="https://doi.org/10.2514/6.2020-2714">https://doi.org/10.2514/6.2020-2714</a>.
+</ul>
+
+<p>Note that "BC" stands for two of the authors' last names.
+
+<p>The SA-BCM transition model is coupled with the SA-noft2 model as follows:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \tilde{\nu}}{\partial t}+ u_j \frac{\partial \tilde{\nu}}{\partial x_j} = \boldmath{\gamma_{BC}} c_{b1} \tilde{S} \tilde{\nu} 
+- c_{w1} f_w \left(\frac{\tilde{\nu}}{d}\right)^2 
++ \frac{1}{\sigma} \left[ \frac{\partial}{\partial x_j} \left( (\nu + \tilde{\nu}) \frac{\partial \tilde{\nu}}{\partial x_j} \right) 
++ c_{b2} \frac{\partial \tilde{\nu}}{\partial x_j} \frac{\partial \tilde{\nu}}{\partial x_j} \right]"
+src="sabc_eqns/img3.png" /></dd>
+</dl>
+
+<p>The <img class="tex" alt="\gamma_{BC}" src="sabc_eqns/img2.png" /> intermittency function is defined as:
+<dl>
+<dd><img class="tex" alt="\gamma_{BC} = 1-exp(-\sqrt{Term_1}-\sqrt{Term_2})"
+src="sabc_eqns/img4.png" /></dd>
+</dl>
+
+<p><img class="tex" alt="Term_1" src="sabc_eqns/img5.png" /> is given by:
+<dl>
+<dd><img class="tex" alt="Term_1 = \frac{max(Re_{\theta} - Re_{\theta c}, 0.0)}{\chi_1 Re_{\theta c}}"
+src="sabc_eqns/img6.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="Re_{\theta} = \frac{Re_v}{2.193}, \phantom{XX} Re_v = \frac{\rho {d}^2}{\mu} \Omega"
+src="sabc_eqns/img7.png" /></dd>
+</dl>
+
+<p>and
+<dl>
+<dd><img class="tex" alt="Re_{\theta c} = 803.73 {(Tu_\infty + 0.6067)}^{-1.027}"
+src="sabc_eqns/img8.png" /></dd>
+</dl>
+
+<p>In the above equations,
+<img class="tex" alt="\rho" src="sabc_eqns/img9.png" /> is the local density,
+<img class="tex" alt="\mu" src="sabc_eqns/img10.png" /> is the local molecular viscosity,
+<img class="tex" alt="\Omega" src="sabc_eqns/img11.png" /> is the vorticity,
+<img class="tex" alt="d" src="sabc_eqns/img12.png" /> is the distance to the nearest wall,
+<img class="tex" alt="Re_v" src="sabc_eqns/img13.png" /> is the so-called vorticity Reynolds number,
+<img class="tex" alt="Re_\theta" src="sabc_eqns/img14.png" /> is the momentum thickness Reynolds number,
+<img class="tex" alt="Re_{\theta c}" src="sabc_eqns/img15.png" /> is the experimental transition onset critical momentum thickness Reynolds number,
+<img class="tex" alt="Tu_\infty" src="sabc_eqns/img16.png" /> is the freestream turbulence intensity in percent, and
+<img class="tex" alt="\chi_1" src="sabc_eqns/img17.png" /> is a calibration constant.
+Please note that the <img class="tex" alt="Tu_\infty" src="sabc_eqns/img16.png" /> is a constant for the entire flowfield, 
+as the SA-noft2 model ignores the turbulent kinetic energy (k).
+
+<p>The physical interpretation of 
+<img class="tex" alt="Term_1" src="sabc_eqns/img5.png" />
+is that it checks for the onset location of transition by comparing the locally calculated 
+<img class="tex" alt="Re_\theta" src="sabc_eqns/img14.png" /> to the experimental correlation 
+<img class="tex" alt="Re_{\theta c}" src="sabc_eqns/img15.png" />. As soon as the so-called 
+vorticity Reynolds number 
+<img class="tex" alt="Re_v" src="sabc_eqns/img13.png" /> exceeds a critical value, 
+<img class="tex" alt="Term_1" src="sabc_eqns/img5.png" /> becomes larger than 0.0, and the intermittency function 
+<img class="tex" alt="\gamma_{BC}" src="sabc_eqns/img2.png" /> is triggered. However, the 
+<img class="tex" alt="Re_v" src="sabc_eqns/img13.png" /> is a function of distance to the nearest wall
+<img class="tex" alt="d" src="sabc_eqns/img12.png" />, thus, the 
+<img class="tex" alt="Re_v" src="sabc_eqns/img13.png" /> takes a very low value inside the boundary layer 
+(close to the wall). Because of this, there cannot be intermittency generation inside the boundary layer by using 
+<img class="tex" alt="Term_1" src="sabc_eqns/img5.png" /> alone. To remedy this, 
+<img class="tex" alt="Term_2" src="sabc_eqns/img18.png" /> is introduced. 
+<img class="tex" alt="Term_2" src="sabc_eqns/img18.png" /> is (newly) defined as:
+<dl>
+<dd><img class="tex" alt="Term_2 = max\left(\frac{\mu_t}{\chi_2 \mu}, 0.0}\right)"
+src="sabc_eqns/img29.png" /></dd>
+</dl>
+
+<p>In these equations, the
+<img class="tex" alt="\mu_t" src="sabc_eqns/img31.png" /> is the turbulent eddy viscosity and
+<img class="tex" alt="\chi_2" src="sabc_eqns/img24.png" /> is a calibration parameter. Finally, 
+<img class="tex" alt="\chi_1" src="sabc_eqns/img17.png" /> and
+<img class="tex" alt="\chi_2" src="sabc_eqns/img24.png" /> are given 
+below (with <img class="tex" alt="\chi_2" src="sabc_eqns/img24.png" /> modified from its original definition in SA-BC):
+<dl>
+<dd><img class="tex" alt="\chi_1 = 0.002, \phantom{XX} \chi_2 = 0.02"
+src="sabc_eqns/img30.png" /></dd>
+</dl>
+
+<p>The freestream <img class="tex" alt="\tilde{\nu}" src="sabc_eqns/img26.png" /> is set to 
+<img class="tex" alt="{\tilde{\nu}}_{farfield} = 0.015 \nu_\infty : to : 0.025 \nu_\infty" src="sabc_eqns/img27.png" /> 
+(or 0.005 times the original SA boundary condition).
+(The influence of
+<img class="tex" alt="Tu_\infty" src="wa-at_eqns/img48.png" />
+comes in through
+<img class="tex" alt="R_{e_{\theta c}}" src="wa-at_eqns/img51.png" />,
+and not through the freestream <img class="tex" alt="\tilde{\nu}" src="sabc_eqns/img26.png" />.)
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p><a ID="lm-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras 1-equation BC Transitional Model<span style="color: blue">
+  (SA-BC)</span></strong>
+<p>This older version of SA-BCM is no longer recommended.
+The reference is:
+
+<ul>
+<li>Cakmakcioglu, S. C., Bas, O., and Kaynak, U., "A Correlation-Based Algebraic Transition Model," 
+Proceedings of the Institution of Mechanical Engineers, Part C: Journal of Mechanical Engineering Science, 
+Vol. 232, No. 21, 2018, pp. 3915-3929, 
+<a href="https://doi.org/10.1177/0954406217743537">https://doi.org/10.1177/0954406217743537</a>.
+</ul>
+
+<p>It was subsequently uncovered that <img class="tex" alt="\chi_2" src="sabc_eqns/img24.png" />
+was not coded as originally written in the above paper.
+Below, <img class="tex" alt="\chi_2" src="sabc_eqns/img24.png" />
+has been corrected to reflect how it was actually implemented.
+
+This model is the same as SA-BCM, except that
+<img class="tex" alt="Term_2" src="sabc_eqns/img18.png" /> is defined as:
+<dl>
+<dd><img class="tex" alt="Term_2 = \frac{max(\nu_{BC} - \chi_2), 0.0}{\chi_2}"
+src="sabc_eqns/img19.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="\nu_{BC} = \frac{\nu_t}{U d}"
+src="sabc_eqns/img20.png" /></dd>
+</dl>
+
+<p>In these equations, the
+<img class="tex" alt="\nu_{BC}" src="sabc_eqns/img21.png" /> term is a proposed turbulent viscosity-like non-dimensional term, where 
+<img class="tex" alt="\nu_t" src="sabc_eqns/img22.png" /> is the turbulent viscosity, 
+<img class="tex" alt="U" src="sabc_eqns/img23.png" /> is the local velocity magnitude, 
+<img class="tex" alt="d" src="sabc_eqns/img12.png" /> is the distance to the nearest wall and 
+<img class="tex" alt="\chi_2" src="sabc_eqns/img24.png" /> is a calibration parameter. The
+<img class="tex" alt="\chi_1" src="sabc_eqns/img17.png" /> and
+<img class="tex" alt="\chi_2" src="sabc_eqns/img24.png" /> are given 
+as (calibrated against Schubauer and Klebanoff flat plate test case):
+<dl>
+<dd><img class="tex" alt="\chi_1 = 0.002, \phantom{XX} \chi_2 = 5.0/Re"
+src="sabc_eqns/img25.png" /></dd>
+</dl>
+
+<p>
+<span style="color: red"><i>Warning:  the use of velocity in the
+<img class="tex" alt="\nu_{BC}" src="sabc_eqns/img21.png" /> term in this model makes it, strictly speaking,
+<strong><u>not Galilean invariant</u></strong>.
+Therefore results will be dependent on the frame of reference. Such a 
+dependence has been avoided in conventional turbulence modeling, and certainly in the original 
+SA model.  (Note the use of velocity in the trip term f<sub>t1</sub> of the model
+<a href="spalart.html#saIa">SA-Ia</a>, which has similarities to a transition model.
+In that model, in order to maintain Galilean invariance,
+<img class="tex" alt="\Delta U" src="spalart1a_eqns/img5.png" /> was used,
+as the difference between the local velocity and a
+relevant wall velocity.) 
+</i></span>
+<p><span style="color: red">In the original reference, <img class="tex" alt="\chi_2" src="sabc_eqns/img24.png" /> was given as 5.  However, as
+coded by the authors, it actually includes the freestream Reynolds number
+<img class="tex" alt="Re = \rho_{\infty} U_{\infty} L_{ref} / \mu_{\infty}" src="sabc_eqns/img28.png" /> as
+shown above.
+This inclusion of Re may be problematic, since it brings
+a possibly non-unique reference length into play.  Turbulence models normally avoid such a dependence.
+The reference length L<sub>ref</sub> can be arbitrary for
+a given problem (for example, it may be wing chord, wing span, body diameter, or any number of
+things).  
+</span>
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<hr WIDTH="100%">
+<p>Samet Cakmakcioglu is acknowledged for helping with this webpage.
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+07/20/2020 - added modified SA-BCM model version<br>
+02/19/2019 - mentioned issue of lack of Galilean invariance<br>
+02/13/2019 - corrected chi_2 to reflect actual implementation (not in original reference)<br>
+01/29/2019 - emphasized warning message about inability to duplicate the results in the original reference<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/11/2021
+<br>&nbsp;
+
+</body>
+</html>

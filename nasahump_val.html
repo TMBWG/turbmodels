@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D NASA Wall-Mounted Hump Separated Flow Validation Case</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2DWMH: 2D NASA Wall-Mounted Hump Separated Flow Validation
+Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. This case is "Case 3" from the 
+<a href="Other_exp_Data/cfdval2004_exp.html" target="_blank">NASA CFDVAL2004 Workshop</a>.
+At this time, for consistency, the same set of best-practice structured grids are provided here that
+were used at the workshop. As such, they also include the interior chamber and flow-control slot.
+However, for the purposes of this particular no-flow-control validation case, there is no mass flow through the
+bottom chamber wall.
+Experimental data are provided here for comparison from from Greenblatt et al.
+
+<p>The experiment is described in detail at the 
+<a href="Other_exp_Data/cfdval2004_exp.html" target="_blank">NASA CFDVAL2004 Workshop</a> webpage.
+It is a Wall-mounted Glauert-Goldschmied type body, geometrically similar to that employed by Seifert and Pack 
+(AIAA Journal, Vol. 40, No. 7, July 2002, pp. 1363-1372,
+<a href="https://doi.org/10.2514/2.1796">https://doi.org/10.2514/2.1796</a>). 
+Full details of the current case are given in the references
+listed below. The model is mounted between two glass endplate frames and both leading edge and trailing edges 
+are faired smoothly with a wind tunnel splitter plate. This is a nominally two-dimensional experiment, treated as
+such for the CFD validation.
+
+<p>The primary focus of this case is to assess the ability of turbulence models to
+predict 2-D separation from a smooth body (caused by adverse pressure gradient) as well as
+subsequent reattachment and boundary layer recovery.  
+Since its introduction, this particular case (as well as its sister cases with flow control)
+has proved to be a challenge for all known RANS
+models.  Models tend to underpredict the turbulent shear stress in the separated shear layer,
+and therefore tend to predict too long a separation bubble.
+
+<p>For this case, the reference freestream velocity is approximately 34.6 m/s (M=0.1).
+Incoming fully turbulent boundary layer thickness at position x/c=-2.14 is approximately 35 mm, or about 8%c
+(the bump "chord" is 420 mm).
+The back pressure is chosen to achieve the desired flow. The upstream
+"run" length is chosen to allow the fully turbulent boundary layer
+to develop naturally, and achieve approximately the correct boundary layer thickness
+upstream of the hump.  The upper
+boundary is modeled in the CFD as an inviscid (slip) wall, and it includes a contour to its shape to
+approximately account for the blockage caused by the end plates in the experiment.
+
+<p><u>This case can be run either with or without the plenum</u> (the plenum was present in the experiment, but
+for the no-flow-control case, it is not crucial to include).
+The original grids from the CFDVAL2004 workshop included the plenum; they are provided in the first grid link below.
+A new set of grids has also been created <i>without</i> the plenum; they are provided in the second grid link below.
+The following plots show the layout of this case, along with the boundary conditions.
+"Pt" refers to total pressure, "P" refers to
+static pressure, and "Tt" refers to total temperature.
+The Reynolds number for this case is the same as that used for the 2004 workshop: 936,000.  Note that
+this differs slightly from the Reynolds number in the Greenblatt et al reference from 2006,
+which reports Re=929,000.  This small difference of less than 1 percent is deemed to be insignificant. 
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Nasahump_grids/nasahump_bcs.jpg" border="1" title="2D NASA wall-mounted hump (with plenum) BCs" alt="2D NASA wall-mounted hump (with plenum) BCs">
+</p>
+<p><img
+src="Nasahump_grids/nasahump_bcs_nearslot.jpg" border="1" title="2D NASA wall-mounted hump (with plenum) detail near slot" alt="2D NASA wall-mounted hump 
+(with plenum) detail near slot">
+</p>
+<p><img
+src="Nasahump_grids/nasahump_noplenum_bcs.jpg" border="1" title="2D NASA wall-mounted hump (no plenum) BCs" 
+alt="2D NASA wall-mounted hump (no plenum) BCs">
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="nasahump_grids_workshop.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS from CFDVAL2004 workshop (with plenum)</a>
+<p>
+<a href="nasahump_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS (no plenum)</a>
+
+<p>Some of the experimental data for this case will be shown below. 
+The profiles of interest are at x/c = -2.14, 0.65, 0.8, 0.9, 1.0, 1.1, 1.2, and 1.3.
+
+<p>The experimental data references are:
+<ul>
+<li>Greenblatt, D., Paschal, K. B., Yao, C.-S., Harris, J., Schaeffler, N. W., Washburn, A. E.,
+"Experimental Investigation of Separation Control Part 1: Baseline and Steady Suction,"
+AIAA Journal, Vol. 44, No. 12, 2006, pp. 2820-2830, 
+<a href="https://doi.org/10.2514/1.13817">https://doi.org/10.2514/1.13817</a>.
+<li>Greenblatt, D., Paschal, K. B., Yao, C.-S., Harris, J.,
+"Experimental Investigation of Separation Control Part 2: Zero Mass-Flux Oscillatory Blowing,"
+AIAA Journal, Vol. 44, No. 12, 2006, pp. 2831-2845,
+<a href="https://doi.org/10.2514/1.19324">https://doi.org/10.2514/1.19324</a>.
+<li>Naughton, J. W., Viken, S. A., Greenblatt, D., "Skin-Friction Measurements on the NASA Hump Model," 
+AIAA Journal, Vol. 44, No. 6, 2006, pp. 1255-1265,
+<a href="https://doi.org/10.2514/1.14192">https://doi.org/10.2514/1.14192</a>.
+</ul>
+
+<p>The full set of experimental data are available from:
+<a href="Other_exp_Data/CFDVAL2004/case3expdata.html" target="_blank">CFDVAL2004 Case 3 Experimental Data</a> webpage.
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Nasahump_validation/cp_exp.jpg" border="1" title="NASA wall-mounted hump data Cp versus x/c"
+alt="NASA wall-mounted hump data Cp versus x/c">
+           <img
+src="Nasahump_validation/cf_exp.jpg" border="1" title="NASA wall-mounted hump data Cf versus x/c"
+alt="Convex curvature data Cf versus x/c">
+           <img
+src="Nasahump_validation/u_upstream_exp.jpg" border="1" title="NASA wall-mounted hump data u-velocity at x/c=-2.14" 
+alt="NASA wall-mounted hump data u-velocity at x/c=-2.14">
+           <img
+src="Nasahump_validation/u_all_exp.jpg" border="1" title="NASA wall-mounted hump data u-velocity at several stations"
+alt="NASA wall-mounted hump data u-velocity at several stations">
+           <img
+src="Nasahump_validation/uv_all_exp.jpg" border="1" title="NASA wall-mounted hump data turbulent shear stress at several stations"
+alt="NASA wall-mounted hump data turbulent shear stres at several stations">
+<img
+src="Nasahump_validation/stream_exp.jpg" border="1" title="NASA wall-mounted hump data u-velocities and streamlines"
+alt="NASA wall-mounted hump data u-velocities and streamlines">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+The experimental data for these plots can be found in the following files:
+<a href="Nasahump_validation/noflow_cp.exp.dat">noflow_cp.exp.dat</a>,
+<a href="Nasahump_validation/noflow_cf.exp.dat">noflow_cf.exp.dat</a>,
+<a href="Nasahump_validation/noflow_u_inflow.exp.dat">noflow_u_inflow.exp.dat</a>, and
+<a href="Nasahump_validation/noflow_vel_and_turb.exp.dat">noflow_vel_and_turb.exp.dat</a>, and
+<a href="Nasahump_validation/Noflow_PIV_exp.tar.gz">Noflow_PIV_exp.tar.gz</a>.
+More extensive experimental data for this case - and for other cases including flow control - can be found at the
+<a href="Other_exp_Data/CFDVAL2004/case3expdata.html" target="_blank">
+NASA CFDVAL2004 Workshop Webpage for Case 3 Experimental Data</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect on grids from CFDVAL2004 workshop:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_workshop_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_workshop_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-std">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_workshop_ssglrrrsm.html">SSG/LRR-RSM-w2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-ssglrr.html#ssg-lrrRSM">SSG/LRR-RSM-w2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_workshop_kkl-meah.html">K-kL-MEAH2015m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="kkl.html#kkl-meah2015">K-kL-MEAH2015m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<br>&nbsp;
+<br>&nbsp;
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This area under construction... Come back later!-->
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect on grids with no plenum:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_sarc.html">SA-RC</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#saRC">SA-RC eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-std">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_bsl.html">BSLm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="bsl.html#bsl-std">BSLm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_ssglrrrsm.html">SSG/LRR-RSM-w2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-ssglrr.html#ssg-lrrRSM">SSG/LRR-RSM-w2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="nasahump_val_kkl-meah.html">K-kL-MEAH2015</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="kkl.html#kkl-meah2015">K-kL-MEAH2015 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2 and SST
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/18/2021
+<br>&nbsp;
+
+</body>
+</html>

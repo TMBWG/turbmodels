@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Axisymmetric Rotating Pipe</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">ARP: Axisymmetric Rotating Pipe</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. A large sequence of nested grids of the same family are 
+provided here. Data are also provided for comparison. For this 
+particular axisymmetric rotating pipe case (from Zaets et al), 
+the data is from an experiment. 
+Despite its geometric simplicity, the axially-rotating pipe displays complex
+physics that makes it an ideal test case for turbulence models.  In particular,
+it tests the ability of these models to capture effects due to rotation,
+curvature, and partial relaminarization.
+
+<p>The experiment involves flow through a pipe of 0.06 m diameter (D).
+The flow developed in a long non-rotating section, followed by a rotating section 25D long.
+The centerline axial velocity of the non-rotating section was 10 m/s, and Reynolds
+number based on centerline axial velocity and D was 37,000.  In the rotating section, the pipe wall rotated at 
+a speed of 6 m/s (N = ratio of rotation speed to centerline axial velocity = 0.6).  
+The developed flow in the non-rotating section was compared with the flow
+in the rotating section, 1.5 m (25D) downstream of the start of the rotation.
+
+<p>This axisymmetric case is not a 2-D computation; in this case, multiple grid planes are employed
+in the circumferential direction, and a
+periodic (rotated) grid system includes appropriate boundary conditions on the periodic sides of the grid.
+The CFD grid, provided in units of meters, 
+includes 9 m (150D) of developing (non-rotating) pipe section, followed by over 3.5 m (58D)
+of rotating section.  In this latter section, the grid includes constant (refined) grid spacing up to the 
+measurement station at x=10.5 m (x=175D), followed by grid stretching to the outflow boundary.
+At the inflow plane, total pressure and total temperature are specified, with the static pressure
+allowed to vary.  At the outflow, static pressure is set (in order to achieve a peak axial
+velocity at the centerline of approximately 10 m/s 
+at the location "0" reference station), and other quantities are extrapolated from
+the interior of the computational domain.
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Rotatingpipe_validation/rotatingpipe_bc.jpg" border="1" title="Axisymmetric Rotating Pipe case layout & BCs" alt="Axisymmetric Rotating Pipe case layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note that the above BCs may need revision.  In particular:
+<ul>
+  <li>T<sub>ref</sub> = 310.98 K = 559.764 R
+  <li>Outflow p/p<sub>ref</sub> = 0.9981
+  <li>Also note: P<sub>ref</sub> = 104,506 Pa
+</ul>
+
+<p>
+<a href="rotatingpipe_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<p>The experimental data reference is:  Zaets, P. G., Kurbatskii, A. F., Onufriev, A. T.,
+Poroseva, S. V., Safarov, N. A., Safarov, R. A., and Yakovenko, S. N.,
+"Experimental Study and Mathematical Simulation of the Characteristics of a Turbulent Flow
+in a Straight Circular Pipe Rotating About its Longitudinal Axis,"
+<i>Journal of Applied Mechanics and Technical Physics</i>, Vol. 39,
+No. 2, 1998, pp. 249-260.
+
+<p>Some of the experimental data for this case are shown below. 
+N=0 represents the non-rotating flow, while N=0.6 represents the flow with rotating pipe velocity of 6 m/s.
+Note the original data nondimensionalized many of the quantites by a reference wall friction
+velocity, u<sub>tau</sub> = 0.435 m/s.
+Here, these have been re-nondimensionalized by u<sub>ref,0</sub> (10 m/s) instead, which is
+more convenient for direct comparison with the CFD.
+Also note that in the experimental data, "y" and "v" represent the radial direction, while "z" and "w"
+represent the circumferential direction.
+<!--Velocity and turbulence profiles of interest are chosen at the following x/c locations: 
+x/c=-0.25, 0.688, 0.813, 1.000,
+1.125, and 1.375. (The profile at x/c=0.688 is near the shock location.)
+The flow separation point found through the experiment occured near x/c = 0.7 and the reattachment point near x/c = 1.1.-->
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Rotatingpipe_validation/exp_u_byuinf.jpg" border="1" title="Axisymmetric Rotating Pipe axial (u) velocity" 
+alt="Axisymmetric Rotating Pipe axial (u) velocity">
+           <img
+src="Rotatingpipe_validation/exp_w_byuinf.jpg" border="1" title="Axisymmetric Rotating Pipe circumferential (w) velocity" 
+alt="Axisymmetric Rotating Pipe circumferential (w) velocity">
+           <img
+src="Rotatingpipe_validation/exp_uv_byuinf2.jpg" border="1" title="Axisymmetric Rotating Pipe specific turbulent shear stress" 
+alt="Axisymmetric Rotating Pipe specific turbulent shear stress">
+           <img
+src="Rotatingpipe_validation/exp_k_byuinf2.jpg" border="1" title="Axisymmetric Rotating Pipe turbulent kinetic energy" 
+alt="Axisymmetric Rotating Pipe turbulent kinetic energy">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The experimental data used are provided here:
+<ul>
+<li><a href="Rotatingpipe_validation/zaets_exp_u.dat">zaets_exp_u.dat</a></li>
+<li><a href="Rotatingpipe_validation/zaets_exp_w.dat">zaets_exp_w.dat</a></li>
+<li><a href="Rotatingpipe_validation/zaets_exp_uv.dat">zaets_exp_uv.dat</a></li>
+<li><a href="Rotatingpipe_validation/zaets_exp_k.dat">zaets_exp_k.dat</a></li>
+</ul>
+<p>Other relevant experimental data:
+<ul>
+<li><a href="Rotatingpipe_validation/zaets_exp_uu_vv_ww.dat">zaets_exp_uu_vv_ww.dat</a></li>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<!--<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="rotatingpipe_val_sa.html">SA</a><br>-->
+    <span style="text-align: left; font-weight: 700; font-size: x-large">SA (not ready yet)
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<hr WIDTH="100%">
+<p>Neil Ashton of University of Oxford is acknowledged for his help putting 
+together this web page.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/10/2022
+<br>&nbsp;
+
+</body>
+</html>

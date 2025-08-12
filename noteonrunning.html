@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Notes on Running the Cases with CFD</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p>Note that the use of overbars and hats, indicating time averaging and density-weighted averaging (described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>)
+is not always followed on this page or throughout the
+rest of the website.  Often, they are dropped for convenience.
+<br>&nbsp;
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Notes on Running the Cases with CFD
+</strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>1.</strong> It is important to note that most of the cases described on this
+website were run using <strong><u>NONDIMENSIONAL</u></strong> CFD codes that solve the compressible Reynolds-averaged Navier-Stokes
+equations for an ideal, calorically-perfect gas. Therefore, the descriptions of the cases give
+a <b>Reynolds number</b> per unit length (referenced to the grid provided) and a <b>Mach number</b>.
+These parameters completely define the problem (a temperature is also specified
+for determining the dynamic viscosity via Sutherland's law, but this does not have as significant an influence on
+the resulting flowfield as Re and M).
+If you are running using a dimensional code on the
+provided grids, it is crucial that you at least set conditions to match the prescribed Reynolds number and 
+Mach number exactly.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Let us use the
+<a href="flatplate.html">Flat Plate Verification Case</a> as an example.  That case specifies
+M=0.2, Re<sub>L</sub>=5 million, where L is unit 1 of the grid, and the plate portion of the grid is 2 units long.
+(The T<sub>ref</sub>=540R=300K is also specified; it is used solely as an input to 
+<a href="http://www.cfd-online.com/Wiki/Sutherland%27s_law" target="_blank">Sutherland's law</a> (for example)
+for determining the dynamic viscosity.)
+These parameters completely define the problem.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">For a dimensional code, one must choose units, and force the
+input choices to yield the correct Re and M.  For this case the goal 
+is to put this plate in a "virtual wind tunnel" so as to achieve
+Re=5 million per unit length and M=0.2.
+
+<ul>
+<li><p><span style="text-align: left; font-weight: 400; font-size: medium">
+For example, one could assume that the flat plate grid is in meters.
+Choose a speed of sound.  It can be anything, but say it is 342 m/s.
+(Depending on your particular code, other inputs would have to be consistent with this choice, assuming an ideal gas.)
+Thus, reference velocity must be chosen as 0.2 times 342 = 68.4 m/s.
+Then, reference kinematic viscosity must be chosen so that Re per meter is 5 million:
+i.e., <img class="tex" alt="\nu = \mu/\rho" src="spalart_eqns/img26.png" /> must be
+1.368 x 10<sup>-5</sup> m<sup>2</sup>/s.
+
+<li><p><span style="text-align: left; font-weight: 400; font-size: medium">
+As another example, assume that the flat plate grid is in feet.
+Choose speed of sound to be (say) 1122 ft/s.
+Reference velocity must be 0.2 times 1122 = 224.4 ft/s.
+Reference kinematic viscosity 
+must be chosen so that Re per foot is 5 million: i.e.,
+<img class="tex" alt="\nu = \mu/\rho" src="spalart_eqns/img26.png" />
+must be 4.488 x 10<sup>-5</sup> ft<sup>2</sup>/s.
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Further details about the nondimensional codes used on this website:
+the Prandtl number Pr is taken to be constant at 0.72, and turbulent Prandtl
+number Pr<sub>t</sub> is taken to be constant at 0.9.
+The dynamic viscosity is computed using
+Sutherland's Law (See White, F. M., "Viscous Fluid Flow," McGraw Hill, New York, 1974, p. 28).
+In Sutherland's Law, the local value of dynamic viscosity is determined by plugging the local value of temperature
+(<i>T</i>) into the following formula:
+
+<dl>
+<dd><img class="tex" alt="\mu = \mu_0 \left( \frac{T}{T_0} \right)^{3/2} \left(
+\frac{T_0 + S}{T+S} \right)"
+  src="sutherland_eqns/img2.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_0 = 1.716 \times 10^{-5} kg/(ms)" src="sutherland_eqns/img3.png" />,
+<img class="tex" alt="T_0 = 491.6 R" src="sutherland_eqns/img4.png" />, and
+<img class="tex" alt="S = 198.6 R" src="sutherland_eqns/img5.png" />.
+The same formula can be found <a href="http://www.cfd-online.com/Wiki/Sutherland%27s_law" target="_blank">online</a>
+(with temperature constants given in degrees K and some small conversion differences).
+Note that in terms of reference quantities, Sutherland's Law can equivalently be written:
+
+<dl>
+<dd><img class="tex" alt="\left( \frac{\mu}{\mu_{ref}} \right) = \left( \frac{T}{T_{ref}} \right)^{3/2} \left(
+\frac{T_{ref} + S}{T+S} \right)"
+  src="sutherland_eqns/img6.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_{ref}" src="sutherland_eqns/img7.png" />
+is the reference dynamic viscosity that typically corresponds to the freestream, and
+<img class="tex" alt="T_{ref}" src="sutherland_eqns/img8.png" /> is given for each problem of interest.
+This latter form may be more convenient for nondimensional codes.
+(Specific details regarding an implementation of Sutherland's Law in nondimensional codes can be found in
+<a href="Papers/sutherland_notes_cfl3d_fun3d.pdf">handwritten notes describing Sutherland's Law in CFL3D and FUN3D</a>.)
+
+&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>2.</strong> As discussed elsewhere on this site, note that
+all cases are <strong>compressible flow</strong> verification and validation cases.  
+Although many are at low Mach numbers such that the flow is "essentially" incompressible, 
+if you run with an incompressible code your results will not exactly correspond with the 
+compressible code results given here.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>3.</strong> Throughout the webpages, there are many comparisons
+with experimental
+<img class="tex" alt="\overline{u'v'}" src="notes_eqns/img2.png" />,
+here referred to as "turbulent shear stress."
+(Officially, the turbulent shear stress is 
+<img class="tex" alt="\overline{\rho} \overline{u_i'u_j'}" src="notes_eqns/img5.png" />, with this giving the proper units for a stress.
+However, for low-speed flows with density approximately constant,
+it is very common to also refer to <img class="tex" alt="\overline{u'v'}" src="notes_eqns/img2.png" />
+as the "turbulent shear stress," even though its units are velocity squared.)
+The equations for <img class="tex" alt="\overline{u'v'}" src="notes_eqns/img2.png" /> are as follows.
+First, use the definition: <img class="tex" alt="\tau_{ij} \equiv - \overline{\rho u_i''u_j''}" src="notes_eqns/img3.png" />
+(see <a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a> page).
+Here, the double prime is used for Favre-averaged variables.  Since most cases on the website are at
+low Mach numbers such that the flow is "essentially" incompressible, we will use 
+<img class="tex" alt="\overline{\rho u_i''u_j''}" src="notes_eqns/img4.png" /> and
+<img class="tex" alt="\overline{\rho} \overline{u_i'u_j'}" src="notes_eqns/img5.png" /> interchangeably.
+Thus:
+
+<dl>
+<dd><img class="tex" alt="\overline{u_i'u_j'} \approx - \frac{\tau_{ij}}{\overline{\rho}}"
+src="notes_eqns/img6.png" /></dd>
+</dl>
+
+<p>Depending on the turbulence model, the <img class="tex" alt="\tau_{ij}" src="notes_eqns/img7.png" /> may
+be solved directly (e.g., full RSM), may be given by a complex nonlinear equation (e.g., explicit algebraic stress),
+or may be given by the simple Boussinesq relation:
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij}=2 \hat \mu_t \left( \hat S_{ij} - \frac{1}{3}
+\frac{\partial \hat u_k}{\partial x_k} \delta_{ij} \right) - \frac{2}{3} \overline \rho k \delta_{ij}"
+  src="implementrans_eqns/img15.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\hat S_{ij} = (\partial \hat u_i / \partial x_j +
+\partial \hat u_j / \partial x_i) / 2" src="implementrans_eqns/img16.png" />, and
+<img class="tex" alt="\hat \mu_t" src="implementrans_eqns/img21.png" /> is the eddy viscosity
+obtained by the turbulence model.
+
+<p>Therefore, for the turbulence models that use the Boussinesq relation,
+<img class="tex" alt="\overline{u'v'}" src="notes_eqns/img2.png" /> can be computed from:
+
+<dl>
+<dd><img class="tex" alt="\overline{u'v'} = - \frac{\hat \mu_t}{\overline{\rho}} \left(
+\frac{\partial \hat u}{\partial y} + \frac{\partial \hat v}{\partial x} \right)"
+src="notes_eqns/img8.png" /></dd>
+</dl>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>4.</strong> There is sometimes confusion with regard to the form
+of the production term when the Boussinesq relation is invoked.  The Boussinesq relation is:
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij}=2 \hat \mu_t \left( \hat S_{ij} - \frac{1}{3}
+\frac{\partial \hat u_k}{\partial x_k} \delta_{ij} \right) - \frac{2}{3} \overline \rho k \delta_{ij}"
+  src="implementrans_eqns/img15.png" /></dd>
+</dl>
+
+<p>as described in (3) above.  Now, for example, the <em>k</em> production term is:
+
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij} \frac{\partial \hat u_i}{\partial x_j}"
+  src="implementrans_eqns/img24.png" /></dd>
+</dl>
+
+<p>For incompressible flows, this exactly becomes:
+
+<dl>
+<dd><img class="tex" alt="P_{inc} = 
+  \frac{1}{2} \hat \mu_t \left( \frac{\partial \hat u_i}{\partial x_j}+ \frac{\partial \hat u_j}{\partial x_i} \right)
+                         \left( \frac{\partial \hat u_i}{\partial x_j}+ \frac{\partial \hat u_j}{\partial x_i} \right) = 
+  \hat \mu_t \frac{\partial \hat u_i}{\partial x_j}
+                         \left( \frac{\partial \hat u_i}{\partial x_j}+ \frac{\partial \hat u_j}{\partial x_i} \right) =
+  2 \hat \mu_t \hat S_{ij} \hat S_{ij} \equiv \mu_t \hat S^2"
+  src="implementrans_eqns/img25.png" /></dd>
+</dl>
+
+<p>Many references cite the above incompressible form of the production term.  Except for very high Mach number flows (e.g.,
+arguably <img class="tex" alt="M > 2-5" src="implementrans_eqns/img26.png" />, depending on the case), <em>P<sub>inc</sub></em> is
+often a very good approximation for <em>P</em>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>5.</strong> All of the cases on this website are intended to be run as "fully
+turbulent," in the sense that the RANS turbulence model should be active and engaged. However, it is recognized that
+most models inherently "trip" on their own over some finite distance (which may be code and grid dependent for a given case).
+See, e.g., AIAA Journal, Vol. 47, No. 4, April 2009, pp. 982-993,
+<a href="https://doi.org/10.2514/1.39947">https://doi.org/10.2514/1.39947</a>.
+The main intent is that the tripping occurs reasonably quickly over the body
+so that transition is a negligible issue for the cases given.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Some models give specific recommended freestream levels of turbulence for all situations,
+some ask for the user to input values for freestream turbulence intensity (Tu) and freestream turbulence length scale or freestream eddy viscosity, 
+and some make no recommendations.
+In the cases on this site, various approaches are taken.  For CFL3D and FUN3D using the SA and SST/SST-V models, the freestream
+levels are described on the VERIFICATION pages (see, e.g., the
+<a href="flatplate_sa.html">SA Expected Results for Flat Plate</a> page or the
+<a href="flatplate_sst.html">SST Expected Results for Flat Plate</a> page).  Additional details can be found in the 
+<a href="https://nasa.github.io/CFL3D/Cfl3dv6/cfl3dv6_v5manual.html" target="_blank">CFL3D User's Manual, Appendix H</a>.
+These same freestream settings were used by these two codes for the VALIDATION cases as well. (Note that although freestream k is typically fixed
+in CFL3D and FUN3D for two-equation models, due to the nondimensionalization used the resulting turbulence intensity (Tu)
+is a function of reference Mach number, so Tu varies from case to case).
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">For some of the other contributed code results, different freestream turbulence settings were used, and for 
+some codes the freestream turbulence settings are not known.  This inconsistency/uncertainty in freestream turbulence levels may contribute to some of
+the (usually minor) code-to-code differences in results on the VALIDATION pages.
+Presumably, however, the very close agreements between codes is an indication that the freestream turbulence levels used by the various codes
+are sufficient to ensure adequate "fully turbulent" flow while not being so unphysical as to corrupt the turbulent solutions.
+For example, see the bottom of the page
+<a href="flatplate_sst.html">SST Expected Results for Flat Plate</a> for a quantification of the effects 
+that freestream turbulence levels have on fully turbulent flat plate solution measures of interest.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>6.</strong> Many of the cases are evaluated based on surface skin friction coefficient,
+surface pressure coefficient,
+lift coefficient, and/or drag coefficient.  The definitions of these are "standard" and can be found in many textbooks or on
+websites such as 
+<a href="http://www.cfd-online.com/Wiki/" target="_blank">CFD-ONLINE</a> or
+<a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>.
+Surface skin friction coefficient is defined by:
+
+<dl>
+<dd><img class="tex" alt="C_f = \frac{2 \tau_w}{\rho_{ref}U_{ref}^2}"
+  src="notes_eqns/img9.png" /></dd>
+</dl>
+
+where typically the "ref" density and velocity are freestream, but
+this may depend on the case.
+The <img class="tex" alt="\tau_w" src="notes_eqns/img10.png" /> is the wall shear stress
+
+<dl>
+<dd><img class="tex" alt="\tau_w=\mu_w \left( \frac{\partial u'}{\partial n} \right)_w"
+  src="notes_eqns/img11.png" /></dd>
+</dl>
+
+where <img class="tex" alt="\mu" src="notes_eqns/img12.png" /> is the dynamic viscosity,
+<em>u'</em> is the velocity <u>along</u> the boundary (parallel to the wall), <em>n</em> is the
+direction normal to the wall, and subscript "<em>w</em>" indicates at the wall.  
+Because (for most aerospace applications) the x-direction is generally used as the
+"downstream" direction, the skin friction coefficient is often defined to be 
+positive or negative based on the sign of
+the <em>u</em>-velocity component of <em>u'</em> (i.e., based on the sign of the x-direction component
+of the skin friction coefficient).  In 3-D, this practice may be somewhat ambiguous.
+Surface pressure coefficient is defined by:
+
+<dl>
+<dd><img class="tex" alt="C_p = \frac{2 \left(p_w-p_{ref}\right)}{\rho_{ref}U_{ref}^2}"
+  src="notes_eqns/img13.png" /></dd>
+</dl>
+
+Here, the "ref" pressure, density, and velocity are again typically freestream, but
+this may depend on the case.
+Lift coefficient is defined by:
+
+<dl>
+<dd><img class="tex" alt="C_L = \frac{2 L}{\rho_{ref}U_{ref}^2 A}"
+  src="notes_eqns/img14.png" /></dd>
+</dl>
+
+where <em>L</em> is the lift force and <em>A</em> is the reference area (in 2-D it is reference length, or area per unit span).
+Similarly, drag coefficient is defined by:
+
+<dl>
+<dd><img class="tex" alt="C_D = \frac{2 D}{\rho_{ref}U_{ref}^2 A}"
+  src="notes_eqns/img15.png" /></dd>
+</dl>
+
+where <em>D</em> is the drag force.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>7.</strong> Many of the cases on this
+website were run using the NASA LaRC CFD codes 
+<a href="https://nasa.github.io/CFL3D/" target="_blank">CFL3D</a> and 
+<a href="http://fun3d.larc.nasa.gov/" target="_blank">FUN3D</a>. 
+These codes both solve the 
+<a href="implementrans.html">compressible Reynolds-averaged Navier-Stokes (RANS)</a> equations.
+As described in detail in Note 1 above, they 
+both use Sutherland's law for the dynamic viscosity (White, F. M., "Viscous Fluid Flow," McGraw Hill, New York, 1974, p. 28),
+Prandtl number Pr is taken to be constant at 0.72, and turbulent Prandtl number Pr<sub>t</sub> is taken to be 
+constant at 0.9.
+These and other details can be found on the respective websites for these codes.
+Unless otherwise noted, the runs using both CFL3D and FUN3D throughout the TMR web pages were made with the following:
+<ul>
+  <li><b>First order turbulence advection in the turbulence transport equations.</b> As the grid is refined, results using 1st order
+turbulence advection will go to the same results as that for 2nd order, but on a given grid the former results may be
+less accurate.
+  <li><b>Use of P<sub>inc</sub> for the "exact" production term in two-equation models (see note 4 above).</b> 
+This approximation neglects two terms that are exactly zero for incompressible flows:
+-2/3*mu_t*(du_k/dx_k)**2 and -2/3*rho*k*(du_k/dx_k).
+For low Mach number flows, this approximation makes negligible difference, but the approximation may have
+some noticeable influence as the Mach number increases.
+Currently, all of the TMR <u>verification cases</u> are at M=0.5 or lower.
+  <li><b>In linear two-equation models, the (2/3)rho*k term is neglected in the Boussinesq approximation for tau_ij in
+the momentum and energy equations.</b> (See the 
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a> page.)
+</ul>
+(More recent versions of the CFL3D and FUN3D codes allow most of the above defaults to be overridden.)<br>
+Note: as of the time of this writing, both CFL3D and FUN3D solve the <u>nonconservative</u> form of all turbulence 
+equations by default (e.g., carrying k and omega rather than rho*k and rho*omega).
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>8.</strong> In the description of
+the various turbulence models, it is implicitly presumed that variables that appear in denominators never reach zero (i.e.,
+division by zero should never occur).  In practice in CFD codes, this may be enforced in different ways; but the precise method is
+generally not specified in the description of the turbulence model itself.
+Thus, potential inconsistencies in implementation may exist at this level between codes
+that otherwise have identical coding. It is assumed that this level of inconsistency would yield insignificant differences.
+Note that (similar to the mean flow quantities density and pressure), 
+many of the turbulence quantities should
+always remain non-zero and positive in the flowfield away from boundaries, including
+<i>k</i>, <i>omega</i>, <i>kL</i>, <i>mu_t</i>, <i>R<sub>t</sub></i>, and <i>epsilon</i>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>9.</strong> Unless otherwise explicitly stated, 
+the equations on this site assume an inertial frame of reference.  If you are computing in a non-inertial frame 
+(for example, in a rotating reference frame), then you will need to appropriately account for it in the mean flow
+and turbulence equations. In the turbulence equations, the most common impacted term is the vorticity. The
+<a href="spalart.html#saRC">SA-RC</a> and 
+<a href="sst.html#sst-rc">SST-RC</a> models include accounting for a rotating reference frame.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>10.</strong> A note on "verification."
+The type of verification used for this site (verification by code-to-code comparisons along with grid-convergence study) is relatively weak, 
+but it can at least indicate if there is a likely problem in your turbulence model implementation.  A better method of verification
+is Method of Manufactured Solutions (MMS), briefly talked about on the
+<a href="eca1.html">Information from Lisbon "Workshop on CFD Uncertainty Analysis" series</a> page.
+You can also find information in the open literature.
+
+<p>In any case, a properly-conducted grid-convergence study is crucial to drawing the right conclusions.  
+The following aspects are very important.  First of all, note that:
+<ul>
+  <li>Even if coded correctly, different codes/schemes may (and likely will) yield different results on the same grid.  But
+      on finer and finer grids of the same family, they will eventually approach the same result.
+  <li>The same code/scheme run on different grid families may yield different results for the same number of degrees of freedom
+      (same grid sizes), but as each family is refined they will eventually approach the same result.
+  <li>If the grid is too coarse such that it does not lie in the "asymptotic range of grid convergence," then the solution may
+      not approach the true (infinite-grid) solution with any order property.  In other words, the solution may get worse before 
+      it (eventually) gets better.
+      It can be difficult to tell if a given grid is fine enough to lie in the asymptotic range.
+</ul>
+These concepts are illustrated in the sketch below.  Here, two different codes/schemes are run on two different grid families.  When plotting
+the quantity of interest as a function of some measure of the mean grid spacing (h), you can see that there is only one correct
+answer on an infinite grid (h=0).  But both codes and both grid families approach the infinite-grid result differently.
+Even on the finest grids illustrated here (left-most symbols), there is a difference between results for the same code on
+different grids, and there is a difference between results for different codes on the same grid.
+One can never reach h=0, so the goal is typically to achieve a level of grid refinement that makes the error
+reasonably small.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Verification_general/effect_of_code.jpeg" border="1" title="sketch demonstrating possible effect of code and grid family when doing grid study" 
+alt="sketch demonstrating possible effect of code and grid family when doing grid study">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+Note that some level of "intelligent grid design" is important.  A grid with horribly misplaced points may yield very poor
+results even with h very small.
+
+<p>It is crucial to understand what is meant by a "grid family" when performing global grid refinement.  
+<b>In a proper grid family, each successively
+coarser grid is a subset of the next finer one, with every grid cell size changing consistently in all directions.</b>  
+A proper grid family can be made with
+structured grids very easily, by making the finest possible grid, then removing every other point in each coordinate direction
+for the next coarser level.
+(This is done for most of the verification cases on this site.)  It is also possible to create a grid family with
+other-than-factor-of-2-in-each-coordinate-direction variation, but this takes more work.  
+It is much more difficult to create a proper grid family for
+unstructured grids (see, for example, the <a href="multielementverif.html">VERIF/2DMEA</a> case).
+A proper grid family will ALWAYS have all of its grid cell spacings in every region of the flow 
+continually and consistently decreasing with each successively finer grid.
+When one makes use of grids that are NOT of the same family, it may be difficult to tell where the solution is heading with
+grid refinement.
+This concept is notionally illustrated in the following sketch:
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Verification_general/proper_family.jpeg" border="1" title="sketch demonstrating problem when not using a proper grid family" 
+alt="sketch demonstrating problem when not using a proper grid family">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+Here, the solid lines indicate CFD results from a given code/scheme using 3 different grid families. They all approach the
+same infinite-grid result, as expected.  On the other hand, the 
+dashed line indicates CFD results on finer and finer grids that are NOT of the same family.  As can be seen,
+without a proper grid family, it is possible to be misled regarding what the infinite-grid solution should be, particularly if
+the finest grid used is not close enough to h=0.  This is because it is not possible to establish an order property or have
+a true asymptotic range in this case.  Note: if you create
+a sequence of grids all with the same fixed minimum spacing at the wall, then the sequence is NOT of the same family.
+In fact, if ANY region of the grid does not refine uniformly and multidirectionally
+with successively finer versions, then it is not a proper grid family.
+
+<p>Naturally, some regions of the flow may benefit from grid refinement more than others; but it is a bad idea to try to guess.
+Creating a grid family avoids the guesswork, although it can be expensive (especially for 3-D flows).
+Adaptive mesh refinement (not covered here) is a technique that automatically and accurately determines how/where grid refinement is needed, 
+and therefore has the capability to approach the infinite-grid solution with fewer grid points than with global grid refinement.
+
+<p>This discussion did not go into order-of-accuracy analysis, which can also be an important component of a grid-refinement study.
+There is much in the open literature on this.  See, for example, Roy et al., Journal of Aircraft Vol. 55 No. 4, 2018, pp. 1338-1351,
+<a href="https://doi.org/10.2514/1.C034856">https://doi.org/10.2514/1.C034856</a> or
+Oberkampf, W. L., and Roy, C. J., <u>Verification and Validation in Scientific Computing</u>, Cambridge Univ. Press, Cambridge, England,
+U.K., 2010.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>11.</strong> A note on the plotting of
+grid convergence results.  On these web pages, quantities of interest (QoI) such as lift coefficient, drag coefficient,
+etc. are plotted as a function of a measure of "characteristic" grid spacing (h) on a proper family of grids
+(defined as h=(1/N)<sup>(1/d)</sup>, where N is the grid size or number of unknowns, and d is the dimensionality: 2 for 2-D
+and 3 for 3-D).  
+Here, we show how the results from codes with different
+spatial orders of accuracy behave when plotted in this - and other - ways.
+
+<p>First, we construct "made up" solutions for 4 codes, each of which behaves spatially <u>perfectly</u> as 
+either 1st, 2nd, 3rd, or 4th order.
+In this "perfect" toy problem, solutions on a 
+sequence of 10 grids are artificially created.  In all cases, the exact solution (h=0) is taken to be 1.0.
+For the first order result, the error from the exact solution 
+is C1*h, where C1 is a constant.  For the second order solution, the error is C2*h<sup>2</sup>, where C2 is a (different)
+constant.  For 3rd and 4th order, the error is C3*h<sup>3</sup> and C4*h<sup>4</sup>, respectively.  
+(It is important to note that the constants can be anything, and will likely
+be different for different codes and cases.)  When log(error) is plotted as a function of log(h), the following plot
+results.  In each case, the plots are straight lines with slope equal to the respective spatial order of accuracy.
+(The constants determine the vertical location, up or down, on the plot.)
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Verification_general/error_slope_plot.png" border="1" title="sketch demonstrating how error behaves for different spatial orders" 
+alt="sketch demonstrating how error behaves for different spatial orders">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Typically, the exact solution is not known, so the QoI itself may be plotted instead.  For this toy problem, the error is
+added to the exact solution, so the solutions all approach the exact result from above.  (They could just as
+easily approach from below.)  In the first plot shown below, the QoI is plotted
+as a function of h.  When plotted in this way, the first order solution appears as a straight line, heading
+directly toward the exact solution at h=0. On the other hand, the higher order solutions asymptote toward the exact solution,
+with their curves looking flatter as they approach h=0.  The higher the order, the flatter the curve appears in the plot.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Verification_general/error_vs_h.png" border="1" title="sketch demonstrating how different spatial orders appear when plotted vs h" 
+alt="sketch demonstrating how different spatial orders appear when plotted vs h">
+           <img
+src="Verification_general/error_vs_h2.png" border="1" title="sketch demonstrating how different spatial orders appear when plotted vs h^2" 
+alt="sketch demonstrating how different spatial orders appear when plotted vs h^2">
+           <img
+src="Verification_general/error_vs_h3.png" border="1" title="sketch demonstrating how different spatial orders appear when plotted vs h^3" 
+alt="sketch demonstrating how different spatial orders appear when plotted vs h^3">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>In the second plot above, the same QoI is plotted as a function of h<sup>2</sup>.  In this case, the second order
+solution appears as a straight line, heading directly toward the exact solution at h=0.  The first order
+solution curves downward (toward the exact solution), while the third and fourth order solutions asymptote,
+flattening as they approach h=0.  The third plot above shows the QoI plotted as a function of h<sup>3</sup>.
+This time, the third order solution is a straight line.
+Similarly, if plotted vs. h<sup>4</sup>, the fourth order solution would
+appear as a straight line (not shown here).
+
+<p>In all cases of this toy problem, each result is correctly approaching the exact solution, which is not perfectly reached until h=0.
+Each solution is approaching according to its own prescribed order of accuracy.
+
+<p>Throughout this website, grid convergence plots are made with h along the x-axis, like the first plot above.  
+Therefore, depending on the spatial order
+behavior for the particular code/QoI at hand, 
+the curves may be close to straight (behaving roughly 1st order), asymptoting/flattening (behaving higher than 1st order),
+or accelerating as h approaches zero (behaving lower than 1st order).
+Note, however, that in reality, codes typically behave close to their expected spatial behavior only for very simple, smooth
+problems on extremely regular grids.  On real problems with typical grids, codes may or may not behave with the order
+behavior expected.  And sometimes they may behave as expected for some QoI but not for others.
+
+<p>It is also possible that a given curve may be nonmonotone and/or
+nonsmooth, possibly rising then falling or behaving erratically.  Such behavior can result
+when some or all of the grids are too coarse for the problem (often such cases are said to be "outside the range of
+asymptotic grid convergence").  Sometimes the coarser grids in a family behave as if outside the asymptotic range, but the
+finer grids behave more rationally.
+The overall order of accuracy behavior may be affected by lower order boundary conditions, turbulence model order
+of accuracy, insufficient iterative convergence, 
+nonsmooth grids, geometric singularities such as sharp corners, nonsmooth flowfield features, lack of
+sufficient resolution of particular flow features, and roundoff error interfering before the solutions reach 
+asymptotic grid convergence.
+
+<p>Because the CFD codes used on this site are nominally second order spatially accurate, we typically expect to see QoI that
+appear to asymptote (flatten) as h approaches zero in plots of QoI vs. h.  However, this is not always the case (as discussed
+above).
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+1/26/2023 - added note 11<br>
+7/29/2021 - added note 10<br>
+4/12/2021 - additional clarification regarding nonconservative form used in Note 7<br>
+3/21/2019 - additional detailed information given in note 1 regarding Pr, Prt, and Sutherland's Law<br>
+2/12/2018 - clarification about details in CFL3D and FUN3D runs for the TMR site<br>
+4/27/2017 - added note 9<br>
+6/29/2016 - added note 8<br>
+5/19/2016 - minor revision to note 6<br>
+8/8/2014 - added note 7<br>
+3/20/2014 - added note 6<br>
+7/15/2013 - added/revised note 5
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 01/29/2023
+<br>&nbsp;
+
+</body>
+</html>

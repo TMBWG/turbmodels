@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>SSG/LRR Full Reynolds Stress Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">SSG/LRR Full Reynolds Stress 
+Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various versions of the blended SSG/LRR full second-moment Reynolds stress models, which
+use an omega equation for the length scale equation.
+Full second-moment Reynolds stress models are very different from simpler one and two-equation
+linear/nonlinear models, in that the latter use a constitutive relation giving
+the Reynolds stresses <img class="tex" alt="\tau_{ij}" src="rsm-ssglrromega_eqns/img2.png" />
+in terms of other tensors via some assumed relation (such as Boussinesq's hypothesis).
+On the other hand, full second-moment Reynolds stress models compute each of the 6 Reynolds stresses 
+directly (the Reynolds stress tensor is symmetric so there are 6 independent
+terms).  Each Reynolds stress has its own transport equation.
+There is also a seventh transport equation for the lengthscale-determining variable.
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<br>&nbsp;
+
+<p><a ID="ssg-lrrRSM"><strong><span style="text-align: left; font-weight: 700; font-size: large">SSG/LRR-omega Full Reynolds Stress Model
+   <span style="color: blue">(SSGLRR-RSM-w2012)</span></strong>
+
+<p>This model was developed within the framework of the European Project FLOMANIA for application
+to aeronautical flow problems.  It uses a blend of two different pressure-strain models (the LRR
+part is based on an earlier version of the <span style="color: blue">WilcoxRSM-w2006</span> model). 
+Its main references are:
+
+<ul>
+<li>Eisfeld, B., Rumsey, C., and Togiti, V.,
+"Verification and Validation of a Second-Moment-Closure Model,"
+<b>AIAA Journal</b>, Vol. 54, No. 5, 2016, pp. 1524-1541,
+<a href="https://doi.org/10.2514/1.J054718">https://doi.org/10.2514/1.J054718</a>.
+<li>Eisfeld, B., Rumsey, C., and Togiti, V.,
+"Erratum: Verification and Validation of a Second-Moment-Closure Model,"
+<b>AIAA Journal</b>, Vol. 54, No. 9, 2016, p. 2926,
+<a href="https://doi.org/10.2514/1.J055336">https://doi.org/10.2514/1.J055336</a>.
+<li>Cecora, R.-D., Radespiel, R., Eisfeld, B., and Probst, A.,
+"Differential Reynolds-Stress Modeling for Aeronautics,"
+<b>AIAA Journal</b>, Vol. 53, No. 3, 2015, pp. 739-755,
+<a href="https://doi.org/10.2514/1.J053250">https://doi.org/10.2514/1.J053250</a>.</li>
+<li>Cecora, R.-D., Eisfeld, B., Probst, A., Crippa, S., and Radespiel, R.,
+"Differential Reynolds Stress Modeling for Aeronautics,"
+AIAA Paper 2012-0465, January 2012,
+<a href="https://doi.org/10.2514/6.2012-465">https://doi.org/10.2514/6.2012-465</a>.</li>
+<li>Eisfeld, B.,
+"Implementation of Reynolds Stress Models into the DLR-FLOWer Code,"
+Institutsbericht, DLR-IB 124-2004/31, Report of the Institute of Aerodynamics and Flow
+Technology, Braunschweig, ISSN 1614-7790, 2004.</li>
+<li>Eisfeld, B. and Brodersen, O., "Advanced Turbulence Modelling and Stress 
+Analysis for the DLR-F6 Configuration", AIAA Paper 2005-4727, June 2005,
+<a href="https://doi.org/10.2514/6.2005-4727">https://doi.org/10.2514/6.2005-4727</a>.
+</ul>
+
+<p>Note that the most recent papers (listed first) have different coefficients for
+<img class="tex" alt="C_2^{(LRR)}" src="rsm-ssglrromega_eqns/img65.png" /> and
+<img class="tex" alt="D^{(\omega)}" src="rsm-ssglrromega_eqns/img66.png" /> than the
+earlier papers. The newer values are recommended.
+Some references also have a minor typo on the sign of the production term in the omega equation
+(corrected here).
+
+<p>The full Reynolds stress model solves directly for the Reynolds stresses
+<img class="tex" alt="\overline \rho \hat R_{ij}" src="rsm-ssglrromega_eqns/img3.png" /> (which
+correspond to <img class="tex" alt="-\tau_{ij}" src="rsm-ssglrromega_eqns/img4.png" />
+as described on the page 
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>).
+In other words, using the notation of this website:
+
+<dl>
+<dd><img class="tex" alt="\overline \rho \hat R_{ij} = -\tau_{ij} = \overline {\rho u_i'' u_j''}"
+  src="rsm-ssglrromega_eqns/img5.png" /></dd>
+</dl>
+
+<p>Note that this <img class="tex" alt="\overline \rho \hat R_{ij}" src="rsm-ssglrromega_eqns/img3.png" />
+definition is the negative of the
+<img class="tex" alt="\overline \rho R'_{ij}" src="rsm-wilcoxomega_eqns/img2.png" />
+used in the 
+<a href="rsm-stressomega.html">WilcoxRSM-w2006 model</a>.
+The six Reynolds stress equations and one length scale equation are given by:
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial \overline \rho \hat R_{ij}}{\partial t} +
+\frac{\partial (\overline \rho \hat u_k \hat R_{ij})}{\partial x_k} = \overline \rho P_{ij} +
+\overline \rho \Pi_{ij} - \overline \rho \varepsilon_{ij} + \overline \rho D_{ij} +
+\overline \rho M_{ij}"
+  src="rsm-ssglrromega_eqns/img6.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\overline \rho \omega)}{\partial t} +
+  \frac{\partial (\overline \rho \hat u_k \omega)}{\partial x_k}
+  = \frac{\alpha_{\omega} \omega}{\hat k} \frac{\overline \rho P_{kk}}{2} -
+  \beta_{\omega} \overline \rho \omega^2 + \frac{\partial}{\partial x_k}
+  \left[ \left( \overline \mu + \sigma_{\omega} \frac{\overline \rho \hat k}{\omega} \right)
+  \frac{\partial \omega}{\partial x_k} \right] +
+  \sigma_d \frac{\overline \rho}{\omega} {\rm max} \left( \frac{\partial \hat k}{\partial x_j}
+  \frac{\partial \omega}{\partial x_j}, 0 \right)"
+  src="rsm-ssglrromega_eqns/img18.png" /></dd>
+</dl>
+
+<p>The production term is exact:
+
+<dl>
+<dd><img class="tex" alt="\overline \rho P_{ij} = - \overline \rho \hat R_{ik}
+\frac{\partial \hat u_j}{\partial x_k}
+- \overline \rho \hat R_{jk}
+\frac{\partial \hat u_i}{\partial x_k}"
+src="rsm-ssglrromega_eqns/img7.png" /></dd>
+</dl>
+
+<p>The dissipation is modeled via:
+
+<dl>
+<dd><img class="tex" alt="\overline \rho \varepsilon_{ij} = \frac{2}{3} \overline \rho \varepsilon \delta_{ij}"
+src="rsm-ssglrromega_eqns/img8.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\varepsilon = C_{\mu} \hat k \omega" src="rsm-ssglrromega_eqns/img9.png" />,
+and <img class="tex" alt="\hat k = \hat R_{ii}/2" src="rsm-ssglrromega_eqns/img10.png" />.
+
+<p>The pressure-strain correlation is modeled via:
+
+<dl>
+<dd><img class="tex" alt="\overline \rho \Pi_{ij} = - \left( C_1 \overline \rho \varepsilon +
+\frac{1}{2} C_1^* \overline \rho P_{kk} \right) \hat a_{ij} +
+C_2 \overline \rho \varepsilon \left( \hat a_{ik} \hat a_{kj} - 
+\frac{1}{3} \hat a_{kl} \hat a_{kl} \delta_{ij} \right) +
+\left( C_3 - C_3^* \sqrt{\hat a_{kl} \hat a_{kl}} \right)
+\overline \rho \hat k \hat S_{ij}^* +
+C_4 \overline \rho \hat k \left( \hat a_{ik} \hat S_{jk} +
+\hat a_{jk} \hat S_{ik} - \frac{2}{3} \hat a_{kl} \hat S_{kl} \delta_{ij} \right) +
+C_5 \overline \rho \hat k \left( \hat a_{ik} \hat W_{jk} + \hat a_{jk} \hat W_{ik} \right)"
+src="rsm-ssglrromega_eqns/img11.png" /></dd>
+</dl>
+
+<p>where pressure dilatation is neglected, and the anisotropy tensor is:
+
+<dl>
+<dd><img class="tex" alt="\hat a_{ij} = \frac{\hat R_{ij}}{\hat k} - \frac{2}{3} \delta_{ij}"
+src="rsm-ssglrromega_eqns/img12.png" /></dd>
+</dl>
+
+<p>The pressure-strain coefficients are blended (as described below) between Launder-Reece-Rodi (LRR) 
+(J. Fluid Mech. vol. 68, no. 3, 1975, pp. 537-566,
+<a href="https://doi.org/10.1017/S0022112075001814">https://doi.org/10.1017/S0022112075001814</a>) 
+near walls (without wall-correction terms)
+and Speziale-Sarkar-Gatski (SSG) (J. Fluid Mech. vol. 227, 1991, pp. 245-272,
+<a href="https://doi.org/10.1017/S0022112091000101">https://doi.org/10.1017/S0022112091000101</a>) 
+away from walls.  Also:
+
+<dl>
+<dd><img class="tex" alt="\hat S_{ij} = \frac{1}{2} \left( \frac{\partial \hat u_i}{\partial x_j} +
+\frac{\partial \hat u_j}{\partial x_i} \right)"
+src="rsm-ssglrromega_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\hat S_{ij}^* = \hat S_{ij} - \frac{1}{3} \hat S_{kk} \delta_{ij}"
+src="rsm-ssglrromega_eqns/img14.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\hat W_{ij} = \frac{1}{2} \left( \frac{\partial \hat u_i}{\partial x_j} -
+\frac{\partial \hat u_j}{\partial x_i} \right)"
+src="rsm-ssglrromega_eqns/img15.png" /></dd>
+</dl>
+
+<p>Neglecting the pressure diffusion component, the diffusion term is modeled via a generalized gradient diffusion model
+(Daly and Harlow, Phys Fluids 13:2634-2649, 1970,
+<a href="http://doi.org/10.1063/1.1692845">http://doi.org/10.1063/1.1692845</a>):
+
+<dl>
+<dd><img class="tex" alt="\overline \rho D_{ij} = \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu \delta_{kl} + D \frac{\overline \rho \hat k \hat R_{kl}}{\varepsilon}
+\right) \frac{\partial \hat R_{ij}}{\partial x_l} \right]
+= \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu \delta_{kl} + D \frac{\overline \rho \hat R_{kl}}{C_{\mu} \omega}
+\right) \frac{\partial \hat R_{ij}}{\partial x_l} \right]"
+src="rsm-ssglrromega_eqns/img16.png" /></dd>
+</dl>
+
+<p>The fluctuating mass flux <img class="tex" alt="\overline \rho M_{ij}" src="rsm-ssglrromega_eqns/img17.png" />
+is neglected.
+
+<p>All of the coefficients are blended (similar to
+<a href="sst.html">Menter's SST model</a>), via:
+
+<dl>
+<dd><img class="tex" alt="\phi = F_1 \phi^{(\omega)} + (1-F_1) \phi^{(\varepsilon)}"
+src="rsm-ssglrromega_eqns/img19.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_1 = tanh(\zeta^4)"
+src="rsm-ssglrromega_eqns/img20.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\zeta = {\rm min} \left[ {\rm max} \left(
+\frac{\sqrt{\hat k}}{C_{\mu} \omega d} , \frac{500 \hat \mu}{\overline \rho \omega d^2} \right) ,
+\frac{4 \sigma_{\omega}^{(\varepsilon)}\overline \rho \hat k}
+{(CD) d^2} \right]"
+src="rsm-ssglrromega_eqns/img21.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="(CD) = \sigma_d^{(\varepsilon)} \frac{\overline \rho}{\omega}
+{\rm max} \left( \frac{\partial \hat k}{\partial x_k}
+\frac{\partial \omega}{\partial x_k}, 0 \right)"
+src="rsm-ssglrromega_eqns/img22.png" /></dd>
+</dl>
+
+<p>Here, d is the distance to the nearest wall. The coefficients are as follows:
+
+<dl>
+<dd><img class="tex" alt="C_{\mu} = 0.09"
+src="rsm-ssglrromega_eqns/img23.png" /></dd>
+</dl>
+
+<p>The inner (superscript "(<img class="tex" alt="\omega" src="rsm-ssglrromega_eqns/img24.png" />)") (near-wall)
+coefficients are:
+
+<dl>
+<dd><img class="tex" alt="\alpha_{\omega}^{(\omega)} = 0.5556"
+  src="rsm-ssglrromega_eqns/img25.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_{\omega}^{(\omega)} = 0.075"
+  src="rsm-ssglrromega_eqns/img26.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{\omega}^{(\omega)} = 0.5"
+  src="rsm-ssglrromega_eqns/img27.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_d^{(\omega)} = 0"
+  src="rsm-ssglrromega_eqns/img28.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_1^{(\omega)} = 1.8"
+  src="rsm-ssglrromega_eqns/img29.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_1^{*(\omega)} = 0"
+  src="rsm-ssglrromega_eqns/img30.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_2^{(\omega)} = 0"
+  src="rsm-ssglrromega_eqns/img31.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_3^{(\omega)} = 0.8"
+  src="rsm-ssglrromega_eqns/img32.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_3^{*(\omega)} = 0"
+  src="rsm-ssglrromega_eqns/img33.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_4^{(\omega)} = 0.5 (18 C_2^{(LRR)} + 12) / 11"
+  src="rsm-ssglrromega_eqns/img34.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_5^{(\omega)} = 0.5 (-14 C_2^{(LRR)} + 20)/11"
+  src="rsm-ssglrromega_eqns/img35.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="D^{(\omega)} = 0.75 C_{\mu}"
+  src="rsm-ssglrromega_eqns/img36.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_2^{(LRR)} = 0.52"
+  src="rsm-ssglrromega_eqns/img67.png" /></dd>
+</dl>
+
+<p>(Note that 
+<!--the definitions of 
+<img class="tex" alt="C_4^{(\omega)}" src="rsm-ssglrromega_eqns/img68.png" /> and 
+<img class="tex" alt="C_5^{(\omega)}" src="rsm-ssglrromega_eqns/img69.png" />
+contain a factor of 0.5 relative to the original LRR reference
+(J. Fluid Mech (1975), vol 68, part 3, pp. 537-566) because of the use of a
+different anisotropy tensor here.
+Also note that-->
+the <img class="tex" alt="C_2^{(LRR)}" src="rsm-ssglrromega_eqns/img65.png" />
+value has been modified to achieve better agreement with the log layer of a zero
+pressure gradient boundary layer.)
+
+<p>The outer (superscript "(<img class="tex" alt="\varepsilon" src="rsm-ssglrromega_eqns/img37.png" />)") coefficients
+are:
+
+<dl>
+<dd><img class="tex" alt="\alpha_{\omega}^{(\varepsilon)} = 0.44"
+  src="rsm-ssglrromega_eqns/img38.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_{\omega}^{(\varepsilon)} = 0.0828"
+  src="rsm-ssglrromega_eqns/img39.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{\omega}^{(\varepsilon)} = 0.856"
+  src="rsm-ssglrromega_eqns/img40.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_d^{(\varepsilon)} = 1.712"
+  src="rsm-ssglrromega_eqns/img41.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_1^{(\varepsilon)} = 1.7"
+  src="rsm-ssglrromega_eqns/img42.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_1^{*(\varepsilon)} = 0.9"
+  src="rsm-ssglrromega_eqns/img43.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_2^{(\varepsilon)} = 1.05"
+  src="rsm-ssglrromega_eqns/img44.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_3^{(\varepsilon)} = 0.8"
+  src="rsm-ssglrromega_eqns/img45.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_3^{*(\varepsilon)} = 0.65"
+  src="rsm-ssglrromega_eqns/img46.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_4^{(\varepsilon)} = 0.625"
+  src="rsm-ssglrromega_eqns/img47.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_5^{(\varepsilon)} = 0.2"
+  src="rsm-ssglrromega_eqns/img48.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="D^{(\varepsilon)} = 0.22"
+  src="rsm-ssglrromega_eqns/img49.png" /></dd>
+</dl>
+
+<p>Boundary conditions were not given in the original reference.
+However, in the farfield they are (ref: private communication with the author):
+
+<dl>
+<dd><img class="tex" alt="\hat R_{ij, farfield} = \frac{2}{3} \hat k_{farfield} \delta_{ij}"
+  src="rsm-ssglrromega_eqns/img56.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\omega_{farfield} = \frac{\overline \rho \hat k_{farfield}}{\mu_{t, farfield}}"
+  src="rsm-ssglrromega_eqns/img57.png" /></dd>
+</dl>
+
+<p>with the <img class="tex" alt="\hat k_{farfield}" src="rsm-ssglrromega_eqns/img58.png" />
+and <img class="tex" alt="\mu_{t, farfield}" src="rsm-ssglrromega_eqns/img59.png" />
+set by the user.  The former value is a function of farfield turbulence intensity, Tu
+(<img class="tex" alt="\hat k_{farfield} = (3/2) (Tu)^2 U_{farfield}^2" src="rsm-ssglrromega_eqns/img60.png" />).
+Typical values are: Tu=0.001 (= 0.1%), 
+<img class="tex" alt="\mu_{t, farfield}/\overline \mu_{farfield} = 0.1" src="rsm-ssglrromega_eqns/img61.png" />.
+At solid walls:
+
+<dl>
+<dd><img class="tex" alt="\hat R_{ij, wall} = 0"
+  src="rsm-ssglrromega_eqns/img62.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\omega_{wall} = 10 \frac{6 \hat \nu}{\beta_{\omega}^{(\omega)} (\Delta d_1)^2}"
+  src="rsm-ssglrromega_eqns/img63.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\Delta d_1" src="rsm-ssglrromega_eqns/img64.png" />
+is the distance from the wall to the nearest field solution point.  This latter
+boundary condition is the same as that recommended in
+Menter, F. R., AIAA Journal, Vol. 32, No. 8, August 1994, pp. 1598-1605,
+<a href="https://doi.org/10.2514/3.12149">https://doi.org/10.2514/3.12149</a>.
+
+<p>Boundary conditions for RSM are important to handle correctly at symmetry boundaries:
+<ul>
+<li>On an x-symmetry plane, the 12 (xy) and 13 (xz) Reynolds stress components should have Dirichlet conditions of zero.
+<li>On a y-symmetry plane, the 12 (xy) and 23 (yz) Reynolds stress components should have Dirichlet conditions of zero.
+<li>On a z-symmetry plane, the 13 (xz) and 23 (yz) Reynolds stress components should have Dirichlet conditions of zero.
+</ul>
+
+<p>Other Reynolds stress components should receive the usual symmetric treatment (i.e., zero gradient).
+
+<p>Note that the Reynolds stresses should adhere to the following realizability conditions (see, e.g.,
+J. Fluid Mech. (1994), vol. 278, pp. 351-362,
+<a href="https://doi.org/10.1017/S0022112094003745">https://doi.org/10.1017/S0022112094003745</a>):
+
+<ul>
+<li>For the diagonal elements:
+<dl>
+<dd><img class="tex" alt="\overline {\rho u_i'' u_i''} \geq 0"
+  src="rsm-ssglrromega_eqns/img73.png" /> &nbsp; &nbsp;
+    <img class="tex" alt="i \in {1,2,3}"
+  src="rsm-ssglrromega_eqns/img74.png" /> &nbsp; &nbsp; (no summation on i)</dd>
+</dl>
+<li>For the off-diagonal elements (i not equal to j):
+<dl>
+<dd><img class="tex" alt="\left|\overline {\rho u_i'' u_j''}\right| \leq 
+\sqrt{\left(\overline {\rho u_i'' u_i''}\right) \left(\overline {\rho u_j'' u_j''}\right)}"
+  src="rsm-ssglrromega_eqns/img75.png" /> &nbsp; &nbsp;
+    <img class="tex" alt="i,j \in {1,2,3}"
+  src="rsm-ssglrromega_eqns/img76.png" /> &nbsp; &nbsp; (no summation on i or j)</dd> 
+</dl>
+</ul>
+
+<p>Regarding additional modeled terms appearing in the Favre-averaged equations (see
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>),
+the turbulent heat flux is modeled via:
+
+<dl>
+<dd><img class="tex" alt="c_p \overline {\rho u_j'' T''} \approx
+-\frac{c_p \mu_t}{Pr_t} \frac{\partial \hat T}{\partial x_j}"
+  src="rsm-ssglrromega_eqns/img50.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\mu_t" src="rsm-ssglrromega_eqns/img51.png" /> is obtained
+via an "equivalent eddy viscosity": 
+<img class="tex" alt="\mu_t=\overline \rho \hat k / \omega" src="rsm-ssglrromega_eqns/img52.png" />
+(ref: private communication with the author).
+
+<p>The terms associated with molecular diffusion and turbulent transport in the energy equation are modeled
+as half the trace of the
+<img class="tex" alt="\overline \rho D_{ij}" src="rsm-ssglrromega_eqns/img70.png" /> term. For the generalized
+gradient diffusion model, this is:
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial}{\partial x_k} \left(
+\overline{\sigma_{ij} u_i''} - \frac{1}{2} \overline{\rho u_i'' u_i'' u_j''} \right) \approx
+\frac{1}{2} \left( \overline \rho T_{ii} + \overline \rho D_{ii}^{(\nu)} \right)"
+  src="rsm-ssglrromega_eqns/img53.png" /></dd>
+</dl>
+
+<p>where:
+
+<dl>
+<dd><img class="tex" alt="\overline \rho T_{ij} = \frac{\partial}{\partial x_k} \left(
+D \frac{\overline \rho \hat k \hat R_{kl}}{\varepsilon} 
+\frac{\partial \hat R_{ij}}{\partial x_l} \right)"
+  src="rsm-ssglrromega_eqns/img54.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\overline \rho D_{ij}^{(\nu)} = \frac{\partial}{\partial x_k} \left(
+\overline \mu \frac{\partial \hat R_{ij}}{\partial x_k} \right)"
+  src="rsm-ssglrromega_eqns/img55.png" /></dd>
+</dl>
+
+<br>&nbsp;
+
+<p><a ID="ssg-lrrRSM-SD"><strong><span style="text-align: left; font-weight: 700; font-size: large">SSG/LRR-omega Full Reynolds Stress Model
+   with Simple Diffusion<span style="color: blue"> (SSGLRR-RSM-w2012-SD)</span></strong>
+
+<p>This model is the same as <span style="color: blue">(SSGLRR-RSM-w2012)</span>, except it uses a "simple diffusion"
+(SD) model rather than the generalized gradient diffusion model.  Its main reference is:
+
+<ul>
+<li>Eisfeld, B.,
+"Implementation of Reynolds Stress Models into the DLR-FLOWer Code,"
+Institutsbericht, DLR-IB 124-2004/31, Report of the Institute of Aerodynamics and Flow
+Technology, Braunschweig, ISSN 1614-7790, 2004.</li>
+</ul>
+
+<p>The diffusion term is modeled via:
+
+<dl>
+<dd><img class="tex" alt="\overline \rho D_{ij} = \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu + D \frac{\overline \rho \hat k^2}{\varepsilon}
+\right) \frac{\partial \hat R_{ij}}{\partial x_k} \right]
+= \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu + D \frac{\overline \rho \hat k}{C_{\mu} \omega}
+\right) \frac{\partial \hat R_{ij}}{\partial x_k} \right]
+= \frac{\partial}{\partial x_k}
+\left[ \left( \overline \mu + \frac{D}{C_{\mu}} \mu_t
+\right) \frac{\partial \hat R_{ij}}{\partial x_k} \right]"
+src="rsm-ssglrromega_eqns/img71.png" /></dd>
+</dl>
+
+with:
+
+<dl>
+<dd><img class="tex" alt="D = 0.5 C_{\mu} F_1 + \frac{2}{3} 0.22 (1-F_1)"
+src="rsm-ssglrromega_eqns/img72.png" /></dd>
+</dl>
+
+<br>&nbsp;
+
+<p><a ID="ssg-lrrRSM2019"><strong><span style="text-align: left; font-weight: 700; font-size: large">SSG/LRR-omega Full Reynolds Stress Model
+   V2019 <span style="color: blue">(SSGLRR-RSM-w2019)</span></strong>
+
+<p>This model is identical to the original model <span style="color: blue">SSGLRR-RSM-w2012</span>,
+except that an additional term involving a length scale correction (LSC) 
+is included in the omega equation, for the purpose of eliminating
+a non-physical "backbending" seen in the original model near reattachment of separated flows.
+Its reference is:
+
+<ul>
+<li>Eisfeld, B. and Rumsey, C. L., "Length-Scale Correction for Reynolds-Stress Modeling," 
+<b>AIAA Journal</b>, Vol. 58, No. 4, 2020, pp. 1518-1528;
+<a href="https://doi.org/10.2514/1.J058858">https://doi.org/10.2514/1.J058858</a>.
+</ul>
+
+<p>In the original model, the following term in the omega equation:
+
+<dl>
+<dd><img class="tex" alt="\beta_{\omega} \overline\rho \omega^{2}"
+src="rsm-ssglrromega_eqns2019/img2.png" /></dd>
+</dl>
+
+gets replaced with:
+
+<dl>
+<dd><img class="tex" alt="\left[ 1 - F^{(LSC)}(\chi) \right] \beta_{\omega} \overline\rho \omega^{2}"
+src="rsm-ssglrromega_eqns2019/img3.png" /></dd>
+</dl>
+
+where
+
+<dl>
+<dd><img class="tex" alt="F^{(LSC)}(\chi) = \frac{1}{2} \left\{ 1 + \tanh \left[ A \left( \chi - \chi_{T} \right) \right] \right\}"
+src="rsm-ssglrromega_eqns2019/img4.png" /></dd>
+</dl>
+
+and
+
+<dl>
+<dd><img class="tex" alt="\chi = \max \left[ \left( \frac{{\cal L}_{t}}{\ell_{log}} - 1 \right) \left( \frac{{\cal L}_{t}}{\ell_{log}} \right)^{2} , 0 \right]"
+src="rsm-ssglrromega_eqns2019/img5.png" /></dd>
+</dl>
+
+and
+
+<dl>
+<dd><img class="tex" alt="\frac{{\cal L}_{t}}{\ell_{log}} = \frac{k^{1/2}}{C_{\mu}^{1/4} \kappa \omega d}"
+src="rsm-ssglrromega_eqns2019/img6.png" /></dd>
+</dl>
+
+with d=distance to the nearest wall, <img class="tex" alt="A=31" src="rsm-ssglrromega_eqns2019/img7.png" />,
+<img class="tex" alt="\chi_{T} = 1" src="rsm-ssglrromega_eqns2019/img8.png" />, and
+<img class="tex" alt="\kappa = 0.41" src="rsm-ssglrromega_eqns2019/img9.png" />.
+The <img class="tex" alt="F^{(LSC)}(\chi)" src="rsm-ssglrromega_eqns2019/img10.png" /> term should be
+active only near stagnation/reattachment points. When 
+<img class="tex" alt="F^{(LSC)}(\chi)" src="rsm-ssglrromega_eqns2019/img10.png" /> is zero, 
+the original model is recovered.
+
+<br>&nbsp;
+<br>&nbsp;
+
+	<p><a ID="ssg-lrrRSM-SD"><strong><span style="text-align: left; font-weight: 700; font-size: large">SSG/LRR-omega Full Reynolds Stress Model V2019
+   with Simple Diffusion<span style="color: blue"> (SSGLRR-RSM-w2019-SD)</span></strong>
+
+<p>This model is the same as <span style="color: blue">(SSGLRR-RSM-w2019)</span>, except it uses the "simple diffusion"
+(SD) model rather than the generalized gradient diffusion model (see description under
+<span style="color: blue">(SSGLRR-RSM-w2012-SD)</span>).
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+01/25/2022 - removed "/" from naming convention because it sometimes causes problems/confusion<br>
+12/11/2019 - added description of new SSG/LRR-RSM-w2019 and SSG/LRR-RSM-w2019-SD<br>
+03/24/2016 - mention realizability of Reynolds stresses<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 01/25/2022
+<br>&nbsp;
+
+</body>
+</html>

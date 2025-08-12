@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D NASA Wall-Mounted Hump Separated Flow Validation Case (no plenum) - k-kL-MEAH2015m Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<br>&nbsp;
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="nasahump_val_sa.html">SA Results</a>,&nbsp;
+         <a href="nasahump_val_sarc.html">SA-RC Results</a>,&nbsp;
+         <a href="nasahump_val_sst.html">SSTm Results</a>,&nbsp;
+         <a href="nasahump_val_bsl.html">BSLm Results</a>,&nbsp;
+         <a href="nasahump_val_ssglrrrsm.html">SSG/LRR-RSM-w2012 Results</a></p>
+<p>Return to: <a href="nasahump_val.html">2D NASA Wall-Mounted Hump Separated Flow Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2D NASA Wall-Mounted Hump Separated Flow Validation
+Case (no plenum)</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">k-kL-MEAH2015m Model Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="kkl.html#kkl-meah2015">Link to K-kL-MEAH2015m equations</a>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note this case can also be run on grids WITH a plenum; see:
+<a href="nasahump_val_workshop_kkl-meah.html">2D NASA Wall-Mounted Hump Separated Flow Validation Case k-kL-MEAH2015m page</a>.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+        <p><img
+src="Nasahump_validation/cp_noplenum_kkl_C+F.jpg" border="1" title="k-kL-MEAH2015m - surface pressure coefficients" alt="k-kL-MEAH2015m - surface pressure coefficients">
+           <img
+src="Nasahump_validation/cf_noplenum_kkl_C+F.jpg" border="1" title="k-kL-MEAH2015m - surface skin friction coefficients" alt="k-kL-MEAH2015m - surface skin friction coefficients">
+</p>
+        <p><img
+src="Nasahump_validation/u_-2.14_noplenum_kkl_C+F.jpg" border="1" title="k-kL-MEAH2015m - u-velocity upstream at x/c=-2.14" alt="k-kL-MEAH2015m - u-velocity upstream at x/c=-2.14">
+           <img
+src="Nasahump_validation/u_all_noplenum_kkl_C+F.jpg" border="1" title="k-kL-MEAH2015m - u-velocities at several locations" alt="k-kL-MEAH2015m - u-velocities at several locations">
+</p>
+        <p><img
+src="Nasahump_validation/upvp_65_noplenum_kkl_C+F.jpg" border="1" title="k-kL-MEAH2015m - u'v' at x/c=0.65" alt="k-kL-MEAH2015m - u'v' at x/c=0.65">
+           <img
+src="Nasahump_validation/upvp_all_noplenum_kkl_C+F.jpg" border="1" title="k-kL-MEAH2015m - u'v' at several locations" alt="k-kL-MEAH2015m - u'v' at several locations">
+           <img
+src="Nasahump_validation/stream_noplenum_kkl.jpg" border="1" title="k-kL-MEAH2015m - u-velocities and streamlines (CFL3D)" alt="k-kL-MEAH2015m - u-velocities and streamlines (CFL3D)">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Previously on this page the results were reported as k-kL-MEAH2015 solutions, but more properly they should be referred
+to as k-kL-MEAH2015m.  Essentially no difference is expected.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Note that thorough
+grid studies were not performed for <u>validation</u> cases such as this one.
+Some effort was made to ensure reasonable grid resolutions, but there may still be
+small noticeable discretization errors.  Therefore, these validation results shown should be considered
+representative, but not "truth."
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The plots shown compare the k-kL-MEAH2015m results from two independent
+CFD codes: CFL3D and FUN3D, along with experimental data, using grids with no plenum included (results with or without 
+plenum are very similar for this case).
+The CFD codes predict the flow separation to occur near x/c = 0.658 and reattachment near x/c = 1.24 
+(in experiment these were 0.665 and 1.1, respectively).
+Both CFL3D and FUN3D used freestream turbulence intensity=0.077% and freestream turbulent viscosity (relative to laminar)=0.009
+(additional details can be found in the <a href="https://nasa.github.io/CFL3D/Cfl3dv6/cfl3dv6_v5manual.html">CFL3D User's Manual, Appendix H</a>).
+Please read note 5 on <a href="noteonrunning.html">Notes on running CFD</a> page.
+These results are from the second-finest grid (817 x 217).
+Both codes gave results that were very close on this grid.
+Note that these are compressible code results at "essentially incompressible" conditions of M=0.1. 
+There may be a very small influence of compressibility.
+Also note that the CFD's reference pressure is different from the experiment (to attain the same reference dynamic pressure);
+so a shift is necessary to align the C<sub>p</sub> levels.
+The data files from CFL3D are given here:
+<a href="Nasahump_validation/nasahump_cfl3d_cp_noplenum_kkl.dat">nasahump_cfl3d_cp_noplenum_kkl.dat</a>,
+<a href="Nasahump_validation/nasahump_cfl3d_cf_noplenum_kkl.dat">nasahump_cfl3d_cf_noplenum_kkl.dat</a>,
+<a href="Nasahump_validation/nasahump_cfl3d_vel_noplenum_kkl.dat">nasahump_cfl3d_vel_noplenum_kkl.dat</a>,
+<a href="Nasahump_validation/nasahump_cfl3d_uv_noplenum_kkl.dat">nasahump_cfl3d_uv_noplenum_kkl.dat</a>,
+(Note: the profiles have been interpolated using Tecplot software onto pre-set points, that may or may
+not correspond to the actual grid points or grid cells used in the computation.)
+A typical CFL3D input file is:
+<a href="Nasahump_validation/nasahump_cfl3d_typical_noplenum_kkl.inp">nasahump_cfl3d_typical_noplenum_kkl.inp</a>.
+A typical FUN3D input file is:
+<a href="Nasahump_validation/fun3d.nml_typical_hump_kkl">fun3d.nml_typical_hump_kkl</a>.
+</p>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="nasahump_val_sa.html">SA Results</a>,&nbsp;
+         <a href="nasahump_val_sarc.html">SA-RC Results</a>,&nbsp;
+         <a href="nasahump_val_sst.html">SSTm Results</a>,&nbsp;
+         <a href="nasahump_val_bsl.html">BSLm Results</a>,&nbsp;
+         <a href="nasahump_val_ssglrrrsm.html">SSG/LRR-RSM-w2012 Results</a></p>
+<p>Return to: <a href="nasahump_val.html">2D NASA Wall-Mounted Hump Separated Flow Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/17/2025
+<br>&nbsp;
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+\begin{document}
+
+\begin{equation}
+k-\omega
+\end{equation}
+
+\begin{equation}
+R = k/\omega
+\end{equation}
+
+\begin{equation}
+\gamma
+\end{equation}
+
+\begin{equation}
+        \frac{\partial \rho R}{\partial t}+\frac{\partial \rho 
+        u_{j}R}{\partial x_{j}}=\frac{\partial }{\partial x_{j}}\lbrack (\mu 
+        +\sigma _{R}\mu _{T})\frac{\partial R}{\partial x_{j}}\rbrack +\gamma 
+        \rho C_{1}RS+\rho f_{1}C_{2k\omega }\frac{\partial R}{\partial 
+        x_{j}}\frac{\partial S}{\partial x_{j}}\frac{R}{S}+ P^{\lim 
+        }_{R}  \\ 
+        -(1-f_{1})\rho C_{2k\varepsilon }min(\frac{R^{2}}{S^{2}}\frac{\partial 
+        S}{\partial x_{j}}\frac{\partial S}{\partial x_{j}}, C_m\frac{\partial 
+        R}{\partial x_{j}}\frac{\partial R}{\partial x_{j}}) 
+\end{equation}
+
+\begin{equation}
+\frac{\partial \rho \gamma }{\partial t}+\frac{\partial \rho 
+        u_{j}\gamma }{\partial x_{j}}=\frac{\partial }{\partial x_{j}}\lbrack 
+        (\mu +\frac{\mu _{T}}{\sigma _{\gamma }})\frac{\partial \gamma 
+        }{\partial x_{j}}\rbrack +F_{length}\rho S\gamma (1-\gamma 
+        )F_{onset} \\ -\rho c_{a2}\Omega \gamma F_{turb}(c_{e2}\gamma -1)
+\end{equation}
+
+\begin{equation}
+\nu_{T} = f_{\mu}R
+\end{equation}
+
+\begin{equation}
+P_{R}^{\lim}
+\end{equation}
+
+\begin{equation}
+P_{R}^{\lim }=1.5W\max (\gamma -0.2, 0)(1.0-\gamma )\min (\max 
+(\frac{Re_{v}}{2420}-1, 0), 3)max(3\nu- \nu_{T}, 0)
+\end{equation}
+
+\begin{equation}
+R_{T}
+\end{equation}
+
+\begin{equation}
+Re_{v}
+\end{equation}
+
+\begin{equation}
+Re_{\theta c}
+\end{equation}
+
+\begin{equation}
+F_{onset1}=\frac{Re_{v}}{2.2Re_{\theta c}}
+\end{equation}
+
+\begin{equation}
+F_{onset2}=\min (F_{onset1}, 2.0)
+\end{equation}
+
+\begin{equation}
+F_{onset3}=\max (1-(\frac{R_{T}}{3.5})^{3}, 0)
+\end{equation}
+
+\begin{equation}
+    F_{onset}=\max (F_{onset2}-F_{onset3},0)
+\end{equation}
+
+\begin{equation}
+F_{turb}=e^{-(\frac{R_{T}}{2})}
+\end{equation}
+
+\begin{equation}
+R_{T}=\frac{\mu_{t}}{\mu}
+\end{equation}
+
+\begin{equation}
+Re_{v}=\frac{\rho d_{w}^{2}S}{\mu}
+\end{equation}
+
+\begin{equation}
+  F_{length}=100
+\end{equation}
+
+\begin{equation}
+  c_{e2}=50
+\end{equation}
+
+\begin{equation}
+  c_{a2}=0.06
+\end{equation}
+
+\begin{equation}
+  \sigma_{\gamma}=1.0  
+\end{equation}
+
+\begin{equation}
+Tu_{L}
+\end{equation}
+
+\begin{equation}
+Tu_{L}=min(100 \frac{\sqrt{\frac{2R}{3}}}{\sqrt{\frac{S}{0.3}}d_{w}}, 100)
+\end{equation}
+
+\begin{equation}
+d_w
+\end{equation}
+
+\begin{equation}
+\omega
+\end{equation}
+
+\begin{equation}
+\omega \approx S/0.3
+\end{equation}
+
+\begin{equation}
+\lambda _{\theta L}=-7.57\cdot 
+10^{-3}\frac{dV}{dy}\frac{d_{w}^{2}}{\nu }+0.0128
+\end{equation}
+
+\begin{equation}
+-1.0 \leq \lambda _{\theta L} \leq 1.0
+\end{equation}
+
+\begin{equation}
+Re_{\theta c}=100.0+1000.0exp[-1.0 \cdot Tu_{L} \cdot F_{PG}]
+\end{equation}
+
+\begin{equation}
+F_{PG}
+\end{equation}
+
+\begin{equation}
+\lambda_{\theta L}
+\end{equation}
+
+\begin{equation}
+F_{PG}= \left\{
+   \begin{array}{ll}
+      \min (1+C_{PG1}\lambda _{\theta L},   C_{PG1}^{\lim }), & \lambda _{\theta L}\ge 0; \\
+      \min (1+C_{PG2}\lambda _{\theta L}+C_{PG3}min[\lambda _{\theta 
+      L}+0.0681, 0],   C_{PG2}^{\lim }), & \lambda _{\theta L}<0
+    \end{array} \right.
+\end{equation}
+
+\begin{equation}
+C_{PG1}=14.68
+\end{equation}
+
+\begin{equation}
+C_{PG2}=-7.34
+\end{equation}
+
+\begin{equation}
+C_{PG3}=0.0
+\end{equation}
+
+\begin{equation}
+C_{PG1}^{\lim }=1.5
+\end{equation}
+
+\begin{equation}
+C_{PG2}^{\lim }=3.0
+\end{equation}
+
+\begin{equation}
+F_{PG}=max(F_{PG}, 0)
+\end{equation}
+
+\begin{equation}
+f_{\mu }=\frac{\chi ^{3}}{\chi ^{3}+C_{w}^{3}}
+\end{equation}
+
+\begin{equation}
+S=\sqrt{2S_{ij}S_{ij}}
+\end{equation}
+
+\begin{equation}
+S_{ij}=\frac{1}{2}(\frac{\partial 
+u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}})
+\end{equation}
+
+\begin{equation}
+W=\sqrt{2W_{ij}W_{ij}}
+\end{equation}
+
+\begin{equation}
+W_{ij}=\frac{1}{2}(\frac{\partial 
+u_{i}}{\partial x_{j}}-\frac{\partial u_{j}}{\partial x_{i}})
+\end{equation}
+
+\begin{equation}
+C_{2k\omega}
+\end{equation}
+
+\begin{equation}
+C_{2k\epsilon}
+\end{equation}
+
+\begin{equation}
+k-\epsilon
+\end{equation}
+
+\begin{equation}
+f_1
+\end{equation}
+
+\begin{equation}
+f_{1}=\text{tanh}(\text{arg}_{1}^{4})
+\end{equation}
+
+\begin{equation}
+\text{arg}_{1}=\frac{R+v}{2}\cdot\frac{\eta ^{2}}{C_{\mu }k\omega }
+\end{equation}
+
+\begin{equation}
+k=\frac{v_{T}S}{\sqrt{C_{\mu }}}
+\end{equation}
+
+\begin{equation}
+\omega =\frac{S}{\sqrt{C_{\mu }}}
+\end{equation}
+
+\begin{equation}
+\eta =S\max (1, \vert \frac{W}{S}\vert )
+\end{equation}
+
+\begin{equation}
+C_{1}=f_{1}(C_{1k\omega }-C_{1k\epsilon })+C_{1k\omega }
+\end{equation}
+
+\begin{equation}
+C_{2k_{\epsilon}}=\frac{C_{1k\epsilon }}{\kappa ^{2}}+ \sigma _{k\epsilon }
+\end{equation}
+
+\begin{equation}
+C_{2k\omega }=\frac{C_{1k\omega }}{\kappa ^{2}}+ \sigma _{k\omega }
+\end{equation}
+
+\begin{equation}
+C_{1k\omega }=0.0829
+\end{equation}
+
+\begin{equation}
+C_{1k\epsilon }=0.1284
+\end{equation}
+
+\begin{equation}
+\sigma _{R}= f_{1}(\sigma _{k\omega }- \sigma _{k\epsilon })+\sigma_{k\epsilon }
+\end{equation}
+
+\begin{equation}
+\sigma _{k\omega }=0.72
+\end{equation}
+
+\begin{equation}
+\sigma _{k\epsilon }=1.0
+\end{equation}
+
+\begin{equation}
+\kappa =0.41
+\end{equation}
+
+\begin{equation}
+C_{\omega }=8.54
+\end{equation}
+
+\begin{equation}
+C_{m}=8.0
+\end{equation}
+
+\begin{equation}
+d_{new}
+\end{equation}
+
+\begin{equation}
+d_{new}=d_{w}+0.03k_{s}
+\end{equation}
+
+\begin{equation}
+k_s
+\end{equation}
+
+\begin{equation}
+f_{\mu}
+\end{equation}
+
+\begin{equation}
+\chi =\frac{R}{\nu }
+\end{equation}
+
+\begin{equation}
+\chi =\frac{R}{\nu} +Cr_{0}\frac{k_{s}}{d_{new}}
+\end{equation}
+
+\begin{equation}
+C_{2k\omega }=(\frac{C_{1k\omega }}{\kappa ^{2}}+\sigma _{k\omega })(\frac{1}{1+\frac{Cr_{1}k_{s}}{d_{new}}})
+\end{equation}
+
+\begin{equation}
+R = \nu_T = k/\omega
+\end{equation}
+
+\begin{equation}
+\nu_T
+\end{equation}
+
+\begin{equation}
+R_{farfield}
+\end{equation}
+
+\begin{equation}
+R_{farfield}=\nu_{T,farfield}
+\end{equation}
+
+\begin{equation}
+R_{farfield}=k_{farfield}/\omega_{farfield}
+\end{equation}
+
+\begin{equation}
+\omega_{farfield}
+\end{equation}
+
+\begin{equation}
+k_{farfield}
+\end{equation}
+
+\begin{equation}
+Tu_{farfield}\% = 100 \sqrt{\frac{2}{3} \frac{k_{farfield}}{U_{ref}^2}}
+\end{equation}
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

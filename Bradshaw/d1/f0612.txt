@@ -1,0 +1,767 @@
+----------------- FILE NUMBER   814-----------------
+ 1. FLOW TITLE:  CASE 0612;  WIEGHARDT, K., "ON THE TURBULENT FRICTION LAYER
+    FOR RISING PRESSURE"
+
+ 2. REVISION DATE: NOVEMBER 16, 1980
+
+ 3. EVALUATOR: COLES, D. E., GRADUATE AERONAUTICAL LABORATORY
+    OF CALIFORNIA INSTITUTE OF TECHNOLOGY (GALCIT), PASADENA
+    CA 91026
+
+ 4. EXPERIMENT LOCATION AND DATE: KAISER WILHELM INSTITUT FUER
+    STROEMUNGSFORSCHUNG, GOETTINGEN, GERMANY        NOVEMBER 1944
+
+ 5. ABSTRACT: TWENTY-THREE EQUILIBRIUM VELOCITY PROFILES WERE
+    MEASURED FOR A STANDARD FLAT PLATE BOUNDARY LAYER.  THE
+    MEASUREMENTS HAVE BEEN CHOSEN AS TYPICAL OF THE FLAT PLATE
+    BOUNDARY LAYER, WITH CERTAIN RESERVATIONS.  THE MODEL WAS A
+    WAXED PLYWOOD PLATE WITH A SLIGHTLY UNDULATING SURFACE; THE
+    TRIPPING DEVICE WAS A BLUNT LEADING EDGE FITTED WITH A SMALL
+    TRIP WIRE.  THE FIRST PROFILE IS PROBABLY AT ABOUT THE MINIMUM
+    REYNOLDS NUMBER FOR TURBULENT FLOW.  THE DATA WERE OBTAINED
+    USING A RAKE RATHER THAN A SINGLE PROBE.  THIS TECHNIQUE FIXES
+    THE RELATIVE POSITION OF THE DATA POINTS AND AVOIDS SOME OF
+    THE EFFECTS OF DRIFT IN TUNNEL CONDITIONS BY SPEEDING UP THE
+    DATA-TAKING PROCESS.  HOWEVER, THE PROFILES MAY BE SUBJECT TO
+    MORE WALL INTERFERENCE THAN USUAL.  MOREOVER, THE PROFILES ARE
+    DEFINED BY A RELATIVELY SMALL NUMBER OF POINTS, NONE OF WHICH
+    LIE IN THE SUBLAYER.  CONSEQUENTLY, COMPUTED VALUES FOR THE
+    INTEGRAL PARAMETERS (ESPECIALLY FOR THE FIRST FEW STATIONS)
+    ARE STRONGLY AFFECTED BY THE CHOICE OF INTERPOLATION SCHEME
+    FOR THE INTEGRATION.
+
+ 6. REFERENCES: 1. COLES, D. E. AND HIRST, E. A., "COMPUTATION OF
+    BOUNDARY LAYERS 1968 AFOSR-IFP STANFORD CONFERENCE PROCEEDINGS"
+    IDENTIFICATION 1400
+                2. WIEGHARDT, K. AND TILLMANN, W. "ON THE TURBULENT
+    FRICTION LAYER FOR RISING PRESSURE" N.A.C.A. TECHNICAL MEMO.
+    1314 (1951)
+
+ 7. INSTRUMENTATION:
+    VELOCITY MEASUREMENTS: A RAKE OF PITOT STATIC PROBES.
+
+ 8. EXPERIMENTAL PARAMETERS:
+    REFERENCE FREE-STREAM VELOCITY (UREF): 33 M/S
+    FREE-STREAM TURBULENCE INTENSITY:      <0.0025
+    KINEMATIC VISCOSITY (XNU):             0.151E-04 M**2/S
+
+ 9. MEASURED VARIABLES:
+    VELOCITY EXTERNAL TO THE BOUNDARY LAYER (UE)
+    STREAMWISE MEAN VELOCITY (U)
+    DISTANCE NORMAL TO THE PLATE (Y)
+    DISTANCE FROM THE LEADING EDGE (X)
+
+    EACH MEASURING STATION INCLUDES DATA FOR THE FOLLOWING
+    MEASURED OR INFERRED QUANTITIES
+    X            DISTANCE MEASURED FROM LEADING EDGE IN M
+    US           WALL SHEAR VELOCITY IN M/S
+    UE           VELOCITY EXTERNAL TO THE BOUNDARY LAYER IN M/S
+    THETA        MOMENTUM THICKNESS IN M
+    DELS         DISPLACEMENT THICKNESS IN M
+    ENTH         ENERGY THICKNESS IN M
+    CLTH         CLAUSER THICKNESS IN M
+    H            NONDIMENSIONAL SHAPE FACTOR (DELS/THETA)
+    G            NONDIMENSIONAL EQUILIBRIUM SHAPE FACTOR
+    HS           NONDIMENSIONAL SHAPE FACTOR (ENTH/THETA)
+    RTHETA       REYNOLDS NUMBER BASED ON THETA
+    RDELS        REYNOLDS NUMBER BASED ON DELS
+    DUE          STREAMWISE GRADIENT OF VELOCITY EXTERNAL TO
+                 BOUNDARY LAYER IN (S** -1)
+    CF           NONDIMENSIONAL SKIN FRICTION COEFFICIENT
+    CFLT         NONDIMENSIONAL SKIN FRICTION COEFFICIENT ACCORDING
+                 TO LUDWIEG-TILLMANN FORMULA
+    CFE          NONDIMESIONAL SKIN FRICTION COEFFICIENT AS REPORTED
+                 BY THE ORIGINATOR
+    BETA         NONDIMENSIONAL EQUILIBRIUM PARAMETER
+    YPLUS        NONDIMENSIONAL WALL VARIABLE
+    UPLUS        NONDIMENSIONAL WALL VARIABLE
+    Y            DISTANCE MEASURED NORMAL TO PLATE IN M
+    U/UE         NONDIMESIONAL MEAN VELOCITY
+    Y/CLTH       DISTANCE MEASURED FROM PLATE NONDIMENSIONALIZED
+                 WITH RESPECT TO CLAUSER THICKNESS (COLES & HIRST
+                 USE Y/CD)
+    UDEF         NONDIMENSIONAL DEFECT VELOCITY
+
+10. UNCERTAINTY: NONE SPECIFIED
+
+11. TAPE ORGANIZATION: THE TAPE IS A 2400 FOOT, 9 TRACK, ODD PARITY,
+    PHASE ENCODED, UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS
+    PER INCH ACCORDING TO EBCDIC CODE.  THE RECORD FORMAT IS FIXED AND
+    BLOCKED; RECORD LENGTH = 80 BYTES; BLOCKSIZE = 8000 BYTES
+
+    NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:
+    XNORM = (X - XMIN)/(XMAX - XMIN)
+    NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY 10000 AND
+    ROUNDING UP OR DOWN TO THE NEAREST INTEGER.
+    IXNORM = XNORM * 10000.
+    THUS EACH NORMALIZED DATUM IS WRITTEN ONTO TAPE AS AN INTEGER
+    VALUE BETWEEN 0 AND 10000.
+    ALL NULL DATA ARE WRITTEN AS 20000
+    THE EQUATION DESCRIBING THE RELATION BETWEEN ACTUAL DATA AND
+    THE NORMALIZED DATA ON TAPE IS
+    X = XMIN + (((XMAX - XMIN) * IXNORM)/10000.)
+    WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS INTEGER.
+
+FILE# NREC      CONTAINS          FORMAT         COMMENTS
+
+ 1     -       TEXT FILE            -            CONTAINS ITEMS 1
+                                                 TO 11 OF THIS
+                                                 WRITE-UP
+
+ 2     52      X,US,UE,            6E13.6        RECORD 1- MAXIMUM
+               THETA,DELS,                       VALUES
+               ENTH
+               CLTH,H,G,HS,        6E13.6        RECORD 2- MAXIMUM
+               RTHETA,RDELS                      VALUES
+               DUE,CF,CFLT,        5E13.6        RECORD 3- MAXIMUM
+               CFE,BETA                          VALUES
+               X,US,UE,            6E13.6        RECORD 4- MINIMUM
+               THETA,DELS,                       VALUES
+               ENTH
+               CLTH,H,G,HS,        6E13.6        RECORD 5- MINIMUM
+               RTHETA,RDELS                      VALUES
+               DUE,CF,CFLT,        5E13.6        RECORD 6- MINIMUM
+               CFE,BETA                          VALUES
+               X,US,UE,THETA,      9I6           ODD RECORDS 7-51
+               DELS,ENTH,CLTH,                   NORMALIZED VALUES
+               H,G
+               HS,RTHETA,RDELS,    8I6           EVEN RECORDS 8-52
+               DUE,CF,CFLT,CFE,                  NORMALIZED VALUES
+               BETA
+
+ FILES 3 TO 25 CONTAIN FLOW DATA AT TWENTY-THREE STREAMWISE
+ MEASURING STATIONS CORRESPONDING TO THE X STATIONS OF FILE 2.
+
+ 3     8       YPLUS,UPLUS,Y,      6E13.6        RECORD 1- MAXIMUM
+               U/UE,Y/CLTH,UDEF                  VALUES
+               YPLUS,UPLUS,Y,      6E13.6        RECORD 2- MINIMUM
+               U/UE,Y/CLTH,UDEF                  VALUES
+               YPLUS,UPLUS,Y,      6I6           RECORDS 3-8
+               U/UE,Y/CLTH,UDEF                  NORMALIZED VALUES
+
+ 4     12                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-12
+                                                 NORMALIZED VALUES
+
+ 5     14                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-14
+                                                 NORMALIZED VALUES
+
+ 6     14                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-14
+                                                 NORMALIZED VALUES
+
+ 7     16                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-16
+                                                 NORMALIZED VALUES
+
+ 8     13                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-13
+                                                 NORMALIZED VALUES
+
+ 9     13                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-13
+                                                 NORMALIZED VALUES
+
+ 10    14                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-14
+                                                 NORMALIZED VALUES
+
+ 11    15                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-15
+                                                 NORMALIZED VALUES
+
+ 12    15                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-15
+                                                 NORMALIZED VALUES
+
+ 13    16                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-16
+                                                 NORMALIZED VALUES
+
+ 14    16                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-16
+                                                 NORMALIZED VALUES
+
+ 15    17                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-17
+                                                 NORMALIZED VALUES
+
+ 16    13                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-13
+                                                 NORMALIZED VALUES
+
+ 17    14                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-14
+                                                 NORMALIZED VALUES
+
+ 18    14                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-14
+                                                 NORMALIZED VALUES
+
+ 19    14                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-14
+                                                 NORMALIZED VALUES
+
+ 20    15                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-15
+                                                 NORMALIZED VALUES
+
+ 21    15                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-15
+                                                 NORMALIZED VALUES
+
+ 22    16                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-16
+                                                 NORMALIZED VALUES
+
+ 23    16                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-16
+                                                 NORMALIZED VALUES
+
+ 24    17                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-17
+                                                 NORMALIZED VALUES
+
+ 25    17                          6E13.6        RECORD 1- MAXIMUM
+                                                 VALUES
+                                   6E13.6        RECORD 2- MINIMUM
+                                                 VALUES
+                                   6I6           RECORDS 3-17
+                                                 NORMALIZED VALUES
+
+
+    A SAMPLE PORGRAM FOR READING FILE 7 AND PRINTING IT IS SHOWN
+    BELOW.  THE JCL SHOWN IS FOR THE STANFORD CIT FACILITY.
+    CHECK WITH YOUR OWN COMPUTER INSTALLATION FOR THE EXACT JCL
+    NEEDED
+
+    //TAPE  JOB  BZC$NJ
+    /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)
+    //  EXEC  FORTCG
+    //FORT.SYSIN  DD  *
+    C  TO READ FILE 7 OFF TAPE
+    C  PRINT MAXIMAS AND MINIMAS OF ALL THE VARIABLES
+    C  PRINT NORMALIZED INTEGERIZED VALUES OF ALL THE VARIABLES.
+           INTEGER YPLUS(14),UPLUS(14),Y(14),URAT(14),YCLT(14),
+         1 UDEF(14)
+           READ (23,30) YPLSMX,UPLSMX,YMX,URATMX,YCLTMX,UDEFMX
+           READ (23,30) YPLSMN,UPLSMN,YMN,URATMN,YCLTMN,UDEFMN
+           DO  10  I = 1, 14
+    10     READ (23,40) YPLUS(I),UPLUS(I),Y(I),URAT(I),YCLT(I),
+         1 UDEF(I)
+           WRITE (6,50) YPLSMX,UPLSMX,YMX,URATMX,YCLTMX,UDEFMX
+           WRITE (6,50) YPLSMN,UPLSMN,YMN,URATMN,YCLTMN,UDEFMN
+           DO  20  I = 1, 14
+    20     WRITE (6,60) YPLUS(I),UPLUS(I),Y(I),URAT(I),YCLT(I),
+         1 UDEF(I)
+    30     FORMAT(6E13.6)
+    40     FORMAT(6I6)
+    50     FORMAT(1X,6E13.6)
+    60     FORMAT(1X,6I6)
+           STOP
+           END
+    //GO.FT23F001  DD  UNIT=T1600,VOL=SER=(TAPE LIBRARY NUMBER),
+    //  DISP=(OLD,KEEP),DCB=(RECFM=FB,LRECL=80,BLKSIZE=8000,DEN=3),
+    //  LABEL=(7,NL)
+    //
+-------------- END OF FILE NUMBER   814-------------
+----------------- FILE NUMBER   815-----------------
+ 0.498700E 01 0.171000E 01 0.331000E 02 0.710100E-02 0.932900E-02 0.127340E-01
+ 0.267750E 00 0.210170E 01 0.101483E 02 0.183610E 01 0.155177E 05 0.203885E 05
+ 0.000000E 00 0.534000E-02 0.309000E-02 0.000000E 00 0.000000E 00
+ 0.870000E-01 0.115000E 01 0.328000E 02 0.209000E-03 0.439000E-03 0.383000E-03
+ 0.849300E-02 0.131390E 01 0.681890E 01 0.177940E 01 0.457500E 03 0.961600E 03
+ 0.000000E 00 0.243000E-02 0.179000E-02 0.000000E 00 0.000000E 00
+     0 10000 10000     0     0     0     0 10000 10000
+ 10000     0     0     0 10000     0 20000     0
+   204  6429     0   411   414   408   349  4163  5023
+  4251   405   407     0  6220  8692 20000     0
+   408  5357  6666   731   745   725   639  2911  3582
+  2381   731   743     0  4914  9923 20000     0
+   612  4464     0  1037  1069  1024   928  2397  3061
+   600  1029  1058     0  4158  9846 20000     0
+   816  3929  6666  1288  1319  1275  1170  1970  2621
+   882  1288  1318     0  3505  9923 20000     0
+  1122  3661  6666  1599  1625  1585  1442  1573  1788
+  1235  1598  1625     0  3230 10000 20000     0
+  1428  2946  6666  1978  2033  1955  1846  1448  2114
+     0  1978  2031     0  2543  9231 20000     0
+  1734  2857  3333  2265  2296  2251  2074  1106  1104
+  1305  2257  2286     0  2543  9462 20000     0
+  2040  2589  6666  2609  2660  2588  2428  1050  1251
+   670  2609  2659     0  2234  8846 20000     0
+  2346  2321  6666  2922  2983  2896  2746   969  1253
+   370  2922  2982     0  1993  8462 20000     0
+  2755  1964  3333  3342  3409  3313  3168   859  1179
+   353  3330  3397     0  1718  8000 20000     0
+  3265  1607  3333  3845  3935  3809  3701   804  1343
+    88  3832  3921     0  1409  7462 20000     0
+  3877  1429  6666  4457  4544  4424  4307   649  1070
+   494  4457  4543     0  1203  7000 20000     0
+  4489  1071  6666  5122  5218  5085  5014   560  1113
+   406  5123  5218     0   893  6538 20000     0
+  5102   893  3333  5621  5685  5594  5482   400   661
+  1164  5604  5666     0   790  6462 20000     0
+  5714   714  6666  6213  6276  6188  6109   331   650
+  1358  6213  6274     0   584  6154 20000     0
+  6326   714  6666  6741  6789  6723  6597   246   341
+  1693  6742  6788     0   584  5923 20000     0
+  6938   536  6666  7313  7364  7292  7209   216   405
+  1640  7313  7364     0   447  5615 20000     0
+  7551   446  6666  7812  7874  7788  7732   206   457
+  1570  7812  7873     0   344  5308 20000     0
+  8163   179  6666  8356  8465  8322  8412   261   936
+  1270  8357  8464     0   137  4846 20000     0
+  8775   179  6666  9008  9044  8992  8977    94   296
+  1922  9008  9043     0   137  4846 20000     0
+  9387   179 10000  9430  9421  9431  9372     3     0
+  2522  9459  9451     0   103  4846 20000     0
+  9999     0  6666 10000 10000 10000 10000     0   112
+  2469 10000 10000     0     0  4538 20000     0
+-------------- END OF FILE NUMBER   815-------------
+----------------- FILE NUMBER   816-----------------
+ 0.452900E 03 0.193600E 02 0.400000E-02 0.100000E 01 0.471000E 00 0.193600E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+  1250  7712  1250  7710  1251  2288
+  2499  8590  2500  8590  2499  1410
+  5001  9778  5000  9780  5000   222
+  7501  9969  7500  9970  7499    31
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   816-------------
+----------------- FILE NUMBER   817-----------------
+ 0.800100E 03 0.217200E 02 0.800000E-02 0.100000E 01 0.456400E 00 0.217200E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   625  6911   625  6910   624  3089
+  1250  7491  1250  7490  1249  2509
+  2500  8462  2500  8460  2500  1538
+  3750  9250  3750  9250  3749   750
+  4999  9770  5000  9770  5000   230
+  6249  9949  6250  9950  6249    51
+  7500  9959  7500  9960  7500    41
+  8750  9982  8750  9980  8749    18
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   817-------------
+----------------- FILE NUMBER   818-----------------
+ 0.960300E 03 0.227600E 02 0.100000E-01 0.100000E 01 0.399200E 00 0.227600E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   500  6599   500  6600   501  3401
+  1000  7091  1000  7090   999  2909
+  1999  7909  2000  7910  1999  2091
+  3000  8572  3000  8570  3001  1428
+  4000  9108  4000  9110  4001   892
+  4999  9569  5000  9570  5000   431
+  5999  9842  6000  9840  5999   158
+  6999  9969  7000  9970  6999    31
+  8000  9978  8000  9980  7998    22
+  8999  9969  9000  9970  9001    31
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   818-------------
+----------------- FILE NUMBER   819-----------------
+ 0.927200E 03 0.234300E 02 0.100000E-01 0.100000E 01 0.307300E 00 0.234300E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   500  6278   500  6280   501  3722
+  1000  6829  1000  6830   999  3171
+  2000  7542  2000  7540  2001  2458
+  2999  8131  3000  8130  3000  1869
+  3999  8609  4000  8610  3999  1391
+  4999  9078  5000  9080  5002   922
+  6000  9449  6000  9450  6001   551
+  7000  9740  7000  9740  7000   260
+  7999  9902  8000  9900  7999    98
+  8999  9962  9000  9960  9001    38
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   819-------------
+----------------- FILE NUMBER   820-----------------
+ 0.136080E 04 0.240900E 02 0.150000E-01 0.100000E 01 0.386300E 00 0.240900E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   334  6210   333  6210   334  3790
+   667  6708   667  6710   668  3292
+  1333  7360  1333  7360  1333  2640
+  2000  7920  2000  7920  2001  2080
+  2667  8352  2667  8350  2666  1648
+  3333  8751  3333  8750  3334  1249
+  4000  9128  4000  9130  3999   872
+  4666  9411  4667  9410  4667   589
+  5334  9672  5333  9670  5333   328
+  6000  9892  6000  9890  6001   108
+  6667  9929  6667  9930  6666    71
+  8000  9971  8000  9970  8002    29
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   820-------------
+----------------- FILE NUMBER   821-----------------
+ 0.161550E 04 0.243500E 02 0.180000E-01 0.100000E 01 0.392300E 00 0.243500E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   278  6090   278  6090   278  3910
+   556  6682   556  6680   556  3318
+  1111  7232  1111  7230  1111  2768
+  2222  8078  2222  8080  2223  1922
+  3333  8801  3333  8800  3334  1199
+  4444  9318  4444  9320  4443   682
+  5556  9749  5556  9750  5554   251
+  6667  9922  6667  9920  6666    78
+  8334  9992  8333  9990  8333     8
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   821-------------
+----------------- FILE NUMBER   822-----------------
+ 0.156720E 04 0.251000E 02 0.180000E-01 0.100000E 01 0.319400E 00 0.251000E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   278  5908   278  5910   279  4092
+   556  6450   556  6450   554  3550
+  1111  6980  1111  6980  1111  3020
+  2222  7809  2222  7810  2223  2191
+  3333  8478  3333  8480  3334  1522
+  4445  8960  4444  8960  4443  1040
+  5556  9438  5556  9440  5554   562
+  6667  9769  6667  9770  6666   231
+  8333  9960  8333  9960  8331    40
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   822-------------
+----------------- FILE NUMBER   823-----------------
+ 0.173540E 04 0.251100E 02 0.200000E-01 0.100000E 01 0.321200E 00 0.251100E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   250  5930   250  5930   249  4070
+   500  6472   500  6470   501  3528
+  1000  7001  1000  7000   999  2999
+  2000  7710  2000  7710  1999  2290
+  3000  8311  3000  8310  3001  1689
+  4000  8761  4000  8760  4001  1239
+  5000  9180  5000  9180  5000   820
+  6000  9550  6000  9550  5999   450
+  7500  9869  7500  9870  7500   131
+  9000  9960  9000  9960  9001    40
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   823-------------
+----------------- FILE NUMBER   824-----------------
+ 0.214430E 04 0.254800E 02 0.250000E-01 0.100000E 01 0.350000E 00 0.254800E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   200  5761   200  5760   200  4239
+   400  6279   400  6280   400  3721
+   800  6860   800  6860   800  3140
+  1600  7559  1600  7560  1600  2441
+  2400  8108  2400  8110  2400  1892
+  3200  8560  3200  8560  3200  1440
+  4000  8948  4000  8950  4000  1052
+  4800  9321  4800  9320  4800   679
+  6000  9702  6000  9700  6000   298
+  7200  9922  7200  9920  7200    78
+  8000  9969  8000  9970  8000    31
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   824-------------
+----------------- FILE NUMBER   825-----------------
+ 0.211930E 04 0.257800E 02 0.250000E-01 0.100000E 01 0.313800E 00 0.257800E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   200  5652   200  5650   201  4348
+   400  6241   400  6240   402  3759
+   800  6831   800  6830   800  3169
+  1600  7401  1600  7400  1600  2599
+  2400  7940  2400  7940  2400  2060
+  3200  8402  3200  8400  3199  1598
+  4000  8732  4000  8730  3999  1268
+  4800  9131  4800  9130  4799   869
+  6000  9519  6000  9520  6001   481
+  7200  9810  7200  9810  7199   190
+  8000  9942  8000  9940  7999    58
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   825-------------
+----------------- FILE NUMBER   826-----------------
+ 0.250340E 04 0.261100E 02 0.300000E-01 0.100000E 01 0.331100E 00 0.261100E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   167  5561   167  5560   166  4439
+   333  6139   333  6140   332  3861
+   667  6722   667  6720   667  3278
+  1333  7288  1333  7290  1332  2712
+  2000  7809  2000  7810  1999  2191
+  2667  8200  2667  8200  2667  1800
+  3333  8529  3333  8530  3334  1471
+  4000  8889  4000  8890  3999  1111
+  5000  9299  5000  9300  4998   701
+  6000  9621  6000  9620  5998   379
+  6667  9809  6667  9810  6666   191
+  8333  9989  8333  9990  8333    11
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   826-------------
+----------------- FILE NUMBER   827-----------------
+ 0.246380E 04 0.265300E 02 0.300000E-01 0.100000E 01 0.287200E 00 0.265300E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   167  5401   167  5400   167  4599
+   333  6020   333  6020   334  3980
+   667  6510   667  6510   665  3490
+  1333  7192  1333  7190  1334  2808
+  2000  7682  2000  7680  1999  2318
+  2667  8040  2667  8040  2667  1960
+  3333  8319  3333  8320  3332  1681
+  4000  8669  4000  8670  4001  1331
+  5000  9061  5000  9060  5000   939
+  6000  9371  6000  9370  5999   629
+  6667  9600  6667  9600  6668   400
+  8333  9921  8333  9920  8332    79
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   827-------------
+----------------- FILE NUMBER   828-----------------
+ 0.325820E 04 0.268300E 02 0.400000E-01 0.100000E 01 0.332900E 00 0.268300E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   125  5348   125  5350   126  4652
+   250  5870   250  5870   249  4130
+   500  6482   500  6480   499  3518
+  1000  7082  1000  7080  1000  2918
+  1500  7540  1500  7540  1499  2460
+  2000  7872  2000  7870  2001  2128
+  2500  8151  2500  8150  2499  1849
+  3000  8449  3000  8450  3001  1551
+  3750  8789  3750  8790  3749  1211
+  4500  9132  4500  9130  4500   868
+  5000  9351  5000  9350  4998   649
+  6250  9720  6250  9720  6251   280
+  7500  9929  7500  9930  7501    71
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   828-------------
+----------------- FILE NUMBER   829-----------------
+ 0.320560E 04 0.272700E 02 0.400000E-01 0.100000E 01 0.288800E 00 0.272700E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   125  5292   125  5290   125  4708
+   250  5710   250  5710   249  4290
+   500  6351   500  6350   499  3649
+  1250  7198  1250  7200  1250  2802
+  2500  8009  2500  8010  2500  1991
+  3750  8530  3750  8530  3750  1470
+  5000  9080  5000  9080  5000   920
+  6250  9490  6250  9490  6250   510
+  7500  9831  7500  9830  7500   169
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   829-------------
+----------------- FILE NUMBER   830-----------------
+ 0.397300E 04 0.274200E 02 0.500000E-01 0.100000E 01 0.331900E 00 0.274200E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   100  5219   100  5220    99  4781
+   200  5890   200  5890   199  4110
+   400  6411   400  6410   401  3589
+  1000  7141  1000  7140  1000  2859
+  2000  7910  2000  7910  2001  2090
+  3000  8432  3000  8430  3001  1568
+  4000  8931  4000  8930  4001  1069
+  5000  9329  5000  9330  5002   671
+  6000  9661  6000  9660  6002   339
+  8000  9982  8000  9980  8002    18
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   830-------------
+----------------- FILE NUMBER   831-----------------
+ 0.394060E 04 0.277300E 02 0.500000E-01 0.100000E 01 0.299600E 00 0.277300E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   100  5150   100  5150   100  4850
+   200  5810   200  5810   200  4190
+   400  6322   400  6320   401  3678
+  1000  7090  1000  7090  1001  2910
+  2000  7800  2000  7800  1999  2200
+  3000  8309  3000  8310  3001  1691
+  4000  8770  4000  8770  4002  1230
+  5000  9149  5000  9150  5000   851
+  6000  9499  6000  9500  6001   501
+  8000  9910  8000  9910  8001    90
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   831-------------
+----------------- FILE NUMBER   832-----------------
+ 0.394060E 04 0.277300E 02 0.500000E-01 0.100000E 01 0.278500E 00 0.277300E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+   100  5121   100  5120   101  4879
+   200  5759   200  5760   201  4241
+   400  6311   400  6310   399  3689
+  1000  7039  1000  7040  1002  2961
+  2000  7739  2000  7740  2000  2261
+  3000  8211  3000  8210  3002  1789
+  4000  8640  4000  8640  4000  1360
+  5000  9019  5000  9020  5002   981
+  6000  9340  6000  9340  6000   660
+  8000  9820  8000  9820  8000   180
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   832-------------
+----------------- FILE NUMBER   833-----------------
+ 0.468810E 04 0.279700E 02 0.600000E-01 0.100000E 01 0.307100E 00 0.279700E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+    83  5120    83  5120    85  4880
+   167  5749   167  5750   166  4251
+   333  6260   333  6260   332  3740
+   833  6972   833  6970   834  3028
+  1667  7619  1667  7620  1667  2381
+  2500  8152  2500  8150  2501  1848
+  3333  8498  3333  8500  3334  1502
+  4167  8899  4167  8900  4165  1101
+  5000  9199  5000  9200  4998   801
+  6667  9721  6667  9720  6666   279
+  8333  9950  8333  9950  8333    50
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   833-------------
+----------------- FILE NUMBER   834-----------------
+ 0.466810E 04 0.280900E 02 0.600000E-01 0.100000E 01 0.287100E 00 0.280900E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+    83  5041    83  5040    84  4959
+   167  5700   167  5700   167  4300
+   333  6169   333  6170   334  3831
+   833  6921   833  6920   832  3079
+  1667  7561  1667  7560  1668  2439
+  2500  8070  2500  8070  2501  1930
+  3333  8409  3333  8410  3333  1591
+  4167  8811  4167  8810  4166  1189
+  5000  9089  5000  9090  5002   911
+  6667  9601  6667  9600  6667   399
+  8333  9911  8333  9910  8335    89
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   834-------------
+----------------- FILE NUMBER   835-----------------
+ 0.537720E 04 0.284500E 02 0.700000E-01 0.100000E 01 0.308900E 00 0.284500E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+    71  4830    71  4830    71  5170
+   143  5561   143  5560   142  4439
+   286  5909   286  5910   285  4091
+   714  6872   714  6870   715  3128
+  1429  7511  1429  7510  1428  2489
+  2143  8011  2143  8010  2143  1989
+  2857  8309  2857  8310  2859  1691
+  3571  8710  3571  8710  3571  1290
+  4286  8998  4286  9000  4286  1002
+  5714  9490  5714  9490  5714   510
+  7143  9838  7143  9840  7145   162
+  8571  9968  8571  9970  8572    32
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   835-------------
+----------------- FILE NUMBER   836-----------------
+ 0.537720E 04 0.284500E 02 0.700000E-01 0.100000E 01 0.290200E 00 0.284500E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+    71  5111    71  5110    72  4889
+   143  5550   143  5550   141  4450
+   286  6151   286  6150   286  3849
+   714  6840   714  6840   713  3160
+  1429  7459  1429  7460  1430  2541
+  2143  7870  2143  7870  2143  2130
+  2857  8239  2857  8240  2857  1761
+  3571  8569  3571  8570  3570  1431
+  4286  8872  4286  8870  4287  1128
+  5714  9350  5714  9350  5713   650
+  7143  9740  7143  9740  7143   260
+  8571  9940  8571  9940  8570    60
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   836-------------
+----------------- FILE NUMBER   837-----------------
+ 0.614670E 04 0.285300E 02 0.800000E-01 0.100000E 01 0.318100E 00 0.285300E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+    62  5110    63  5110    63  4890
+   125  5591   125  5590   126  4409
+   250  6141   250  6140   251  3859
+   625  6849   625  6850   626  3151
+  1250  7459  1250  7460  1251  2541
+  1875  7869  1875  7870  1874  2131
+  2500  8191  2500  8190  2499  1809
+  3125  8510  3125  8510  3125  1490
+  3750  8801  3750  8800  3750  1199
+  5000  9271  5000  9270  5002   729
+  6250  9649  6250  9650  6250   351
+  7500  9898  7500  9900  7501   102
+  8750  9979  8750  9980  8752    21
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   837-------------
+----------------- FILE NUMBER   838-----------------
+ 0.609180E 04 0.287000E 02 0.800000E-01 0.100000E 01 0.298800E 00 0.287000E 02
+ 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00 0.000000E 00
+     0     0     0     0     0 10000
+    63  4962    63  4960    64  5038
+   125  5540   125  5540   124  4460
+   250  6059   250  6060   251  3941
+   625  6801   625  6800   626  3199
+  1250  7422  1250  7420  1248  2578
+  1875  7840  1875  7840  1874  2160
+  2500  8129  2500  8130  2500  1871
+  3125  8439  3125  8440  3126  1561
+  3750  8690  3750  8690  3748  1310
+  5000  9160  5000  9160  5000   840
+  6250  9551  6250  9550  6248   449
+  7500  9850  7500  9850  7500   150
+  8750  9962  8750  9960  8748    38
+ 10000 10000 10000 10000 10000     0
+-------------- END OF FILE NUMBER   838-------------
+750  9962  8750  9960  8748    38
+ 100

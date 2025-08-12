@@ -1,0 +1,569 @@
+----------------- FILE NUMBER   448-----------------
+     1.   FLOW TITLE:   CASE 0370,  (0371, 0372, 0373, 0374, 0375, AND 0376);
+     (REFER TO PAPER WRITTEN BY EVALUATOR:  FERZIGER, J. H.,  1981 ).
+     HOMOGENEOUS TURBULENT FLOWS.
+
+     2.   REVISION DATE:   OCTOBER 30, 1981.
+
+     3.   EVALUATOR:   FERZIGER, J. H.,  (1981),  MECHANICAL ENGINEERING
+     DEPARTMENT,  STANFORD UNIVERSITY, STANFORD,  CA.  94305.
+
+     4.   DATE AND LOCATION:   VARIOUS, (REFER TO FERZIGER, J. H.,  1981.)
+
+     5.   ABSTRACT:   HOMOGENEOUS FLOWS ARE, BY DEFINITION, THE ONES
+     IN WHICH NO POINT DIFFERS FROM ANY OTHER POINT IN THE  STATISTICAL
+     SENSE.  FROM THE NAVIER STOKES EQUATIONS, ONE CAN SHOW THAT
+     TO PRODUCE A HOMOGENEOUS FLOW, THE MEAN VELOCITY PROFILE
+     MUST BE A LINEAR FUNCTION OF ALL THE COORDINATES.
+     FOR FURTHER INFORMATION AND CLASSIFICATION OF THESE FLOWS,
+     SEE THE REVIEW BY FERZIGER, J. H.,  (1980).
+
+     6.   REFERENCES:    1.  CHAMPAGNE, F. H.,  HARRIS, V. G., AND
+         CORRSIN, S.,  (1970).   "EXPERIMENTS ON NEARLY HOMOGENEOUS
+         TURBULENT SHEAR FLOW,"  J. FLUID MECH., 41,  81.
+         2.  COMETE-BELLOT, G., AND CORRSIN, S.,  (1966).  "THE USE OF
+         A CONTRACTION TO IMPROVE THE ISOTROPY OF GRID-GENERATED
+         TURBULENCE,"  J. FLUID MECH., 25,  657.
+         3.  FERZIGER, J. H.  (1980).  "HOMOGENEOUS TURBULENT FLOWS:
+         A REVIEW AND EVALUATION,"  REPORT FOR THE  1980-1981
+         AFOSR-HTTM-STANFORD CONFERENCE ON COMPLEX TURBULENT FLOWS.
+         4.  HARRIS, V. J.,  GRAHAM, J. A. H., AND  CORRSIN, S.,  (1977).
+         "FURTHER EXPERIMENTS IN NEARLY HOMOGENEOUS TURBULENT SHEAR FLOW,"
+         J. FLUID MECH.,  81,  657.
+         5.  TAN-ATICHAT, J.,  (1980).  "EFFECTS OF AXISYMMETRIC
+         CONTRACTIONS ON TURBULENCE OF VARIOUS SCALES,"  PH.D.  THESIS,
+         ILLINOIS INSTITUTE OF TECHNOLOGY.  SEE ALSO:  TAN-ATICHAT,
+         J., NAGIB, H. M., AND  DRUBKA, R. E.,  "EFFECTS OF AXISYMMETRIC
+         CONTRACTIONS ON TURBULENCE OF VARIOUS SCALES,"  NASA CR 165136,
+         1980.
+         6.  TOWNSEND, A. A.  (1956).  "THE UNIFORM DISTORTION OF
+         HOMOGENEOUS TURBULENCE,"  Q. J. MECH. APPL. MATH., 7,  104.
+         7.  TUCKER, H. J., AND REYNOLDS, A. J.  (1968).  "THE DISTORTION
+         OF TURBULENCE BY IRROTATIONAL PLANE STRAIN,"  J. FLUID
+         MECH., 32,  657.
+         8.  UBEROI, M. S.  (1956).  "EFFECT OF WIND TUNNEL CONTRACTION
+         ON FREE STREAM TURBULENCE,"  J. AERO., SCI.,  754.
+         9.  WIGELAND, R. A., AND NAGIB, H. M.  (1978).  " GRID-GENERATED
+         TURBULENCE WITH AND WITHOUT ROTATION ABOUT THE STREAMWISE
+         DIRECTION,"  FLUID AND HEAT TRANFER REPORT R78-1,  ILLINOIS INST.
+         OF TECH.,  CHICAGO, IL.
+
+     7.   INSTRUMENTATION:
+     VARIOUS,  SEE REVIEW BY FERZIGER, J. H.,  (1980).
+
+     8.   EXPERIMENTAL PARAMETERS:
+     VARIOUS,  SEE REVEIW BY FERZIGER, J. H.,  (1980).
+
+     9.   MEASURED VARIABLES AND COORDINATE DEFINITIONS:
+
+             X               STREAMWISE COORDINATE,  M.
+             Y               NORMAL COORDINATE,  M.
+             Z               SPANWISE COORDINATE,  M.
+             U               MEAN STREAMWISE VELOCITY,  M/SEC.
+             V               MEAN TRANSVERSE VELOCITY,  M/SEC.
+             W               MEAN SPANWISE VELOCITY,  M/SEC.
+             Q               R.M.S. TURBULENT VELOCITY,  M/SEC.
+             U2              1,1 COMPONENT OF REYNOLDS STRESS,  M**2/SEC**2.
+             V2              2,2 COMPONENT OF REYNOLDS STRESS,  M**2/SEC**2.
+             W2              2,2 COMPONENT OF REYNOLDS STRESS,  M**2/SEC**2.
+             UV              1,2 COMPONENT OF REYNOLDS STRESS,  M**2/SEC**2.
+             U/V             NONDIMENSIONAL VELOCITY.
+             Q**2            U2 + V2 + W2
+             DU/DY           VELOCITY DERIVATIVE,  1/SEC.
+             DV/DY           VELOCITY DERIVATIVE,  1/SEC.
+             DW/DZ           VELOCITY DERIVATIVE,  1/SEC.
+             RE              TAYLOR MICROSCALE REYNOLDS NUMBER.
+             TF              FINAL TIME,  SEC.
+             TE              ELAPSED TIME,  SEC.
+             OMEGA           ANGULAR VELOCITY,  RADS/SEC.
+             CR              CONTRACTION RATIO.
+             EPS             INITIAL DISSIPATION RATE.
+
+     10.   MEASUREMENT UNCERTAINTIES:
+     REFER TO FERZIGER, J. H.,  (1980).
+
+     11. TAPE ORGANIZATION: THE TAPE IS A 2400 FOOT, 9 TRACK, ODD PARITY,
+     PHASE ENCODED, UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS PER
+     INCH ACCORDING TO EBCDIC CODE.  THE RECORD FORMAT IS FIXED AND
+     BLOCKED; RECORD LENGTH = 80 BYTES; BLOCKSIZE = 8000 BYTES
+     NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:
+     XNORM = (X - XMIN)/(XMAX - XMIN)
+     NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY 10000 AND
+     ROUNDING UP OR DOWN TO THE NEAREST INTEGER.
+     IXNORM = XNORM * 10000.
+     THUS EACH NORMALIZED DATUM IS WRITTEN ONTO TAPE AS AN INTEGER
+     VALUE BETWEEN 0 AND 10000.
+     ALL NULL DATA ARE WRITTEN AS 20000
+     THE EQUATION DESCRIBING THE RELATION BETWEEN ACTUAL DATA AND
+     THE NORMALIZED DATA ON TAPE IS
+     X = XMIN + (((XMAX - XMIN) * IXNORM)/10000.)
+     WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS INTEGER.
+
+     FILE# NREC    CONTAINS                   FORMAT    COMMENTS
+
+      1     -      TEXT FILE                  -         CONTAINS ITEMS 1
+                                                        TO 11 OF THIS
+                                                        WRITE-UP
+
+      2     12     Q**2 , TE.                 2E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES,
+                                                        EPS = 15.52  .
+
+
+                   Q**2 , TE.                 2E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   Q**2 , TE.                 2I6       RECORDS 3 - 12
+                                                        NORMALIZED VALUES.
+
+      3     8      Q**2 , TE.                 2E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        OMEGA=0 RADS/SEC.
+                                                        EPS = 23.55  .
+
+                   Q**2 , TE.                 2E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   Q**2 , TE.                 2I6       RECORDS 3 - 8
+                                                        NORMALIZED VALUES.
+
+      4     8      Q**2 , U/V , TE.           3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        OMEGA=20 RADS/SEC.
+                                                        EPS = 21.19  .
+
+                   Q**2 , U/V , TE.           3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   Q**2 , U/V , TE.           3I6       RECORDS 3 - 8
+                                                        NORMALIZED VALUES.
+
+      5     8      Q**2 , U/V , TE.           3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        OMEGA=80 RADS/SEC.
+                                                        EPS = 23.45  .
+
+                   Q**2 , U/V , TE.           3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   Q**2 , U/V, TE.            3I6       RECORDS 3 - 8
+                                                        NORMALIZED VALUES.
+
+      6     8      U2 , V2 , TE.              3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        CR=4,RE=3710.
+                                                        EPS = 0.003362  .
+
+                   U2 , V2 , TE.              3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , TE.              3I6       RECORDS 3 - 8
+                                                        NORMALIZED VALUES.
+
+      7     5      U2 , V2 , TE.              3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        CR=9,RE=3710.
+                                                        EPS = 0.01504  .
+
+                   U2 , V2 , TE.              3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , TE.              3I6       RECORDS 3 - 5
+                                                        NORMALIZED VALUES.
+
+      8     10     U2 , V2 , TE.              3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        CR=4, RE=6500.
+                                                        EPS = 0.0906  .
+
+                   U2 , V2 , TE.              3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , TE.              3I6       RECORDS 3 - 10
+                                                        NORMALIZED VALUES.
+
+      9     10     U2 , V2 , TE.              3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        CR=4,RE=12300.
+                                                        EPS = 0.1711  .
+
+                   U2 , V2 , TE.              3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , TE.              3I6       RECORDS 3 - 10
+                                                        NORMALIZED VALUES.
+
+      10    11     U2 , V2 , W2 , TE.         4E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        EPS = 0.0189  .
+
+
+                   U2 , V2 , W2 , TE.         4E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , W2 , TE.         4I6       RECORDS 3 - 11
+                                                        NORMALIZED VALUES.
+
+      11    11     U2 , V2 , W2 , TE.         4E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        -DV/DY=DW/DZ
+                                                        =9.44 1/SEC.
+                                                        EPS = 0.59  .
+                   U2 , V2 , W2 , TE.         4E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , W2 , TE.         4I6       RECORDS 3 - 11
+                                                        NORMALIZED VALUES.
+
+      12    28     U2 , V2 , W2 , TE.         4E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        -DV/DY=DW/DZ
+                                                        =4.45 1/SEC.
+                                                        EPS = 0.63  .
+                   U2 , V2 , W2 , TE.         4E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , W2 , TE.         4I6       RECORDS 3 - 28
+                                                        NORMALIZED VALUES.
+
+      13    10     U2 , V2 , TE.              3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        CR=1.
+                                                        EPS = 0.037  .
+
+                   U2 , V2 , TE.              3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , TE.              3I6       RECORDS 3 - 10
+                                                        NORMALIZED VALUES.
+
+      14    10     U2 , V2 , TE.              3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        CR=9.
+                                                        EPS = 0.039  .
+
+                   U2 , V2 , TE.              3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , TE.              3I6       RECORDS 3 - 10
+                                                        NORMALIZED VALUES.
+
+      15    10     U2 , V2 , TE.              3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        CR=1.
+                                                        EPS = 0.022  .
+
+                   U2 , V2 , TE.              3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , TE.              3I6       RECORDS 3 - 10
+                                                        NORMALIZED VALUES.
+
+      16    10     U2 , V2 ,ET.               3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        CR=9.
+                                                        EPS = 0.024  .
+
+                   U2 , V2 , TE.              3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , TE.              3I6       RECORDS 3 - 10
+                                                        NORMALIZED VALUES.
+
+      17    10     U2 , V2 , TE.              3E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        CR=16.
+                                                        EPS = 0.016  .
+
+                   U2 , V2 , TE.              3E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , TE.              3I6       RECORDS 3 - 10
+                                                        NORMALIZED VALUES.
+
+      18    10     U2 , V2 , W2 , UV , TE.    5E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        UV=-0.000154,
+                                                        DU/DY=12.9 1/SEC.
+                                                        EPS = 1.08  .
+                   U2 , V2 , W2 , UV , TE.    5E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , W2 , UV , TE.    5I6       RECORDS 3 - 10
+                                                        NORMALIZED VALUES.
+
+      19    11     U2 , V2 , W2 , UV , TE.    5E13.6    RECORD 1 - MAXIMUM
+                                                        VALUES.
+                                                        UV=-0.0574,
+                                                        DU/DY=48 1/SEC.
+                                                        EPS = 3.91  .
+                   U2 , V2 , W2 , UV ,ET.     5E13.6    RECORD 2 - MINIMUM
+                                                        VALUES.
+
+                   U2 , V2 , W2 , UV , TE.    5I6       RECORDS 3 - 11
+                                                        NORMALIZED VALUES.
+
+
+
+
+     A SAMPLE PROGRAM FOR READING FILE 3 AND PRINTING, IS SHOWN
+     BELOW.   THE JCL SHOWN IS FOR THE STANFORD CIT FACILITY.
+     CHECK WITH YOUR OWN COMPUTER INSTALLATION FOR THE EXACT JCL
+     NEEDED.
+
+     //TAPE  JOB  BZC$NJ
+     /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)
+     //  EXEC  FORTCG
+     //FORT.SYSIN  DD  *
+     C   TO READ FILE 3 OFF TAPE
+     C   PRINT MAXIMAS AND MINIMAS OF ALL THE VARIABLES
+     C   PRINT NORMALIZED INTEGERIZED VALUES OF ALL THE VARIABLES.
+            INTEGER Q**2(50), ET(50)
+            READ (23,30) Q**2MAX,ETMAX
+            READ (23,30) Q**2MIN,ETMIN
+            DO  10  I = 1, 6
+     10     READ  (23,40) Q**2(I),ET(I)
+            WRITE (6,50) Q**2MAX,ETMAX
+            WRITE (6,50) Q**2MIN,ETMIN
+            DO  20  I = 1, 6
+     20     WRITE (6,60) Q**2(I),ET(I)
+     30     FORMAT(2E13.6)
+     40     FORMAT(2I6)
+     50     FORMAT(1X,2E13.6)
+     60     FORMAT(1X,2I6)
+            STOP
+            END
+     //GO.FT23F001  DD  UNIT=T1600,VOI=SER=(TAPE LIBRARY NUMBER),
+     //  DISP=(OLD,KEEP),DCB=(RECFM=FE,LRECL=80,BLKSIZE=8000,DEN=3),
+     //  LABEL=(3,NI)
+     //
+-------------- END OF FILE NUMBER   448-------------
+----------------- FILE NUMBER   449-----------------
+ 0.813308E 00 0.350348E 00
+ 0.308759E-01 0.000000E 00
+ 10000     0
+  4825   674
+  3140  1215
+  2137  1782
+  1537  2409
+  1032  3358
+   694  4267
+   423  5263
+   104  8259
+     0 10000
+-------------- END OF FILE NUMBER   449-------------
+----------------- FILE NUMBER   450-----------------
+ 0.175700E 00 0.477400E-01
+ 0.930000E-02 0.000000E 00
+ 10000     0
+  3311  1246
+  1736  2498
+   637  4999
+   210  7488
+     0 10000
+-------------- END OF FILE NUMBER   450-------------
+----------------- FILE NUMBER   451-----------------
+ 0.177700E 00 0.126700E 01 0.473400E-01
+ 0.109000E-01 0.117400E 01 0.000000E 00
+ 10000     0     0
+  3567  2580  1248
+  1804  1935  2498
+   695  5376  4997
+   239  4086  7498
+     0 10000 10000
+-------------- END OF FILE NUMBER   451-------------
+----------------- FILE NUMBER   452-----------------
+ 0.200000E 00 0.116100E 01 0.454900E-01
+ 0.171000E-01 0.112100E 01 0.000000E 00
+ 10000  7999     0
+  3597  8749  1248
+  1771  5499  2499
+   628     0  5001
+   180   249  7498
+     0 10000 10000
+-------------- END OF FILE NUMBER   452-------------
+----------------- FILE NUMBER   453-----------------
+ 0.286610E-03 0.154010E-02 0.214480E 00
+ 0.199330E-03 0.112540E-02 0.000000E 00
+     0 10000     0
+  1939  7629  1955
+  4401  5321  3653
+  5981  3088  5160
+  8625  2037  6762
+ 10000     0 10000
+-------------- END OF FILE NUMBER   453-------------
+----------------- FILE NUMBER   454-----------------
+ 0.374070E-03 0.331210E-02 0.479480E-01
+ 0.369340E-03 0.279320E-02 0.000000E 00
+     0 10000     0
+  3171  4578  3233
+ 10000     0 10000
+-------------- END OF FILE NUMBER   454-------------
+----------------- FILE NUMBER   455-----------------
+ 0.174810E-02 0.925910E-02 0.742240E-01
+ 0.134310E-02 0.629590E-02 0.000000E 00
+   120 10000     0
+     0  7547  1420
+   646  5682  2771
+  2898  3657  4231
+  6051  1716  5704
+  6753   749  7096
+  7503   483  8527
+ 10000     0 10000
+-------------- END OF FILE NUMBER   455-------------
+----------------- FILE NUMBER   456-----------------
+ 0.508370E-02 0.243100E-01 0.742110E-01
+ 0.312570E-02 0.157720E-01 0.000000E 00
+     0 10000     0
+   170  7368  1426
+  1630  6015  3017
+  3921  4264  4358
+  5495  2312  5714
+  8023  1088  7069
+  9770   539  8534
+ 10000     0 10000
+-------------- END OF FILE NUMBER   456-------------
+----------------- FILE NUMBER   457-----------------
+ 0.179100E-01 0.574000E-02 0.129100E-01 0.163600E 00
+ 0.127200E-01 0.394100E-02 0.104200E-01 0.000000E 00
+ 10000  1439 10000     0
+  8111     0 10000  1048
+  6974  1289  8192  1973
+  7321  6420  5622  3037
+  4315  3740  5622  4253
+  4527  5642  2690  4995
+  2832  6959  1164  6198
+  4026 10000  1967  7658
+     0  9349     0 10000
+-------------- END OF FILE NUMBER   457-------------
+----------------- FILE NUMBER   458-----------------
+ 0.243800E-01 0.265900E-01 0.219900E-01 0.165000E 00
+ 0.100200E-01 0.158200E-01 0.611300E-02 0.000000E 00
+ 10000 10000 10000     0
+  7242  5654  6611  1235
+  5452  3584  4218  2365
+  4178  2172  2542  3484
+  2876  1207  1737  4812
+  2214  1049   823  5959
+  1364   631   321  7357
+   717    74    40  8763
+     0     0     0 10000
+-------------- END OF FILE NUMBER   458-------------
+----------------- FILE NUMBER   459-----------------
+ 0.402500E-01 0.306900E-01 0.268100E-01 0.396500E 00
+ 0.115400E-01 0.141800E-01 0.441700E-02 0.000000E 00
+ 10000 10000 10000     0
+  8589  8255  9883   210
+  7944  7510  8030   407
+  6412  5645  6235   818
+  5367  4082  4297  1187
+  4099  2495  3453  1582
+  3336  1453  2908  1986
+  2298  1538  2248  2348
+  2086  1726  1892  2759
+  1414  1665  1721  3225
+  1170   866  1349  3646
+  1083   545  1058  4105
+   738   454  1115  4539
+   365   393   803  4968
+   292   145   568  5336
+   174     0   472  5783
+   101   157   456  6141
+     0   321   414  6494
+     3   417   228  6865
+    76   109    34  7268
+    80   430     0  7720
+    38   763    22  8181
+    83  1108   117  8544
+   264  1823    81  8943
+   313  2016   210  9361
+   393  3052   173 10000
+-------------- END OF FILE NUMBER   459-------------
+----------------- FILE NUMBER   460-----------------
+ 0.375000E-02 0.251000E-02 0.117000E 00
+ 0.181000E-02 0.120000E-02 0.000000E 00
+ 10000 10000     0
+  8814  7022  1452
+  6030  4885  2820
+  4690  4427  4273
+  3917  2290  5726
+  2216  1450  7179
+  1494   152  8547
+     0     0 10000
+-------------- END OF FILE NUMBER   460-------------
+----------------- FILE NUMBER   461-----------------
+ 0.353000E-02 0.687000E-02 0.314820E-01
+ 0.121000E-02 0.245000E-02 0.000000E 00
+ 10000    22     0
+  6077     0  3410
+  2801   565  6090
+     0  2466  7883
+   517  6923  8916
+  1896  9004  9339
+  2241  9796  9680
+  2198 10000 10000
+-------------- END OF FILE NUMBER   461-------------
+----------------- FILE NUMBER   462-----------------
+ 0.295000E-02 0.212000E-02 0.149000E 00
+ 0.146000E-02 0.116000E-02 0.000000E 00
+ 10000 10000     0
+  6241  7500  1409
+  5570  5312  2818
+  2885  4270  4295
+  2550  2812  5704
+  2013  2395  7114
+     0   520  8523
+   268     0 10000
+-------------- END OF FILE NUMBER   462-------------
+----------------- FILE NUMBER   463-----------------
+ 0.258000E-02 0.708000E-02 0.400110E-01
+ 0.839000E-03 0.209000E-02 0.000000E 00
+ 10000   140     0
+  6783     0  3398
+  3394   400  6070
+   160  2665  7858
+     0  6172  8899
+  1326  9258  9330
+  2705 10000  9676
+  2418  9559 10000
+-------------- END OF FILE NUMBER   463-------------
+----------------- FILE NUMBER   464-----------------
+ 0.235000E-02 0.948000E-02 0.442450E-01
+ 0.487000E-03 0.161000E-02 0.000000E 00
+  7584   139     0
+  6135     0  3628
+  3075   406  6420
+     0   940  8311
+  2109  4726  9318
+  6296  8132  9605
+  9838 10000  9813
+ 10000  9339 10000
+-------------- END OF FILE NUMBER   464-------------
+----------------- FILE NUMBER   465-----------------
+ 0.629270E-01 0.550990E-01 0.497850E-01 0.217730E-01 0.176113E 00
+ 0.494760E-01 0.284810E-01 0.324040E-01 0.152210E-01 0.000000E 00
+ 10000 10000 10000     0     0
+   328  4165  2670  1225  2349
+     0  1894   917  5673  4713
+   472  1215     0  6686  5838
+  1173   556    35  8136  7180
+  1671     0   342  8789  8675
+  2357   175   361 10000  9356
+  2824    20   376  9812 10000
+-------------- END OF FILE NUMBER   465-------------
+----------------- FILE NUMBER   466-----------------
+ 0.426519E 00 0.174310E 00 0.260231E 00 0.128854E 00 0.134183E 00
+ 0.186959E 00 0.749690E-01 0.931710E-01 0.574590E-01 0.000000E 00
+     0     0     0     0     0
+  1751  1428  1569  1520  1730
+  2388  3090  2529  2157  3664
+  2646  2189  3361  1765  4526
+  4777  4829  4459  4029  5416
+  5408  4409  5300  4250  6300
+  7411  6242  6971  6234  7284
+  8074  7065  8070  7343  9118
+ 10000 10000 10000 10000 10000
+-------------- END OF FILE NUMBER   466-------------
+4  7284
+  8074  7065  8070  7343  9118
+ 10000 10000 10000 10000

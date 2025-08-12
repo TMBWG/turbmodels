@@ -1,0 +1,2313 @@
+----------------- FILE NUMBER  1194-----------------                            
+1.   FLOW TITLE:   CASE 8623;   SPAID, F. W., AND STIVERS, L. S.;               
+SUPERCRITICAL AIRFOIL BOUNDARY LAYER MEASUREMENTS.                              
+                                                                                
+2.   REVISION DATE:   FEBRUARY 8, 1981                                          
+                                                                                
+3.   EVALUATOR:   MELNIK, R. E. GRUMMAN AEROSPACE CORPORATION,                  
+BETHPAGE, NEW YORK 11714.                                                       
+                                                                                
+4.   DATE AND LOCATIONS:   1975,  THE EXPERIMENTS WERE PART OF A                
+COOPERATIVE PROGRAM BETWEEN  MCDONNELL DOUGLAS RESEARCH LABORATORIES            
+(MDRL),  ST. LOUIS,  MO. 63166  AND NASA AMES RESEARCH CENTER, MOFFETT          
+FIELD,  CA. 94035.                                                              
+                                                                                
+5.   ABSTRACT:   A SERIES OF EXPERIMENTS WAS CONDUCTED ON FLOW FIELDS           
+ABOUT TWO MODELS WHICH HAD SECTIONS THAT WERE SLIGHT MODIFICATIONS              
+OF THE ORIGINAL WHITCOMB SUPERCRITICAL AIRFOIL SECTION.  BOUNDARY               
+LAYER PROFILES WERE OBTAINED ON BOTH UPPER AND LOWER SURFACES                   
+FOR COMBINATIONS OF LIFT COEFFICIENT AND FREE-STREAM MACH NUMBER                
+INCLUDING BOTH SUBCRITICAL CASES AND FLOWS WITH UPPER-SURFACE                   
+SHOCKS.  THE DATA ARE INTENDED TO PROVIDE TEST CASES FOR COMPARISON             
+WITH PREDICTIONS OF NUMERICAL COMPUTATIONS, AND TO CONTRIBUTE TO                
+A MORE DETAILED UNDERSTANDING OF THE MECHANISMS ASSOCIATED                      
+WITH TRANSONIC DRAG RISE.                                                       
+THE RESULTS WERE OBTAINED FOR LOW AND HIGH MACH NUMBERS, WITH                   
+RELATIVELY STRONG SHOCK WAVES  (MLOCAL=1.25) FOR HIGH                           
+MACH NUMBERS.                                                                   
+                                                                                
+6.   REFERENCES:    1.   SPAID, F. W., AND STIVERS, L. S.,                      
+'SUPERCRITICAL AIRFOIL BOUNDARY LAYER MEASUREMENTS,'                            
+AIAA PAPER NO. 79-1501,  JULY 1979.                                             
+                                                                                
+                    2.   HURLEY, F. X., SPAID, F. W., ROOS, F. W.,              
+STIVERS, L. S.,  AND BANDETTINI, A., "DETAILED TRANSONIC FLOW                   
+FIELD MEASUREMENTS ABOUT A SUPERCRITCAL AIRFOIL SECTION,"                      
+NASA TMX-3244,  JULY  1975.                                                     
+                                                                               
+7.   INSTRUMENTATION:   BOUNDARY LAYER SURVEYS WERE OBTAINED WITH            
+THE AID OF TWO-DEGREE-OF FREEDOM TRAVERSING RIG AND PROBE                       
+ASSEMBLY WHICH ALLOWED BOTH REMOTE STREAMWISE AND VERTICAL MOVEMENT             
+OF THE PROBE.  MORE DETAILED INFORMATION CONCERNING THE TRAVERSING              
+RIG AND PROBE, AND THE INSTRUMENTATION CAN BE OBTAINED FROM                     
+REFERENCE  2 .                                                                  
+                                                                                
+8.   EXPERIMENTAL PARAMETERS:   THE TESTS WERE CONDUCTED IN THE                 
+TWO-BY-TWO FOOT TRANSONIC WIND TUNNEL AT AMES RESEARCH CENTER.                 
+TWO .1524  (M) CHORD MODELS OF ESSENTIALLY THE ORIGINAL NASA                  
+WHITCOMB INTEGRAL (UNSLOTTED) SUPERCRITICAL AIRFOIL SECTION WERE                
+USED. MORE DETAILED INFORMATION CONCERNING THE FACILITY AND THE                 
+MODELS CAN BE OBTAINED FROM REFERENCE 2.                                        
+THE FOLLOWING TABLE WAS USED FOR THE TEST CASES:                                
+                                                                                
+   CASE NUMBER                1            2            3                       
+                                                                                
+   MACH NUMBER INF.         0.60         0.80         0.80                      
+   ALPHA  (DEGREES).        2.60         1.80         2.40                      
+   REYNOLDS NUMBER          4.00         2.00         3.00                      
+   *10**6 BASED ON                                                              
+   CHORD.                                                                       
+   TRANSITION STRIP        0.05/0.05    0.35/0.13    0.35/0.08                  
+   UPPER X/C,                                                                   
+   DIAMETER, (MM).                                                              
+   TRANSITION STRIP         0.18/0.13    0.18/0.13    0.18/0.13                 
+   LOWER X/C,                                                                   
+   DIAMETER, (MM).                                                              
+   LIFT COEFFICIENT, CL.    0.58         0.61         0.71                      
+   PITCHING MOMENT         -0.1193      -0.1140      -0.1239                    
+   COEFFICIENT, CM.                                                             
+   DRAG COEFFICIENT, CD.    0.0110       0.0182       0.0213                    
+                                                                                
+9.   MEASURED AND INFERRED VARIABLES:                                           
+                                                                                
+        C                AIRFOIL CHORD.                                         
+        M                MACH NUMBER.                                           
+        P                PRESSURE.                                              
+        PT               TOTAL PRESSURE.                                        
+        CP               PRESSURE COEFFICIENT, (CP=(P-PINF)/QINF).              
+        CPU              CPUPPER                                                
+        CPL              CPLOWER                                                
+        Q                DYNAMIC PRESSURE, (Q=1/2*RHO*U**2).                    
+        REC              REYNOLDS NUMBER BASED ON CHORD.                        
+        X                COORDINATE MEASURED PARALLEL TO                        
+                         FREE-STREAM DIRECTION.                                 
+        Z                COORDINATE NORMAL TO AIRFOIL PLANE.                    
+        ZUPPER           UPPER SURFACE COORDINATE.                              
+        ZLOWER           LOWER SURFACE COORDINATE.                              
+        PINF/PTINF       NON-DIMENSIONAL PRESSURE.                              
+        ZDATA                                                                   
+        RET                                                                     
+        STREAMFN         STREAM FUNCTION.                                       
+        ALPHA            ANGLE OF ATTACK.                                       
+        RHO              DENSITY.                                               
+        TAU              SHEAR STRESS.                                          
+        U                VELOCITY.                                              
+                                                                                
+     SUBSCRIPTS:                                                                
+                                                                                
+        C                BASED ON AIRFOIL CHORD.                                
+        E                CONDITIONS AT EDGE OF BOUNDARY LAYER.                  
+        W                CONDITIONS AT THE WALL (AIRFOIL SURFACE).              
+        INF              FREE-STREAM CONDITION.                                 
+                                                                                
+10.   MEASUREMENT UNCERTAINTIES:                                                
+                                                                                
+         NONE SPECIFIED.                                                        
+                                                                                
+                                                                                
+                                                                                
+    11. TAPE ORGANIZATION: THE TAPE IS A 2400 FOOT, 9 TRACK, ODD PARITY,        
+    UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS PER INCH                  
+    ACCORDING TO EBCDIC CODE.  THE RECORD FORMAT IS FIXED AND                   
+    BLOCKED; RECORD LENGTH = 80 BYTES; BLOCKSIZE = 8000 BYTES                   
+                                                                                
+    NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:                  
+    XNORM = (X - XMIN)/(XMAX - XMIN)                                            
+    NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY 10000 AND               
+    ROUNDING UP OR DOWN TO THE NEAREST INTEGER.                                 
+    IXNORM = XNORM * 10000.                                                     
+    THUS EACH NORMALIZED DATUM IS WRITTEN ONTO TAPE AS AN INTEGER               
+    VALUE BETWEEN 0 AND 10000.                                                  
+    ALL NULL DATA ARE WRITTEN AS 20000                                          
+    THE EQUATION DESCRIBING THE RELATION BETWEEN ACTUAL DATA AND                
+    THE NORMALIZED DATA ON TAPE IS                                              
+    X = XMIN + (((XMAX - XMIN) * IXNORM)/10000.)                                
+    WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS INTEGER.                      
+                                                                                
+    FILE# NREC    CONTAINS                   FORMAT    COMMENTS                 
+                                                                                
+     1     -      TEXT FILE                  -         CONTAINS ITEMS 1         
+                                                       TO 11 OF THIS            
+                                                       WRITE-UP                 
+                                                                                
+     2     61    X/C,ZUPPER/C,ZLOWER/C       3E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                 X/C,ZUPPER/C,ZLOWER/C       3E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                 X/C,ZUPPER/C,ZLOWER/C       3I6       RECORDS 3 - 61           
+                                                       NORMALIZED VALUES        
+     3     28    X/C,CPU,X/C,CPL             4E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       CASE 1,                  
+                                                       ALPHA=2.6 (DEG.).        
+                 X/C,CPU,X/C,CPL             4E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                 X/C,CPU,X/C,CPL             4I6       RECORDS 3 - 28           
+                                                       NORMALIZED VALUES        
+     4     28    X/C,CPU,X/C,CPL             4E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       CASE 2,                  
+                                                       ALPHA=1.8 (DEG.).        
+                 X/C,CPU,X/C,CPL             4E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                 X/C,CPU,X/C,CPL             4I6       RECORDS 3 - 28           
+                                                       NORMALIZED VALUES        
+     5     28    X/C,CPU,X/C,CPL             4E13.6    RECORD  1 -              
+                                                       MAXIMUM VALUES           
+                                                       CASE 3,                  
+                                                       ALPHA=2.4 (DEG.).        
+                 X/C,CPU,X/C,CPL             4E13.6    RECORD  2 -              
+                                                       MINIMUM VALUES           
+                 X/C,CPU,X/C,CPL             4I6       RECORDS 3 - 28           
+                                                       NORMALIZED VALUES        
+     6     36    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.3,          
+                                                       CPU=-0.495               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 36           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+     7     29    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.5,          
+                                                       CPU=-0.417               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 29           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+     8     32    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.7,          
+                                                       CPU=-0.370               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 32           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+     9     32    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.8,          
+                                                       CPU=-0.345               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 32           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    10     45    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.9,          
+                                                       CPU=-0.175               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 45           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    11     36    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.95,         
+                                                       CPU=-0.015               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 36           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    12     36    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.65,         
+                                                       CPL=0.059                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 36           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    13     30    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.6,          
+                                                       CPL=-0.085               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 30           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    14     31    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.5,          
+                                                       CPL=-0.155               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 31           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    15     26    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.3,          
+                                                       CPL=-0.080               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 26           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    16     42    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=1.0,          
+                                                       CPU=0.110                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 42           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    17     33    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.75,         
+                                                       CPL=0.335                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 33           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    18     34    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=0.91,         
+                                                       CPL=0.461                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 34           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    19     32    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 1,X/C=1.0,          
+                                                       CPL=0.180                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 32           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    20     31    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.3,          
+                                                       CPU=-0.941               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 31           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    21     30    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.4,          
+                                                       CPU=-0.910               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 30           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    22     31    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.45,         
+                                                       CPU=-0.904               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 31           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    23     35    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.6,          
+                                                       CPU=-0.243               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 35           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    24     34    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.75,         
+                                                       CPU=-0.300               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 34           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    25     39    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.85,         
+                                                       CPU=-0.195               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 39           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    26     39    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.9,          
+                                                       CPU=-0.085               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 39           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    27     40    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.95,         
+                                                       CPU=0.082                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 40           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    28     39    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=1.0,          
+                                                       CPU=0.188                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 39           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    29     30    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.3,          
+                                                       CPL=-0.185               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 30           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    30     32    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.5,          
+                                                       CPL=-0.235               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 32           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    31     31    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.6,          
+                                                       CPL=-0.072               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 31           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    32     31    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.65,         
+                                                       CPL=0.134                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 31           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    33     36    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.75,         
+                                                       CPL=0.313                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 36           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    34     38    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=0.91,         
+                                                       CPL=0.438                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 38           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    35     43    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 2,X/C=1.0,          
+                                                       CPL=0.257                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 43           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    36     28    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.3,          
+                                                       CPU=-0.998               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 28           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    37     30    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.45,         
+                                                       CPU=-0.965               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 30           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    38     38    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.65,         
+                                                       CPU=-0.242               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 38           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    39     31    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.8,          
+                                                       CPU=-0.248               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 31           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    40     35    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.9,          
+                                                       CPU=-0.081               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 35           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    41     34    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.95,         
+                                                       CPU=-0.005               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 34           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    42     33    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=1.0,          
+                                                       CPU=0.197                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 33           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    43     26    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.3,          
+                                                       CPL=-0.129               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 26           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    44     29    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.5,          
+                                                       CPL=-0.185               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 29           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    45     32    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.6,          
+                                                       CPL=-0.055               
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 32           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    46     32    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.75,         
+                                                       CPL=0.305                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 32           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    47     29    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=0.91,         
+                                                       CPL=0.483                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 29           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+    48     38    ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 1 - 2            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MAXIMUM VALUES           
+                 STREAMFN,RET                          CASE 3,X/C=1.0,          
+                                                       CPL=0.250                
+                 ZDATA,Z/C,PINF/PTINF,M,     5E13.6/   RECORDS 3 - 4            
+                 U/UE,U/UINF,RHO/RHOE,       4E13.6    MINIMUM VALUES           
+                 STREAMFN,RET                                                   
+                 ZDATA,Z/C,PINF/PTINF,M,     9I6       RECORDS 5 - 38           
+                 U/UE,U/UINF,RHO/RHOE,                 NORMALIZED VALUES        
+                 STREAMFN,RET                                                   
+                                                                                
+                                                                                
+    A SAMPLE PROGRAM FOR READING FILE 2 AND PRINTING, IS SHOWN                  
+    BELOW.  THE JCL SHOWN IS FOR THE STANFORD CIT FACILITY.                     
+    CHECK WITH YOUR OWN COMPUTER INSTALLATION FOR THE EXACT JCL                 
+    NEEDED.                                                                     
+                                                                                
+    //TAPE  JOB  BZC$NJ                                                         
+    /*SETUP TAPE=1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)                      
+    //  EXEC  FORTCG                                                            
+    //FORT.SYSIN  DD  *                                                         
+    C  TO READ FILE 2 OFF TAPE                                                  
+    C  PRINT MAXIMAS AND MINIMAS OF ALL THE VARIABLES                           
+    C  PRINT NORMALIZED INTEGERIZED VALUES OF ALL THE VARIABLES.                
+           INTEGER X(84),ZU(84),ZL(84)                                          
+           READ (23,30) XMX,ZUMX,ZLMX                                           
+           READ (23,30) XMN,ZUMN,ZLMN                                           
+           DO  10  I = 1, 59                                                    
+    10     READ (23,40) X(I),ZU(I),ZL(I)                                        
+           WRITE (6,50) XMX,ZUMX,ZLMX                                           
+           WRITE (6,50) XMN,ZUMN,ZLMN                                           
+           DO  20  I = 1, 59                                                    
+    20     WRITE (6,60) X(I),ZU(I),ZL(I)                                        
+    30     FORMAT(3E13.6)                                                       
+    40     FORMAT(3I6)                                                          
+    50     FORMAT(1X,3E13.6)                                                    
+    60     FORMAT(1X,3I6)                                                       
+           STOP                                                                 
+           END                                                                  
+    //GO.FT23F001  DD  UNIT=T1600,VOL=SER=(TAPE LIBRARY NUMBER),                
+    //  DISP=(OLD,KEEP),DCB=(RECFM=FB,LRECL=80,BLKSIZE=8000,DEN=3),             
+    //  LABEL=(2,NL)                                                            
+    //                                                                          
+-------------- END OF FILE NUMBER  1194-------------                            
+----------------- FILE NUMBER  1195-----------------                            
+ 0.100000E 01 0.552720E-01 0.513890E 00                                         
+ 0.500000E-03 0.308000E-03-0.551630E-01                                         
+     0   866   879                                                              
+     5  1234   844                                                              
+    20  1956   774                                                              
+    45  2731   700                                                              
+    70  3294   645                                                              
+    95  3712   606                                                              
+   120  4065   573                                                              
+   145  4359   545                                                              
+   195  4841   499                                                              
+   295  5534   430                                                              
+   395  6030   378                                                              
+   595  6749   300                                                              
+   795  7288   235                                                              
+   995  7764   186                                                              
+  1195  8167   147                                                              
+  1395  8498   115                                                              
+  1595  8775    88                                                              
+  1795  9009    67                                                              
+  1995  9204  1889                                                              
+  2196  9368  1904                                                              
+  2396  9507 10000                                                              
+  2596  9622  1925                                                              
+  2796  9719     6                                                              
+  2996  9797     1                                                              
+  3196  9861     0                                                              
+  3396  9911     0                                                              
+  3596  9950     3                                                              
+  3796  9977     8                                                              
+  3996  9994    15                                                              
+  4197 10000    25                                                              
+  4397  9995    37                                                              
+  4597  9977    53                                                              
+  4797  9945    70                                                              
+  4997  9900    92                                                              
+  5197  9839   117                                                              
+  5397  9764   147                                                              
+  5597  9675   185                                                              
+  5797  9571   231                                                              
+  5997  9453   286                                                              
+  6198  9321   351                                                              
+  6398  9172   425                                                              
+  6598  9009   510                                                              
+  6798  8828   606                                                              
+  6998  8626   697                                                              
+  7198  8402   783                                                              
+  7398  8154   863                                                              
+  7598  7880   936                                                              
+  7798  7574  1002                                                              
+  7998  7229  1061                                                              
+  8199  6840  1111                                                              
+  8399  6403  1153                                                              
+  8599  5907  1186                                                              
+  8799  5341  1209                                                              
+  8999  4702  1218                                                              
+  9199  3980  1211                                                              
+  9399  3165  1186                                                              
+  9599  2244  1140                                                              
+  9799  1516  1070                                                              
+ 10000     0   978                                                              
+-------------- END OF FILE NUMBER  1195-------------                            
+----------------- FILE NUMBER  1196-----------------                            
+ 0.100000E 01 0.987000E 00 0.950000E 00 0.106800E 01                            
+ 0.000000E 00-0.137100E 01 0.200000E-02-0.153000E 00                            
+     0 10000 20000 20000                                                        
+    20  6471     0 10000                                                        
+    49  3744    31  9189                                                        
+   100 20000    84  6797                                                        
+   249 20000   242  3079                                                        
+   500     0   506  1850                                                        
+   749  1980   770  1556                                                        
+  1000  2298  1033  1007                                                        
+  1499 20000  1561  1228                                                        
+  1999  3176  2088   982                                                        
+  2500  3486  2616   737                                                        
+  3000  3765  3143   843                                                        
+  3500  3795  3670   401                                                        
+  3999  3969  4198   278                                                        
+  4499  3994  4725   278                                                        
+  5000  4067  5253     0                                                        
+  5500  4109  5780   155                                                        
+  6000  4168  6308   540                                                        
+  6499  4100  6835  1793                                                        
+  6999  4257  7362  3243                                                        
+  7500  4338  7890  4029                                                        
+  8000  4346  8417  4529                                                        
+  8500 20000  8945  4889                                                        
+  8999  5059  9472 20000                                                        
+  9499 20000 10000  5069                                                        
+ 10000  6255 20000 20000                                                        
+-------------- END OF FILE NUMBER  1196-------------                            
+----------------- FILE NUMBER  1197-----------------                            
+ 0.100000E 01 0.117000E 01 0.950000E 00 0.104500E 01                            
+ 0.000000E 00-0.108600E 01 0.200000E-02-0.252000E 00                            
+     0 10000 20000 20000                                                        
+    20  7974     0 10000                                                        
+    49  6037    31  8635                                                        
+   100 20000    84  5628                                                        
+   249  1094   242  1842                                                        
+   500     0   506  1233                                                        
+   749   150   770   840                                                        
+  1000   425  1033   454                                                        
+  1499 20000  1561   485                                                        
+  1999   438  2088   771                                                        
+  2500   487  2616   555                                                        
+  3000   638  3143   516                                                        
+  3500   842  3670   346                                                        
+  3999   775  4198   192                                                        
+  4499   806  4725   231                                                        
+  5000  1130  5253     0                                                        
+  5500  3284  5780   501                                                        
+  6000  3723  6308  1372                                                        
+  6499  3599  6835  2976                                                        
+  6999  3492  7362  4001                                                        
+  7500  3484  7890  4348                                                        
+  8000  3603  8417  4656                                                        
+  8500 20000  8945  4942                                                        
+  8999  4441  9472 20000                                                        
+  9499 20000 10000  5512                                                        
+ 10000  5602 20000 20000                                                        
+-------------- END OF FILE NUMBER  1197-------------                            
+----------------- FILE NUMBER  1198-----------------                            
+ 0.100000E 01 0.115500E 01 0.950000E 00 0.107200E 01                            
+ 0.000000E 00-0.115100E 01 0.200000E-02-0.186000E 00                            
+     0 10000 20000 20000                                                        
+    20  7836     0 10000                                                        
+    49  5888    31  8847                                                        
+   100 20000    84  6120                                                        
+   249  1032   242  2344                                                        
+   500     0   506  1534                                                        
+   749   147   770  1208                                                        
+  1000   390  1033   747                                                        
+  1499 20000  1561   794                                                        
+  1999   442  2088   715                                                        
+  2500   511  2616   500                                                        
+  3000   667  3143   468                                                        
+  3500   654  3670   310                                                        
+  3999   784  4198   262                                                        
+  4499   784  4725   294                                                        
+  5000   832  5253     0                                                        
+  5500  2588  5780   286                                                        
+  6000  3703  6308  1049                                                        
+  6499  3950  6835  2631                                                        
+  6999  3902  7362  3815                                                        
+  7500  3889  7890  4260                                                        
+  8000  3911  8417  4610                                                        
+  8500 20000  8945  4944                                                        
+  8999  4631  9472 20000                                                        
+  9499 20000 10000  5548                                                        
+ 10000  5841 20000 20000                                                        
+-------------- END OF FILE NUMBER  1198-------------                            
+----------------- FILE NUMBER  1199-----------------                            
+ 0.142000E-01 0.147000E-01 0.100000E 01 0.750600E 00 0.100000E 01               
+ 0.122790E 01 0.100000E 01 0.149000E-01 0.306100E 04                            
+-0.200000E-03 0.000000E 00 0.779300E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.908900E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9995  9998  9998  9999 10000 10000  9996                          
+  8750  8775  9981  9994  9994  9995  9989  8644  9993                          
+  7777  7823 10000 10000 10000 10000 10000  7597 10000                          
+  7083  7142 10000 10000 10000 10000 10000  6845 10000                          
+  6597  6666  9986  9996  9995  9995  9989  6319  9993                          
+  6111  6190 10000 10000 10000 10000 10000  5793 10000                          
+  5555  5646  9972  9992  9991  9992  9978  5193  9990                          
+  5138  5238  9913  9973  9976  9975  9945  4744  9964                          
+  4861  4965  9800  9938  9944  9944  9868  4445  9921                          
+  4513  4625  9646  9888  9900  9899  9758  4073  9859                          
+  4374  4489  9605  9876  9889  9889  9725  3925  9843                          
+  4236  4353  9392  9808  9826  9826  9571  3777  9758                          
+  3958  4081  9234  9756  9781  9780  9462  3484  9696                          
+  3819  3945  8957  9666  9699  9699  9275  3338  9585                          
+  3402  3537  8513  9520  9566  9565  8957  2908  9405                          
+  3263  3401  8314  9453  9505  9505  8814  2767  9323                          
+  2847  2993  7802  9277  9344  9343  8452  2347  9108                          
+  2638  2789  7399  9135  9212  9212  8155  2141  8938                          
+  2430  2585  6801  8919  9014  9013  7727  1940  8683                          
+  2222  2380  6565  8832  8931  8932  7552  1742  8578                          
+  2152  2312  6280  8725  8831  8832  7343  1677  8454                          
+  1875  2040  5718  8507  8629  8629  6926  1422  8203                          
+  1805  1972  5636  8475  8598  8599  6871  1359  8167                          
+  1597  1768  5174  8290  8424  8424  6520  1173  7954                          
+  1458  1632  4716  8101  8245  8245  6180  1052  7739                          
+  1180  1360  4408  7969  8120  8121  5949   815  7592                          
+  1041  1224  3756  7683  7847  7847  5444   699  7275                          
+   833  1020  3026  7346  7523  7523  4884   534  6909                          
+   694   884  2383  7029  7215  7216  4379   429  6569                          
+   416   612  1776  6714  6909  6910  3896   228  6239                          
+   208   408   792  6159  6363  6362  3106   105  5668                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1199-------------                            
+----------------- FILE NUMBER  1200-----------------                            
+ 0.256000E-01 0.177000E-01 0.993700E 00 0.723000E 00 0.100030E 01               
+ 0.118720E 01 0.100010E 01 0.171600E-01 0.295500E 04                            
+ 0.820000E-02 0.000000E 00 0.777900E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.914900E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  9080  9096  9990  9997  9996  9996  9988  8980  9996                          
+  8620  8644  9981  9994  9993  9994  9976  8473  9993                          
+  7701  7740  9990  9997  9996  9996  9988  7453  9996                          
+  6896  6949  9976  9993  9992  9992  9976  6555  9989                          
+  6321  6384  9874  9959  9962  9962  9906  5920  9949                          
+  5632  5706  9847  9950  9954  9953  9882  5160  9935                          
+  5517  5593  9698  9900  9910  9909  9776  5033  9874                          
+  4999  5084  9346  9782  9802  9802  9518  4469  9729                          
+  4712  4802  9138  9712  9737  9737  9366  4159  9644                          
+  4367  4463  8632  9536  9577  9577  8990  3791  9431                          
+  3850  3954  7900  9273  9336  9336  8438  3255  9116                          
+  3448  3559  7247  9031  9110  9110  7945  2849  8829                          
+  3160  3276  6793  8856  8948  8947  7593  2567  8626                          
+  2758  2881  6084  8573  8683  8683  7053  2182  8297                          
+  2413  2542  5607  8376  8497  8497  6678  1861  8074                          
+  2126  2259  4851  8051  8187  8188  6079  1604  7708                          
+  1666  1807  4249  7777  7926  7927  5610  1207  7404                          
+  1436  1581  3739  7536  7695  7695  5199  1016  7143                          
+  1149  1299  3225  7283  7449  8292  4776   784  6869                          
+   919  1073  2636  6977  7153  7153  4295   607  6544                          
+   402   564  1658  6431  6618  6618  3485   232  5976                          
+   287   451   991  6024  6214  6214  2910   155  5563                          
+   172   338   352  5600  5791  5791  2370    89  5137                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1200-------------                            
+----------------- FILE NUMBER  1201-----------------                            
+ 0.245000E-01 0.250000E-01 0.995900E 00 0.712300E 00 0.100010E 01               
+ 0.116930E 01 0.100000E 01 0.242100E-01 0.292600E 04                            
+-0.200000E-03 0.000000E 00 0.778400E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.917200E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9995  9997  9998  9998 10000 10000 10000                          
+  9311  9319 10000 10000 10000 10000 10000  9235 10000                          
+  8502  8519  9981  9992  9994  9994  9987  8335  9993                          
+  7894  7919  9995  9997  9998  9998 10000  7662 10000                          
+  7530  7559  9990  9995  9997  9997 10000  7257  9996                          
+  7125  7160  9977  9991  9992  9993  9987  6807  9989                          
+  6801  6839  9972  9990  9991  9991  9987  6447  9989                          
+  6396  6440  9921  9973  9976  9976  9939  6001  9969                          
+  6032  6080  9880  9959  9964  9963  9915  5596  9952                          
+  5708  5760  9871  9955  9961  9960  9903  5237  9945                          
+  5465  5519  9696  9896  9906  9905  9770  4973  9873                          
+  5060  5120  9531  9838  9854  9853  9649  4527  9801                          
+  4574  4639  9103  9688  9717  9716  9323  4002  9620                          
+  4210  4279  8772  9570  9609  9608  9070  3613  9477                          
+  3927  4000  8358  9418  9470  9468  8756  3315  9295                          
+  3522  3599  7613  9139  9210  9209  8176  2901  8961                          
+  3198  3280  7126  8948  9032  9031  7789  2578  8738                          
+  3036  3120  6795  8815  8908  8907  7524  2420  8585                          
+  2510  2599  5963  8469  8583  8582  6859  1921  8188                          
+  1862  1960  4671  7892  8034  8033  5809  1341  7542                          
+  1619  1719  4312  7721  7870  7869  5507  1134  7354                          
+  1457  1559  3880  7509  7666  7665  5157   999  7125                          
+   890   999  3158  7137  7305  7304  4541   548  6725                          
+   688   799  2464  6755  6931  6931  3949   396  6326                          
+   485   600  2004  6486  6667  6667  3562   251  6045                          
+   364   480  1599  6238  6422  6421  3212   168  5792                          
+    40   159   390  5416  5602  5602  2137    20  4969                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1201-------------                            
+----------------- FILE NUMBER  1202-----------------                            
+ 0.271000E-01 0.274000E-01 0.996100E 00 0.704800E 00 0.100070E 01               
+ 0.115810E 01 0.100010E 01 0.264300E-01 0.292000E 04                            
+ 0.000000E 00 0.000000E 00 0.783800E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.918900E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  9114  9124  9981  9992  9994  9994  9987  9016  9993                          
+  8487  8503  9976  9991  9993  9993  9987  8320  9989                          
+  7970  7992  9967  9988  9990  9990  9975  7744  9986                          
+  7490  7518  9976  9991  9993  9993  9987  7211  9989                          
+  7011  7043  9943  9980  9983  9982  9963  6681  9976                          
+  6531  6569  9948  9981  9984  9984  9963  6148  9979                          
+  6162  6204  9910  9968  9973  9972  9938  5739  9962                          
+  5756  5802  9844  9947  9952  9952  9889  5289  9934                          
+  5498  5547  9726  9906  9916  9915  9802  5005  9886                          
+  5055  5109  9533  9841  9855  9854  9655  4521  9804                          
+  4686  4744  9185  9719  9744  9744  9384  4120  9657                          
+  4317  4379  8714  9551  9590  9590  9027  3726  9455                          
+  3911  3978  8280  9394  9445  9444  8694  3300  9267                          
+  3579  3649  7753  9196  9262  9262  8288  2959  9034                          
+  3357  3430  7338  9038  9114  9114  7967  2737  8845                          
+  3099  3175  6674  8774  8867  8867  7450  2483  8541                          
+  2767  2846  6132  8551  8657  8658  7019  2167  8287                          
+  2472  2554  5624  8334  8453  8452  6613  1894  8041                          
+  2140  2226  5021  8067  8198  8198  6120  1596  7743                          
+  1660  1751  4413  7786  7929  7929  5628  1180  7434                          
+  1328  1423  3815  7495  7649  7649  5135   904  7119                          
+  1033  1131  3160  7160  7324  7324  4581   668  6760                          
+   774   875  2670  6896  7067  7067  4174   471  6482                          
+   553   656  2133  6593  6768  6768  3719   309  6164                          
+   332   437  1672  6316  6496  6496  3312   155  5883                          
+    36   145   433  5495  5678  5677  2241    19  5054                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1202-------------                            
+----------------- FILE NUMBER  1203-----------------                            
+ 0.393000E-01 0.396000E-01 0.996800E 00 0.651600E 00 0.100030E 01               
+ 0.107950E 01 0.100010E 01 0.373100E-01 0.277300E 04                            
+ 0.000000E 00 0.000000E 00 0.792900E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.929800E 00 0.000000E 00 0.000000E 00                            
+  4809  4848  9833  9937  9943  9941  9857  4299  9927                          
+  5012  5050  9911  9966  9970  9969  9914  4521  9960                          
+  5165  5202  9950  9981  9983  9983  9957  4687  9978                          
+  5547  5580  9960  9984  9986  9986  9957  5105  9985                          
+ 10000 10000  9995  9998  9998  9998  9985 10000 10000                          
+  9363  9368  9985  9993  9994  9994  9985  9300  9996                          
+  8778  8787  9995  9998  9998  9998  9985  8657 10000                          
+  8269  8282  9970  9989  9989  9989  9971  8099  9989                          
+  7735  7752  9990  9995  9996  9996  9985  7510  9996                          
+  7277  7297  9985  9993  9994  9994  9985  7008  9996                          
+  7022  7045  9990  9995  9996  9996  9985  6727  9996                          
+  6692  6717  9985  9993  9994  9994  9985  6365  9996                          
+  6361  6388  9995  9998  9998  9998  9985  6001 10000                          
+  6284  6313 10000 10000 10000 10000 10000  5915 10000                          
+  5877  5909  9990  9995  9996  9996  9985  5467  9996                          
+  5521  5555  9867  9949  9955  9953  9886  5079  9942                          
+  5038  5075  9921  9970  9973  9973  9928  4548  9967                          
+  4631  4671  9828  9935  9941  9940  9857  4103  9924                          
+  4376  4419  9666  9874  9884  9884  9715  3824  9852                          
+  3994  4040  9303  9734  9755  9754  9416  3414  9686                          
+  3664  3712  8974  9605  9636  9635  9132  3063  9534                          
+  3435  3484  8484  9410  9453  9452  8719  2824  9304                          
+  3180  3232  8077  9243  9296  9295  8378  2565  9109                          
+  2951  3005  7523  9008  9076  9075  7894  2337  8838                          
+  2569  2626  6792  8686  8772  8771  7268  1968  8474                          
+  2315  2373  6159  8394  8494  8493  6714  1732  8150                          
+  1959  2020  5527  8089  8201  8201  6145  1413  7811                          
+  1730  1792  4977  7811  7934  7934  5661  1216  7508                          
+  1526  1590  4551  7587  7717  7717  5277  1046  7266                          
+  1297  1363  4001  7286  7424  7423  4765   862  6945                          
+  1094  1161  3629  7073  7215  7215  4423   704  6721                          
+   916   984  3094  6752  6901  6901  3940   571  6386                          
+   763   833  2736  6527  6679  6679  3598   462  6155                          
+   610   681  2447  6338  6493  6492  3328   357  5961                          
+   483   555  2113  6112  6268  6267  3015   272  5733                          
+   330   404  1677  5801  5958  5958  2603   174  5420                          
+   254   328  1432  5616  5774  5773  2375   128  5236                          
+   203   277  1034  5305  5460  5460  1991    98  4926                          
+   127   202   666  4995  5149  5148  1635    56  4623                          
+    25   101   245  4613  4761  4761  1223    15  4255                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1203-------------                            
+----------------- FILE NUMBER  1204-----------------                            
+ 0.409000E-01 0.413000E-01 0.997300E 00 0.602400E 00 0.100100E 01               
+ 0.100220E 01 0.100010E 01 0.350500E-01 0.264500E 04                            
+-0.100000E-03 0.000000E 00 0.801000E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.939400E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  9219  9225  9974  9990  9990  9990  9983  9087  9988                          
+  8463  8474  9979  9991  9992  9992  9983  8205  9988                          
+  7999  8014  9959  9983  9984  9984  9967  7663  9981                          
+  7439  7457  9974  9990  9990  9990  9983  7009  9988                          
+  7048  7070  9954  9980  9982  9982  9967  6556  9977                          
+  6731  6755  9908  9961  9964  9964  9917  6185  9954                          
+  6414  6440  9903  9960  9962  9962  9917  5817  9950                          
+  6024  6053  9913  9963  9966  9966  9934  5363  9958                          
+  5487  5520  9796  9915  9920  9920  9818  4738  9901                          
+  5024  5060  9561  9815  9828  9827  9604  4205  9784                          
+  4707  4745  9235  9674  9696  9695  9291  3845  9621                          
+  4341  4382  8568  9379  9418  9418  8665  3440  9281                          
+  3999  4043  8094  9161  9212  9211  8220  3072  9035                          
+  3658  3704  7488  8874  8938  8938  7644  2714  8710                          
+  3292  3341  6653  8456  8538  8538  6836  2347  8249                          
+  2902  2953  6026  8124  8219  8218  6210  1973  7886                          
+  2634  2687  5150  7631  7741  7740  5354  1729  7357                          
+  2268  2324  4559  7275  7394  7394  4761  1415  6979                          
+  1951  2009  3886  6844  6971  6970  4085  1158  6533                          
+  1658  1719  3234  6392  6525  6524  3410   936  6068                          
+  1439  1501  2817  6083  6217  6218  2981   780  5754                          
+  1292  1355  2567  5891  6024  6024  2734   680  5561                          
+  1048  1113  2205  5595  5731  5731  2355   520  5266                          
+   926   992  1772  5220  5353  5354  1894   445  4896                          
+   756   823  1538  5004  5135  5135  1647   345  4684                          
+   609   677  1242  4716  4845  4844  1334   264  4400                          
+   439   508   927  4384  4509  4509  1004   176  4079                          
+   243   314   580  3987  4105  4105   626    83  3701                          
+   170   242   315  3653  3765  3765   345    52  3383                          
+    73   145   163  3444  3552  3552   181    19  3183                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1204-------------                            
+----------------- FILE NUMBER  1205-----------------                            
+ 0.254000E-01 0.255000E-01 0.997500E 00 0.578600E 00 0.100000E 01               
+ 0.965100E 00 0.100000E 01 0.227200E-01 0.258000E 04                            
+ 0.200000E-03 0.000000E 00 0.840100E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.943800E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  8968  8980  9980  9993  9994  9993  9982  8882  9992                          
+  8095  8117  9987  9994  9995  9995  9982  7940  9996                          
+  7420  7450  9949  9980  9983  9982  9964  7213  9980                          
+  6746  6784  9980  9993  9994  9993  9982  6483  9984                          
+  6230  6274  9949  9980  9983  9982  9964  5928  9980                          
+  5833  5882  9968  9987  9988  9988  9982  5497  9988                          
+  5396  5450  9987  9994  9995  9995  9982  5026  9996                          
+  4960  5019  9987  9994  9995  9995  9982  4555  9996                          
+  4642  4705 10000 10000 10000 10000 10000  4212 10000                          
+  4285  4352  9968  9987  9988  9988  9982  3826  9988                          
+  3928  4000  9923  9972  9973  9974  9946  3441  9968                          
+  3452  3529  9764  9915  9919  9920  9804  2929  9903                          
+  3095  3176  9313  9749  9764  9764  9448  2550  9713                          
+  2857  2941  8862  9580  9605  9604  9074  2301  9515                          
+  2698  2784  8405  9403  9437  9438  8701  2139  9317                          
+  2499  2588  8036  9258  9301  9300  8398  1940  9155                          
+  2301  2392  7547  9061  9114  9114  8007  1744  8934                          
+  1984  2078  6944  8812  8874  8874  7508  1440  8655                          
+  1785  1882  6232  8505  8579  8579  6903  1255  8317                          
+  1587  1686  5571  8206  8292  8292  6352  1078  7992                          
+  1468  1568  5254  8059  8148  8149  6085   974  7833                          
+  1309  1411  4949  7913  8008  8008  5818   839  7678                          
+  1150  1254  4479  7682  7784  7783  5427   706  7430                          
+  1071  1176  3913  7393  7501  7501  4946   643  7127                          
+   912  1019  3526  7188  7300  7300  4608   519  6910                          
+   833   941  3119  6965  7081  7081  4252   460  6678                          
+   793   901  3202  7011  7125  7125  4323   430  6728                          
+   634   745  2534  6628  6748  6748  3736   315  6333                          
+   436   549  1607  6050  6175  6174  2918   182  5744                          
+   198   313   343  5145  5267  5267  1797    61  4844                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1205-------------                            
+----------------- FILE NUMBER  1206-----------------                            
+ 0.155000E-01 0.156000E-01 0.996700E 00 0.623000E 00 0.100000E 01               
+ 0.103570E 01 0.100000E 01 0.145800E-01 0.269700E 04                            
+ 0.200000E-03 0.000000E 00 0.841900E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.935400E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9980  9995  9994  9994  9984 10000  9992                          
+  8692  8717  9987  9996  9995  9996  9984  8600  9996                          
+  7581  7628  9987  9996  9995  9996  9984  7414  9996                          
+  7189  7243  9974  9991  9993  9992  9984  6995  9988                          
+  6535  6602 10000 10000 10000 10000 10000  6298 10000                          
+  5947  6025 10000 10000 10000 10000 10000  5669 10000                          
+  5228  5320  9928  9979  9980  9979  9953  4901  9974                          
+  4836  4935  9883  9964  9966  9966  9922  4483  9955                          
+  4248  4358  9651  9892  9898  9899  9752  3859  9870                          
+  3856  3974  9186  9744  9763  9762  9442  3448  9699                          
+  3464  3589  8669  9579  9606  9607  9086  3044  9503                          
+  3202  3333  8062  9377  9417  9417  8653  2780  9273                          
+  2745  2884  7603  9221  9272  9271  8328  2327  9095                          
+  2549  2692  7080  9040  9100  9099  7956  2137  8887                          
+  2287  2435  6776  8932  8998  8997  7739  1888  8765                          
+  2091  2243  6214  8728  8804  8803  7337  1704  8535                          
+  1895  2051  5781  8566  8650  8649  7027  1524  8357                          
+  1633  1794  5368  8409  8499  8498  6733  1290  8183                          
+  1503  1666  4786  8181  8278  8279  6315  1175  7931                          
+  1307  1474  4334  7996  8102  8102  5975  1008  7730                          
+   980  1153  3604  7690  7804  7804  5448   737  7400                          
+   784   961  3036  7439  7562  7561  5015   581  7133                          
+   392   576  2157  7030  7163  7162  4365   283  6703                          
+   196   384  1317  6613  6751  6750  3730   143  6269                          
+     0   256   529  6191  6331  6331  3126    44  5839                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1206-------------                            
+----------------- FILE NUMBER  1207-----------------                            
+ 0.154000E-01 0.156000E-01 0.100000E 01 0.649100E 00 0.100000E 01               
+ 0.107570E 01 0.100000E 01 0.151000E-01 0.276800E 04                            
+ 0.100000E-03 0.000000E 00 0.851500E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.930200E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  8627  8653  9993  9998  9998  9999 10000  8543  9996                          
+  7647  7692  9993  9998  9998  9999 10000  7509  9996                          
+  6666  6730  9986  9996  9997  9997  9985  6468  9992                          
+  6013  6089 10000 10000 10000 10000 10000  5776 10000                          
+  5686  5769  9986  9996  9997  9997  9985  5430  9992                          
+  5098  5192  9986  9996  9997  9997  9985  4807  9992                          
+  4771  4871  9986  9996  9997  9997  9985  4461  9992                          
+  4444  4551  9892  9970  9973  9973  9928  4115  9963                          
+  3856  3974  9643  9902  9909  9909  9785  3496  9880                          
+  3529  3653  9245  9792  9807  9807  9541  3156  9750                          
+  3333  3461  9043  9733  9753  9753  9412  2953  9682                          
+  2941  3076  8915  9698  9720  9720  9340  2550  9638                          
+  2679  2820  8181  9485  9521  9522  8882  2286  9389                          
+  2549  2692  7663  9331  9379  9379  8567  2156  9208                          
+  2287  2435  7346  9235  9289  9289  8366  1900  9100                          
+  1960  2115  6902  9100  9161  9162  8080  1585  8945                          
+  1699  1858  6289  8907  8980  8980  7693  1337  8724                          
+  1568  1730  6040  8827  8903  8903  7535  1215  8630                          
+  1437  1602  5434  8627  8715  8715  7148  1096  8406                          
+  1241  1410  4868  8437  8533  8533  6790   921  8193                          
+  1045  1217  4531  8320  8421  8422  6575   749  8067                          
+   915  1089  3912  8101  8213  8213  6174   636  7825                          
+   588   769  3138  7816  7937  7938  5673   365  7514                          
+   457   641  2154  7433  7566  7566  5014   261  7102                          
+   196   384  1050  6974  7117  7118  4283    98  6618                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1207-------------                            
+----------------- FILE NUMBER  1208-----------------                            
+ 0.140000E-01 0.143000E-01 0.100000E 01 0.625500E 00 0.100000E 01               
+ 0.103950E 01 0.100000E 01 0.139000E-01 0.272200E 04                            
+ 0.000000E 00 0.000000E 00 0.880000E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.934900E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9983  9996  9995  9996  9984 10000  9996                          
+  7500  7552  9975  9993  9994  9994  9984  7424  9992                          
+  6214  6293 10000 10000 10000 10000 10000  6096 10000                          
+  5357  5454 10000 10000 10000 10000 10000  5211 10000                          
+  4642  4755 10000 10000 10000 10000 10000  4474 10000                          
+  4071  4195  9966  9992  9993  9992  9984  3884  9992                          
+  3571  3706  9941  9985  9987  9986  9969  3369  9985                          
+  3214  3356  9841  9961  9965  9964  9907  3002  9955                          
+  3000  3146  9724  9936  9940  9940  9861  2782  9922                          
+  2857  3006  9625  9910  9916  9917  9800  2636  9893                          
+  2500  2657  9350  9844  9855  9856  9662  2272  9816                          
+  2071  2237  8674  9680  9702  9701  9293  1841  9621                          
+  1999  2167  8091  9534  9566  9566  8986  1771  9456                          
+  1642  1818  7883  9482  9516  9517  8878  1421  9393                          
+  1428  1608  6958  9242  9291  9291  8371  1215  9118                          
+  1071  1258  6025  8994  9057  9056  7864   882  8835                          
+   928  1118  5591  8874  8942  8943  7634   751  8699                          
+   785   979  4508  8569  8652  8653  7035   623  8357                          
+   500   699  3058  8135  8238  8237  6236   380  7880                          
+   285   489  1891  7763  7878  7877  5576   206  7479                          
+    71   279   458  7277  7404  7405  4761    72  6961                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1208-------------                            
+----------------- FILE NUMBER  1209-----------------                            
+ 0.401000E-01 0.404000E-01 0.997500E 00 0.559900E 00 0.100000E 01               
+ 0.938600E 00 0.100000E 01 0.284500E-01 0.253500E 04                            
+ 0.000000E 00 0.000000E 00 0.809900E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.942600E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  9376  9381  9984  9991  9993  9993  9982  9159  9988                          
+  8678  8688  9978  9989  9991  9991  9982  8217  9988                          
+  8204  8217  9973  9987  9988  9989  9982  7581  9984                          
+  7755  7772  9936  9969  9973  9972  9947  6977  9964                          
+  7281  7301  9861  9935  9940  9940  9878  6340  9925                          
+  6857  6881  9701  9862  9871  9871  9721  5775  9842                          
+  6458  6485  9488  9762  9776  9777  9512  5247  9727                          
+  6109  6138  8901  9482  9510  9510  8972  4797  9408                          
+  5860  5891  8587  9326  9363  9363  8658  4481  9234                          
+  5610  5643  8102  9081  9129  9129  8205  4175  8962                          
+  5386  5420  7654  8848  8905  8905  7770  3905  8702                          
+  5062  5099  7281  8646  8712  8711  7404  3525  8481                          
+  4812  4851  6769  8360  8436  8437  6916  3241  8169                          
+  4563  4603  6305  8090  8176  8176  6445  2967  7881                          
+  4364  4405  5858  7821  7911  7912  6010  2755  7589                          
+  4089  4133  5506  7599  7696  7697  5662  2473  7357                          
+  3890  3935  5042  7297  7400  7400  5191  2276  7041                          
+  3541  3589  4520  6936  7045  7046  4668  1946  6666                          
+  3366  3415  4440  6879  6990  6990  4581  1786  6607                          
+  3142  3193  3901  6481  6596  6595  4041  1587  6197                          
+  3117  3168  3571  6222  6338  6338  3710  1566  5936                          
+  2917  2970  3374  6061  6177  6178  3501  1404  5775                          
+  2768  2821  3102  5831  5950  5949  3222  1286  5542                          
+  2643  2698  2814  5577  5695  5695  2926  1192  5289                          
+  2468  2524  2563  5345  5461  5462  2665  1066  5057                          
+  2219  2277  2137  4922  5037  5037  2212   898  4642                          
+  1920  1980  1785  4541  4653  4653  1846   711  4272                          
+  1745  1806  1513  4223  4330  4329  1550   610  3964                          
+  1546  1608  1119  3709  3806  3807  1132   506  3467                          
+  1321  1386   948  3461  3555  3555   958   401  3234                          
+   972  1039   575  2845  2925  2924   557   256  2646                          
+   698   767   341  2371  2441  2441   296   162  2205                          
+   598   668   250  2162  2225  2226   209   133  2007                          
+   374   445   149  1900  1955  1956    87    73  1763                          
+   174   247    58  1628  1678  1678     0    27  1510                          
+   149   222    58  1628  1678  1678     0    22  1510                          
+     0     0     0     0     0     0   801     0     0                          
+-------------- END OF FILE NUMBER  1209-------------                            
+----------------- FILE NUMBER  1210-----------------                            
+ 0.308000E-01 0.309000E-01 0.998000E 00 0.483300E 00 0.100090E 01               
+ 0.816400E 00 0.100010E 01 0.223200E-01 0.224200E 04                            
+ 0.200000E-03 0.000000E 00 0.861300E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.959100E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9963  9983  9985  9984  9951 10000  9982                          
+  8921  8932  9992  9995  9996  9996 10000  8723  9995                          
+  7908  7928  9970  9985  9988  9987  9975  7522  9986                          
+  7352  7378 10000 10000 10000 10000 10000  6863 10000                          
+  6797  6828  9978  9989  9991  9990  9975  6205  9991                          
+  6307  6343  9978  9989  9991  9990  9975  5627  9991                          
+  5718  5760  9963  9983  9985  9984  9951  4928  9982                          
+  5130  5177  9926  9966  9969  9969  9926  4234  9964                          
+  4542  4595  9553  9801  9811  9810  9560  3546  9781                          
+  4183  4239  8953  9526  9547  9546  8999  3134  9478                          
+  3823  3883  8273  9203  9236  9235  8341  2737  9125                          
+  3529  3592  7454  8795  8842  8841  7536  2424  8684                          
+  3333  3398  6898  8506  8560  8559  6999  2224  8371                          
+  3104  3171  6371  8220  8281  8281  6463  1999  8068                          
+  2843  2912  5574  7765  7835  7828  5682  1753  7591                          
+  2549  2621  4871  7337  7415  7414  4975  1493  7145                          
+  2418  2491  4440  7059  7141  7141  4536  1382  6859                          
+  2026  2103  3591  6476  6562  6561  3682  1072  6262                          
+  1797  1877  2874  5932  6020  6020  2951   906  5713                          
+  1601  1682  2348  5495  5584  5584  2390   775  5280                          
+  1241  1326  1645  4849  4935  4935  1682   558  4638                          
+   980  1067  1309  4504  4587  4587  1317   416  4304                          
+   620   711   724  3827  3904  3903   707   241  3644                          
+   326   420   438  3449  3519  3519   414   117  3278                          
+   228   323   329  3291  3359  3359   292    79  3126                          
+   196   291   138  2998  3061  3060    97    67  2845                          
+    98   194    43  2838  2899  2899     0    34  2694                          
+    32   129    65  2876  2937  2937    24    15  2729                          
+     0     0     0     0     0     0   268     0     0                          
+-------------- END OF FILE NUMBER  1210-------------                            
+----------------- FILE NUMBER  1211-----------------                            
+ 0.381000E-01 0.384000E-01 0.100000E 01 0.441500E 00 0.100000E 01               
+ 0.746300E 00 0.100000E 01 0.251200E-01 0.207500E 04                            
+ 0.000000E 00 0.000000E 00 0.889200E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.966500E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  9186  9192  9990  9997  9995  9997 10000  9000  9995                          
+  8608  8619 10000 10000 10000 10000 10000  8296 10000                          
+  8057  8072 10000 10000 10000 10000 10000  7619 10000                          
+  7427  7447 10000 10000 10000 10000 10000  6847 10000                          
+  6824  6848  9990  9997  9995  9997 10000  6110  9995                          
+  6430  6458 10000 10000 10000 10000 10000  5628 10000                          
+  6010  6041  9846  9934  9937  9937  9850  5115  9927                          
+  5564  5598  9476  9775  9783  9784  9492  4578  9754                          
+  5144  5182  8898  9522  9538  9539  8955  4080  9479                          
+  4855  4895  8212  9211  9236  9236  8298  3750  9142                          
+  4461  4505  7481  8860  8896  8897  7582  3316  8771                          
+  4173  4218  6940  8595  8637  8637  7074  3008  8486                          
+  3910  3958  6182  8203  8255  8255  6328  2740  8077                          
+  3595  3645  5496  7830  7888  7888  5671  2433  7686                          
+  3175  3229  4494  7248  7311  7312  4686  2048  7084                          
+  2755  2812  3646  6711  6780  6781  3850  1693  6534                          
+  2283  2343  2761  6092  6165  6166  2955  1326  5908                          
+  1863  1927  2148  5617  5691  5690  2328  1029  5436                          
+  1522  1588  1561  5130  5202  5201  1731   807  4949                          
+  1233  1302  1245  4840  4911  4910  1432   634  4665                          
+  1049  1119  1028  4636  4704  4705  1194   529  4462                          
+   734   807   731  4335  4401  4403   895   358  4168                          
+   472   546   577  4165  4229  4230   746   224  3999                          
+   209   286   415  3986  4050  4051   567    95  3826                          
+   131   208   225  3757  3819  3818   388    58  3604                          
+   157   234   252  3789  3852  3852   417    70  3633                          
+    78   156    63  3556  3616  3616   208    35  3407                          
+    52   130    54  3544  3604  3604   208    25  3397                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1211-------------                            
+----------------- FILE NUMBER  1212-----------------                            
+ 0.339000E-01 0.340000E-01 0.996800E 00 0.537200E 00 0.100000E 01               
+ 0.900000E 00 0.100000E 01 0.288300E-01 0.242500E 04                            
+ 0.200000E-03 0.000000E 00 0.892700E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.951100E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9932  9981  9983  9982  9959 10000  9979                          
+  9020  9029 10000 10000 10000 10000 10000  8938 10000                          
+  8278  8294  9971  9992  9993  9992  9979  8133  9991                          
+  7596  7617  9980  9994  9994  9995  9979  7395  9991                          
+  6943  6970  9932  9981  9983  9982  9959  6687  9979                          
+  6409  6441  9913  9977  9977  9977  9938  6108  9971                          
+  5934  5970  9779  9940  9943  9942  9856  5598  9929                          
+  5400  5441  9510  9865  9872  9872  9693  5022  9847                          
+  4896  4941  9087  9746  9760  9760  9447  4488  9711                          
+  4540  4588  8568  9599  9618  9618  9120  4113  9546                          
+  4035  4088  7925  9411  9440  9440  8732  3593  9336                          
+  3620  3676  7175  9186  9225  9225  8261  3177  9084                          
+  3264  3323  6512  8983  9029  9029  7852  2828  8861                          
+  2848  2911  5859  8775  8830  8831  7443  2430  8635                          
+  2551  2617  5312  8598  8658  8658  7096  2152  8441                          
+  2017  2088  4322  8263  8335  8335  6462  1668  8082                          
+  1691  1764  3986  8145  8222  8222  6237  1379  7954                          
+  1335  1411  3611  8013  8091  8092  6012  1070  7814                          
+  1097  1176  3121  7835  7918  7918  5685   868  7624                          
+   890   970  3093  7823  7908  7908  5664   694  7612                          
+   652   735  2814  7721  7807  7807  5501   496  7505                          
+   563   647  2660  7663  7750  7751  5398   422  7443                          
+   445   529  2574  7630  7718  7718  5337   325  7410                          
+   296   382  2420  7572  7662  7661  5235   204  7348                          
+   237   323  2219  7494  7584  7585  5112   156  7265                          
+   178   264  1882  7362  7455  7456  4887   109  7129                          
+    29   117   355  6727  6830  6830  3885    23  6470                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1212-------------                            
+----------------- FILE NUMBER  1213-----------------                            
+ 0.860000E-02 0.900000E-02 0.969200E 00 0.124450E 01 0.100000E 01               
+ 0.144680E 01 0.100000E 01 0.808700E-02 0.144900E 04                            
+-0.100000E-03 0.000000E 00 0.482400E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.783900E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9942  9979  9984  9985  9958 10000  9965                          
+  8735  8777  9969  9989  9991  9992  9976  8675  9979                          
+  7011  7111  9981  9993  9994  9995  9986  6867  9986                          
+  6091  6222  9993  9997  9998  9998  9995  5902  9993                          
+  5402  5555  9995  9998  9998  9999  9995  5178  9993                          
+  5172  5333  9997  9999  9998  9999 10000  4937 10000                          
+  4827  5000 10000 10000 10000 10000 10000  4575 10000                          
+  4482  4666  9979  9992  9994  9995  9986  4212  9986                          
+  4022  4222  9938  9979  9983  9984  9953  3731  9965                          
+  3793  3999  9915  9971  9977  9978  9939  3490  9951                          
+  3448  3666  9897  9964  9973  9973  9925  3130  9944                          
+  3218  3444  9837  9944  9958  9958  9879  2891  9910                          
+  2988  3222  9759  9918  9937  9937  9824  2651  9868                          
+  2643  2888  9642  9878  9907  9907  9736  2293  9799                          
+  2528  2777  9537  9842  9879  9879  9657  2175  9744                          
+  2298  2555  9412  9799  9846  9845  9565  1938  9675                          
+  1954  2222  9155  9709  9776  9776  9375  1587  9537                          
+  1839  2111  8633  9525  9631  9632  8986  1472  9247                          
+  1494  1777  8475  9468  9587  9587  8870  1133  9164                          
+  1379  1666  7440  9084  9277  9278  8088  1022  8592                          
+  1149  1444  6220  8600  8877  8878  7149   815  7908                          
+   919  1222  5480  8284  8610  8610  6566   618  7487                          
+   804  1111  4299  7733  8129  8129  5599   526  6783                          
+   689   999  3549  7342  7778  7779  4956   439  6314                          
+   459   777  2573  6775  7254  7255  4081   279  5665                          
+   229   555  1567  6094  6606  6606  3123   147  4941                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1213-------------                            
+----------------- FILE NUMBER  1214-----------------                            
+ 0.115000E-01 0.118000E-01 0.973300E 00 0.123510E 01 0.100000E 01               
+ 0.143380E 01 0.100000E 01 0.102000E-01 0.145400E 04                            
+ 0.000000E 00 0.000000E 00 0.534400E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.786400E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9861  9957  9968  9967  9906 10000  9938                          
+  8521  8559  9929  9978  9983  9983  9953  8376  9965                          
+  7739  7796  9943  9982  9987  9986  9962  7513  9972                          
+  6782  6864  9977  9993  9994  9994  9985  6457  9993                          
+  6086  6186  9979  9994  9994  9995  9985  5689  9993                          
+  5478  5593 10000 10000 10000 10000 10000  5016 10000                          
+  5043  5169  9927  9978  9983  9982  9953  4536  9965                          
+  4782  4915  9813  9943  9955  9956  9873  4249  9910                          
+  4434  4576  9669  9899  9922  9921  9779  3868  9841                          
+  4260  4406  9519  9852  9886  9886  9681  3679  9766                          
+  3826  3983  9218  9758  9814  9813  9480  3209  9621                          
+  3478  3644  8822  9634  9715  9715  9213  2840  9422                          
+  3217  3389  8348  9481  9595  9594  8895  2566  9188                          
+  2956  3135  7783  9294  9445  9445  8511  2299  8913                          
+  2608  2796  7110  9065  9259  9260  8047  1953  8576                          
+  2434  2627  6823  8965  9178  9177  7851  1784  8431                          
+  2347  2542  6308  8781  9025  9025  7495  1700  8170                          
+  1999  2203  5591  8515  8802  8801  6989  1378  7806                          
+  1739  1949  4609  8126  8468  8469  6282  1147  7290                          
+  1565  1779  4089  7906  8277  8277  5898   999  7015                          
+  1304  1525  3394  7594  8000  8000  5365   786  6629                          
+   956  1186  2431  7120  7570  7569  4602   519  6072                          
+   782  1016  1788  6772  7246  7246  4073   393  5680                          
+   695   932  1462  6584  7069  7068  3801   334  5474                          
+   347   593   767  6152  6654  6654  3197   139  5013                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1214-------------                            
+----------------- FILE NUMBER  1215-----------------                            
+ 0.142000E-01 0.144000E-01 0.973400E 00 0.122700E 01 0.100000E 01               
+ 0.142960E 01 0.100000E 01 0.126600E-01 0.144800E 04                            
+ 0.100000E-03 0.000000E 00 0.537200E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.788700E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9926  9977  9983  9983  9952 10000  9965                          
+  8156  8194  9942  9982  9987  9986  9962  7985  9972                          
+  7446  7499  9972  9991  9994  9993  9981  7211  9986                          
+  6950  7013  9899  9969  9976  9976  9933  6669  9951                          
+  6382  6458 10000 10000 10000 10000 10000  6049 10000                          
+  5673  5763  9954  9986  9988  9989  9971  5273  9979                          
+  5035  5138  9965  9989  9991  9992  9976  4575  9986                          
+  4751  4861  9899  9969  9976  9976  9933  4266  9951                          
+  4184  4305  9697  9907  9929  9928  9796  3649  9854                          
+  3971  4097  9436  9826  9865  9866  9626  3420  9723                          
+  3687  3819  9289  9780  9830  9830  9526  3116  9654                          
+  3404  3541  8883  9652  9729  9730  9252  2817  9454                          
+  3191  3333  8452  9515  9621  9620  8963  2596  9247                          
+  2978  3125  8147  9415  9542  9541  8755  2378  9095                          
+  2836  2986  7783  9294  9445  9444  8509  2234  8915                          
+  2553  2708  7258  9116  9300  9300  8149  1954  8653                          
+  2340  2499  6753  8940  9156  9156  7804  1748  8404                          
+  2198  2361  6254  8761  9006  9007  7453  1614  8149                          
+  1843  2013  5648  8536  8817  8817  7027  1288  7845                          
+  1631  1805  4958  8267  8587  8588  6535  1099  7486                          
+  1489  1666  4518  8087  8432  8432  6213   977  7251                          
+  1347  1527  4183  7945  8307  8308  5963   857  7071                          
+  1063  1249  3207  7503  7914  7914  5215   629  6526                          
+   780   972  2556  7181  7621  7621  4699   413  6153                          
+   638   833  2072  6925  7384  7385  4301   310  5856                          
+   212   416  1001  6298  6790  6790  3393    81  5179                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1215-------------                            
+----------------- FILE NUMBER  1216-----------------                            
+ 0.208000E-01 0.210000E-01 0.100000E 01 0.904500E 00 0.100000E 01               
+ 0.111940E 01 0.100000E 01 0.184600E-01 0.138700E 04                            
+ 0.100000E-03 0.000000E 00 0.667500E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.872900E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9990  9996  9997  9997  9992 10000  9992                          
+  9275  9285  9957  9985  9987  9987  9968  9165  9978                          
+  8260  8285  9960  9986  9988  9988  9968  7990  9978                          
+  7487  7523  9996  9998  9998  9999 10000  7096  9992                          
+  7101  7142 10000 10000 10000 10000 10000  6652 10000                          
+  6763  6809  9972  9990  9991  9991  9976  6262  9985                          
+  6328  6380 10000 10000 10000 10000 10000  5758 10000                          
+  5893  5952  9972  9990  9991  9991  9976  5254  9985                          
+  5458  5523  9885  9960  9965  9966  9913  4752  9942                          
+  5120  5190  9729  9907  9921  9920  9795  4364  9870                          
+  4589  4666  9145  9703  9745  9744  9354  3763  9596                          
+  4347  4428  8676  9534  9595  9596  8992  3495  9372                          
+  4154  4238  8303  9396  9474  9474  8701  3285  9192                          
+  3961  4047  7861  9228  9326  9325  8355  3079  8976                          
+  3671  3761  7305  9009  9131  9130  7915  2776  8702                          
+  3478  3571  6580  8710  8863  8861  7332  2581  8327                          
+  3091  3190  5584  8273  8463  8463  6506  2209  7801                          
+  2850  2952  4959  7978  8191  8190  5979  1987  7454                          
+  2608  2714  4658  7831  8054  8054  5727  1772  7281                          
+  2415  2523  4099  7547  7786  7787  5239  1605  6964                          
+  1980  2095  2902  6881  7150  7150  4177  1255  6229                          
+  1642  1761  2523  6650  6927  6926  3831  1000  5984                          
+  1594  1714  2063  6354  6639  6639  3406   965  5674                          
+  1256  1380  1867  6223  6510  6509  3225   730  5537                          
+  1111  1238  1669  6087  6376  6375  3036   631  5400                          
+   917  1047  1200  5746  6037  6038  2588   505  5061                          
+   821   952  1034  5619  5911  5911  2431   445  4931                          
+   579   714   508  5192  5482  5481  1919   301  4513                          
+   193   333     0  4736  5019  5018  1416    91  4080                          
+    48   190   412  5111  5399  5399  1825    31  4434                          
+     0     0    75     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1216-------------                            
+----------------- FILE NUMBER  1217-----------------                            
+ 0.248000E-01 0.252000E-01 0.100000E 01 0.936700E 00 0.100000E 01               
+ 0.114700E 01 0.100000E 01 0.228400E-01 0.139700E 04                            
+-0.100000E-03 0.000000E 00 0.678300E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.864900E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9975  9992  9993  9993  9985 10000  9992                          
+  8915  8928  9990  9996  9998  9997  9992  8778 10000                          
+  8554  8571 10000 10000 10000 10000 10000  8371 10000                          
+  7951  7976 10000 10000 10000 10000 10000  7688 10000                          
+  7429  6666  9993  9997  9998  9998  9992  7101 10000                          
+  7068  7103  9993  9997  9998  9998  9992  6694 10000                          
+  6666  6706  9953  9986  9987  9987  9970  6239  9978                          
+  6184  6230  9891  9965  9970  9971  9925  5700  9957                          
+  5622  5674  9645  9890  9905  9905  9755  5070  9849                          
+  5220  5277  9353  9798  9826  9827  9555  4623  9720                          
+  4899  4960  8999  9683  9728  9728  9311  4273  9570                          
+  4658  4722  8535  9531  9596  9596  8985  4014  9362                          
+  4377  4444  8159  9404  9485  9485  8719  3716  9198                          
+  3975  4047  7562  9195  9302  9303  8290  3299  8926                          
+  3734  3809  7186  9060  9183  9183  8023  3054  8747                          
+  3333  3412  6238  8705  8866  8866  7320  2658  8303                          
+  2891  2976  5539  8426  8614  8614  6794  2239  7959                          
+  2570  2658  4998  8201  8409  8409  6380  1945  7687                          
+  2168  2261  4373  7928  8158  8157  5891  1589  7365                          
+  1967  2063  4028  7770  8011  8011  5625  1417  7186                          
+  1686  1785  3668  7602  7853  7853  5336  1181  6986                          
+  1445  1547  3391  7469  7728  7728  5114   982  6127                          
+  1124  1230  2757  7149  7425  7425  4596   727  6485                          
+   763   873  2185  6842  7131  7131  4122   453  6148                          
+   722   833  1989  6733  7026  7025  3960   423  6034                          
+   602   714  1734  6585  6883  6883  3745   337  5876                          
+   401   515  1557  6482  6782  6782  3589   195  5769                          
+   361   476  1268  6306  6610  6610  3345   167  5583                          
+   240   357   736  5965  6273  6274  2879    96  5239                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1217-------------                            
+----------------- FILE NUMBER  1218-----------------                            
+ 0.286000E-01 0.289000E-01 0.995500E 00 0.883000E 00 0.100000E 01               
+ 0.109160E 01 0.100000E 01 0.259400E-01 0.137500E 04                            
+ 0.000000E 00 0.000000E 00 0.684100E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.878100E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9910  9970  9973  9974  9934 10000  9956                          
+  9020  9031  9964  9988  9990  9989  9975  8901  9985                          
+  8461  8477  9974  9992  9993  9992  9983  8269  9985                          
+  8041  8062  9974  9992  9993  9992  9983  7798  9985                          
+  7692  7716 10000 10000 10000 10000 10000  7405 10000                          
+  7272  7301 10000 10000 10000 10000 10000  6931 10000                          
+  6923  6955  9961  9987  9988  9989  9975  6538  9985                          
+  6748  6782  9951  9984  9986  9986  9967  6341  9978                          
+  6363  6401  9945  9981  9983  9984  9958  5909  9978                          
+  6083  6124  9833  9944  9951  9951  9876  5597  9927                          
+  5734  5778  9755  9919  9929  9929  9819  5204  9890                          
+  5349  5397  9482  9826  9848  9848  9622  4780  9767                          
+  5034  5086  9149  9711  9749  9748  9368  4433  9614                          
+  4580  4636  8609  9520  9581  9581  8966  3943  9367                          
+  4090  4152  7880  9253  9344  9344  8408  3430  9018                          
+  3846  3910  7498  9107  9214  9213  8113  3180  8836                          
+  3531  3598  7109  8955  9078  9077  7809  2863  8647                          
+  3251  3321  6644  8768  8907  8908  7440  2588  8414                          
+  2937  3010  6088  8536  8697  8697  6997  2287  8138                          
+  2727  2802  5722  8378  8551  8551  6702  2091  7949                          
+  2482  2560  5285  8183  8371  8372  6341  1868  7716                          
+  2307  2387  4922  8016  8216  8217  6045  1712  7519                          
+  2097  2179  4649  7887  8095  8096  5816  1529  7374                          
+  1678  1764  4084  7610  7835  7835  5340  1173  7054                          
+  1503  1591  3725  7425  7660  7661  5036  1029  6850                          
+  1363  1453  3490  7302  7542  7543  4831   917  6712                          
+  1188  1280  3214  7152  7400  7400  4593   779  6552                          
+  1048  1141  3021  7045  7297  7297  4429   671  6436                          
+   979  1072  2764  6900  7156  7157  4200   618  6276                          
+   839   934  2588  6797  7057  7057  4044   514  6167                          
+   664   761  2186  6554  6822  6822  3691   388  5912                          
+   489   588  1981  6426  6697  6696  3502   265  5781                          
+   279   380  1204  5907  6184  6184  2797   125  5250                          
+   209   311   969  5738  6017  6016  2575    85  5076                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1218-------------                            
+----------------- FILE NUMBER  1219-----------------                            
+ 0.311000E-01 0.314000E-01 0.997000E 00 0.832300E 00 0.100000E 01               
+ 0.103900E 01 0.100000E 01 0.272200E-01 0.133600E 04                            
+ 0.000000E 00 0.000000E 00 0.696000E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.890200E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9870  9953  9958  9959  9899 10000  9940                          
+  9324  9331  9890  9960  9965  9965  9918  9224  9947                          
+  8713  8726  9920  9971  9975  9974  9936  8523  9962                          
+  8295  8312  9933  9975  9979  9978  9945  8041  9970                          
+  7845  7866  9953  9983  9984  9985  9963  7523  9977                          
+  7427  7452 10000 10000 10000 10000 10000  7042 10000                          
+  6945  6974  9933  9975  9979  9978  9945  6487  9970                          
+  6398  6433  9867  9951  9958  9958  9899  5859  9932                          
+  6077  6114  9757  9913  9923  9923  9808  5488  9887                          
+  5691  5732  9538  9834  9854  9853  9635  5051  9782                          
+  5305  5350  9172  9699  9735  9734  9344  4617  9610                          
+  4919  4968  8750  9539  9592  9592  9007  4191  9401                          
+  4533  4585  8212  9330  9405  9405  8570  3772  9139                          
+  4244  4299  7754  9146  9240  9239  8187  3468  8914                          
+  3987  4044  7262  8943  9054  9054  7786  3202  8660                          
+  3633  3694  6757  8726  8855  8856  7358  2846  8398                          
+  3344  3407  6255  8502  8651  8650  6930  2563  8136                          
+  3086  3152  5760  8274  8438  8437  6502  2319  7866                          
+  2797  2866  5259  8031  8212  8211  6065  2052  7589                          
+  2443  2515  4777  7789  7983  7982  5646  1736  7312                          
+  1993  2070  4056  7405  7617  7617  5000  1352  6886                          
+  1736  1815  3661  7183  7404  7405  4635  1142  6639                          
+  1543  1624  3295  6969  7199  7198  4298   989  6414                          
+  1254  1337  2760  6639  6877  6877  3806   770  6062                          
+  1093  1178  2564  6513  6754  6754  3615   652  5928                          
+   996  1082  2448  6436  6679  6679  3506   583  5853                          
+   803   891  2093  6196  6442  6441  3169   447  5606                          
+   739   828  1857  6029  6276  6277  2950   403  5434                          
+   675   764  1720  5930  6179  6179  2814   361  5336                          
+   546   636  1448  5726  5975  5974  2550   278  5127                          
+   482   573  1295  5607  5856  5856  2404   238  5014                          
+   353   445   973  5346  5594  5595  2085   160  4760                          
+   257   350   797  5197  5444  5444  1912   104  4610                          
+   192   286   385  4827  5070  5070  1502    70  4258                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1219-------------                            
+----------------- FILE NUMBER  1220-----------------                            
+ 0.356000E-01 0.361000E-01 0.996400E 00 0.757300E 00 0.100000E 01               
+ 0.954400E 00 0.100000E 01 0.288000E-01 0.127700E 04                            
+-0.200000E-03 0.000000E 00 0.709600E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.907400E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9884  9953  9958  9958  9902 10000  9937                          
+  9385  9390  9923  9969  9972  9972  9935  9256  9960                          
+  8798  8808  9951  9980  9981  9982  9956  8545  9968                          
+  8379  8393  9968  9988  9988  9988  9967  8034  9984                          
+  7988  8005 10000 10000 10000 10000 10000  7559 10000                          
+  7597  7617 10000 10000 10000 10000 10000  7083 10000                          
+  7178  7202  9965  9986  9987  9987  9967  6576  9976                          
+  6759  6786  9870  9948  9954  9953  9881  6069  9929                          
+  6312  6343  9689  9874  9886  9887  9719  5531  9835                          
+  5893  5927  9459  9780  9801  9801  9514  5031  9718                          
+  5558  5595  9058  9613  9649  9650  9157  4635  9514                          
+  5083  5124  8462  9355  9415  9415  8606  4090  9193                          
+  4776  4819  8009  9152  9229  9228  8196  3750  8950                          
+  4413  4459  7395  8865  8964  8964  7624  3354  8613                          
+  4106  4155  6914  8631  8748  8747  7170  3031  8339                          
+  3770  3822  6300  8321  8456  8455  6576  2691  7979                          
+  3435  3490  5641  7967  8122  8121  5939  2365  7580                          
+  3100  3157  5062  7638  7807  7808  5377  2053  7220                          
+  2793  2853  4623  7377  7555  7556  4935  1779  6930                          
+  2597  2659  4187  7104  7293  7292  4492  1611  6640                          
+  2374  2437  3807  6855  7049  7050  4114  1426  6374                          
+  2150  2216  3396  6572  6772  6772  3682  1249  6084                          
+  1843  1911  2831  6157  6363  6363  3099  1019  5653                          
+  1620  1689  2458  5862  6071  6070  2710   861  5356                          
+  1368  1440  2074  5540  5749  5750  2300   693  5035                          
+  1117  1191  1638  5147  5353  5353  1835   536  4651                          
+   921   997  1478  4992  5196  5196  1652   420  4502                          
+   837   914  1237  4749  4951  4951  1393   372  4267                          
+   698   775  1000  4497  4693  4694  1133   297  4025                          
+   558   637   791  4259  4452  4452   907   226  3805                          
+   474   554   676  4123  4311  4311   777   185  3672                          
+   363   443   533  3945  4128  4129   615   132  3508                          
+   279   360   407  3783  3960  3961   475    95  3359                          
+   195   277   244  3557  3729  3729   291    59  3155                          
+   111   193   129  3389  3554  3555   161    29  2999                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1220-------------                            
+----------------- FILE NUMBER  1221-----------------                            
+ 0.463000E-01 0.465000E-01 0.995200E 00 0.710500E 00 0.100000E 01               
+ 0.898000E 00 0.100000E 01 0.334200E-01 0.122400E 04                            
+ 0.100000E-03 0.000000E 00 0.721400E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.912500E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9835  9929  9936  9935  9851 10000  9910                          
+  9545  9548  9905  9959  9962  9963  9919  9407  9950                          
+  8982  8989  9930  9970  9973  9973  9942  8671  9967                          
+  8593  8602  9963  9984  9986  9985  9965  8159  9983                          
+  8203  8215  9985  9994  9994  9994  9988  7648  9991                          
+  7748  7763 10000 10000 10000 10000 10000  7052 10000                          
+  7402  7419  9981  9992  9993  9993  9988  6597  9991                          
+  7034  7053  9970  9988  9988  9988  9977  6116  9983                          
+  6645  6666  9875  9946  9951  9952  9885  5604  9934                          
+  6320  6344  9700  9870  9882  9881  9725  5182  9844                          
+  5952  5978  9327  9705  9732  9731  9394  4709  9640                          
+  5692  5720  8973  9545  9584  9584  9074  4383  9444                          
+  5411  5440  8502  9325  9381  9381  8639  4036  9183                          
+  5021  5053  7830  9000  9078  9079  8011  3569  8799                          
+  4783  4817  7253  8706  8804  8804  7462  3297  8455                          
+  4264  4301  6267  8171  8298  8298  6514  2728  7851                          
+  3982  4021  5770  7883  8022  8023  6034  2436  7532                          
+  3722  3763  5032  7428  7584  7585  5302  2180  7042                          
+  3441  3483  4499  7076  7243  7243  4765  1918  6666                          
+  3095  3139  3798  6577  6754  6755  4057  1615  6143                          
+  2748  2795  3042  5981  6165  6165  3268  1337  5531                          
+  2445  2494  2520  5525  5710  5710  2719  1115  5081                          
+  2229  2279  2132  5158  5340  5340  2308   968  4714                          
+  1969  2021  1793  4809  4987  4987  1942   804  4379                          
+  1688  1741  1384  4346  4517  4517  1497   641  3937                          
+  1450  1505  1128  4028  4192  4192  1222   515  3635                          
+  1147  1204   756  3508  3658  3658   811   371  3153                          
+   909   967   522  3135  3273  3272   548   272  2810                          
+   779   838   401  2923  3054  3054   411   222  2614                          
+   541   602   237  2605  2724  2723   228   140  2320                          
+   389   451   153  2426  2537  2537   137    92  2165                          
+   259   322   113  2334  2444  2444    91    53  2083                          
+   216   279    80  2258  2364  2364    57    40  2009                          
+   151   215    32  2142  2243  2242     0    24  1903                          
+     0     0     0     0     0     0   571     0     0                          
+-------------- END OF FILE NUMBER  1221-------------                            
+----------------- FILE NUMBER  1222-----------------                            
+ 0.990000E-02 0.101000E-01 0.100000E 01 0.880400E 00 0.100000E 01               
+ 0.109120E 01 0.100000E 01 0.929700E-02 0.138900E 04                            
+ 0.100000E-03 0.000000E 00 0.757700E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.878800E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9995  9998  9998  9999 10000 10000 10000                          
+  8673  8712  9995  9998  9998  9999 10000  8565 10000                          
+  7755  7821 10000 10000 10000 10000 10000  7571 10000                          
+  7244  7326  9995  9998  9998  9999 10000  7019 10000                          
+  6734  6831  9971  9992  9993  9993  9983  6467  9992                          
+  6428  6534 10000 10000 10000 10000 10000  6137 10000                          
+  6020  6138  9958  9989  9991  9990  9975  5695  9985                          
+  5510  5643  9847  9960  9965  9965  9909  5145  9949                          
+  4897  5049  9599  9895  9908  9909  9768  4488  9863                          
+  4387  4554  9112  9767  9797  9797  9488  3947  9690                          
+  3979  4158  8712  9659  9702  9702  9257  3519  9546                          
+  3673  3861  7994  9459  9527  9526  8836  3205  9287                          
+  3163  3366  7259  9248  9338  9338  8399  2693  9020                          
+  2959  3168  6681  9076  9185  9185  8044  2493  8804                          
+  2448  2673  5806  8805  8941  8941  7508  2006  8466                          
+  2142  2376  5282  8636  8787  8788  7186  1722  8257                          
+  1938  2178  4762  8465  8630  8630  6864  1537  8056                          
+  1734  1980  4482  8370  8543  8543  6683  1354  7940                          
+  1428  1683  3895  8166  8356  8355  6311  1086  7696                          
+  1326  1584  3334  7964  8166  8167  5948   999  7465                          
+  1020  1287  2447  7628  7851  7851  5371   748  7084                          
+   816  1089  2141  7507  7738  7737  5165   586  6947                          
+   510   792  1510  7248  7491  7491  4744   349  6659                          
+   408   693   928  7000  7253  7252  4356   273  6385                          
+   204   495   598  6851  7109  7109  4125   144  6227                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1222-------------                            
+----------------- FILE NUMBER  1223-----------------                            
+ 0.156000E-01 0.156000E-01 0.100000E 01 0.906700E 00 0.100000E 01               
+ 0.111550E 01 0.100000E 01 0.144900E-01 0.138800E 04                            
+ 0.300000E-03 0.000000E 00 0.730000E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.872300E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9977  9994  9994  9994  9984 10000  9992                          
+  8692  8717  9981  9995  9995  9995  9992  8578  9992                          
+  7712  7756  9992  9997  9998  9998  9992  7508 10000                          
+  6928  6987  9988  9996  9997  9997  9992  6657 10000                          
+  6535  6602  9988  9996  9997  9997  9992  6230 10000                          
+  5947  6025 10000 10000 10000 10000 10000  5590 10000                          
+  5359  5448  9951  9986  9987  9988  9968  4951  9985                          
+  4575  4679  9662  9907  9919  9920  9796  4103  9877                          
+  4248  4358  9370  9825  9848  9849  9616  3753  9762                          
+  3986  4102  8981  9714  9753  9753  9381  3476  9618                          
+  3594  3717  8507  9577  9634  9634  9083  3066  9438                          
+  3267  3397  7933  9406  9484  9484  8723  2731  9207                          
+  3071  3205  7537  9285  9376  9376  8472  2534  9056                          
+  2941  3076  7181  9175  9279  9279  8245  2404  8912                          
+  2679  2820  6774  9044  9162  9163  7987  2148  8746                          
+  2483  2628  6237  8869  9006  9005  7642  1959  8523                          
+  2156  2307  5755  8706  8859  8858  7321  1652  8321                          
+  1960  2115  5262  8535  8704  8703  7000  1472  8119                          
+  1895  2051  4962  8428  8605  8606  6797  1412  7982                          
+  1633  1794  4392  8218  8414  8414  6413  1181  7737                          
+  1307  1474  3685  7947  8162  8163  5927   901  7420                          
+  1111  1282  3392  7831  8054  8054  5724   737  7283                          
+   980  1153  2977  7662  7896  7896  5434   630  7089                          
+   784   961  2481  7453  7699  7699  5082   474  6858                          
+   588   769  2144  7305  7558  7558  4839   321  6693                          
+   522   705  1525  7024  7289  7290  4400   272  6383                          
+   261   448   614  6577  6858  6858  3727   114  5907                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1223-------------                            
+----------------- FILE NUMBER  1224-----------------                            
+ 0.195000E-01 0.197000E-01 0.100000E 01 0.828300E 00 0.100000E 01               
+ 0.103580E 01 0.100000E 01 0.180400E-01 0.133500E 04                            
+ 0.000000E 00 0.000000E 00 0.736600E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.891200E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9973  9991  9993  9992  9981 10000  9985                          
+  8717  8730  9988  9996  9997  9997  9990  8603  9992                          
+  7589  7614  9996  9998  9998  9999 10000  7366 10000                          
+  6923  6954 10000 10000 10000 10000 10000  6635 10000                          
+  6358  6395  9984  9995  9995  9995  9990  6019  9992                          
+  5897  5939  9988  9996  9997  9997  9990  5516  9992                          
+  5435  5482  9988  9996  9997  9997  9990  5011  9992                          
+  4974  5025  9893  9966  9970  9970  9926  4507  9955                          
+  4564  4619  9730  9915  9926  9925  9816  4061  9887                          
+  4205  4263  9479  9835  9854  9855  9641  3674  9782                          
+  3692  3756  8842  9628  9670  9669  9191  3130  9520                          
+  3435  3502  8416  9485  9542  9543  8887  2863  9333                          
+  3128  3197  7722  9245  9326  9327  8391  2550  9033                          
+  2666  2741  7099  9022  9125  9125  7941  2093  8764                          
+  2358  2436  6173  8673  8805  8804  7251  1799  8337                          
+  1897  1979  5311  8329  8488  8487  6608  1378  7932                          
+  1692  1776  4829  8126  8299  8297  6231  1196  7700                          
+  1589  1675  4384  7934  8116  8117  5891  1108  7475                          
+  1333  1421  3743  7644  7843  7843  5395   895  7153                          
+  1128  1218  3238  7405  7616  7615  4990   731  6891                          
+   923  1015  2710  7142  7362  7363  4568   572  6599                          
+   769   862  2137  6842  7074  7073  4099   458  6284                          
+   564   659  1697  6601  6837  6838  3740   312  6029                          
+   512   609  1529  6506  6744  6745  3602   277  5932                          
+   307   406  1047  6221  6464  6464  3198   139  5632                          
+     0   101   315  5755  6001  6002  2582    10  5161                          
+    51     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1224-------------                            
+----------------- FILE NUMBER  1225-----------------                            
+ 0.227000E-01 0.228000E-01 0.995400E 00 0.731800E 00 0.100000E 01               
+ 0.926400E 00 0.100000E 01 0.189400E-01 0.124700E 04                            
+ 0.200000E-03 0.000000E 00 0.731500E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.913000E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9958  9983  9984  9984  9965 10000  9975                          
+  9066  9078  9958  9983  9984  9984  9965  8933  9975                          
+  8266  8289  9946  9979  9980  9981  9954  8020  9975                          
+  7644  7675  9969  9987  9988  9989  9977  7307  9983                          
+  7155  7192 10000 10000 10000 10000 10000  6747 10000                          
+  6488  6535  9984  9993  9994  9994  9988  5982  9991                          
+  5911  5964  9950  9980  9983  9982  9954  5322  9975                          
+  5333  5394  9920  9968  9972  9971  9931  4662  9959                          
+  4977  5043  9772  9909  9919  9919  9804  4258  9887                          
+  4488  4561  9291  9715  9743  9743  9379  3709  9647                          
+  4088  4166  8760  9495  9542  9541  8908  3270  9382                          
+  3733  3815  8116  9218  9286  9286  8333  2891  9045                          
+  3244  3333  7180  8792  8891  8890  7471  2392  8548                          
+  2888  2982  6468  8447  8567  8567  6816  2045  8147                          
+  2577  2675  5706  8056  8198  8197  6103  1756  7706                          
+  2266  2368  5130  7743  7899  7898  5551  1479  7361                          
+  1955  2061  4399  7321  7491  7491  4839  1217  6904                          
+  1688  1798  3846  6978  7159  7158  4298  1003  6535                          
+  1422  1535  3323  6635  6822  6823  3781   800  6174                          
+  1288  1403  2917  6352  6545  6544  3367   704  5886                          
+  1155  1271  2478  6028  6223  6224  2919   612  5557                          
+   977  1096  2201  5814  6010  6010  2643   496  5340                          
+   844   964  1864  5538  5734  5734  2287   412  5068                          
+   666   789  1424  5153  5346  5347  1839   307  4691                          
+   266   394   598  4324  4506  4505   965    98  3897                          
+    88   219    87  3708  3873  3874   413    32  3319                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1225-------------                            
+----------------- FILE NUMBER  1226-----------------                            
+ 0.374000E-01 0.377000E-01 0.994600E 00 0.652800E 00 0.100000E 01               
+ 0.830100E 00 0.100000E 01 0.243800E-01 0.115600E 04                            
+ 0.000000E 00 0.000000E 00 0.752900E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.897400E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9971  9987  9987  9987  9980 10000  9982                          
+  9304  9310  9958  9981  9983  9983  9970  9031  9974                          
+  8689  8700  9946  9977  9977  9978  9961  8174  9965                          
+  8208  8222 10000 10000 10000 10000 10000  7502 10000                          
+  7807  7824  9991  9996  9997  9996  9990  6940  9991                          
+  7219  7241  9971  9987  9987  9987  9980  6119  9982                          
+  6711  6737  9937  9972  9975  9974  9961  5414  9965                          
+  6336  6366  9797  9909  9916  9916  9863  4893  9887                          
+  5962  5994  9424  9741  9761  9761  9610  4380  9688                          
+  5641  5676  8804  9451  9491  9490  9181  3950  9351                          
+  5374  5411  8212  9162  9221  9220     0  3605  9013                          
+  5106  5145  7509  8803  8881  8882  8274  3271  8598                          
+  4866  4907  6863  8455  8550  8551  7816  2984  8209                          
+  4572  4615  6135  8039  8152  8153  7290  2650  7750                          
+  4385  4429  5556  7688  7814  7814  6871  2447  7370                          
+  4117  4164  4927  7282  7421  7420  6403  2173  6937                          
+  3850  3899  4282  6835  6983  6983  5925  1914  6470                          
+  3689  3740  3922  6570  6722  6722  5653  1767  6193                          
+  3449  3501  3330  6106  6261  6261  5194  1559  5717                          
+  3101  3156  2589  5458  5615  5614  4629  1286  5077                          
+  2860  2917  2068  4944  5098  5098  4220  1116  4567                          
+  2540  2599  1568  4388  4534  4535  3820   913  4031                          
+  2165  2228  1046  3714  3848  3847  3401   708  3399                          
+  1711  1777   695  3175  3294  3293  3118   497  2889                          
+  1497  1564   508  2846  2954  2955  2962   410  2586                          
+  1256  1326   330  2490  2588  2587  2816   324  2257                          
+  1016  1087   202  2196  2283  2284  2709   248  1989                          
+   802   875   161  2094  2177  2176  2680   187  1894                          
+   508   583    62  1821  1894  1893  2602   109  1643                          
+   160   238    16  1680  1748  1749  2563    28  1522                          
+    53   132     0  1626  1693  1692  2543     9  1470                          
+     0     0     0     0     0     0  3128     0     0                          
+-------------- END OF FILE NUMBER  1226-------------                            
+----------------- FILE NUMBER  1227-----------------                            
+ 0.499000E-01 0.501000E-01 0.100000E 01 0.598800E 00 0.100000E 01               
+ 0.767900E 00 0.100000E 01 0.292300E-01 0.109700E 04                            
+ 0.100000E-03 0.000000E 00 0.785600E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.933600E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  9297  9301 10000 10000 10000 10000 10000  8956 10000                          
+  8955  8962  9986  9993  9994  9993  9984  8450  9990                          
+  8574  8582 10000 10000 10000 10000 10000  7882 10000                          
+  8212  8223 10000 10000 10000 10000 10000  7345 10000                          
+  7791  7804  9948  9976  9977  9977  9954  6719  9972                          
+  7449  7465  9897  9953  9957  9957  9909  6212  9945                          
+  7068  7085  9692  9856  9865  9865  9713  5651  9835                          
+  6686  6706  9430  9734  9750  9751  9472  5097  9690                          
+  6365  6387  8983  9519  9549  9549  9051  4639  9443                          
+  6044  6067  8451  9255  9298  9299  8554  4190  9143                          
+  5722  5748  7812  8922  8985  8985  7951  3759  8769                          
+  5421  5449  7089  8528  8608  8607  7259  3371  8331                          
+  5120  5149  6231  8026  8123  8123  6415  3004  7784                          
+  4759  4790  5321  7451  7565  7564  5512  2594  7174                          
+  4357  4391  4510  6890  7014  7015  4713  2173  6581                          
+  4096  4131  3805  6356  6485  6486  3990  1920  6034                          
+  3795  3832  3157  5811  5945  5944  3328  1654  5487                          
+  3393  3433  2541  5235  5368  5367  2680  1332  4913                          
+  3032  3073  1893  4544  4668  4668  2003  1075  4238                          
+  2650  2694  1525  4099  4218  4217  1611   837  3810                          
+  2309  2355  1114  3527  3633  3634  1174   649  3263                          
+  2048  2095   853  3101  3199  3199   888   525  2862                          
+  1787  1836   699  2825  2915  2915   722   413  2607                          
+  1465  1516   447  2294  2371  2371   451   295  2114                          
+  1285  1337   335  2015  2084  2083   331   239  1850                          
+  1064  1117   228  1701  1761  1760   210   180  1558                          
+   863   918   139  1397  1445  1445   120   135  1285                          
+   622   678   111  1284  1327  1328    90    88  1175                          
+   502   558   107  1264  1308  1307    90    66  1157                          
+   401   459    83  1158  1200  1199    60    49  1066                          
+   240   299    65  1068  1105  1105    45    23   975                          
+    80   139    27   858   888   888     0     5   783                          
+     0     0     0     0     0     0   963     0     0                          
+-------------- END OF FILE NUMBER  1227-------------                            
+----------------- FILE NUMBER  1228-----------------                            
+ 0.432000E-01 0.434000E-01 0.100000E 01 0.682600E 00 0.100000E 01               
+ 0.867700E 00 0.100000E 01 0.356800E-01 0.120300E 04                            
+ 0.100000E-03 0.000000E 00 0.828400E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.923400E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  9396  9400 10000 10000 10000 10000 10000  9316 10000                          
+  8793  8801 10000 10000 10000 10000 10000  8632 10000                          
+  8352  8364  9982  9995  9994  9995  9986  8133  9991                          
+  7819  7834  9982  9995  9994  9995  9986  7528  9991                          
+  7354  7373  9947  9985  9986  9986  9960  7003  9975                          
+  6937  6958  9801  9942  9947  9946  9869  6533  9925                          
+  6473  6497  9632  9894  9902  9903  9765  6011  9866                          
+  5962  5990  9393  9824  9839  9838  9608  5442  9783                          
+  5684  5714  9108  9739  9761  9761  9425  5134  9684                          
+  5406  5437  8846  9660  9688  9688  9255  4829  9584                          
+  4825  4861  8193  9459  9502  9502  8825  4204  9351                          
+  4501  4539  7482  9236  9294  9294  8368  3862  9085                          
+  4013  4055  6590  8942  9018  9019  7767  3363  8744                          
+  3503  3548  5332  8505  8608  8607  6919  2864  8246                          
+  3178  3225  4772  8302  8414  8414  6540  2558  8021                          
+  2946  2995  4160  8070  8192  8192  6122  2346  7763                          
+  2598  2649  3531  7824  7957  7957  5691  2037  7489                          
+  2273  2327  2995  7606  7746  7746  5313  1758  7256                          
+  1995  2050  2639  7456  7602  7602  5065  1525  7098                          
+  1809  1866  2226  7278  7427  7427  4765  1373  6899                          
+  1670  1728  1987  7174  7325  7326  4595  1262  6791                          
+  1461  1520  1806  7092  7247  7247  4464  1097  6708                          
+  1229  1290  1462  6935  7093  7093  4229   917  6541                          
+  1090  1152  1392  6901  7062  7061  4177   810  6508                          
+   951  1013  1212  6816  6977  6977  4046   704  6417                          
+   858   921  1124  6775  6937  6936  3981   634  6375                          
+   719   783  1008  6718  6880  6881  3890   530  6317                          
+   580   645   868  6652  6815  6815  3798   427  6251                          
+   510   576   810  6624  6789  6789  3759   376  6217                          
+   417   483   734  6586  6751  6751  3694   309  6176                          
+   394   460   705  6571  6736  6736  3681   292  6167                          
+   348   414   687  6561  6728  6728  3668   258  6151                          
+   278   345   635  6535  6701  6701  3629   208  6126                          
+   185   253   536  6488  6654  6654  3550   141  6076                          
+    92   161   279  6356  6524  6524  3368    75  5943                          
+    46   115   227  6328  6496  6497  3328    43  5918                          
+    23    92   168  6297  6467  6466  3289    28  5885                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1228-------------                            
+----------------- FILE NUMBER  1229-----------------                            
+ 0.680000E-02 0.740000E-02 0.964400E 00 0.127780E 01 0.100000E 01               
+ 0.147610E 01 0.100000E 01 0.633600E-02 0.216800E 04                            
+-0.300000E-03 0.000000E 00 0.464400E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.774800E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9960  9985  9990  9989  9968 10000  9976                          
+  7746  7837 10000 10000 10000 10000 10000  7566 10000                          
+  5915  6081 10000 10000 10000 10000 10000  5588 10000                          
+  4929  5135  9963  9987  9991  9990  9973  4524  9976                          
+  4647  4864  9944  9980  9986  9985  9960  4220  9967                          
+  4225  4459  9986  9995  9995  9996  9991  3764  9990                          
+  4084  4324  9977  9992  9994  9994  9982  3612  9986                          
+  3802  4054  9958  9985  9988  9989  9968  3308  9976                          
+  3521  3783  9910  9968  9976  9976  9933  3005  9949                          
+  3239  3513  9833  9942  9957  9957  9875  2702  9907                          
+  3239  3513  9744  9911  9933  9933  9809  2627  9857                          
+  3098  3378  9720  9903  9926  9927  9791  2552  9843                          
+  2957  3243  9542  9841  9879  9880  9658  2327  9741                          
+  2816  3108  9038  9665  9743  9744  9280  2253  9460                          
+  2816  3108  9320  9764  9821  9821  9493  2267  9617                          
+  2535  2837  8971  9641  9725  9726  9231  1960  9423                          
+  2253  2567  8198  9359  9506  9506  8645  1674  8985                          
+  1830  2162  7274  9009  9225  9225  7944  1263  8464                          
+  1549  1891  5964  8477  8787  8786  6922  1005  7716                          
+  1408  1756  5342  8205  8557  8557  6429   882  7352                          
+  1126  1486  3388  7233  7699  7700  4791   659  6143                          
+   845  1216  2834  6911  7404  7404  4293   458  5774                          
+   704  1081   939  5568  6111  6111  2460   365  4368                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1229-------------                            
+----------------- FILE NUMBER  1230-----------------                            
+ 0.100000E-01 0.104000E-01 0.970900E 00 0.127610E 01 0.100000E 01               
+ 0.146490E 01 0.100000E 01 0.888000E-02 0.219800E 04                            
+-0.100000E-03 0.000000E 00 0.538700E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.775300E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9875  9963  9972  9972  9919 10000  9936                          
+  8712  8750  9928  9978  9983  9984  9955  8587  9963                          
+  7821  7884  9960  9988  9991  9991  9973  7606  9981                          
+  6732  6826  9990  9996  9998  9997  9995  6408  9995                          
+  6138  6249 10000 10000 10000 10000 10000  5754 10000                          
+  5346  5480  9928  9978  9983  9984  9955  4882  9963                          
+  4851  4999  9777  9934  9951  9950  9857  4340  9890                          
+  4455  4615  9722  9917  9937  9937  9821  3907  9863                          
+  4158  4326  9444  9835  9875  9875  9643  3585  9731                          
+  3960  4134  9287  9788  9839  9838  9541  3371  9654                          
+  3663  3846  9016  9706  9775  9776  9368  3055  9522                          
+  3366  3557  8810  9643  9728  9727  9234  2740  9426                          
+  3069  3269  8320  9491  9610  9609  8918  2431  9190                          
+  2970  3173  7697  9294  9453  9453  8513  2329  8885                          
+  2574  2788  7191  9129  9322  9322  8179  1935  8639                          
+  2475  2692  6571  8922  9154  9154  7770  1838  8339                          
+  2277  2499  5777  8647  8927  8928  7240  1653  7948                          
+  2079  2307  5465  8535  8834  8834  7031  1471  7793                          
+  1782  2019  5240  8453  8766  8766  6880  1203  7684                          
+  1782  2019  4794  8286  8626  8625  6573  1159  7461                          
+  1683  1923  4456  8157  8514  8514  6341  1116  7288                          
+  1386  1634  3627  7823  8226  8225  5758   866  6860                          
+   990  1249  2970  7540  7975  7974  5282   548  6510                          
+   792  1057  1712  6936  7426  7425  4325   400  5805                          
+   594   865   659  6353  6877  6877  3480   271  5168                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1230-------------                            
+----------------- FILE NUMBER  1231-----------------                            
+ 0.209000E-01 0.215000E-01 0.993500E 00 0.904000E 00 0.100000E 01               
+ 0.111260E 01 0.100000E 01 0.182500E-01 0.207400E 04                            
+-0.300000E-03 0.000000E 00 0.636700E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.873000E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9988  9995  9995  9996  9992 10000  9995                          
+  8867  8883  9991  9996  9997  9997  9992  8657  9995                          
+  7877  7906  9988  9995  9995  9996  9992  7479  9995                          
+  7358  7395  9991  9996  9997  9997  9992  6865  9995                          
+  6650  6697 10000 10000 10000 10000 10000  6021 10000                          
+  6226  6279  9977  9991  9993  9992  9984  5517  9990                          
+  5660  5720  9899  9962  9968  9968  9921  4847  9951                          
+  5141  5209  9627  9861  9880  9881  9700  4237  9811                          
+  4764  4837  9232  9712  9750  9751  9370  3799  9614                          
+  4386  4465  8441  9400  9478  9478  8716  3373  9204                          
+  4150  4232  7648  9070  9186  9185  8039  3117  8780                          
+  4056  4139  7578  9039  9158  9158  7976  3016  8741                          
+  3962  4046  6740  8667  8823  8822  7251  2919  8278                          
+  3820  3906  6676  8637  8795  8795  7188  2776  8244                          
+  3537  3627  5627  8129  8330  8330  6251  2500  7632                          
+  3396  3488  6171  8398  8578  8578  6740  2364  7955                          
+  2971  3069  5053  7829  8051  8051  5716  1964  7285                          
+  2688  2790  4372  7451  7695  7695  5078  1715  6856                          
+  2594  2697  4164  7330  7580  7581  4881  1635  6726                          
+  2358  2465  3663  7025  7289  7290  4401  1441  6388                          
+  2122  2232  3290  6787  7059  7060  4031  1254  6133                          
+  1839  1953  2502  6242  6528  6528  3251  1044  5564                          
+  1603  1720  2497  6238  6524  6525  3244   877  5559                          
+  1509  1627  1877  5761  6053  6052  2614   813  5077                          
+  1132  1255  1381  5339  5630  5630  2094   576  4662                          
+  1084  1209  1300  5266  5557  5557  2007   547  4590                          
+   849   976   989  4975  5260  5261  1677   412  4310                          
+   754   883   938  4925  5210  5211  1622   359  4267                          
+   566   697   675  4659  4939  4938  1338   258  4011                          
+   471   604   347  4298  4569  4568   984   210  3678                          
+   330   465   434  4397  4670  4670  1078   142  3770                          
+   188   325    56  3946  4204  4204   661    76  3355                          
+    47   186     0  3874  4129  4129   598    26  3293                          
+     0     0   109     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1231-------------                            
+----------------- FILE NUMBER  1232-----------------                            
+ 0.244000E-01 0.248000E-01 0.993800E 00 0.908200E 00 0.100010E 01               
+ 0.111590E 01 0.100000E 01 0.220900E-01 0.208100E 04                            
+-0.100000E-03 0.000000E 00 0.674300E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.872000E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9981  9993  9994  9994  9992 10000  9995                          
+  8734  8749 10000 10000 10000 10000 10000  8564 10000                          
+  7999  8024  9996  9998  9998  9999 10000  7732 10000                          
+  7469  7499  9978  9993  9993  9993  9984  7129  9990                          
+  7061  7096  9956  9985  9987  9987  9968  6663  9980                          
+  6530  6572  9915  9972  9976  9975  9945  6066  9966                          
+  6000  6048  9777  9927  9938  9937  9843  5464  9903                          
+  5510  5564  9427  9811  9837  9836  9585  4916  9745                          
+  5142  5201  9167  9723  9761  9760  9398  4511  9629                          
+  4816  4879  8779  9590  9645  9645  9117  4155  9452                          
+  4571  4637  8294  9418  9495  9494  8750  3892  9226                          
+  4204  4274  7730  9212  9313  9312  8328  3507  8962                          
+  3836  3911  7170  9001  9124  9124  7898  3132  8692                          
+  3306  3387  6262  8639  8799  8798  7195  2609  8241                          
+  3020  3104  5680  8394  8576  8576  6734  2338  7948                          
+  2612  2701  4982  8086  8292  8291  6171  1965  7578                          
+  2367  2459  4541  7881  8102  8101  5812  1749  7342                          
+  1999  2096  3934  7586  7825  7825  5304  1435  7006                          
+  1591  1693  3255  7236  7493  7493  4734  1103  6617                          
+  1387  1491  2876  7030  7296  7296  4406   944  6391                          
+  1102  1209  2410  6763  7040  7040  4000   728  6102                          
+   693   806  1884  6446  6731  6730  3539   435  5771                          
+   448   564  1627  6283  6571  6571  3304   265  5603                          
+   326   443  1367  6113  6403  6402  3070   183  5425                          
+   204   322   807  5722  6015  6015  2562   105  5031                          
+    81   201   359  5384  5676  5676  2148    43  4699                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1232-------------                            
+----------------- FILE NUMBER  1233-----------------                            
+ 0.358000E-01 0.361000E-01 0.100000E 01 0.838700E 00 0.100000E 01               
+ 0.104020E 01 0.100000E 01 0.323400E-01 0.202400E 04                            
+ 0.000000E 00 0.000000E 00 0.700100E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.888700E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9729  9905  9916  9917  9793 10000  9876                          
+  8966  8975  9869  9954  9959  9960  9901  8849  9940                          
+  8296  8310  9933  9976  9979  9979  9946  8101  9970                          
+  7541  7562  9979  9992  9994  9994  9982  7257  9995                          
+  6927  6952 10000 10000 10000 10000 10000  6567 10000                          
+  6229  6260  9993  9997  9998  9998  9991  5785 10000                          
+  5670  5706  9916  9971  9973  9974  9937  5160  9965                          
+  5195  5235  9779  9922  9932  9932  9829  4632  9901                          
+  4832  4875  9563  9846  9865  9865  9658  4230  9802                          
+  4329  4376  9033  9654  9695  9695  9245  3679  9550                          
+  3966  4016  8486  9450  9513  9513  8814  3293  9293                          
+  3603  3656  7822  9192  9282  9282  8283  2917  8967                          
+  3296  3351  7162  8925  9039  9039  7744  2609  8641                          
+  2932  2991  6355  8579  8723  8723  7079  2257  8226                          
+  2625  2686  5758  8311  8475  8475  6576  1972  7910                          
+  2290  2354  4994  7949  8136  8135  5920  1672  7490                          
+  1983  2049  4331  7614  7818  7819  5345  1411  7114                          
+  1648  1717  3774  7314  7534  7534  4851  1138  6783                          
+  1256  1329  3131  6947  7181  7181  4267   835  6388                          
+   865   941  2470  6544  6787  6788  3665   549  5958                          
+   782   858  2390  6493  6737  6738  3593   490  5909                          
+   586   664  2014  6245  6493  6493  3243   356  5652                          
+   530   609  1967  6211  6460  6461  3198   318  5617                          
+   446   526  1717  6039  6291  6291  2964   263  5439                          
+   335   415  1327  5756  6010  6010  2587   192  5158                          
+   279   360  1117  5596  5849  5849  2389   158  5000                          
+   223   304  1037  5533  5787  5787  2309   125  4935                          
+   111   193   456  5053  5303  5302  1752    61  4466                          
+    83   166   350  4958  5206  5206  1644    46  4377                          
+    55   138   150  4776  5022  5022  1446    33  4204                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1233-------------                            
+----------------- FILE NUMBER  1234-----------------                            
+ 0.378000E-01 0.381000E-01 0.100000E 01 0.802300E 00 0.100000E 01               
+ 0.100250E 01 0.100000E 01 0.326300E-01 0.198300E 04                            
+ 0.000000E 00 0.000000E 00 0.714700E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.897200E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9779  9918  9929  9929  9824 10000  9899                          
+  8941  8950  9922  9971  9975  9975  9941  8780  9964                          
+  8280  8293 10000 10000 10000 10000 10000  8014 10000                          
+  7671  7690  9985  9995  9995  9996  9990  7309  9994                          
+  7248  7270 10000 10000 10000 10000 10000  6818 10000                          
+  6798  6824  9968  9987  9990  9990  9970  6297  9984                          
+  6375  6404  9894  9961  9965  9966  9912  5807  9949                          
+  5899  5931  9681  9885  9897  9898  9747  5258  9853                          
+  5343  5380  9397  9779  9804  9804  9513  4627  9717                          
+  4947  4986  8871  9582  9628  9627  9095  4183  9470                          
+  4444  4488  8257  9344  9412  9412  8589  3634  9172                          
+  4126  4173  7490  9032  9128  9129  7957  3300  8789                          
+  3730  3779  6852  8759  8878  8878  7422  2896  8461                          
+  3333  3385  6056  8402  8547  8547  6741  2507  8043                          
+  2883  2939  5212  7998  8167  8167  6001  2087  7579                          
+  2460  2519  4598  7685  7871  7871  5457  1711  7226                          
+  2195  2257  3953  7336  7537  7538  4873  1486  6843                          
+  1719  1784  3231  6917  7132  7133  4212  1104  6394                          
+  1349  1417  2607  6527  6753  6753  3638   825  5985                          
+  1005  1076  1966  6093  6324  6324  3025   582  5542                          
+   793   866  1468  5729  5963  5963  2548   442  5173                          
+   687   761  1472  5732  5964  5965  2548   375  5179                          
+   634   708  1265  5571  5805  5804  2354   341  5017                          
+   502   577  1090  5433  5666  5666  2178   260  4881                          
+   449   524   946  5315  5547  5548  2042   229  4765                          
+   343   419   722  5125  5354  5355  1819   167  4578                          
+   211   288   557  4978  5206  5206  1653    93  4437                          
+   158   236   325  4765  4991  4990  1429    65  4236                          
+    52   131   189  4632  4854  4855  1284    21  4109                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1234-------------                            
+----------------- FILE NUMBER  1235-----------------                            
+ 0.450000E-01 0.453000E-01 0.100000E 01 0.709100E 00 0.100000E 01               
+ 0.899400E 00 0.100000E 01 0.336400E-01 0.185500E 04                            
+ 0.000000E 00 0.000000E 00 0.727900E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.913400E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9698  9871  9883  9882  9734 10000  9838                          
+  9066  9072  9878  9947  9952  9952  9988  8819  9935                          
+  8555  8565  9915  9964  9968  9967  9930  8168  9956                          
+  8066  8079  9988  9995  9994  9995  9988  7547  9989                          
+  7533  7549 10000 10000 10000 10000 10000  6863 10000                          
+  7133  7152  9985  9994  9994  9994  9988  6355  9989                          
+  6844  6865  9930  9970  9973  9972  9942  5986  9962                          
+  6422  6445  9687  9866  9878  9877  9722  5451  9832                          
+  6022  6048  9356  9720  9745  9744  9422  4952  9654                          
+  5622  5651  8868  9500  9542  9541  8972  4461  9390                          
+  5244  5275  8313  9241  9302  9302  8464  4013  9083                          
+  4866  4900  7901  9042  9118  9118  8071  3573  8846                          
+  4466  4503  7089  8632  8733  8733  7309  3127  8371                          
+  4022  4061  6082  8082  8213  8213  6339  2659  7752                          
+  3666  3708  5336  7640  7789  7789  5612  2308  7272                          
+  3177  3222  4406  7042  7210  7210  4676  1859  6630                          
+  2733  2781  3645  6499  6675  6677  3903  1484  6064                          
+  2333  2384  2811  5834  6018  6018  3036  1178  5385                          
+  1822  1876  2160  5246  5429  5428  2355   828  4803                          
+  1422  1479  1583  4650  4826  4827  1732   584  4231                          
+  1199  1258  1238  4251  4419  4419  1351   462  3849                          
+  1044  1103  1047  4013  4176  4176  1143   383  3622                          
+   844   905   768  3634  3787  3788   842   289  3272                          
+   599   662   529  3268  3410  3410   577   186  2932                          
+   444   507   367  2993  3126  3126   392   126  2679                          
+   288   353   213  2709  2831  2830   219    72  2420                          
+   177   242    88  2452  2565  2565    80    37  2188                          
+    44   110    14  2291  2397  2397     0     8  2043                          
+     0     0     0     0     0     0   508     0     0                          
+-------------- END OF FILE NUMBER  1235-------------                            
+----------------- FILE NUMBER  1236-----------------                            
+ 0.113000E-01 0.115000E-01 0.993800E 00 0.860100E 00 0.100000E 01               
+ 0.105750E 01 0.100000E 01 0.104500E-01 0.203700E 04                            
+ 0.100000E-03 0.000000E 00 0.765800E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.883600E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9969  9991  9993  9993  9982 10000  9990                          
+  8035  8086 10000 10000 10000 10000 10000  7870 10000                          
+  6428  6521  9973  9993  9994  9994  9982  6130  9995                          
+  5624  5739  9964  9990  9991  9992  9982  5260  9990                          
+  4910  5043  9894  9973  9976  9977  9939  4488  9965                          
+  4196  4347  9618  9902  9915  9914  9785  3719  9872                          
+  3928  4086  9228  9800  9825  9826  9561  3433  9739                          
+  3392  3565  8565  9623  9670  9669  9183  2871  9509                          
+  2946  3130  7903  9441  9509  9509  8797  2413  9273                          
+  2767  2956  6934  9165  9261  9261  8230  2235  8924                          
+  2321  2521  6026  8893  9016  9016  7689  1803  8586                          
+  2053  2260  4885  8533  8687  8687  6993  1555  8154                          
+  1607  1826  4197  8304  8475  8476  6563  1155  7884                          
+  1250  1478  3105  7921  8119  8119  5876   848  7437                          
+  1071  1304  1907  7468  7691  7691  5103   667  6926                          
+   982  1217  2232  7595  7810  7811  5317   631  7069                          
+   892  1130  1337  7238  7472  7472  4733   562  6676                          
+   714   956  1043  7116  7354  7355  4536   427  6543                          
+   625   869   631  6939  7184  7184  4261   361  6352                          
+   535   782   385  6831  7080  7079  4097   297  6239                          
+   267   521   469  6868  7116  7115  4149   136  6278                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1236-------------                            
+----------------- FILE NUMBER  1237-----------------                            
+ 0.150000E-01 0.150000E-01 0.100000E 01 0.886100E 00 0.100000E 01               
+ 0.109120E 01 0.100000E 01 0.141700E-01 0.206300E 04                            
+ 0.300000E-03 0.000000E 00 0.736700E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.877400E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9996  9998  9998  9999 10000 10000 10000                          
+  7755  7799 10000 10000 10000 10000 10000  7614 10000                          
+  6666  6733  9996  9998  9998  9999 10000  6455 10000                          
+  5782  5866  9977  9993  9994  9994  9983  5515  9990                          
+  4965  5066  9920  9977  9980  9980  9951  4648  9970                          
+  4421  4533  9680  9910  9922  9923  9804  4072  9878                          
+  4353  4466  9612  9891  9905  9906  9763  4001  9854                          
+  4013  4133  9346  9816  9840  9840  9600  3645  9752                          
+  3809  3933  9293  9801  9826  9827  9559  3433  9733                          
+  3537  3666  8913  9690  9731  9731  9323  3151  9587                          
+  3333  3466  8720  9634  9681  9681  9200  2942  9510                          
+  2721  2866  7888  9383  9460  9461  8678  2328  9185                          
+  2517  2666  7269  9190  9289  9288  8278  2127  8943                          
+  2176  2333  6741  9020  9136  9136  7936  1802  8725                          
+  1836  1999  6243  8854  8988  8987  7610  1483  8521                          
+  1632  1799  5639  8646  8798  8798  7202  1296  8264                          
+  1428  1599  5085  8450  8618  8618  6835  1114  8031                          
+  1360  1533  4432  8207  8396  8396  6386  1055  7741                          
+   884  1066  3687  7918  8127  8127  5872   656  7406                          
+   612   799  2685  7504  7736  7737  5163   439  6936                          
+   408   600  1431  6934  7192  7192  4249   287  6311                          
+   272   466  1124  6785  7048  7048  4029   192  6151                          
+   204   399   786  6616  6883  6884  3776   145  5976                          
+    68   266   292  6355  6629  6630  3401    68  5705                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1237-------------                            
+----------------- FILE NUMBER  1238-----------------                            
+ 0.149000E-01 0.151000E-01 0.100000E 01 0.824800E 00 0.100000E 01               
+ 0.102740E 01 0.100000E 01 0.134600E-01 0.200800E 04                            
+ 0.100000E-03 0.000000E 00 0.727400E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.892000E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9959  9986  9987  9988  9972 10000  9985                          
+  9054  9072  9963  9987  9988  9989  9972  8952  9985                          
+  7837  7880  9996  9998  9998  9999 10000  7607 10000                          
+  7027  7086  9985  9995  9995  9995  9990  6705  9995                          
+  6689  6754 10000 10000 10000 10000 10000  6331 10000                          
+  6283  6357  9974  9991  9993  9992  9981  5881  9990                          
+  5878  5960  9933  9978  9980  9980  9953  5432  9975                          
+  5337  5430  9809  9938  9944  9945  9861  4835  9920                          
+  5067  5165  9684  9896  9908  9908  9768  4537  9865                          
+  4797  4900  9332  9779  9804  9804  9518  4243  9716                          
+  4527  4635  9082  9694  9728  9728  9333  3952  9606                          
+  4189  4304  8595  9525  9578  9578  8972  3594  9392                          
+  3581  3708  7688  9198  9283  9283  8296  2967  8984                          
+  3310  3443  6991  8935  9045  9045  7768  2697  8660                          
+  2905  3046  6511  8746  8871  8870  7388  2305  8431                          
+  2770  2913  6203  8622  8756  8757  7157  2176  8281                          
+  2364  2516  5539  8345  8500  8500  6629  1801  7958                          
+  2027  2185  4794  8017  8194  8193  6037  1501  7579                          
+  1689  1854  3921  7609  7807  7808  5333  1215  7121                          
+  1486  1655  3459  7377  7588  7587  4944  1051  6867                          
+  1081  1258  3022  7153  7372  7372  4583   733  6623                          
+   878  1059  2567  6907  7134  7133  4203   580  6359                          
+   675   860  2090  6635  6869  6869  3796   433  6070                          
+   472   662  1452  6250  6491  6490  3240   293  5672                          
+   337   529   741  5782  6026  6026  2620   206  5199                          
+   202   397   473  5591  5837  5837  2379   129  5009                          
+   202   397   344  5497  5741  5741  2259   125  4915                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1238-------------                            
+----------------- FILE NUMBER  1239-----------------                            
+ 0.293000E-01 0.296000E-01 0.100000E 01 0.642800E 00 0.100000E 01               
+ 0.817400E 00 0.100000E 01 0.187000E-01 0.173800E 04                            
+ 0.000000E 00 0.000000E 00 0.762300E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.925400E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9957  9979  9983  9982  9959 10000  9976                          
+  8976  8986  9983  9990  9993  9992  9986  8545  9988                          
+  8361  8378  9995  9996  9998  9997 10000  7673 10000                          
+  7679  7702 10000 10000 10000 10000 10000  6700 10000                          
+  7235  7263  9970  9985  9987  9987  9973  6069  9982                          
+  6689  6722  9718  9873  9883  9883  9745  5300  9850                          
+  6416  6452  9537  9789  9805  9806  9571  4918  9752                          
+  6177  6216  9099  9587  9617  9618  9168  4590  9510                          
+  5870  5912  8607  9351  9397  9396  8713  4178  9240                          
+  5529  5574  7602  8844  8917  8918  7774  3739  8653                          
+  5187  5236  6912  8470  8565  8564  7117  3323  8239                          
+  4778  4831  5843  7850  7968  7967  6072  2854  7560                          
+  4470  4527  5149  7411  7542  7542  5388  2526  7088                          
+  4129  4189  4362  6873  7016  7016  4597  2185  6524                          
+  3924  3986  4063  6653  6800  6800  4302  1993  6294                          
+  3720  3783  3605  6299  6449  6449  3833  1808  5932                          
+  3447  3513  3167  5941  6094  6094  3378  1576  5569                          
+  3139  3209  2507  5348  5501  5500  2694  1336  4982                          
+  2866  2939  2086  4925  5074  5074  2252  1142  4568                          
+  2320  2398  1329  4047  4182  4182  1447   804  3722                          
+  1808  1891   854  3369  3489  3489   924   543  3084                          
+  1467  1554   521  2798  2903  2903   576   399  2548                          
+  1126  1216   382  2523  2619  2619   415   274  2295                          
+   853   945   210  2123  2206  2205   227   187  1927                          
+   546   641   176  2034  2113  2114   187   100  1846                          
+   375   472    58  1698  1765  1765    67    56  1542                          
+    68   168     4  1509  1568  1569     0     7  1369                          
+     0     0     0     0     0     0   817     0     0                          
+-------------- END OF FILE NUMBER  1239-------------                            
+----------------- FILE NUMBER  1240-----------------                            
+ 0.469000E-01 0.471000E-01 0.100000E 01 0.579200E 00 0.100000E 01               
+ 0.742000E 00 0.100000E 01 0.291100E-01 0.162400E 04                            
+ 0.100000E-03 0.000000E 00 0.803200E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.939300E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000 10000 10000 10000 10000 10000 10000 10000                          
+  9230  9235  9994  9998  9998  9997 10000  8945  9993                          
+  8482  8492 10000 10000 10000 10000 10000  7918 10000                          
+  7863  7876  9969  9986  9987  9986  9967  7069  9981                          
+  7307  7324  9918  9963  9965  9964  9917  6307  9956                          
+  6709  6730  9690  9861  9869  9869  9719  5492  9839                          
+  6217  6242  9324  9690  9708  9708  9373  4833  9642                          
+  5747  5774  8709  9399  9434  9433  8797  4218  9310                          
+  5299  5329  7713  8901  8959  8958  7841  3658  8750                          
+  4764  4798  6468  8223  8307  8307  6639  3036  8011                          
+  4294  4331  5182  7443  7548  7548  5370  2536  7173                          
+  3846  3885  4126  6719  6837  6838  4316  2107  6422                          
+  3333  3375  3109  5930  6055  6055  3278  1670  5621                          
+  2799  2845  2184  5088  5210  5210  2322  1274  4784                          
+  2414  2462  1661  4540  4656  4657  1779  1026  4254                          
+  2008  2059  1255  4059  4169  4169  1350   793  3786                          
+  1559  1613   838  3494  3594  3595   906   566  3251                          
+  1196  1252   599  3116  3209  3208   642   406  2894                          
+   854   912   381  2731  2814  2814   411   273  2530                          
+   470   636   274  2520  2598  2598   296   176  2333                          
+   363   445   203  2367  2440  2440   214   113  2192                          
+   235   297   142  2225  2294  2295   148    67  2056                          
+    42   106    25  1930  1991  1991    32    14  1785                          
+     0    63     0  1868  1927  1928     0     5  1724                          
+     0     0    10     0     0     0   708     0     0                          
+-------------- END OF FILE NUMBER  1240-------------                            
+----------------- FILE NUMBER  1241-----------------                            
+ 0.425000E-01 0.426000E-01 0.994400E 00 0.676800E 00 0.100020E 01               
+ 0.863900E 00 0.100000E 01 0.354500E-01 0.179000E 04                            
+ 0.200000E-03 0.000000E 00 0.791800E 00 0.000000E 00 0.000000E 00               
+ 0.000000E 00 0.924600E 00 0.000000E 00 0.000000E 00                            
+ 10000 10000  9980  9994  9992  9993  9986 10000  9994                          
+  9290  9295 10000 10000 10000 10000 10000  9212 10000                          
+  8557  8568  9886  9961  9963  9962  9920  8403  9949                          
+  7919  7934  9965  9988  9988  9988  9973  7695  9983                          
+  7281  7300  9995  9998  9997  9997 10000  6987 10000                          
+  6737  6760  9965  9988  9988  9988  9973  6386  9983                          
+  6217  6244  9748  9912  9919  9918  9814  5811  9893                          
+  5673  5704  9570  9850  9861  9861  9668  5215  9815                          
+  5224  5258  9289  9750  9769  9768  9456  4727  9698                          
+  4775  4812  8889  9604  9635  9635  9137  4248  9525                          
+  4397  4436  8376  9413  9458  9458  8740  3850  9296                          
+  3995  4037  7744  9171  9231  9231  8236  3438  9011                          
+  3569  3615  7221  8962  9037  9036  7811  3012  8770                          
+  3073  3122  6233  8552  8649  8649  7015  2535  8307                          
+  2600  2652  5567  8259  8371  8371  6458  2100  7977                          
+  2340  2394  5000  7999  8122  8122  5994  1869  7692                          
+  1962  2018  4689  7851  7980  7981  5729  1542  7530                          
+  1820  1877  4397  7711  7844  7844  5490  1421  7374                          
+  1513  1572  4096  7562  7700  7699  5238  1165  7212                          
+  1323  1384  3795  7408  7551  7551  4986  1011  7050                          
+  1182  1244  3706  7362  7507  7506  4907   897  6999                          
+  1040  1103  3504  7256  7403  7403  4734   785  6888                          
+   969  1032  3543  7276  7424  7424  4761   729  6910                          
+   803   868  3311  7152  7303  7304  4562   599  6776                          
+   591   657  3390  7195  7345  7344  4628   433  6821                          
+   520   586  3252  7121  7272  7272  4522   378  6743                          
+   472   539  3163  7072  7225  7225  4442   341  6692                          
+   449   516  3109  7043  7196  7196  4389   323  6664                          
+   330   399  3050  7010  7164  7164  4336   233  6631                          
+   236   305  2971  6966  7121  7122  4270   161  6581                          
+   165   234  2961  6962  7116  7116  4270   108  6575                          
+   118   187  2724  6827  6985  6985  4058    72  6435                          
+    94   164  2467  6679  6840  6839  3832    56  6284                          
+     0     0     0     0     0     0     0     0     0                          
+-------------- END OF FILE NUMBER  1241-------------                            

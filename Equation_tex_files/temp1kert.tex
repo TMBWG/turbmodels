@@ -1,0 +1,206 @@
+\begin{document}
+
+\begin{equation}
+\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \rho \varepsilon  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \frac{\mu_t}{\sigma_k} \right)\frac{\partial k}{\partial x_j}\right]
+\end{equation}
+
+\begin{equation}
+\frac{\partial (\rho \varepsilon)}{\partial t} + 
+  \frac{\partial (\rho u_j \varepsilon)}{\partial x_j}
+  = \frac{1}{T_t} \left( C_{\varepsilon 1} \cal P -
+  C_{\varepsilon 2} \rho \varepsilon + 
+  C_{\varepsilon 3} E \right) + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \frac{\mu_t}{\sigma_{\varepsilon}} \right)
+  \frac{\partial \varepsilon}{\partial x_j} \right]
+\end{equation}
+
+\begin{equation}
+\frac{\partial (\rho R_t)}{\partial t} +  \frac{\partial (\rho u_j R_t)}{\partial x_j}
+  = \left( C_1 - C_2f_2 \right) \sqrt{\rho R_t \cal P}
+  -\rho C_3 D + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \frac{\mu_t}{\sigma_{Rt}} \right)
+  \frac{\partial R_t}{\partial x_j} \right]
+\end{equation}
+
+\begin{equation}
+P = \tau_{ij} \frac{\partial u_i}{\partial x_j}
+\end{equation}
+
+\begin{equation}
+\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}
+\end{equation}
+
+\begin{equation}
+S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+\begin{equation}
+\varepsilon
+\end{equation}
+
+\begin{equation}
+E = \rho \sqrt{\varepsilon T_t} {\rm max}\left( \sqrt{k}, (\nu \varepsilon)^{1/4} \right)
+   {\rm max} \left( \frac{\partial k}{\partial x_j} 
+   \frac{\partial \tau}{\partial x_j},0 \right)
+\end{equation}
+
+\begin{equation}
+\tau = \frac{k}{\varepsilon}
+\end{equation}
+
+\begin{equation}
+T_t = \tau \left[ {\rm max} \left( 1, \sqrt{\frac{2}{Re_t}} \right) \right]
+\end{equation}
+
+\begin{equation}
+Re_t = \frac{k \tau}{\nu}
+\end{equation}
+
+\begin{equation}
+f_2 = \frac{{\rm tanh}\sqrt{\chi}}{{\rm tanh}\left(\sqrt{2} C_{\mu}^{1/4} \chi\right)}
+\end{equation}
+
+\begin{equation}
+\chi = \frac{R_t}{C_{\mu} \nu}
+\end{equation}
+
+\begin{equation}
+f_2 = 1
+\end{equation}
+
+\begin{equation}
+  D = \left\{
+  \begin{array}{l l}
+  \left(\partial R_t / \partial x_j\right)
+  \left(\partial R_t / \partial x_j\right), & \lambda>0 \\
+  0, & \lambda \leq 0
+  \end{array}\right.
+\end{equation}
+
+\begin{equation}
+\lambda = \frac{\partial Q}{\partial x_j} \frac{\partial R_t}{\partial x_j}
+\end{equation}
+
+\begin{equation}
+Q = \sqrt{(U-U_0)^2 + (V-V_0)^2 + (W-W_0)^2}
+\end{equation}
+
+\begin{equation}
+f_{\mu,k-\varepsilon} = \frac{1-{\rm exp}(-A_{\mu}Re_t)}{1-{\rm exp}(-\sqrt{Re_t})}
+{\rm max}\left( 1, \sqrt{2/Re_t} \right)
+\end{equation}
+
+\begin{equation}
+f_{\mu,Rt} = \frac{{\rm tanh}(\alpha \chi^2)}
+{{\rm tanh}(\beta \chi^2)}
+\end{equation}
+
+\begin{equation}
+\mu_{t,k-\varepsilon} = {\rm min} \left( C_{\mu} f_{\mu,k-\varepsilon} \rho k \tau,
+  \frac{\phi \rho k}{|S|} \right)
+\end{equation}
+
+\begin{equation}
+\mu_{t,Rt} = f_{\mu,Rt} \rho R_t
+\end{equation}
+
+\begin{equation}
+\mu_t = {\rm max} \left( \mu_{t,k-\varepsilon},\mu_{t,Rt} \right)
+\end{equation}
+
+\begin{equation}
+{\rm abs}(S) = |S|
+\end{equation}
+
+\begin{equation}
+\phi
+\end{equation}
+
+\begin{equation}
+\phi = 2/3
+\end{equation}
+
+\begin{equation}
+\phi = 0.31
+\end{equation}
+
+\begin{equation}
+\sigma_k = 1.0
+\end{equation}
+
+\begin{equation}
+\sigma_{\varepsilon} = 1.3
+\end{equation}
+
+\begin{equation}
+\sigma_{Rt} = 1.0
+\end{equation}
+
+\begin{equation}
+C_{\varepsilon 1} = 1.44
+\end{equation}
+
+\begin{equation}
+C_{\varepsilon 2} = 1.92
+\end{equation}
+
+\begin{equation}
+C_{\varepsilon 3} = 0.3
+\end{equation}
+
+\begin{equation}
+A_{\mu} = 0.007
+\end{equation}
+
+\begin{equation}
+\alpha = 0.00015
+\end{equation}
+
+\begin{equation}
+\beta = 0.2
+\end{equation}
+
+\begin{equation}
+C_1 = C_2 + \kappa^2(C_3 - 1/\sigma_{Rt}) = 39.918
+\end{equation}
+
+\begin{equation}
+C_2 = (12/11) \sqrt{\beta/\alpha} = 39.834
+\end{equation}
+
+\begin{equation}
+C_3 = 3/(2 \sigma_{Rt}) = 1.5
+\end{equation}
+
+\begin{equation}
+k
+\end{equation}
+
+\begin{equation}
+R_t
+\end{equation}
+
+\begin{equation}
+k_w = 0
+\end{equation}
+
+\begin{equation}
+R_{t,w} = 0
+\end{equation}
+
+\begin{equation}
+\varepsilon_w = 2 \nu \left(\frac{\partial \sqrt{k}}{\partial n} \right)_w^2
+\end{equation}
+
+\begin{equation}
+Re_t
+\end{equation}
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

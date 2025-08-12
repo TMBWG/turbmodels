@@ -1,0 +1,116 @@
+\begin{document}
+
+\begin{equation}
+\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \rho \epsilon  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \frac{\mu_t}{\sigma_k} \right)\frac{\partial k}{\partial x_j}\right]
+  + \rho L_k
+\end{equation}
+
+\begin{equation}
+\frac{\partial (\rho \epsilon)}{\partial t} + \frac{\partial (\rho u_j \epsilon)}{\partial x_j}
+  = C_{\epsilon 1} f_1 \frac{\epsilon}{k} \cal P -
+  C_{\epsilon 2} f_2 \frac{\rho \epsilon^2}{k} + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \frac{\mu_t}{\sigma_{\epsilon}} \right)
+  \frac{\partial \epsilon}{\partial x_j} \right] +
+  \rho L_{\epsilon}
+\end{equation}
+
+\begin{equation}
+P = \tau_{ij} \frac{\partial u_i}{\partial x_j}
+\end{equation}
+
+\begin{equation}
+\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}
+\end{equation}
+
+\begin{equation}
+S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+\begin{equation}
+\mu_t = C_{\mu} f_{\mu} \frac{\rho k^2}{\epsilon}
+\end{equation}
+
+\begin{equation}
+\rho
+\end{equation}
+
+\begin{equation}
+\mu
+\end{equation}
+
+\begin{equation}
+k_{wall} = 0
+\end{equation}
+
+\begin{equation}
+\epsilon_{wall} = 0
+\end{equation}
+
+\begin{equation}
+\sigma_k = 1.0
+\end{equation}
+
+\begin{equation}
+\sigma_{\epsilon} = 1.3
+\end{equation}
+
+\begin{equation}
+C_{\mu} = 0.09
+\end{equation}
+
+\begin{equation}
+C_{\epsilon 1} = 1.35
+\end{equation}
+
+\begin{equation}
+C_{\epsilon 2} = 1.80
+\end{equation}
+
+\begin{equation}
+f_1 = 1
+\end{equation}
+
+\begin{equation}
+f_2 = 1 - \frac{0.4}{1.8} e^{-Re_T^2/36}
+\end{equation}
+
+\begin{equation}
+Re_T = \frac{\rho k^2}{\mu \epsilon}
+\end{equation}
+
+\begin{equation}
+f_{\mu} = 1 - e^{-0.0115 d^+}
+\end{equation}
+
+\begin{equation}
+d^+
+\end{equation}
+
+\begin{equation}
+d^+ = d \rho u_{\tau} / \mu
+\end{equation}
+
+\begin{equation}
+u_{\tau} = \sqrt{\tau_w/\rho_w}
+\end{equation}
+
+\begin{equation}
+\tau_w = \mu_w \left( \frac{\partial U}{\partial n} \right)_w
+\end{equation}
+
+\begin{equation}
+L_k = -2 \frac{\mu k}{\rho d^2}
+\end{equation}
+
+\begin{equation}
+L_{\epsilon} = -2 \frac{\mu \epsilon}{\rho d^2} e^{-d^+/2}
+\end{equation}
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

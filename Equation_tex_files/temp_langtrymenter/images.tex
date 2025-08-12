@@ -1,0 +1,655 @@
+\batchmode
+
+
+\documentclass[8pt]{article}
+\RequirePackage{ifthen}
+
+
+
+
+\title{Langtry-Menter Equations}
+\author{James G. Coder}
+
+
+
+
+\usepackage[dvips]{color}
+
+
+\pagecolor[gray]{.7}
+
+\usepackage[]{inputenc}
+
+
+
+\makeatletter
+
+\makeatletter
+\count@=\the\catcode`\_ \catcode`\_=8 
+\newenvironment{tex2html_wrap}{}{}%
+\catcode`\<=12\catcode`\_=\count@
+\newcommand{\providedcommand}[1]{\expandafter\providecommand\csname #1\endcsname}%
+\newcommand{\renewedcommand}[1]{\expandafter\providecommand\csname #1\endcsname{}%
+  \expandafter\renewcommand\csname #1\endcsname}%
+\newcommand{\newedenvironment}[1]{\newenvironment{#1}{}{}\renewenvironment{#1}}%
+\let\newedcommand\renewedcommand
+\let\renewedenvironment\newedenvironment
+\makeatother
+\let\mathon=$
+\let\mathoff=$
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\global\topskip=2sp
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\liih@math{\ifmmode$\else\bad@math\fi}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\let\if@boxedmulticols=\iftrue
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize
+ \parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}%
+ \def\phantompar{\csname par\endcsname}\normalsize}%
+\def\lthtmltypeout#1{{\let\protect\string \immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup\kern.05em }%
+\newcommand\lthtmlhboxmathB{\adjustnormalsize\setbox\sizebox=\hbox to\hsize\bgroup\hfill }%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup %
+ \let\ifinner=\iffalse \let\)\liih@math }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\gdef\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\dimen0\ht\sizebox \advance\dimen0\dp\sizebox
+  \ifdim\dimen0>.95\vsize
+   \lthtmltypeout{%
+*** image for \lthtmlmathenv\space is too tall at \the\dimen0, reducing to .95 vsize ***}%
+   \ht\sizebox.95\vsize \dp\sizebox\z@ \fi
+  \lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlpictureA{\bgroup\catcode`\_=8 \lthtmlpictureB}%
+\newcommand\lthtmlpictureB[1]{\lthtmlmathtype{#1}\egroup
+       \let\@savefreelist\@freelist \lthtmlhboxmathB}%
+\newcommand\lthtmlpictureZ[1]{\hfill\lthtmlfigureZ}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA{\bgroup\catcode`\_=8 \lthtmldisplayAi}%
+\newcommand\lthtmldisplayAi[1]{\lthtmlmathtype{#1}\egroup\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA{\bgroup\catcode`\_=8 \lthtmlinlinemathB}
+\newcommand\lthtmlinlinemathB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA
+  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlineA{\bgroup\catcode`\_=8 \lthtmlinlineB}%
+\newcommand\lthtmlinlineB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA}%
+\newcommand\lthtmlinlineZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetinline}
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\newcommand\lthtmlindisplaymathZ{\egroup %
+  \centerinlinemath\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetinline{\hbox{\vrule width.1em \vtop{\vbox{%
+  \kern.1em\copy\sizebox}\ifdim\dp\sizebox>0pt\kern.1em\else\kern.3pt\fi
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\lthtmlsetmath{\hbox{\vrule width.1em\kern-.05em\vtop{\vbox{%
+  \kern.1em\kern0.8 pt\hbox{\hglue.17em\copy\sizebox\hglue0.8 pt}}\kern.3pt%
+  \ifdim\dp\sizebox>0pt\kern.1em\fi \kern0.8 pt%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{%
+  \dimen1=\ifdim\ht\sizebox<\dp\sizebox \dp\sizebox\else\ht\sizebox\fi
+  \advance\dimen1by.5pt \vrule width0pt height\dimen1 depth\dimen1 
+ \dp\sizebox=\dimen1\ht\sizebox=\dimen1\relax}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize 
+  \ifdim\wd\sizebox<\hsize\expandafter\hfill\fi \expandafter\vfill
+  \else\expandafter\vss\fi}%
+\providecommand{\selectlanguage}[1]{}%
+\makeatletter \tracingstats = 1 
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}\lthtmltypeout{}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\lthtmltypeout{}%
+\makeatother
+\setcounter{page}{1}
+\onecolumn
+
+% !!! IMAGES START HERE !!!
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath5}%
+\begin{displaymath}
+   \frac{\partial \left( \rho k \right)}{\partial t} + \frac{\partial \left( \rho u_j k \right)}{\partial x_j} = \hat P_k - \hat D_k  + \frac{\partial}{\partial x_j} \left[ \left( \mu + \sigma_k \mu_t \right) \frac{\partial k}{\partial x_j} \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath15}%
+\begin{displaymath}
+   \frac{\partial \left( \rho \omega \right)}{\partial t} + \frac{\partial \left( \rho u_j \omega \right)}{\partial x_j} = P_{\omega} - D_{\omega}  + \frac{\partial}{\partial x_j} \left[ \left( \mu + \sigma_{\omega} \mu_t \right) \frac{\partial \omega}{\partial x_j} \right] + 2 \left( 1 - F_1 \right) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_j} \frac{ \partial \omega}{\partial x_j}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath34}%
+\begin{displaymath}
+   \frac{\partial \left( \rho \gamma \right)}{\partial t} + \frac{\partial \left( \rho u_j \gamma \right)}{\partial x_j} = P_\gamma - E_\gamma + \frac{\partial}{\partial x_j} \left[ \left( \mu + \frac{\mu_t}{\sigma_f} \right) \frac{\partial \gamma}{\partial x_j} \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath46}%
+\begin{displaymath}
+   \frac{\partial \left( \rho\hat Re_{\theta t} \right)}{\partial t} + \frac{\partial \left( \rho u_j \hat Re_{\theta t} \right)}{\partial x_j} = P_{\theta t} + \frac{\partial}{\partial x_j} \left[ \sigma_{\theta t} \left( \mu + \mu_t \right) \frac{\partial \hat Re_{\theta t}}{\partial x_j} \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath58}%
+\begin{displaymath}
+   P_\gamma = F_{length} c_{a1} \rho S \left[ \gamma F_{onset} \right] ^{0.5} \left( 1 - c_{e1} \gamma \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath65}%
+\begin{displaymath}
+   E_\gamma =c_{a2} \rho \Omega \gamma F_{turb} \left( c_{e2} \gamma - 1 \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath70}%
+\begin{displaymath}
+   Re_V = \frac{\rho S d^2}{\mu}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath74}%
+\begin{displaymath}
+   F_{onset1} = \frac{Re_V}{2.193 Re_{\theta c}}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath79}%
+\begin{displaymath}
+   F_{onset2} = min \left( max \left( F_{onset1},F_{onset1}^4 \right), 2.0 \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath84}%
+\begin{displaymath}
+   R_T = \frac{\rho k}{\mu \omega}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath88}%
+\begin{displaymath}
+   F_{onset3} =  max \left[ 1 - \left( \frac{R_T}{2.5} \right)^3, 0 \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath93}%
+\begin{displaymath}
+   F_{turb} = exp \left[ - \left( \frac{R_T}{4} \right) ^4 \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath98}%
+\begin{displaymath}
+    F_{length} = F_{length,1} \left( 1 - F_{sublayer} \right) + 40.0 F_{sublayer}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath104}%
+\begin{displaymath}
+    F_{length,1} = \left\{ 
+      \begin{array}{ll}
+         39.8189 + (-119.270 \cdot 10^{-4}) \hat Re_{\theta t} +  (-132.567 \cdot 10^{-6}) \hat Re_{\theta t}^2, & \hat Re_{\theta t} < 400; \\
+         263.404 + (-123.939 \cdot 10^{-2}) \hat Re_{\theta t}  + (194.548 \cdot 10^{-5}) \hat Re_{\theta t}^2 + (-101.695 \cdot 10^{-8}) \hat Re_{\theta t}^3, & 400 \leq \hat Re_{\theta t} < 596 ;\\
+         0.5 - (3.0\cdot 10^{-4})(\hat Re_{\theta t} - 596.0), & 596 \leq \hat Re_{\theta t} < 1200; \\
+         0.3188 & 1200 \leq \hat Re_{\theta t}
+      \end{array} \right.
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath126}%
+\begin{displaymath}
+    F_{sublayer} = exp \left[ - \left( \frac{Re_\omega}{200} \right) ^2 \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath131}%
+\begin{displaymath}
+    Re_{\omega} = \frac{ \rho \omega d^2}{\mu}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath136}%
+\begin{displaymath}
+   Re_{\theta c} = \left\{ 
+      \begin{array}{ll}
+         (-396.035 \cdot 10^{-2}) + (10120.656 \cdot 10^{-4}) \hat Re_{\theta t} + (-868.230 \cdot 10^{-6}) \hat Re_{\theta t}^2 + (696.506 \cdot 10^{-9}) \hat Re_{\theta t}^3 + (-174.105 \cdot 10^{-12}) \hat Re_{\theta t}^4, & \hat Re_{\theta t} \leq 1870; \\
+         \hat Re_{\theta t} - \left( 593.11 + 0.482 \left( \hat Re_{\theta t} - 1870.0 \right) \right) & 1870 < \hat Re_{\theta t}
+      \end{array} \right.
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath155}%
+\begin{displaymath}
+   \rho
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath157}%
+\begin{displaymath}
+   \mu
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath159}%
+\begin{displaymath}
+   d
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath161}%
+\begin{displaymath}
+   S = \sqrt{2S_{ij}S_{ij}}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath165}%
+\begin{displaymath}
+   \Omega = \sqrt{2W_{ij}W_{ij}}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath169}%
+\begin{displaymath}
+   S_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} +  \frac{\partial u_j}{\partial x_i} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath178}%
+\begin{displaymath}
+   W_{ij}=\frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} -  \frac{\partial u_j}{\partial x_i} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath187}%
+\begin{displaymath}
+    P_{\theta t} = c_{\theta t} \frac{\rho}{T} \left( Re_{\theta t}^{eq} - \hat Re_{\theta t} \right) \left( 1.0 - F_{\theta t} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath197}%
+\begin{displaymath}
+    T = \frac{500 \mu}{\rho U^2}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath201}%
+\begin{displaymath}
+    U = \sqrt{ u_k u_k}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath204}%
+\begin{displaymath}
+    F_{\theta t} = min \left[ max \left( F_{wake} exp \left(- \left( \frac{d}{\delta} \right) ^4 \right) , 1.0 - \left( \frac{c_{e2}\gamma - 1}{c_{e2} - 1}\right) ^2 \right), 1.0 \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath212}%
+\begin{displaymath}
+    \delta = \frac{375 \Omega \mu \hat Re_{\theta t} d}{\rho U^2}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath216}%
+\begin{displaymath}
+    F_{wake} = exp \left[ - \left( \frac{Re_{\omega}}{1\cdot 10^{5}} \right) ^2 \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath221}%
+\begin{displaymath}
+    \lambda_{\theta} = \frac{\rho \theta_t ^2}{\mu} \frac{dU}{ds}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath228}%
+\begin{displaymath}
+    Tu = 100 \frac{\sqrt{2k/3}}{U}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath232}%
+\begin{displaymath}
+    \frac{dU}{ds} = \frac{u_m u_n}{U^2}  \frac{\partial u_m}{\partial x_n}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath240}%
+\begin{displaymath}
+   Re_{\theta t} ^{eq} = \left\{ 
+      \begin{array}{ll}
+         \left( 1173.51 - 589.428 Tu + 0.2196 Tu^{-2} \right) F \left( \lambda_{\theta} \right), & Tu \leq 1.3; \\
+         331.50 \left(Tu - 0.5658 \right) ^{-0.671} F \left( \lambda_{\theta} \right) & Tu > 1.3
+      \end{array} \right.
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath251}%
+\begin{displaymath}
+  F \left( \lambda_{\theta} \right) = \left\{ 
+      \begin{array}{ll}
+         1 + \left[ 12.986 \lambda_{\theta} + 123.66 \lambda_{\theta} ^2 + 405.689 \lambda_{\theta} ^3 \right] exp \left( -\left( \frac{Tu}{1.5} \right)^{1.5} \right), & \lambda_{\theta} \leq 0; \\
+         1 + 0.275 \left[1 - exp \left( -35.0 \lambda_{\theta} \right) \right] exp \left( - \frac{Tu}{0.5} \right) & \lambda_{\theta} > 0
+      \end{array} \right.
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath268}%
+\begin{displaymath}
+   Re_{\theta t} ^{eq} = \frac{\rho U \theta_t }{\mu}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath274}%
+\begin{displaymath}
+   \begin{array}{l}
+      c_{a1} = 2.0 \\
+      c_{a2} = 0.06 \\
+      c_{e1} = 1.0 \\
+      c_{e2} = 50 \\
+      c_{\theta t} = 0.03 \\
+      s_1 = 2 \\
+      \sigma_{f} = 1.0 \\
+      \sigma_{\theta t} = 2.0
+   \end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath286}%
+\begin{displaymath}
+    \hat P_k = \gamma_{eff} P_{k,SST}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath290}%
+\begin{displaymath}
+    \hat D_k = min \left( max \left( \gamma_{eff},0.1 \right), 1.0 \right) D_{k,SST}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath294}%
+\begin{displaymath}
+    \gamma_{eff} = max \left( \gamma, \gamma_{sep} \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath298}%
+\begin{displaymath}
+    \gamma_{sep} = min \left( s_1 max \left[0, \left( \frac{Re_V}{3.235 Re_{\theta c}} \right) - 1 \right] F_{reattach},2 \right) F_{\theta t}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath305}%
+\begin{displaymath}
+    F_{reattach} = exp \left[ - \left( \frac{R_T}{20} \right) ^4 \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath310}%
+\begin{displaymath}
+    R_y = \frac{\rho d \sqrt{k}}{\mu}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath314}%
+\begin{displaymath}
+    F_3 = exp \left[ - \left( \frac{R_y}{120} \right)^8 \right]
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath318}%
+\begin{displaymath}
+    F_1 = max \left( F_{1,SST},F_3 \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath321}%
+\begin{displaymath}
+   \gamma
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath323}%
+\begin{displaymath}
+   \hat Re_{\theta t}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath326}%
+\begin{displaymath}
+   Re_{\theta t} ^{eq}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath330}%
+\begin{displaymath}
+   \theta_t
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath332}%
+\begin{displaymath}
+   \lambda_{\theta}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath335}%
+\begin{displaymath}
+   F_1
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath337}%
+\begin{displaymath}
+   \frac{\partial \gamma}{\partial n} \vert _{wall} = 0
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath342}%
+\begin{displaymath}
+   \gamma_{farfield} = 1
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath345}%
+\begin{displaymath}
+   \frac{\partial \hat Re_{\theta t}}{\partial n} \vert _{wall} = 0
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath350}%
+\begin{displaymath}
+   \hat Re_{\theta t, farfield} = \left\{ 
+      \begin{array}{ll}
+         \left( 1173.51 - 589.428 Tu _{\infty} + 0.2196 Tu_{\infty}^{-2} \right), & Tu_{\infty} \leq 1.3; \\
+         331.50 \left(Tu_{\infty} - 0.5658 \right) ^{-0.671} & Tu_{\infty} > 1.3
+      \end{array} \right.
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath363}%
+\begin{displaymath}
+   F_{turb}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath366}%
+\begin{displaymath}
+   -0.1 \leq \lambda_{\theta} \leq 0.1
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath369}%
+\begin{displaymath}
+   Tu \geq 0.027
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath371}%
+\begin{displaymath}
+   Re_{\theta t} ^{eq} \geq 20
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath375}%
+\begin{displaymath}
+   F_{onset} = max \left(F_{onset2} - F_{onset3}, 0 \right)
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+
+\end{document}

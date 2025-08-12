@@ -1,0 +1,40 @@
+\begin{document}
+
+\begin{equation}
+\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \beta^* \rho \omega k  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \sigma_k \mu_t \right)\frac{\partial k}{\partial x_j}\right]
+\end{equation}
+
+\begin{equation}
+\frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho u_j \omega)}{\partial x_j}
+  = \frac{\gamma}{\nu_t} \cal P -
+  \beta \rho \omega^2 + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\omega} \mu_t \right)
+  \frac{\partial \omega}{\partial x_j} \right] +
+  2(1-F_1) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_j}
+  \frac{\partial \omega}{\partial x_j}
+\end{equation}
+
+\begin{equation}
+P = \tau_{ij} \frac{\partial u_i}{\partial x_j}
+\end{equation}
+
+\begin{equation}
+\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}
+\end{equation}
+
+\begin{equation}
+S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+\begin{equation}
+\mu_t = \frac{\rho a_1 k}{{\rm max} (a_1 \omega, \Omega F_2)}
+\end{equation}
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

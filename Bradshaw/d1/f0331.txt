@@ -1,0 +1,1621 @@
+----------------- FILE NUMBER   340-----------------
+       1.     FLOW TITLE: CASE 0331;  CASTRO, I. P., "THE TURBULENCE
+              STRUCTURE OF A HIGHLY CURVED MIXING LAYER".
+
+       2.     REVISION DATE: OCTOBER  30,1981.
+
+       3.     EVALUATOR: BRADSHAW, P., DEPARTMENT OF AERONAUTICS,
+              IMPERIAL COLLEGE, LONDON, SW7 2BY, ENGLAND
+
+       4.     EXPERIMENT LOCATION AND DATE: 0.762 X 0.127 M NO. 1 BLOWER
+              TUNNEL, DEPARTMENT OF AERONAUTICS, IMPERIAL COLLEGE, LONDON,
+              ENGLAND / 1969-72
+
+       5.     ABSTRACT OF EXPERIMENT:
+                   THE TUNNEL WAS OPERATED WITH THE WORKING SECTION ROOF
+              REMOVED, THE SIDE WALLS EXTENDED IN HEIGHT, AND A VERTICAL
+              PLATE 1.3 M IN HEIGHT AND 0.762 M WIDE INSTALLED 0.447 M
+              DOWNSTREAM OF THE CONTRACTION EXIT.  THE TUNNEL STREAM IS
+              THUS TURNED THROUGH A NOMINAL 90 DEGREES TO FLOW VERTICALLY
+              UP THE PLATE, AND THE MIXING LAYER FORMED BETWEEN THE TOP
+              OF THE TUNNEL STREAM AND "STILL AIR" ALSO TURNS THROUGH
+              A NOMINAL 90 DEGREES.  BOUNDARY LAYER SEPARATION IN THE
+              RIGHT-ANGLED CORNER BETWEEN THE FLOOR AND THE BACKPLATE
+              IS PREVENTED BY ALLOWING A VOLUME OF AIR EQUAL TO A 0.04 M
+              THICKNESS OF THE TUNNEL EXIT STREAM TO ESCAPE THROUGH A
+              GAP IN THE CORNER.  THE SENSE OF THE CURVATURE TENDS TO
+              STABILIZE THE TURBULENCE IN THE MIXING LAYER.  MEASUREMENTS
+              OF MOST OF THE SECOND AND THIRD ORDER ONE-POINT MEAN PRODUCTS
+              OF VELOCITY FLUCTUATIONS WERE TAKEN WITH HOT-WIRE ANEMOMETERS,
+              AND PITOT PROFILES WERE ALSO MEASURED.  A FEW SPECTRA WERE
+              MEASURED AND ARE PRESENTED IN REF. 1.  THE MAIN SOURCE
+              OF DERIVED DATA IS REF. 2, IN WHICH RESULTS ARE PRESENTED
+              IN TRANSFORMED COORDINATES TO SHOW UP DEPARTURES FROM
+              SELF-PRESERVATION AS CLEARLY AS POSSIBLE.
+                   THE COORDINATE SYSTEM USED FOR DEFINING POSITION AND
+              RESOLVING VELOCITY IS DIFFERENT IN THE CURVED AND VERTICAL
+              PORTIONS OF THE MIXING LAYER.  IN THE CURVED PORTION,
+              POLAR COORDINATES ARE USED, WITH AN ORIGIN 0.126 M DOWNSTREAM
+              OF THE NOZZLE EXIT AND 0.251 M ABOVE THE UPPER LIP OF THE
+              NOZZLE (0.378 M ABOVE THE FLOOR).  IN THE VERTICAL PORTION,
+              RECTANGULAR COORDINATES ARE USED, THE ORIGIN OF THE VERTICAL
+              COORDINATE, X, BEING THE PLANE OF THE UPPER LIP OF THE
+              NOZZLE WHILE THE OTHER HORIZONTAL COORDINATE, Y, IS
+              MEASURED NORMAL LEFTWARD FROM THE BACKPLATE.
+                   GIVEN BELOW IS THE RADIUS RREF OF A REFERENCE
+              STREAMLINE IN THE POTENTIAL FLOW (CURVED PORTION ONLY).
+
+              CURVED PORTION
+                      THETA      RREF     ARC DISTANCE      POINTS ON HOTWIRE
+                                          (MEASURED FROM    PROFILE
+                                          CONTRACTION EXIT
+                                          IN METERS)
+                      0.00       0.2866       0.1260           8
+                      10.00      0.2866       0.1680           10
+                      20.00      0.2903       0.1680           10
+                      30.00      0.2959       0.2550           9
+                      40.00      0.3000       0.2990           13
+                      50.00      2.9780       0.3440           13
+                      60.00      0.2875       0.3880           10
+                      70.00      0.2781       0.4310           8
+                      80.00      0.2716       0.4720           11
+                      90.00      0.2706       0.5120           11
+
+              VERTICAL PORTION
+                              X           ARC DISTANCE      POINTS ON HOTWIRE
+                                                            PROFILE
+                            0.2770            0.5360           11
+                            0.3520            0.6110           11
+                            0.4270            0.6860           12
+                            0.5560            0.8150           11
+                            0.6280            0.8870           12
+                            0.7080            0.9670           12
+                            0.7820            1.0410           12
+
+       6.     REFERENCES:
+                 1.  CASTRO, I.P., "A HIGHLY DISTORTED TURBULENT FREE
+              SHEAR LAYER", PH.D. THESIS, IMPERIAL COLLEGE, LONDON UNIVERSITY,
+              1973
+                 2.  CASTRO, I.P., AND BRADSHAW, P., "THE TURBULENCE STRUCTURE
+              OF A HIGHLY CURVED MIXING LAYER", JOURNAL OF FLUID MECHANICS,
+              73, 265, 1976
+                 3.  BRADSHAW, P., "TWO MORE LOW-TURBULENCE WIND TUNNELS
+              DRIVEN BY CENTRIFUGAL BLOWERS", IMPERIAL COLLEGE AERO REPORT
+              72-10, 1972
+
+       7.     INSTRUMENTATION:
+                   THE INSTRUMENTATION WAS CONVENTIONAL.  DISA 55D01
+              CONSTANT-TEMPERATURE ANEMOMETER BRIDGES OPERATED 55F01 SINGLE
+              WIRE PROBES AND 55A38 CROSS WIRE PROBES.  PROBES WERE
+              INDIVIDUALLY CALIBRATED FOR RESPONSE TO MAGNITUDE AND
+              DIRECTION OF VELOCITY.  THE YAW CALIBRATIONS WERE EXPRESSED
+              AS THE APPARENT ANGLE BETWEEN THE WIRE AND THE STREAM,
+              DEDUCED BY ASSUMING THAT THE WIRE OBEYED THE COSINE LAW:
+              THIS IS A MORE ACCURATE PROCEDURE THAN INSERTING THE GEOMETRICAL
+              ANGLE INTO THE COSINE LAW, AND AVOIDS ANY ASSUMPTION ABOUT
+              THE "CROSSFLOW FACTOR" K.  THE ANEMOMETER OUTPUTS WERE
+              RECORDED ON ANALOG MAGNETIC TAPES AND LATER TRANSFERRED
+              TO DIGITAL MAGTAPE FOR PROCESSING, INCLUDING LINEARIZATION,
+              ON THE MAIN COLLEGE COMPUTER.  NO SPECIAL ALLOWANCE FOR
+              THE EFFECT OF HIGH TURBULENCE INTENSITY ON THE HOT WIRE
+              RESPONSE HAS BEEN MADE.  MEAN VELOCITY DATA DERIVED
+              FROM SINGLE HOT WIRE RESULTS AND CONTINUITY EQUATIONS,
+              (SEE REFERENCE 1), ARE PRESENTED IN FILES 2 TO 19,
+              CROSSED WIRE TURBULENCE DATA IN FILE 20 UNWARD.
+
+       8.     EXPERIMENTAL PARAMETERS: (UREF)
+              NOMINAL TUNNEL EXIT SPEED=33 M/S
+              TUNNEL TURBULENCE LEVEL=0.1% (RMS LONGITUDINAL COMPONENT)
+
+       9.     MEASURED VARIABLES:
+              CURVED PORTION
+              UREF - REFERENCE VELOCITY (M/S)
+              THETA - ANGULAR COORDINATE (DEGREES)
+              R - RADIAL COORDINATE (M)
+              UTHETA- ANGULAR MEAN VELOCITY COMPONENT (M/S)
+              UR - RADIAL MEAN VELOCITY COMPONENT (M/S)
+              W - MEAN SPANWISE VELOCITY (M/S)
+              UTHETA2 - REYNOLDS STRESS (M**2/S**2)
+              UR2 - REYNOLDS STRESS (M**2/S**2)
+              W2 - REYNOLDS STRESS (M**2/S*2)
+              UTHETAUR - REYNOLDS STRESS (M**2/S**2)
+              UR3 -  VELOCITY CORRELATION (M**3/S**3)
+              UTHETA2UR -  VELOCITY CORRELATION (M**3/S**3)
+              UTHETAUR2 -  VELOCITY CORRELATION (M**3/S**3)
+              UTHETA3 -  VELOCITY CORRELATION (M**3/S**3)
+              UTHETAW2 -  VELOCITY CORRELATION (M**3/S**3)
+              X - DISTANCE ALONG BACKPLATE MEASURED POSITIVE (UPWARD)
+              FROM AN ORIGIN LEVEL WITH NOZZLE UPPER LIP (M)
+              Y - DISTANCE FROM BACKPLATE MEASURED POSITIVE LEFTWARD
+              (HORIZONTAL), (M), FILES 12 - 19
+              V - MEAN STREAMWISE VELOCITY (M/S)
+              U - MEAN TRANSVERSE VELOCITY, CURVED PORTION  (M/S)
+              U2 - REYNOLDS STRESS (M**2/S**2)
+              V2 - REYNOLDS STRESS (M**2/S**2)
+              U1V1 - REYNOLDS STRESS (M**2/S**2)
+              V3 -  VELOCITY CORRELATION (M**3/S**3)
+              U2V1 -  VELOCITY CORRELATION (M**3/S**3)
+              U1V2 -  VELOCITY CORRELATION (M**3/S**3)
+              U3 -  VELOCITY CORRELATION (M**3/S**3)
+              U1W2 -  VELOCITY CORRELATION (M**3/S**3)
+
+              NOTE THAT THE VARIABLE THETA IS USED AS AN ANGULAR COORDINATE
+              AND NOT AS THE MOMENTUM THICKNESS IN THIS CASE.
+
+       10.    MEASUREMENT UNCERTAINTY:
+              UTHETA,U=+ OR -5% OF UREF (95% CONFIDENCE LIMITS)
+              SECOND AND THIRD-ORDER MEAN PRODUCTS=+ OR - 10 AND 20%
+
+              NOTE THAT REPEATABILITY IS WITHIN HALF THESE LIMITS.
+              THESE ESTIMATES APPLY TO THE MAIN PART OF THE FLOW; ERRORS
+              IN THE OUTER PART OF THE MIXING LAYER WHERE THE TURBULENCE
+              INTENSITY IS VERY HIGH ARE LIKELY TO BE LARGER THAN THIS.
+
+       11.    TAPE ORGANIZATION:
+                   THE TAPE IS A 2400 FOOT, 9 TRACK, ODD PARITY ,PHASE ENCODED,
+              UNLABELLED TAPE WRITTEN AT A DENSITY OF 1600 BITS PER INCH
+              ACCORDING TO EBCDIC CODE.  THE RECORD FORMAT IS FIXED AND
+              BLOCKED; RECORD LENGTH=80 BYTES; 100 RECORDS PER BLOCK;
+              BLOCKSIZE=8000 BYTES.
+
+                   NORMALIZED DATA ARE CREATED FROM MEASURED DATA AS FOLLOWS:
+              XNORM=(X-XMIN)/(XMAX-XMIN)
+              NORMALIZED VALUES ARE INTEGERIZED BY MULTIPLYING BY 10000
+              AND ROUNDING UP OR DOWN TO THE NEAREST INTEGER
+              IXNORM=XNORM*10000
+              THUS EACH NORMALIZED AND INTEGERIZED DATUM IS WRITTEN ONTO
+              TAPE AS A NUMBER BETWEEN 0 AND 10000. ALL NULL DATA
+              ARE WRITTEN AS 20000.  THE EQUATION DESCRIBING THE
+              RELATION BETWEEN ACTUAL DATA AND THE NORMALIZED DATA
+              ON TAPE IS
+              X=XMIN+(((XMAX-XMIN)*IXNORM)/10000)
+              WHERE X, XMAX AND XMIN ARE REAL AND IXNORM IS AN INTEGER.
+
+       FILE #  NREC    CONTENTS             FORMAT   COMMENTS
+        1              TEXT FILE                     CONTAINS ITEMS 1-11
+                                                     OF THIS WRITE-UP
+
+        2       13                                   STATION: THETA=0.0 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-13 NORMALIZED
+                                                     VALUES
+
+        3       15                                   STATION: THETA=10.00 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-15 NORMALIZED
+                                                     VALUES
+
+        4       18                                   STATION: THETA=20.00 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-18 NORMALIZED
+                                                     VALUES
+
+        5       19                                   STATION: THETA=30.00 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-19 NORMALIZED
+                                                     VALUES
+
+        6       20                                   STATION: THETA=40.00 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-20 NORMALIZED
+                                                     VALUES
+
+        7       21                                   STATION: THETA=50.00 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-21 NORMALIZED
+                                                     VALUES
+
+        8       21                                   STATION: THETA=60.00 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-21 NORMALIZED
+                                                     VALUES
+
+        9       22                                   STATION: THETA=70.00 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-22 NORMALIZED
+                                                     VALUES
+
+        10      24                                   STATION: THETA=80.00 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-24 NORMALIZED
+                                                     VALUES
+
+        11      22                                   STATION: THETA=90.00 DEG.
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 1 MAXIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3E13.6  RECORD 2 MINIMUM VALUES
+                       R,UTHETA/UREF,UR/UREF 3I6     RECORDS 3-22 NORMALIZED
+                                                     VALUES
+
+        12       30                                  STATION: X=0.2680 M
+                       Y,U/UREF              2E13.6  RECORD 1 MAXIMUM VALUES
+                       Y,U/UREF              2E13.6  RECORD 2 MINIMUM VALUES
+                       Y,U/UREF              2I6     RECORDS 3-30 NORMALIZED
+                                                     VALUES
+
+        13       29                                  STATION: X=0.3180 M
+                       Y,U/UREF              2E13.6  RECORD 1 MAXIMUM VALUES
+                       Y,U/UREF              2E13.6  RECORD 2 MINIMUM VALUES
+                       Y,U/UREF              2I6     RECORDS 3-29 NORMALIZED
+                                                     VALUES
+
+        14       29                                  STATION: X=0.3720 M
+                       Y,U/UREF              2E13.6  RECORD 1 MAXIMUM VALUES
+                       Y,U/UREF              2E13.6  RECORD 2 MINIMUM VALUES
+                       Y,U/UREF              2I6     RECORDS 3-29 NORMALIZED
+                                                     VALUES
+
+        15       28                                  STATION: X=0.3930 M
+                       Y,U/UREF              2E13.6  RECORD 1 MAXIMUM VALUES
+                       Y,U/UREF              2E13.6  RECORD 2 MINIMUM VALUES
+                       Y,U/UREF              2I6     RECORDS 3-28 NORMALIZED
+                                                     VALUES
+
+        16       29                                  STATION: X=0.4230 M
+                       Y,U/UREF              2E13.6  RECORD 1 MAXIMUM VALUES
+                       Y,U/UREF              2E13.6  RECORD 2 MINIMUM VALUES
+                       Y,U/UREF              2I6     RECORDS 3-29 NORMALIZED
+                                                     VALUES
+
+        17       32                                  STATION: X=0.4770 M
+                       Y,U/UREF              2E13.6  RECORD 1 MAXIMUM VALUES
+                       Y,U/UREF              2E13.6  RECORD 2 MINIMUM VALUES
+                       Y,U/UREF              2I6     RECORDS 3-32 NORMALIZED
+                                                     VALUES
+
+        18       24                                  STATION: X=0.5950 M
+                       Y,U/UREF              2E13.6  RECORD 1 MAXIMUM VALUES
+                       Y,U/UREF              2E13.6  RECORD 2 MINIMUM VALUES
+                       Y,U/UREF              2I6     RECORDS 3-24 NORMALIZED
+                                                     VALUES
+
+        19       21                                  STATION: X=0.7470 M
+                       Y,U/UREF              2E13.6  RECORD 1 MAXIMUM VALUES
+                       Y,U/UREF              2E13.6  RECORD 2 MINIMUM VALUES
+                       Y,U/UREF              2I6     RECORDS 3-21 NORMALIZED
+                                                     VALUES
+
+        20       12                                  STATION: THETA=0.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-12 NORMALIZED
+                                                     VALUES
+
+        21       14                                  STATION: THETA=10.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-14 NORMALIZED
+                                                     VALUES
+
+        22       14                                  STATION: THETA=20.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-14 NORMALIZED
+                                                     VALUES
+
+        23       13                                  STATION: THETA=30.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-13 NORMALIZED
+                                                     VALUES
+
+        24       17                                  STATION: THETA=40.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-17 NORMALIZED
+                                                     VALUES
+
+        25       17                                  STATION: THETA=50.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-17 NORMALIZED
+                                                     VALUES
+
+        26       14                                  STATION: THETA=60.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-14 NORMALIZED
+                                                     VALUES
+
+        27       12                                  STATION: THETA=70.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-12 NORMALIZED
+                                                     VALUES
+
+        28       15                                  STATION: THETA=80.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-15 NORMALIZED
+                                                     VALUES
+
+        29       15                                  STATION: THETA=90.00 DEG.
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 1 MAXIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 2 MAXIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2)          4E13.6  RECORD 3 MINIMUM VALUES
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    6E13.6  RECORD 4 MINIMUM VALUES
+                       R,
+                       UTHETA2/(UREF**2),
+                       UR2/(UREF**2),
+                       W2/(UREF**2),
+                       UTHETAUR/(UREF**2),
+                       UR3/(UREF**3),
+                       UTHETA2UR/(UREF**3),
+                       UTHETAUR2/(UREF**3),
+                       UTHETA3/(UREF**3),
+                       UTHETAW2/(UREF**3)    10I6    RECORDS 5-15 NORMALIZED
+                                                     VALUES
+
+        30       15                                  STATION: X=0.2770 M
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 1 MAXIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 2 MAXIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 3 MINIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 4 MINIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2),
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        12I6    RECORDS 5-15 NORMALIZED
+                                                     VALUES
+
+        31       15                                  STATION: X=0.3520 M
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 1 MAXIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 2 MAXIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 3 MINIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 4 MINIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2),
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        12I6    RECORDS 5-15 NORMALIZED
+                                                     VALUES
+
+        32       16                                  STATION: X=0.4270 M
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 1 MAXIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 2 MAXIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 3 MINIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 4 MINIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2),
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        12I6    RECORDS 5-16 NORMALIZED
+                                                     VALUES
+
+        33       15                                  STATION: X=0.5560 M
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 1 MAXIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 2 MAXIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 3 MINIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 4 MINIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2),
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        12I6    RECORDS 5-15 NORMALIZED
+                                                     VALUES
+
+        34       16                                  STATION: X=0.6280 M
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 1 MAXIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 2 MAXIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 3 MINIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 4 MINIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2),
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        12I6    RECORDS 5-16 NORMALIZED
+                                                     VALUES
+
+        35       16                                  STATION: X=0.7080 M
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 1 MAXIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 2 MAXIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 3 MINIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 4 MINIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2),
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        12I6    RECORDS 5-16 NORMALIZED
+                                                     VALUES
+
+        36       16                                  STATION: X=0.7820 M
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 1 MAXIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 2 MAXIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2)          6E13.6  RECORD 3 MINIMUM VALUES
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        6E13.6  RECORD 4 MINIMUM VALUES
+                       Y,U/UREF,V/UREF,
+                       U2/(UREF**2),
+                       V2/(UREF**2),
+                       W2/(UREF**2),
+                       U1V1/(UREF**2),
+                       V3/(UREF**3),
+                       U2V1/(UREF**3),
+                       U1V2/(UREF**3),
+                       U3/(UREF**3),
+                       U1W2/(UREF**3)        12I6    RECORDS 5-16 NORMALIZED
+                                                     VALUES
+
+                   A SAMPLE PROGRAM FOR READING AND PRINTING FILE 2 IS
+              SHOWN BELOW.  THE JCL IS FOR THE THE STANFORD CIT FACILITY.
+              CHECK WITH YOUR OWN COMPUTER FACILITY FOR THE EXACT JCL
+              NEEDED.
+
+              //TAPE  JOB  CASTRO
+              /*SETUP TAPE1,INPUT=(LIBRARY NUMBER ASSIGNED TO TAPE)
+              //  EXEC FORTCG
+              //FORT.SYSIN DD *
+              C  READ FILE 2 OFF THE TAPE AND PRINT THE MAXIMAS AND
+              C  MINIMAS OF ALL THE VARIABLES AS WELL AS THE NORMALIZED
+              C  AND INTEGERIZED VALUES OF ALL THE VARIABLES
+                    INTEGER R(19),UTHETA(19)
+                    READ(23,30) RMX,UTHMX
+                    READ(23,30) RM,UTHMNN
+              C  SET N=THE NUMBER OF RECORDS IN THE FILE MINUS 2
+                    N=21-2
+                    DO 10 I=1,N
+               10   READ(23,40) R(I),UTHETA(I)
+                    WRITE(6,50) RMX,UTHMX
+                    WRITE(6,50) RMN,UTHMN
+                    DO 20 I=1,N
+               20   WRITE(6,60) R(I),UTHETA(I)
+               30   FORMAT(2E13.6)
+               40   FORMAT(2I6)
+               50   FORMAT(1X,2E13.6)
+               60   FORMAT(1X,2I6)
+                    STOP
+                    END
+              //GO.FT23F001  DD  UNIT=TI600,VOL=SER=(TAPE,LIBRARY),
+              //  DISP=(OLD,KEEP),DCP=(RECFM=FB,LREC=80,BLKSIZE=8000,
+              //  DEN=3),LABEL=(2,NL)
+              //
+-------------- END OF FILE NUMBER   340-------------
+----------------- FILE NUMBER   341-----------------
+ 0.281600E 00 0.100000E 01 0.200000E-03
+ 0.231600E 00 0.780000E-01-0.950000E-01
+ 10000  9891  9180
+  9000  9913  9422
+  8000  9945  9632
+  7000 10000  9821
+  6000 10000 10000
+  5000  9674  9947
+  4000  8177  9191
+  2999  6008  7647
+  1999  3796  5504
+   999  1789  2920
+     0     0     0
+-------------- END OF FILE NUMBER   341-------------
+----------------- FILE NUMBER   342-----------------
+ 0.281600E 00 0.990000E 00-0.268000E-01
+ 0.226600E 00 0.000000E 00-0.770000E-01
+ 10000  9767  8705
+  9090  9838  9103
+  8181  9949  9362
+  7272  9979  9581
+  6363 10000  9760
+  5454  9919  9960
+  4545  8909 10000
+  3636  7212  9462
+  2727  5494  8167
+  1818  3707  6314
+   909  2353  4023
+     0  1232  1354
+ 20000     0     0
+-------------- END OF FILE NUMBER   342-------------
+----------------- FILE NUMBER   343-----------------
+ 0.285300E 00 0.969000E 00-0.271000E-01
+ 0.220300E 00 0.000000E 00-0.954000E-01
+ 10000  9607     0
+  9230  9752   234
+  8461  9886   424
+  7692  9948   614
+  6923 10000   907
+  6153  9772  1581
+  5384  9029  2913
+  4615  7657  4773
+  3846  6253  6632
+  3076  4654  8213
+  2307  3302  9326
+  1538  2229  9868
+   769  1362 10000
+     0   743  9677
+ 20000   288  8784
+ 20000     0  8111
+-------------- END OF FILE NUMBER   343-------------
+----------------- FILE NUMBER   344-----------------
+ 0.290900E 00 0.930000E 00-0.370000E-01
+ 0.210900E 00 0.000000E 00-0.825000E-01
+ 10000  9462     0
+  9375  9634   483
+  8750  9806   989
+  8125  9935  1494
+  7500 10000  2087
+  6875  9806  2791
+  6250  9279  3758
+  5625  8258  5054
+  4999  6967  6483
+  4374  5569  7758
+  3749  4365  8549
+  3124  3139  8945
+  2499  2215  9076
+  1874  1322  9098
+  1249   731  8989
+   624   516  8505
+     0     0 10000
+-------------- END OF FILE NUMBER   344-------------
+----------------- FILE NUMBER   345-----------------
+ 0.295000E 00 0.894000E 00 0.132000E-01
+ 0.210000E 00 0.390000E-01-0.244000E-01
+ 10000  9216     0
+  9411  9461   664
+  8823  9625  1409
+  8235  9836  2074
+  7647  9953  2659
+  7058 10000  3218
+  6470  9602  3936
+  5882  8725  4973
+  5294  7543  6276
+  4705  6210  7526
+  4117  5040  8537
+  3529  3754  9202
+  2941  2608  9627
+  2352  1614  9946
+  1764   935 10000
+  1176   678  9654
+   588   152  9414
+     0     0  9122
+-------------- END OF FILE NUMBER   345-------------
+----------------- FILE NUMBER   346-----------------
+ 0.292800E 00 0.882000E 00 0.145000E 00
+ 0.202800E 00 0.370000E-01 0.150000E-01
+ 10000  9124  6538
+  9444  9372  6999
+  8888  9573  7307
+  8333  9822 10000
+  7777 10000  8000
+  7222  9964  8307
+  6666  9573  8461
+  6111  8792  8307
+  5555  7704  7769
+  5000  6485  6999
+  4444  5278  6153
+  3888  4189  5153
+  3333  3041  4076
+  2777  1988  3000
+  2222  1242  2000
+  1666   804  1230
+  1111   343   692
+   555   165   307
+     0     0     0
+-------------- END OF FILE NUMBER   346-------------
+----------------- FILE NUMBER   347-----------------
+ 0.282500E 00 0.883000E 00 0.204000E 00
+ 0.187500E 00 0.300000E-01-0.253000E-01
+ 10000  9378  9607
+  9473  9636  9738
+  8947  9812  9869
+  8421  9929  9956
+  7894 10000 10000
+  7368  9788  9956
+  6842  9273  9651
+  6315  8499  9127
+  5789  7444  8299
+  5263  6330  7339
+  4736  5216  6249
+  4210  4161  5159
+  3684  3177  4112
+  3157  2239  3022
+  2631  1500  2106
+  2105   984  1365
+  1578   574   780
+  1052   375   401
+   526   199   148
+     0     0     0
+-------------- END OF FILE NUMBER   347-------------
+----------------- FILE NUMBER   348-----------------
+ 0.273100E 00 0.925000E 00 0.150000E 00
+ 0.178100E 00 0.000000E 00-0.580000E-01
+ 10000  9816 10000
+  9473  9870  9855
+  8947 10000  9759
+  8421  9956  9615
+  7894  9902  9423
+  7368  9535  9086
+  6842  8962  8605
+  6315  8075  7932
+  5789  7178  7115
+  5263  6194  6201
+  4736  5081  5240
+  4210  4097  4278
+  3684  3243  3365
+  3157  2410  2475
+  2631  1740  1682
+  2105  1232  1009
+  1578   756   432
+  1052   454     0
+   526     0   625
+     0 20000 20000
+-------------- END OF FILE NUMBER   348-------------
+----------------- FILE NUMBER   349-----------------
+ 0.266600E 00 0.980000E 00 0.460000E-01
+ 0.161600E 00 0.400000E-01-0.180000E-01
+ 10000  9914 10000
+  9523  9946  9531
+  9047 10000  9218
+  8571  9882  8906
+  8095  9617  8593
+  7619  9170  8437
+  7142  8340  8281
+  6666  7351  8125
+  6190  6478  7812
+  5714  5521  7656
+  5238  4382  7343
+  4761  3425  6875
+  4285  2670  6562
+  3809  1904  6093
+  3333  1319  5625
+  2857   872  5156
+  2380   542  4687
+  1904   404  4062
+  1428   276  3281
+   952   159  2187
+   476    85   781
+     0     0     0
+-------------- END OF FILE NUMBER   349-------------
+----------------- FILE NUMBER   350-----------------
+ 0.265600E 00 0.985000E 00 0.620000E-01
+ 0.170600E 00 0.000000E 00-0.220000E-01
+ 10000 10000   357
+  9473 10000   119
+  8947  9949     0
+  8421  9746   119
+  7894  9441   357
+  7368  8893   833
+  6842  8142  1607
+  6315  7208  2369
+  5789  6314  3214
+  5263  5532  3952
+  4736  4335  4785
+  4210  3522  5702
+  3684  2781  6428
+  3157  2172  7023
+  2631  1644  7499
+  2105  1197  7976
+  1578   934  8333
+  1052   639  8928
+   526   304 10000
+     0     0  9642
+-------------- END OF FILE NUMBER   350-------------
+----------------- FILE NUMBER   351-----------------
+-0.612400E-01 0.996900E 00
+-0.165500E 00 0.587700E-01
+ 10000  9997
+  9579 10000
+  9103  9852
+  8701  9580
+  8424  9305
+  8145  8819
+  7868  8460
+  7600  8038
+  7283  7477
+  6987  7087
+  6737  6337
+  6449  5883
+  6119  5386
+  5869  4805
+  5563  4192
+  5256  3633
+  4987  3252
+  4661  2714
+  4316  2154
+  3788  1648
+  3452  1215
+  3050   877
+  2656   656
+  2330   457
+  1927   310
+  1525   227
+   939   134
+     0     0
+-------------- END OF FILE NUMBER   351-------------
+----------------- FILE NUMBER   352-----------------
+-0.448700E-01 0.100000E 01
+-0.175100E 00 0.755800E-01
+ 10000 10000
+  9231  9901
+  8805  9721
+  8439  9596
+  8050  9318
+  7677  8998
+  7363  8634
+  7057  8088
+  6742  7358
+  6443  6702
+  6144  6167
+  5807  5426
+  5513  4674
+  5221  4159
+  4937  3590
+  4630  2990
+  4261  2303
+  3862  1648
+  3432  1232
+  3094   933
+  2679   689
+  2326   497
+  1919   350
+  1535   278
+  1144   152
+   767    79
+     0     0
+-------------- END OF FILE NUMBER   352-------------
+----------------- FILE NUMBER   353-----------------
+-0.404300E-01 0.993600E 00
+-0.179300E 00 0.798000E-01
+ 10000  9983
+  9288 10000
+  8910  9894
+  8240  9539
+  7841  9281
+  7311  8510
+  6982  8043
+  6711  7685
+  6403  7044
+  6130  6369
+  5850  5803
+  5263  4639
+  5019  4128
+  4702  3508
+  4443  2986
+  4140  2683
+  3859  2085
+  3528  1913
+  3262  1413
+  2995  1043
+  2664   861
+  2390   722
+  2095   549
+  1821   410
+  1389   282
+   712   103
+     0     0
+-------------- END OF FILE NUMBER   353-------------
+----------------- FILE NUMBER   354-----------------
+-0.419800E-01 0.100200E 01
+-0.178500E 00 0.616200E-01
+ 10000 10000
+  9309  9931
+  8874  9819
+  8496  9609
+  8176  9369
+  7819  9033
+  7439  8580
+  7053  7927
+  6687  7114
+  6366  6503
+  6022  5818
+  5640  4953
+  5273  4332
+  4893  3679
+  4512  3025
+  4175  2562
+  3794  1887
+  3420  1552
+  3047  1163
+  2666   859
+  2343   702
+  1970   473
+  1457   275
+   981   172
+   505    70
+     0     0
+-------------- END OF FILE NUMBER   354-------------
+----------------- FILE NUMBER   355-----------------
+-0.454400E-01 0.995300E 00
+-0.185400E 00 0.789600E-01
+ 10000 10000
+  9249  9691
+  8923  9551
+  8583  9358
+  8243  9068
+  7867  8581
+  7533  8094
+  7142  7587
+  6801  6915
+  6446  6374
+  6080  5714
+  5730  5130
+  5394  4426
+  5037  3961
+  4622  3204
+  4294  2685
+  3943  2274
+  3572  1667
+  3236  1486
+  2857  1228
+  2515   905
+  2122   701
+  1786   464
+  1464   423
+  1064   274
+   707   157
+     0     0
+-------------- END OF FILE NUMBER   355-------------
+----------------- FILE NUMBER   356-----------------
+-0.321700E-01 0.999100E 00
+-0.182300E 00 0.407500E-01
+ 10000  9996
+  9663 10000
+  9327  9971
+  9010  9829
+  8659  9604
+  8322  9243
+  8011  9059
+  7705  8657
+  7335  8338
+  7011  8040
+  6673  7616
+  6355  7173
+  6023  6615
+  5684  6016
+  5342  5468
+  5022  4816
+  4702  4236
+  4356  3564
+  4023  3111
+  3663  2584
+  3310  2109
+  3030  1706
+  2704  1273
+  2311   944
+  1991   698
+  1658   472
+  1365   350
+  1025   260
+   539    98
+     0     0
+-------------- END OF FILE NUMBER   356-------------
+----------------- FILE NUMBER   357-----------------
+-0.182100E-01 0.999000E 00
+-0.189000E 00 0.655500E-01
+ 10000 10000
+  9553  9979
+  9049  9810
+  8607  9629
+  8143  9417
+  7691  9056
+  7186  8694
+  6727  8012
+  6291  7278
+  5793  6511
+  5351  5787
+  4877  4957
+  4397  4233
+  3928  3402
+  3454  2572
+  2986  1902
+  2541  1423
+  2037   997
+  1592   583
+  1135   338
+   526   169
+     0     0
+-------------- END OF FILE NUMBER   357-------------
+----------------- FILE NUMBER   358-----------------
+-0.757000E-02 0.994100E 00
+-0.187100E 00 0.139800E 00
+ 10000  9408
+  9459 10000
+  8929  9987
+  8350  9720
+  7770  9243
+  7213  8744
+  6656  8163
+  6110  7351
+  5553  6445
+  4990  5736
+  4450  4981
+  3899  4146
+  3347  3275
+  2773  2474
+  2239  1707
+  1659  1058
+  1125   570
+   551   162
+     0     0
+-------------- END OF FILE NUMBER   358-------------
+----------------- FILE NUMBER   359-----------------
+ 0.261600E 00 0.215000E-01 0.114500E-01 0.115400E-01
+ 0.733000E-02 0.163300E-03 0.303400E-03 0.294300E-03 0.157600E-02 0.379900E-03
+ 0.226600E 00 0.617600E-03 0.647300E-03 0.166800E-03
+-0.303400E-03-0.372100E-03-0.459200E-03-0.405000E-03-0.110700E-02-0.278000E-03
+ 10000     0     0     0   285  6679  5974  5788  4134  4242
+  8571   762  1545   898   807  4594  4933  4652  3737  3484
+  7142  4671  5643  4692  4765     0     0     0     0     0
+  5714  9387 10000 10000  9900  3092  1560  2759  1703  1506
+  4285 10000  8449  9279 10000 10000  8821  9994  7017  8469
+  2857  8505  4305  5121  5711  7101 10000 10000 10000 10000
+  1428  3973  1113  1468  1079  6485  7309  7413  8445  6599
+     0   883    96   179     0  6490  5880  6392  5301  4721
+-------------- END OF FILE NUMBER   359-------------
+----------------- FILE NUMBER   360-----------------
+ 0.261600E 00 0.221400E-01 0.110400E-01 0.156100E-01
+ 0.525800E-02 0.155800E-03 0.314000E-03 0.358600E-03 0.141200E-02 0.983800E-03
+ 0.216600E 00 0.162900E-02 0.809500E-03 0.215800E-03
+-0.368700E-03-0.221200E-03-0.415600E-03-0.319900E-03-0.656800E-02-0.236000E-03
+ 10000    38   247   807   621  5079  5455  4605  8124  1500
+  8888  1847  2143  2800  1774  1385  3891  2933  7553   130
+  7777  5549  5312  6421  4379     0   902     0  6918     0
+  6666  8954  8483 10000  7753  1336     0   171     0  1517
+  5555 10000 10000  9961 10000  6160  4157  4291  8641  6177
+  4444  9282  8707  7166  9908 10000  8127  8977  9542  7095
+  3333  7500  5696  4655  6798  8301 10000 10000 10000  6716
+  2222  4694  2535  1775  2188  4881  7270  7651  9781  4249
+  1111  1875   926   548   261  4799  5993  6207  9094 10000
+     0     0     0     0     0  5217  5455  5245  8316  2804
+-------------- END OF FILE NUMBER   360-------------
+----------------- FILE NUMBER   361-----------------
+ 0.270900E 00 0.211400E-01 0.955400E-02 0.142900E-01
+ 0.349600E-02 0.179600E-03 0.282900E-03 0.344100E-03 0.118500E-01 0.521100E-03
+ 0.225900E 00 0.119100E-02 0.978000E-03 0.877100E-03
+-0.508000E-04-0.174900E-03-0.312900E-03-0.308000E-03-0.107500E-02-0.297800E-03
+ 10000     0     0     0     0  4351  5136  4722   810  3406
+  8888  1170  1452  1445   630  2978  4321  5483  1079  1944
+  7777  3525  4013  4140  2845   993  2393  2040   197   600
+  6666  7072  7231  7639  5508     0   413     0     0     0
+  5555  9403  9387  9428  8734  1858     0  1809   472  4655
+  4444 10000 10000 10000  9088  5571  4354  5114  1040  9240
+  3333  9338  9446  7709 10000  9065  7789  8071  1480  9863
+  2222  7815  7143  5057  6757 10000 10000 10000  1742 10000
+  1111  5646  4423  2385  4246  6786  9719  9426 10000  7892
+     0  3619  2386   389  1601  5465  7876  7683  1545  5409
+-------------- END OF FILE NUMBER   361-------------
+----------------- FILE NUMBER   362-----------------
+ 0.275900E 00 0.188000E-01 0.842700E-02 0.120900E-01
+ 0.264900E-02 0.190900E-04 0.167800E-03 0.220900E-03 0.105100E-02 0.291600E-03
+ 0.220900E 00 0.108900E-02 0.132500E-02 0.417400E-03
+-0.508500E-03-0.796600E-04-0.282400E-03-0.232000E-03-0.956900E-03-0.254300E-03
+ 10000     0     0     0  1403  5496  5936  5058  4750  4601
+  9090   787  2017   819  2192  2275  5224  6695  3952  3762
+  8181  2736  4159  2656  3143  1325  3460  1890  1619  1846
+  7272  5853  7337  5988  5045   902  1497     0     0     0
+  6363  8557  9728  8160  8555  1317     0   931   667  1659
+  5454 10000 10000 10000 10000     0  1749  3947  3334  7653
+  1818  5784  3986  2919  4881 10000 10000 10000 10000 10000
+   909  3801  2038  1160  1046  3672  7667  8222  9044  7230
+     0  1531   201   256     0  3439  5797  6852  6896  5732
+-------------- END OF FILE NUMBER   362-------------
+----------------- FILE NUMBER   363-----------------
+ 0.280000E 00 0.171900E-01 0.161200E-01 0.112300E-01
+ 0.287200E-02 0.173800E-03 0.200700E-03 0.258700E-03 0.837700E-03 0.307700E-03
+ 0.220000E 00 0.000000E 00 0.921900E-03-0.812300E-02
+-0.431300E-04-0.767400E-04-0.234000E-03-0.216300E-03-0.866700E-03-0.248000E-03
+ 10000   704   566  4475     0  1810  5023  4488  5027  4375
+  9166  1370  1219  4934   373  1378  4416  3397  4388  3866
+  8333  3028  2466  5773  1225  1097  2496  2045  2145  2384
+  7500  5704  3686  7310  3358  1963   269     0     0     0
+  6666  8270  4660  8718  6208     0     0   911   303   448
+  5833  9381  5148  9703  7809   947  1413  2681  3185  4306
+  5000 10000  4933 10000  9937  4143  3771  5436  5681  7669
+  4166     0 10000     0 10000  7889  6627  7095  8259  9170
+  3333  8544  3874  8114  9482 10000  9480  9290  9216 10000
+  2500  6785  2856  6787  7238  9799 10000 10000 10000  9400
+  1666  5076  1819  5662  5357  9202  9488  9438  9712  7748
+   833  3787  1059  4918  3331  7125  8666  8068  8881  6305
+     0  1574     0  4506   918  4279  6291  5685  6512  5174
+-------------- END OF FILE NUMBER   363-------------
+----------------- FILE NUMBER   364-----------------
+ 0.277800E 00 0.142600E-01 0.841100E-02 0.989600E-02
+ 0.331500E-02 0.234600E-03 0.135900E-03 0.188700E-03 0.601400E-03 0.236000E-03
+ 0.217800E 00 0.114200E-02 0.158800E-02 0.480500E-03
+-0.335400E-03-0.788700E-04-0.177000E-03-0.152200E-03-0.600300E-03-0.219300E-03
+ 10000     0     0     0   453  2114  5556  4542  4995  4816
+  9166   599  1488   725     0  1624  5332  4004  4554  4314
+  8333  2033  4129  2290   452  1265  3745  2057  2880  3022
+  7500  4694  6784  4483  2100     0   615     0     0    83
+  6666  7170  8511  6700  3860  1047     0   182   262     0
+  5833  8877  9661  8975  7371  7021   537  1061  2046  1831
+  5000 10000 10000 10000  9436  4115  2202  2662  4614  4419
+  4166  9830  9635  9765 10000  5466  5578  4921  7195  7757
+  3333  9128  8482  8320  9554  9239  7604  8387  7814  9042
+  2500  8144  7033  6367  9057  9782  9705  9452 10000 10000
+  1666  6450  5371  3821  6918 10000  9811 10000  9854  8820
+   833  4514  2939  1881  4891  8177 10000  9670  9420  7283
+     0  2739  1318   768  3917  6864  9024  8320  8224  6263
+-------------- END OF FILE NUMBER   364-------------
+----------------- FILE NUMBER   365-----------------
+ 0.272500E 00 0.100000E 01 0.231000E 02 0.786400E-02
+ 0.378300E-02 0.264700E-03 0.168300E-03 0.243700E-03 0.598100E-03 0.169200E-03
+ 0.202500E 00 0.125500E-02 0.112600E-02-0.240900E 02
+-0.432100E-03-0.111300E-03-0.166000E-03-0.154200E-03-0.448200E-03-0.159800E-03
+ 10000     0     0  9996   253  2527  4567  4149  4283  4744
+  8571    12     1  9997     0  1533  3899  2966  3725  4207
+  7142    61     2  9998  3428     0     0     0     0     0
+  5714   104     3 10000  8563  2970  1485  1835  2566  1483
+  5000   116    42  9963  9219  4334  2935  3086  3846  4307
+  4285   117     3  9999 10000  8839  5561  6077  6551  5520
+  3571 10000 10000     0  9362  8829  6398  7349  7935  9118
+  2857   102     2  9998  8314 10000 10000 10000 10000 10000
+  1428    55     1  9997  4680  7239  9311  9457  9763  7801
+     0    12     0  9996   808  2774  5084  5057  6024  5679
+-------------- END OF FILE NUMBER   365-------------
+----------------- FILE NUMBER   366-----------------
+ 0.263100E 00 0.134100E-01 0.980900E-02 0.830300E-02
+ 0.434000E-02 0.160600E-03 0.205200E-03 0.275700E-03 0.718700E-03 0.194400E-03
+ 0.193100E 00 0.170300E-02 0.154000E-02 0.409800E-03
+-0.361500E-03-0.143400E-03-0.196400E-03-0.183700E-03-0.443200E-03-0.164700E-03
+ 10000     0   900     0     0  3504  4633  4291  4036  4432
+  8571  1159  4171  1807   981  1244  3527  2271  3071  3400
+  7142  5605  7870  5494  5551     0     0     0     0   297
+  5714  9051 10000 10000  9834  5390   891  2152  1874     0
+  4285 10000  9894  9776 10000  8420  4468  6427  5965  6419
+  2857  8860  7398  6190  8615 10000 10000 10000 10000 10000
+  1428  4912  2348  2289  3349  6169  8494  7963  9518  7819
+     0  1354     0   301   529  3956  5209  5721  6033  5354
+-------------- END OF FILE NUMBER   366-------------
+----------------- FILE NUMBER   367-----------------
+ 0.256600E 00 0.172300E-01 0.106700E-01 0.106600E-01
+ 0.563000E 01 0.300600E-03 0.248500E-03 0.375300E-03 0.834700E-03 0.308600E-03
+ 0.186600E 00 0.215600E-02 0.179500E-02 0.516300E-03
+-0.258400E-03-0.152200E-03-0.318200E-03-0.260000E-03-0.536900E-03-0.269500E-03
+ 10000     0   884     0     0  2189  5499  4206  4006  4772
+  8571  1001  4110  1801     1  1267  4427  2519  2992  3491
+  7142  4530  8202  5049     6     0     0     0     0  1683
+  6428  6760  9130  7558     8   131   559  1072  3914  4661
+  5714  8284 10000  9337 10000  1611  2445  2892    65     0
+  5000  8814  9729  9940     9  4563  4156  4496  1327  1245
+  4285 10000  9491 10000    10  7861  6766  7048  5933  7317
+  3571  8883  8324  8231     8  8668  8957  9006  8060  8261
+  2857  7973  7400  6410     6 10000 10000 10000 10000 10000
+  1428  4814  2745  2520     3  7313  9539  8549  9773  7590
+     0  1757     0   478     1  4667  6736  5884  7112  5599
+-------------- END OF FILE NUMBER   367-------------
+----------------- FILE NUMBER   368-----------------
+ 0.255600E 00 0.195000E-01 0.115100E-01 0.127400E-01
+ 0.559100E-02 0.452500E-03 0.476500E-03 0.465400E-03 0.907900E-03 0.314900E-03
+ 0.175600E 00 0.302500E-02 0.990000E-03 0.566100E-03
+-0.127000E-03-0.134700E-03-0.461200E-03-0.235300E-03-0.810800E-03-0.234800E-03
+ 10000     0  3235   128   137   561  4754  3075  4751  4361
+  8750  1206  5906  1915  2597     0  3066  1401  3450  2831
+  7500  5215  8562  5747  7470  1491     0     0     0     0
+  6250  8564  9819  8889  9058  2497  2654  2624  1755   958
+  5625  9919 10000  9797 10000  4594  5308  5827  4180  3793
+  5000 10000  9434 10000  7237  6560  6714  8047  6229  7993
+  4375  9541  8502  8316  5941  6441  7093  8679  8399 10000
+  3750  8466  6565  6360  3941  6981  8025  9493 10000  9299
+  2500  3467  4042  3042  9584 10000 10000 10000  9246  9148
+  1250  2481  1388   767   407  2782  5556  5813  9230  6059
+     0   204     0     0     0  2237  4850  4152  6419  4763
+-------------- END OF FILE NUMBER   368-------------
+----------------- FILE NUMBER   369-----------------
+ 0.145000E 00 0.102000E 01-0.100000E-02 0.208500E-01 0.119100E-01 0.124000E-01
+ 0.707500E-02 0.316700E-03 0.372600E-03 0.444200E-03 0.155900E-02 0.449800E-03
+ 0.650000E-01 0.880000E-01-0.130000E-01 0.423900E-02 0.108500E-02 0.566100E-03
+-0.657400E-04-0.224100E-03-0.622400E-03-0.356000E-03-0.941800E-03-0.310700E-03
+     0 10000  3333     0  3092   389   737  1676  5684  3595  3780  4104
+  1250  9474     0  1485  6202  2540  3871     0  2671   985  2290  2503
+  2500  8133  2500  5308  8562  6377  7761  1734     0     0     0     0
+  3750  6405  6666  9282 10000 10000 10000  3418  2638  2957  3313  3671
+  4375  5461 10000  9936  9736  9656  9854  6189  5482  5931  4541  4273
+  5000  4570 10000 10000  9187  9454  8620  8060  7907  8499  5632  6912
+  5625  3766  9166  9767  8294  8091  7308  9883  8664  9230  6907  8378
+  6250  2993  8333  9257  6738  6427  6283 10000  9691 10000  8432 10000
+  7500  1652  2500  6564  3787  3198  3051  8257 10000  9492 10000  7750
+  8750   579  4166  2944  1195   847  1010  5529  7735  6775  8324  5584
+ 10000     0   833   379     0     0     0  4357  6474  5308  6211  4578
+-------------- END OF FILE NUMBER   369-------------
+----------------- FILE NUMBER   370-----------------
+ 0.150000E 00 0.101100E 01 0.000000E 00 0.247300E-01 0.144200E-01 0.139900E-01
+ 0.777800E-02 0.519300E-03 0.578800E-03 0.658600E-03 0.220000E-02 0.562300E-03
+ 0.500000E-01 0.102000E 00-0.260000E-01 0.476600E-02 0.138600E-02 0.898600E-03
+-0.108600E-03-0.372300E-03-0.668500E-03-0.411400E-03-0.958500E-03-0.317800E-03
+     0 10000  3461     0  1234   337     0  3122  5154  3769  3059  3490
+  1000  9735     0   887  3059  1854  1188  1562  4373  2757  2573  2700
+  2000  9174  6923  2703  5818  4425  4270     0  1890   746   892   570
+  2999  8118  4615  6066  8237  7625  6844   911     0     0     0     0
+  4000  6710  8846  8610  9522 10000  9482  3427   363  1826   705  3342
+  5000  5313  9615 10000 10000  9310 10000  5829  4951  5669  4618  7834
+  5999  3883 10000  9579  8908  6778  7990 10000  8035  9284  7286 10000
+  7000  2640  9230  8043  6303  3667  5937  9960 10000 10000  9477  7970
+  8000  1562  7307  6062  3389  1576  3345  7292  9452  9127 10000  6452
+  9000   627  6538  3177  1363   391  1463  5741  7829  6939  8508  5023
+ 10000     0  5384   966     0     0    39  4355  5581  4808  5875  4469
+-------------- END OF FILE NUMBER   370-------------
+----------------- FILE NUMBER   371-----------------
+ 0.155000E 00 0.102000E 01 0.300000E-02 0.288700E-01 0.166300E-01 0.152500E-01
+ 0.888800E-02 0.299100E-02 0.803700E-03 0.899200E-03 0.300200E-02 0.605400E-03
+ 0.450000E-01 0.149000E 00-0.190000E-01 0.608400E-02 0.226700E-02 0.130700E-02
+ 0.399100E-03-0.480200E-03-0.571100E-02-0.554200E-03-0.109600E-02-0.320100E-03
+     0 10000  1818     0   910     0    68   836  8634  3292  2687  3531
+   909  9781   454   725  2601   903  1125   568  8521  2789  2257  3374
+  1818  9425     0  2035  4690  2948  3858 10000     0  1038  1207  1864
+  2727  8587  4090  4248  7497  5667  7459     0  7453     0    70   273
+  3636  7439  6818  6671  9022  8365  9186   823  7752  1246     0     0
+  4545  6222 10000  8361 10000 10000 10000  1487  8083  3543  1607  3579
+  5454  4867  9545  9543  9408  9733  9185  2687  8975  6775  4328  8450
+  6363  3628  9545 10000  8570  7436  8254  3695  9840 10000  7406 10000
+  7272  2445  8636  8361  5416  4604  5880  3160 10000  9543  9377  8804
+  8181  1481  5000  6951  3243  2632  3305  2671  9698  8561 10000  8326
+  9090   711  1818  4750  1262   948  1214  1892  9345  6529  8977  5658
+ 10000     0  3181  2301     0    88     0  1567  9004  5419  7032  4770
+-------------- END OF FILE NUMBER   371-------------
+----------------- FILE NUMBER   372-----------------
+ 0.190000E 00 0.998000E 00 0.230000E-01 0.323300E-01 0.202300E-01 0.181100E-01
+ 0.105100E-01 0.685900E-03 0.801200E-03 0.760700E-03 0.335000E-02 0.620500E-03
+ 0.400000E-01 0.960000E-01-0.800000E-02 0.635100E-02 0.109200E-02 0.735500E-03
+ 0.160900E-03-0.933500E-03-0.112900E-02-0.875600E-03-0.151200E-02-0.445500E-03
+     0 10000  4838  1219  2348  1541  1798  2868  4614  4299  2716  3306
+  1000  9467  4516  2383  4565  3553  3708  1670  3404  2673  2018  2428
+  2000  8547  6129  5015  7830  6683  7385     0     0     0     0     0
+  2999  7361  6451  7570  9485  9247  9251  2484  1088  1485   761    15
+  4000  6108 10000  9038 10000 10000 10000  6476  4066  4556  2905  4498
+  5000  4600  7419 10000  8581  8034  8122  9823  7822  9317  6104  8590
+  5999  3337  4516  9173  5625  5174  5641 10000  8328  9804  8872 10000
+  7000  2073  3870  7148  3326  2613  4117  8925 10000 10000 10000  7424
+  8000  1230     0  4844  1580  1150  1623  6921  8059  7905  9886  6296
+  9000   443  2580  1909   476   323   790  6177  6885  6297  6612  5135
+ 10000     0   322     0     0     0     0  5818  5958  5745  4696  4618
+-------------- END OF FILE NUMBER   372-------------
+----------------- FILE NUMBER   373-----------------
+ 0.175000E 00 0.101000E 01 0.240000E-01 0.336400E-01 0.209900E-01 0.206400E-01
+ 0.105300E-01 0.873900E-03 0.109600E-02 0.119600E-02 0.497600E-02 0.426000E-02
+ 0.350000E-01 0.181000E 00-0.400000E-02 0.773700E-02 0.324700E-02-0.112700E-01
+ 0.000000E 00-0.905600E-03-0.922200E-03-0.684000E-03-0.984400E-02-0.373900E-03
+     0 10000  6785   877  1336  4826  2656  2289  3535  2889  6552   686
+  1428  9047  7857  2873  5115  6416  6246     0   558  6861  6083   246
+  2142  8600  8571     0  9094     0     0   166    63     0  5865     0
+  2857  7804  8928  5616  8453  8316  8482  1400    48   872  5870   177
+  3571  7032  9285  7493  9423  9367  9557  2554     0  1275     0   392
+  4285  6212 10000  8765 10000 10000 10000  5318  3141  3800  6523  1305
+  5714  4402  8214  9944  8732  9164  9463  9568  7036  8108  7867  2842
+  7142  2689  6428 10000  5360  6933  7240 10000 10000 10000  7449 10000
+  7857  1917  2142  8532  3642  6059  5289  8823  9319  8753  9847  2290
+  8571  1194  2500  7426  2337  5410  4593  8245  9973  8732 10000  2059
+  9285   615     0  5753  1048  4706  2982  6786  8730  7154  9589  1700
+ 10000     0   357  3623     0  4245  1790  6061  7031  5878  8948  1314
+-------------- END OF FILE NUMBER   373-------------
+----------------- FILE NUMBER   374-----------------
+ 0.200000E 00 0.989000E 00 0.190000E-01 0.367200E-01 0.191500E-01 0.202200E-01
+ 0.974600E-02 0.194100E-02 0.141200E-02 0.194100E-02 0.547400E-02 0.241100E-02
+ 0.350000E-01 0.130000E 00-0.800000E-02 0.124700E-02 0.181000E-02 0.121800E-02
+ 0.106600E-02-0.775200E-03-0.795100E-03-0.552700E-03-0.111700E-02-0.361700E-03
+     0 10000     0     0  2612  8067  2883  1228  2272  1651  1174  1043
+   909  9487  3333  4316  5084  4244  5074   243  1299   611   576   402
+  1818  8672  4444  5703  7784  6672  7621     0     0     0     0     0
+  2727  7706  7407  7191  9413  8579  8845  1437   965   641   247   828
+  3636  6565  7777  8541 10000  9700  8739  3406  1758  2667  1781  2035
+  4545  5389 10000 10000  9700 10000 10000 10000 10000 10000 10000 10000
+  5454  4342  8518  9667  7951  7424  8252  5955  6754  6145  6220  4440
+  6363  3294  7407  9269  6079  4989  7048  5935  8772  7148  8558  4529
+  7272  2165  5925  8194  3867  2812  5116  5306  8715  6469  9631  3922
+  8181  1257  5555  6571  2088  1378  3337  4356  8017  5394  9188  2916
+  9090   558  2222  4526   807   504  1022  3483  5936  3943  6791  2174
+ 10000     0  2962  2761     0     0     0  3181  4635  3035  4721  1684
+-------------- END OF FILE NUMBER   374-------------
+----------------- FILE NUMBER   375-----------------
+ 0.205000E 00 0.100100E 01 0.200000E-01 0.363700E-01 0.192600E-01 0.208500E-01
+ 0.106300E-01 0.982300E-03 0.126400E-02 0.133000E-02 0.532900E-02 0.114100E-02
+ 0.300000E-01 0.139000E 00-0.220000E-01 0.136300E-01 0.214000E-02 0.202800E-02
+-0.153900E-02-0.616200E-03-0.738100E-03-0.442100E-03-0.121700E-02-0.349000E-03
+     0 10000     0     7  2558  2510  5206  1599  2588  1733  1249  1706
+   857  9501  3571  1110  4853  4766  6646     0  1249   279   688   616
+  1714  8654  2619  3334  7025  6850  7676   491     0     0   178     0
+  2571  7795  5952  5860  9101  8580  9627   850   758   748     0  1300
+  3428  6798  7857  7290 10000 10000 10000  3707  1212  2165  1221  3983
+  4285  5696  6904  9165  9703  9130  9704  6317  4039  5248  3149  6850
+  5142  4767 10000 10000  9042  8388  9765  8847  7915  8010  5878  9778
+  5999  3770  8571  9527  7239  6522  9013 10000 10000 10000  7432 10000
+  6857  2830  2857  8369  4795  4448     0  1677  3260  7729  8692  9597
+  7714  1879  5476  6810  3270  2481  5701  7363  9839  8444 10000  7178
+  8857   904  3571  3529  1374   641  3690  5711  7900  6253  8871  4839
+ 10000     0  3095     0     0     0  2195  4695  5538  4216  6162  3869
+-------------- END OF FILE NUMBER   375-------------
+

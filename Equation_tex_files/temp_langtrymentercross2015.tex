@@ -1,0 +1,90 @@
+\begin{document}
+
+\begin{equation}
+\rho\hat Re_{\theta t}
+\end{equation}
+
+\begin{equation}
+D_{SCF} = c_{\theta t} \frac{\rho}{T} c_{CF} min
+\left[(Re_{\theta t})_{SCF} - \hat Re_{\theta t}, 0 \right] (F_{\theta t 2})
+\end{equation}
+
+\begin{equation}
+c_{CF} = 0.6
+\end{equation}
+
+\begin{equation}
+(Re_{\theta t})_{SCF}
+\end{equation}
+
+\begin{equation}
+F_{\theta t 2}
+\end{equation}
+
+\begin{equation}
+F_{\theta t 2} = min \left(F_{wake} e^{-(y/\delta)^4}, 1 \right)
+\end{equation}
+
+\begin{equation}
+(Re_{\theta t})_{SCF} = \frac{\rho \theta_t \left(U/0.82 \right)}{\mu} =
+-35.088 ln \left( \frac{h_{roughness}}{\theta_t} \right) + 319.51 + f(\Delta H_{CF+}) - f(\Delta H_{CF-})
+\end{equation}
+
+\begin{equation}
+\theta_t
+\end{equation}
+
+\begin{equation}
+f(\Delta H_{CF+}) = 6200(\Delta H_{CF+}) + 50000(\Delta H_{CF+})^2
+\end{equation}
+
+\begin{equation}
+f(\Delta H_{CF-}) = 75.0 tanh \left( \frac{\Delta H_{CF-}}{0.0125} \right)
+\end{equation}
+
+\begin{equation}
+\Delta H_{CF+} = max(0.1066 - \Delta H_{CF}, 0)
+\end{equation}
+
+\begin{equation}
+\Delta H_{CF-} = max[-1.0(0.1066 - \Delta H_{CF}), 0]
+\end{equation}
+
+\begin{equation}
+H_{CF} = \frac{\Omega_{streamwise} d}{U}
+\end{equation}
+
+\begin{equation}
+\Omega_{streamwise} = | \vec U \cdot \vec \Omega |
+\end{equation}
+
+\begin{equation}
+\vec U = \left(
+\frac{u}{\sqrt{u^2+v^2+w^2}}, \frac{v}{\sqrt{u^2+v^2+w^2}}, \frac{w}{\sqrt{u^2+v^2+w^2}} \right)
+\end{equation}
+
+\begin{equation}
+\vec \Omega = \left[
+\left(\frac{\partial w}{\partial y}-\frac{\partial v}{\partial z} \right), 
+\left(\frac{\partial u}{\partial z}-\frac{\partial w}{\partial x} \right), 
+\left(\frac{\partial v}{\partial x}-\frac{\partial u}{\partial y} \right) \right]
+\end{equation}
+
+\begin{equation}
+\Delta H_{CF} = H_{CF} \left[1.0 + min \left(\frac{\mu_t}{\mu}, 0.4 \right) \right]
+\end{equation}
+
+\begin{equation}
+c_{\theta t}
+\end{equation}
+
+\begin{equation}
+T = min \left( \frac{500 \mu}{\rho U^2} ,
+\frac{\rho L^2}{(\mu + \mu_t)} \right)
+\end{equation}
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

@@ -1,0 +1,326 @@
+\begin{document}
+
+\begin{equation}
+\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij} - a_{ij}^{(ex)} \rho k
+\end{equation}
+
+\begin{equation}
+a_{ij}^{(ex)} = \beta_3 \left( W_{ik}^*W_{kj}^* - \frac{1}{3} II_{\Omega} \delta_{ij} \right)
+  + \beta_4 \left( S_{ik}^*W_{kj}^* - W_{ik}^*S_{kj}^* \right)
+  + \beta_6 \left( S_{ik}^*W_{kl}^*W_{lj}^* + W_{ik}^*W_{kl}^*S_{lj}^* - II_{\Omega}S_{ij}^* - \frac{2}{3} IV \delta_{ij} \right)
+  + \beta_9 \left( W_{ik}^*S_{kl}^*W_{lm}^*W_{mj}^* - W_{ik}^*W_{kl}^*S_{lm}^*W_{mj}^* \right)
+\end{equation}
+
+\begin{equation}
+a_{ij}^{(ex,2D)} = \beta_4^{(2D)} \left( S_{ik}^*W_{kj}^* - W_{ik}^*S_{kj}^* \right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \beta^* \rho \omega k  + \frac{\partial}{\partial x_j}
+\left[\left(\mu + \sigma_k \mu_t \right)\frac{\partial k}{\partial x_j}\right]
+\end{equation}
+
+\begin{equation}
+\frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho u_j \omega)}{\partial x_j}
+  = \frac{\gamma \omega}{k} \cal P -
+  \beta \rho \omega^2 + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\omega} \mu_t \right)
+  \frac{\partial \omega}{\partial x_j} \right] +
+  \sigma_d \frac{\rho}{\omega} {\rm max} \left( \frac{\partial k}{\partial x_k} \frac{\partial \omega}{\partial x_k}, 0 \right)
+\end{equation}
+
+\begin{equation}
+P = \tau_{ij} \frac{\partial u_i}{\partial x_j}
+\end{equation}
+
+\begin{equation}
+S_{ij}^* = \frac{\tau}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+\begin{equation}
+W_{ij}^* = \frac{\tau}{2} \left( \frac{\partial u_i}{\partial x_j} - \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+\begin{equation}
+\tau = \frac{1}{\beta^* \omega}
+\end{equation}
+
+\begin{equation}
+\mu_t = \frac{C_{\mu}}{\beta^*} \frac{\rho k}{\omega}
+\end{equation}
+
+\begin{equation}
+\rho
+\end{equation}
+
+\begin{equation}
+\mu
+\end{equation}
+
+\begin{equation}
+C_{\mu}
+\end{equation}
+
+\begin{equation}
+C_{\mu} = -\frac{1}{2} \left( \beta_1 + II_{\Omega} \beta_6 \right)
+\end{equation}
+
+\begin{equation}
+C_{\mu}^{(2D)} = -\frac{1}{2} \beta_1^{(2D)}
+\end{equation}
+
+\begin{equation}
+\beta_1 = - \frac{N \left( 2 N^2 - 7 II_{\Omega} \right)}{Q}
+\end{equation}
+
+\begin{equation}
+\beta_1^{(2D)} = - \frac{6}{5} \left[\frac{N}{N^2 - 2 II_{\Omega} } \right]
+\end{equation}
+
+\begin{equation}
+\beta_3 = - \frac{12 (IV)}{NQ}
+\end{equation}
+
+\begin{equation}
+\beta_4 = - \frac{2 \left( N^2 - 2 II_{\Omega} \right)}{Q}
+\end{equation}
+
+\begin{equation}
+\beta_4^{(2D)} = - \frac{6}{5} \left[\frac{1}{N^2 - 2 II_{\Omega} } \right]
+\end{equation}
+
+\begin{equation}
+\beta_6 = - \frac{6 N}{Q}
+\end{equation}
+
+\begin{equation}
+\beta_9 = \frac{6}{Q}
+\end{equation}
+
+\begin{equation}
+Q = \frac{5}{6} \left( N^2 - 2 II_{\Omega} \right) \left( 2 N^2 - II_{\Omega} \right)
+\end{equation}
+
+\begin{equation}
+II_{\Omega} = W_{kl}^*W_{lk}^*
+\end{equation}
+
+\begin{equation}
+IV = S_{kl}^*W_{lm}^*W_{mk}^*
+\end{equation}
+
+\begin{equation}
+N = \frac{A_3'}{3} + \left( P_1 + \sqrt{P_2} \right)^{1/3} + {\rm sign}
+   \left( P_1 - \sqrt{P_2} \right) \left| P_1 - \sqrt{P_2} \right|^{1/3}
+\end{equation}
+
+\begin{equation}
+P_2 \geq 0
+\end{equation}
+
+\begin{equation}
+N = \frac{A_3'}{3} + 2\left( P_1^2 - P_2 \right)^{1/6}
+   {\rm cos} \left[ \frac{1}{3} {\rm cos}^{-1} \left( P_1 / \sqrt{ P_1^2 - P_2} \right) \right]
+\end{equation}
+
+\begin{equation}
+P_2 < 0
+\end{equation}
+
+\begin{equation}
+P_1 = \left[ \frac{A_3'^2}{27} + \left( \frac{9}{20} \right) II_{S} - \frac{2}{3} II_{\Omega} \right] A_3'
+\end{equation}
+
+\begin{equation}
+P_2 = P_1^2 - \left[ \frac{A_3'^2}{9} + \left( \frac{9}{10} \right) II_{S} + \frac{2}{3} II_{\Omega} \right]^3
+\end{equation}
+
+\begin{equation}
+A_3' = \frac{9}{5} + \frac{9}{4} C_{diff} \left[ {\rm max} \left( 1 + \beta_1^{(eq)} II_S, 0 \right) \right]
+\end{equation}
+
+\begin{equation}
+II_{S} = S_{kl}^*S_{lk}^*
+\end{equation}
+
+\begin{equation}
+\beta_1^{(eq)} = - \frac{6}{5} \left[ \frac{N^{(eq)}}{\left(N^{(eq)}\right)^2 - 2 II_{\Omega}} \right]
+\end{equation}
+
+\begin{equation}
+N^{(eq)} = \frac{81}{20}
+\end{equation}
+
+\begin{equation}
+C_{diff} = 2.2
+\end{equation}
+
+\begin{equation}
+\omega
+\end{equation}
+
+\begin{equation}
+\omega_{wall} = \frac{u_{\tau}^2 S_R}{\nu}
+\end{equation}
+
+\begin{equation}
+k_{wall} = 0
+\end{equation}
+
+\begin{equation}
+S_R = \left[ \frac{50}{{\rm max} \left(k_s^+, k_{s, min}^+ \right) } \right]^2
+\end{equation}
+
+\begin{equation}
+k_s^+ < 25
+\end{equation}
+
+\begin{equation}
+S_R = \frac{100}{k_s^+}
+\end{equation}
+
+\begin{equation}
+k_s^+ \geq 25
+\end{equation}
+
+\begin{equation}
+k_s^+ 
+\end{equation}
+
+\begin{equation}
+k_{s, min}^+ = {\rm min} \left[ 4.3 \left(d_1^+ \right)^{0.85}, 8 \right]
+\end{equation}
+
+\begin{equation}
+d_1^+
+\end{equation}
+
+\begin{equation}
+C = f_{mix} C_1 + \left(1-f_{mix}\right) C_2
+\end{equation}
+
+\begin{equation}
+f_{mix} = {\rm tanh} \left( 1.5 \Gamma^4 \right)
+\end{equation}
+
+\begin{equation}
+\Gamma = {\rm min} \left[ {\rm max} \left( \Gamma_1, \Gamma_2 \right), \Gamma_3 \right]
+\end{equation}
+
+\begin{equation}
+\Gamma_1 = \frac{\sqrt{k}}{\beta^* \omega d}
+\end{equation}
+
+\begin{equation}
+\Gamma_2 = \frac{500 \nu}{\omega d^2}
+\end{equation}
+
+\begin{equation}
+\Gamma_3 = \frac{20 k}{{\rm max} \left[ \frac{d^2}{\omega} \left( 
+   \frac{\partial k}{\partial x_k} \frac{\partial \omega}{\partial x_k} 
+   \right) , 200 k_{\infty} \right]}
+\end{equation}
+
+\begin{equation}
+\gamma_1 = 0.518
+\end{equation}
+
+\begin{equation}
+\gamma_2 = 0.44
+\end{equation}
+
+\begin{equation}
+\beta_1 = 0.0747
+\end{equation}
+
+\begin{equation}
+\beta_2 = 0.0828
+\end{equation}
+
+\begin{equation}
+\sigma_{k1} = 1.1
+\end{equation}
+
+\begin{equation}
+\sigma_{k2} = 1.1
+\end{equation}
+
+\begin{equation}
+\sigma_{\omega 1} = 0.53
+\end{equation}
+
+\begin{equation}
+\sigma_{\omega 2} = 1.0
+\end{equation}
+
+\begin{equation}
+\sigma_{d 1} = 1.0
+\end{equation}
+
+\begin{equation}
+\sigma_{d 2} = 0.4
+\end{equation}
+
+\begin{equation}
+\beta^* = 0.09
+\end{equation}
+
+\begin{equation}
+W_{ij}^* = \frac{\tau}{2} \left( \frac{\partial u_i}{\partial x_j} - \frac{\partial u_j}{\partial x_i} \right)
+  - \left( \frac{\tau}{A_0} \right) W_{ij}^{*(r)}
+\end{equation}
+
+\begin{equation}
+W_{ij}^{*(r)} = -\varepsilon_{ijk} B_{km} S_{pr}^* \frac{D S_{rq}^*}{Dt} \varepsilon_{pqm}
+\end{equation}
+
+\begin{equation}
+B_{km} = \frac{II_S^2 \delta_{km} + 12 III_S S_{km}^* + 6 II_S S_{kl}^* S_{lm}^*}{2 II_S^3 - 12 III_S^2}
+\end{equation}
+
+\begin{equation}
+A_0 = -0.72
+\end{equation}
+
+\begin{equation}
+III_S = S_{kl}^* S_{lm}^* S_{mk}^*
+\end{equation}
+
+\begin{equation}
+N_{improved} = N + \frac{162 \left[ IV^2 + \left( V - \frac{1}{2} II_S II_{\Omega} \right) N^2 \right]}
+  {20 N^4 \left( N - \frac{1}{2} A_3' \right) - II_{\Omega} \left( 10 N^3 + 15 A_3' N^2 \right)
+  + 10 A_3' II_{\Omega}^2}
+\end{equation}
+
+\begin{equation}
+V = S_{kl}^* S_{lm}^* W_{mn}^* W_{nk}^*
+\end{equation}
+
+\begin{equation}
+S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+\begin{equation}
+\varepsilon_{ijk}
+\end{equation}
+
+\begin{equation}
+\varepsilon_{123} = \varepsilon_{312} = \varepsilon_{231} = 1
+\end{equation}
+
+\begin{equation}
+\varepsilon_{132} = \varepsilon_{213} = \varepsilon_{321} = -1
+\end{equation}
+
+
+
+
+
+
+\begin{equation}
+B=1
+\end{equation}
+
+\end{document}

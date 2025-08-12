@@ -1,0 +1,32 @@
+&input_parameters
+                      debug_mode = F
+                      igrid_type = 1       !1=strct(hex), 2=prims, 3=tetra
+               generate_pts_type = 1       !1=Simple stretching, 0=BL+outer separately
+                        dr1_user = 2.125e-6 !User specified dr1 (used if positive).
+                    viscous_wall = 2       !1=zmin is viscous wall, 2=zmin and ymin are viscous walls.
+          upstream_create_region = T       !T: create an upstream region (symmetrry BCs for all there).
+                 upstream_x      =-1.26829 !Length of the inlet region (with a minus sign)
+        downstream_create_region = F       !T: create an downstream region (symmetrry BCs for all there).
+               downstream_x      = 15.0    !Length of the outlet region
+        downstream_spacing_ratio = 0.75    !Spacing ratio: first dx in outlet / dx(last in duct)
+                            xmin =  0.0    !Domain xmin
+                            xmax = 52.0    !Domain xmax
+                            ymin =  0.0    !Domain ymin
+                            ymax =  0.5    !Domain ymax
+                            zmin =  0.0    !Domain zmin
+                            zmax =  0.5    !Domain zmax
+                              nx = 2688    !# of elements (spacing, not nodes) in x-direction
+                              ny =  768    !# of elements (spacing, not nodes) in y-direction
+                              nz =  768    !# of elements (spacing, not nodes) in z-direction
+           generate_ugrid_file   = T       !T = write a .ugrid file, F=not to write
+          ugrid_file_unformatted = T       !T = unformatted .ugrid, F = formatted .ugrid
+               generate_p3d_file = F       !T = write PLOT3D file, F=not to write
+            p3d_file_unformatted = F       !T = unformatted .ufmt F = formatted .p3d
+           generate_su2grid_file = F       !T = Write a .su2 file (native grid-format for Stanford's SU2).
+           generate_line_file_nc = F       !T = write node line files, F=not to write
+           generate_line_file_cc = T       !T = write cell line files, F=not to write
+           generate_tec_file_b   = T       !T = write a boundary grid (Tecplot), F=not to write
+           generate_tec_file_v   = F       !T = write a volume grid (Tecplot), F=not to write
+/
+
+

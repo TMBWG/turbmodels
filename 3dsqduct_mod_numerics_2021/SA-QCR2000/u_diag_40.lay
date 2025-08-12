@@ -1,0 +1,397 @@
+#!MC 1410
+$!VarSet |LFDSFN1| = '"FUN3D/Diagonal_Vertical_u/G2_xd40_cut.dat"'
+$!VarSet |LFDSVL1| = '"x" "y" "z" "rho" "u"'
+$!VarSet |LFDSFN2| = '"FUN3D/Diagonal_Vertical_u/G3_xd40_cut.dat"'
+$!VarSet |LFDSVL2| = '"x" "y" "z" "rho" "u"'
+$!VarSet |LFDSFN3| = '"FUN3D/Diagonal_Vertical_u/G4_xd40_cut.dat"'
+$!VarSet |LFDSVL3| = '"x" "y" "z" "rho" "u"'
+$!VarSet |LFDSFN4| = '"USM3D/Diagonal_Vertical_u_hexgrids/diag_vertical_cuts_u_X_40_50_USM3D_HexG1.plt" "USM3D/Diagonal_Vertical_u_hexgrids/diag_vertical_cuts_u_X_40_50_USM3D_HexG2.plt" "USM3D/Diagonal_Vertical_u_hexgrids/diag_vertical_cuts_u_X_40_50_USM3D_HexG3.plt" "USM3D/Diagonal_Vertical_u_hexgrids/diag_vertical_cuts_u_X_40_50_USM3D_HexG4.plt"'
+$!VarSet |LFDSVL4| = '"x" "y" "z" "rho" "u"'
+$!SetStyleBase Factory
+$!GlobalPaper 
+  PaperSizeInfo
+    {
+    Letter
+      {
+      Width = 8.5
+      Height = 11
+      LeftHardClipOffset = 0.125
+      RightHardClipOffset = 0.125
+      TopHardClipOffset = 0.125
+      BottomHardClipOffset = 0.125
+      }
+    }
+$!Page 
+  Name = 'Untitled'
+  PaperAttributes
+    {
+    BackgroundColor = White
+    IsTransparent = Yes
+    OrientPortrait = No
+    ShowGrid = Yes
+    ShowRuler = No
+    ShowPaper = No
+    PaperSize = Letter
+    RulerSpacing = OneInch
+    PaperGridSpacing = HalfInch
+    RegionInWorkArea
+      {
+      X1 = 1
+      Y1 = 0.25
+      X2 = 10
+      Y2 = 8.25
+      }
+    }
+### Frame Number 1 ###
+$!ReadDataSet  '|LFDSFN1|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL1|'
+$!RemoveVar |LFDSVL1|
+$!RemoveVar |LFDSFN1|
+$!ReadDataSet  '|LFDSFN2|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL2|'
+$!RemoveVar |LFDSVL2|
+$!RemoveVar |LFDSFN2|
+$!ReadDataSet  '|LFDSFN3|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL3|'
+$!RemoveVar |LFDSVL3|
+$!RemoveVar |LFDSFN3|
+$!ReadDataSet  '|LFDSFN4|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL4|'
+$!RemoveVar |LFDSVL4|
+$!RemoveVar |LFDSFN4|
+$!AlterData 
+  Equation = '{u/ucl}={u}/{u}(Mx)'
+$!AlterData  [3]
+  Equation = '{u/ucl}={u}/3.41492'
+$!AlterData 
+  Equation = '{2z/D}={z}*2'
+$!FrameLayout 
+  ShowHeader = No
+  HeaderColor = Red
+  XYPos
+    {
+    X = 1
+    Y = 0.25
+    }
+  Width = 9
+  Height = 8
+$!ThreeDAxis 
+  AspectRatioLimit = 25
+  BoxAspectRatioLimit = 25
+$!PlotType  = XYLine
+$!FrameName  = 'Frame 001'
+$!GlobalTime 
+  SolutionTime = 0
+$!DeleteLineMaps 
+$!ActiveLineMaps  =  [1-7]
+$!GlobalLinePlot 
+  DataLabels
+    {
+    DistanceSkip = 5
+    }
+  Legend
+    {
+    Show = Yes
+    Box
+      {
+      BoxType = Filled
+      }
+    XYPos
+      {
+      X = 56.585
+      Y = 85.076
+      }
+    }
+$!LineMap  [1]
+  Name = 'FUN3D, Grid 2'
+  Assign
+    {
+    Zone = 1
+    XAxisVar = 6
+    YAxisVar = 7
+    }
+  Lines
+    {
+    Color = Red
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [2]
+  Name = 'FUN3D, Grid 3'
+  Assign
+    {
+    Zone = 3
+    XAxisVar = 6
+    YAxisVar = 7
+    }
+  Lines
+    {
+    Color = Red
+    LinePattern = Dashed
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [3]
+  Name = 'FUN3D, Grid 4'
+  Assign
+    {
+    Zone = 5
+    XAxisVar = 6
+    YAxisVar = 7
+    }
+  Lines
+    {
+    Color = Red
+    LinePattern = DashDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [4]
+  Name = 'USM3D, Grid 1'
+  Assign
+    {
+    Zone = 7
+    XAxisVar = 6
+    YAxisVar = 7
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = DashDotDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [5]
+  Name = 'USM3D, Grid 2'
+  Assign
+    {
+    Zone = 11
+    XAxisVar = 6
+    YAxisVar = 7
+    }
+  Lines
+    {
+    Color = Black
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [6]
+  Name = 'USM3D, Grid 3'
+  Assign
+    {
+    Zone = 15
+    XAxisVar = 6
+    YAxisVar = 7
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = Dashed
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [7]
+  Name = 'USM3D, Grid 4'
+  Assign
+    {
+    Zone = 19
+    XAxisVar = 6
+    YAxisVar = 7
+    }
+  Lines
+    {
+    Color = Black
+    LinePattern = DashDot
+    LineThickness = 0.4
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!XYLineAxis 
+  DepXToYRatio = 1
+$!XYLineAxis 
+  XDetail 1
+    {
+    RangeMin = 0
+    RangeMax = 1
+    GRSpacing = 0.2
+    TickLabel
+      {
+      TextShape
+        {
+        Height = 4
+        }
+      }
+    Gridlines
+      {
+      Show = Yes
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = 'u/u<sub>CL'
+      TextShape
+        {
+        Height = 4.6
+        }
+      Offset = 5
+      }
+    }
+$!XYLineAxis 
+  YDetail 1
+    {
+    RangeMin = 0
+    RangeMax = 1
+    GRSpacing = 0.1
+    TickLabel
+      {
+      TextShape
+        {
+        Height = 4
+        }
+      }
+    Gridlines
+      {
+      Show = Yes
+      }
+    Title
+      {
+      TitleMode = UseText
+      Text = '2z/D'
+      TextShape
+        {
+        Height = 4.6
+        }
+      Offset = 8
+      }
+    }
+$!AttachText 
+  AnchorPos
+    {
+    X = 32.80487804878047
+    Y = 92.8734756097561
+    }
+  TextShape
+    {
+    IsBold = No
+    Height = 23
+    }
+  Text = 'Diagonal cut at x/D=40'
+$!FrameControl ActivateByNumber
+  Frame = 1
+$!SetStyleBase Config

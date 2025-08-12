@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Axisymmetric Shock Wave Boundary Layer Interaction near M=7</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">ASWBLI: Axisymmetric Shock Wave Boundary Layer Interaction near M=7</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. A large sequence of nested grids of the same family are 
+provided here if desired. Data are also provided for comparison. For this 
+particular axisymmetric shock wave boundary layer interaction (SWBLI) case, the data are from experiment. 
+
+<p>The experiment involved a cone / ogive cylinder forebody with flares of varying angles (20 to 35 degrees).
+The current case has a flare angle of 20 degrees.  The leading edge is a 10 degree cone that transitions via a circular
+arc to a constant area cylinder with radius approximately 10.15 cm.  
+The flare (designed to produce an oblique shock and SWBLI) is located
+139 cm downstream of the leading edge.  The turbulent boundary layer upstream of the flare is 
+approximately 2 cm thick.  As described in Georgiadis et al (AIAA Paper 2015-0316, January 2015,
+<a href="https://doi.org/10.2514/6.2015-0316">https://doi.org/10.2514/6.2015-0316</a>),
+the leading edge can be excluded from the CFD calculation, provided that the inflow location and boundary conditions are
+adjusted slightly (for example, Mach number is changed from 7.05 to 7.11); this is done here.  
+The inflow location is placed at x = -78.39 cm.
+The wall (cylinder and flare) use no-slip BCs at constant temperature of 311 K.
+The boundary conditions are delineated in the figure below.
+
+<p>It is important to note that this axisymmetric case is not a 2-D computation; it uses a
+periodic (rotated) grid system with appropriate boundary conditions on the periodic sides of the grid.
+
+<p>Note: at high Mach numbers (e.g., M &gt; 2), CFD transition to fully turbulent wall-bounded flow can be delayed
+compared with flow at lower M.  Also, the delayed transition location can vary significantly with
+the freestream levels set.  See, for example, Journal of Spacecraft and Rockets, Vol. 47, No. 1, 2010, pp. 11-20 and
+AIAA Journal, Vol. 47, No. 4, 2009, pp. 982-993 (which is based on
+<a href="Papers/aiaa2008-4403lowRe.pdf">AIAA Paper 2008-4403</a>).
+For this test case, results are only plotted for regions of the flow that were fully turbulent.
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Axiswblim7_validation/bcs.jpg" border="1" title="Axisymmetric SWBLI near M=7 layout & BCs" alt="Axisymmetric SWBLI near M=7 layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="axiswblim7_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<p>The experiment was performed by Kussoy and Horstman; the data reference is:
+<ul>
+<li>Kussoy, M. I. and Horstman, C. C., "Documentation of Two- and Three-Dimensional Hypersonic Shock Wave Boundary
+Layer Interaction Flows," NASA TM 101075, January 1989,
+<a href="https://ntrs.nasa.gov/citations/19890010729">https://ntrs.nasa.gov/citations/19890010729</a>.
+</ul>
+
+<p>The geometry layout from the experiment is shown in the following figure.
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Axiswblim7_validation/Kussoy_geom.png" border="1" title="Geometry layout from SWBLI experiment" alt="Geometry layout from SWBLI experiment">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+
+<p>Note: The above figure has rounded the cylinder diameter dimension to 20 cm; this validation case uses 20.3 cm, as per
+NASA TM 101075.
+
+<p>The experimental data used here consists of some upstream profiles, along with wall pressures and wall heat transfer over the body.
+The quantity y' indicates the vertical distance from the cylinder surface.
+The quantity "S" is measured along the wall surface, with S=0 located at the start of the flare.
+The definition of wall heat transfer Q<sub>w</sub> is:  Q<sub>w</sub>=-k (dT/dy)<sub>w</sub>, where k is the thermal conductivity of the fluid.
+Note that the normalizing infinity ("inf") values are taken upstream of the interaction region, here assumed 
+to be outside the boundary layer at x=S=-6 cm, but not beyond the shock layer that originates from the inflow of the domain.
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Axiswblim7_validation/u_profile-6_exp.jpg" border="1" title="Axisymmetric SWBLI experiment, u-velocity at x=-6" alt="Axisymmetric SWBLI experiment, u-velocity at x=-6">
+           <img
+src="Axiswblim7_validation/Tt_profile-6_exp.jpg" border="1" title="Axisymmetric SWBLI experiment, total temperature x=-6" alt="Axisymmetric SWBLI experiment, total temperature x=-6">
+           <img
+src="Axiswblim7_validation/pw_exp.jpg" border="1" title="Axisymmetric SWBLI experiment, wall pressures" alt="Axisymmetric SWBLI experiment, wall pressures">
+           <img
+src="Axiswblim7_validation/qw_exp.jpg" border="1" title="Axisymmetric SWBLI experiment, wall heat transfer" alt="Axisymmetric SWBLI experiment, wall heat transfer">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The experimental data are provided here:
+<ul>
+<li><a href="Axiswblim7_validation/upstream_exp.dat">Axisymmetric SWBLI upstream profiles</a> </li>
+<li><a href="Axiswblim7_validation/pw_exp.dat">Axisymmetric SWBLI wall pressures</a></li>
+<li><a href="Axiswblim7_validation/qw_exp.dat">Axisymmetric SWBLI wall heat transfer</a></li>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axiswblim7_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axiswblim7_val_sstv.html">SST-Vm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-v">SST-Vm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axiswblim7_val_kert.html">k-e-Rt</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="ke-rt.html">k-e-Rt eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2 and SST-V
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+03/21/2023 - mentioned possible delay in transition to fully turbulent flow at higher M<br>
+12/09/2021 - radius stated as 10.15 cm (more digits than the original 10 cm); mention of inflow location added<br>
+08/28/2020 - changed SST-V naming to SST-Vm<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/21/2023
+<br>&nbsp;
+
+</body>
+</html>

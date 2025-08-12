@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>AFT 3-equation Transitional Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The AFT 3-equation Transitional Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various forms of the
+Amplification Factor Transport (AFT) transition modeling framework. 
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><a ID="lm-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">AFT2017b 3-equation Transition Model Framework with SA<span style="color: blue">
+  (SA-AFT2017b)</span></strong>
+<p>This model framework is sometimes shortened to the initialism "AFT," with the version number 
+trailing the initialism.
+The AFT model is most often coupled with the Spalart-Allmaras model and is formally referred to as
+SA-AFT2017b.
+
+The primary reference for the implementation of the AFT 3-equation Transition Modeling Framework is:
+
+<ul>
+<li>Coder, J.G., Pulliam, T. H., and Jensen, J.C., "Contributions to HiLiftPW-3 Using Structured,
+Overset Grid Methods", AIAA Paper 2018-1039, January 2018,
+<a href="https://doi.org/10.2514/6.2018-1039">https://doi.org/10.2514/6.2018-1039</a>.
+</ul>
+
+The default 3-equation model is given by:
+<dl>
+<dd><img class="tex" alt="\frac{D\tilde{\nu}}{Dt} = c_{b1} \tilde{S}\tilde{\nu}(1-f_{t2}) -  \Big(c_{w1}f_{w} - \frac{c_{b1}}{\kappa ^2} f_{t2} \Big) \Big(\frac{\tilde{\nu}}{d}\Big)^2 + \frac{1}{\sigma}\bigg[\frac{\partial}{\partial x_j}\Big((\nu + \tilde{\nu})\frac{\partial\tilde{\nu}}{\partial x_j}\Big) + c_{b2}\frac{\partial\tilde{\nu}}{\partial x_j}\frac{\partial\tilde{\nu}}{\partial x_j}\bigg]"
+src="AFT_transition_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial \rho\tilde{n}}{\partial t} + \frac{\partial \rho u_j \tilde{n}}{\partial x_j} = \rho \Omega F_{crit} F_{growth}\frac{d\tilde{n}}{dRe_{\theta}} + \frac{\partial}{\partial x_j}\Big[\sigma_n(\mu + \mu_t)\frac{\partial \tilde{n}}{\partial x_j}\Big]"
+src="AFT_transition_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial \rho \tilde{\gamma}}{\partial t} + \frac{\partial \rho u_j \tilde{\gamma}}{\partial x_j} = c_1 \rho S F_{onset} \Big[1-{{exp}} (\tilde{\gamma})\Big] - c_2 \rho \Omega F_{turb} \Big[c_3 \, {{exp}} (\tilde{\gamma}) - 1 \Big] + \frac{\partial}{\partial x_j} \bigg[\Big(\mu + \frac{\mu_t}{\sigma_y}\Big) \frac{\partial \tilde{\gamma}}{\partial x_j}\bigg]"
+src="AFT_transition_eqns/img4.png" />
+<span style="color: red"><- corrected 10/04/2022</span></dd>
+</dd>
+</dl>
+
+(Note: prior to 10/04/2022 the third equation above had the incorrect sign in front of the c<sub>2</sub> term.  This term should have a minus sign in front
+of it, as shown above.)
+
+The source terms of the
+<img class="tex" alt="\tilde{n}" src="AFT_transition_eqns/img5.png" /> equation are
+based on an estimate of the integral boundary layer shape factor,
+<img class="tex" alt="H_{12}" src="AFT_transition_eqns/img6.png" />.
+The production terms are given as
+
+<dl>
+<dd><img class="tex" alt="H_L = \frac{d^2}{\mu} \bigg[ \frac{\partial}{\partial x_i} \Big( \rho u_j \frac{\partial d}{\partial x_j} \Big) \frac{\partial d}{\partial x_i} \bigg]"
+src="AFT_transition_eqns/img7.png" /></dd>
+</dl>
+
+<p>The shape factor 
+<img class="tex" alt="H_{12}" src="AFT_transition_eqns/img6.png" /> is computed as
+
+<dl>
+<dd><img class="tex" alt="H_{12} = 0.376960 + \sqrt{\frac{H_L + 2.453432}{0.653181}}"
+src="AFT_transition_eqns/img8.png" /></dd>
+</dl>
+
+The functions of the production term are defined as
+
+<dl>
+<dd><img class="tex" alt="F_{crit} = 0, Re_{V} < Re_{V,0}"
+src="AFT_transition_eqns/img9.png" /> &nbsp; &nbsp;
+    <img class="tex" alt="F_{crit} = 1, Re_{V} \ge Re_{V,0}"
+src="AFT_transition_eqns/img10.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="Re_{V,0} = k_V Re_{\theta,0}"
+src="AFT_transition_eqns/img11.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="k_V = 0.246175{H_{12}}^2 - 0.141831 H_{12} + 0.008886"
+src="AFT_transition_eqns/img12.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="Re_{V} = \frac{\rho S d^2}{\mu + \mu_t}"
+src="AFT_transition_eqns/img13.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="{log}_{10} \Big(Re_{\theta ,0} \Big) = 0.7 \, {tanh} \bigg(\frac{14}{H_{12} - 1} - 9.24 \bigg) + \frac{2.492}{(H_{12} - 1)^{0.43}} + 0.62"
+src="AFT_transition_eqns/img14.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="F_{growth} = D (H_{12}) \frac{1 + m(H_{12})}{2} \, l({H_{12}})"
+src="AFT_transition_eqns/img15.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="D(H_{12}) = \frac{H_{12}}{0.5482 H_{12} - 0.5185}"
+src="AFT_transition_eqns/img16.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="l(H_{12}) = \frac{6.54 H_{12} - 14.07}{{H_{12}}^2}"
+src="AFT_transition_eqns/img17.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="m(H_{12}) = \frac{1}{l(H_{12})} \bigg[0.058 \frac{(H_{12} - 4)^2}{H_{12} - 1} - 0.068 \bigg]"
+src="AFT_transition_eqns/img18.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{d \tilde{n}}{d Re_{\theta}} = 0.028 \Big( H_{12} - 1 \Big) - 0.0345 \, {exp} \bigg[- \bigg(\frac{3.87}{H_{12}-1} - 2.52 \bigg)^2 \, \bigg]"
+src="AFT_transition_eqns/img19.png" /></dd>
+</dl>
+
+In the above, 
+<img class="tex" alt="\rho" src="AFT_transition_eqns/img20.png" />
+is density, 
+<img class="tex" alt="\mu" src="AFT_transition_eqns/img21.png" />
+is the molecular dynamic viscosity, 
+<img class="tex" alt="\mu_t" src="AFT_transition_eqns/img22.png" />
+is the eddy viscosity, 
+<img class="tex" alt="d" src="AFT_transition_eqns/img23.png" />
+is the wall distance, 
+<img class="tex" alt="S" src="AFT_transition_eqns/img24.png" />
+is the strain rate magnitude, and 
+<img class="tex" alt="\Omega" src="AFT_transition_eqns/img25.png" />
+is the vorticity magnitude:
+
+<dl>
+<dd><img class="tex" alt="S = \sqrt{2 S_{ij} S_{ij}}"
+src="AFT_transition_eqns/img26.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2}\bigg(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \bigg)"
+src="AFT_transition_eqns/img27.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\Omega = \sqrt{2 \Omega_{ij} \Omega_{ij}}"
+src="AFT_transition_eqns/img28.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\Omega_{ij} = \frac{1}{2}\bigg(\frac{\partial u_i}{\partial x_j} - \frac{\partial u_j}{\partial x_i} \bigg)"
+src="AFT_transition_eqns/img29.png" /></dd>
+</dl>
+
+The third equation is that of 
+<img class="tex" alt="\tilde{\gamma}" src="AFT_transition_eqns/img30.png" />,
+which is the natural logarithm of the actual intermittency. This change of variable ensures 
+that the transported 
+<img class="tex" alt="\tilde{\gamma}" src="AFT_transition_eqns/img30.png" />
+will not be negative and will be physically interpretable across all attainable values, 
+enabling the compatibility of the AFT model with all types of flow solvers. This equation 
+is based on the one suggested by Menter et al. (Menter, F.R., Smirnov, P. E., Liu, T., 
+and Avancha, R., "A One-Equation Local Correlation-Based Transition Model," 
+Flow Turbulence Combustion 95, pp. 583-619 (2015),
+<a href="https://doi.org/10.1007/s10494-015-9622-4">https://doi.org/10.1007/s10494-015-9622-4</a>).
+
+The production terms are
+
+<dl>
+<dd><img class="tex" alt="F_{onset} = {max} \Big[ F_{onset,2} - F_{onset,3}, 0 \Big]"
+src="AFT_transition_eqns/img31.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="F_{onset,1} = \frac{\tilde{n}}{N_{crit}}"
+src="AFT_transition_eqns/img32.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="F_{onset,2} = {min}\Big(F_{onset,1},2 \Big)"
+src="AFT_transition_eqns/img33.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="F_{onset,3} = {max} \Big[1 - \Big(\frac{R_T}{3.5}\Big)^3, 0 \Big]"
+src="AFT_transition_eqns/img34.png" /></dd>
+</dl>
+
+Note that the reference paper AIAA 2018-1039 combines 
+<img class="tex" alt="F_{onset,1}" src="AFT_transition_eqns/img35.png" />
+and 
+<img class="tex" alt="F_{onset,2}" src="AFT_transition_eqns/img36.png" />
+into its
+<img class="tex" alt="F_{onset,1}" src="AFT_transition_eqns/img35.png" />.
+These have been separated here for clarity and consistency with other variants of the AFT model.
+
+The destruction term is given as
+
+<dl>
+<dd><img class="tex" alt="F_{turb} = {exp} \bigg[ - \Big( \frac{R_T}{2} \Big)^4 \bigg]"
+src="AFT_transition_eqns/img37.png" /></dd>
+</dl>
+
+In the above, 
+<img class="tex" alt="N_{crit}" src="AFT_transition_eqns/img38.png" />
+is the critical amplification factor from Mack (Mack, L. M., "Transition and Laminar 
+Instability," NASA CR-153203, 1977,
+<a href="https://ntrs.nasa.gov/citations/19770017114">https://ntrs.nasa.gov/citations/19770017114</a>) and 
+<img class="tex" alt="R_T" src="AFT_transition_eqns/img39.png" />
+is the turbulence Reynolds number.
+
+<dl>
+<dd><img class="tex" alt="N_{crit} = -8.43 - 2.4 {ln} \Big( {\frac{\tau}{100}} \Big)"
+src="AFT_transition_eqns/img40.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\tau =2.5 {tanh}\bigg(\frac{Tu(\%)}{2.5}\bigg)"
+src="AFT_transition_eqns/img41.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="R_T = \frac{\mu_t}{\mu}"
+src="AFT_transition_eqns/img42.png" /></dd>
+</dl>
+
+where 
+<img class="tex" alt="Tu(\%)" src="AFT_transition_eqns/img43.png" />
+is the freestream turbulence intensity and 
+<img class="tex" alt="\tau" src="AFT_transition_eqns/img44.png" />
+is a limiter suggested by Drela (Drela M. and Youngren H., "User's Guide to 
+MISES 2.63," February 2008,
+<a href="https://web.mit.edu/drela/Public/web/mises/mises.pdf">https://web.mit.edu/drela/Public/web/mises/mises.pdf</a>).
+
+The AFT model couples with the SA model via a modification to the 
+<i>f<sub>t2</sub></i> term
+
+<dl>
+<dd><img class="tex" alt="f_{t2} = c_{t3}[1 - {exp}(\tilde{\gamma})]"
+src="AFT_transition_eqns/img45.png" /></dd>
+</dl>
+
+The calibration constants for the AFT model are
+<img class="tex" alt="\sigma_n = 1.0" src="AFT_transition_eqns/img46.png" />,
+<img class="tex" alt="c_1 = 100" src="AFT_transition_eqns/img47.png" />,
+<img class="tex" alt="c_2 = 0.06" src="AFT_transition_eqns/img48.png" />,
+<img class="tex" alt="c_3 = 50" src="AFT_transition_eqns/img49.png" />,
+<img class="tex" alt="\sigma_y = 1.0" src="AFT_transition_eqns/img50.png" />, and
+<img class="tex" alt="c_{t3} = 1.2" src="AFT_transition_eqns/img51.png" />
+(note that c<sub>2</sub> was incorrectly listed as 0.6 prior to 10/04/2022),
+where 
+<img class="tex" alt="c_{t3}" src="AFT_transition_eqns/img52.png" />
+comes from the SA model, and 
+<img class="tex" alt="c_1" src="AFT_transition_eqns/img53.png" />,
+<img class="tex" alt="c_2" src="AFT_transition_eqns/img54.png" />,
+<img class="tex" alt="c_3" src="AFT_transition_eqns/img55.png" />, and
+<img class="tex" alt="\sigma_y" src="AFT_transition_eqns/img56.png" />
+come from Menter et al. (Menter, F.R., Smirnov, P. E., Liu, T., and Avancha, R., 
+"A One-Equation Local Correlation-Based Transition Model," Flow Turbulence 
+Combustion 95, pp. 583-619 (2015),
+<a href="https://doi.org/10.1007/s10494-015-9622-4">https://doi.org/10.1007/s10494-015-9622-4</a>).
+
+The boundary conditions for 
+<img class="tex" alt="\tilde{n}" src="AFT_transition_eqns/img5.png" /> and
+<img class="tex" alt="\tilde{\gamma}" src="AFT_transition_eqns/img30.png" /> are
+
+<dl>
+<dd><img class="tex" alt="\tilde{n}_{\infty} = 0"
+src="AFT_transition_eqns/img57.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\tilde{\gamma}_{\infty} = 0"
+src="AFT_transition_eqns/img58.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial \tilde{n}}{\partial y} \bigg|  _{wall} = 0"
+src="AFT_transition_eqns/img59.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial \tilde{\gamma}}{\partial y} \bigg|  _{wall} = 0"
+src="AFT_transition_eqns/img60.png" /></dd>
+</dl>
+
+It is suggested that the modified eddy viscosity ratio be set to 0.1 (actual eddy viscosity 
+ratio of 
+<img class="tex" alt="2.79 {x} 10^{-7}" src="AFT_transition_eqns/img61.png" />).
+
+To determine the transition location, Spalart's turbulence index should be used 
+(Spalart, P. R. and Allmaras, S. R., "A One-Equation Turbulence Model for Aerodynamic Flows,"
+Recherche Aerospatiale, No. 1, 1994, pp. 5-21 (see
+<a href="spalart.html">Spalart-Allmaras Turbulence Model page</a>)
+
+<dl>
+<dd><img class="tex" alt="i_t = \frac{1}{\kappa \sqrt{\nu \Omega}} \frac{\partial \tilde{\nu}}{\partial n} \bigg | _{wall}"
+src="AFT_transition_eqns/img62.png" /></dd>
+</dl>
+
+which is designed to be 0 in laminar boundary layers where 
+<img class="tex" alt="\tilde{\nu} = 0" src="AFT_transition_eqns/img63.png" />
+and 1 in turbulent boundary layers where 
+<img class="tex" alt="\tilde{\nu}/\nu = \kappa y^+" src="AFT_transition_eqns/img64.png" />
+by design of the SA model.
+
+<p>Note that some implementations limit
+<img class="tex" alt="\tilde{n}" src="AFT_transition_eqns/img5.png" /> and
+<img class="tex" alt="\tilde{\gamma}" src="AFT_transition_eqns/img30.png" />
+to prevent runaway behaviors.
+
+
+
+<br>&nbsp;
+<br>&nbsp; 
+<p><a ID="lm-cross-general"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">
+AFT2019b 3-equation Transition Model Framework with SA
+  <span style="color: blue">
+  (SA-AFT2019b)</span></strong>
+<p>This variant of the AFT model preserves the same form of the AFT2017b variant and features 
+improved correlations for the integral boundary layer shape factor 
+<img class="tex" alt="H_{12}" src="AFT_transition_eqns/img6.png" />,
+the local shape factor 
+<img class="tex" alt="H_L" src="AFT_transition_eqns/img65.png" />,
+and 
+<img class="tex" alt="F_{growth}" src="AFT_transition_eqns/img66.png" />.
+
+The primary reference for the implementation of AFT2019b is:
+
+<ul>
+<li>Coder, J.G., "Further Development of the Amplification Factor Transport Transition Model 
+for Aerodynamic Flows", AIAA Paper 2019-0039, January 2019,
+<a href="https://doi.org/10.2514/6.2019-0039">https://doi.org/10.2514/6.2019-0039</a>.
+</ul>
+
+(Note this reference has a typo in its 
+<img class="tex" alt="\tilde{\gamma}" src="AFT_transition_eqns/img30.png" /> equation, with incorrect sign on the c<sub>2</sub> term.  
+See the 
+<img class="tex" alt="\tilde{\gamma}" src="AFT_transition_eqns/img30.png" /> equation in the
+SA-AFT2017b model, above, for the correct definition.)
+The modifications to the source terms are as follows:
+
+<dl>
+<dd><img class="tex" alt="H_L = \frac{d^2}{\nu} \bigg[ \frac{\partial}{\partial x_i} \Big(u_j \frac{\partial d}{\partial x_j} \Big) \frac{\partial d}{\partial x_i} \bigg]"
+src="AFT_transition_eqns/img67.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="H_{12} = 0.26 H_L + 2.4"
+src="AFT_transition_eqns/img68.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="D(H_{12}) = \frac{2.4 H_{12}}{H_{12} - 1}"
+src="AFT_transition_eqns/img69.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="k_V = \frac{1}{0.4036 {H_{12}}^2 - 2.5394 H_{12} + 4.3273}"
+src="AFT_transition_eqns/img70.png" /></dd>
+</dl>
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<hr WIDTH="100%">
+<p>Jim Coder and Jared Carnes of The University of Tennessee, Knoxville are 
+acknowledged for helping put together this webpage.
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+10/04/2022 - fixed typos in gamma equation and in c<sub>2</sub> coefficient<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 10/04/2022
+<br>&nbsp;
+
+</body>
+</html>

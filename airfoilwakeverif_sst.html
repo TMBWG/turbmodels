@@ -1,0 +1,1097 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>SSTm Expected Results - 2D Airfoil Near-Wake (20c)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="airfoilwakeverif.html">2D Airfoil Near-Wake Verification Case (20c) Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">SSTm Expected Results - 2D Airfoil Near-Wake (20c farfield extent)</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Previously on this page the results were reported as SST solutions, but more properly they should be referred to as SSTm.
+
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+Note: the results on this page are no longer "official" because the farfield grid
+extent of only 20c was considered too small for verification purposes.  The "official" SSTm results page with farfield extent of 500c is now at:
+<a href="airfoilwakeverif500c_sst.html">New official SSTm results page for VERIF/2DANW</a>.
+However, other than minor shifts in the forces, most results are still essentially the same.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Results are shown here from 2 compressible codes
+so that the user may compare their own compressible code results.  Multiple grids were
+used so the user can see trends with grid refinement.  Different codes will behave
+differently with grid refinement depending on many factors (including code order of accuracy
+and other numerics),
+but it would be expected that as the grid is refined the results
+will tend toward an "infinite grid" solution that is the same.
+Be careful when comparing details: any differences in boundary conditions or flow conditions
+may affect results.
+
+<p>Two independent compressible RANS codes,
+CFL3D and FUN3D, were used to compute this
+2-D airfoil near-wake case with the Menter shear stress transport model
+(version <span style="color: blue">SSTm</span> - see full description on
+<a href="sst.html">Menter Shear Stress Transport page</a>). The full series of 5 grids were used.
+CFL3D is a cell-centered structured-grid code, and FUN3D
+is a node-centered unstructured-grid code (FUN3D can solve on mixed element grids, so this case
+was computed on the same hexahedral grid used by CFL3D).  Both codes used Roe's Flux Difference
+Splitting and a UMUSCL upwind approach.  In CFL3D its standard UMUSCL (kappa=0.33333) scheme was
+used, whereas in FUN3D the option UMUSCL 0.5 was used.  Both codes were run with
+full Navier-Stokes (as opposed to thin-layer, which is CFL3D's default mode of operation),
+and both codes used first-order upwinding for the advective terms of the turbulence model.
+Details about the codes can be found on their respective websites,
+the links for which are given on this site's
+<a href="index.html">home page</a>.
+The codes were not run to machine-zero iterative convergence, but an attempt was made to converge
+sufficiently so that results of interest were well within normal engineering tolerance and
+plotting accuracy.  For example, for CFL3D the density residual was typically
+driven down below 10<sup>-11</sup>.  It should be kept in mind that many of the files given below
+contain computed values directly from the codes,
+using a precision <strong>greater</strong> than the convergence tolerance (i.e., the values
+in the files are not necessarily as precise as the number of digits given).
+
+<p>Note that in both CFL3D and FUN3D, the production term
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij}\frac{\partial u_i}{\partial x_j}"
+  src="bump_sst_eqns/img5.png" /></dd>
+</dl>
+is approximated by
+<dl>
+<dd><img class="tex" alt="P = 2 \mu_t S_{ij}S_{ij}"
+  src="bump_sst_eqns/img6.png" /></dd>
+</dl>which is exact for incompressible flow.  For this particular low-speed flow, the approximation is
+very accurate.
+(Previously on this page the results were reported as SST solutions, but more properly they should be referred
+to as SSTm because of this approximation and the fact that the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations.)
+
+<p>For the CFL3D and FUN3D tests reported below, the turbulent inflow boundary conditions used for SSTm
+were the following:
+<dl>
+<dd><img class="tex" alt="k_{farfield} = 9 \times 10^{-9} a_{\infty}^2"
+  src="bump_sst_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega_{farfield} = 1 \times 10^{-6} \frac{\rho_{\infty}a_{\infty}^2}{\mu_{\infty}}"
+  src="bump_sst_eqns/img3.png" /></dd>
+</dl>
+
+<p>The above two equations represent the "standard" SSTm boundary condition
+values used by both CFL3D and FUN3D, chosen to achieve
+a not-too-low level of freestream
+turbulent kinetic energy, a not-too-severe rate of freestream turbulence decay,
+and a reasonable level of freestream turbulent eddy viscosity of
+<img class="tex" alt="\mu_t/\mu_{\infty} = 0.009"
+  src="bump_sst_eqns/img4.png" />.
+
+<p>For the interested reader, typical input files for this problem are given here:
+<p>CFL3D V6.6:
+<ul>
+<li><a href="Airfoilwake_verification/SST/cfl3d_typical.inp">Typical Input File for 2D Airfoil Near-Wake</a>
+<li><a href="Airfoilwake_verification/SST/cfl3d.info">Additional CFL3D Information</a>
+</ul>
+<p>FUN3D:
+<ul>
+<li><a href="Airfoilwake_verification/SST/fun3d.nml_typical">Typical Namelist Input File for 2D Airfoil Near-Wake</a>
+<li><a href="Airfoilwake_verification/SST/fun3d.info">Additional FUN3D Information</a>
+</ul>
+
+<p>The following plots show the airfoil lift coefficient, drag coefficient, pressure drag coefficient,
+and viscous drag coefficient.
+In the plot the x-axis is plotting 1/N<sup>1/2</sup>, which is proportional to
+grid spacing (h).
+At the left of the plot, h=0 represents an infinitely fine grid.
+Both codes go toward approximately the same integrated result on an infinitely refined grid.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_CL_SST.jpg" border="1" title="convergence of CL
+    vs h" alt="convergence of CL vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_CD_SST.jpg" border="1" title="convergence of CD
+    vs h" alt="convergence of CD vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_CDp_SST.jpg" border="1" title="convergence of CDp
+    vs h" alt="convergence of CDp vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_CDv_SST.jpg" border="1" title="convergence of CDv
+    vs h" alt="convergence of CDv vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>C<sub>L</sub></td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>0.88</td>
+<td>0.508%</td>
+<td>0.653%</td>
+<td>0.811%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>2.11</td>
+<td>0.030%</td>
+<td>0.009%</td>
+<td>0.011%</td>
+</tr>
+
+<tr>
+<td>C<sub>D</sub></td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>negative</td>
+<td>0.185%</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>oscillatory</td>
+<td>0.028%</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>C<sub>D,p</sub></td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>3.54</td>
+<td>0.355%</td>
+<td>0.033%</td>
+<td>5.614%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>3.26</td>
+<td>0.895%</td>
+<td>0.105%</td>
+<td>11.820%</td>
+</tr>
+
+<tr>
+<td>C<sub>D,v</sub></td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.53</td>
+<td>0.289%</td>
+<td>0.153%</td>
+<td>0.192%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.77</td>
+<td>0.205%</td>
+<td>0.085%</td>
+<td>0.106%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plots is given here:
+<a href="Airfoilwake_verification/SST/force_convergence_sst.dat">force_convergence_sst.dat</a>.
+
+<p>The following plot shows the <u>u-velocity in the wake</u> on the finest grid at various locations downstream
+of the airfoil trailing edge.  It gives an overview of all velocity profiles, with
+experiment shown for reference only.  The two codes CFL3D and FUN3D agree to within plotting accuracy.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/u_sst_notrans_C+Fnew.jpg" border="1" title="u-velocity profiles in wake on finest grid"
+    alt="u-velocity profiles in wake on finest grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the CFD results in above plot is given here:
+<a href="Airfoilwake_verification/SST/vel_data_C+F_sst.dat">vel_data_C+F_sst.dat</a>.
+The experimental data can be found on the 
+<a href="airfoilwake_val.html">2DANW: 2D Airfoil Near-Wake (20c)</a> page.
+Using the CFD wake profiles for all grid levels, the following plots show convergence of the 
+<u>minimum u-velocity in the wake</u> at particular x-stations as a function of grid density.
+Again, the two codes approach approximately the same results as the grid is uniformly refined.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_velmin_1.01_sst.jpg" border="1" title="convergence of min u-velocity in 
+    wake at x/c=1.01 vs h" alt="convergence of min u-velocity in 
+    wake at x/c=1.01 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_velmin_1.05_sst.jpg" border="1" title="convergence of min u-velocity in 
+    wake at x/c=1.05 vs h" alt="convergence of min u-velocity in 
+    wake at x/c=1.05 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_velmin_1.20_sst.jpg" border="1" title="convergence of min u-velocity in 
+    wake at x/c=1.20 vs h" alt="convergence of min u-velocity in 
+    wake at x/c=1.20 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_velmin_1.40_sst.jpg" border="1" title="convergence of min u-velocity in 
+    wake at x/c=1.40 vs h" alt="convergence of min u-velocity in 
+    wake at x/c=1.40 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_velmin_1.80_sst.jpg" border="1" title="convergence of min u-velocity in 
+    wake at x/c=1.80 vs h" alt="convergence of min u-velocity in 
+    wake at x/c=1.80 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_velmin_2.19_sst.jpg" border="1" title="convergence of min u-velocity in 
+    wake at x/c=2.19 vs h" alt="convergence of min u-velocity in 
+    wake at x/c=2.19 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_velmin_3.00_sst.jpg" border="1" title="convergence of min u-velocity in 
+    wake at x/c=3.00 vs h" alt="convergence of min u-velocity in 
+    wake at x/c=3.00 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<!--<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following results:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrapolated value, phi<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>Min u/uref at x/c=1.01</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.34</td>
+<td>0.382080035</td>
+<td>0.215%</td>
+<td>0.140%</td>
+<td>0.176%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.21</td>
+<td>0.382079134</td>
+<td>0.328%</td>
+<td>0.248%</td>
+<td>0.311%</td>
+</tr>
+
+<tr>
+<td>Min u/uref at x/c=1.05</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.32</td>
+<td>0.548999639</td>
+<td>0.175%</td>
+<td>0.117%</td>
+<td>0.146%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.07</td>
+<td>0.548621196</td>
+<td>0.157%</td>
+<td>0.143%</td>
+<td>0.179%</td>
+</tr>
+
+<tr>
+<td>Min u/uref at x/c=1.20</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.12</td>
+<td>0.709845010</td>
+<td>0.180%</td>
+<td>0.152%</td>
+<td>0.190%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>0.98</td>
+<td>0.709610561</td>
+<td>0.149%</td>
+<td>0.154%</td>
+<td>0.193%</td>
+</tr>
+
+<tr>
+<td>Min u/uref at x/c=1.40</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.00</td>
+<td>0.784720092</td>
+<td>0.179%</td>
+<td>0.180%</td>
+<td>0.225%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.05</td>
+<td>0.784255765</td>
+<td>0.154%</td>
+<td>0.143%</td>
+<td>0.179%</td>
+</tr>
+
+<tr>
+<td>Min u/uref at x/c=1.80</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.01</td>
+<td>0.848499834</td>
+<td>0.150%</td>
+<td>0.148%</td>
+<td>0.185%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.14</td>
+<td>0.848012033</td>
+<td>0.143%</td>
+<td>0.119%</td>
+<td>0.148%</td>
+</tr>
+
+<tr>
+<td>Min u/uref at x/c=2.19</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.04</td>
+<td>0.878333364</td>
+<td>0.123%</td>
+<td>0.116%</td>
+<td>0.146%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.13</td>
+<td>0.877988209</td>
+<td>0.130%</td>
+<td>0.110%</td>
+<td>0.137%</td>
+</tr>
+
+<tr>
+<td>Min u/uref at x/c=3.00</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.05</td>
+<td>0.909546621</td>
+<td>0.091%</td>
+<td>0.085%</td>
+<td>0.106%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.07</td>
+<td>0.909369184</td>
+<td>0.109%</td>
+<td>0.100%</td>
+<td>0.125%</td>
+</tr>
+
+</table></center>-->
+
+<p>The data file that generated the above plots is given here:
+<a href="Airfoilwake_verification/SST/velmin_convergence_sst.dat">velmin_convergence_sst.dat</a>.
+
+<p>The following plot shows the <u>turbulent shear stress in the wake</u> on the finest grid at various locations downstream
+of the airfoil trailing edge.  It gives an overview of all u'v' profiles, with
+experiment shown for reference only.  The two codes CFL3D and FUN3D agree to within plotting accuracy.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/upvp_sst_notrans_C+Fnew.jpg" border="1" title="u'v' profiles in wake on finest grid"
+    alt="u'v' profiles in wake on finest grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the CFD results in above plot is given here:
+<a href="Airfoilwake_verification/SST/upvp_data_C+F_sst.dat">upvp_data_C+F_sst.dat</a>.
+The experimental data can be found on the
+<a href="airfoilwake_val.html">2DANW: 2D Airfoil Near-Wake (20c)</a> page.
+Using the CFD wake profiles for all grid levels, the following plots show convergence of the 
+<u>minimum u'v' in the wake</u> at particular x-stations as a function of grid density.
+The two codes approach approximately the same results as the grid is uniformly refined.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_upvpmin_1.01_sst.jpg" border="1" title="convergence of min u'v' in 
+    wake at x/c=1.01 vs h" alt="convergence of min u'v' in 
+    wake at x/c=1.01 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_upvpmin_1.05_sst.jpg" border="1" title="convergence of min u'v' in 
+    wake at x/c=1.05 vs h" alt="convergence of min u'v' in 
+    wake at x/c=1.05 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_upvpmin_1.20_sst.jpg" border="1" title="convergence of min u'v' in 
+    wake at x/c=1.20 vs h" alt="convergence of min u'v' in 
+    wake at x/c=1.20 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_upvpmin_1.40_sst.jpg" border="1" title="convergence of min u'v' in 
+    wake at x/c=1.40 vs h" alt="convergence of min u'v' in 
+    wake at x/c=1.40 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_upvpmin_1.80_sst.jpg" border="1" title="convergence of min u'v' in 
+    wake at x/c=1.80 vs h" alt="convergence of min u'v' in 
+    wake at x/c=1.80 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_upvpmin_2.19_sst.jpg" border="1" title="convergence of min u'v' in 
+    wake at x/c=2.19 vs h" alt="convergence of min u'v' in 
+    wake at x/c=2.19 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/grideffect_upvpmin_3.00_sst.jpg" border="1" title="convergence of min u'v' in 
+    wake at x/c=3.00 vs h" alt="convergence of min u'v' in 
+    wake at x/c=3.00 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<!--<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following results:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrapolated value, phi<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>Min u'v'/uref<sup>2</sup> at x/c=1.01</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>0.72</td>
+<td>-0.00215433261</td>
+<td>0.383%</td>
+<td>0.585%</td>
+<td>0.736%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.13</td>
+<td>-0.00214402914</td>
+<td>0.253%</td>
+<td>0.213%</td>
+<td>0.267%</td>
+</tr>
+
+<tr>
+<td>Min u'v'/uref<sup>2</sup> at x/c=1.05</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>0.83</td>
+<td>-0.00215484079</td>
+<td>0.761%</td>
+<td>0.974%</td>
+<td>1.229%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.06</td>
+<td>-0.00214801796</td>
+<td>0.511%</td>
+<td>0.471%</td>
+<td>0.592%</td>
+</tr>
+
+<tr>
+<td>Min u'v'/uref<sup>2</sup> at x/c=1.20</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>0.64</td>
+<td>-0.00167877821</td>
+<td>1.176%</td>
+<td>2.047%</td>
+<td>2.612%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.39</td>
+<td>-0.00165986557</td>
+<td>0.984%</td>
+<td>0.606%</td>
+<td>0.762%</td>
+</tr>
+
+<tr>
+<td>Min u'v'/uref<sup>2</sup> at x/c=1.40</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.08</td>
+<td>-0.00123018009</td>
+<td>0.654%</td>
+<td>0.586%</td>
+<td>0.737%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.35</td>
+<td>-0.00123019062</td>
+<td>0.872%</td>
+<td>0.558%</td>
+<td>0.701%</td>
+</tr>
+
+<tr>
+<td>Min u'v'/uref<sup>2</sup> at x/c=1.80</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.02</td>
+<td>-0.000783434341</td>
+<td>0.040%</td>
+<td>0.039%</td>
+<td>0.048%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>0.24</td>
+<td>-0.000801778970</td>
+<td>0.435%</td>
+<td>2.298%</td>
+<td>1.188%</td>
+</tr>
+
+<tr>
+<td>Min u'v'/uref<sup>2</sup> at x/c=2.19</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.76</td>
+<td>-0.000567895820</td>
+<td>0.248%</td>
+<td>0.104%</td>
+<td>0.130%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>oscillatory convergence</td>
+<td>N/A</td>
+<td>0.144%</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Min u'v'/uref<sup>2</sup> at x/c=3.00</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.66</td>
+<td>-0.000354095302</td>
+<td>0.336%</td>
+<td>0.156%</td>
+<td>0.194%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>2.90</td>
+<td>-0.000354755784</td>
+<td>0.087%</td>
+<td>0.013%</td>
+<td>0.017%</td>
+</tr>
+
+</table></center>-->
+
+<p>The data file that generated the above plots is given here:
+<a href="Airfoilwake_verification/SST/upvpmin_convergence_sst.dat">upvpmin_convergence_sst.dat</a>.
+
+
+<p>The surface pressure coefficient and skin friction coefficient from both codes on the finest 2241 x 385 grid
+are shown in the next two plots. There is some non-smooth behavior as a result of non-smoothness in the
+airfoil shape, particularly near the airfoil leading edge 
+(as defined by the existing grids). However, the two codes are using identical grids, and
+agree well with each other on the finest grid.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/cp_C+F_sst_new.jpg" border="1" title="surface pressure coefficient over the airfoil" 
+alt="surface pressure coefficient over the airfoil">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/cf_C+F_sst_new.jpg" border="1" title="surface skin friction coefficient over the airfoil" 
+alt="surface skin friction coefficient over the airfoil">
+</p> 
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data files that generated the above plot are given here:
+<a href="Airfoilwake_verification/SST/cp_airfoilwakecase_sst.dat">cp_airfoilwakecase_sst.dat</a>,
+<a href="Airfoilwake_verification/SST/cf_airfoilwakecase_sst.dat">cf_airfoilwakecase_sst.dat</a>.
+
+<p>The nondimensional k and omega contours
+from the two codes on the finest 2241 x 385 grid are shown
+in the following plots.  They are essentially indistinguishable.
+(Note legends do not necessarily reflect min and max values.)
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/k_contours_sst_cfl3d.jpg" border="1" title="k contours for CFL3D" alt="k contours for CFL3D">
+           <img
+src="Airfoilwake_verification/SST/k_contours_sst_fun3d.jpg" border="1" title="k contours for FUN3D" alt="k contours for FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SST/omega_contours_sst_cfl3d.jpg" border="1" title="omega contours for CFL3D" alt="k contours for CFL3D">
+           <img
+src="Airfoilwake_verification/SST/omega_contours_sst_fun3d.jpg" border="1" title="omega contours for FUN3D" alt="k contours for FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data files that generated the above plots are given here:
+<a href="Airfoilwake_verification/SST/k_contours_cfl3d_sst.dat.gz">k_contours_cfl3d_sst.dat.gz</a> (15.7 MB) (structured, at cell centers),
+<a href="Airfoilwake_verification/SST/omega_contours_cfl3d_sst.dat.gz">omega_contours_cfl3d_sst.dat.gz</a> (15.7 MB) (structured, at cell centers), 
+<a href="Airfoilwake_verification/SST/k_contours_fun3d_sst.dat.gz">k_contours_fun3d_sst.dat.gz</a> (21.8 MB) (unstructured, at grid points), and
+<a href="Airfoilwake_verification/SST/omega_contours_fun3d_sst.dat.gz">omega_contours_fun3d_sst.dat.gz</a> (21.9 MB) (unstructured, at grid points). 
+Note that these are all gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted files, so you must either have Tecplot or know how to read their format in order to use these
+files.
+
+<p>The SST model relies on the minimum distance to the nearest wall.  For this case,
+contours of this function 
+are shown in the following plot, for the finest grid.
+Note that behind the airfoil, the distance is measured to the nearest wall (on the airfoil), and <i>not</i> to
+the wake line.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Airfoilwake_verification/SA/min_distance_function.jpg" border="1" title="minimum distance function" alt="minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given in
+<a href="Airfoilwake_verification/SA/airfoil_mindist.dat.gz">airfoil_mindist.dat.gz</a> (gzipped file,
+21.9 MB, unstructured, at grid points). Note
+that this is a gzipped <a href="http://www.tecplot.com">Tecplot</a>
+formatted file, so you must either have Tecplot or know how to read their format in
+order to use it.
+
+It is important to note that computing minimum distance by searching along grid lines is
+incorrect, and is <strong>not</strong> the same as computing actual minimum distance to the nearest wall for this grid. Using
+the former method will yield differences in the results.  The following sketches
+demonstrate the concept of minimum distance.  Improperly-calculated minimum distance
+functions will particularly produce incorrect results for cases in which the
+grid lines are not perfectly normal to the body surface.
+Note that when the nearest wall point is a sharp convex corner or edge (like an airfoil or wing trailing edge) then the
+correct minimum distance is the distance to that corner or edge, which is not a wall normal.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/mindistsketch.jpg" border="1" width="500" title="sketch 1 demonstrating the concept of minimum distance function" alt="sketch 1 demonstrating the concept of minimum distance function">
+           <img
+src="Bump/mindistsketch2.jpg" border="1" width="500" title="sketch 2 demonstrating the concept of minimum distance function" alt="sketch 2 demonstrating the concept of minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><a href="openfoam_issues.html">Note for users of OpenFOAM</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="airfoilwakeverif.html">2D Airfoil Near-Wake Verification Case (20c) Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/11/2025
+<br>&nbsp;
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Backward Facing Step</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2DBFS: 2D Backward Facing Step</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><u>NOTE:  Previous versions of this page
+listed the Re based on step height as 50,000, but the actual value according to D. M. Driver
+(personal communication) should be approximately 36,000.  Although this change generally
+results in only relatively minor differences,
+all CFD results have been updated as of 8/24/2012.
+</u>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. A large sequence of nested grids of the same family are 
+provided here if desired. Data are also provided for comparison. For this 
+particular "essentially incompressible" backward facing step problem,
+the data are from an experiment. 
+
+<p>This is a widely-tested configuration.  The particular data given here are from
+Driver and Seegmiller.  This is also a test case given in the 
+<a href="http://cfd.mace.manchester.ac.uk/ercoftac/">ERCOFTAC Database (Classic Collection)</a>
+#C.30 (Backward facing step with inclined opposite wall), and has also been used in turbulence modeling
+workshops (see references below).
+
+<p>In this case, a turbulent boundary layer encounters a sudden back step, causing
+flow separation.  The flow then reattaches and recovers downstream of the step.
+The Reynolds number based on boundary layer momentum thickness prior to the step
+is 5000.  This corresponds to a Reynolds number
+of approximately 36,000 based on step height H.  The boundary layer thickness prior
+to the step is approximately 1.5H.
+
+<p>Boundary conditions appropriate for the CFD are shown in the following figure.
+Other than a short region with symmetry imposed (to avoid possible incompatibilities
+between freestream inflow and wall BCs), both bottom and top walls are treated as viscous walls.
+The original experiment varied the top wall angle, but for this test case here only
+a straight top wall (zero angle) is considered.
+
+<p>In this case, the inflow length prior to the area of interest (near x=0) 
+has been adjusted so that the naturally developing 
+turbulent boundary layer on the lower wall in the CFD solution grows to approximately
+the correct thickness and yields approximately the correct wall skin friction
+coefficient prior to the step.  (Note that in some other studies, the inflow
+boundary layer profile is prescribed near x/H=-4 instead.)
+The back pressure is adjusted to yield approximately the correct Mach number
+(M=0.128) upstream of the step.
+(Note that particular variations of the BCs at the inflow and outflow may also work 
+and yield similar results for this problem.)
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Backstep_validation/backstep_bcs.jpg" border="1" title="Backward facing step case layout & BCs" alt="Backward facing step case layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="backstep_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<p>Some of the experimental data for this case are shown below. 
+Velocity and turbulence profiles of interest are chosen at the following x/H locations downstream
+of the step: x/H = 1, 4, 6, and 10.
+
+<p>The experimental data reference is:  Driver, D. M. and Seegmiller, H. L., "Features of Reattaching
+Turbulent Shear Layer in Divergent Channel Flow," AIAA Journal, Vol. 23, No. 2, Feb 1985, pp. 163-171,
+<a href="https://doi.org/10.2514/3.8890">https://doi.org/10.2514/3.8890</a>.
+See also Eca et al papers: AIAA-2009-3647,
+<a href="https://doi.org/10.2514/6.2009-3647">https://doi.org/10.2514/6.2009-3647</a>, AIAA-2007-4089,
+<a href="https://doi.org/10.2514/6.2007-4089">https://doi.org/10.2514/6.2007-4089</a>, and AIAA-2005-4728,
+<a href="https://doi.org/10.2514/6.2005-4728">https://doi.org/10.2514/6.2005-4728</a>
+for summaries of workshops that used this experimental data (although note inconsistencies in Re<sub>H</sub>).
+
+<p>The U<sub>ref</sub> is the reference velocity at the center-channel near x/H=-4, used to nondimensionalize 
+velocity and turbulent shear stress profiles.
+The skin friction coefficient and pressure coefficient data were also both with respect to conditions near this location.
+Note, however, that when plotted the pressure coefficient data has been shifted uniformly so that
+Cp is 0 near the position x/H=40 or so.  (This was also done by 
+Eca et al in the V&V Workshops referenced above.)  The Cp experimental data file provided below contains
+both original and shifted values.
+
+<p>One of the key measures of success for this flowfield is the prediction of reattachment point
+downstream of the step.  In the experiment, this was determined (by laser oil-flow interferometer 
+measurements of skin-friction and interpolation of the zero skin-friction location) to be:
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">x/H<sub>reattach</sub> = 6.26 +- 0.10</strong>
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Backstep_validation/exp_u-4.jpg" border="1" title="Backstep experiment, upstream u-velocity at x/H=-4" alt="Backstep experiment, upstream u-velocity at x/H=-4">
+           <img
+src="Backstep_validation/exp_upvp-4.jpg" border="1" title="Backstep experiment, upstream specific turbulent shear stress at x/H=-4" alt="Backstep experiment, upstream specific turbulent shear stress at x/H=-4">
+           <img
+src="Backstep_validation/cp_exp.jpg" border="1" title="Backstep experiment, surface pressure coefficients on lower wall" alt="Backstep experiment, surface pressure coefficients on lower wall">
+           <img
+src="Backstep_validation/cf_exp.jpg" border="1" title="Backstep experiment, surface skin friction coefficients on lower wall" alt="Backstep experiment, surface skin friction coefficients on lower wall">
+           <img
+src="Backstep_validation/exp_uprofile.jpg" border="1" title="Backstep experiment, u-velocities" alt="Backstep experiment, u-velocities">
+           <img
+src="Backstep_validation/exp_upvpprofile.jpg" border="1" title="Backstep experiment, specific turbulent shear stress" alt="Backstep experiment, specific turbulent shear stress">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The experimental data used are provided here:
+<ul>
+<li><a href="Backstep_validation/cp.expnew.dat">Backstep Cp data</a> (revised on 2/28/2014)</li>
+<li><a href="Backstep_validation/cf.exp.dat">Backstep Cf data</a> (revised on 10/17/2015)</li>
+<li><a href="Backstep_validation/profiles.exp.dat">Backstep profiles</a></li>
+</ul>
+Note that the complete original data from this experiment are included on this site in the
+<a href="bradshaw.html">Collaborative Testing of Turbulence Models page</a>, under "More Recent
+Incompressible Flow Cases".
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="backstep_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="backstep_val_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-std">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="backstep_val_sstv.html">SST-Vm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-v">SST-Vm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="backstep_val_w06.html">Wilcox2006-klim-m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="wilcox.html#w06klim">Wilcox2006-klim-m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="backstep_val_kkl-meah.html">K-kL-MEAH2015m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="kkl.html#kkl-meah2015">K-kL-MEAH2015m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr> 
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="backstep_val_easmkos.html">EASMko2003-S</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="easmko.html#easmko-s">EASMko2003-S eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="backstep_val_kert.html">K-e-Rt</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="ke-rt.html">K-e-Rt eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2, SA-noft2-RC, SST, and SST-V
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+08/28/2020 - changed SST-V naming to SST-Vm<br>
+10/17/2015 - corrected minor typo in experimental Backstep Cf data file<br>
+02/28/2014 - more description of Cp shift, and new Cp data file<br>
+03/07/2014 - BC figure modified<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/18/2021
+<br>&nbsp;
+
+</body>
+</html>

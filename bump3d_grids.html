@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - 3D Bump-in-channel</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="bump3d.html">3D Bump-in-channel Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids - 3D Bump-in-channel
+Verification Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A series of 5 nested 3-D grids are provided.  
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from the finest 65 x 705 x 321 to the coarsest 5 x 45 x 21 grid.
+The finest grid has minimum spacing at the wall of y=1 x 10<sup>-6</sup>, giving an approximate average
+y+=0.12 over the plate at the Reynolds number run.
+Even the coarsest grid has reasonably fine wall-normal spacing, giving an approximate average
+y+=2.0 over the plate.  The grid is stretched in the wall-normal direction, and is also clustered
+near the plate leading and trailing edges. The spacing in the spanwise direction
+is uniform.  The following figure shows a portion of
+the 17 x 177 x 81 grid:
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/Grids/bump3dgridpic.jpg" border="1" title="portion of bump 17 x 177 x 81 grid" alt="portion of bump 17 x 177 x 81 grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">STRUCTURED VERSIONS OF 
+GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>Due to file size limitations, the PLOT3D files are given as 2-D 
+(formatted, MG, 2D, nbl=1) files, and a specifically-hardwired
+<a href="Bump3d/Grids/make3d_bump.f90">Fortran90 program</a>
+is provided to translate the 2-D grid to the 3-D version.
+
+<p>Download the 2-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="Bump/Grids/bump_1levelsdown_705x321.p2dfmt.gz">
+        (2-D) 705 x 321 (gzipped) </a> (2 MB)
+<li><a href="Bump/Grids/bump_2levelsdown_353x161.p2dfmt.gz">
+        (2-D) 353 x 161 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Bump/Grids/bump_3levelsdown_177x81.p2dfmt">
+        (2-D) 177 x 81 </a> (&lt; 1 MB)
+<li><a href="Bump/Grids/bump_4levelsdown_89x41.p2dfmt">
+        (2-D) 89 x 41 </a> (&lt; 1 MB)
+<li><a href="Bump3d/Grids/bump_5levelsdown_45x21.p2dfmt">
+        (2-D) 45 x 21 </a> (&lt; 1 MB)
+</ul>
+
+<p>If desired, example Neutral Map Files 
+associated with 3-D version of the grids after conversion
+are given here (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="Bump3d/Grids/grid65x705x321.nmf">
+        Neutral Map File for (3-D) 65 x 705 x 321 </a>
+<li><a href="Bump3d/Grids/grid33x353x161.nmf">
+        Neutral Map File for (3-D) 33 x 353 x 161 </a>
+<li><a href="Bump3d/Grids/grid17x177x81.nmf">
+        Neutral Map File for (3-D) 17 x 177 x 81 </a>
+<li><a href="Bump3d/Grids/grid9x89x41.nmf">
+        Neutral Map File for (3-D) 9 x 89 x 41 </a>
+<li><a href="Bump3d/Grids/grid5x45x21.nmf">
+        Neutral Map File for (3-D) 5 x 45 x 21 </a>
+</ul>
+
+<!--<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The structured grids are also available as CGNS files (3-D versions only, with two
+identical x-z planes, separated by a distance y=1,
+giving one spanwise cell for all grid levels).
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>Download the 3-D version of the grids in CGNS format (gzipped) here:
+<ul>
+<li><a href="Bump/Grids/bump_struct_1409x641_vol.cgns.gz">
+        (3-D) 2 x 1409 x 641 (2 x 641 points on solid plate) </a> (6 MB)
+<li><a href="Bump/Grids/bump_struct_705x321_vol.cgns.gz">
+        (3-D) 2 x 705 x 321 (2 x 321 points on solid plate) </a> (2 MB)
+<li><a href="Bump/Grids/bump_struct_353x161_vol.cgns.gz">
+        (3-D) 2 x 353 x 161 (2 x 161 points on solid plate) </a> (&lt; 1 MB)
+<li><a href="Bump/Grids/bump_struct_177x81_vol.cgns.gz">
+        (3-D) 2 x 177 x 81 (2 x 81 points on solid plate) </a> (&lt; 1 MB)
+<li><a href="Bump/Grids/bump_struct_89x41_vol.cgns.gz">
+        (3-D) 2 x 89 x 41 (2 x 41 points on solid plate) </a> (&lt; 1 MB)
+</ul>-->
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">UNSTRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS and AFLR3 Files</strong>
+
+<p>The unstructured versions of the same grids are all given as CGNS and AFLR3 (UGRID) files.
+However, due to file size limitations, the finest 65x705x321 grid is not available
+here.
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>The unstructured grids are all given two different
+ways: as hexahedra, or cut into tetrahedra.
+
+<p>Download the unstructured CGNS grids (gzipped) as 3-D hexahedra here:
+<ul>
+<!--<li><a href="Bump3d/Grids/grid65x705x321_vol.cgns.gz">
+        Unstructured quad version of 65 x 705 x 321 3D-bump grid </a> (xxx MB)-->
+<li><a href="Bump3d/Grids/grid33x353x161_vol.cgns.gz">
+        Unstructured quad version of 33 x 353 x 161 3D-bump grid </a> (35.8 MB)
+<li><a href="Bump3d/Grids/grid17x177x81_vol.cgns.gz">
+        Unstructured quad version of 17 x 177 x 81 3D-bump grid </a> (4.3 MB)
+<li><a href="Bump3d/Grids/grid9x89x41_vol.cgns.gz">
+        Unstructured quad version of 9 x 89 x 41 3D-bump grid </a> (&lt; 1 MB)
+<li><a href="Bump3d/Grids/grid5x45x21_vol.cgns.gz">
+        Unstructured quad version of 5 x 45 x 21 3D-bump grid </a> (&lt; 1 MB)
+</ul>
+<p>Download the unstructured AFLR3 grids (gzipped) as 3-D hexahedra here:
+<ul>
+<!--<li><a href="Bump3d/Grids/grid65x705x321_vol.cgns.gz">
+        Unstructured quad version of 65 x 705 x 321 3D-bump grid </a> (xxx MB)-->
+<li><a href="Bump3d/Grids/grid33x353x161_vol.b8.ugrid.gz">
+        Unstructured quad version of 33 x 353 x 161 3D-bump grid </a> (38.7 MB)
+<li><a href="Bump3d/Grids/grid17x177x81_vol.b8.ugrid.gz">
+        Unstructured quad version of 17 x 177 x 81 3D-bump grid </a> (5.1 MB)
+<li><a href="Bump3d/Grids/grid9x89x41_vol.b8.ugrid.gz">
+        Unstructured quad version of 9 x 89 x 41 3D-bump grid </a> (&lt; 1 MB)
+<li><a href="Bump3d/Grids/grid5x45x21_vol.b8.ugrid.gz">
+        Unstructured quad version of 5 x 45 x 21 3D-bump grid </a> (&lt; 1 MB)
+</ul>
+All AFLR3 grids have the same mapbc file: <a href="Bump3d/Grids/grid_all_vol.mapbc">grid_all_vol.mapbc</a>.
+
+<br>&nbsp;
+<p>Download the unstructured CGNS grids (gzipped) as 3-D tetrahedra here:
+<ul>
+<!--<li><a href="Bump3d/Grids/grid65x705x321_vol.cgns.gz">
+        Unstructured quad version of 65 x 705 x 321 3D-bump grid </a> (xxx MB)-->
+<li><a href="Bump3d/Grids/tetgrid33x353x161_vol.cgns.gz">
+        Unstructured tet version of 33 x 353 x 161 3D-bump grid </a> (54.5 MB)
+<li><a href="Bump3d/Grids/tetgrid17x177x81_vol.cgns.gz">
+        Unstructured tet version of 17 x 177 x 81 3D-bump grid </a> (6.7 MB)
+<li><a href="Bump3d/Grids/tetgrid9x89x41_vol.cgns.gz">
+        Unstructured tet version of 9 x 89 x 41 3D-bump grid </a> (&lt; 1 MB)
+<li><a href="Bump3d/Grids/tetgrid5x45x21_vol.cgns.gz">
+        Unstructured tet version of 5 x 45 x 21 3D-bump grid </a> (&lt; 1 MB)
+</ul>
+<p>Download the unstructured AFLR3 grids (gzipped) as 3-D tetrahedra here:
+<ul>
+<!--<li><a href="Bump3d/Grids/grid65x705x321_vol.cgns.gz">
+        Unstructured quad version of 65 x 705 x 321 3D-bump grid </a> (xxx MB)-->
+<li><a href="Bump3d/Grids/tetgrid33x353x161_vol.b8.ugrid.gz">
+        Unstructured tet version of 33 x 353 x 161 3D-bump grid </a> (62.8 MB)
+<li><a href="Bump3d/Grids/tetgrid17x177x81_vol.b8.ugrid.gz">
+        Unstructured tet version of 17 x 177 x 81 3D-bump grid </a> (7.9 MB)
+<li><a href="Bump3d/Grids/tetgrid9x89x41_vol.b8.ugrid.gz">
+        Unstructured tet version of 9 x 89 x 41 3D-bump grid </a> (1.1 MB)
+<li><a href="Bump3d/Grids/tetgrid5x45x21_vol.b8.ugrid.gz">
+        Unstructured tet version of 5 x 45 x 21 3D-bump grid </a> (&lt; 1 MB)
+</ul>
+All AFLR3 grids have the same mapbc file: <a href="Bump3d/Grids/tetgrid_all_vol.mapbc">tetgrid_all_vol.mapbc</a>.
+
+<br>&nbsp;
+<p>The following figure shows the 17 x 177 x 81 grid cut into tetrahedra:
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/Grids/grid_tets_17.jpg" border="1" title="portion of 3D bump 17 x 177 x 81 grid
+cut into tets" alt="portion of 3D bump 17 x 177 x 81 grid
+cut into tets">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="bump3d.html">3D Bump-in-channel Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+10/02/2023 - added AFLR3 (UGRID) versions of unstructured grids<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 10/02/2023
+<br>&nbsp;
+
+</body>
+</html>

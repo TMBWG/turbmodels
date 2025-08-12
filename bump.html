@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Bump-in-channel Verification - Intro Page</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">VERIF/2DB: 2D Bump-in-channel
+Verification Case - Intro Page</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a large sequence of nested grids
+of the same family,
+along with results from existing CFD codes that employ specific forms of particular turbulence 
+models, in order to help programmers verify their implementations of these same models.
+On a given grid, there may be differences between the results from different codes, but presumably
+as the grid is refined the results should approach the same answer (if the flow conditions and
+boundary conditions are the same).
+With <strong>verification</strong>, the purpose is not to establish the "goodness" of a model compared to experiment,
+but rather to establish that a model has been implemented correctly, as intended according to the 
+equations and boundary conditions.  (It is through <strong>validation</strong> that a model's "goodness" is
+established.) The purpose here is primarily verification.
+
+<p>The bump-in-channel case is different from the simpler 
+<a href="flatplate.html">flat plate verification case</a> 
+because it involves
+wall curvature and, as a result, pressure gradients.  It was run at
+M = 0.2, at a Reynolds number of Re = 3 million based on
+length "1" of the grid. 
+The body reference length is 1.5 units.
+This lower wall is a
+viscous-wall bump extending from x=0 to 1.5 (the actual bump itself - i.e., non-zero y - is from
+x=0.3-1.2).  The maximum bump height is 0.05. The definition of the bump is:
+
+<p><ul>y=0.05*(sin(pi*x/0.9-(pi/3.)))**4 &nbsp; for 0.3&le;x&le;1.2
+</ul>
+<p><ul>y=0 &nbsp; for 0&le;x&lt;0.3 and 1.2 &lt;x &le;1.5
+</ul>
+
+<p>where "pi"=3.1415927... The upstream and downstream farfield extends 25 units from
+the viscous-wall, with symmetry plane BCs imposed on the lower wall between the farfield and the solid
+wall.  The upper boundary is a distance of y=5.0 high.
+It is taken to be a symmetry plane.
+The following plots show the layout of this case,
+along with the boundary conditions.
+(Note that particular variations of the BCs at the inflow, top wall, and outflow
+may also work and yield similar results for this problem.)
+
+<p>Another important note: although M=0.2 is low enough that the flow is "essentially" incompressible,
+<u><em>this is a compressible flow verification case</em></u>.  Therefore, if you run this case with an incompressible
+code, your results may be close - but not quite the same - as the grid is refined.
+
+<p><span style="text-align: left; font-weight: 400; font-size: large">This case was used as a verification test case for
+<a href="https://hiliftpw.larc.nasa.gov/index-workshop2.html">High Lift Prediction Workshop 2 (HiLiftPW-2)</a> and for
+<a href="https://aiaa-dpw.larc.nasa.gov/Workshop5/workshop5.html">Drag Prediction Workshop 5 (DPW-5)</a>.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/Grids/bumpBCpic.jpg" border="1" title="bump grid layout & BCs" alt="bump grid layout & BCs">
+           <img
+src="Bump/Grids/bumpBCpic2.jpg" border="1" title="close-up of bump" alt="close-up of bump">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<ul>
+<li><a href="bump_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_saqcr.html">SA-QCR2000</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#qcr2000">SA-QCR2000 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_saqcr2013.html">SA-QCR2013</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#qcr2013">SA-QCR2013 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_saqcr2013v.html">SA-QCR2013-V</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#qcr2013">SA-QCR2013-V eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_sarc.html">SA-RC</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#saRC">SA-RC eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_sarcqcr.html">SA-RC-QCR2000</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html">SA-RC-QCR2000 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_sstv.html">SST-Vm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-v">SST-Vm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_sst2003.html">SST-2003m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-2003">SST-2003m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_bsl.html">BSLm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="bsl.html#bsl-std">BSLm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_ssglrrrsm.html">SSG/LRR-RSM-w2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-ssglrr.html">SSG/LRR-RSM-w2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_w06.html">Wilcox2006-klim-m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="wilcox.html#w06klim">Wilcox2006-klim-m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump_kkl-meah.html">K-kL-MEAH2015m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="kkl.html#kkl-meah2015">K-kL-MEAH2015m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+08/28/2020 - changed SST-V naming to SST-Vm<br>
+12/21/2018 - Added SA-QCR2013 verification case<br>
+07/13/2018 - Added SA-QCR2000 verification case<br>
+06/22/2018 - Added SA-RC-QCR2000 verification case<br>
+03/12/2018 - added BSL page<br>
+07/14/2016 - added SA-RC page<br>
+08/20/2014 - added SSG/LRR-RSM-w2012 page<br>
+03/18/2014 - added SST-2003 page<br>
+09/18/2013 - added Wilcox2006 page
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/24/2021
+<br>&nbsp;
+
+</body>
+</html>

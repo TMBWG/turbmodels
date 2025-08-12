@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>SA-RC Expected Results - 2D Bump-in-channel</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="bump.html">2D Bump-in-channel Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">SA-RC Expected Results - 2D Bump-in-channel</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Results are shown here from 2 compressible codes
+so that the user may compare their own compressible code results.  Multiple grids were
+used so the user can see trends with grid refinement.  Different codes will behave
+differently with grid refinement depending on many factors (including code order of accuracy
+and other numerics),
+but it would be expected that as the grid is refined the results
+will tend toward an "infinite grid" solution that is the same.
+Be careful when comparing details: any differences in boundary conditions or flow conditions
+may affect results.
+
+<p>Two independent compressible RANS codes,
+CFL3D and FUN3D, were used to compute this
+bump-in-channel flow with the Spalart-Allmaras turbulence model with Rotation-Curvature correction
+(version <span style="color: blue">SA-RC</span> - see full description on
+<a href="spalart.html#saRC">Spalart-Allmaras page</a>). Compare results here with those on the
+<a href="bump_sa.html">SA Expected Results - 2D Bump-in-channel page</a> to see the effect of the
+Rotation-Curvature terms for this case.  The full series of 5 grids were used.
+CFL3D is a cell-centered structured-grid code, and FUN3D
+is a node-centered unstructured-grid code (FUN3D can solve on mixed element grids, so this case
+was computed on the same hexahedral grid used by CFL3D).  Both codes used Roe's Flux Difference
+Splitting and a UMUSCL upwind approach.  In CFL3D its standard UMUSCL (kappa=0.33333) scheme was
+used, whereas in FUN3D the option UMUSCL 0.5 was used.  Both codes were run with
+full Navier-Stokes (as opposed to thin-layer, which is CFL3D's default mode of operation),
+and both codes used first-order upwinding for the advective terms of the turbulence model.
+Details about the codes can be found on their respective websites,
+the links for which are given on this site's 
+<a href="index.html">home page</a>.
+The codes were not run to machine-zero iterative convergence, but an attempt was made to converge
+sufficiently so that results of interest were well within normal engineering tolerance and
+plotting accuracy.  For example, for CFL3D the density residual was typically
+driven down below 10<sup>-13</sup>.  It should be kept in mind that many of the files given below
+contain computed values directly from the codes,
+using a precision <strong>greater</strong> than the convergence tolerance (i.e., the values
+in the files are not necessarily as precise as the number of digits given).
+
+<p>For the CFL3D and FUN3D tests reported below, the turbulent inflow boundary condition used for SA was:
+<img class="tex" alt="\tilde \nu_{farfield} \geq 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" />.
+In both CFL3D and FUN3D, this was not the default setting, so special keywords needed to be
+set in both codes. 
+For the interested reader, typical input files for this problem are given here:
+<p>CFL3D V6.5:
+<ul>
+<li><a href="Bump/SARC/cfl3d_typical.inp">Typical Input File for 2D Bump</a>
+</ul>
+<p>FUN3D:
+<ul>
+<li><a href="Bump/SARC/fun3d.nml_typical">Typical Namelist Input File for 2D Bump</a>
+<li><a href="Bump/SARC/fun3d.info">Additional Information</a>
+</ul>
+
+<p>The following plots show the convergence of the wall skin friction coefficient
+at the bump peak (at x=0.75), in front of the bump peak (at x=0.6321975), and
+aft of the peak (at x=0.8678025) with
+grid size for the two codes.
+In the plot the x-axis is plotting 1/N<sup>1/2</sup>, which is proportional to
+grid spacing (h).
+At the left of the plot, h=0 represents an infinitely fine grid.
+Both codes go toward approximately the same result on an infinitely refined grid.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/cf75_convergence_sarc.jpg" border="1" title="convergence of Cf at x=0.75
+    vs h" alt="convergence of Cf at x=0.75
+    vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/cf632_convergence_sarc.jpg" border="1" title="convergence of Cf at x=0.6321975
+    vs h" alt="convergence of Cf at x=0.6321975
+    vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/cf868_convergence_sarc.jpg" border="1" title="convergence of Cf at x=0.8678025
+    vs h" alt="convergence of Cf at x=0.8678025
+    vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following for skin friction coefficient at x=0.75, x=0.6321975, and 
+x=0.8678025:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>x=0.75</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.50</td>
+<td>0.099%</td>
+<td>0.054%</td>
+<td>0.068%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.57</td>
+<td>0.165%</td>
+<td>0.084%</td>
+<td>0.105%</td>
+</tr>
+
+<tr>
+<td>x=0.6321975</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>oscillatory convergence</td>
+<td>0.021%</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>2.54</td>
+<td>0.010%</td>
+<td>0.002%</td>
+<td>0.003%</td>
+</tr>
+
+<tr>
+<td>x=0.8678025</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.34</td>
+<td>0.200%</td>
+<td>0.130%</td>
+<td>0.163%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.43</td>
+<td>0.375%</td>
+<td>0.222%</td>
+<td>0.277%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plot is given here:
+<a href="Bump/SARC/cf_convergence_sarc.dat">cf_convergence_sarc.dat</a>.
+
+<p>The following plots show: (1) total drag coefficient, (2) pressure drag coefficient,
+(3) viscous drag coefficient, and (4) total lift coefficient for the bump. 
+In this bump case the surface skin friction
+is singular (tends toward infinity) at the leading edge.  The finer the grid, the more nearly singular
+the local behavior on a finite grid.
+There is also locally anomalous behavior in C<sub>f</sub> at the back end of the bump wall (at x=1.5), as
+is often seen in CFD solutions near trailing edges (see, e.g., Swanson and Turkel, AIAA Paper 87-1107, 1987
+<a href="https://doi.org/10.2514/6.1987-1107">https://doi.org/10.2514/6.1987-1107</a>).
+Both of these behaviors may have some influence
+on the convergence/order-property of the integrated viscous component of the drag coefficient.
+As seen in the following plots, both codes are tending toward similar integrated force coefficient values
+as the grid is refined.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/drag_convergence_sarc.jpg" border="1" title="convergence of bump drag
+    coefficient vs h" alt="convergence of bump drag
+    coefficient vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/dragp_convergence_sarc.jpg" border="1" title="convergence of bump pressure drag
+    coefficient vs h" alt="convergence of bump pressure drag
+    coefficient vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/dragv_convergence_sarc.jpg" border="1" title="convergence of bump viscous drag
+    coefficient vs h" alt="convergence of bump viscous drag
+    coefficient vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/lift_convergence_sarc.jpg" border="1" title="convergence of bump lift
+    coefficient vs h" alt="convergence of bump lift
+    coefficient vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following for force coefficients:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Quantity</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>C<sub>d</sub></td>
+<td>2.12</td>
+<td>0.151%</td>
+<td>0.045%</td>
+<td>0.057%</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>C<sub>d,p</sub></td>
+<td>3.13</td>
+<td>0.458%</td>
+<td>0.059%</td>
+<td>5.590%</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>C<sub>d,v</sub></td>
+<td>0.88</td>
+<td>0.110%</td>
+<td>0.131%</td>
+<td>0.164%</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>C<sub>L</sub></td>
+<td>0.99</td>
+<td>0.260%</td>
+<td>0.264%</td>
+<td>0.331%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>C<sub>d</sub></td>
+<td>oscillatory convergence</td>
+<td>0.090%</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>C<sub>d,p</sub></td>
+<td>2.79</td>
+<td>0.524%</td>
+<td>0.089%</td>
+<td>0.111%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>C<sub>d,v</sub></td>
+<td>0.25</td>
+<td>0.173%</td>
+<td>0.922%</td>
+<td>0.473%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>C<sub>L</sub></td>
+<td>1.21</td>
+<td>0.140%</td>
+<td>0.106%</td>
+<td>0.132%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plot is given here:
+<a href="Bump/SARC/force_convergence_sarc.dat">force_convergence_sarc.dat</a>.
+
+<p>The surface skin friction coefficient from both codes on the finest 1409 x 641 grid
+over the entire bump wall is shown in the next plot. Again, local anomalous behavior exists near the leading
+edge (x=0) due to singular behavior of the solution, 
+as well as near the trailing edge (x=1.5) due to numerical influences.
+These behaviors differ for the two codes, and result in small local deviations that
+can be seen when zoomed into the two locations. But both codes are seen to yield nearly identical results
+over most of the bump wall.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/cf_compare_0levdn_sarc.jpg" border="1" title="skin friction coefficient over the bump" alt="skin friction coefficient over the bump">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given here:
+<a href="Bump/SARC/cf_bump_sarc.dat">cf_bump_sarc.dat</a>.
+
+<p>The surface pressure coefficient from both codes on the finest 1409 x 641 grid
+over the entire bump wall is shown in the next plot. 
+Both codes yield nearly identical results.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/cp_compare_0levdn_sarc.jpg" border="1" title="pressure coefficient over the bump" alt="pressure coefficient over the bump">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given here:
+<a href="Bump/SARC/cp_bump_sarc.dat">cp_bump_sarc.dat</a>.
+
+<p>The eddy viscosity contours (nondimensionalized by freestream laminar viscosity)
+from the two codes on the finest 1409 x 641 grid are shown
+in the following plots (y-scale expanded for clarity).  They are essentially indistinguishable.
+(Note legends do not necessarily reflect min and max values.)
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/mut_0levdn_sarc_cfl3d.jpg" border="1" title="eddy viscosity contours for CFL3D" alt="eddy viscosity contours for CFL3D">
+           <img
+src="Bump/SARC/mut_contours_sarc_fun3d.jpg" border="1" title="eddy viscosity contours for FUN3D" alt="eddy viscosity contours for FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data files that generated the above plots are given here:
+<a href="Bump/SARC/mut_contours_cfl3d_sarc.dat.gz">mut_contours_cfl3d_sarc.dat.gz</a> (9.7 MB) (structured, at cell centers) and
+<a href="Bump/SARC/mut_contours_fun3d_sarc.dat.gz">mut_contours_fun3d_sarc.dat.gz</a> (16.7 MB) (unstructured, at grid points). Note 
+that these are both gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted files, so you must either have Tecplot or know how to read their format in order to use these
+files.
+
+<p>Using the finest 1409 x 641 grid, an extracted nondimensional eddy viscosity profile at 
+x=0.75 is shown below, along with a plot of the maximum nondimensional
+eddy viscosity as a function of x.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/mut_0.75_sarc.jpg" border="1" title="eddy viscosity at x=0.75" alt="eddy viscosity at x=0.75">
+           <img
+src="Bump/SARC/mut_max_sarc.jpg" border="1" title="max eddy viscosity vs. x" alt="max eddy viscosity vs. x">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the eddy viscosity profile at x=0.75 is given here:
+<a href="Bump/SARC/mut_0.75_sarc.dat">mut_0.75_sarc.dat</a>.
+The data file that generated the max eddy viscosity plot is given here:
+<a href="Bump/SARC/mut_max_sarc.dat">mut_max_sarc.dat</a> (extracted only for CFL3D).
+
+<p>U-Velocity profiles are shown at the two x-locations of x=0.75 and x=1.20148 for
+the finest grid in the following plot.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/uvel_sarc.jpg" border="1" title="velocity profiles" alt="velocity profiles">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given in
+<a href="Bump/SARC/uvel_sarc.dat">uvel_sarc.dat</a> (extracted only for CFL3D).
+
+<p>The SA model relies on the minimum distance to the nearest wall.  For this case,
+contours of this function 
+are shown in the following plot, for the grid 1 level down from the finest
+grid.  
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/bump_mindist.jpg" border="1" title="minimum distance function" alt="minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given in
+<a href="Bump/bump_1levdown.mindist.dat.gz">bump_1levdown.mindist.dat.gz</a> (gzipped file,
+3.9 MB, unstructured, at grid points). Note
+that this is a gzipped <a href="http://www.tecplot.com">Tecplot</a>
+formatted file, so you must either have Tecplot or know how to read their format in
+order to use it.
+
+It is important to note that computing minimum distance by searching along grid lines is
+incorrect, and is <strong>not</strong> the same as computing actual minimum distance to the nearest wall for this grid. Using
+the former method will yield some minor differences in the results.  The following sketches
+demonstrate the concept of minimum distance.  Improperly-calculated minimum distance
+functions will particularly produce incorrect results for cases in which the
+grid lines are not perfectly normal to the body surface.
+Note that when the nearest wall point is a sharp convex corner or edge (like an airfoil or wing trailing edge) then the
+correct minimum distance is the distance to that corner or edge, which is not a wall normal.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/mindistsketch.jpg" border="1" width="500" title="sketch 1 demonstrating the concept of minimum distance function" alt="sketch 1 demonstrating the concept of minimum distance function">
+           <img
+src="Bump/mindistsketch2.jpg" border="1" width="500" title="sketch 2 demonstrating the concept of minimum distance function" alt="sketch 2 demonstrating the concept of minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Results from USM3D are shown alongside the CFL3D and FUN3D results below.
+All codes are converging to the same results.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/cf632_convergence_sarc_C+F+U.jpg" border="1" title="convergence of Cf at x=0.632 vs h for SA-RC,
+incl USM3D results" alt="convergence of Cf at x=0.632 vs h for SA-RC,
+incl USM3D results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/cf75_convergence_sarc_C+F+U.jpg" border="1" title="convergence of Cf at x=0.75 vs h for SA-RC,
+incl USM3D results" alt="convergence of Cf at x=0.75 vs h for SA-RC,
+incl USM3D results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/SARC/cf868_convergence_sarc_C+F+U.jpg" border="1" title="convergence of Cf at x=0.868 vs h for SA-RC,
+incl USM3D results" alt="convergence of Cf at x=0.868 vs h for SA-RC,
+incl USM3D results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="bump.html">2D Bump-in-channel Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+01/15/2021 - added results from USM3D<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/01/2023
+<br>&nbsp;
+
+</body>
+</html>

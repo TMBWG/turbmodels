@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Fully-Developed Channel Flow at High Reynolds Number Validation - Wilcox2006-klim-m Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<br>&nbsp;
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="channelflow_val_sa.html">SA Results</a>,&nbsp;
+         <a href="channelflow_val_saqcr2000.html">SA-QCR2000 Results</a>,&nbsp;
+         <a href="channelflow_val_sst.html">SSTm Results</a>,&nbsp;
+         <a href="channelflow_val_ssglrrrsm.html">SSG/LRR-RSM-w2012 Results</a>,&nbsp;
+         <a href="channelflow_val_kkl-meah.html">K-kL-MEAH2015 Results</a></p>
+<p>Return to: <a href="channelflow_val.html">Fully-Developed Channel Flow Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2D Fully-Developed Channel Flow at High 
+Reynolds Number Validation Case</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">Wilcox2006-klim-m Model Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="wilcox.html#w06klim">Link to Wilcox2006-klim-m equations</a>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="ChannelFlow/Validation/cf_cfl3d_w06.jpg" border="1" title="Wilcox2006-klim-m - Cf vs x" alt="Wilcox2006-klim-m - Cf vs x">
+</p>
+           </td>
+
+        <p><img
+src="ChannelFlow/Validation/utau_w06.jpg" border="1" title="Wilcox2006-klim-m - v* vs x" alt="Wilcox2006-klim-m - v* vs x">
+           <img
+src="ChannelFlow/Validation/u_w06.jpg" border="1" title="Wilcox2006-klim-m - nondimensional u vs y" alt="Wilcox2006-klim-m - nondimensional u vs y">
+</p>
+           </td>
+
+        <p><img
+src="ChannelFlow/Validation/u+y+_w06.jpg" border="1" title="Wilcox2006-klim-m - u+ vs log10(y+)" alt="Wilcox2006-klim-m - u+ vs log10(y+)">
+           <img
+src="ChannelFlow/Validation/KM_w06.jpg" border="1" title="Wilcox2006-klim-m - Karman measure vs log10(y+)" alt="Wilcox2006-klim-m - Karman measure vs log10(y+)">
+</p>
+
+        <p><img
+src="ChannelFlow/Validation/mut_w06.jpg" border="1" title="Wilcox2006-klim-m - nondimensional eddy viscosity vs y" alt="Wilcox2006-klim-m - nondimensional eddy viscosity vs y">
+</p>
+
+        <p><img
+src="ChannelFlow/Validation/upvp_w06.jpg" border="1" title="Wilcox2006-klim-m - u'v'+ vs y" alt="Wilcox2006-klim-m - u'v'+ vs y">
+           <img
+src="ChannelFlow/Validation/upvp_vs_y+_w06.jpg" border="1" title="Wilcox2006-klim-m - u'v'+ vs log10(y+)" alt="Wilcox2006-klim-m - u'v'+ vs log10(y+)">
+</p>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Previously on this page the results were reported as Wilcox2006-klim solutions, but more properly they should be referred
+to as Wilcox2006-klim-m.  Essentially no difference is expected.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Above Wilcox2006-klim-m results are from CFL3D on the finest 161x513 grid.
+CFL3D used freestream turbulence intensity=0.039% and freestream turbulent viscosity (relative to laminar)=0.009
+(additional details can be found in the <a href="https://nasa.github.io/CFL3D/Cfl3dv6/cfl3dv6_v5manual.html">CFL3D User's Manual, Appendix H</a>).
+Please read note 5 on <a href="noteonrunning.html">Notes on running CFD</a> page.
+Note that these are compressible code results; results will be somewhat different for incompressible codes.
+In fact, for incompressible flow, the Cf and v*/Uref should become constant (moving downstream) rather
+than slowly linearly increasing as shown here.
+Note that the quantity v<sup>*</sup> (as defined in
+White, F. M., <u>Viscous Fluid Flow</u>, McGraw-Hill, New York, 1974, pp. 471-474) is often referred to as u_tau.
+Note also that Uref used in the above plots is not bulk velocity, but rather
+the velocity at the reference position upstream where M=0.2.
+The density (used to compute Cf) is also referenced there.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results are assumed to be sufficiently "fully developed" by
+x=500.  Looking at the "Karman Measure" (KM), the value of
+"kappa" produced by this turbulence model is close to 0.400 over much of the log layer.
+Because Wilcox2006-klim-m is a linear (Boussinesq) model, there is essentially no separation between u'u', v'v', and w'w'.
+<!--The CFD postprocessed data files are given here for reference:
+<a href="FlatPlate_validation/sa-cf_cfl3d.dat">sa-cf_cfl3d.dat</a> and
+<a href="FlatPlate_validation/sa-upyp_cfl3d.dat">sa-upyp_cfl3d.dat</a>.
+A typical CFL3D input file is:
+<a href="FlatPlate/SA/cfl3d_typical.inp">cfl3d_typical_sa.inp</a>.-->
+</p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that this model is currently assigned
+<a href="modelreadiness.html">MRR Level</a> 2 for the purposes of this website.
+This is because at this time the TMBWG has results for this model
+from two different codes from the same home organization.
+The results on this page are therefore not necessarily
+reliable until additional independent code(s) can be used to verify the model implementation.
+</p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">CFL3D results are given here:
+<a href="ChannelFlow/Validation/w06_cf_vs_x_cfl3d.dat">w06_cf_vs_x_cfl3d.dat</a>,
+<a href="ChannelFlow/Validation/w06_utau_vs_x_cfl3d.dat">w06_utau_vs_x_cfl3d.dat</a>,
+<a href="ChannelFlow/Validation/w06_u_cfl3d.dat">w06_u_cfl3d.dat</a>,
+<a href="ChannelFlow/Validation/w06_u+y+KM_cfl3d.dat">w06_u+y+KM_cfl3d.dat</a>,
+<a href="ChannelFlow/Validation/w06_mut_cfl3d.dat">w06_mut_cfl3d.dat</a>,
+<a href="ChannelFlow/Validation/w06_plus_cfl3d.dat">w06_plus_cfl3d.dat</a>.
+A typical CFL3D input file is:
+<a href="ChannelFlow/Validation/w06_cfl3d_typical.inp">w06_cfl3d_typical.inp</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="channelflow_val_sa.html">SA Results</a>,&nbsp;
+         <a href="channelflow_val_saqcr2000.html">SA-QCR2000 Results</a>,&nbsp;
+         <a href="channelflow_val_sst.html">SSTm Results</a>,&nbsp;
+         <a href="channelflow_val_ssglrrrsm.html">SSG/LRR-RSM-w2012 Results</a>,&nbsp;
+         <a href="channelflow_val_kkl-meah.html">K-kL-MEAH2015 Results</a></p>
+<p>Return to: <a href="channelflow_val.html">Fully-Developed Channel Flow Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+02/01/2022 - added mention of expected results for incompressible flow<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 02/01/2022
+<br>&nbsp;
+
+</body>
+</html>

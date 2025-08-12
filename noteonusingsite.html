@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Notes on How to Use this Website</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Notes on How to Use this Website
+</strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large"><u>If your purpose is : Finding a Turbulence Model Description</u></span></p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>1.</strong> From the
+<a href="index.html">home page</a> near the top, select a turbulence model from the section titled "Turbulence Models."
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>2.</strong> The model and
+published variants (if any) are described on the selected page.
+If you do not see a particular turbulence model listed that you are interested in, 
+please consider volunteering to help us add a description of the model to the website (see
+<a href="Papers/Guideline-turbmodeldescription.pdf">Guidelines for submitting a new turbulence model description</a>).
+It should be published (in an accessible reference).
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large"><u>If your purpose is : Verification</u></span></p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>1.</strong> From the
+<a href="index.html">home page</a>, look at the section titled "Turbulence Model Verification Cases and Grids."
+The links are listed several different ways.  There is a descriptive title (e.g., "2D Coflowing Jet") as well as a
+short-hand notation (e.g., "VERIF:2DCJ").  There is also a table
+titled "Models Currently Applied to Verification Cases".
+If you are trying to verify your implementation of one of the listed models (left column), then continue on to step 2.
+If the model you are interested in is not listed in this table, then you cannot perform verification using this site
+at this time;
+please consider volunteering to help us to add a description of your model to the website if it is not already in place (see
+<a href="Papers/Guideline-turbmodeldescription.pdf">Guidelines for submitting a new turbulence model description</a>),
+and to get verification cases in place.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>2.</strong> Select one of the
+verification cases and go to that page.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>3.</strong> Find the link for
+obtaining the case's sequence of grids (to be used for the grid convergence study) on the Intro Page for the case
+of interest.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>4.</strong> Download the grids,
+and run your code on the full sequence of grids (in other words, if there are 5 grids, then run your code 5 times, once on each 
+grid).  Be sure to use boundary conditions that are consistent
+with the ones used herein.  Be sure to <i>fully converge</i> each of your verification solutions iteratively.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>5.</strong> Compare your results
+with those posted on the verification page.  For grid convergence (results as a function of <i>h</i>), your solution should approach the
+<u>same</u> answer as h approaches zero.  Also, your results on the finest grids should very closely match the posted
+results.  Note that if you are running an incompressible code, your results may not match, as almost all results on this
+site are compressible code results.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>6.</strong> If your results do not match the website's,
+then you may have an implementation difference (check the turbulence model equations), a bug, or you may not have
+sufficiently converged your solutions iteratively.  Read the entire Verification page(s) for your case thoroughly,
+to make sure that your boundary conditions are appropriate, and that you have handled other important issues appropriately.
+Note also that your code's mean-flow equations should probably be nominally
+second-order accurate (or higher), as first-order mean-flow terms are typically inadequate.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>7.</strong> Note the Model Readiness Rating 
+(<a href="modelreadiness.html">MRR</a>) of the turbulence model you are interested in.  The higher the rating, the more
+confidence there is in the posted results. For example, MRR Level 3 or higher indicates very high confidence, because multiple 
+CFD codes from different organizations (coded independently) have been demonstrated to produce consistent results for
+Verification cases.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>8.</strong> For verification of the SA model (and in one case
+SA-QCR2000) there is another section of verification cases that have been developed for use in AIAA workshops.  See the section on
+the main page titled: "Additional Turbulence Model Verification Cases and Grids."
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large"><u>If your purpose is : Validation</u></span></p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>1.</strong> From the
+<a href="index.html">home page</a>, look at the section titled "Turbulence Model Validation Cases and Grids."
+The links are listed several different ways.  There is a descriptive title (e.g., "2D Mixing Layer") as well as a
+short-hand notation (e.g., "2DML").  There are also two tables, one listing the validation cases along with the models
+currently tested for them, and another listing the type of flow physics covered by each validation case. 
+Choose the case you are interested in.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>2.</strong> If you want to run the case
+yourself, then find the link for
+obtaining the case's sequence of grids on the Intro Page for the case
+of interest and continue on to step 3.  <i>If you have not yet verified your implementation of the model,
+then you should go through that step first (see "If your purpose is : Verification" above).</i>  If you are only interested in seeing how different models behave
+for the case of interest, then simply view the plots on the validation pages.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>3.</strong> Download the grids,
+and run your code on the appropriate grid level (typically the finest or second-finest grid level).
+You can run on all grid levels to check the grid convergence if desired.
+Be sure to use boundary conditions that are consistent
+with the ones used herein.  Be sure that each of your solutions is sufficiently converged iteratively.
+Corresponding data for each validation case is
+provided on the Validation Intro Page.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>4.</strong> Compare your results
+with those posted on the validation page.  Your solution should closely match the posted results for the model.
+If it does not, then be sure that you have verified the implementation of your model (see "If your purpose is : Verification" above).
+Note that if you are running an incompressible code, your results may be different, as almost all results on this
+site are compressible code results.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>5.</strong> Note that for the Validation results
+posted on this site, some effort was made to ensure reasonable grid resolutions
+for the finest grid levels provided, but thorough grid convergence studies were <u>not</u> completed for these cases,
+and in some cases (specifically noted) iterative convergence was problematic.  
+<u>Therefore, posted Validation results should be considered representative, but not "truth."</u> In other words, the intent
+of the Validation cases is to indicate the general behavior of different turbulence models for a wide variety
+of problems of interest.  It is expected that differences in results between
+the models will typically be larger than differences caused by insufficient grid resolution.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large"><u>If your purpose is : Finding Data</u></span></p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>1.</strong> From the
+<a href="index.html">home page</a>, go to one of the sections under "Turbulent Flow Validation Databases."
+There are many experimental, DNS, and LES databases contained there.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>2.</strong> Note that data is also
+provided on the Intro Pages for each Validation case.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large"><u>If your purpose is : Other</u></span></p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><strong>1.</strong> Search around the site!
+There is a section on the method of manufactured solutions, and several sections on Numerical Analysis,
+which focus on numerical details for specific problems of interest.
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p class="Center" style="font-family: helvetica,arial,sans-serif;"><strong>Recent Significant Site Updates</strong><br>
+02/15/2018 - Added further clarification to Note 5 under Validation<br>
+02/27/2017 - Added Note 5 under Validation<br>
+07/08/2016 - Added Note 7 under Verification<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 06/15/2024
+<br>&nbsp;
+
+</body>
+</html>

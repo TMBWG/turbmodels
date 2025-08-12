@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - Axisymmetric Rotating Pipe</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="rotatingpipe_val.html">Axisymmetric Rotating Pipe Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids - Axisymmetric Rotating Pipe Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A series of 5 nested grids, in units of meters,
+are provided.  All grid files have been gzipped.
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from the finest 17 x 769 x 513
+to the coarsest 2 x 49 x 33 grid.
+The minimum grid spacing at the wall on the finest grid is 8 x 10<sup>-5</sup> m, yielding an
+approximate average minimum y+ of about 0.1.
+At the axis, the grid points are placed at r = 0, forming 
+a singular (pole) there.
+The following figure shows a portion of
+the 3 x 97 x 65 grid (3 levels down from the finest grid).  The grid
+is not drawn to scale.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Rotatingpipe_grids/rotatingpipe_grid.jpg" border="1" title="Axisymmetric Rotating Pipe grid" alt="Axisymmetric Rotating Pipe grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">STRUCTURED VERSIONS OF 
+GRIDS</strong>
+
+<p>A Fortran grid generation program to create structured grids is provided here:
+<ul>
+  <li><a href="Rotatingpipe_grids/makegrid_pipe_str.f90">makegrid_pipe_str.f90</a>
+</ul>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>The structured PLOT3D grids are given only as 3-D 
+axisymmetric grids (multiple planes with total rotation through 5 deg.  <u>Note that in the grids,
+"z" is "up", and "y" is in the circumferential direction; this is different than in the
+experiment, and must be properly accounted for when extracting the data for comparison.</u>
+Also note that the grids provided below have (for example) idim=17, jdim=769, kdim=513.
+In other words, idim is in the y-direction, jdim is in the x-direction, and kdim is in the z-direction.
+This orientation is similar to other structured grids used on the TMR website.
+For convenience, the Fortran program provided above was altered so that the idim and jdim directions are switched
+(idim is in the x-direction, jdim is in the y-direction, and kdim is in the z-direction).
+
+<p>Format for the structured 3D grid is PLOT3D-type, 
+formatted, MG, 3D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),kdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) (((x(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((y(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((z(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 3-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis.p3dfmt.gz">
+        (3-D) 17x769x513 (gzipped) </a> (6.8 MB)
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis-half.p3dfmt.gz">
+        (3-D) 9x385x257 (gzipped) </a> (1.2 MB)
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis-quarter.p3dfmt.gz">
+        (3-D) 5x193x129 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis-eighth.p3dfmt.gz">
+        (3-D) 3x97x65 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis-sixteenth.p3dfmt.gz">
+        (3-D) 2x49x33 (gzipped) </a> (&lt; 1 MB)
+</ul>
+
+<p>If desired, example Neutral Map Files 
+associated with 3-D version of the grids are given here (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis.nmf_forTMR">
+        Neutral Map File for (3-D) 17x769x513</a>
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis-half.nmf_forTMR">
+        Neutral Map File for (3-D) 9x385x257</a>
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis-quarter.nmf_forTMR">
+        Neutral Map File for (3-D) 5x193x129</a>
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis-eighth.nmf_forTMR">
+        Neutral Map File for (3-D) 3x97x65</a>
+<li><a href="Rotatingpipe_grids/pipe_fine_3d_0axis-sixteenth.nmf_forTMR">
+        Neutral Map File for (3-D) 2x49x33</a>
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">DIFFERENT Temporary Unstructured 3-D Grid</strong>
+
+<p>A one-off 3-D unstructured grid was created spanning 20 degrees.
+This grid was created by John Stokes (ANSYS) for a particular study that has not been published.
+There is currently no grid sequence associated with this special grid.
+The grid has 258,014 nodes, and is a mix of hex cells (outer part) and prism cells (near center of pipe).
+The structured part of the grid has 19 grid points spanwise (covering the 20 degrees); however, they are
+<i>not</i> uniformly spaced.
+It is provided in 2 formats: CGNS and UGRID. Large files have been gzipped.
+<ul>
+  <li>CGNS: 
+     <ul>
+        <li><a href="Rotatingpipe_grids/RotatingPipe3DHybridMesh.cgns.gz">RotatingPipe3DHybridMesh.cgns.gz</a> (3.6 MB)
+     </ul>
+  <li>UGRID (AFLR3):
+     <ul>
+        <li><a href="Rotatingpipe_grids/RotatingPipe3DHybridMesh.b8.ugrid.gz">RotatingPipe3DHybridMesh.b8.ugrid.gz</a> (47.6 MB)
+        <li><a href="Rotatingpipe_grids/RotatingPipe3DHybridMesh.mapbc">RotatingPipe3DHybridMesh.mapbc</a>
+     </ul>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="rotatingpipe_val.html">Axisymmetric Rotating Pipe Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/10/2022
+<br>&nbsp;
+
+</body>
+</html>

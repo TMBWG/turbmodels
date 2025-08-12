@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>SSG/LRR-RSM-w2012 Expected Results - 2D Coflowing Jet</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="shear.html">2D Coflowing Jet Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">SSG/LRR-RSM-w2012 Expected Results - 2D Coflowing Jet</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Results are shown here from 2 compressible codes
+so that the user may compare their own compressible code results.  Multiple grids were
+used so the user can see trends with grid refinement.  Different codes will behave
+differently with grid refinement depending on many factors (including code order of accuracy
+and other numerics),
+but it would be expected that as the grid is refined the results
+will tend toward an "infinite grid" solution that is the same.
+Be careful when comparing details: any differences in boundary conditions or flow conditions
+may affect results.
+
+<p>Note that this case was previously referred to as a 2D Planar Shear, but it is
+more appropriately referred to as a 2D Coflowing Jet.  Some of the figures associated with this
+case may still have the word "shear" in them.
+
+<p>Two independent compressible RANS codes,
+CFL3D and TAU, were used to compute this
+coflowing jet flow with the SSG/LRR-RSM-w2012 second-moment Reynolds stress transport model
+(see full description on
+<a href="rsm-ssglrr.html">SSG/LRR Full Reynolds Stress Model page</a>). The full series of 5 grids were used.
+CFL3D is a cell-centered structured-grid code (NASA Langley), and TAU
+is a node-centered unstructured-grid code (DLR).
+CFL3D used Roe's Flux Difference
+Splitting, whereas TAU was run using central discretization with artificial matrix dissipation
+for the mean flow equations and upwinding for the turbulence equations.
+Both codes were run with
+full Navier-Stokes,
+and both codes used first-order upwinding for the advective terms of the turbulence model.
+Details about the codes can be found on their respective websites
+(<a href="https://nasa.github.io/CFL3D">CFL3D</a>,
+<a href="http://tau.dlr.de/code-description">TAU</a>).
+The codes were not necessarily run to machine-zero iterative convergence, but an attempt was made to converge
+sufficiently so that results of interest were well within normal engineering tolerance and
+plotting accuracy.  For example, for CFL3D the density residual was typically
+driven down below 10<sup>-13</sup>.  It should be kept in mind that many of the files given below
+contain computed values directly from the codes,
+using a precision <strong>greater</strong> than the convergence tolerance (i.e., the values
+in the files are not necessarily as precise as the number of digits given).
+
+<p>The freestream turbulence values used by both CFL3D and TAU for this case were
+Tu=0.1% and <img class="tex" alt="\mu_t / \mu = 0.1" src="ssglrrrsm_eqns/img8.png" />.
+(Note that these are <i>not</i> the default values in CFL3D.)  It was discovered that using the
+same freestream turbulence values in both codes was important for this particular case.
+
+<p>For freestream turbulence BCs, both codes assume isotropic turbulence 
+conditions (identical normal stresses, zero diagonal stresses).
+
+<p>For the interested reader, typical input files for this problem are given here:
+<p>CFL3D:
+<ul>
+<li><a href="Shear/SSGLRRRSM/cfl3d_typical.inp">Typical Input File for 2D Coflowing Jet</a>
+</ul>
+<p>TAU:
+<ul>
+<li><a href="Shear/SSGLRRRSM/tau_typicalpara.inp">Typical Input File for 2D Coflowing Jet</a>
+</ul>
+
+<p>The following plot shows the convergence of the drag coefficient due to
+skin friction on both sides of the thin plate between -10 &lt; x &lt; 0
+with grid size for the two codes.
+In the plot the x-axis is plotting 1/N<sup>1/2</sup>, which is proportional to
+grid spacing (h).
+At the left of the plot, h=0 represents an infinitely fine grid.
+Both codes go toward approximately the same result on an infinitely refined grid.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/cd_rsme_C+T.jpg" border="1" title="convergence of Cd on thin plate vs h" alt="convergence of Cd on thin plate vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following for drag coefficient on the thin plate:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>3.37</td>
+<td>0.138%</td>
+<td>0.015%</td>
+<td>1.960%</td>
+</tr>
+
+<tr>
+<td>TAU</td>
+<td>1.19</td>
+<td>0.566%</td>
+<td>0.439%</td>
+<td>0.551%</td>
+</tr>
+
+</table></center>
+
+<p>The following plots show u-velocity (nondimensionalized by reference speed of
+sound) at 3 different locations in the jet: (1) x=2.71623, (2) x=29.2468, and
+(3) x=95.501.
+As seen, both codes are tending toward similar results
+as the grid is refined.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/u_3_rsme_C+T.jpg" border="1" title="convergence of u-velocity
+    near x=3 vs h" alt="convergence of u-velocity
+    near x=3 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/u_29_rsme_C+T.jpg" border="1" title="convergence of u-velocity
+    near x=29 vs h" alt="convergence of u-velocity
+    near x=29 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/u_96_rsme_C+T.jpg" border="1" title="convergence of u-velocity
+    near x=96 vs h" alt="convergence of u-velocity
+    near x=96 vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of th
+e ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 20
+08, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Quantity</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></t
+h>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup
+></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>u near x=3</td>
+<td>0.86</td>
+<td>0.047%</td>
+<td>0.057%</td>
+<td>0.071%</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>u near x=29</td>
+<td>5.33</td>
+<td>0.001%</td>
+<td>&lt; 0.001%</td>
+<td>0.067%</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>u near x=96</td>
+<td>1.16</td>
+<td>0.023%</td>
+<td>0.019%</td>
+<td>0.023%</td>
+</tr>
+
+<tr>
+<td>TAU</td>
+<td>u near x=3</td>
+<td>oscillatory convergence</td>
+<td>0.001%</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>TAU</td>
+<td>u near x=29</td>
+<td>1.93</td>
+<td>0.035%</td>
+<td>0.012%</td>
+<td>0.016%</td>
+</tr>
+
+<tr>
+<td>TAU</td>
+<td>u near x=96</td>
+<td>3.36</td>
+<td>0.007%</td>
+<td>0.001%</td>
+<td>0.099%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated all the above plots is given here:
+<a href="Shear/SSGLRRRSM/convergence_ssglrrrsm.dat">convergence_ssglrrrsm.dat</a>.
+
+<p>The u-velocity along x at y=0 from both codes on the finest grid
+is shown in the next plot.
+Both codes are seen to yield nearly identical results
+over the entire domain.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/uvel_y_0_rsme_C+T.jpg" border="1" title="u-velocity along x at y=0" alt="u-velocity along x at y=0">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given here:
+<a href="Shear/SSGLRRRSM/uvel_y_0_ssglrrrsm.dat">uvel_y_0_ssglrrrsm.dat</a>.
+
+<p>The u-velocity along y at three x-stations from both codes on the finest grid
+is shown in the next three plots.  Again, both
+codes are seen to yield nearly identical results.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/uvel_x_3_rsme_C+T.jpg" border="1" title="u-velocity along y at
+ x=2.71623" alt="u-velocity along y at
+ x=2.71623">
+           <img
+src="Shear/SSGLRRRSM/uvel_x_29_rsme_C+T.jpg" border="1" title="u-velocity along y at
+ x=29.2468" alt="u-velocity along y at
+ x=29.2468">
+           <img
+src="Shear/SSGLRRRSM/uvel_x_96_rsme_C+T.jpg" border="1" title="u-velocity along y at
+ x=95.501" alt="u-velocity along y at
+ x=95.501">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data files that generated the above plot are given here:
+<a href="Shear/SSGLRRRSM/uvel_x_3_ssglrrrsm.dat">uvel_x_3_ssglrrrsm.dat</a>,
+<a href="Shear/SSGLRRRSM/uvel_x_29_ssglrrrsm.dat">uvel_x_29_ssglrrrsm.dat</a>,
+<a href="Shear/SSGLRRRSM/uvel_x_96_ssglrrrsm.dat">uvel_x_96_ssglrrrsm.dat</a>.
+
+<p>This type of flow exhibits self-similar behavior far enough downstream.
+The velocity can be normalized as (u-u<sub>1</sub>)/(u<sub>m</sub>-u<sub>1</sub>),
+where u<sub>1</sub> is the velocity at the edge of the outer stream, and
+u<sub>m</sub> is the peak (centerline) velocity.  When plotted against y/b,
+where b is the halfwidth (location where u-u<sub>1</sub> is half of
+u<sub>m</sub>-u<sub>1</sub>), the results can be compared
+to the experimental data of Bradbury and Riley (J. Fluid Mech
+27(2):381-394, 1967,
+<a href="https://doi.org/10.1017/S0022112067000400">https://doi.org/10.1017/S0022112067000400</a>).  
+In the following plot, CFL3D and TAU results are taken from the
+three x-locations x=29.2468, x=64.2188, and x=95.501.  The 
+first location is not far enough downstream to be approximately self-similar. 
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/compare_exp_rsme_C+T.jpg" border="1" title="normalized velocity in wake compared to experiment" alt="normalized velocity in wake compared to experiment">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given here:
+<a href="Shear/SSGLRRRSM/normalized_u_ssglrrrsm.dat">normalized_u_ssglrrrsm.dat</a>.
+
+<p>Contours of the nondimensional Reynolds stress variables
+(<img class="tex" alt="\hat R_{ij}" src="ssglrrrsm_eqns/img6.png" />) as well as
+nondimensional omega from the two codes on the finest grid are shown
+in the following plots (y-scale expanded for clarity).  The first set of contours
+are in the farfield, and the second set are near the thin plate.  Results from the
+two codes are nearly the same.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/R11_cfl3d.jpg" border="1" title="R11 contours for CFL3D in the farfield" alt="R11 contours for CFL3D in the farfield">
+           <img
+src="Shear/SSGLRRRSM/R11_tau.jpg" border="1" title="R11 contours for TAU in the farfield" alt="R11 contours for TAU in the farfield">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/R22_cfl3d.jpg" border="1" title="R22 contours for CFL3D in the farfield" alt="R22 contours for CFL3D in the farfield">
+           <img
+src="Shear/SSGLRRRSM/R22_tau.jpg" border="1" title="R22 contours for TAU in the farfield" alt="R22 contours for TAU in the farfield">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+     
+        <p><img
+src="Shear/SSGLRRRSM/R33_cfl3d.jpg" border="1" title="R33 contours for CFL3D in the farfield" alt="R33 contours for CFL3D in the farfield">
+           <img
+src="Shear/SSGLRRRSM/R33_tau.jpg" border="1" title="R33 contours for TAU in the farfield" alt="R33 contours for TAU in the farfield">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+     
+        <p><img
+src="Shear/SSGLRRRSM/R13_cfl3d.jpg" border="1" title="R13 contours for CFL3D in the farfield" alt="R13 contours for CFL3D in the farfield">
+           <img
+src="Shear/SSGLRRRSM/R13_tau.jpg" border="1" title="R13 contours for TAU in the farfield" alt="R13 contours for TAU in the farfield">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+     
+        <p><img
+src="Shear/SSGLRRRSM/omega_cfl3d.jpg" border="1" title="omega contours for CFL3D in the farfield" alt="omega contours for CFL3D in the farfield">
+           <img
+src="Shear/SSGLRRRSM/omega_tau.jpg" border="1" title="omega contours for TAU in the farfield" alt="omega contours for TAU in the farfield">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/R11_cfl3d_closeup.jpg" border="1" title="R11 contours for CFL3D near the thin plate" alt="R11 contours for CFL3D near the thin plate">
+           <img
+src="Shear/SSGLRRRSM/R11_tau_closeup.jpg" border="1" title="R11 contours for TAU near the thin plate" alt="R11 contours for TAU near the thin plate">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/R22_cfl3d_closeup.jpg" border="1" title="R22 contours for CFL3D near the thin plate" alt="R22 contours for CFL3D near the thin plate">
+           <img
+src="Shear/SSGLRRRSM/R22_tau_closeup.jpg" border="1" title="R22 contours for TAU near the thin plate" alt="R22 contours for TAU near the thin plate">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/R33_cfl3d_closeup.jpg" border="1" title="R33 contours for CFL3D near the thin plate" alt="R33 contours for CFL3D near the thin plate">
+           <img
+src="Shear/SSGLRRRSM/R33_tau_closeup.jpg" border="1" title="R33 contours for TAU near the thin plate" alt="R33 contours for TAU near the thin plate">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/R13_cfl3d_closeup.jpg" border="1" title="R13 contours for CFL3D near the thin plate" alt="R13 contours for CFL3D near the thin plate">
+           <img
+src="Shear/SSGLRRRSM/R13_tau_closeup.jpg" border="1" title="R13 contours for TAU near the thin plate" alt="R13 contours for TAU near the thin plate">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/omega_cfl3d_closeup.jpg" border="1" title="omega contours for CFL3D near the thin plate" alt="omega contours for CFL3D near the thin plate">
+           <img
+src="Shear/SSGLRRRSM/omega_tau_closeup.jpg" border="1" title="omega contours for TAU near the thin plate" alt="omega contours for TAU near the thin plate">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data files that generated the above plots are given here:
+<a href="Shear/SSGLRRRSM/turb_contours_cfl3d_ssglrrrsm.dat.gz">turb_contours_cfl3d_ssglrrrsm.dat.gz</a> (11.0 MB),
+(structured, at cell centers) and
+<a href="Shear/SSGLRRRSM/turb_contours_tau_ssglrrrsm.dat.gz">turb_contours_tau_ssglrrrsm.dat.gz</a> (19.0 MB),
+(unstructured, at grid points). Note that these are all gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted files, so you must either have Tecplot or know how to read their format in order to use these
+files.
+
+<p>Using the finest grid, extracted nondimensional k and omega profiles at
+x=29.2468 are shown below.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/k_x_29_rsme_C+T.jpg" border="1" title="nondimensional k at x=29.2468" alt="nondimensional k at x=29.2468">
+           <img
+src="Shear/SSGLRRRSM/omega_x_29_rsme_C+T.jpg" border="1" title="nondimensional omega at x=29.2468" alt="nondimensional omega at x=29.2468">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above profile is given here:
+<a href="Shear/SSGLRRRSM/ssglrrrsm_k_omega_29.dat">ssglrrrsm_k_omega_29.dat</a>.
+
+<p>Using the finest grid, extracted nondimensional k along y=0 is shown below (note that
+for CFL3D the data are extracted along the cell center nearest y=0).
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/k_y_0_rsme_C+T.jpg" border="1" title="nondimensional k along y=0" alt="nondimensional k along y=0">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above profile is given here:
+<a href="Shear/SSGLRRRSM/ssglrrrsm_k_0.dat">ssglrrrsm_k_0.dat</a>.
+
+<p>The SSG/LRR-RSM-w2012 model relies on the minimum distance to the nearest wall.  For this case,
+contours of this function (near the thin plate, which is the only wall in the
+domain) are shown in the following plot, for the coarse grid 3 levels down from the finest
+grid. The y-scale has been expanded for clarity.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/mindist.jpg" border="1" title="minimum distance function" alt="minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given in
+<a href="Shear/mindist.dat">mindist.dat</a> (unstructured, at grid points). Note
+that this is a
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted file, so you must either have Tecplot or know how to read their format in
+order to use it.
+
+<p>It is important to note that computing minimum distance by searching along grid lines is
+incorrect, and is <strong>not</strong> the same as computing actual minimum distance to the nearest wall for this grid. Using
+the former method will yield differences in the results.  The following sketches
+demonstrate the concept of minimum distance.  Improperly-calculated minimum distance
+functions will particularly produce incorrect results for cases in which the
+grid lines are not perfectly normal to the body surface, 
+or when the nearest body does not lie in the current grid zone.
+Note that when the nearest wall point is a sharp convex corner or edge (like an airfoil or wing trailing edge) then the
+correct minimum distance is the distance to that corner or edge, which is not a wall normal.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/mindistsketch.jpg" border="1" width="500" title="sketch 1 demonstrating the concept of minimum distance function" alt="sketch 1 demonstrating the concept of minimum distance function">
+           <img
+src="Bump/mindistsketch2.jpg" border="1" width="500" title="sketch 2 demonstrating the concept of minimum distance function" alt="sketch 2 demonstrating the concept of minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The codes were also run with the
+<a href="rsm-ssglrr.html#ssg-lrrRSM-SD">LRR/SSG-RSM-w2012-SD</a> variant.
+Results were essentially the same as
+<a href="rsm-ssglrr.html#ssg-lrrRSM">LRR/SSG-RSM-w2012</a> at upstream locations very near the dividing plate, but the
+spreading rates were different, so the results varied more significantly downstream.  The
+two codes CFL3D and TAU were again consistent with each other as the grid was refined, as shown in the
+following plots.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/u_3_rsme_C+T_SD.jpg" border="1" title="effect of simple diffusion variant
+    on convergence of u-velocity near x=3 vs h" alt="effect of simple diffusion variant
+    on convergence of u-velocity near x=3 vs h">
+           <img
+src="Shear/SSGLRRRSM/u_29_rsme_C+T_SD.jpg" border="1" title="effect of simple diffusion variant
+    on convergence of u-velocity near x=29 vs h" alt="effect of simple diffusion variant
+    on convergence of u-velocity near x=29 vs h">
+</p>
+        <p><img
+src="Shear/SSGLRRRSM/u_96_rsme_C+T_SD.jpg" border="1" title="effect of simple diffusion variant
+    on convergence of u-velocity near x=96 vs h" alt="effect of simple diffusion variant
+    on convergence of u-velocity near x=963 vs h">
+           <img
+src="Shear/SSGLRRRSM/uvel_y_0_rsme_C+T_SD.jpg" border="1" title="effect of simple diffusion variant
+    on u-velocity along x at y=0" alt="effect of simple diffusion variant
+    on u-velocity along x at y=0">
+</p>
+        <p><img
+src="Shear/SSGLRRRSM/compare_exp_rsme_sd_C+T.jpg" border="1" title="normalized velocity in wake compared to experiment,
+    using simple diffusion variant" alt="normalized velocity in wake compared to experiment,
+    using simple diffusion variant">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>SSG/LRR-RSM-w2012 results from FUN3D are shown alongside the CFL3D and TAU results below.
+All three codes are consistent.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Shear/SSGLRRRSM/cd_rsme_C+T+F.jpg" border="1" title="convergence of Cd on thin plate vs h, incl FUN3D"
+    alt="convergence of Cd on thin plate vs h, incl FUN3D">
+           <img
+src="Shear/SSGLRRRSM/u_3_rsme_C+T+F.jpg" border="1" title="convergence of u-velocity
+    near x=3 vs h, incl FUN3D"
+    alt="convergence of u-velocity near x=3 vs h, incl FUN3D">
+</p>
+        <p><img
+src="Shear/SSGLRRRSM/u_29_rsme_C+T+F.jpg" border="1" title="convergence of u-velocity
+    near x=29 vs h, incl FUN3D"
+    alt="convergence of u-velocity near x=29 vs h, incl FUN3D">
+           <img
+src="Shear/SSGLRRRSM/u_96_rsme_C+T+F.jpg" border="1" title="convergence of u-velocity
+    near x=96 vs h, incl FUN3D"
+    alt="convergence of u-velocity near x=96 vs h, incl FUN3D">
+</p>
+        <p><img
+src="Shear/SSGLRRRSM/uvel_y_0_rsme_C+T+F.jpg" border="1" title="u-velocity along x at y=0, incl FUN3D"
+    alt="u-velocity along x at y=0, incl FUN3D">
+           <img
+src="Shear/SSGLRRRSM/k_y_0_rsme_C+T+F.jpg" border="1" title="nondimensional k along y=0, incl FUN3D"
+    alt="nondimensional k along y=0, incl FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="shear.html">2D Coflowing Jet Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+04/05/2016 - re-named the case 2D Coflowing Jet<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/01/2023
+<br>&nbsp;
+
+</body>
+</html>

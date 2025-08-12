@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Convex Curvature Boundary Layer Validation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2DCC: 2D Convex Curvature Boundary Layer Validation
+Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. A large sequence of nested grids of the same family are 
+provided here if desired. Data are also provided for comparison. For this 
+particular "essentially incompressible" curvature 
+case (from Smits, Young, and Bradshaw), the data are from experiments. 
+
+<p>The experiment utilizes a constant area square duct of height 0.127 m with a rapid 30 degree bend
+(inner radius of curvature is 0.127 m).  In the experiment, the aspect ratio of the duct was 6:1.
+
+<p>The primary focus of this case is to assess turbulence models for convex wall curvature
+(the lower wall in this case). 
+Near convex walls, turbulence levels are known to decrease in comparison to flow near
+straight walls.  Here, different models are
+assessed in their ability to capture this effect.
+
+<p>(Note that this case also has an upper (concave) wall, where the opposite occurs.
+The concave wall destabilizes boundary layers, increasing turbulence levels and the thickness of 
+the boundary layer. In concave curvature, Gortler vortices generally form. These vortices tend 
+to be quasi-stable, and can result in steady or slowly varying, large scale spanwise variations 
+in boundary layer. Although not the primary focus of this case,
+the measurements from the Smits case on the concave wall show significant 
+spanwise variations in the skin friction, consistent with the presence of Gortler vortices. 
+We provide curves for the minimum and maximum skin friction along the concave wall from the 
+test. Given the nature of streamwise flow in concave curvature, 
+interpretations of differences between CFD and test in this region should take into account 
+both the uncertainty in the test results and the difficulty of capturing Gortler vortices 
+in a steady state computation in 3-D, and the impossibility of capturing their effects 
+in 2-D. For this test case the duct is modeled in 2-D.
+Results on the concave wall are provided for guidance and comparison between models, 
+but should <u>not</u> be interpreted as a definitive discriminator between models.)
+
+<!--The focus here is solely on the bottom wall (convex curvature).  In concave curvature boundary layers,
+3-D Gortler vortices are known to form, but for this test case
+the duct is modeled in 2-D.-->
+
+<p>The reference velocity (U<sub>ref</sub>) near the inlet is 31.9 m/s.
+The back pressure is chosen to achieve the desired flow. The upstream
+"run" length is chosen to allow the fully turbulent boundary layer
+to develop naturally, and achieve approximately the correct boundary layer thickness
+upstream of the bend.  The upper
+and lower boundaries are modeled as adiabatic solid walls.
+The following plot shows the layout of this case, along with the boundary conditions.
+"Pt" refers to total pressure, "P" refers to
+static pressure, and "Tt" refers to total temperature.
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Smitscurve_grids/bc_description.jpg" border="1" title="2D convex curvature grid layout & BCs" alt="2D convex curvature grid layout & BCs">
+</p>
+<p><img
+src="Smitscurve_grids/coordsys.jpg" border="1" title="2D convex curvature coordinate system" alt="2D convex curvature coordinate system">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="smitscurve_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<p>Some of the experimental data for this case will be shown below. 
+The profiles of interest are at s= -0.185 m (x=-0.166124 m) upstream of the bend, and 
+x= 0.030, 0.183, 0.335, 0.635, and 1.250 downstream of the bend.
+Data are given in local coordinates aligned with the inner duct wall and wall normal.
+
+<p>The experimental data reference is:  Smits, A. J., Young, S. T. B., Bradshaw, P.
+"The Effect of Short Regions of High Surface Curvature on Turbulent Boundary Layers,"
+J. Fluid Mech., Vol. 94, Part 2, 1979, pp. 209-242,
+<a href="https://doi.org/10.1017/S0022112079001002">https://doi.org/10.1017/S0022112079001002</a>.
+The experimental data are available on this site from:
+<ul>
+<li><a href="bradshaw.html">Data from "Collaborative Testing of Turbulence Models"</a> (Case F-0235)
+</ul>
+
+<p>Note that some inconsistencies were discovered in the experimental data
+as posted from Oct 30, 1981, in comparison with JFM (1979).  The data were
+revisited with the help of the original author (Lex Smits) during
+Oct-Nov 2012. The corrected data are provided.
+Note that skin friction coefficient values are given here based on U<sub>ref</sub>, for
+convenience when comparing against CFD results.  However, the original experimental data files
+give C<sub>f</sub> based on local edge velocity U<sub>e</sub>.
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Smitscurve_validation/cp_exponly.jpg" border="1" title="Convex curvature data Cp versus x" alt="Convex curvature data Cp versus x">
+           <img
+src="Smitscurve_validation/cf_exponly.jpg" border="1" title="Convex curvature data Cf versus x" alt="Convex curvature data Cf versus x">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>
+In the above plots, the s locations have been translated to x for s less than -0.066497.
+The three points on the Cp curve lying between s=-0.066497 and s=0 simply plot s rather than x
+(for convenience); visually it makes no noticeable difference.
+Note that the Cf experimental data are very sparse; they miss a dramatic localized
+increase that occurs between x=-0.2 and x=0 m.
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Smitscurve_validation/uvel_exponly.jpg" border="1" title="Convex curvature data u vs y" alt="Convex curvature data u vs y">
+           <img
+src="Smitscurve_validation/upvp_exponly.jpg" border="1" title="Convex curvature data u'v' vs y" alt="Convex curvature data u'v' vs y">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+The main focus of this case is the region near the bottom (convex) wall. 
+Data near the top (concave) wall were not provided in the on-line dataset F-0235.  However, the journal
+article provides some information. For example, the following plot shows a range of concave 
+wall skin friction coefficients (nondimensionalized by Uref), as measured at approximate "crest" and
+"trough" locations.  It is well-known that concave
+curvature tends to be very three-dimensional (with 
+<a href="http://en.wikipedia.org/wiki/G%C3%B6rtler_vortices">Gortler vortices</a>).
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Smitscurve_validation/cf_top_exponly.jpg" border="1" title="Concave curvature data Cf vs x" alt="Concave curvature data Cf vs x">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>
+The experimental data for this plot can be found in the following file:
+<a href="Smitscurve_validation/cf_concaveside_final.dat">cf_concaveside_final.dat</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="smitscurve_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="smitscurve_val_sarc.html">SA-RC</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#saRC">SA-RC eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="smitscurve_val_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-std">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="smitscurve_val_sstrc.html">SST-RCm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-rc">SST-RCm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="smitscurve_val_ssglrrrsm.html">SSG/LRR-RSM-w2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-ssglrr.html#ssg-lrrRSM">SSG/LRR-RSM-w2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="smitscurve_val_w06.html">Wilcox2006-klim-m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="wilcox.html#w06klim">Wilcox2006-klim-m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="smitscurve_val_easmkos.html">EASMko2003-S</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="easmko.html#easmko-s">EASMko2003-S eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="smitscurve_val_kertrc.html">K-e-Rt-RC</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="ke-rt.html#kertrc">K-e-Rt-RC eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="smitscurve_val_glvy.html">GLVY-RSM-2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-glvystressepsilon.html#glvy-rsm-2012">GLVY-RSM-2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2, SA-noft2-RC, SST, and SST-RC
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+03/31/2020 - better clarification between convex and concave curvature in discussion<br>
+03/24/2015 - added link to SST-RC results
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/18/2021
+<br>&nbsp;
+
+</body>
+</html>

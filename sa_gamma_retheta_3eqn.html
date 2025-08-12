@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>SA-noft2-Gamma-Retheta 3-equation Transitional Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+&nbsp;
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The SA-noft2-Gamma-Retheta 3-equation Transitional Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various forms of the
+SA-noft2-Gamma-Retheta transition modeling framework. 
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><a ID="std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">SA-noft2-Gamma-Retheta 3-equation Transition Model<span style="color: blue">
+  (SA-noft2-Gamma-Retheta)</span></strong>
+<p>This model is result of the coupling of the Spalart-Allmaras <span style="color: blue">(SA-noft2)</span> model with the Langtry-Menter
+local correlation based transition approach.
+The SA-noft2 model is augmented by two additional equations, originally developed by
+Menter et al. (Flow Turb Combust 77:277-303, 2006) in the the k-omega equations context, for transitional flows.
+
+The primary references for the implementation of this model are:
+
+<ul>
+<li>D'Alessandro, V., Montelpare, S., Ricci, R., and Zoppi, A., "Numerical Modeling of the Flow Over Wind Turbine Airfoils by Means of
+Spalart-Allmaras Local Correlation Based Transition Model," <b>Energy</b>, Vol. 130, 2017, pp. 402-419,
+<a href="https://doi.org/10.1016/j.energy.2017.04.134">https://doi.org/10.1016/j.energy.2017.04.134</a>.
+<li>D'Alessandro, V., Montelpare, S., and Ricci, R., "Assessment of a Spalart–Allmaras Model Coupled with Local
+Correlation Based Transition Approaches for Wind Turbine Airfoils," <b>Applied Sciences</b>, Vol. 11, No. 4, 2021, 1872,
+<a href="https://doi.org/10.3390/app11041872">https://doi.org/10.3390/app11041872</a>.
+</ul>
+
+<p>Like the <span style="color: blue">SST-2003-LM2009</span> model on which it is partially based, 
+this model is not Galilean invariant, due to its explicit use of the velocity vector.
+
+<p>
+The transport equations to take into account transition are given by following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho\gamma)}{\partial t} + \frac{\partial (\rho u_j \gamma)}{\partial x_j} = \rho P_\gamma  - \rho D_\gamma  + 
+ \frac{\partial}{\partial x_j}\left[
+ \left( \mu + \frac{\mu_t}{\sigma_f}\right) \frac{\partial \gamma}{\partial x_j} \right]"
+src="SAnoft2_gamma_retheta_eqns/img75.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \widehat{Re}_{\theta,t})}{\partial t} + \frac{\partial (\rho u_j \widehat{Re}_{\theta,t}) }{\partial x_j} = 
+ \rho P_{\theta,t}  + \frac{\partial}{\partial x_j} \left[
+ \sigma_{\theta,t} \left( \mu + \mu_t \right) \frac{\partial \widehat{Re}_{\theta,t}}{\partial x_j} \right]"
+src="SAnoft2_gamma_retheta_eqns/img76.png" /></dd>
+</dl>
+
+(In the original references, these equations were written in incompressible form, as follows:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \gamma}{\partial t} + u_j \frac{\partial \gamma}{\partial x_j} = P_\gamma  - D_\gamma  + \frac{\partial}{\partial x_j}\left[
+ \left( \nu + \frac{\nu_t}{\sigma_f}\right) \frac{\partial \gamma}{\partial x_j} \right]"
+src="SAnoft2_gamma_retheta_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial \widehat{Re}_{\theta,t}}{\partial t} + u_j \frac{\partial \widehat{Re}_{\theta,t} }{\partial x_j} = P_{\theta,t}  + \frac{\partial}{\partial x_j} \left[
+ \sigma_{\theta,t} \left( \nu + \nu_t \right) \frac{\partial \widehat{Re}_{\theta,t}}{\partial x_j} \right]"
+src="SAnoft2_gamma_retheta_eqns/img3.png" /></dd>
+)</dl>
+
+<p>The source terms in the <img class="tex" alt="\gamma" src="SAnoft2_gamma_retheta_eqns/img4.png" /> equation are defined as:
+<dl>
+<dd><img class="tex" alt="P_\gamma = c_{a1} S \left[ \gamma  F_{onset} \right]^{0.5}  \left(1 - c_{e1} \gamma \right) F_{length}"
+src="SAnoft2_gamma_retheta_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="D_\gamma = c_{a2} \Omega \gamma F_{turb} \left(c_{e2} \gamma -1\right)"
+src="SAnoft2_gamma_retheta_eqns/img6.png" /></dd>
+</dl>
+
+In <img class="tex" alt="P_\gamma" src="SAnoft2_gamma_retheta_eqns/img7.png" />, the term 
+<img class="tex" alt="F_{onset}" src="SAnoft2_gamma_retheta_eqns/img8.png" /> is computed as:
+<dl>
+<dd><img class="tex" alt="F_{onset} =  max \left( F_{onset,2} - F_{onset,3}, 0  \right)"
+src="SAnoft2_gamma_retheta_eqns/img9.png" /></dd>
+</dl>
+
+with
+
+<dl>
+<dd><img class="tex" alt="F_{onset,2} =  min \left( max \left( F_{onset,1} , F_{onset,1}^4  \right)  , 4\right)"
+src="SAnoft2_gamma_retheta_eqns/img10.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset,3} =  max \left[\left( 2 - \left( \frac{R_T}{2.5}  \right)^3 \right), 0 \right]"
+src="SAnoft2_gamma_retheta_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset,1} = \frac{Re_\nu}{2.193 Re_{\theta,c}}"
+src="SAnoft2_gamma_retheta_eqns/img12.png" /></dd>
+</dl>
+
+The terms <img class="tex" alt="Re_\nu" src="SAnoft2_gamma_retheta_eqns/img13.png" /> and 
+<img class="tex" alt="R_T" src="SAnoft2_gamma_retheta_eqns/img14.png" /> are obtained as follows:
+<img class="tex" alt="Re_\nu  = \frac{S d^2}{\nu}" src="SAnoft2_gamma_retheta_eqns/img15.png" /> and
+<img class="tex" alt="R_T = \frac{\nu_t}{\nu}" src="SAnoft2_gamma_retheta_eqns/img16.png" />.
+
+On the other hand, for the destruction term, 
+<img class="tex" alt="D_\gamma" src="SAnoft2_gamma_retheta_eqns/img17.png" />, the coefficient 
+<img class="tex" alt="F_{turb}" src="SAnoft2_gamma_retheta_eqns/img18.png" /> is defined:
+<dl>
+<dd><img class="tex" alt="F_{turb} = \exp\left(-\frac{R_T}{4}\right)^4"
+src="SAnoft2_gamma_retheta_eqns/img19.png" /></dd>
+</dl>
+
+As regards the source terms in the transport equation for 
+<img class="tex" alt="\widehat{Re}_{\theta,t}" src="SAnoft2_gamma_retheta_eqns/img20.png" />, 
+the following equation is adopted:
+<dl>
+<dd><img class="tex" alt="P_{\theta,t}  = \frac{c_{\theta,t}}{T} \left( Re_{\theta,t} - \widehat{Re_{\theta,t}} \right) \left(1- F_{\theta,t} \right)"
+src="SAnoft2_gamma_retheta_eqns/img21.png" /></dd>
+</dl>
+
+The last term is defined as:
+<dl>
+<dd><img class="tex" alt="F_{\theta,t} = min \left( 
+max \left( \exp\left(-\frac{d}{\delta}\right)^4 ,
+1 - \left( \frac{\gamma -1/c_{e2}}{1-1/c_{e2}} \right)^2 \right) , 1.0 \right)"
+src="SAnoft2_gamma_retheta_eqns/img22.png" /></dd>
+</dl>
+
+where
+
+<dl>
+<dd><img class="tex" alt="\delta = \frac{375\Omega \nu \widehat{Re}_{\theta,t} d}{\left| U \right|^2}"
+src="SAnoft2_gamma_retheta_eqns/img23.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="U = \sqrt{u_i u_i}"
+src="SAnoft2_gamma_retheta_eqns/img24.png" /></dd>
+</dl>
+
+Additionally, the term T appearing in the source term of the
+<img class="tex" alt="\widehat{Re}_{\theta,t}" src="SAnoft2_gamma_retheta_eqns/img20.png" /> equation is defined as follows:
+<dl>
+<dd><img class="tex" alt="T = \frac{500\nu}{\left| U \right|^2}"
+src="SAnoft2_gamma_retheta_eqns/img25.png" /></dd>
+</dl>
+
+The following closure constants are adopted in order to close the transport equations for transition:
+<img class="tex" alt="c_{a1}=2.0" src="SAnoft2_gamma_retheta_eqns/img26.png" />,
+<img class="tex" alt="c_{a2}=0.06" src="SAnoft2_gamma_retheta_eqns/img27.png" />,
+<img class="tex" alt="c_{e1}=1.0" src="SAnoft2_gamma_retheta_eqns/img28.png" />,
+<img class="tex" alt="c_{e2}=50" src="SAnoft2_gamma_retheta_eqns/img29.png" />,
+<img class="tex" alt="c_{\theta,t}=0.03" src="SAnoft2_gamma_retheta_eqns/img30.png" />,
+<img class="tex" alt="\sigma_{f}=1.0" src="SAnoft2_gamma_retheta_eqns/img31.png" />,
+<img class="tex" alt="\sigma_{\theta,t}=2.0" src="SAnoft2_gamma_retheta_eqns/img32.png" />.
+
+<p>
+The main transport equation from SA-noft2 is modified in the following way, in order to take into account the transitional effects:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \widehat \nu}{\partial t} + u_j \frac{\partial \widehat \nu}{\partial x_j} =
+P_{\widehat \nu} - D_{\widehat \nu} + 
+\frac{1}{\sigma} \left[ \frac{\partial}{\partial x_j}
+ \left( \left( \nu + \widehat \nu \right) \frac{\partial \widehat \nu}{\partial x_j} \right)
+ + {c_{b2}}\frac{\partial \widehat \nu}{\partial x_i} \frac{\partial \widehat \nu}{\partial x_i}
+ \right]"
+src="SAnoft2_gamma_retheta_eqns/img33.png" /></dd>
+</dl>
+
+where
+
+<dl>
+<dd><img class="tex" alt="P_{\widehat \nu} = \gamma_{eff} \left( c_{b1}\widehat S \widehat \nu \right)"
+src="SAnoft2_gamma_retheta_eqns/img34.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="D_{\widehat \nu} = c_{w1} f_{w} \left( \frac{\widehat \nu}{{d}} \right)^2"
+src="SAnoft2_gamma_retheta_eqns/img35.png" /></dd>
+</dl>
+
+(Note: earlier versions had a <img class="tex" alt="max \left( min\left(\gamma, 0.5\right) ,1.0 \right)"
+src="SAnoft2_gamma_retheta_eqns/img77.png" /> multiplying this term, but this was a holdover from
+previous code modifications, and is simply unity all the time.)
+
+<p>where <img class="tex" alt="\gamma_{eff} = max \left( \gamma, \gamma_{sep} \right)" src="SAnoft2_gamma_retheta_eqns/img36.png" />
+
+<p>
+with
+<dl>
+<dd><img class="tex" alt="\gamma_{sep} = min \left( 2.0 \cdot max \left[ 0 , \left( \frac{Re_\nu}{3.235 Re_{\theta,c}} \right) -1\right]
+F_{reattach}, 2.0 \right)F_{\theta,t}"
+src="SAnoft2_gamma_retheta_eqns/img37.png" /></dd>
+</dl>
+
+and
+
+<dl>
+<dd><img class="tex" alt="F_{reattach} = \exp\left(-\frac{\mathrm{R_T}}{20}\right)^4"
+src="SAnoft2_gamma_retheta_eqns/img38.png" /></dd>
+</dl>
+
+The following closure functions complete the definition of the SA-noft2 equation:
+<dl>
+<dd><img class="tex" alt="f_{v1} = \frac{\chi^3}{\left( \chi^3 + c_{v1}^3\right)}"
+src="SAnoft2_gamma_retheta_eqns/img39.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_{v2} = 1- \frac{\chi}{\left( 1 + \chi f_{v1}\right)}"
+src="SAnoft2_gamma_retheta_eqns/img40.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="g = r + c_{w2}\left( r^6 -r \right)"
+src="SAnoft2_gamma_retheta_eqns/img41.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_{w} = g\left[ \frac{1+c_{w3}^6}{g^6 + c_{w3}^6} \right]^{\frac{1}{6}}"
+src="SAnoft2_gamma_retheta_eqns/img42.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\widehat S = \left[\Omega  + min\left( 0 , S-\Omega  \right)\right]  + \frac{\widehat{\nu}}{k^2d^2}f_{v2}"
+src="SAnoft2_gamma_retheta_eqns/img43.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="r = \left\{ \begin{array}{l} r_{max} ...{for}... \frac{\widehat{\nu}}{\widehat{S} k^2d^2}< 0\\
+              \min \left( \frac{\widehat{\nu}}{\widehat{S} k^2d^2}, r_{max} \right) ...{for}... \frac{\widehat{\nu}}{\widehat{S} k^2d^2} \ge 0 \end{array} \right"
+src="SAnoft2_gamma_retheta_eqns/img44.png" /></dd>
+</dl>
+
+where <img class="tex" alt="\chi=\widehat{\nu} / \nu" src="SAnoft2_gamma_retheta_eqns/img45.png" />
+is the dimensionless turbulent variable,
+<img class="tex" alt="\Omega = \sqrt{2 W_{ij} W_{ij} }" src="SAnoft2_gamma_retheta_eqns/img46.png" />
+is the vorticity tensor module, and
+<img class="tex" alt="S = \sqrt{2 S_{ij} S_{ij} }" src="SAnoft2_gamma_retheta_eqns/img47.png" />.
+
+<p>
+The following closure constants are also adopted for the SA-noft2 equation:
+<img class="tex" alt="c_{b1}=0.1355" src="SAnoft2_gamma_retheta_eqns/img48.png" />,
+<img class="tex" alt="c_{b2}=0.622" src="SAnoft2_gamma_retheta_eqns/img49.png" />,
+<img class="tex" alt="c_{v1}=7.1" src="SAnoft2_gamma_retheta_eqns/img50.png" />,
+<img class="tex" alt="\sigma=2/3" src="SAnoft2_gamma_retheta_eqns/img51.png" />,
+<img class="tex" alt="c_{w1}=\frac{c_{b1}}{k^2} + \frac{(1+c_{b2})}{\sigma}" src="SAnoft2_gamma_retheta_eqns/img52.png" />,
+<img class="tex" alt="c_{w2}=0.3" src="SAnoft2_gamma_retheta_eqns/img53.png" />,
+<img class="tex" alt="c_{w3}=2" src="SAnoft2_gamma_retheta_eqns/img54.png" />, and
+<img class="tex" alt="k=0.41" src="SAnoft2_gamma_retheta_eqns/img55.png" />.
+
+<br>&nbsp;
+<p>
+<u>Model Empirical Correlations</u>
+<p>
+The present model contains, as other 
+<img class="tex" alt="\gamma-\widehat{Re_{\theta,t}}" src="SAnoft2_gamma_retheta_eqns/img56.png" />
+approaches available in literature,
+three empirical  correlations needed to compute 
+<img class="tex" alt="Re_{\theta,t}" src="SAnoft2_gamma_retheta_eqns/img57.png" />,
+<img class="tex" alt="Re_{\theta,c}" src="SAnoft2_gamma_retheta_eqns/img58.png" />, and
+<img class="tex" alt="F_{length}" src="SAnoft2_gamma_retheta_eqns/img59.png" />.
+In the seminal contribution of Menter et al. (Flow Turb Combust 77:277-303, 2006), these three variables
+are related to:
+<img class="tex" alt="Re_{\theta,t} = f\left(Tu, \lambda_\theta\right)" src="SAnoft2_gamma_retheta_eqns/img60.png" />,
+<img class="tex" alt="F_{length} = f\left( \widehat{Re_{\theta,t}} \right)" src="SAnoft2_gamma_retheta_eqns/img61.png" />, and
+<img class="tex" alt="Re_{\theta,c}= f\left( \widehat{Re_{\theta,t}} \right)" src="SAnoft2_gamma_retheta_eqns/img62.png" />,
+
+<p>
+where Tu is the turbulence intensity and 
+<img class="tex" alt="\lambda_\theta" src="SAnoft2_gamma_retheta_eqns/img63.png" />
+is the Thwaites' pressure gradient coefficient:
+<dl>
+<dd><img class="tex" alt="\lambda_\theta = \frac{\theta^2}{\nu} \frac{d\left| U \right|}{d s}"
+src="SAnoft2_gamma_retheta_eqns/img64.png" /></dd>
+</dl>
+
+These correlations were not released immmediately
+since they were proprietary.
+For this reason a specific literature segment
+containing  several approaches for these correlations was started.
+In D'Alessandro et al. (Energy 130:402-419, 2017) and Zoppi (PhD Thesis), various approaches, developed within SST k-omega, were tested
+and compared for the current model.
+The best performance in terms of
+<img class="tex" alt="Re_{\theta,t}" src="SAnoft2_gamma_retheta_eqns/img57.png" />
+were found using an expression developed by Menter et al.:
+<dl>
+<dd><img class="tex" alt="Re_{\theta,t} = \left\{ \begin{array}{l}
+\left( 1173.51  - 589.428 \cdot Tu + 0.2196/Tu^2 \right) F\left(\lambda_\theta \right) ...{for}... Tu \leq 1.3\\
+331.5\left(Tu - 0.5668\right)^{-0.671}F\left(\lambda_\theta \right) ...{for}... Tu>1.3
+\end{array}"
+src="SAnoft2_gamma_retheta_eqns/img65.png" /></dd>
+</dl>
+
+where
+<dl>
+<dd><img class="tex" alt="F\left(\lambda_\theta \right) = \left\{ \begin{array}{l}
+1 + \left[12.986 \lambda_\theta + 123.66 \lambda_\theta^2 + 405.689 \lambda_\theta^3 \right] \exp\left( - \left( \frac{Tu}{1.5}  \right)^{1.5}\right) ...{for}... \lambda_\theta \leq 0\\
+1+ 0.275\left[1-\exp\left( -35 \lambda_\theta \right)\right] \exp\left( -\frac{Tu}{0.5}  \right)  ...{for}...  \lambda_\theta >0
+\end{array}"
+src="SAnoft2_gamma_retheta_eqns/img66.png" /></dd>
+</dl>
+
+It is important to remark that in the above correlations
+<img class="tex" alt="Tu = Tu_\infty" src="SAnoft2_gamma_retheta_eqns/img67.png" /> is used for all the points of the flowfield.
+Moreover, 
+<img class="tex" alt="Re_{\theta,t}" src="SAnoft2_gamma_retheta_eqns/img57.png" /> is  computed by
+iterating on the value of 
+<img class="tex" alt="\theta_t" src="SAnoft2_gamma_retheta_eqns/img68.png" />,
+since 
+<img class="tex" alt="Re_{\theta,t}" src="SAnoft2_gamma_retheta_eqns/img57.png" /> is a function of
+<img class="tex" alt="\theta_t" src="SAnoft2_gamma_retheta_eqns/img68.png" />
+itself through the presence of 
+<img class="tex" alt="\lambda_{\theta}" src="SAnoft2_gamma_retheta_eqns/img69.png" />.
+
+<p>
+In the literature, a strong  sensitivity of gamma-Retheta models to the 
+<img class="tex" alt="F_{length}" src="SAnoft2_gamma_retheta_eqns/img59.png" /> and
+<img class="tex" alt="Re_{\theta,c}" src="SAnoft2_gamma_retheta_eqns/img58.png" /> correlations (as well as transition
+criteria used to compute 
+<img class="tex" alt="Re_{\theta,t}" src="SAnoft2_gamma_retheta_eqns/img57.png" />)
+has been documented.
+There are many different correlations for
+<img class="tex" alt="F_{length}" src="SAnoft2_gamma_retheta_eqns/img59.png" /> and
+<img class="tex" alt="Re_{\theta,c}" src="SAnoft2_gamma_retheta_eqns/img58.png" /> to choose from
+(see Tables 1 and 2 in D'Alessandro et al., Energy, 130:402-419, 2017).
+However, it was noted in that reference
+that the Malan et al. correlation (Malan et al. AIAA-2009-1142, 2009,
+<a href="https://doi.org/10.2514/6.2009-1142">https://doi.org/10.2514/6.2009-1142</a>) provides the best performance for the
+flowfields developing around low-Reynolds number operating airfoils.  These correlations are:
+<dl>
+<dd><img class="tex" alt="F_{length} = min \left( \exp\left( 7.168-0.01173\widehat{Re}_{\theta,t} \right) + 0.5 , 300\right)"
+src="SAnoft2_gamma_retheta_eqns/img73.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re_{\theta,c} = min \left( 0.615 \widehat{Re}_{\theta,t} + 61.5 , \widehat{Re}_{\theta,t} \right)"
+src="SAnoft2_gamma_retheta_eqns/img74.png" /></dd>
+</dl>
+
+<br>&nbsp;
+<p>
+<u>Boundary Conditions</u>
+<p>
+Standard boundary conditions are adopted for
+<img class="tex" alt="\widehat \nu" src="SAnoft2_gamma_retheta_eqns/img70.png" />,
+the Spalart-Allmaras variable:
+<img class="tex" alt="\widehat \nu_\infty=3\nu" src="SAnoft2_gamma_retheta_eqns/img71.png" />
+in the freestream and
+<img class="tex" alt="\widehat \nu_{wall}=0"src="SAnoft2_gamma_retheta_eqns/img72.png" />.
+The boundary condition for 
+<img class="tex" alt="\gamma" src="SAnoft2_gamma_retheta_eqns/img4.png" /> at the wall is zero normal flux.
+At an inlet or freestream, the value of 
+<img class="tex" alt="\gamma" src="SAnoft2_gamma_retheta_eqns/img4.png" /> is equal to 1.
+The boundary condition for 
+<img class="tex" alt="\widehat{Re}_{\theta,t}" src="SAnoft2_gamma_retheta_eqns/img20.png" />
+at the wall is
+zero flux, while at an inlet or freestream
+<img class="tex" alt="\widehat{Re}_{\theta,t}" src="SAnoft2_gamma_retheta_eqns/img20.png" />
+is calculated from the specific empirical
+correlation based on the inlet turbulence intensity.
+
+<p>
+It also is very important to remark that in order to capture the
+laminar and transitional boundary layers
+correctly, the grid must have a first cell height, viscous sublayer scaled, y+
+of no more than approximately 1.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><a ID="LRe"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">SA-noft2-LRe-Gamma-Retheta 3-equation Transition Model<span style="color: blue">
+  (SA-noft2-LRe-Gamma-Retheta)</span></strong>
+<p>This model is the same as <span style="color: blue">(SA-noft2-Gamma-Retheta)</span>
+except that the low Reynolds number correction is included by modifying c<sub>w2</sub> (see 
+<a href="spalart.html#saLRe">SA-LRe</a>).
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<hr WIDTH="100%">
+<p>Andrea Zoppi and Valerio D'Alessandro of Universit&agrave; Politecnica delle Marche (Italy) are
+acknowledged for helping put together this webpage.
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+02/06/2023 - clarified the form of the destruction term in the SA equation<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 02/06/2023
+<br>&nbsp;
+
+</body>
+</html>

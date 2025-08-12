@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Nut-92 Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The Nut-92
+   Turbulence Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various forms of the
+Nut-92 one-equation turbulence model.
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+<p>where the last term is generally ignored for one-equation models like this one
+because <em>k</em> is not readily available (the term
+is sometimes ignored for non-supersonic speed flows for other models as well).
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><em>The first version listed <span style="color: blue">(Nut-92)</span> is the latest "standard"
+version of this model.</em>
+<br>&nbsp;
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Nut-92 (1995) 
+   Model <span style="color: blue">(Nut-92)</span></strong>
+<p>The Nut-92 model evolved from a model originally proposed by Kovasznay in 1967. The model was improved
+over the years, including one termed Nut-90.  None of these earlier variants is described here
+(see the reference below for more details).
+The reference for the Nut-92 one-equation model is:
+
+<ul>
+<li>Shur, M., Strelets, M., Zaikov, L., Gulyaev, A., Kozlov, V., Secundov, A.,
+"Comparative Numerical Testing of One- and Two-Equation Turbulence Models for Flows
+with Separation and Reattachment,"
+AIAA Paper 95-0863, January 1995,
+<a href="https://doi.org/10.2514/6.1995-863">https://doi.org/10.2514/6.1995-863</a>.
+</ul>
+
+<p>The model (written in conservation form) is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \nu_t)}{\partial t} + \frac{\partial (\rho u_j \nu_t)}{\partial x_j}
+= P_{\nu} - D_{\nu} + \frac{\partial}{\partial x_j}
+\left[\rho \left(\nu + C_0 \nu_t \right)\frac{\partial \nu_t}{\partial x_j}\right]
++ \frac{\partial}{\partial x_j}
+\left[\rho \left(-\nu + (C_1 - C_0)\nu_t \right)\right] \frac{\partial \nu_t}{\partial x_j}"
+  src="nut92_eqns/img2.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dl>
+<dd><img class="tex" alt="P_{\nu} = \rho C_2 F_2 \left( \nu_t \Gamma_1 + A_1 \nu_t^{4/3} \Gamma_2^{2/3} \right) +
+\rho C_2 F_2 A_2 N_1 \sqrt{(\nu + \nu_t)\Gamma_1} +
+\rho C_3 \nu_t \left( \frac{\partial^2 \nu_t}{\partial x_j \partial x_j} + N_2 \right)"
+  src="nut92_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="D_{\nu} = \rho C_5 \nu_t^2 \Gamma_1^2 / a^2 +
+\rho C_4 \nu_t \left( \frac{\partial \langle u_j \rangle}{\partial x_j} +
+\left| \frac{\partial \langle u_j \rangle}{\partial x_j} \right| \right) +
+\rho \left[ C_6 \nu_t ( N_1 d_w + \nu_{t,w}) + C_7 F_1 \nu \nu_t \right] / d^2"
+  src="nut92_eqns/img4.png" /></dd>
+</dl>
+
+<p>Here, <em>a</em> is the speed of sound and the angle braces &lt; &gt; represent a long-time average. The turbulent eddy viscosity is
+<dl>
+<dd><img class="tex" alt="\mu_t = \rho \nu_t"
+  src="nut92_eqns/img5.png" /></dd>
+</dl>
+
+<p>Other term appearing in the above equations are given by:
+<dl>
+<dd><img class="tex" alt="F_1 = \frac{N_1 d_w + 0.4 C_8 \nu}{\nu_t + C_8 \nu + \nu_{t,w}}"
+  src="nut92_eqns/img6.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_2 = \frac{\chi^2 + 1.3 \chi + 0.2}{\chi^2 - 1.3 \chi + 1.0}"
+  src="nut92_eqns/img7.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\chi = \frac{\nu_t}{7 \nu}"
+  src="nut92_eqns/img8.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\Gamma_1 = \sqrt{ \frac{\partial u_i}{\partial x_j} \left( \frac{\partial u_i}{\partial x_j} +
+\frac{\partial u_j}{\partial x_i} \right) }"
+  src="nut92_eqns/img9.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\Gamma_2 = \sqrt{ \sum_i \left( \frac{\partial^2 u_i}{\partial x_j \partial x_j} \right)^2 } =
+\sqrt{ \left( \frac{\partial^2 u_i}{\partial x_n \partial x_n} \right) \times
+       \left( \frac{\partial^2 u_i}{\partial x_m \partial x_m} \right) }"
+  src="nut92_eqns/img10.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="N_1 = \sqrt{ \frac{\partial \nu_t}{\partial x_j} \frac{\partial \nu_t}{\partial x_j} }"
+  src="nut92_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="N_2 = \sqrt{ \frac{\partial N_1}{\partial x_j} \frac{\partial N_1}{\partial x_j} }"
+  src="nut92_eqns/img12.png" /></dd>
+</dl>
+
+<p>The term <img class="tex" alt="d_w" src="nut92_eqns/img13.png" /> is the distance to the nearest wall, and
+<dl>
+<dd><img class="tex" alt="d = d_w + 0.01 k_s"
+  src="nut92_eqns/img14.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="k_s" src="nut92_eqns/img15.png" /> is the Nikuradse roughness scale height (0 for smooth walls).
+
+<p>The constants are:
+<dl>
+<dd><img class="tex" alt="A_1 =-0.5"
+  src="nut92_eqns/img16.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="A_2 = 4.0"
+  src="nut92_eqns/img17.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_0 = 0.8"
+  src="nut92_eqns/img18.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_1 = 1.6"
+  src="nut92_eqns/img19.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_2 = 0.1"
+  src="nut92_eqns/img20.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_3 = 4.0"
+  src="nut92_eqns/img21.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_4 = 0.35"
+  src="nut92_eqns/img22.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_5 = 3.5"
+  src="nut92_eqns/img23.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_6 = 2.9"
+  src="nut92_eqns/img24.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_7 = 31.5"
+  src="nut92_eqns/img25.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_8 = 0.1"
+  src="nut92_eqns/img26.png" /></dd>
+</dl>
+
+<p>There are no specific farfield boundary conditions recommended for this model (see
+also Sekundov, A. N., <strong>Fluid Dynamics</strong> 47(1):20-25, 2012,
+<a href="https://doi.org/10.1134/S0015462812010036">https://doi.org/10.1134/S0015462812010036</a>).
+At solid smooth walls:
+<dl>
+<dd><img class="tex" alt="\nu_{t,w} = 0"
+  src="nut92_eqns/img27.png" /></dd>
+</dl>
+
+<p>At solid rough walls:
+<dl>
+<dd><img class="tex" alt="\nu_{t,w} = 0.02 k_s \sqrt{\frac{\tau_w}{\rho}}"
+  src="nut92_eqns/img28.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\tau_w" src="nut92_eqns/img29.png" /> is the wall shear stress
+and <img class="tex" alt="\sqrt{\tau_w / \rho}" src="nut92_eqns/img30.png" /> is the
+friction velocity <img class="tex" alt="u_{\tau}" src="nut92_eqns/img31.png" />.
+
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Nut-92 (1993)
+   Model <span style="color: blue">(Nut-92-FD)</span></strong>
+<p>The reference for this model is:
+
+<ul>
+<li>Gulyaev, A. N., Kozlov, V. E., Secundov, A. N.,
+"A Universal One-Equation Model for Turbulent Viscosity,"
+<strong>Fluid Dynamics</strong>, Vol. 28, No. 4, 1993, pp. 485-494 (translated from Russian,
+Consultants Bureau, NY),
+<a href="https://doi.org/10.1007/BF01342683">https://doi.org/10.1007/BF01342683</a>.
+</ul>
+
+<p>The model is an earlier version of <span style="color: blue">(Nut-92)</span>.
+It is given by the same main equation (written in conservation form).  However,
+the following expressions are slightly different:
+<dl>
+<dd><img class="tex" alt="D_{\nu} = \rho C_5 \nu_t^2 \Gamma_1^2 / a^2 +
+\rho C_4 \nu_t \left( \frac{\partial \langle u_j \rangle}{\partial x_j} +
+\left| \frac{\partial \langle u_j \rangle}{\partial x_j} \right| \right) +
+\rho \left[ C_6 \nu_t ( N_1 d + \nu_{t,w}) + C_7 F_1 \nu \nu_t \right] / d^2"
+  src="nut92_eqns/img32.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_1 = \frac{N_1 d + 0.4 C_8 \nu}{\nu_t + C_8 \nu}"
+  src="nut92_eqns/img33.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="d^2 = d_w^2 + 0.4 k_s d_w + 0.004 k_s^2"
+  src="nut92_eqns/img34.png" /></dd>
+</dl>
+
+<p>For smooth walls, <span style="color: blue">(Nut-92-FD)</span> and
+<span style="color: blue">(Nut-92)</span> are identical.
+
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+6/30/2015 - mention Pr, Pr_t, and Sutherland's law<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

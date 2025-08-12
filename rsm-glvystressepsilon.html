@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en"><HEAD>
+<title>GLVY stress-epsilon Full Reynolds Stress Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body bgcolor="#FFFFFF" link="#0000EE" text="#000000" vlink="#551A8B" alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   </p><center>
+     <table border="0" width="775">
+       <tbody><tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </tbody></table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">GLVY stress-epsilon Full Reynolds-stress Model </strong>
+
+</p><p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for the GLVY full second-moment Reynolds-stress model that
+uses an <img class="tex" alt="\varepsilon^*" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img1.png"> equation for the scale-determining variable.
+Full second-moment Reynolds-stress models are very different from simpler 1- and 2-equation
+linear/nonlinear models, in that the latter use a constitutive relation giving
+the Reynolds stresses <img class="tex" alt="\tau_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img2.png" style="padding-bottom: 8px; vertical-align: middle;">
+in terms of other tensors via some assumed relation (such as Boussinesq's hypothesis).
+On the other hand, full second-moment Reynolds stress models compute each of the 6 Reynolds stresses
+directly (the Reynolds stress tensor is symmetric so there are 6 independent
+terms).  Each Reynolds stress has its own transport equation.
+There is also a seventh transport equation for the lengthscale-determining variable.
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+</p><p><span style="text-align: left; font-weight: 400; font-size: medium">Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p><span style="text-align: left; font-weight: 400; font-size: medium">
+<br>&nbsp;
+<br>&nbsp;
+
+<br>&nbsp;
+
+<p><a ID="glvy-rsm-2012"><strong><span style="text-align: left; font-weight: 700; font-size: large">GLVY stress-epsilon Full Reynolds-stress Model <span style="color: blue">(GLVY-RSM-2012)</span></strong>
+
+</p><p>This model's reference is:
+</p><ul>
+<li>Gerolymos G.A., Lo C., Vallet I., Younis B.A.: "Term-by-term analysis of near-wall second-moment closures" <em>AIAA J.</em> <strong>50</strong>(12) (2012) 2848-2864
+<a href="https://doi.org/10.2514/1.J051654">https://doi.org/10.2514/1.J051654</a>.</li>
+</ul>
+
+<p>This model is the latest evolution of the GV-RSM-2001 [Gerolymos G.A., Vallet I.: <em>AIAA J.</em> <strong>39</strong>(10) (2001) 1833-1842 <a href="https://doi.org/10.2514/2.1179">https://doi.org/10.2514/2.1179</a>],
+ and is fully
+wall-normal-free (the wall-normal distance or direction are not used in 
+the model). This modeling choice renders inhomogeneous terms active also
+ away from solid walls, and indeed independently of the presence of 
+walls
+(inhomogeneous terms are also active in free flows and should never be 
+dropped when using this model).
+</p>
+<p>The variables of the model are the Favre-avergaged second-moments of velocity
+<img class="tex" alt="R_{ij}:=\widetilde{u_i''u_j''}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img3.png" style="padding-bottom: 6px; vertical-align: middle;">
+and the modified dissipation rate <img class="tex" alt="\varepsilon^*" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img1.png">.
+Using the notation of this website, in relation to <img class="tex" alt="\tau_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img2.png" style="padding-bottom: 8px; vertical-align: middle;">
+which is used in the mean-flow equations,
+as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>), we have:
+</p><dl>
+<dd><img class="tex" alt="\tau_{ij}:=-\overline{\rho u_i''u_j''}=-\overline{\rho}R_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img4.png"></dd>
+</dl>
+
+<p>Notations are different from the original reference, to conform with 
+this website's practices, sometimes driven by html 
+rendering quality.
+The symbol <img class="tex" alt="R_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img5.png" style="padding-bottom: 8px; vertical-align: middle;">
+is used instead of <img class="tex" alt="\hat R_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img7.png" style="padding-bottom: 8px; vertical-align: middle;">
+used in the description of the <a href="rsm-stressomega.html#ssg-lrrRSM">SSG/LRR-RSM-w2012</a>, or 
+of <img class="tex" alt="-R'_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img9.png" style="padding-bottom: 8px; vertical-align: middle;">
+used in the description of the <a href="rsm-stressomega.html#wilcoxRSM">WilcoxRSM-w2006</a>,
+to avoid any ambiguity with the use of "hat" (Favre-averaging nonlinear 
+operator) or of "prime" (Reynolds-fluctuation linear operator).
+</p>
+
+<p>The model equations for <img class="tex" alt="R_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img5.png" style="padding-bottom: 8px; vertical-align: middle;"> and
+<img class="tex" alt="\varepsilon^*" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img1.png">
+are (terms in blue are exact, terms in black are modeled; Eq. numbers in red are closures of various terms; in the
+<img class="tex" alt="\varepsilon^*" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img1.png">-equation
+RHS-terms are already modeled)
+</p><dl>
+<dd><img class="tex" alt="({\rm GLVY}.1)\qquad
+{\color{blue}{\underbrace{\frac{\partial}{\partial t}\left(\overline{\rho}R_{ij}\right)
++\frac{\partial}{\partial x_\ell}\left(\overline{\rho}R_{ij}\hat{u}_\ell\right)}_{\displaystyle C_{ij}}}}=
+{\color{blue}{\underbrace{-\overline{\rho}R_{i\ell}\frac{\partial \hat{u}_j}{\partial x_\ell}
+                          -\overline{\rho}R_{j\ell}\frac{\partial \hat{u}_i}{\partial x_\ell}}_{\displaystyle P_{ij}}}}+
+{\color{blue}{\underbrace{\frac{\partial}{\partial x_\ell}\left(\breve{\mu}\frac{\partial R_{ij}}{\partial x_\ell}\right)}_{\displaystyle d_{ij}^{(\mu)}}}}
++d_{ij}^{(u)}+\Pi_{ij}-\overline{\rho}\varepsilon_{ij}+K_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img10.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.2)\qquad
+{\color{blue}{
+\frac{\partial\bar\rho\varepsilon^*}
+     {\partial t                   }+\frac{\partial\left(\hat u_\ell\bar\rho\varepsilon^*\right)}
+                                          {\partial x_\ell                                        }}}=
+\frac{\partial       }
+     {\partial x_\ell}\left[C_\varepsilon\frac{\mathrm{k}   }
+                                               {\varepsilon^*}\bar\rho R_{m\ell}\frac{\partial\varepsilon^*}
+                                                                                     {\partial x_m         }
+                           +{\color{blue}{\breve\mu\frac{\partial\varepsilon^*}
+                                                        {\partial x_\ell      }}}
+                     \right]+C_{\varepsilon 1} P_\mathrm{k}\frac{\varepsilon^*}
+                                                                {\mathrm{k}   }
+                            -C_{\varepsilon 2}\bar\rho\frac{{\varepsilon^*}^2}{\mathrm{k}}
+                            +2 \breve\mu C_{\mu} \frac{{\rm k}^2}{\varepsilon^*} \frac{\partial^2 \hat{u}_i}{\partial x_\ell \partial x_\ell} \frac{\partial^2 \hat{u}_i}{\partial x_m \partial x_m}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img11.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.3)\qquad
+P_{\rm k} = \frac{1}{2} P_{\ell\ell}\;\; ;\;\;
+C_\varepsilon=0.18\;\; ;\;\;
+C_{\varepsilon1}=1.44 \;\; ;\;\;
+C_{\varepsilon2}=1.92(1-0.3\mathrm{e}^{-{Re^*_{\mathrm{\tiny T}}}^2})\;\; ; \;\;
+C_\mu=0.09\mathrm{e}^{-\frac{3.4                    }
+                             {(1+0.02 Re^*_{\mathrm{\tiny T}})^2}}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img12.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.4)\qquad
+\mathrm{k}=\frac{1}{2}R_{\ell\ell}\;\; ; \;\;
+Re_{\mathrm{\tiny T}}^* =\frac{\mathrm{k}^2          }
+                            {\breve\nu\varepsilon^*}\;\; ; \;\;
+\breve\mu:=\mu_{\rm Sutherland}(\hat T)\;\; ; \;\;
+\breve\nu:=\frac{\breve\mu}{\bar\rho}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img13.png"></dd>
+</dl>
+
+<p>where
+<img class="tex" alt="C_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img14.png" style="padding-bottom: 8px; vertical-align: middle;"> is the convection tensor,
+<img class="tex" alt="P_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img15.png" style="padding-bottom: 8px; vertical-align: middle;"> is the production tensor,
+<img class="tex" alt="d^{(\mu)}_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img16.png" style="padding-bottom: 8px; vertical-align: middle;"> is the molecular-diffusion tensor,
+<img class="tex" alt="d^{(u)}_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img17.png" style="padding-bottom: 8px; vertical-align: middle;"> is the turbulent-diffusion tensor (by the fluctuating velocities),
+<img class="tex" alt="\Pi_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img18.png" style="padding-bottom: 8px; vertical-align: middle;"> are the terms containing the fluctuating pressure (velocity/pressure-gradient correlation),
+<img class="tex" alt="\varepsilon_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img19.png" style="padding-bottom: 8px; vertical-align: middle;"> is the rate-of-dissipation tensor, and
+<img class="tex" alt="K_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img20.png" style="padding-bottom: 8px; vertical-align: middle;"> are direct compressibility effects
+(terms proportional to the fluctuating density transport
+<img class="tex" alt="\overline{u_i''}=\overline{u}_i-\hat{u}_i=-\bar{\rho}^{-1}\overline{\rho'u_i'}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img21.png" style="padding-bottom: 8px; vertical-align: middle;">,
+hence to the difference between Reynolds and Favre averaged velocities).
+</p>
+
+<p>The modeled terms in (GLVY.1)
+(<img class="tex" alt="K_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img20.png" style="padding-bottom: 8px; vertical-align: middle;">,
+<img class="tex" alt="d^{(u)}_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img17.png" style="padding-bottom: 8px; vertical-align: middle;">,
+<img class="tex" alt="\varepsilon_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img19.png" style="padding-bottom: 8px; vertical-align: middle;">,
+and <img class="tex" alt="\Pi_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img18.png" style="padding-bottom: 8px; vertical-align: middle;">)
+are given by
+</p><dl>
+<dd><img class="tex" alt="{\color{red}{({\rm GLVY}.5)}}\qquad
+K_{ij}=0" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img22.png"></dd>
+<dd><img class="tex" alt="{\color{red}{({\rm GLVY}.6)}}\qquad
+d_{ij}^{(u)}=\frac{\partial}{\partial x_\ell}\left(-\overline{\rho u_i'' u_j'' u_\ell''}\right)\;\; ; \;\;
+-\overline{\rho u_i'' u_j'' u_\ell''}=C^{(\mathrm{\tiny S}u)}\frac{\mathrm{k} }
+                                                           {\varepsilon}\left(\bar\rho R_{im}    \frac{\partial R_{j\ell} }{\partial x_m}
+                                                                             +\bar\rho R_{jm}    \frac{\partial R_{\ell i}}{\partial x_m}
+                                                                             +\bar\rho R_{\ell m}\frac{\partial R_{ij}    }{\partial x_m}\right)\;\; ; \;\;
+C^{(\mathrm{\tiny S}u)}=0.11" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img23.png"></dd>
+<dd><img class="tex" alt="{\color{red}{({\rm GLVY}.7)}}\qquad
+\bar\rho\varepsilon_{ij}=\frac{2}{3}\bar\rho\varepsilon\left(1-f_\varepsilon\right)\delta_{ij}+f_\varepsilon\frac{\varepsilon}{\mathrm{k}}\bar\rho R_{ij}\;\; ; \;\;
+\varepsilon=\varepsilon^*+2\breve\nu\frac{\partial \sqrt{\mathrm{k}}}{\partial x_\ell}
+                                     \frac{\partial \sqrt{\mathrm{k}}}{\partial x_\ell}\;\; ; \;\;
+f_\varepsilon=1-A^{[1+A^2]}\left[1-\mathrm{e}^{-\frac{Re_{\mathrm{\tiny T}}}{10}}\right]\;\; ; \;\;
+Re_{\mathrm{\tiny T}} =\frac{\mathrm{k}^2        }
+                          {\breve\nu\varepsilon}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img24.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.8)\qquad
+a_{ij}:=\frac{R_{ij}}{\mathrm{k}}-\frac{2}{3}\delta_{ij}\;\; ; \;\;
+A_2:=a_{ik}a_{ki}\;\; ; \;\;
+A_3:=a_{ik}a_{kj}a_{ji}\;\; ; \;\;
+A:=1-\frac{9}{8}(A_2-A_3)" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img25.png"></dd>
+<dd><img class="tex" alt="{\color{red}{({\rm GLVY}.9)}}\qquad
+\Pi_{ij}=\underbrace{\overbrace{\phi_{ij}^{(\mathrm{\tiny RH})}+\phi_{ij}^{(\mathrm{\tiny RI})}}^{\displaystyle\phi_{ij}^{(\mathrm{\tiny R})}}+
+                     \overbrace{\phi_{ij}^{(\mathrm{\tiny SH})}+\phi_{ij}^{(\mathrm{\tiny SI})}}^{\displaystyle\phi_{ij}^{(\mathrm{\tiny S})}}}_{\displaystyle\phi_{ij}}+\frac{2}{3}\phi_p\delta_{ij}+d_{ij}^{(p)}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img26.png"></dd>
+<dd><img class="tex" alt="{\color{red}{({\rm GLVY}.10)}}\qquad
+\phi_p=0" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img27.png"></dd>
+<dd><img class="tex" alt="{\color{red}{({\rm GLVY}.11)}}\qquad
+d_{ij}^{(p)}=C^{(\mathrm{\tiny Sp1})}\bar\rho\frac{\mathrm{k}^3 }
+                                                {\varepsilon^3}\frac{\partial\varepsilon^*}
+                                                                    {\partial x_i         }\frac{\partial\varepsilon^*}
+                                                                                                 {\partial x_j         }
+            +\frac{\partial       }
+                   {\partial x_\ell}\left[C^{(\mathrm{\tiny Sp2})}(\overline{\rho u_m''u_m''u_j''}\delta_{i\ell}
+                                                                +\overline{\rho u_m''u_m''u_i''}\delta_{j\ell})\right]
+            +C^{(\mathrm{\tiny Rp})}\bar\rho\frac{\mathrm{k}^2 }
+                                              {\varepsilon^2}\breve{S}_{k\ell}a_{\ell k}\frac{\partial\mathrm{k}}
+                                                                                             {\partial x_i      }\frac{\partial\mathrm{k}}
+                                                                                                                      {\partial x_j      }" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img28.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.12)\qquad
+C^{(\mathrm{\tiny Sp1})}=-0.005\;\; ; \;\;
+C^{(\mathrm{\tiny Sp2})}=+0.022\;\; ; \;\;
+C^{(\mathrm{\tiny Rp })}=-0.005\;\; ; \;\;
+\breve S_{ij}:=\frac{1}{2}\left(\frac{\partial\hat u_i}{\partial x_j}
+                               +\frac{\partial\hat u_j}{\partial x_i}\right)" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img29.png"></dd>
+<dd><img class="tex" alt="{\color{red}{({\rm GLVY}.13)}}\qquad
+\phi_{ij}^{(\mathrm{\tiny R})}=\underbrace{-C_\phi^{(\mathrm{\tiny RH})}\left(P_{ij}-\frac{1}{3}\delta_{ij} P_{mm}\right)}_{\displaystyle\phi^{(\mathrm{\tiny RH})}_{ij}}
+                       \underbrace{+C_\phi^{(\mathrm{\tiny RI})}\left[            \phi^{(\mathrm{\tiny RH})}_{nm}e_{\mathrm{\tiny I}_n}e_{\mathrm{\tiny I}_m}\delta_{ij}
+                                                            -\frac{3}{2}\phi^{(\mathrm{\tiny RH})}_{in}e_{\mathrm{\tiny I}_n}e_{\mathrm{\tiny I}_j}
+                                                            -\frac{3}{2}\phi^{(\mathrm{\tiny RH})}_{jn}e_{\mathrm{\tiny I}_n}e_{\mathrm{\tiny I}_i}\right]}_{\displaystyle\phi^{(\mathrm{\tiny RI})}_{ij}}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img30.png"></dd>
+<dd><img class="tex" alt="{\color{red}{({\rm GLVY}.14)}}\qquad
+\phi^{(\mathrm{\tiny S})}_{ij}=\underbrace{-C_\phi^{(\mathrm{\tiny SH1})}\bar\rho\varepsilon^* a_{ij}}_{\displaystyle\phi^{(\mathrm{\tiny SH1})}_{ij}}
+                       \underbrace{+C_\phi^{(\mathrm{\tiny SI1})} \frac{\varepsilon^*}{\mathrm{k}}\left[\bar\rho R_{nm}e_{\tsc{i}_n}e_{\tsc{i}_m}\delta_{ij}
+                                                                                                      -\frac{3}{2}\bar\rho R_{ni}e_{\tsc{i}_n}e_{\tsc{i}_j}
+                                                                                                      -\frac{3}{2}\bar\rho R_{nj}e_{\tsc{i}_n}e_{\tsc{i}_i}\right]}_{\displaystyle\phi^{(\mathrm{\tiny SI1})}_{ij}}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img31.png"></dd>
+<dd><img class="tex" alt="|\qquad\qquad\qquad\qquad\qquad
+       \underbrace{-C_\phi^{(\mathrm{\tiny SI2})}\bar\rho\frac{\mathrm{k}}{\varepsilon}\frac{\partial\mathrm{k}}{\partial x_\ell}
+                                               \left[                       a_{ik}\frac{\partial R_{kj}}{\partial x_\ell}
+                                                                           +a_{jk}\frac{\partial R_{ki}}{\partial x_\ell}
+                                                     -\frac{2}{3}\delta_{ij}a_{mk}\frac{\partial R_{km}}{\partial x_\ell}\right]}_{\displaystyle\phi^{(\mathrm{\tiny SI2})}_{ij}}
+       \underbrace{+C_\phi^{(\mathrm{\tiny SI3})}\left[           \phi^{(\mathrm{\tiny SI2})}_{nm}e_{\tsc{i}_n}e_{\tsc{i}_m}\delta_{ij}
+                                                      -\frac{3}{2}\phi^{(\mathrm{\tiny SI2})}_{in}e_{\tsc{i}_n}e_{\tsc{i}_j}
+                                                      -\frac{3}{2}\phi^{(\mathrm{\tiny SI2})}_{jn}e_{\tsc{i}_n}e_{\tsc{i}_i}\right]}_{\displaystyle\phi^{(\mathrm{\tiny SI3})}_{ij}}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img32.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.15)\qquad
+                e_{\mathrm{\tiny I}_i}:=\frac{\displaystyle\frac{\partial}{\partial x_i}\Biggl(\frac{\ell_\mathrm{\tiny T}[1-\mathrm{e}^{-{\frac{Re^*_\mathrm{\tiny T}}
+                                                                                                             {         30}}}]}
+                                                                           {1+2\sqrt{A_2}+2A^{16}}
+                                                             \Biggr)
+                                               }
+                                               {\sqrt{\displaystyle\frac{\partial}{\partial x_\ell}\Biggl(\frac{\ell_\mathrm{\tiny T}[1-\mathrm{e}^{-{\frac{Re^*_\mathrm{\tiny T}}
+                                                                                                             {         30}}}]}
+                                                                           {1+2\sqrt{A_2}+2A^{16}}
+                                                             \Biggr)
+                                                      \displaystyle\frac{\partial}{\partial x_\ell}\Biggl(\frac{\ell_\mathrm{\tiny T}[1-\mathrm{e}^{-{\frac{Re^*_\mathrm{\tiny T}}
+                                                                                                             {         30}}}]}
+                                                                           {1+2\sqrt{A_2}+2A^{16}}
+                                                             \Biggr)
+                                                     }
+                                               }\;\; ; \;\;
+\ell_{\mathrm{\tiny T}}:=\frac{k^\frac{3}{2}}{\varepsilon}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img33.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.16)\qquad
+C_\phi^{(\mathrm{\tiny RH})}=\min{\left[1,0.75+1.3\max{[0,A-0.55]}\right]}\;A^{[\max(0.25,0.5-1.3\max{[0,A-0.55]})]}[1-\max(0,1-{\frac{Re_\mathrm{\tiny T}}
+                                                                                                                                    {50        }})]" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img34.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.17)\qquad
+C_\phi^{(\mathrm{\tiny RI})}=\max{\left[{\frac{2}{3}-\frac{1}{6C_\phi^{(\mathrm{\tiny RH})}},0}\right]}
+                          \sqrt{\frac{\partial}{\partial x_\ell}\Biggl(\frac{\ell_\mathrm{\tiny T}[1-\mathrm{e}^{-\frac{Re^*_\mathrm{\tiny T}}
+                                                                                                       {30          }}]}
+                                                                {1+1.6A_2^{\max(0.6,A)}}
+                                                  \Biggr)
+                                \frac{\partial}{\partial x_\ell}\Biggl(\frac{\ell_\mathrm{\tiny T}[1-\mathrm{e}^{-\frac{Re^*_\mathrm{\tiny T}}
+                                                                                                       {30          }}]}
+                                                                {1+1.6A_2^{\max(0.6,A)}}
+                                                  \Biggr)
+                                }" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img35.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.18)\qquad
+C_\phi^{(\mathrm{\tiny SH1})}=3.7 A A_2^{\frac{1}{4}}\left[1- \mathrm{e}^{-\left(\frac{Re_{\mathrm{\tiny T}}}
+                                                                                     {130         }
+                                                                         \right)^2}
+                                                   \right]\;\; ; \;\;
+C_\phi^{(\mathrm{\tiny SI1})}=\left[-\frac{4}{9}\left(C_\phi^{(\mathrm{\tiny SH1})}-\frac{9}{4}\right)\right]\;
+                            \sqrt{\frac{\partial}{\partial x_\ell}\Biggl(\frac{\ell_\mathrm{\tiny T}[1-\mathrm{e}^{-\frac{Re^*_\mathrm{\tiny T}}
+                                                                                            {30                 }}]}
+                                                                 {1+2.9\sqrt{A_2}}
+                                                    \Biggr)
+                                   \frac{\partial}{\partial x_\ell}\Biggl(\frac{\ell_\mathrm{\tiny T}[1-\mathrm{e}^{-\frac{Re^*_\mathrm{\tiny T}}
+                                                                                            {30                 }}]}
+                                                                 {1+2.9\sqrt{A_2}}
+                                                    \Biggr)
+                            }" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img36.png"></dd>
+<dd><img class="tex" alt="({\rm GLVY}.19)\qquad
+C_\phi^{(\mathrm{\tiny SI2})}=0.002\;\; ; \;\;
+C_\phi^{(\mathrm{\tiny SI3})}= 0.14\;\sqrt{\frac{\partial\ell^*_\mathrm{\tiny T}}{\partial x_\ell}
+                                           \frac{\partial\ell^*_\mathrm{\tiny T}}{\partial x_\ell}}\;\; ; \;\;
+\ell_{\mathrm{\tiny T}}^*:=\frac{k^\frac{3}{2}}{\varepsilon^*}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img37.png"></dd>
+</dl>
+
+<p>Concerning the pressure terms, the superscript <img class="tex" alt="(\cdot)^{(\mathrm{\tiny S})}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img38.png" style="padding-bottom: 6px; vertical-align: middle;">
+denotes slow pressure terms (the original terms that are modeled and the
+ model itself do not depend on the gradients of mean-flow velocity)
+and the superscript <img class="tex" alt="(\cdot)^{(\mathrm{\tiny R})}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img39.png" style="padding-bottom: 6px; vertical-align: middle;">
+denotes rapid pressure terms (the original terms that are modeled and the model itself depend
+linearly on mean-flow velocity-gradients). These apply to pressure-diffusion <img class="tex" alt="d_{ij}^{(p)}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img40.png" style="padding-bottom: 8px; vertical-align: middle;">
+(the terms with coefficients <img class="tex" alt="C^{(\mathrm{\tiny Sp1})}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img41.png" style="padding-bottom: 8px; vertical-align: middle;">
+and <img class="tex" alt="C^{(\mathrm{\tiny Sp2})}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img42.png" style="padding-bottom: 8px; vertical-align: middle;"> in (GLVY.11) are slow terms,
+while the term with coefficient <img class="tex" alt="C^{(\mathrm{\tiny Rp })}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img43.png" style="padding-bottom: 8px; vertical-align: middle;"> is a rapid one)
+and to redistribution (<img class="tex" alt="\phi^{(\mathrm{\tiny S})}_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img44.png" style="padding-bottom: 8px; vertical-align: middle;">
+and <img class="tex" alt="\phi^{(\mathrm{\tiny R})}_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img45.png" style="padding-bottom: 8px; vertical-align: middle;">
+in (GLVY.9)). Concerning redistribution, the superscript <img class="tex" alt="(\cdot)^{(\mathrm{\tiny H})}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img46.png" style="padding-bottom: 6px; vertical-align: middle;">
+denotes quasi-homogeneous terms (which do not depend on gradients
+of <img class="tex" alt="R_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img5.png" style="padding-bottom: 6px; vertical-align: middle;"> or
+<img class="tex" alt="\varepsilon^*" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img1.png">),
+while the superscript <img class="tex" alt="(\cdot)^{(\mathrm{\tiny I})}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img47.png" style="padding-bottom: 6px; vertical-align: middle;">
+denotes inhomogeneous terms (which contain gradients
+of <img class="tex" alt="R_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img5.png" style="padding-bottom: 6px; vertical-align: middle;"> or
+<img class="tex" alt="\varepsilon^*" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img1.png">).
+All practical flows are inhomogeneous to some extent.
+</p>
+
+<p><u>Notes:</u>
+</p>
+
+<ol>
+<!-------------------------------------------------------------------->
+<li value="N1">The model should be used as a whole, the inhomogeneous 
+terms being active in free-shear flows (there are no correct 
+fixed-points with the
+homogeneous terms only).
+</li>
+<!-------------------------------------------------------------------->
+<li value="N1">Length scales and turbulence-Reynolds-number are sometimes defined using the system-variable modified dissipation-rate
+<img class="tex" alt="\varepsilon^*" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img1.png"> (GLVY.2)
+or the dissipation-rate <img class="tex" alt="\varepsilon" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img48.png"> (GLVY.7).
+This deliberate choice was made because the behavior of
+<img class="tex" alt="\varepsilon^*" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img1.png"> or
+<img class="tex" alt="\varepsilon" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img48.png">
+ very
+near the wall is different, so that the corresponding choices impact the
+ asymptotic near-wall behavior (the rate at which each component of
+<img class="tex" alt="R_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img5.png" style="padding-bottom: 6px; vertical-align: middle;"> approaches 0).
+</li>
+<!-------------------------------------------------------------------->
+<li value="N1">Boundary-conditions at a solid wall are
+<img class="tex" alt="R_{ij}=0" style="padding-bottom: 8px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img49.png"> and
+<img class="tex" alt="\varepsilon^*=0" style="padding-bottom: 12px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img50.png">.
+</li>
+<!-------------------------------------------------------------------->
+<li value="N1">There is no particular limitation for the farfield boundary-conditions,
+the model behaving very well with both high or low turbulence intensities
+[Gerolymos G.A., Sauret E., Vallet I.: <em>AIAA J.</em> <strong>42</strong>(6) (2004) 1101-1106 <a href="https://doi.org/10.2514/1.2257">https://doi.org/10.2514/1.2257</a>].
+It is recommended to choose a physically appropriate turbulence intensity (isotropic or anisotropic),
+and a length scale
+<img class="tex" alt="\ell_{\mathrm{\tiny T}_\infty}" style="padding-bottom: 8px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img51.png">,
+which, given
+<img class="tex" alt="\mathrm{k}_\infty" style="padding-bottom: 10px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img52.png">,
+fixes
+<img class="tex" alt="\varepsilon_\infty" style="padding-bottom: 10px; vertical-align: middle;" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img53.png">.
+Just recall that the choice of the length scale fixes the streamwise rate of decay of turbulence, which can be fast, especially
+at high turbulence intensites, or may be nonegligible if the farfield boundary is a long distance away. There are analytical
+formulas avialable to compute this decay
+[Gerolymos G.A., Sauret E., Vallet I.: <em>AIAA J.</em> <strong>42</strong>(6) (2004) 1101-1106 <a href="https://doi.org/10.2514/1.2257">https://doi.org/10.2514/1.2257</a>],
+and the model returns results very close to the analytical formulas. Incidentally, contrary to 1- or 2-equation models,
+farfield eddy-viscosity is not a relevant parameter.
+</li>
+<!-------------------------------------------------------------------->
+<li>The pressure terms
+<img class="tex" alt="\Pi_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img18.png" style="padding-bottom: 8px; vertical-align: middle;">
+are the most important part of the model (indeed of second-moment 
+closures in general). This is the major difference with 2-equation 
+models,
+where only the trace of 
+<img class="tex" alt="\Pi_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img18.png" style="padding-bottom: 8px; vertical-align: middle;">,
+appears, and has in general little influence.
+</li>
+<!-------------------------------------------------------------------->
+<li>Although there are no compressibility corrections other than Morkovin's hypothesis, the model
+has been validated for shock-wave/boundary-layer interactions up to Mach-number 5.
+</li>
+<!-------------------------------------------------------------------->
+<li>Boundary conditions for RSM are important to handle correctly at symmetry boundaries:
+<ul>
+<li>On an x-symmetry plane, the 12 (xy) and 13 (xz) Reynolds stress components should have Dirichlet conditions of zero.
+<li>On a y-symmetry plane, the 12 (xy) and 23 (yz) Reynolds stress components should have Dirichlet conditions of zero.
+<li>On a z-symmetry plane, the 13 (xz) and 23 (yz) Reynolds stress components should have Dirichlet conditions of zero.
+</ul>
+Other Reynolds stress components should receive the usual symmetric treatment (i.e., zero gradient).
+</li>
+<!-------------------------------------------------------------------->
+</ol>
+
+<p><u>Implementation into c-RANS:</u> The model-terms required in the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>
+are:
+</p>
+
+<ol>
+<!-------------------------------------------------------------------->
+<li>The Reynolds stresses are readily obtained from the variables <img class="tex" alt="R_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img5.png" style="padding-bottom: 6px; vertical-align: middle;">
+of the model by
+<img class="tex" alt="\tau_{ij}:=-\overline{\rho u_i''u_j''}=-\overline{\rho}R_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img4.png" style="padding-bottom: 8px; vertical-align: middle;">.
+</li>
+<!-------------------------------------------------------------------->
+<li>In the tests run so far, the turbulent heat-flux was obtained by
+<dl>
+<dd><img class="tex" alt="c_p\overline{\rho u_j''T''} = -\frac{C_\mu}{Pr_\mathrm{\tiny T}}\overline{\rho}\frac{\mathrm{k}}{\varepsilon^*}c_p\frac{\partial\hat T}{\partial x_j}\;\; ; \;\;
+Pr_\mathrm{\tiny T}=0.9" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img54.png"></dd>
+</dl>
+where <img class="tex" alt="C_\mu" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img55.png" style="padding-bottom: 8px; vertical-align: middle;"> was defined in (GLVY.3).
+</li>
+<!-------------------------------------------------------------------->
+<li>Finally, the extra turbulence-kinetic-energy diffusion terms in the mean-flow energy equation (<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>)
+should be modelled, approximately, as
+<dl>
+<dd><img class="tex" alt="\frac{\partial}{\partial x_j}\Biggl(\overline{\sigma_{ij}u_i''}-\frac{1}{2}\overline{\rho u_i''u_i''u_j''}\Biggr)\approx\frac{1}{2}d_{\ell\ell}^{(\mu)}+\frac{1}{2}d_{\ell\ell}^{(u)}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img56.png"></dd>
+</dl>
+where <img class="tex" alt="d^{(\mu)}_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img16.png" style="padding-bottom: 8px; vertical-align: middle;"> is defined in (GLVY.1)
+and <img class="tex" alt="d^{(u)}_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img17.png" style="padding-bottom: 8px; vertical-align: middle;"> is modeled by (GLVY.6).
+The approximation stems from the fact that the model, like the majority of Reynolds stress-models, uses the exact term
+<img class="tex" alt="d^{(\mu)}_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img16.png" style="padding-bottom: 8px; vertical-align: middle;">
+with an appropriate definition of
+<img class="tex" alt="\varepsilon_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img19.png" style="padding-bottom: 8px; vertical-align: middle;">
+[(4), p. 1369, Gerolymos G.A., Joly S., Mallet M., Vallet I.: <em> J. Aircraft</em> <strong>47</strong>(4) (2010) 1368-1381 <a href="https://doi.org/10.2514/1.47538">https://doi.org/10.2514/1.47538</a>]
+while what appears in the mean-flow Favre-averaged total energy equation is
+<img class="tex" alt="d^{(\tau)}_{ij}" src="GLVY_stress-epsilon_Full_RSM_files/GLVY_Eqs/img57.png" style="padding-bottom: 8px; vertical-align: middle;">
+[(3), p. 1369, Gerolymos G.A., Joly S., Mallet M., Vallet I.: <em> J. Aircraft</em> <strong>47</strong>(4) (2010) 1368-1381 <a href="https://doi.org/10.2514/1.47538">https://doi.org/10.2514/1.47538</a>].
+</li>
+<!-------------------------------------------------------------------->
+</ol>
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+</p><hr width="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+6/30/2015 - mention Pr, Pr_t, and Sutherland's law<br>
+11/20/2014 - added statement about BC treatment at symmetry planes
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;" align="right"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 08/12/2024
+<br>&nbsp;
+
+
+</p>
+
+</body></html>

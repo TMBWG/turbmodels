@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Stress-omega Full Reynolds Stress Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Stress-omega Full Reynolds Stress 
+Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for Wilcox's full second-moment Reynolds stress model, which
+use an omega equation for the length scale equation.
+Full second-moment Reynolds stress models are very different from simpler one and two-equation
+linear/nonlinear models, in that the latter use a constitutive relation giving
+the Reynolds stresses <img class="tex" alt="\tau_{ij}" src="rsm-ssglrromega_eqns/img2.png" />
+in terms of other tensors via some assumed relation (such as Boussinesq's hypothesis).
+On the other hand, full second-moment Reynolds stress models compute each of the 6 Reynolds stresses 
+directly (the Reynolds stress tensor is symmetric so there are 6 independent
+terms).  Each Reynolds stress has its own transport equation.
+There is also a seventh transport equation for the lengthscale-determining variable.
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<br>&nbsp;
+
+<p><a ID="wilcoxRSM"><strong><span style="text-align: left; font-weight: 700; font-size: large">Wilcox Stress-omega Full Reynolds Stress Model
+   <span style="color: blue">(WilcoxRSM-w2006)</span></strong>
+
+<p>This model's reference is:
+
+<ul>
+<li>Wilcox, D. C., <strong>Turbulence Modeling for CFD</strong>, 3rd edition, DCW Industries, Inc., La Canada CA, 2006.</li>
+</ul>
+
+<p>Written in conservation form, the six Reynolds stress equations are solved in terms of the
+Reynolds stresses
+<img class="tex" alt="\overline \rho R'_{ij}" src="rsm-wilcoxomega_eqns/img2.png" />
+(notation different from the original reference), where 
+<img class="tex" alt="\overline \rho R'_{ij}" src="rsm-wilcoxomega_eqns/img2.png" />
+corresponds to
+<img class="tex" alt="\tau_{ij}" src="rsm-wilcoxomega_eqns/img3.png" />
+as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>).
+In other words, using the notation of this website:
+
+<dl>
+<dd><img class="tex" alt="\overline \rho R'_{ij} = \tau_{ij} = -\overline {\rho u_i'' u_j''}"
+  src="rsm-wilcoxomega_eqns/img4.png" /></dd>
+</dl>
+
+<p>Note that this <img class="tex" alt="\overline \rho R'_{ij}" src="rsm-wilcoxomega_eqns/img2.png" />
+definition is the negative of the 
+<img class="tex" alt="\overline \rho \hat R_{ij}" src="rsm-ssglrromega_eqns/img3.png" />
+used in the 
+<a href="rsm-ssglrr.html">SSG/LRR-RSM-w2012 model</a>.
+The six Reynolds stress equations and one length scale equation are given by:
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial \overline \rho R'_{ij}}{\partial t} +
+\frac{\partial (\overline \rho \hat u_k R'_{ij})}{\partial x_k} = -\overline \rho P_{ij} -
+\overline \rho \Pi_{ij} + \frac{2}{3} \beta^* \overline \rho \omega k \delta_{ij} +
+\frac{\partial}{\partial x_k} \left[ \left( \overline \mu + \sigma^* \mu_t \right)
+\frac{\partial R'_{ij}}{\partial x_k} \right]"
+  src="rsm-wilcoxomega_eqns/img5.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\overline \rho \omega)}{\partial t} +
+  \frac{\partial (\overline \rho \hat u_k \omega)}{\partial x_k}
+  = \frac{\alpha \overline \rho \omega}{k} R'_{ij} \frac{\partial \hat u_i}{\partial x_j} -
+  \beta \overline \rho \omega^2 + \frac{\partial}{\partial x_k}
+  \left[ \left( \overline \mu + \sigma \mu_t \right)
+  \frac{\partial \omega}{\partial x_k} \right] +
+  \sigma_d \frac{\overline \rho}{\omega} \frac{\partial k}{\partial x_j}
+  \frac{\partial \omega}{\partial x_j}"
+  src="rsm-wilcoxomega_eqns/img6.png" /></dd>
+</dl>
+
+<p>The production term is:
+
+<dl>
+<dd><img class="tex" alt="P_{ij} = R'_{ik}
+\frac{\partial \hat u_j}{\partial x_k}
++ R'_{jk} \frac{\partial \hat u_i}{\partial x_k}"
+src="rsm-wilcoxomega_eqns/img7.png" /></dd>
+</dl>
+
+<p>with <img class="tex" alt="k=-R'_{ii}/2" src="rsm-wilcoxomega_eqns/img8.png" />
+and <img class="tex" alt="\mu_t = \overline \rho k / \omega" src="rsm-wilcoxomega_eqns/img9.png" />.
+<p>The pressure-strain correlation is modeled (without wall-correction terms) via:
+
+<dl>
+<dd><img class="tex" alt="\Pi_{ij} = \beta^* C_1 \omega \left( R'_{ij} +
+  \frac{2}{3} k \delta_{ij} \right)
+  - \hat \alpha \left( P_{ij} - \frac{2}{3} P \delta_{ij} \right)
+  - \hat \beta \left( D_{ij} - \frac{2}{3} P \delta_{ij} \right)
+  - \hat \gamma k \left( S_{ij} - \frac{1}{3} S_{kk} \delta_{ij} \right)"
+src="rsm-wilcoxomega_eqns/img10.png" /></dd>
+</dl>
+
+<p>or equivalently:
+
+<dl>
+<dd><img class="tex" alt="\Pi_{ij} = - C_1 \varepsilon a_{ij} +
+(\hat \alpha + \hat \beta) k \left( a_{ik} S_{jk} +
+a_{jk} S_{ik} - \frac{2}{3} a_{kl} S_{kl} \delta_{ij} \right) +
+(\hat \alpha - \hat \beta) k \left(a_{ik} W_{jk} + a_{jk} W_{ik} \right) +
+\left[ \frac{4}{3} \left( \hat \alpha + \hat \beta \right) - \hat \gamma \right]
+k \left( S_{ij} - \frac{1}{3}S_{kk} \delta_{ij} \right)"
+src="rsm-wilcoxomega_eqns/img29.png" /></dd>
+</dl>
+
+<p>with
+
+<dl>
+<dd><img class="tex" alt="D_{ij} = R'_{ik}
+\frac{\partial \hat u_k}{\partial x_j}
++ R'_{jk} \frac{\partial \hat u_k}{\partial x_i}"
+src="rsm-wilcoxomega_eqns/img11.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="a_{ij} = -\frac{R'_{ij}}{k} - \frac{2}{3}\delta_{ij}"
+src="rsm-wilcoxomega_eqns/img30.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="P = P_{kk}/2" src="rsm-wilcoxomega_eqns/img12.png" /> and
+<img class="tex" alt="\varepsilon = \beta^* k \omega" src="rsm-wilcoxomega_eqns/img31.png" />.
+The coefficients (listed below) are from the LRR-QI model (J. Fluid Mech (1975), vol 68, part 3, pp. 537-566).
+
+<p>The closure coefficients are:
+
+<dl>
+<dd><img class="tex" alt="\hat \alpha = (8+C_2)/11"
+  src="rsm-wilcoxomega_eqns/img13.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\hat \beta = (8 C_2-2)/11"
+  src="rsm-wilcoxomega_eqns/img14.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\hat \gamma = (60 C_2 - 4)/55"
+  src="rsm-wilcoxomega_eqns/img15.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_1 = 9/5"
+  src="rsm-wilcoxomega_eqns/img16.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_2 = 10/19"
+  src="rsm-wilcoxomega_eqns/img17.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\alpha = 13/25"
+  src="rsm-wilcoxomega_eqns/img18.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\beta = \beta_0 f_{\beta}"
+  src="rsm-wilcoxomega_eqns/img19.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta^* = 9/100"
+  src="rsm-wilcoxomega_eqns/img20.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma=0.5"
+  src="rsm-wilcoxomega_eqns/img21.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma^*=0.6"
+  src="rsm-wilcoxomega_eqns/img22.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\beta_0 = 0.0708"
+  src="rsm-wilcoxomega_eqns/img23.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_d = 0, \quad for \quad \frac{\partial k}{\partial x_j}
+   \frac{\partial \omega}{\partial x_j} \leq 0"
+  src="wilcox2006_eqns/img28.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_d = \frac{1}{8}, \quad for \quad \frac{\partial k}{\partial x_j}
+   \frac{\partial \omega}{\partial x_j} > 0"
+  src="wilcox2006_eqns/img29.png" /></dd>
+</dl>
+
+<p>and
+
+<dl>
+<dd><img class="tex" alt="f_{\beta} = \frac{1 + 85 \chi_{\omega}}{1 + 100 \chi_{\omega}}"
+  src="wilcox2006_eqns/img24.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\chi_{\omega} = \left| \frac{W_{ij} W_{jk} \hat S_{ki}}
+  {(\beta^* \omega)^3} \right|"
+  src="rsm-wilcoxomega_eqns/img32.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\hat S_{ki} = S_{ki} - \frac{1}{2} \frac{\partial \hat u_m}{\partial x_m} \delta_{ki}"
+  src="rsm-wilcoxomega_eqns/img24.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial \hat u_i}{\partial x_j} +
+\frac{\partial \hat u_j}{\partial x_i} \right)"
+  src="rsm-wilcoxomega_eqns/img27.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="W_{ij} = \frac{1}{2} \left( \frac{\partial \hat u_i}{\partial x_j} -
+\frac{\partial \hat u_j}{\partial x_i} \right)"
+  src="rsm-wilcoxomega_eqns/img28.png" /></dd>
+</dl>
+
+<p>There are no specific farfield boundary conditions recommended for this model, and there are various wall
+boundary conditions for 
+<img class="tex" alt="\omega" src="rsm-wilcoxomega_eqns/img25.png" />.  See
+the <a href="wilcox.html">Wilcox k-omega</a> page for more details.
+Also, the approximate wall boundary condition for
+<img class="tex" alt="\omega" src="rsm-wilcoxomega_eqns/img25.png" /> from
+Menter (AIAA Journal, Vol. 32, No. 8, August 1994, pp. 1598-1605,
+<a href="https://doi.org/10.2514/3.12149">https://doi.org/10.2514/3.12149</a>) is sometimes used (see 
+<a href="rsm-ssglrr.html">SSG/LRR-RSM-w2012 model</a>).
+For the Reynolds stresses at solid walls:
+
+<dl>
+<dd><img class="tex" alt="R'_{ij, wall} = 0"
+  src="rsm-wilcoxomega_eqns/img26.png" /></dd>
+</dl>
+
+<p>Boundary conditions for RSM are important to handle correctly at symmetry boundaries:
+<ul>
+<li>On an x-symmetry plane, the 12 (xy) and 13 (xz) Reynolds stress components should have Dirichlet conditions of zero.
+<li>On a y-symmetry plane, the 12 (xy) and 23 (yz) Reynolds stress components should have Dirichlet conditions of zero.
+<li>On a z-symmetry plane, the 13 (xz) and 23 (yz) Reynolds stress components should have Dirichlet conditions of zero.
+</ul>
+
+<p>Other Reynolds stress components should receive the usual symmetric treatment (i.e., zero gradient).
+
+<p>Note that the Reynolds stresses should adhere to the following realizability conditions (see, e.g.,
+J. Fluid Mech. (1994), vol. 278, pp. 351-362,
+<a href="https://doi.org/10.1017/S0022112094003745">https://doi.org/10.1017/S0022112094003745</a>):
+
+<ul>
+<li>For the diagonal elements:
+<dl>
+<dd><img class="tex" alt="\overline {\rho u_i'' u_i''} \geq 0"
+  src="rsm-ssglrromega_eqns/img73.png" /> &nbsp; &nbsp;
+    <img class="tex" alt="i \in {1,2,3}"
+  src="rsm-ssglrromega_eqns/img74.png" /> &nbsp; &nbsp; (no summation on i)</dd>
+</dl>
+<li>For the off-diagonal elements (i not equal to j):
+<dl>
+<dd><img class="tex" alt="\left|\overline {\rho u_i'' u_j''}\right| \leq 
+\sqrt{\left(\overline {\rho u_i'' u_i''}\right) \left(\overline {\rho u_j'' u_j''}\right)}"
+  src="rsm-ssglrromega_eqns/img75.png" /> &nbsp; &nbsp;
+    <img class="tex" alt="i,j \in {1,2,3}"
+  src="rsm-ssglrromega_eqns/img76.png" /> &nbsp; &nbsp; (no summation on i or j)</dd>
+</dl>
+</ul>
+
+<p>Regarding additional modeled terms appearing in the Favre-averaged equations, nothing specific
+is recommended beyond what is described on the page:
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>.
+
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+03/24/2016 - mention realizability of Reynolds stresses<br>
+06/30/2015 - mention Pr, Pr_t, and Sutherland's law<br>
+11/20/2014 - added statement about BC treatment at symmetry planes<br>
+09/02/2014 - corrected typo in chi_omega equation<br>
+04/07/2014 - split SSG/LRR model to separate page<br>
+08/29/2013 - included equivalent pressure-strain form in WilcoxRSM-w2006<br>
+08/23/2013 - added "RSM" in naming convention for SSG/LRR version<br>
+08/22/2013 - added definitions of strain and vorticity tensors for Wilcox<br>
+07/22/2013 - corrected sign of production term in omega eqn of SSG/LRR-RSM-w2012
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

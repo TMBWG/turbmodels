@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<HEAD>
+<TITLE>Transitional SSG/LRR Reynolds Stress Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Transitional SSG/LRR Reynolds Stress Model</span></strong>
+
+</p><p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information on the equations for various forms of the transitional SSG/LRR Reynolds stress model, 
+which is a blend between Langtry-Menter γ-Reθt equations and full second-moment Reynolds stress equations. Full second-moment Reynolds stress models are very different from simpler one and two-equation
+ linear/nonlinear models, in that the latter use a constitutive relation giving the Reynolds stresses <img class="tex" alt="\tau_{ij}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/tau.png"> in terms of other tensors via some assumed relation (such as Boussinesq's hypothesis). On
+ the other hand, full second-moment Reynolds stress models compute each of the 6 Reynolds stresses directly (the Reynolds stress tensor is symmetric so there are 6 independent terms). Each Reynolds stress
+ has its own transport equation. There is also a seventh transport equation for the lengthscale-determining variable.
+
+
+
+
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+</p><p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><a ID="lm-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Transitional SSG/LRR Reynolds Stress Model <span style="color: blue">
+  (SSG/LRR-trans)</span></span></strong>
+</p><p>This model is developed by coupling of the <a href="rsm-ssglrr.html#ssg-lrrRSM">SSG/LRR-w2012-SD</a> full turbulence model with the <a href="langtrymenter_4eqn.html">Langtry-Menter γ-Reθt model</a>. The primary reference for the implementation of the 9-equation transitional RSM is:
+
+</p><ul>
+<li>Shengyang Nie, Normann Krimmelbein, Andreas Krumbein, et al. "Coupling of a Reynolds Stress Model with the γ−Reθt Transition Model,"
+<strong>AIAA Journal</strong>, Vol. 56, No. 1, September 2017, pp. 146-157,
+<a href="https://doi.org/10.2514/1.J056167">https://doi.org/10.2514/1.J056167</a>.
+</li></ul>
+
+<p>Note that the SSG/LRR-ω model almost shares the same length-scale determining equation as the Menter’s k-ω SST model, except the production term. The production of ω in Langtry-Menter’s 4-equation model is linear to the square of the mean strain rate.
+ In contrast to the ω-based RSM coupling with γ-Reθt, the ω production does not vanish in the fully laminar region. Along with this, an inverse-ω scale variable(<img class="tex" alt="\lambda=1/\sqrt[8]{\omega}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/lamda.png "width="80" height="20" >)
+is recommended by:
+
+<ul>
+<li>Shunshun Wang, Shengye Wang,  Xiang Fu, et al. "A Wall-Boundary-Natural Transitional Reynolds-Stress Model for High-Order Wing-Body Simulations,"
+<strong>Physics of Fluids</strong>, Vol. 36, No. 8, July 2024, pp. 084-115,
+<a href="https://doi.org/10.1063/5.0219939">https://doi.org/10.1063/5.0219939</a>.
+</li></ul>
+
+
+<p>
+The λ equals 0 strictly on the viscous wall and so avoids the invalidity of generation term upstream the transition onset. Based on this, the model is given by the following:
+</p><dl>
+    <dd><img class="tex" alt="\begin{gathered}
+\frac{\partial\left(\bar{\boldsymbol{\rho}}\hat{R}_{ij}\right)}{\partial t}+\frac{\partial\left(\bar{\boldsymbol{\rho}}\hat{u}_k\hat{R}_{ij}\right)}{\partial x_k}=\bar{\boldsymbol{\rho}}P_{ij}+\bar{\boldsymbol{\rho}}\Pi_{ij}-\bar{\boldsymbol{\rho}}\varepsilon_{ij}+\bar{\boldsymbol{\rho}}D_{ij} \\
+\frac{\partial(\bar{\rho}\lambda)}{\partial t}+\frac{\partial(\bar{\rho}\hat{u}_k\lambda)}{\partial x_k}=\bar{\rho}P_\lambda-\bar{\rho}\varepsilon_\lambda+\bar{\rho}D_\lambda+\bar{\rho}C_{D\lambda}+\bar{\rho}G_\lambda \\
+\frac{\partial(\bar{\boldsymbol{\rho}}\boldsymbol{\gamma})}{\partial t}+\frac{\partial(\bar{\boldsymbol{\rho}}\hat{\boldsymbol{u}}_j\boldsymbol{\gamma})}{\partial x_j}=P_{\boldsymbol{\gamma}}-E_{\boldsymbol{\gamma}}+\frac{\partial}{\partial x_j}\left[\left(\boldsymbol{\mu}+\frac{\boldsymbol{\mu}_t}{\boldsymbol{\sigma}_f}\right)\frac{\partial\boldsymbol{\gamma}}{\partial x_j}\right] \\
+\frac{\partial\left(\bar{\boldsymbol{\rho}}\tilde{R}e_{\boldsymbol{\theta}t}\right)}{\partial t}+\frac{\partial\left(\bar{\boldsymbol{\rho}}\hat{u}_{j}\tilde{R}e_{\boldsymbol{\theta}t}\right)}{\partial x_{j}}=P_{\boldsymbol{\theta}t}+\frac{\partial}{\partial x_{j}}\left[\boldsymbol{\sigma}_{\boldsymbol{\theta}t}\left(\boldsymbol{\mu}+\boldsymbol{\mu}_{t}\right)\frac{\partial\tilde{R}e_{\boldsymbol{\theta}t}}{\partial x_{j}}\right] 
+\end{gathered}
+" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Rij.png "width="400" height="180" >
+</dl>
+
+The source terms in Reynolds stress equations are defined as:
+
+<dl>
+<dd><img class="tex" alt="\bar{\rho}P_{ij}=-\bar{\rho}\hat{R}_{ik}\frac{\partial\hat{u}_j}{\partial x_k}-\bar{\rho}\hat{R}_{jk}\frac{\partial\hat{u}_i}{\partial x_k}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Pij.png"></dd>
+</dl>
+
+
+<dl>
+<dd><img class="tex" alt="\bar{\rho}\varepsilon_{ij}=\frac{2}{3}\bar{\rho}\varepsilon\delta_{ij}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Eij.png"></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\bar{\rho}D_{ij}=\frac{\partial}{\partial x_k}\left[\left(\mu+\frac{D}{C_\mu}\mu_t\right)\frac{\partial\hat{R}_{ij}}{\partial x_k}\right]" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Dij.png"></dd>
+</dl>
+
+
+<dl>
+<dd><img class="tex" alt="\begin{aligned}
+\bar{\rho}\Pi_{ij}=& \begin{aligned}&-\left(C_1\bar{\rho}\varepsilon+\frac{1}{2}C_1^*\bar{\rho}P_{kk}\right)\hat{a}_{ij}+C_2\bar{\rho}\varepsilon\left(\hat{a}_{ik}\hat{a}_{kj}-\frac{1}{3}\hat{a}_{kl}\hat{a}_{kl}\delta_{ij}\right)\end{aligned}+\left(C_3-C_3^*\sqrt{\hat{a}_{kl}\hat{a}_{kl}}\right)\bar{\rho}\hat{k}\hat{S}_{ij}^*+C_4\bar{\rho}\hat{k}\left(\hat{a}_{ik}\hat{S}_{jk}+\hat{a}_{jk}\hat{S}_{ik}-\frac23\hat{a}_{kl}\hat{S}_{kl}\delta_{ij}\right)+C_5\bar{\rho}\hat{k}\left(\hat{a}_{ik}\hat{W}_{jk}+\hat{a}_{jk}\hat{W}_{ik}\right)
+\end{aligned}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Piij.png"></dd>
+</dl>
+
+
+The dissipation rate as well as turbulence viscosity are as follows:
+
+
+</p><dl>
+    <dd><img class="tex" alt="\varepsilon=C_\mu\hat{k}/\lambda^8,\quad\mu_t=\bar{\rho}\hat{k}\lambda^8" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/dissipation.png "width="180" height="24" >
+</dl>
+
+The boundary conditions of <img class="tex" alt=" R_{ij}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Rij6.png"> at the solid wall and in the far-field are given as:
+
+
+</p><dl>
+    <dd><img class="tex" alt="\hat{R}_{ij,\mathrm{wall}}=0,\hat{R}_{ij,\infty}=\frac23\hat{k}_\infty\delta_{ij}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Rijfar.png "width="180" height="32">
+</dl>
+
+
+
+
+The details of the λ-scale transport equation are as follows:
+
+
+</p><dl>
+    <dd><img class="tex" alt="\frac{\partial \left( \bar{\rho }\lambda  \right)}{\partial t}+\frac{\partial \left( \bar{\rho }{{{\hat{u}}}_{k}}\lambda  \right)}{\partial {{x}_{k}}}=-\text{8}\frac{{{\alpha }_{\omega }}\lambda }{\hat{k}}\frac{\bar{\rho }{{\text{P}}_{\text{k}k}}}{2}+\text{8}{{\beta }_{\omega }}\bar{\rho }{{\lambda }^{\frac{7}{8}}}+\frac{\partial }{\partial {{x}_{k}}}[\left( \mu +{{\sigma }_{\omega }}{{\mu }_{t}} \right)\frac{\partial \lambda }{\partial {{x}_{k}}}]+{{\sigma }_{d}}\bar{\rho }{{\lambda }^{\frac{1}{8}}}\text{min}(\frac{\partial \hat{k}}{\partial {{x}_{k}}}\frac{\partial \lambda }{\partial {{x}_{k}}},0)-\frac{9}{8\lambda }(\mu +{{\sigma }_{\omega }}{{\mu }_{t}})\frac{\partial \lambda }{\partial {{x}_{k}}}\frac{\partial \lambda }{\partial {{x}_{k}}}]" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/lamda2.png "width="900" height="46" >
+</dl>
+
+The boundary conditions of λ at the solid wall and in the far-field are given as:
+
+
+</p><dl>
+    <dd><img class="tex" alt="\lambda_{\text {wall }}=0, \quad \lambda_{\text {far field }}=\sqrt[8]{\frac{\mu_{t, \text { far field }}}{\bar{\rho} \hat{k}_{\text {far field }}}}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/lamdafar.png "width="250" height="42">
+</dl>
+
+In the above, k is the turbulence kinetic turbulence energy,<img class="tex" alt="\hat{k} =\hat{R}_{ii}/2" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Rii.png"> , the hat represents the Favre average, <img class="tex" alt=" \hat{\phi}=\overline{\rho\phi}/\bar{\rho}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/favre.png">, <img class="tex" alt=" \bar{\rho }" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img18.png"> is the non-weighted averaging density, <img class="tex" alt="\mu" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img19.png">  is the molecular dynamic viscosity, <img class="tex" alt="d" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img20.png"> is the distance from the field point to the nearest wall, <img class="tex" alt="S=\sqrt{2 \hat{S}_{i j} \hat{S}_{i j}}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img21.png">  is the strain rate magnitude, and <img class="tex" alt="\Omega=\sqrt{2 \hat{W}_{i j}\hat{W}_{i j} }" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img22.png">  is the vorticity magnitude, with
+
+<dl>
+<dd><img class="tex" alt="\hat{S}_{i j}=\frac{1}{2}\left(\frac{\partial \hat{u}_i}{\partial x_j}+\frac{\partial \hat{u}_j}{\partial x_i}\right)" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img23.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\hat{W}_{i j}=\frac{1}{2}\left(\frac{\partial \hat{u}_i}{\partial x_j}-\frac{\partial \hat{u}_j}{\partial x_i}\right)" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img24.png"></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\hat{a}_{i j}=\frac{\hat{R}_{i j}}{\hat{k}}-\frac{2}{3} \delta_{i j}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/aij.png"></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\hat{S}_{ij}^*=\hat{S}_{ij}-\frac13\hat{S}_{kk}\delta_{ij}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Sij6.png"></dd>
+</dl>
+
+
+Moreover, all the coefficients of the turbulence model are the same as the <a href="rsm-ssglrr.html#ssg-lrrRSM">SSG/LRR-w2012-SD</a> model.<p>The source terms for the <img class="tex" alt="\gamma" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img46.png"> equation are defined as:
+</p><dl>
+<dd><img class="tex" alt=" P_\gamma = F_{length} c_{a1} \bar{\rho } S \left[ \gamma F_{onset} \right] ^{0.5} \left( 1 - c_{e1} \gamma \right)" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img5.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="E_\gamma =c_{a2} \bar{\rho } \Omega \gamma F_{turb} \left( c_{e2} \gamma - 1 \right)" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img6.png"></dd>
+</dl>
+where
+<dl>
+<dd><img class="tex" alt="F_{onset1} = \frac{Re_V}{2.193 Re_{\theta c}}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img8.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re_V = \frac{\bar{\rho } S d^2}{\mu}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img7.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt=" F_{onset2} = min \left( max \left( F_{onset1},F_{onset1}^4 \right), 2.0 \right)" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img9.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="R_T=\frac{\bar{\rho }\hat{k} }{\mu \omega}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img10.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset3} =  max \left[ 1 - \left( \frac{R_T}{2.5} \right)^3, 0 \right]" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img11.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset} = max \left(F_{onset2} - F_{onset3}, 0 \right)" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img60.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{turb} = exp \left[ - \left( \frac{R_T}{4} \right) ^4 \right]" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img12.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{length} = F_{length,1} \left( 1 - F_{sublayer} \right) + 40.0 F_{sublayer}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img13.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{\text {length }, 1}= \begin{cases}39.8189+\left(-119.270 \cdot 10^{-4}\right) \hat{R} e_{\theta t}+\left(-132.567 \cdot 10^{-6}\right) \hat{R} e_{\theta t}^2, & \hat{R} e_{\theta t}<400 ; \\ 263.404+\left(-123.939 \cdot 10^{-2}\right) \hat{R} e_{\theta t}+\left(194.548 \cdot 10^{-5}\right) \hat{R} e_{\theta t}^2+\left(-101.695 \cdot 10^{-8}\right) \hat{R} e_{\theta t}^3, & 400 \leq \hat{R} e_{\theta t}<596 ; \\ 0.5-\left(3.0 \cdot 10^{-4}\right)\left(\hat{R} e_{\theta t}-596.0\right), & 596 \leq \hat{R} e_{\theta t}<1200 ; \\ 0.3188 & 1200 \leq \hat{R} e_{\theta t}\end{cases}"
+src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img14.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{{F}_{sublayer}}=exp\left[ -{{\left( \frac{R{{e}_{\lambda }}}{200} \right)}^{2}} \right]" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img15.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="R{{e}_{\lambda }}=\frac{\bar{\rho } {{\lambda }^{8}}{{d}^{2}}}{\mu }" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img16.png"></dd>
+</dl>
+
+
+
+
+
+The momentum thickness Reynolds number Re<sub>θc</sub> is recalibrated for the RSM:
+
+
+<dl>
+<dd><img class="tex" alt="Re_{\theta c}=f_{\theta c}\tilde{R}e_{\theta t},
+f_{\theta c}=0.99-0.37\Big\{1-\exp\Big[-\max\Big(0,\frac{\tilde{R}e_{\theta t}+40}{320}\Big)\Big]\Big\}^2" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/Rethetac.png" ></dd>
+</dl>
+
+<p>The source term of the <img class="tex" alt="\tilde Re_{\theta t}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img47.png"> equation is defined as:
+</p><dl>
+<dd><img class="tex" alt="P_{\theta t} = c_{\theta t} \frac{\bar{\rho}}{T} \left( Re_{\theta t} - \tilde Re_{\theta t} \right) \left( 1.0 - F_{\theta t} \right)" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img25.png"></dd>
+</dl>
+for which
+<dl>
+<dd><img class="tex" alt="T=\frac{500 \mu}{\bar{\rho }U^2}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img26.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="U = \sqrt{ \hat{u}_k \hat{u}_k}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img27.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{\theta t} = min \left[ max \left( F_{wake} exp \left(- \left( \frac{d}{\delta} \right) ^4 \right) , 1.0 - \left( \frac{c_{e2}\gamma - 1}{c_{e2} - 1}\right) ^2 \right), 1.0 \right]" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img28.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\delta=\frac{375\Omega\mu\tilde{R}e_{\theta t}d}{\bar{\rho }U^2}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img29.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{wake} = exp \left[ - \left( \frac{Re_{\omega}}{1\cdot 10^{5}} \right) ^2 \right]" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img30.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\lambda_\theta=\frac{\bar\rho \theta_t^2}{\mu} \frac{d U}{d s}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img31.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Tu=100\frac{\sqrt{2\hat{k}/3}}{U}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img32.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{dU}{ds} = \frac{\hat{u}_m \hat{u}_n}{U^2}  \frac{\partial \hat{u}_m}{\partial x_n}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img33.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{{\operatorname{Re}}_{\theta t}}=\left\{ \begin{array}{*{35}{l}}
+   \left[ 1173.51-589.428Tu-8T{{u}^{3}}+\frac{0.2196}{T{{u}^{2}}} \right]F\left( {{\lambda }_{\theta }} \right), & Tu\le %1.5  \\
+   \left[ 240{{(Tu+0.01)}^{0.64+0.7Tu}}+150 \right]F\left( {{\lambda }_{\theta }} \right), & Tu>%1.5  \\
+\end{array} \right. " src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img34.png">  </dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F \left( \lambda_{\theta} \right) = \left\{ 
+      \begin{array}{ll}
+         1 + \left[ 12.986 \lambda_{\theta} + 123.66 \lambda_{\theta} ^2 + 405.689 \lambda_{\theta} ^3 \right] exp \left( -\left( \frac{Tu}{1.5} \right)^{1.5} \right), &amp; \lambda_{\theta} \leq 0; \\
+         1 + 0.275 \left[1 - exp \left( -35.0 \lambda_{\theta} \right) \right] exp \left( - \frac{Tu}{0.5} \right) &amp; \lambda_{\theta} &gt; 0
+      \end{array} \right." src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img35.png"></dd>
+</dl>
+
+<p>IMPORTANT: The expression for <img class="tex" alt="Re_{\theta t}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img48.png">  is an implicit function of <img class="tex" alt="\theta_t" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img49.png">  through the presence of <img class="tex" alt="\lambda_{\theta}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img50.png"> since
+</p><dl>
+<dd><img class="tex" alt="Re_{\theta t}=\frac{\bar{\rho}U\theta_t}{\mu}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img36.png"></dd>
+</dl>
+(the equations for <img class="tex" alt="Re_{\theta t}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img48.png"> are typically
+solved by iterating on the value of <img class="tex" alt="\theta_t" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img49.png">).
+Note that in the nomenclature of AIAA Journal 47(12):2894-2906, 2009, the expression for
+<img class="tex" alt="Re_{\theta t}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img48.png"> uses a "local freestream velocity" for <i>U</i>, which is actually
+intended to be the velocity at the edge of the boundary layer.  But in the functionality
+of the model, this velocity needs to be the local velocity.  Although
+<img class="tex" alt="Re_{\theta t}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img48.png"> is small for small velocities (i.e. near the wall 
+in a boundary layer), this effect is accounted for in the model with the F_theta_t term. Outside of the boundary layer, the transported 
+<img class="tex" alt="\tilde Re_{\theta t}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img47.png"> is "attracted" to the equilibrium value
+(<img class="tex" alt="Re_{\theta t}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img48.png">) and is physically correct at the edge of the boundary layer. 
+Inside the boundary layer, the attraction is suppressed and the value at the edge is diffused into the boundary layer.
+
+<p>The calibration constants for the Langtry-Menter model are:
+</p><dl>
+<dd><img class="tex" alt="\begin{array}{l}
+      c_{a1} = 2.0 \\
+      c_{a2} = 0.06 \\
+      c_{e1} = 1.0 \\
+      c_{e2} = 50 \\
+      c_{\theta t} = 0.03 \\
+      s_1 = 2 \\
+      \sigma_{f} = 1.0 \\
+      \sigma_{\theta t} = 2.0
+   \end{array}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img37.png"></dd>
+</dl>
+The boundary conditions for <img class="tex" alt="\gamma" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img46.png"> and <img class="tex" alt="\tilde Re_{\theta t}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img47.png"> are:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \gamma}{\partial n} \vert _{wall} = 0" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img52.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\gamma_{farfield} = 1" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img53.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial \tilde Re_{\theta t}}{\partial n} \vert _{wall} = 0" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img54.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tilde{R} e_{\theta t, \text { far field }}= \begin{cases}1173.51-589.428 T u-8 T u^3+\frac{0.2196}{T u^2}, & T u \leq 1.5 \% \\ 240(T u+0.01)^{0.64+0.7 T u}+150, & T u>1.5 \%\end{cases}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img55.png"></dd>
+</dl>
+
+
+
+<p>The effects of laminar-turbulent transition are introduced to the underlying SSG/LRR model by modifying the source terms as:
+</p><dl>
+<dd><img class="tex" alt="\begin{aligned}
+&\tilde{P}_{ij}=\gamma_{\mathrm{eff}}P_{ij} \\
+&\tilde\varepsilon _{ij}=\operatorname*{min}\left(1,\operatorname*{max}\left(\gamma_{\mathrm{eff}},0.1\right)\right)\varepsilon _{ij} \\
+&\tilde{\Pi}_{ij}=\gamma_{\mathrm{eff}}\Pi_{ij}
+\end{aligned}" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/couple.png" </dd>
+</dl>
+
+
+<p>For numerical robustness, the following three limits are enforced:
+</p><dl>
+<dd><img class="tex" alt="-0.1 \leq \lambda_{\theta} \leq 0.1" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img57.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Tu \geq 0.027" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img58.png"></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re_{\theta t} \geq 20" src="./Transitional_SSGLRR_Reynolds_Stress_Model_files/img59.png">
+</dd>
+</dl>
+
+<p>This model is not Galilean invariant, due to its explicit use of the velocity vector.
+
+<br>&nbsp;    
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;    
+
+<hr WIDTH="100%">
+<p>Shengye Wang is acknowledged for helping with this webpage.
+         
+<br>&nbsp;
+<p>  
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:c.l.rumsey@nasa.gov">Christopher Rumsey</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:c.l.rumsey@nasa.gov">Christopher Rumsey</a> <br>
+<strong>Last Updated:</strong> 04/08/2025
+<br>&nbsp;
+
+</body>
+</html>

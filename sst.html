@@ -1,0 +1,745 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Menter Shear Stress Transport Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The Menter Shear Stress Transport
+   Turbulence Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various forms of the
+Menter shear stress transport (SST) turbulence model. 
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><em>The first version listed <span style="color: blue">(SST)</span> is considered "standard".
+It is the original published version.</em>
+<br>&nbsp;
+
+<p><a ID="sst-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">"Standard" Menter SST 
+   Two-Equation Model <span style="color: blue">(SST)</span> and <span style="color: blue">(SSTm)</span></strong>
+<p>The reference for the standard implementation of the Menter SST
+model is:
+
+<ul>
+<li>Menter, F. R., "Two-Equation Eddy-Viscosity Turbulence Models for Engineering Applications,"
+<strong>AIAA Journal</strong>, Vol. 32, No. 8, August 1994, pp. 1598-1605,
+<a href="https://doi.org/10.2514/3.12149">https://doi.org/10.2514/3.12149</a>.
+</ul>
+
+<p>This model is almost identical to the
+<a href="bsl.html">Menter baseline model</a>.  Only one constant
+(<img class="tex" alt="\sigma_{k 1}" src="bsl_eqns/img2.png" />)
+and the expression
+for turbulent eddy viscosity are different.
+The two-equation model (written in conservation form) is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \beta^* \rho \omega k  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \sigma_k \mu_t \right)\frac{\partial k}{\partial x_j}\right]"
+  src="sst_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho u_j \omega)}{\partial x_j}
+  = \frac{\gamma}{\nu_t} \cal P -
+  \beta \rho \omega^2 + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\omega} \mu_t \right)
+  \frac{\partial \omega}{\partial x_j} \right] +
+  2(1-F_1) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_j}
+  \frac{\partial \omega}{\partial x_j}"
+  src="sst_eqns/img3.png" /></dd>
+</dl>
+
+<p>Note that in the reference, the Lagrangian derivative was used, which is not identical
+with the proper form of these equations as written by the author and others elsewhere. The equations have been
+written above to be in proper conservation form, consistent with, e.g., Wilcox (in Turbulence Modeling for CFD,
+DCW Industries, Inc., La Canada, CA, 2006), Menter et al (in Turbulence, Heat and Mass Transfer 4, 2003, pp. 625-632),
+and Menter (in NASA TM 103975, 1992,
+<a href="https://ntrs.nasa.gov/citations/19930013620">https://ntrs.nasa.gov/citations/19930013620</a>).
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="sst_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}"
+  src="sst_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)"
+  src="sst_eqns/img6.png" /></dd>
+</dl>
+
+<p>and the turbulent eddy viscosity is computed from:
+<dl>
+<dd><img class="tex" alt="\mu_t = \frac{\rho a_1 k}{{\rm max} (a_1 \omega, \Omega F_2)}"
+  src="sst_eqns/img7.png" /></dd>
+</dl>
+
+<p>Each of the constants is a blend of an inner (1) and outer (2) constant, blended via:
+<dl>
+<dd><img class="tex" alt="\phi = F_1 \phi_1 + (1-F_1) \phi_2"
+  src="sst_eqns/img8.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\phi_1" src="sst_eqns/img9.png" /> represents constant 1
+and <img class="tex" alt="\phi_2" src="sst_eqns/img10.png" /> represents constant 2.
+Additional functions are given by:
+<dl>
+<dd><img class="tex" alt="F_1 = {\rm tanh} \left({\rm arg}_1^4 \right)"
+  src="sst_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{\rm arg}_1 = {\rm min} \left[ {\rm max} \left( \frac{\sqrt{k}}{\beta^*\omega d},
+   \frac{500 \nu}{d^2 \omega} \right) , \frac{4 \rho \sigma_{\omega 2} k}{{\rm CD}_{k \omega} d^2} \right]"
+  src="sst_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{\rm CD}_{k \omega} = {\rm max} \left(2 \rho \sigma_{\omega 2} \frac{1}{\omega}
+   \frac{\partial k}{\partial x_j} \frac{\partial \omega}{\partial x_j}, 10^{-20} \right)"
+  src="sst_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_2 = {\rm tanh} \left({\rm arg}_2^2 \right)"
+  src="sst_eqns/img14.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{\rm arg}_2 = {\rm max} \left( 2 \frac{\sqrt{k}}{\beta^* \omega d}, \frac{500 \nu}{d^2 \omega} \right)"
+  src="sst_eqns/img15.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="\rho" src="sst_eqns/img16.png" /> is the density,
+<img class="tex" alt="\nu_t = \mu_t/\rho" src="sst_eqns/img17.png" /> is the
+turbulent kinematic viscosity, 
+<img class="tex" alt="\mu" src="sst_eqns/img18.png" /> is the
+molecular dynamic viscosity, <em>d</em> is the distance from the field point to the nearest wall, and
+<img class="tex" alt="\Omega = \sqrt{2 W_{ij} W_{ij} }" src="spalart_eqns/img28.png" /> is the vorticity magnitude, with
+<dd><img class="tex" alt="W_{ij} = \frac{1}{2} \left(\frac{\partial u_i}{\partial x_j} -
+   \frac{\partial u_j}{\partial x_i} \right)"
+  src="spalart_eqns/img32.png" /></dd>
+</dl>
+
+<p>Note that it is generally recommended to use a production limiter (see
+Menter, F. R., "Zonal Two Equation k-omega Turbulence Models for Aerodynamic Flows,"
+AIAA Paper 93-2906, July 1993,
+<a href="https://doi.org/10.2514/6.1993-2906">https://doi.org/10.2514/6.1993-2906</a>). 
+In this reference, the term <em>P</em> in the <em>k</em>-equation
+is replaced by:
+<dl>
+<dd><img class="tex" alt="{\rm min}(\cal P, 20 \beta^* \rho \omega k)"
+  src="sst_eqns/img35.png" /></dd>
+</dl>
+
+<p>The boundary conditions recommended in the original reference are:
+
+<dl>
+<dd><img class="tex" alt="\frac{U_{\infty}{L} < \omega_{\rm farfield} < 10 \frac{U_{\infty}{L}"
+  src="sst_eqns/img20.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{10^{-5}U_{\infty}^2}{Re_L} < k_{\rm farfield} < \frac{0.1 U_{\infty}^2}{Re_L}"
+  src="sst_eqns/img21.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega_{wall} = 10 \frac{6 \nu}{\beta_1 (\Delta d_1)^2}"
+  src="sst_eqns/img33.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="k_{wall} = 0"
+  src="sst_eqns/img34.png" /></dd>
+</dl>
+
+<p>where "<em>L</em> is the approximate length of the computational domain,"
+and the combination of the two farfield values should yield a freestream turbulent viscosity
+between 10<sup>-5</sup> and 10<sup>-2</sup> times freestream laminar viscosity.
+Thus, the farfield turbulence boundary conditions are somewhat open to interpretation.
+Note that the turbulence variables decay (sometimes dramatically) from their set values in 
+the farfield for external aerodynamic problems.
+See the version <span style="color: blue">(SST_sust)</span> below for an alternative formulation that
+eliminates this decay, and provides more precise definitions for the boundary conditions.
+
+<p>The constants are:
+<dl>
+<dd><img class="tex" alt="\gamma_1 = \frac{\beta_1}{\beta^*} - \frac{\sigma_{\omega 1} \kappa^2}{\sqrt{\beta^*}}"
+  src="sst_eqns/img25.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\gamma_2 = \frac{\beta_2}{\beta^*} - \frac{\sigma_{\omega 2} \kappa^2}{\sqrt{\beta^*}}"
+  src="sst_eqns/img29.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{k 1} = 0.85"
+  src="sst_eqns/img22.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\omega 1} = 0.5"
+  src="sst_eqns/img23.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_1 = 0.075"
+  src="sst_eqns/img24.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\sigma_{k 2} = 1.0"
+  src="sst_eqns/img26.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\omega 2} = 0.856"
+  src="sst_eqns/img27.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_2 = 0.0828"
+  src="sst_eqns/img28.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\beta^*=0.09"
+  src="sst_eqns/img30.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\kappa=0.41"
+  src="sst_eqns/img31.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="a_1 = 0.31"
+  src="sst_eqns/img32.png" /></dd>
+</dl>
+
+<p>Note: the <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" /> term
+in the Boussinesq approximation for tau_ij is sometimes ignored in the momentum and energy equations.
+Similarly, the production term in two-equation turbulence models is often approximated by <b>P = mu_t S<sup>2</sup></b>.  
+This expression is exact for incompressible flows and is typically
+considered a very good approximation, except perhaps for very high Mach number flows (see items 4 and 7 on the page
+<a href="noteonrunning.html">Notes on Running the Cases with CFD</a>, and the
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a> page).
+There are various ways that these approximations can be implemented:
+ <ul>
+   <li><span style="color: blue">(SSTm)</span> (most common) - when the
+       <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+       term is IGNORED in tau_ij in the momentum and energy equations, and the production term is APPROXIMATED by 
+       <b>P = mu_t S<sup>2</sup></b>.
+   <li><span style="color: blue">(SSTs)</span> - when the
+       <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+       term is INCLUDED in tau_ij in the momentum and energy equations, and the production term is APPROXIMATED by 
+       <b>P = mu_t S<sup>2</sup></b>.
+   <li><span style="color: blue">(SSTe)</span> - when the
+       <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+       term is IGNORED in tau_ij in the momentum and energy equations, and the production term is THE EXACT expression.
+ </ul>
+<!--When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be employed:  <span style="color: blue">(SSTm)</span>.-->
+
+<br>&nbsp;
+<p><a ID="sst-v"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Menter SST
+   Two-Equation Model with Vorticity Source Term <span style="color: blue">(SST-V)</span> and <span style="color: blue">(SST-Vm)</span></strong>
+<p>This form of the SST model is sometimes used because vorticity magnitude
+<img class="tex" alt="\Omega = \sqrt{2 W_{ij} W_{ij} }" src="spalart_eqns/img28.png" /> is usually readily available in
+most Navier-Stokes codes. Furthermore, the vorticity source term is often nearly identical to the exact source
+term in simple boundary layer flows, and the use of the vorticity term can avoid some numerical difficulties
+sometimes associated with the use of the exact source term.
+The reference for this usage is:
+
+<ul>
+<li>Menter, F. R., "Improved Two-Equation k-omega Turbulence Models for Aerodynamic Flows,"
+NASA TM 103975, October 1992,
+<a href="https://ntrs.nasa.gov/citations/19930013620">https://ntrs.nasa.gov/citations/19930013620</a>.
+</ul>
+
+<p>The equations are the same as for the "standard" version <span style="color: blue">(SST)</span>, 
+with the exception that the term <em>P</em> (in both equations) is approximated with the following:
+<dl>
+<dd><img class="tex" alt="P = \mu_t \Omega^2 - \frac{2}{3}\rho k \delta_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="sstvort_eqns/img2.png" /></dd>
+</dl>
+
+<p>A production limiter is still employed for the <em>P</em> term in the <em>k</em>-equation, as
+described for <span style="color: blue">(SST)</span>.
+
+<p>Note 1: The use of the "V" version (vorticity instead of strain in the production term) 
+is sometimes favored for hypersonic flow applications, 
+particularly when strong bow shock waves are present (see, for example, AIAA-2011-3143,
+<a href="https://doi.org/10.2514/6.2011-3143">https://doi.org/10.2514/6.2011-3143</a>).
+
+<p>Note 2: When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by 
+<b>P = mu_t*(Omega<sup>2</sup>)</b>,
+a modified naming convention should be employed:  <span style="color: blue">(SST-Vm)</span>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><a ID="sst-kl"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Menter SST
+   Two-Equation Model with Kato-Launder Source Term <span style="color: blue">(SST-KL)</span> and <span style="color: blue">(SST-KLm)</span></strong>
+<p>Note that the above Vorticity Source Term approximation is similar in spirit to the Kato-Launder correction 
+(Kato, M. and Launder, B. E., "The Modelling of Turbulent Flow Around Stationary and Vibrating Square Cylinders,"
+9th Symposium on Turbulent Shear Flows, Kyoto, Japan, August 1993, paper 10-4), which uses
+<img class="tex" alt="\mu_t S \Omega" src="sstvort_eqns/img4.png" /> instead of
+<img class="tex" alt="\mu_t \Omega^2" src="sstvort_eqns/img5.png" />.  Implementation of the Kato-Launder
+correction would be called <span style="color: blue">(SST-KL)</span>.
+If the <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and
+if the <img class="tex" alt="- (2/3) \rho k \delta_{ij} \partial u_i / \partial x_j" src="ZPGflatplateSS_eqns/img2.png" />
+term in <i>P</i> is ignored, then the naming convention is <span style="color: blue">(SST-KLm)</span>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><a ID="sst-2003"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Menter SST
+   Two-Equation Model from 2003 <span style="color: blue">(SST-2003)</span> and <span style="color: blue">(SST-2003m)</span></strong>
+<p>This form of the SST model has several relatively
+minor variations from the original SST version <span style="color: blue">(SST)</span>.
+The reference for its usage is:
+
+<ul>
+<li>Menter, F. R., Kuntz, M., and Langtry, R., "Ten Years of Industrial Experience with the SST
+Turbulence Model,"
+<strong>Turbulence, Heat and Mass Transfer 4</strong>, ed: K. Hanjalic, Y. Nagano, and M. Tummers,
+Begell House, Inc., 2003, pp. 625 - 632.
+</ul>
+
+<p>Note, however, a typographical error existed in this paper
+that was subsequently corrected by the authors. In the
+omega equation (2nd part of eqn (1) in the paper), the production term was incorrectly given as 
+<img class="tex" alt="\alpha \rho S^2" src="sst2003_eqns/img12.png" /> (using the paper's notation).
+Instead, it should have read
+<img class="tex" alt="\alpha \tilde P_k / \nu_t" src="sst2003_eqns/img13.png" /> (again using the paper's notation).  
+In this expression, the P<sub>k</sub> term
+has a tilde over it, which refers to the limited value of the k production term 
+<img class="tex" alt="{\rm min}(\cal P, 10 \beta^* \rho \omega k)" src="sst2003_eqns/img6.png" />. See below.
+
+<p>The main change is in the definition of eddy viscosity, which uses the strain invariant rather than magnitude
+of vorticity in its definition:
+<dl>
+<dd><img class="tex" alt="\mu_t = \frac{\rho a_1 k}{{\rm max} (a_1 \omega, S F_2)}"
+  src="sst2003_eqns/img4.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="S = \sqrt{2 S_{ij}S_{ij}}"
+  src="sst2003_eqns/img5.png" /></dd>
+</dl>
+
+<p>Another minor difference from <span style="color: blue">(SST)</span> is that the production limiter is used
+for <em>both</em> k and omega equations, and the constant is changed from 20 to 10. In other words, <em>P</em>
+in both the k and omega equations gets replaced by:
+<dl>
+<dd><img class="tex" alt="{\rm min}(\cal P, 10 \beta^* \rho \omega k)"
+  src="sst2003_eqns/img6.png" /></dd>
+</dl>
+
+<p>The definition of <img class="tex" alt="{\rm CD}_{k \omega}" src="sst2003_eqns/img7.png" /> is slightly
+different in that it uses 10<sup>-10</sup> rather than 10<sup>-20</sup> for its second term:
+<dl>
+<dd><img class="tex" alt="{\rm CD}_{k \omega} = {\rm max} \left(2 \rho \sigma_{\omega 2} \frac{1}{\omega}
+   \frac{\partial k}{\partial x_j} \frac{\partial \omega}{\partial x_j}, 10^{-10} \right)"
+  src="sst2003_eqns/img8.png" /></dd>
+</dl>
+
+<p>Finally, the definitions of two of the constants are slightly different:
+<dl>
+<dd><img class="tex" alt="\gamma_1 = 5/9"
+  src="sst2003_eqns/img9.png" />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\gamma_2 = 0.44"
+  src="sst2003_eqns/img10.png" /></dd>
+</dl>
+
+<p>The first is higher than the original constant definition
+by approximately 0.43%, and the second is lower by less than 0.08%.
+
+<p>Note that if the vorticity form of the production term is used with this model, it should
+be referred to as <span style="color: blue">(SST-V2003)</span>.
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be used:  <span style="color: blue">(SST-2003m)</span>.
+Other variants (s and e) follow the naming conventions described above at the end of the SST section.
+
+<br>&nbsp;
+<p><a ID="sst-sust"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Menter SST
+   Two-Equation Model with Controlled Decay <span style="color: blue">(SST-sust)</span> and
+<span style="color: blue">(SST-sust-m)</span></strong>
+<p>This form of the SST model eliminates the non-physical decay of turbulence variables in the
+freestream for external aerodynamic problems, through the addition of sustaining terms to the
+equations.  The reference is:
+
+<ul>
+<li>Spalart, P. R. and Rumsey, C. L.,
+"Effective Inflow Conditions for Turbulence Models in Aerodynamic Calculations,"
+<strong>AIAA Journal</strong>, Vol. 45, No. 10, 2007, pp. 2544 - 2553,
+<a href="https://doi.org/10.2514/1.29373">https://doi.org/10.2514/1.29373</a>.
+</ul>
+
+<p>The equations are:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \beta^* \rho \omega k  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \sigma_k \mu_t \right)\frac{\partial k}{\partial x_j}\right]
+  +\beta^* \rho \omega_{\rm amb} k_{\rm amb}"
+  src="sstsust_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho u_j \omega)}{\partial x_j}
+  = \frac{\gamma}{\nu_t} \cal P -
+  \beta \rho \omega^2 + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\omega} \mu_t \right)
+  \frac{\partial \omega}{\partial x_j} \right] +
+  2(1-F_1) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_j}
+  \frac{\partial \omega}{\partial x_j}
+  + \beta \rho \omega_{\rm amb}^2"
+  src="sstsust_eqns/img3.png" /></dd>
+</dl>
+
+<p>where everything except the last term in each equation is identical to the standard model
+<span style="color: blue">(SST)</span>.  The recommended farfield boundary conditions are somewhat different:
+<dl>
+<dd><img class="tex" alt="\omega_{\rm farfield} = \omega_{\rm amb} = \frac{5 U_{\infty}}{L}"
+  src="sstsust_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="k_{\rm farfield} = k_{\rm amb} = 10^{-6} U_{\infty}^2"
+  src="sstsust_eqns/img5.png" /></dd>
+</dl>
+
+<p>Here, <em>L</em> is no longer the "approximate length of the computational domain,"
+like it was for <span style="color: blue">(SST)</span>, but rather the defining length scale for the particular 
+problem (usually associated with some feature or scale of the aerodynamic body of interest).
+In the equations, <img class="tex" alt="\omega_{\rm amb}" src="sstsust_eqns/img6.png" /> and
+<img class="tex" alt="k_{\rm amb}" src="sstsust_eqns/img7.png" /> are taken to be
+these farfield boundary values.
+The extra terms have the effect of exactly
+cancelling the destruction terms in the freestream when the turbulence levels are equal to the set ambient levels.
+Inside the boundary layer, they are generally orders
+of magnitude smaller than the destruction terms for reasonable freestream turbulence levels
+(say, Tu = 1% or less), and therefore have little effect.
+The farfield boundary condition
+<img class="tex" alt="k_{\rm farfield} = 10^{-6} U_{\infty}^2"
+  src="sstsust_eqns/img5.png" />
+corresponds to a freestream Tu level of 0.08165%.
+
+<p>Note that applying the sustaining terms with the inflow values of k and omega that have been typical in 
+external aerodynamics (e.g., as used for the standard model <span style="color: blue">(SST)</span>)
+will not be effective. The reason is that these values have been adjusted to allow a 
+drastic decay before the fluid approaches the body.
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be used:  <span style="color: blue">(SST-sust-m)</span>.
+Other variants (s and e) follow the naming conventions described above at the end of the SST section.
+
+<br>&nbsp;
+<p><a ID="sst-vsust"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Menter SST
+   Two-Equation Model with Controlled Decay and Vorticity 
+   Source Term <span style="color: blue">(SST-Vsust)</span> and <span style="color: blue">(SST-Vsust-m)</span></strong>
+<p>This form of the SST model combines <span style="color: blue">(SST-V)</span> and <span style="color: blue">(SST-sust)</span>.
+The model is identical to <span style="color: blue">(SST-sust)</span>, with the exception that
+the term <em>P</em> (in both equations) is approximated with the following:
+<dl>
+<dd><img class="tex" alt="P = \mu_t \Omega^2 - \frac{2}{3}\rho k \delta_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="sstvort_eqns/img2.png" /></dd>
+</dl>
+
+<p>For low-speed flows, the second term on the right hand side of this equation
+is generally small compared to the first term. (For incompressible flows the second term is identically zero.)
+A production limiter is still employed for the <em>P</em> term in the <em>k</em>-equation, as
+described for <span style="color: blue">(SST)</span>.
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t*(Omega<sup>2</sup>)</b>,
+a modified naming convention should be employed:  <span style="color: blue">(SST-Vsust-m)</span>.
+
+<br>&nbsp;
+<p><a ID="sst-rc"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Menter SST
+   Two-Equation Model with Rotation/Curvature Correction <span style="color: blue">(SST-RC)</span> and
+<span style="color: blue">(SST-RCm)</span></strong>
+<p>This rotation/curvature form of the SST model is the same as the "standard" version <span style="color: blue">(SST)</span>, except that
+the production term <em>P</em> in both equations gets multiplied by a function
+<img class="tex" alt="f_{r1}" src="sstrc_eqns/img2.png" />, described below.  
+
+<p>The reference for SST-RC is:
+
+<ul>
+<li>Smirnov, P. E., Menter, F. R., "Sensitization of the SST Turbulence Model to Rotation and
+Curvature by Applying the Spalart-Shur Correction Term,"
+<strong>ASME Journal of Turbomachinery</strong>, Vol. 131, October 2009, 041010,
+<a href="https://doi.org/10.1115/1.3070573">https://doi.org/10.1115/1.3070573</a>.
+</ul>
+
+<p>Although the above reference uses the naming convention "CC", here we use "RC" (rotation and
+curvature) for consistency with the 
+<a href="spalart.html#saRC">SA-RC</a> naming
+convention already established.
+
+<p>The empirical function that multiplies the production term <em>P</em> in both the 
+<img class="tex" alt="k" src="sstrc_eqns/img3.png" /> and
+<img class="tex" alt="\omega" src="sstrc_eqns/img4.png" /> equations is:
+
+<dl>
+<dd><img class="tex" alt="f_{r1} = {\rm max} \left[ {\rm min} \left( f_{rotation}, 1.25 \right),
+   0.0 \right]"
+  src="sstrc_eqns/img5.png" /></dd>
+</dl>
+
+where
+
+<dl>
+<dd><img class="tex" alt="f_{rotation} = (1 + c_{r1}) \frac{2r^*}{1+r^*}\left[ 1 - 
+   c_{r3} {\rm tan}^{-1}(c_{r2} \hat r)\right] - c_{r1}"
+  src="sstrc_eqns/img6.png" /></dd>
+</dl>
+
+<p>All the variables and their derivatives are defined with respect to the reference frame of the
+calculation, which may be rotating with rotation rate
+<img class="tex" alt="\Omega^{rot}" src="sstrc_eqns/img7.png" />. The remaining functions are
+defined as:
+
+<dl>
+<dd><img class="tex" alt="r^* = S/W"
+  src="sstrc_eqns/img8.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\hat r = \frac{2 W_{ik} S_{jk}}{W D^3} \left( \frac{DS_{ij}}{Dt} + (\varepsilon_{imn}S_{jn}
+   +\varepsilon_{jmn}S_{in}) \Omega^{rot}_m \right)"
+  src="sstrc_eqns/img9.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left(\frac{\partial u_i}{\partial x_j} +
+   \frac{\partial u_j}{\partial x_i} \right)"
+  src="sstrc_eqns/img10.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="W_{ij} = \frac{1}{2} \left[ \left(\frac{\partial u_i}{\partial x_j} -
+   \frac{\partial u_j}{\partial x_i} \right) + 2 \varepsilon_{mji} \Omega^{rot}_m \right]"
+  src="sstrc_eqns/img11.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="S^2 = 2 S_{ij}S_{ij}"
+  src="sstrc_eqns/img12.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="W^2 = 2 W_{ij}W_{ij}"
+  src="sstrc_eqns/img13.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="D^2 = {\rm max} \left( S^2, 0.09 \omega^2 \right)"
+  src="sstrc_eqns/img14.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="c_{r1} = 1.0"
+  src="sstrc_eqns/img15.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="c_{r2} = 2.0"
+  src="sstrc_eqns/img16.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<img class="tex" alt="c_{r3} = 1.0"
+  src="sstrc_eqns/img17.png" /></dd>
+</dl>
+
+<p>The term <img class="tex" alt="DS_{ij}/Dt" src="sstrc_eqns/img18.png" /> represents
+the components of the Lagrangian derivative of the strain rate tensor. The
+rotation rate <img class="tex" alt="\Omega^{rot}" src="sstrc_eqns/img7.png" /> is nonzero only if the
+reference frame itself is rotating.
+
+<p>Note that if the RC correction
+is added to a different base SST model, the naming of the model should reflect it.  For example, if
+adding RC to <span style="color: blue">(SST-2003)</span>, the corrected model should be referred to as
+<span style="color: blue">(SST-2003RC)</span>.  If adding RC to <span style="color: blue">(SST-V)</span>, the corrected model should be
+referred to as <span style="color: blue">(SST-VRC)</span>.
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be used:  <span style="color: blue">(SST-RCm)</span>.
+Other variants (s and e) follow the naming conventions described above at the end of the SST section.
+
+<br>&nbsp;
+<p><a ID="sst-rc-hellsten"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Menter SST
+   Two-Equation Model with Hellsten's Simplified Rotation/Curvature Correction <span style="color: blue">(SST-RC-Hellsten)</span>
+and <span style="color: blue">(SST-RC-Hellsten-m)</span></strong>
+<p>This simplified rotation/curvature form of the SST model is the same as the "standard" version <span style="color: blue">(SST)</span>, except that
+the destruction term in the 
+<img class="tex" alt="\omega" src="sstrchellsten_eqns/img2.png" /> equation gets multiplied by the function <em>F<sub>4</sub></em>,
+described below.
+
+<p>The references for SST-RC-Hellsten are:
+
+<ul>
+<li>Hellsten, A., "Some Improvements in Menter's k-omega SST Turbulence Model,"
+AIAA Paper 98-2554, June 1998,
+<a href="https://doi.org/10.2514/6.1998-2554">https://doi.org/10.2514/6.1998-2554</a>.
+<li>Mani, M., Ladd, J. A., and Bower, W. W., "Rotation and Curvature Correction Assessment for
+One- and Two-Equation Turbulence Models,"
+<strong>Journal of Aircraft</strong>, Vol. 41, No. 2, 2004, pp. 268-273,
+<a href="https://doi.org/10.2514/1.9321">https://doi.org/10.2514/1.9321</a>.
+</ul>
+
+<p>The latter reference discovered that a different value of the constant
+<img class="tex" alt="C_{RC}" src="sstrchellsten_eqns/img3.png" /> worked better than the value reported in
+the first reference, so this newer value is used here.
+
+<p>In the original model, replace the <img class="tex" alt="\omega" src="sstrchellsten_eqns/img2.png" /> 
+equation destruction term:
+
+<dl>
+<dd><img class="tex" alt="\beta \rho \omega^2"
+  src="sstrchellsten_eqns/img4.png" /></dd>
+</dl>
+
+with
+
+<dl>
+<dd><img class="tex" alt="F_4 \beta \rho \omega^2"
+  src="sstrchellsten_eqns/img5.png" /></dd>
+</dl>
+
+where
+
+<dl>
+<dd><img class="tex" alt="F_4 = \frac{1}{1+C_{RC} R_i}"
+  src="sstrchellsten_eqns/img6.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="R_i = \frac{W}{S} \left( \frac{W}{S} - 1 \right)"
+  src="sstrchellsten_eqns/img7.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="S = \sqrt{2 S_{ij} S_{ij}}"
+  src="sstrchellsten_eqns/img8.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="S_{ij} = \frac{1}{2} \left(\frac{\partial u_i}{\partial x_j} +
+   \frac{\partial u_j}{\partial x_i} \right)"
+  src="sstrchellsten_eqns/img9.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="W = \sqrt{2 W_{ij} W_{ij}}"
+  src="sstrchellsten_eqns/img10.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="W_{ij} = \frac{1}{2} \left(\frac{\partial u_i}{\partial x_j} -
+   \frac{\partial u_j}{\partial x_i} \right)"
+  src="sstrchellsten_eqns/img11.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="C_{RC}=1.4"
+  src="sstrchellsten_eqns/img12.png" /></dd>
+</dl>
+
+<p>Note that if the RC-Hellsten correction
+is added to a different base SST model, the naming of the model should reflect it.  For example, if
+adding RC-Hellsten to <span style="color: blue">(SST-2003)</span>, the corrected model should be referred to as
+<span style="color: blue">(SST-2003RC-Hellsten)</span>.  If adding RC-Hellsten to <span style="color: blue">(SST-V)</span>, the corrected model should be
+referred to as <span style="color: blue">(SST-VRC-Hellsten)</span>.
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be used:  <span style="color: blue">(SST-RC-Hellsten-m)</span>.
+Other variants (s and e) follow the naming conventions described above at the end of the SST section.
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Special notes for users of
+<a href="openfoam_issues.html">OpenFOAM</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+10/04/2024 - added "s" and "e" variant definitions<br>
+03/24/2021 - clarifications on use of "m" designation when P=mu_t S<sup>2</sup> and k term ignored in momentum and energy equations<br>
+12/19/2020 - added an additional note regarding inflow values for SST-sust<br>
+8/28/2020 - delineate the SST-Vm modification to SST-V<br>
+6/30/2015 - mention Pr, Pr_t, and Sutherland's law<br>
+8/29/2013 - mention of Kato-Launder correction<br>
+7/08/2013 - added SST-RC-Hellsten
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 10/04/2024
+<br>&nbsp;
+
+</body>
+</html>

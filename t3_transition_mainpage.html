@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D T3A Flat Plate Verification - Intro Page</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+
+<style>
+      <!--
+            * {
+      font-family: helvetica,arial,sans-serif;
+    }
+       /* Style Definitions */
+       p.MsoNormal, li.MsoNormal, div.MsoNormal
+            {margin-top:0in;
+            margin-right:0in;
+            margin-bottom:8.0pt;
+            margin-left:0in;
+            line-height:107%;
+            font-size:11.0pt;
+            font-family:"Calibri",sans-serif;}
+      a:link, span.MsoHyperlink
+            {color:blue;
+            text-decoration:underline;}
+      span.wacimagecontainer
+            {mso-style-name:wacimagecontainer;}
+      .MsoPapDefault
+            {margin-bottom:8.0pt;
+            line-height:107%;}
+      @page WordSection1
+            {size:8.5in 11.0in;
+            margin:1.0in 1.0in 1.0in 1.0in;}
+      div.WordSection1
+            {page:WordSection1;}
+      -->
+      </style>
+
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction. Some links and files may not be here yet!
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">VERIF/2DTFP: 2D T3A Transitional Flat Plate Verification - Intro Page</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: 13.5pt">The purpose here is to
+provide a large sequence of nested grids of the same family, along with results
+from existing CFD codes that employ specific forms of particular turbulence
+models, in order to help programmers verify their implementations of these same
+models. On a given grid, there may be differences between the results from
+different codes, but presumably as the grid is refined the results should
+approach the same answer (if the flow conditions and boundary conditions are
+the same). With&nbsp;<strong><span style='font-family:"Helvetica",sans-serif'>verification</span></strong>,
+the purpose is not to establish the &quot;goodness&quot; of a model compared to
+experiment, but rather to establish that a model has been implemented
+correctly, as intended according to the equations and boundary conditions. (It
+is through&nbsp;<strong><span style='font-family:"Helvetica",sans-serif'>validation</span></strong>&nbsp;that
+a model's &quot;goodness&quot; is established.) The purpose here is primarily
+verification.</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>This test case corresponds
+to the T3A condition from the T3 series of test cases hosted by the ERCOFTAC
+(European Research Community on Flow, Turbulence, and Combustion). This case is
+run with the following flow conditions:</span></p>
+
+<div align=center>
+
+<table class=MsoTable15Plain2 border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=392 valign=top style='width:294.0pt;border-top:solid #7F7F7F 1.0pt;
+  border-left:none;border-bottom:solid #7F7F7F 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>Inlet
+  velocity (m/s)</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border-top:solid #7F7F7F 1.0pt;
+  border-left:none;border-bottom:solid #7F7F7F 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>69.44</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=392 valign=top style='width:294.0pt;border:none;border-bottom:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>Density
+  (kg/m<sup>3</sup>)</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border:none;border-bottom:
+  solid #7F7F7F 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>0.053</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=392 valign=top style='width:294.0pt;border:none;border-bottom:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>Unit Reynolds Number
+  (/m)</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border:none;border-bottom:
+  solid #7F7F7F 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>2.00E5</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=392 valign=top style='width:294.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&#956;
+  </span><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&#8729;
+  10<sup>-5</sup> (kg/[m&#8729;s])</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>1.85</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=392 valign=top style='width:294.0pt;border-top:solid #7F7F7F 1.0pt;
+  border-left:none;border-bottom:solid #7F7F7F 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>Freestream
+  temperature (K)</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border-top:solid #7F7F7F 1.0pt;
+  border-left:none;border-bottom:solid #7F7F7F 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>300.0</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=392 valign=top style='width:294.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>Mach
+  number</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>0.200</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=392 valign=top style='width:294.0pt;border-top:solid #7F7F7F 1.0pt;
+  border-left:none;border-bottom:solid #7F7F7F 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&#956;<sub>t</sub>/&#956;
+  at inlet</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border-top:solid #7F7F7F 1.0pt;
+  border-left:none;border-bottom:solid #7F7F7F 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>11.90</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=392 valign=top style='width:294.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>Tu
+  (%) at inlet</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>5.855</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=392 valign=top style='width:294.0pt;border-top:solid #7F7F7F 1.0pt;
+  border-left:none;border-bottom:solid #7F7F7F 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>Tu
+  (%) at the leading edge</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border-top:solid #7F7F7F 1.0pt;
+  border-left:none;border-bottom:solid #7F7F7F 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>3.300</span></p>
+  </td>
+ </tr>
+ <tr style='height:3.4pt'>
+  <td width=392 valign=top style='width:294.0pt;border:none;border-bottom:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:3.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>Distance
+  from inflow to plate leading edge (m)</span></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border:none;border-bottom:
+  solid #7F7F7F 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:3.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>0.250</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+  line-height:normal'><span style='font-size:13.5pt;font-family:"Helvetica",sans-serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>The computational meshes
+for this case are those used in the following reference: Venkatachari, B. S.,
+Mysore, P., V., Hildebrand, N., Choudhari, M., M., and Denison, M., F., Verification
+of the &#947;-Re&#952;t Transition Model in OVERFLOW and FUN3D, Journal of
+Aircraft 2024 Vo. 61 No. 2, pp. 345-364, </span><a
+href="https://doi.org/10.2514/1.C037445"><span style='font-size:13.5pt;
+line-height:107%;font-family:"Helvetica",sans-serif;background:white'>https://doi.org/10.2514/1.C037445</span></a><span
+style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+color:black;background:white'>. While the freestream Mach number of 0.2 is low
+enough that the flow is nearly incompressible, <u>this is a compressible
+verification case</u>. Therefore, incompressible codes would be expected to
+produce results that are close- but not quite the same- as the compressible
+solution for the refined grid. A visualization of the level 1 (most coarse) mesh used for this test case is shown below.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+class=wacimagecontainer><span style='font-size:9.0pt;line-height:107%;
+font-family:"Segoe UI",sans-serif;color:black;background:white'><img border=0
+width=960 height=306 id="Picture 1"
+src="TA3_transition_verification/grid_demo.gif"
+alt="Mesh used in SST-2003-LM2009 computations."></span></span><span
+style='font-size:10.0pt;line-height:107%;color:black;background:white'><br>
+<br>
+</span><span style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+color:black;background:white'></span></span></p>
+
+<p class=MsoNormal><b><span style='font-size:13.5pt;line-height:107%;
+font-family:"Helvetica",sans-serif;color:black;background:white'>Grids will be made available in the near future</a></span></b></p>
+
+<br>&nbsp;
+<br>&nbsp;
+
+<p class=MsoNormal><b><span style='font-size:13.5pt;line-height:107%;
+font-family:"Helvetica",sans-serif;color:black;background:white'>What to
+Expect:</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=208 valign=top style='width:155.8pt;border:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>RESULTS</span></b></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>LINK TO EQUATIONS</span></b></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>MRR Level</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=208 valign=top style='width:155.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'><a href=t3_transition_LM.html>SST-2003-LM2009</a></span></b></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'><a href=langtrymenter_4eqn.html>SST-2003-LM2009 Equations</a></span></b></p>
+  </td>
+  <td width=208 valign=top style='width:155.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>2</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span style='font-size:13.5pt;line-height:107%;
+font-family:"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+</div>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+04/02/2024 - Page created
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href=mailto:ethan.a.vogel@nasa.gov>Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 4/7/2025
+<br>&nbsp;
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>WA-gamma 2-equation Transitional Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">WA-gamma 2-equation Transitional Model</strong>
+
+<p style="color:red">Note: this model page was contributed by Ramesh Agarwal and Jonathan Richter of Washington University in St. Louis.
+<!--It has not yet been independently reviewed for accuracy.-->
+</p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for the
+WA-gamma two-equation turbulence+transition model.
+The model given on this page is a linear eddy viscosity model, which uses the
+Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><a ID="lm-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Wray-Agarwal-gamma 2-equation Transition Model<span style="color: blue">
+  (WA-gamma)</span></strong>
+
+<p>The Wray-Agarwal (WA) model is a one-equation eddy-viscosity model derived from the 
+<img class="tex" alt="k-\omega" src="WAgamma-trans-eqns/img2.png" />
+closure. An important distinction between the WA model and previous one-equation models based on 
+<img class="tex" alt="k-\omega" src="WAgamma-trans-eqns/img2.png" />
+closure is the inclusion of the cross diffusion term in the 
+<img class="tex" alt="R = k/\omega" src="WAgamma-trans-eqns/img3.png" />
+equation and a blending function, which allows smooth switching between the two destruction terms. 
+The model determines 
+<img class="tex" alt="R = k/\omega" src="WAgamma-trans-eqns/img3.png" />
+by a transport equation. However, this model alone cannot model the transition and is therefore modified to include a 
+correlation based intermittency equation for
+<img class="tex" alt="\gamma" src="WAgamma-trans-eqns/img4.png" />,
+employing the local correlation-based transition-modeling concept. In this respect, the modeling philosophy behind 
+the two equation WA-gamma model is similar to that of the four equation Shear-Stress Transport (SST) transition model 
+<a href="langtrymenter_4eqn.html">SST-2003-LM2009</a>. 
+The source code for the WA-gamma model is available at 
+<a href="https://github.com/Ada810">https://github.com/Ada810</a>.
+
+<p>The reference for the WA-gamma two-equation turbulence/transition model is:
+<ul>
+<li>Nagapetyan, H. and Agarwal, R. K., "Development of a New Transitional Flow Model Integrating the Wray-Agarwal 
+Turbulence Model with an Intermittency Transport Equation," AIAA Paper 2018-3384, June 2018,
+<a href="https://doi.org/10.2514/6.2018-3384">https://doi.org/10.2514/6.2018-3384</a>.
+</ul>
+
+<p>The transport equations of the WA-gamma model
+(written in conservation form) are:
+<dl>
+<dd><img class="tex" alt="
+        \frac{\partial \rho R}{\partial t}+\frac{\partial \rho 
+        u_{j}R}{\partial x_{j}}=\frac{\partial }{\partial x_{j}}\lbrack (\mu 
+        +\sigma _{R}\mu _{T})\frac{\partial R}{\partial x_{j}}\rbrack +\gamma 
+        \rho C_{1}RS+\rho f_{1}C_{2k\omega }\frac{\partial R}{\partial 
+        x_{j}}\frac{\partial S}{\partial x_{j}}\frac{R}{S}+ P^{\lim 
+        }_{R}  \\ 
+        -(1-f_{1})\rho C_{2k\varepsilon }min(\frac{R^{2}}{S^{2}}\frac{\partial 
+        S}{\partial x_{j}}\frac{\partial S}{\partial x_{j}}, C_m\frac{\partial 
+        R}{\partial x_{j}}\frac{\partial R}{\partial x_{j}})"
+  src="WAgamma-trans-eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="
+        \frac{\partial \rho \gamma }{\partial t}+\frac{\partial \rho 
+        u_{j}\gamma }{\partial x_{j}}=\frac{\partial }{\partial x_{j}}\lbrack 
+        (\mu +\frac{\mu _{T}}{\sigma _{\gamma }})\frac{\partial \gamma 
+        }{\partial x_{j}}\rbrack +F_{length}\rho S\gamma (1-\gamma 
+        )F_{onset} \\ -\rho c_{a2}\Omega \gamma F_{turb}(c_{e2}\gamma -1)"
+  src="WAgamma-trans-eqns/img6.png" /></dd>
+</dl>
+
+<p>In the wall-distance-free <a href="wray_agarwal.html">Wray-Agarwal One-Equation Model</a>, the eddy viscosity is given by:
+<dl>
+<dd><img class="tex" alt="\nu_{T} = f_{\mu}R"
+  src="WAgamma-trans-eqns/img7.png" /></dd>
+</dl>
+<p>The term 
+<img class="tex" alt="P_{R}^{\lim}" src="WAgamma-trans-eqns/img8.png" />
+is used to ensure proper generation of
+<i>R</i> for very low values of turbulent intensity <i>Tu</i>:
+<dl>
+<dd><img class="tex" alt="P_{R}^{\lim }=1.5W\max (\gamma -0.2, 0)(1.0-\gamma )\min (\max 
+(\frac{Re_{v}}{2420}-1, 0), 3)max(3\nu- \nu_{T}, 0)"
+  src="WAgamma-trans-eqns/img9.png" /></dd>
+</dl>
+
+<p>F<sub>onset</sub> is used to trigger the intermittency production and is a function of 
+<img class="tex" alt="R_{T}" src="WAgamma-trans-eqns/img10.png" />,
+<img class="tex" alt="Re_{v}" src="WAgamma-trans-eqns/img11.png" />, and
+<img class="tex" alt="Re_{\theta c}" src="WAgamma-trans-eqns/img12.png" />
+as given in the following equations:
+<dl>
+<dd><img class="tex" alt="F_{onset1}=\frac{Re_{v}}{2.2Re_{\theta c}}"
+  src="WAgamma-trans-eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset2}=\min (F_{onset1}, 2.0)"
+  src="WAgamma-trans-eqns/img14.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset3}=\max (1-(\frac{R_{T}}{3.5})^{3}, 0)"
+  src="WAgamma-trans-eqns/img15.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{onset}=\max (F_{onset2}-F_{onset3},0)"
+  src="WAgamma-trans-eqns/img16.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="F_{turb}=e^{-(\frac{R_{T}}{2})}"
+  src="WAgamma-trans-eqns/img17.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="R_{T}=\frac{\mu_{t}}{\mu}"
+  src="WAgamma-trans-eqns/img18.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="Re_{v}=\frac{\rho d_{w}^{2}S}{\mu}"
+  src="WAgamma-trans-eqns/img19.png" /></dd>
+</dl>
+
+<p>The model constants for the intermittency equation are as follows:
+<dl>
+<dd><img class="tex" alt="F_{length}=100"
+  src="WAgamma-trans-eqns/img20.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="c_{e2}=50"
+  src="WAgamma-trans-eqns/img21.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="c_{a2}=0.06"
+  src="WAgamma-trans-eqns/img22.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{\gamma}=1.0"
+  src="WAgamma-trans-eqns/img23.png" /></dd>
+</dl>
+
+<p>The local turbulence intensity 
+<img class="tex" alt="Tu_{L}" src="WAgamma-trans-eqns/img24.png" />
+is given by:
+<dl>
+<dd><img class="tex" alt="Tu_{L}=min(100 \frac{\sqrt{\frac{2R}{3}}}{\sqrt{\frac{S}{0.3}}d_{w}}, 100)"
+  src="WAgamma-trans-eqns/img25.png" /></dd>
+</dl>
+<p>where <img class="tex" alt="d_w" src="WAgamma-trans-eqns/img26.png" /> is the wall distance.
+In the original formulation of 
+<img class="tex" alt="Tu_{L}" src="WAgamma-trans-eqns/img24.png" />
+(from Menter, F., Smirnov, P., Liu, T., and Avancha, R., "A One-Equation Local Correlation-Based Transition Model," 
+Flow, Turbulence and Combustion, Vol. 5, No. 4, 2015, pp. 583-619
+(<a href="https://doi.org/10.1007/s10494-015-9622-4">https://doi.org/10.1007/s10494-015-9622-4</a>),
+<i>R</i> replaces turbulent kinetic energy <i>k</i> (note that 
+<img class="tex" alt="R = k/\omega" src="WAgamma-trans-eqns/img3.png" />)
+and 
+<img class="tex" alt="\omega" src="WAgamma-trans-eqns/img27.png" />
+in the original formulation is replaced by
+<img class="tex" alt="\omega$ \approx S/0.3" src="WAgamma-trans-eqns/img28.png" />.
+
+<p>The formula for the pressure gradient parameter can be written as
+<dl>
+<dd><img class="tex" alt="\lambda _{\theta L}=-7.57\cdot 
+10^{-3}\frac{dV}{dy}\frac{d_{w}^{2}}{\nu }+0.0128"
+  src="WAgamma-trans-eqns/img29.png" /></dd>
+</dl>
+<p>The term <img class="tex" alt="\frac{dV}{dy}"
+  src="Kgamma-trans-eqns/img29.png" /> can be computed as:
+<dl>
+<dd><img class="tex" alt="\frac{dV}{dy} = \nabla (\vec{n}.\vec{V}).\vec{n} "
+  src="Kgamma-trans-eqns/img30.png" /></dd>
+</dl>
+<p> where
+<dl>
+<dd><img class="tex" alt="\vec{n} = \frac{\nabla (d_w)}{|\nabla (d_w)|} "
+  src="Kgamma-trans-eqns/img31.png" /></dd>
+</dl>
+The
+<img class="tex" alt="\lambda_{\theta L}" src="WAgamma-trans-eqns/img33.png" />
+term is bounded by 
+<img class="tex" alt="-1.0 \leq \lambda _{\theta L} \leq 1.0" src="WAgamma-trans-eqns/img30.png" />
+for numerical robustness.
+The <img class="tex" alt="Re_{\theta c}"
+  src="Kgamma-trans-eqns/img22.png" /> correlation is given by:
+<dl>
+<dd><img class="tex" alt="Re_{\theta c}=100.0+1000.0exp[-1.0 \cdot Tu_{L} \cdot F_{PG}]"
+  src="WAgamma-trans-eqns/img31.png" /></dd>
+</dl>
+where 
+<img class="tex" alt="F_{PG}" src="WAgamma-trans-eqns/img32.png" />
+is a correlation function of 
+<img class="tex" alt="\lambda_{\theta L}" src="WAgamma-trans-eqns/img33.png" />:
+<dl>
+<dd><img class="tex" alt="
+F_{PG}= \left\{
+   \begin{array}{ll}
+      \min (1+C_{PG1}\lambda _{\theta L},   C_{PG1}^{\lim }), & \lambda _{\theta L}\ge 0; \\
+      \min (1+C_{PG2}\lambda _{\theta L}+C_{PG3}min[\lambda _{\theta 
+      L}+0.0681, 0],   C_{PG2}^{\lim }), & \lambda _{\theta L}<0
+    \end{array} \right."
+  src="WAgamma-trans-eqns/img34.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{PG1}=14.68"
+  src="WAgamma-trans-eqns/img35.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{PG2}=-7.34"
+  src="WAgamma-trans-eqns/img36.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{PG3}=0.0"
+  src="WAgamma-trans-eqns/img37.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{PG1}^{\lim }=1.5"
+  src="WAgamma-trans-eqns/img38.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{PG2}^{\lim }=3.0"
+  src="WAgamma-trans-eqns/img39.png" /></dd>
+</dl>
+<p><img class="tex" alt="F_{PG}" src="WAgamma-trans-eqns/img32.png" />
+is limited in order to avoid negative values:
+<dl>
+<dd><img class="tex" alt="F_{PG}=max(F_{PG}, 0)"
+  src="WAgamma-trans-eqns/img40.png" /></dd>
+</dl>
+The wall blocking effect is accounted for by the damping function
+<dl>
+<dd><img class="tex" alt="f_{\mu }=\frac{\chi ^{3}}{\chi ^{3}+C_{w}^{3}}"
+  src="WAgamma-trans-eqns/img41.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\chi =\frac{R}{\nu }"
+  src="WAgamma-trans-eqns/img70.png" /></dd>
+</dl>
+<p>S is the mean strain given by
+<dl>
+<dd><img class="tex" alt="S=\sqrt{2S_{ij}S_{ij}}"
+  src="WAgamma-trans-eqns/img42.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij}=\frac{1}{2}(\frac{\partial 
+u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}})"
+  src="WAgamma-trans-eqns/img43.png" /></dd>
+</dl>
+<p>W is the mean vorticity given by
+<dl>
+<dd><img class="tex" alt="W=\sqrt{2W_{ij}W_{ij}}"
+  src="WAgamma-trans-eqns/img44.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="W_{ij}=\frac{1}{2}(\frac{\partial 
+u_{i}}{\partial x_{j}}-\frac{\partial u_{j}}{\partial x_{i}})"
+  src="WAgamma-trans-eqns/img45.png" /></dd>
+</dl>
+
+<p>While the
+<img class="tex" alt="C_{2k\omega}" src="WAgamma-trans-eqns/img46.png" />
+term is active, the transport equation for <i>R</i> behaves as a
+one-equation model based on the standard 
+<img class="tex" alt="k-\omega" src="WAgamma-trans-eqns/img2.png" />
+equations. The
+inclusion of the cross diffusion term in the derivation causes the
+additional 
+<img class="tex" alt="C_{2k\epsilon}" src="WAgamma-trans-eqns/img47.png" />
+term to appear. This term corresponds
+to the destruction term in one equation models derived from the standard
+<img class="tex" alt="k-\epsilon" src="WAgamma-trans-eqns/img48.png" />
+closure. The presence of both terms allows the WA model
+to behave as either a one-equation 
+<img class="tex" alt="k-\omega" src="WAgamma-trans-eqns/img2.png" />
+or one equation
+<img class="tex" alt="k-\epsilon" src="WAgamma-trans-eqns/img48.png" />
+model based on the switching function
+<img class="tex" alt="f_1" src="WAgamma-trans-eqns/img49.png" />
+The blending function was designed so that the
+<img class="tex" alt="k-\omega" src="WAgamma-trans-eqns/img2.png" />
+destruction term is active near solid boundaries and the
+<img class="tex" alt="k-\epsilon" src="WAgamma-trans-eqns/img48.png" />
+destruction term becomes active away from the wall near the end of the
+log-layer. This function was modified from the original Wray-Agarwal
+model to remove its dependence on the wall distance. The following
+equations describe the formulation of 
+<img class="tex" alt="f_1" src="WAgamma-trans-eqns/img49.png" />
+for the wall-distance-free
+WA model 
+<a href="wray_agarwal.html">WA-2018</a> (<a href="https://doi.org/10.2514/6.2018-0593">AIAA-2018-0593</a>).
+<dl>
+<dd><img class="tex" alt="f_{1}=\text{tanh}(\text{arg}_{1}^{4})"
+  src="WAgamma-trans-eqns/img50.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\text{arg}_{1}=\frac{R+v}{2}\cdot\frac{\eta ^{2}}{C_{\mu }k\omega }"
+  src="WAgamma-trans-eqns/img51.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="k=\frac{v_{T}S}{\sqrt{C_{\mu }}}"
+  src="WAgamma-trans-eqns/img52.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega =\frac{S}{\sqrt{C_{\mu }}}"
+  src="WAgamma-trans-eqns/img53.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\eta =S\max (1, \vert \frac{W}{S}\vert )"
+  src="WAgamma-trans-eqns/img54.png" /></dd>
+</dl>
+
+<p>Other model constants and equations are:
+<dl>
+<dd><img class="tex" alt="C_{1}=f_{1}(C_{1k\omega }-C_{1k\epsilon })+C_{1k\omega }"
+  src="WAgamma-trans-eqns/img55.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{2k_{\epsilon}}=\frac{C_{1k\epsilon }}{\kappa ^{2}}+ \sigma _{k\epsilon }"
+  src="WAgamma-trans-eqns/img56.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{2k\omega }=\frac{C_{1k\omega }}{\kappa ^{2}}+ \sigma _{k\omega }"
+  src="WAgamma-trans-eqns/img57.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{1k\omega }=0.0829"
+  src="WAgamma-trans-eqns/img58.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{1k\epsilon }=0.1284"
+  src="WAgamma-trans-eqns/img59.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma _{R}= f_{1}(\sigma _{k\omega }- \sigma _{k\epsilon })+\sigma_{k\epsilon }"
+  src="WAgamma-trans-eqns/img60.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma _{k\omega }=0.72"
+  src="WAgamma-trans-eqns/img61.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma _{k\epsilon }=1.0"
+  src="WAgamma-trans-eqns/img62.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\kappa =0.41"
+  src="WAgamma-trans-eqns/img63.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{\omega }=8.54"
+  src="WAgamma-trans-eqns/img64.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{m}=8.0"
+  src="WAgamma-trans-eqns/img65.png" /></dd>
+</dl>
+
+<p>Boundary conditions are not explicitly described in the above reference.
+However, the authors recommend the following BCs at walls:
+<dl>
+<dd><img class="tex" alt="R_{wall} = 0"
+  src="wray_agarwal_eqns2018/img28.png" /></dd>
+</dl>
+<dd><img class="tex" alt="\frac{\partial \gamma}{\partial n} \vert _{wall} = 0" 
+  src="langtrymenter_eqns/img52.png" /></dd>
+</dl>
+
+<p>and the following BCs at the freestream:
+<dl>
+<dd><img class="tex" alt="R_{farfield}=\nu_{T,farfield}"
+  src="WAgamma-trans-eqns/img76.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\gamma_{farfield} = 1" 
+  src="langtrymenter_eqns/img53.png" /></dd>
+</dl>
+
+where the farfield 
+<img class="tex" alt="\nu_T" src="WAgamma-trans-eqns/img74.png" />
+is either known from experiment, or assumed.
+
+<p>(Alternately, one could specify
+<dl>
+<dd><img class="tex" alt="R_{farfield}=k_{farfield}/\omega_{farfield}" 
+  src="WAgamma-trans-eqns/img77.png" /></dd>
+</dl>
+where 
+<img class="tex" alt="k_{farfield}" src="WAgamma-trans-eqns/img79.png" />
+comes from the freestream turbulence intensity
+<dl>
+<dd><img class="tex" alt="Tu_{farfield}\% = 100 \sqrt{\frac{2}{3} \frac{k_{farfield}}{U_{ref}^2}}"
+  src="WAgamma-trans-eqns/img80.png" /></dd>
+</dl>
+and
+<img class="tex" alt="\omega_{farfield}" src="WAgamma-trans-eqns/img78.png" />
+can be computed from known experimental quantities, or assumed.)
+</p>
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p><a ID="lm-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Wray-Agarwal-gamma 2-equation Transition Model for Rough Walls<span style="color: blue">
+  (WA-gamma-rough)</span></strong>
+
+<p>The reference for the WA-gamma two-equation turbulence/transition model for rough walls is:
+<ul>
+<li>Shuai, S. and Agarwal, R. K., "Modification of Wray-Agarwal Transition Model for Computing Rough Wall
+Flows," AIAA Paper 2019-0333, January 2019,
+<a href="https://doi.org/10.2514/6.2019-0333">https://doi.org/10.2514/6.2019-0333</a>.
+</ul>
+
+<p>The roughness creates a shift in the log layer of the turbulent boundary
+layer. To account for this shift, the value of 
+<img class="tex" alt="d_w" src="WAgamma-trans-eqns/img26.png" />
+in various
+correlations used in the intermittency transport equation is replaced
+with 
+<img class="tex" alt="d_{new}" src="WAgamma-trans-eqns/img66.png" />:
+<dl>
+<dd><img class="tex" alt="d_{new}=d_{w}+0.03k_{s}"
+  src="WAgamma-trans-eqns/img67.png" /></dd>
+</dl>
+where 
+<img class="tex" alt="k_s" src="WAgamma-trans-eqns/img68.png" />
+is the equivalent sand-grain roughness height.
+
+<p>The viscous damping must also be modified to match the viscous sublayer
+and buffer layer profiles in the presence of surface roughness. Thus the equation for
+<img class="tex" alt="f_{\mu}" src="WAgamma-trans-eqns/img69.png" />
+is replaced by
+<dl>
+<dd><img class="tex" alt="f_{\mu }=\frac{\chi ^{3}}{\chi ^{3}+C_{w}^{3}}"
+  src="WAgamma-trans-eqns/img41.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\chi =\frac{R}{\nu} +Cr_{0}\frac{k_{s}}{d_{new}}"
+  src="WAgamma-trans-eqns/img71.png" /></dd>
+</dl>
+where <i>C<sub>r0</sub></i> = 0.4.
+
+<p>Furthermore, it turns out that the modification of the viscous damping term
+above does not provide a large enough increase in the eddy
+viscosity near the wall, especially for high roughness values. 
+To further increase the eddy viscosity, the destruction coefficient
+<img class="tex" alt="C_{2k\omega}" src="WAgamma-trans-eqns/img46.png" />
+is replaced by:
+<dl>
+<dd><img class="tex" alt="C_{2k\omega }=(\frac{C_{1k\omega }}{\kappa ^{2}}+\sigma _{k\omega })(\frac{1}{1+\frac{Cr_{1}k_{s}}{d_{new}}})"
+  src="WAgamma-trans-eqns/img72.png" /></dd>
+</dl>
+with <i>C<sub>r1</sub></i> = 0.006.
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<!--<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+11/11/2018 - fixed typo in abs(u_e) equation for SST-2003-LM2009-CFC1 (removed "d")<br>-->
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/24/2021
+<br>&nbsp;
+
+</body>
+</html>

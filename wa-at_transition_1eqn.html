@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>One-Equation Wray-Agarwal Algebraic Transitional Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">One-Equation Wray-Agarwal Algebraic Transitional Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for the
+WA-AT transitional turbulence model. 
+This model is a linear eddy viscosity model.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">One-Equation Wray-Agarwal Algebraic Transitional Model<span style="color: blue">
+  (WA-AT)</span></strong>
+<p>This transition model is based on the 
+<a href="wray_agarwal.html">WA-2018 one-equation model</a>.
+Without any modification, WA-2018 alone cannot predict transition from laminar flow to turbulent flow. 
+Following the work of the
+<a href="sa-bc_1eqn.html">SA-BCM model</a> by Cakmakcioglu et al,
+the WA-2018 turbulence model is coupled with an algebraic turbulence intermittency 
+<img class="tex" alt="\gamma" src="wa-at_eqns/img2.png" />
+equation to provide the capability to predict transition. (However, note that there are
+differences in some of the calibrated terms between SA-BCM and WA-AT.)
+
+<p>The reference is:
+
+<ul>
+<li>Xue, Y., Wen, T., and Agarwal, R. K., 
+"Development of a New Transitional Flow Model Integrating the One-Equation Wray-Agarwal Turbulence Model 
+with an Algebraic Intermittency Transport Term,"
+AIAA Paper 2021-2712, August 2021,
+<a href="https://doi.org/10.2514/6.2021-2712">https://doi.org/10.2514/6.2021-2712</a>.
+</ul>
+
+<p>The baseline WA-2018 model is modified to include the
+<img class="tex" alt="\gamma" src="wa-at_eqns/img2.png" /> term through multiplication with the kinetic energy production term
+<img class="tex" alt="C_1RS" src="wa-at_eqns/img3.png" />:
+<dl>
+<dd><img class="tex" alt="\frac{\partial R}{\partial t} + \frac{\partial u_j R}{\partial x_j} = \frac{\partial}{\partial x_j} 
+\left[(\sigma_{{}_R} R+\nu)\frac{\partial R}{\partial x_j}\right]+C_1\gamma RS + 
+f_1 C_{2kw}\frac{R}{S}\frac{\partial R}{\partial x_j}\frac{\partial S}{\partial x_j}
+-(1-f_1)\min\left[C_{2kw}R^2\left(\frac{\frac{\partial S}{\partial x_j}\frac{\partial S}{\partial x_j}}{S^2}\right), 
+C_m\frac{\partial R}{\partial x_j}\frac{\partial R}{\partial x_j}\right]"
+src="wa-at_eqns/img4.png" /></dd>
+</dl>
+
+<p>The value of
+<img class="tex" alt="\gamma" src="wa-at_eqns/img2.png" /> is 0 in laminar flow, and 1 in fully turbulent flow. 
+In WA-2018, the eddy viscosity is given by:
+<dl>
+<dd><img class="tex" alt="\nu_t=f_\mu R"
+src="wa-at_eqns/img5.png" /></dd>
+</dl>
+
+<p>The intermittency term 
+<img class="tex" alt="\gamma" src="wa-at_eqns/img2.png" /> is formulated as:
+<dl>
+<dd><img class="tex" alt="\gamma=1-\exp\left(-\sqrt{Term_1}-\sqrt{Term_2}\right)"
+src="wa-at_eqns/img6.png" /></dd>
+</dl>
+Here 
+<img class="tex" alt="Term_1" src="wa-at_eqns/img7.png" /> is designated to trigger the transition location, and 
+<img class="tex" alt="Term_2" src="wa-at_eqns/img8.png" /> helps the intermittency to penetrate into the boundary 
+layer. 
+<img class="tex" alt="Term_1" src="wa-at_eqns/img7.png" /> is given by:
+<dl>
+<dd><img class="tex" alt="Term_1=\frac{\max(1.2 R_{e_\theta}-R_{e_{\theta c}},0.0)}{\chi_1 R_{e_{\theta c}}}"
+src="wa-at_eqns/img9.png" /></dd>
+</dl>
+where
+<dl>
+<dd><img class="tex" alt="R_{e_\theta}=\frac{R_{e_v}}{2.193}"
+src="wa-at_eqns/img10.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="R_{e_v}=\frac{\rho d^2}{\mu}\Omega"
+src="wa-at_eqns/img11.png" /></dd>
+</dl>
+and <i>d</i> is the wall distance.  The local turbulence intensity is set to a constant value, based solely on
+freestream turbulence intensity:
+<dl>
+<dd><img class="tex" alt="R_{e_{\theta c}}=803.73(Tu_\infty + 0.6067)^{-1.027}"
+src="wa-at_eqns/img12.png" /></dd>
+</dl>
+
+<p><img class="tex" alt="Term_2" src="wa-at_eqns/img8.png" /> is given by:
+<dl>
+<dd><img class="tex" alt="Term_2=\max\left(\frac{\nu_t}{\nu}\chi_2, 0.0\right)"
+src="wa-at_eqns/img13.png" /></dd>
+</dl>
+
+<p>The 
+<img class="tex" alt="chi_1" src="wa-at_eqns/img14.png" /> and
+<img class="tex" alt="chi_2" src="wa-at_eqns/img15.png" /> are calibrated constants given by:
+<img class="tex" alt="\chi_1 = 0.02" src="wa-at_eqns/img16.png" /> and
+<img class="tex" alt="\chi_2 = 50" src="wa-at_eqns/img17.png" />.
+
+<p>The damping function is designed to account for wall blocking effect.  It is given by:
+<dl>
+<dd><img class="tex" alt="f_\mu=\frac{\chi^3}{\chi^3+C^3_w}"
+src="wa-at_eqns/img18.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\chi=\frac{R}{\nu}"
+src="wa-at_eqns/img19.png" /></dd>
+</dl>
+where
+<img class="tex" alt="\nu" src="wa-at_eqns/img20.png" /> is the kinematic viscosity and
+<img class="tex" alt="R = k/\omega" src="wa-at_eqns/img21.png" />.
+<i>S</i> and <i>W</i> are the mean strain rate and mean vorticity, given by:
+<dl>
+<dd><img class="tex" alt="S=\sqrt{2S_{ij}S_{ij}}"
+src="wa-at_eqns/img22.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="W=\sqrt{2W_{ij}W_{ij}}"
+src="wa-at_eqns/img23.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij}=\frac 12\left(\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial x_i}\right)"
+src="wa-at_eqns/img24.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="W_{ij}=\frac 12\left(\frac{\partial u_i}{\partial x_j}-\frac{\partial u_j}{\partial x_i}\right)"
+src="wa-at_eqns/img25.png" /></dd>
+</dl>
+
+<p>This model combines the features of standard 
+<img class="tex" alt="k-\omega" src="wa-at_eqns/img26.png" /> and 
+<img class="tex" alt="k-\epsilon" src="wa-at_eqns/img27.png" /> models. The switching function 
+<img class="tex" alt="f_1" src="wa-at_eqns/img28.png" /> triggers the switch:
+<dl>
+<dd><img class="tex" alt="f_1=\tanh(arg^4_1)"
+src="wa-at_eqns/img29.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="arg_1=\frac{\nu+R}{2}\frac{\eta^2}{C_\mu k\omega}"
+src="wa-at_eqns/img30.png" /></dd>
+</dl>
+where
+<dl>
+<dd><img class="tex" alt="k=\frac{\nu_T} S}{\sqrt{C_\mu}}"
+src="wa-at_eqns/img31.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega=\frac{S}{\sqrt{C_\mu}}"
+src="wa-at_eqns/img32.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\eta=S \max\left(1,\left|\frac WS\right|\right)"
+src="wa-at_eqns/img33.png" /></dd>
+</dl>
+
+<p>The model constants are the same as in WA-2018:
+<dl>
+<dd><img class="tex" alt="C_{1k\omega}=0.0829"
+  src="wa-at_eqns/img34.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{1k\epsilon}=0.1284"
+  src="wa-at_eqns/img35.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_1 = f_1(C_{1k\omega} - C_{1k\epsilon}) + C_{1k\epsilon}"
+  src="wa-at_eqns/img36.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{k \omega} = 0.72"
+  src="wa-at_eqns/img37.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{k \epsilon} = 1.0"
+  src="wa-at_eqns/img38.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_R = f_1(\sigma_{k \omega} - \sigma_{k \epsilon}) + \sigma_{k \epsilon}"
+  src="wa-at_eqns/img39.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{2k\omega} = \frac{C_{1k\omega}}{\kappa^2} + \sigma_{k \omega}"
+  src="wa-at_eqns/img40.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{2k\epsilon} = \frac{C_{1k\epsilon}}{\kappa^2} + \sigma_{k \epsilon}"
+  src="wa-at_eqns/img41.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\kappa = 0.41"
+  src="wa-at_eqns/img42.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_w = 8.54"
+  src="wa-at_eqns/img43.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{\mu} = 0.09"
+  src="wa-at_eqns/img44.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_m = 8.0"
+  src="wa-at_eqns/img45.png" /></dd>
+</dl>
+
+<p>Boundary conditions at solid smooth walls are:
+<dl>
+<dd><img class="tex" alt="R_{wall} = 0"
+  src="wa-at_eqns/img46.png" /></dd>
+</dl>
+
+<p>and for the freestream, the authors recommend:
+<dl>
+<dd><img class="tex" alt="R_{farfield} = 0.002 \nu_{\infty}"
+  src="wa-at_eqns/img47.png" /></dd>
+</dl>
+
+(The influence of
+<img class="tex" alt="Tu_\infty" src="wa-at_eqns/img48.png" /> 
+comes in through
+<img class="tex" alt="R_{e_{\theta c}}" src="wa-at_eqns/img51.png" />,
+and not through <img class="tex" alt="R_{farfield}" src="wa-at_eqns/img50.png" />.)
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<hr WIDTH="100%">
+<p>Ramesh Agarwal and his students Y. Xue and T. Wen are acknowledged for helping with this webpage.
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+none
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 01/17/2023
+<br>&nbsp;
+
+</body>
+</html>

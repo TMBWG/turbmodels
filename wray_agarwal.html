@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Wray-Agarwal Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The Wray-Agarwal
+   Turbulence Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for the Wray-Agarwal one-equation turbulence model.
+It is a linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+<p>where the last term is generally ignored for one-equation models like this one 
+because <em>k</em> is not readily available (the term
+is sometimes ignored for non-supersonic speed flows for other models as well).
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<!--<p><em>The first version listed <span style="color: blue">(Nut-92)</span> is the latest "standard"
+version of this model.</em>
+<br>&nbsp;-->
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Wray-Agarwal One-Equation Model
+   <span style="color: blue">(WA-2018)</span></strong>
+<p>The WA one-equation model was derived from a k-omega closure, and has gone through several iterations to
+date.  The original Journal reference for it is: Wray, T. J., Agarwal, R. K., "Low-Reynolds-Number One-Equation
+Turbulence Model Based on a k-omega Closure," AIAA Journal, Vol. 53, No. 8, 2015, pp. 2216-2227,
+<a href="https://doi.org/10.2514/1.J053632">https://doi.org/10.2514/1.J053632</a> (which had
+an inconsistency in dimensional units in its arg<sub>1</sub> equation).  However, the
+latest version (as recommended by the authors) is wall-distance free and varies from its description in the Journal.
+It is described in:
+
+<ul>
+<li>Han, X., Rahman, M. M., Agarwal, R. K.,
+"Development and Application of a Wall Distance Free Wray-Agarwal Turbulence Model (WA2018),"
+AIAA Paper 2018-0593, January 2018,
+<a href="https://doi.org/10.2514/6.2018-0593">https://doi.org/10.2514/6.2018-0593</a>.
+</ul>
+
+<p>The model solves for the variable <i>R</i>, using the following equation:
+<dl>
+<dd><img class="tex" alt="\frac{\partial R}{\partial t} + \frac{\partial u_j R}{\partial x_j}
+= \frac{\partial}{\partial x_j} \left[(\sigma_R R + \nu) \frac{\partial R}{\partial x_j} \right]
++C_1RS + f_1 C_{2k\omega} \frac{R}{S} \frac{\partial R}{\partial x_j} \frac{\partial S}{\partial x_j}
+-(1-f_1)\rm{min} \left[ 
+C_{2k\epsilon}R^2 \left(\frac{\frac{\partial S}{\partial x_j} \frac{\partial S}{\partial x_j}}{S^2} \right),
+C_m\frac{\partial R}{\partial x_j}\frac{\partial R}{\partial x_j} \right]"
+  src="wray_agarwal_eqns2018/img2.png" /></dd>
+</dl>
+
+<p>The turbulent eddy viscosity is:
+<dl>
+<dd><img class="tex" alt="\mu_t = \rho f_{\mu} R"
+  src="wray_agarwal_eqns2018/img3.png" /></dd>
+</dl>
+
+<p>with <img class="tex" alt="\rho" src="wray_agarwal_eqns2018/img30.png" /> the density.
+<i>S</i> takes on the usual definition for mean strain:
+<dl>
+<dd><img class="tex" alt="S=\sqrt{2 S_{ij} S_{ij} }"
+  src="wray_agarwal_eqns2018/img4.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} +
+\frac{\partial u_j}{\partial x_i} \right)"
+  src="wray_agarwal_eqns2018/img5.png" /></dd>
+</dl>
+
+<p>The authors used
+<img class="tex" alt="S = {\rm max}(S,10^{-16} s^{-1})" src="wray_agarwal_eqns2018/img31.png" />
+to avoid division by zero (private communication).
+Wall blocking is accounted for by the damping function:
+<dl>
+<dd><img class="tex" alt="f_{\mu} = \frac{\chi^3}{\chi^3 + C_w^3}"
+  src="wray_agarwal_eqns2018/img6.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\chi = R/ \nu" src="wray_agarwal_eqns2018/img7.png" /> and
+<img class="tex" alt="\nu = \mu/ \rho" src="wray_agarwal_eqns2018/img8.png" />.
+The wall-distance-free switching function is:
+<dl>
+<dd><img class="tex" alt="f_1 = \rm{tanh} \left(arg_1^4 \right)"
+  src="wray_agarwal_eqns2018/img9.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="arg_1 = \frac{\nu + R}{2} \frac{\eta^2}{C_{\mu} k \omega}"
+  src="wray_agarwal_eqns2018/img10.png" /></dd>
+</dl>
+<p>where
+<dl>
+<dd><img class="tex" alt="k = \frac{\nu_t S}{\sqrt{C_{\mu}}}"
+  src="wray_agarwal_eqns2018/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega = \frac{S}{\sqrt{C_{\mu}}}"
+  src="wray_agarwal_eqns2018/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\eta = S \rm{max} \left( 1, \left| \frac{W}{S}\right| \right)"
+  src="wray_agarwal_eqns2018/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="W = \sqrt{2 W_{ij} W_{ij} }"
+  src="wray_agarwal_eqns2018/img14.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="W_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} -
+\frac{\partial u_j}{\partial x_i} \right)"
+  src="wray_agarwal_eqns2018/img15.png" /></dd>
+</dl>
+
+<p>The constants are:
+<dl>
+<dd><img class="tex" alt="C_{1k\omega}=0.0829"
+  src="wray_agarwal_eqns2018/img16.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{1k\epsilon}=0.1284"
+  src="wray_agarwal_eqns2018/img17.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_1 = f_1(C_{1k\omega} - C_{1k\epsilon}) + C_{1k\epsilon}"
+  src="wray_agarwal_eqns2018/img18.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{k \omega} = 0.72"
+  src="wray_agarwal_eqns2018/img19.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{k \epsilon} = 1.0"
+  src="wray_agarwal_eqns2018/img20.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_R = f_1(\sigma_{k \omega} - \sigma_{k \epsilon}) + \sigma_{k \epsilon}"
+  src="wray_agarwal_eqns2018/img21.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{2k\omega} = \frac{C_{1k\omega}}{\kappa^2} + \sigma_{k \omega}"
+  src="wray_agarwal_eqns2018/img22.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{2k\epsilon} = \frac{C_{1k\epsilon}}{\kappa^2} + \sigma_{k \epsilon}"
+  src="wray_agarwal_eqns2018/img23.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\kappa = 0.41"
+  src="wray_agarwal_eqns2018/img24.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_w = 8.54"
+  src="wray_agarwal_eqns2018/img25.png" /></dd> 
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{\mu} = 0.09"
+  src="wray_agarwal_eqns2018/img26.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_m = 8.0"
+  src="wray_agarwal_eqns2018/img27.png" /></dd>
+</dl>
+
+<p>Boundary conditions at solid smooth walls are:
+<dl>
+<dd><img class="tex" alt="R_{wall} = 0"
+  src="wray_agarwal_eqns2018/img28.png" /></dd>
+</dl>
+
+<p>and for the freestream, the authors recommend:
+<dl>
+<dd><img class="tex" alt="R_{farfield} = 3 \nu_{\infty} : to : 5 \nu_{\infty}"
+  src="wray_agarwal_eqns2018/img29.png" /></dd>
+</dl>
+
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Wray-Agarwal One-Equation Model
+   <span style="color: blue">(WA-2017)</span></strong>
+<p>The 2017 version of the WA model is described in:
+
+<ul>
+<li>Han, X., Wray, T. J., Agarwal, R. K.,
+"Application of a New DES Model Based on Wray-Agarwal Turbulence Model for Simulation of Wall-Bounded Flows
+with Separation," AIAA Paper 2017-3966, June 2017,
+<a href="https://doi.org/10.2514/6.2017-3966">https://doi.org/10.2514/6.2017-3966</a>.
+</ul>
+
+<p>Note that there was a typo in eq (6) of the original version of the above paper, but
+the online version has been corrected as of 8/10/2017.  Note also that although the 
+above reference includes a detached eddy simulation (DES) form of the model, here we only
+describe the RANS form of the model.
+This version of the model is different from the <span style="color: blue">(WA-2018)</span> model in the following
+ways: (1) one of the terms in the R-equation is different, (2) the f<sub>1</sub> is different, and (3) there are
+a few new/changed constants.  For completeness, the WA-2017 model is given here in its entirety.
+
+<p>The model solves for the variable <i>R</i>, using the following equation:
+<dl>
+<dd><img class="tex" alt="\frac{\partial R}{\partial t} + \frac{\partial u_j R}{\partial x_j}
+= \frac{\partial}{\partial x_j} \left[(\sigma_R R + \nu) \frac{\partial R}{\partial x_j} \right]
++C_1RS + f_1 C_{2k\omega} \frac{R}{S} \frac{\partial R}{\partial x_j} \frac{\partial S}{\partial x_j}
+-(1-f_1)C_{2k\epsilon}R^2 \left(\frac{\frac{\partial S}{\partial x_j} \frac{\partial S}{\partial x_j}}{S^2} \right)"
+  src="wray_agarwal_eqns/img2.png" /></dd>
+</dl>
+
+<p>This equation is the same as the <span style="color: blue">(WA-2018)</span> model, except for the
+last term. The turbulent eddy viscosity is:
+<dl>
+<dd><img class="tex" alt="\mu_t = \rho f_{\mu} R"
+  src="wray_agarwal_eqns/img3.png" /></dd>
+</dl>
+
+<p>with <img class="tex" alt="\rho" src="wray_agarwal_eqns/img23.png" /> the density.
+<i>S</i> takes on the usual definition for mean strain:
+<dl>
+<dd><img class="tex" alt="S=\sqrt{2 S_{ij} S_{ij} }"
+  src="wray_agarwal_eqns/img4.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} +
+\frac{\partial u_j}{\partial x_i} \right)"
+  src="wray_agarwal_eqns/img5.png" /></dd>
+</dl>
+
+<p>The authors used
+<img class="tex" alt="S = {\rm max}(S,10^{-16} s^{-1})" src="wray_agarwal_eqns/img24.png" />
+to avoid division by zero (private communication).
+Wall blocking is accounted for by the damping function:
+<dl>
+<dd><img class="tex" alt="f_{\mu} = \frac{\chi^3}{\chi^3 + C_w^3}"
+  src="wray_agarwal_eqns/img6.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\chi = R/ \nu" src="wray_agarwal_eqns/img7.png" /> and
+<img class="tex" alt="\nu = \mu/ \rho" src="wray_agarwal_eqns/img8.png" />.
+The switching function is:
+<dl>
+<dd><img class="tex" alt="f_1 = \rm{min} \left(\rm{tanh} \left(arg_1^4 \right), 0.9 \right)"
+  src="wray_agarwal_eqns/img9.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="arg_1 = \frac{1+ \frac{d \sqrt{RS}}{\nu}}{1+
+\left[ \frac{\rm{max}(d \sqrt{RS}, 1.5 R)}{20 \nu} \right]^2}"
+  src="wray_agarwal_eqns/img10.png" /></dd>
+</dl>
+<p>where <i>d</i> is the minimum distance to the nearest wall.
+
+<p>The constants are:
+<dl>
+<dd><img class="tex" alt="C_{1k\omega}=0.0829"
+  src="wray_agarwal_eqns/img11.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{1k\epsilon}=0.1127"
+  src="wray_agarwal_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_1 = f_1(C_{1k\omega} - C_{1k\epsilon}) + C_{1k\epsilon}"
+  src="wray_agarwal_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{k \omega} = 0.72"
+  src="wray_agarwal_eqns/img14.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{k \epsilon} = 1.0"
+  src="wray_agarwal_eqns/img15.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_R = f_1(\sigma_{k \omega} - \sigma_{k \epsilon}) + \sigma_{k \epsilon}"
+  src="wray_agarwal_eqns/img16.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{2k\omega} = \frac{C_{1k\omega}}{\kappa^2} + \sigma_{k \omega}"
+  src="wray_agarwal_eqns/img17.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{2k\epsilon} = \frac{C_{1k\epsilon}}{\kappa^2} + \sigma_{k \epsilon}"
+  src="wray_agarwal_eqns/img18.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\kappa = 0.41"
+  src="wray_agarwal_eqns/img19.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_w = 8.54"
+  src="wray_agarwal_eqns/img20.png" /></dd> 
+</dl>
+
+<p>Boundary conditions at solid smooth walls are:
+<dl>
+<dd><img class="tex" alt="R_{wall} = 0"
+  src="wray_agarwal_eqns/img21.png" /></dd>
+</dl>
+
+<p>and for the freestream, the authors recommend:
+<dl>
+<dd><img class="tex" alt="R_{farfield} = 3 \nu_{\infty} : to : 5 \nu_{\infty}"
+  src="wray_agarwal_eqns/img22.png" /></dd>
+</dl>
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+05/16/2018 - added WA-2018 model description<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

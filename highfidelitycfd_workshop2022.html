@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>High Fidelity CFD Workshop 2022</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction-->
+
+   </center>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">High Fidelity CFD Workshop 2022</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Associated with AIAA SciTech 2022</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Dates: January 8-9, 2022</strong>
+
+<!--<p>
+<img border=0 src="as_150x120_tn.jpg" title="logo from NASA ARMD website showing LES simulation over backward facing step" 
+alt="logo from NASA ARMD website showing LES simulation over backward facing step">-->
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The information on this page describes the workshop held in 2022.  The next iteration of this workshop has a slightly different
+name (High-Fidelity CFD Verification Workshop) and a new site.  Please go to:
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<a href="https://HighFidelityCFDVerificationWorkshop.github.io">https://HighFidelityCFDVerificationWorkshop.github.io</a>
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+This workshop, focused on exploring high-fidelity CFD methodologies, is made up of 5 different test suites.
+Note: a preparatory
+<a href="highfidelitycfd_workshop2021.html">High Fidelity CFD Pre-Workshop Special Session</a> was held at
+AIAA SciTech 2021.
+This workshop is a continuation of a previous series known as "International Workshop on High Order CFD Methods",
+or "HiOCFD". See, for example:
+<a href="https://how5.cenaero.be/" target="_blank">HiOCFD5</a> and 
+<a href="https://how4.cenaero.be/" target="_blank">HiOCFD4</a>.
+
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<strong>Registration:</strong>
+<a href="https://www.aiaa.org/SciTech/program/scitech-course/1st-aiaa-high-fidelity-cfd-workshop" target="_blank">
+Link to AIAA registration site</a>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<strong>Workshop Agenda:</strong>
+<ul>
+  <li><a href="Highfidelitycfd2021/hificfd1_agenda.pdf" target="_blank">Workshop_Agenda</a> (pdf file)
+    <span style="color: red">(updated on 01/06/2022)</span>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<strong>Test suite presentation format:</strong>
+<ul>
+  <li>Test suite lead will introduce the test case(s)
+  <li>Individual participant presentations (~10 minutes each)
+    <ul>
+      <li>Intent is to communicate approach and conclusions, NOT to present results (test suite lead will present results)
+      <li>See 
+          <a href="Highfidelitycfd2021/PresentationGuideline_HFCFDW1.pdf">Presentation guidelines (pdf file)</a> and OPTIONAL 
+          <a href="Highfidelitycfd2021/HiFiCFDWorkshopPresentationGuidelines.pptx">Presentation Template (pptx file)</a>
+      <li><span style="color: red">Virtual participants: please provide your presentation charts and 
+          optionally pre-recorded presentation (as backup in-case of technical difficulty) 
+          by THURSDAY 6 JANUARY 2022</span>
+    </ul>
+  <li>Test suite lead will present collected results from all participants
+  <li>Group discussion
+</ul>
+
+<p><u>Please be sure to contact the individual test-suite leads to coordinate individual presentations and for any 
+test-suite-specific guidance on individual presentations.</u>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<strong>Mission:</strong>
+<ul>
+  <li>Providing an open and impartial forum for evaluating the status of  CFD methods in solving a wide range of flow problems;
+  <li>Assessing the performance of CFD methods through comparison to production CFD codes widely used in the aerospace industry with well-defined metrics;
+  <li>Supporting new research in the field of high order CFD methods by providing validation cases and aid during development and improvement of codes;
+  <li>Establish best practices for large scale simulations
+</ul>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<strong>Vision:</strong>
+<ul>
+  <li>Identifying pacing items in Solver Technology, LES, and High-Order methods and peripheral tools that need additional research and development in order to proliferate in the CFD community;
+  <li>Facilitating international collaboration and enhance mutual understanding among CFD researchers and managers in academia, government, and industries
+</ul>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<strong>Test Suites:</strong> (participants may select any subset of cases)
+<ul>
+  <li>LES
+     <ul>
+       <li><span style="color: green">POC:</span> <a href="mailto:jola@umd.edu">Johan Larsson</a>
+       <li><a href="https://wmles.umd.edu/workshops/workshop-2022">https://wmles.umd.edu/workshops/workshop-2022</a> (external link)
+     </ul>
+  <li>Mesh Motion
+     <ul>
+       <li><span style="color: green">POC:</span> <a href="mailto:nathan.wukie@us.af.mil">Nathan Wukie</a>
+       <li><a href="Highfidelitycfd2021/Persson_Fidkowski_Wukie_2021.pdf">Mesh Motion</a> (pdf file)
+           <span style="color: red"><- updated 8/03/2021</span>
+         <ul>
+            <li>Cylinder Grids: 
+           <a href="Highfidelitycfd2021/Cyl_quad_grids_gmsh.tar.gz">Cyl_quad_grids_gmsh.tar.gz</a> (gzipped tar file)
+           <span style="color: red"><- added 8/05/2021</span>
+            <li>NACA 0012 Grids:
+           <a href="Highfidelitycfd2021/NACA_meshes.tar.gz">NACA_meshes.tar.gz</a> (gzipped tar file)
+           <span style="color: red"><- added 8/05/2021</span>
+         </ul>
+     </ul>
+  <li>Steady Supersonic/Hypersonic
+     <ul>
+       <li><span style="color: green">POC:</span> <a href="mailto:tcfishe@sandia.gov">Travis Fisher</a>
+       <li><a href="Highfidelitycfd2021/SteadySupHypersonic_smooth_bump_HFW_2021.pdf">Transonic Inviscid Bump</a> (pdf file)
+         <ul>
+            <li>Grids: <a href="Highfidelitycfd2021/VI2_gridGeneration.tgz">VI2_gridGeneration.tgz</a> (gzipped tar file)
+         </ul>
+       <li><a href="Highfidelitycfd2021/SteadySupHypersonic_blottner_HFW_2021.pdf">Blottner Sphere</a> (pdf file)
+         <ul>
+            <li>Grids: <a href="https://acdl.mit.edu/HFW2022/BlottnerSphere/Pointwise/" target="_blank">Link to Blottner Sphere grids</a> (external link)
+         </ul>
+       <li><a href="Highfidelitycfd2021/hifire1_rev1.pdf">hifire1_rev1.pdf</a> (pdf file)
+           <span style="color: red"><- updated 11/03/2021</span>
+         <ul>
+            <li>Grids: <a href="https://acdl.mit.edu/HFW2022/HiFire1/Pointwise" target="_blank">Link to HIFiRE-1 grids</a> (external link)
+         </ul>
+     </ul>
+  <li>Unsteady Supersonic/Hypersonic
+     <ul>
+       <li><span style="color: green">POC:</span> <a href="mailto:mzahr@nd.edu">Matthew Zahr</a>
+       <li><a href="Highfidelitycfd2021/UnsteadySupHypersonic_Shu-Osher_HFW_2021.pdf">Shu-Osher Shock Entropy Wave Interaction</a> (pdf file)
+       <li><a href="Highfidelitycfd2021/UnsteadySupHypersonic_StrongVortexShock_HFW_2021.pdf">Inviscid Strong Vortex Shock Wave Interaction</a> (pdf file)
+         <ul>
+            <li>Grids: <a href="Highfidelitycfd2021/InvStrongVortexMeshes.tar.gz">InvStrongVortexMeshes.tar.gz</a> (gzipped tar file)
+         </ul>
+     </ul>
+  <li>SA-neg-QCR2000
+     <ul>
+       <li><span style="color: green">POCs:</span> <a href="mailto:boris.diskin@nianet.org">Boris Diskin</a> and <a href="mailto:galbramc@mit.edu">Marshall Galbraith</a>
+       <li><a href="Highfidelitycfd2021/Joukowski_HFW.pdf">Joukowski Airfoil</a> (pdf file)
+           <span style="color: red"><- updated 11/15/2021</span>
+         <ul>
+           <li>Grids: <a href="Highfidelitycfd2021/Joukowski_Mesh.tgz">Joukowski_Mesh.tgz</a> (gzipped tar file for mesh generation)
+           <span style="color: red"><- updated 9/17/2021; no change to meshes, just added CGNS write capability</span>
+         </ul>
+       <li><a href="Highfidelitycfd2021/SAnegQCR2000_juncture_flow_HW_2021_v2.pdf">Juncture Flow Model</a> (pdf file)  
+         <ul>
+           <li>Grids: <a href="https://hiliftpw-ftp.larc.nasa.gov/JunctureFlow/F6wing_plus_Horn/JF_F6horn_Unstructured_2020/">
+               Link to provided JF grids</a> (external link)
+         </ul>
+       <li><a href="Highfidelitycfd2021/SAnegQCR2000_SupDuct_HFW2021.pdf">Supersonic Flow in Square Duct</a> (pdf file)
+         <ul>
+           <li>Grids: <a href="Highfidelitycfd2021/SquareDuct_grid_v0p9.tar.gz">Square Duct Grid Generation Program V0.9.tar.gz</a> (gzipped tar file)
+         </ul>
+     </ul>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<strong>Guidelines:</strong>
+<ul>
+  <li><a href="Highfidelitycfd2021/HiFiCFD_guidelines_v2.pdf">HiFiCFD_guidelines_v2.pdf</a>
+  <li><a href="Highfidelitycfd2021/taubench_src_0.zip">Taubench source for measuring computational cost</a> (zip file)
+     <ul>
+        <li>(from <a href="https://how5.cenaero.be" target="_blank">
+            HiOCFD5 website</a>)
+     </ul>
+</ul>
+
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Workshop participation is by invitation only.  However, depending on available space, others 
+are welcome to attend as well.  If you want to be a regular attendee 
+(i.e., not a presenter/invited participant), then you must 
+submit the registration form at
+<a href="https://www.surveymonkey.com/r/NASA_Transition_Workshop">
+https://www.surveymonkey.com/r/NASA_Transition_Workshop</a>
+<strong>by Aug. 14th</strong> so that a decision for attendance may be communicated to you by 
+August 17th.  Presenter/invited participants are also encouraged to register here, so that 
+we have a more accurate head count for the no-host dinner.-->
+
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Links:
+<ul>
+<li><a href="Transition_workshop2017/transition_workshop2017_agenda.pdf">Workshop Agenda</a>
+<li><a href="Transition_workshop2017/transition_workshop2017_lodging.pdf">Lodging Info and Visitor Guide</a>
+</ul>-->
+
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<strong>Meeting notes regarding workshop preparation:</strong>
+  <ul>
+    <li><a href="Highfidelitycfd2021/HFCFD_meeting_notes_2021_05_24.pdf">HFCFD_meeting_notes_2021_05_24.pdf</a>
+  </ul>-->
+
+<br>&nbsp;
+<!--<p><span style="color: red">If you are interested in participating, the organizers ask that you fill out a brief 
+<a href="https://forms.gle/3icgJbAtZRiEfExp6" target="_blank">PARTICIPATION SURVEY</a> (link only valid for a limited time)</span>-->
+<p>Registration for the HFCFD workshop is handled through 
+<a href="https://www.aiaa.org/SciTech/program/scitech-course/1st-aiaa-high-fidelity-cfd-workshop">
+AIAA's SciTech 2022 registration processes</a> and requires a fee that is 
+independent from conference attendance.  You may register as a virtual attendee or as an in-person attendee.
+Conference attendance is not required to register for the workshop.
+<br>&nbsp;
+<p>Specific questions about the workshop Test Suites should be addressed to the individual POCs listed above for each Test Suite.
+<span style="color: green">General questions about the workshop can be addressed to: <a href="mailto:nathan.wukie@us.af.mil">Nathan Wukie</a></span>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+The workshop email address is: <a href="mailto:hfcfdw@gmail.com">hfcfdw@gmail.com</a>.
+Please send an email if you would like to be added to our email distribution list, for notifications
+concerning future workshops.
+</span>
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+01/06/2022 - updated Workshop Agenda<br>
+12/15/2021 - added Test Suite Presentation Format<br>
+12/08/2021 - added Workshop Agenda<br>
+11/15/2021 - updated the Joukowski airfoil writeup (Joukowski_HFW.pdf)<br>
+11/03/2021 - updated the HiFire writeup (hifire1_rev1.pdf)<br>
+09/17/2021 - updated Joukowski_Mesh.tgz package (no change to meshes; just added CGNS writer capability)<br>
+09/02/2021 - updated the Joukowski writeup<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 02/02/2023
+<br>&nbsp;
+
+</body>
+</html>

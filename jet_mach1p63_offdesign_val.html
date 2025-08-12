@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Off-Design Mach 1.63 Axisymmetric Jet</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">AJM163OD: Off-Design Mach 1.63 Axisymmetric Jet</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">See the related
+<a href="jet_mach1p63_tmatched_val.html">Temperature-Matched Mach 1.63 Axisymmetric Jet</a> and
+<a href="jet_mach1p63_hot_val.html">Heated Mach 1.63 Axisymmetric Jet</a> cases.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. A small sequence of nested grids of the same family are 
+provided here if desired. Data are also provided for comparison. For this 
+particular supersonic jet case, the data are from experiment. 
+
+<p>The experiment involved a supersonic jet issuing from an axisymmetric convergent-divergent nozzle with 
+an exit diameter, Djet = 2 in. (50.8 mm). The jet exit Mach number for the particular case here is approximately 
+Mjet=ujet/ajet=1.63.  The divergent nozzle contour was designed with the Method of Characteristics to be 
+yield a nearly shock-free flow in the divergent section of the nozzle and the jet plume. 
+The nozzle pressure ratio (NPR) was purposefully set lower than that required to isentropically expand 
+the flow to the nozzle exit, given this Mach 1.63 nozzle's exit to throat area ratio. This produces an 
+overexpanded jet with significant oscillations in the jet potential core that are reflected in all flow 
+quantities, such as centerline velocities (see plot below).  The NPR used (3.01) would provide a perfectly 
+expanded flow for a nozzle designed to achieve Mach 1.36 at the nozzle exit.  The nozzle's supply plenum 
+was heated such that the jet exit static temperature (if it had been expanded to Mach 1.36) would be 
+233 K higher than the ambient static temperature.
+
+<p>In the experiment, the axisymmetric jet exits into quiescent (non-moving) air. However, because flow 
+into quiescent air is difficult to achieve for some CFD codes, here the CFD is computed with a very low 
+background ambient conditions (Mref=0.01, moving left-to-right, in the same direction as the jet). This 
+boundary condition difference has some effect, but testing has indicated that the influence is relatively 
+small and Mref=0.01 represents a reasonable compromise. The appropriate jet conditions are achieved by 
+setting total pressure and temperature at the inflow plane to the nozzle, as shown in the figure.
+
+<p>It is important to note that this axisymmetric case is not a planar two-dimensional computation; it 
+uses a periodic (rotated) grid system with appropriate boundary conditions on the periodic sides of the grid. 
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Jet_mach1p63_val/bcs_ssjet_offdesign.png" width="750" border="1" title="Off-design Mach 1.63 round jet layout & BCs" alt="Off-design Mach 1.63 round jet layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="jet_mach1p63_offdesign_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<p>
+<h3 style="font-family: helvetica,arial,sans-serif;">The experimental operating conditions are summarized in the following table:</h3>
+<table style="text-align: left; height: 111px; width: 1000px;" border="1"
+ cellpadding="1" cellspacing="1">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: top; width: 100px; font-family: helvetica,arial,sans-serif;">Case Number<br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">Nozzle Geometry Mach No.<br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">Nozzle Operating Mach No.<br>
+      </td>
+      <td style="vertical-align: top; width: 100px; font-family: helvetica,arial,sans-serif;">NPR<br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">Nozzle T<sub>t</sub> (K)<br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">Jet delta T (K) = T<sub>s-jet</sub>-T<sub>amb</sub><br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">U<sub>jet</sub> (m/s)<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top; width: 100px; font-family: helvetica,arial,sans-serif;">4<br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">1.63<br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">1.36<br>
+      </td>
+      <td style="vertical-align: top; width: 100px; font-family: helvetica,arial,sans-serif;">3.01<br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">715.2<br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">233<br>
+      </td>
+      <td style="vertical-align: top; width: 350px; font-family: helvetica,arial,sans-serif;">594.0
+<span style="color: red"><sup>*</sup></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span style="color: red"><sup>*</sup>For this case, the NPR and T<sub>t</sub> would yield a perfectly expanded jet velocity of 
+622.9 m/s. However, computations indicate a normal shock (from the centerline outward a small radial distance) 
+early in the jet exhaust which reduces the jet total pressure, and results in a modified "fully expanded velocity" 
+of 594.0 m/s for expected computations and subsequent nondimensionalizations shown here.  This behavior was 
+also observed in the experimental measurements.</span>
+
+<p>This case (referred to as "Case 4") was one of five examined in the 6th AIAA Propulsion Aerodynamics Workshop (PAW6).  The related
+<a href="jet_mach1p63_tmatched_val.html">Temperature-Matched Mach 1.63 Axisymmetric Jet</a> and
+<a href="jet_mach1p63_hot_val.html">Heated Mach 1.63 Axisymmetric Jet</a> cases are two of the other
+cases considered in PAW6. 
+
+<p>The experiment yielded measured velocities as well as turbulence quantities downstream of the jet exit using 
+PIV. Velocity and turbulence profiles of interest are provided at the centerline (r/Djet = 0), along 
+the nozzle lipline (r/Djet = 0.5), and at several x-locations in the jet.
+There is mean static temperature (T) and RMS of temperature (T') data, 
+collected with rotationally resolved Raman scattering spectroscopy, along the nozzle centerline and lipline 
+as well as at several x-locations.
+
+<p>Several RANS and scale resolving analyses were considered and are documented in:
+<ul>
+  <li>Georgiadis, N. J., Wernet, M. P., Winkler, C. M., Benton, S. I., and Connolly, B. J., "Summary of the 
+6th Propulsion Aerodynamics Workshop Nozzle Test Case: Heated Supersonic Axisymmetric Jets," AIAA Paper 2024-0749, 
+Jan 2024,
+<a href="https://arc.aiaa.org/doi/abs/10.2514/6.2024-0749">https://arc.aiaa.org/doi/abs/10.2514/6.2024-0749</a>
+</ul>
+
+<p>A tar file of the data for all 5 PAW6 cases is in the link below.  As mentioned above, this off-design Mach 1.63 jet
+is listed as "Case 4."
+<ul>
+  <li><a href="Jet_mach1p63_val/PAW6_nozzle_TMR.tar.gz">PAW6_nozzle_TMR.tar.gz</a>
+</ul>
+
+<p>The experimental data references are:
+<ul>
+  <li>Georgiadis, N. J., Wernet, M. P., Locke, R. J., and Eck, D. G., "Mach Number and Heating Effects on 
+Turbulent Supersonic Jets," AIAA Journal, Vol. 62, No. 1, Jan. 2024, pp. 31-51, 
+<a href="https://arc.aiaa.org/doi/full/10.2514/1.J063186">https://arc.aiaa.org/doi/full/10.2514/1.J063186</a>
+  <li>Wernet, M. P., Georgiadis, N. J., and Locke, R. J., "Raman Temperature and Density Measurements in Supersonic Jets," 
+Experiments In Fluids, Vol. 62, No. 3, 2021, pp. 1-21, 
+<a href="https://link.springer.com/article/10.1007/s00348-021-03162-2">https://link.springer.com/article/10.1007/s00348-021-03162-2</a>
+  <li>Wernet, M. P., Georgiadis, N. J., and Locke, R. J., "Velocity, Temperature, and Density Measurements in
+Supersonic Jets," NASA/TM-20205007269, October 2020,
+<a href="https://ntrs.nasa.gov/citations/20205007269">https://ntrs.nasa.gov/citations/20205007269</a>
+(the entire raw data set is also available here)
+</ul>
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Jet_mach1p63_val/u_cl_case4_offdesign.png" border="1" width="450" title="Off-design Mach 1.63 round jet, u-velocity along y=0" alt="Off-design Mach 1.63 round jet, u-velocity along y=0">
+           <img
+src="Jet_mach1p63_val/k_cl_case4_offdesign.png" border="1" width="450" title="Off-design Mach 1.63 round jet, turbulent kinetic energy along y=0" alt="Off-design Mach 1.63 round jet, turbulent kinetic energy along y=0">
+        </p>
+        <p><img
+src="Jet_mach1p63_val/u_stations_case4_offdesign.png" border="1" width="450" title="Off-design Mach 1.63 round jet, u-velocity at different x-stations" alt="Off-design Mach 1.63 round jet, u-velocity at different x-stations">
+           <img
+src="Jet_mach1p63_val/k_stations_case4_offdesign.png" border="1" width="450" title="Off-design Mach 1.63 round jet, turbulent kinetic energy at different x-stations" alt="Off-design Mach 1.63 round jet, turbulent kinetic energy at different x-stations">
+        </p>
+        <p><img
+src="Jet_mach1p63_val/uv_stations_case4_offdesign.png" border="1" width="450" title="Off-design Mach 1.63 round jet, turbulent shear stress at different x-stations" alt="Off-design Mach 1.63 round jet, turbulent shear stress at different x-stations">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+    <span style="text-align: left; font-weight: 700; font-size: x-large"><a href="jet_mach1p63_offdesign_val_sstv.html">SST-Vm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+    <span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-v">SST-Vm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+    <span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+None<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 09/06/2024
+<br>&nbsp;
+
+</body>
+</html>

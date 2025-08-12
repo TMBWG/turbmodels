@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - 2D Hemisphere Cylinder for Turbulence Model Numerical Analysis</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="hc2dnumerics_val.html">Numerical Analysis of 2D Hemisphere Cylinder Validation Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids -
+	    2D Hemisphere Cylinder </strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The methodology to create
+	a series of nested grids is provided.
+The coordinate system is defined with x streamwise, y horizontal, and z vertical.
+Each grid is a PLOT3D unformatted file of size ni x nj x nk.
+
+
+For the structured grids, 
+the number of points in the spanwise direction (ni=2 for 2D), nj
+	is the number of points along the body, and nk is
+	the number of points in the normal direction. 
+The grids range from 2 x 321 x 289 (finest grid) to 2 x 11
+	x 10 (coarsest grid). The constructed grids are not
+	necessarily nested grids but coarser grids can be constructed
+	by extracting every other point in two directions (i.e.,
+	regular refinement).  (A capability to construct a nested
+	family of structured grids with prolongation and
+	  restriction operators constructed using the grid mapping 
+          is available by preprocessing utilities within FUN3D.)
+
+The figure below shows a view of the 2D level 4 grid of size nj=41 x nk=37 in
+	the streamwise x normal directions.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="HCnumerics_grids/grid4_2d.png" border="1" width="790" title="">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading (or writing) the grids!
+
+<p>Note: be sure to use <u>double precision</u> when reading (or writing) the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">STRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>A simple <a href="HCnumerics_grids/hc_tmr.f90">FORTRAN program</a>  
+is provided that can be used to generate the grids in PLOT3D format.  All information has been hardwired 
+into the program except three integer inputs. 
+
+
+<p><ul>The first input is integer, between 1 and 6 indicating the level of the
+	  grid to be generated (finest to coarsest).  
+
+<p>The second input is integer, 
+between 0 and 2 and indicates the type of grid to be generated (0 is inviscid, 1 is laminar, and 2 is turbulent).
+
+<p>The third input is integer, between 1 and 3 and indicates the type of grid to be generated (1 is 2D, 2 is 3D with symmetry in y,
+3 is 3D without symmetry in y).  Use "1" to create a 2-D grid like that shown above; it is in the x-z plane with
+two planes in the y-direction.
+</ul>
+
+<p>Neutral Map Files 
+associated with each grid are also generated by the above program (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>).  The following is
+an example neutral map file:
+<ul>
+<li><a href="HCnumerics_grids/grid4_2d.nmf">
+        Neutral Map File for (2-D) 2 x 41 x 37 </a>
+
+</ul>
+
+
+
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="hc2dnumerics_val.html">Numerical Analysis of 2D Hemisphere Cylinder Validation Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/13/2019
+<br>&nbsp;
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+&project
+    project_rootname = "hc_mixed_ph.2"
+/
+
+&raw_grid
+      grid_format = 'aflr3'
+      data_format = 'stream'
+ /
+
+  &reference_physical_properties
+    mach_number       =      0.6
+    reynolds_number   =     350000
+    angle_of_attack   =      19.0
+    temperature       =    540.0
+    temperature_units = "Rankine"
+/
+ 
+  &turbulent_diffusion_models
+     turbulence_model = "sa-neg"
+  /
+
+ &inviscid_flux_method
+    flux_limiter           = "none"
+    flux_construction      = "roe"
+    flux_construction_lhs  = "roe"
+ /
+
+  &force_moment_integ_properties
+    area_reference =     5.
+    x_moment_length =    10.0
+    y_moment_length =    10.0
+    x_moment_center =   0.00
+    y_moment_center =   0.00
+ /
+
+ &linear_solver_parameters
+       meanflow_sweeps = 50
+     linear_projection = F
+         line_implicit = 'off'
+ /
+
+ &code_run_control
+    steps = 1
+    stopping_tolerance =  1.0E-14
+    restart_write_freq =  2000
+    restart_read = "on"
+ /
+
+
+ &nonlinear_solver_parameters
+     time_accuracy = "steady"
+     schedule_iteration =            1      200
+     schedule_cfl =      1.00000000000    100.000000000
+     schedule_cflturb =  0.10000000000    100.0000000000
+ /
+
+ &boundary_output_variables
+   number_of_boundaries = 4
+   boundary_list = '1,2,3,4'
+   skinfr = .true.
+   cf_x   = .true.
+   cp = .true.
+  /
+
+  &global
+    boundary_animation_freq=-1
+    slice_freq = -1
+  /
+
+ &slice_data
+   nslices = 3
+   n_bndrys_to_slice(1:3) = 3*1
+   bndrys_to_slice(1:3,1) = 3*1
+   slice_location= 0.0,  0.0, 5.0
+   slice_group(1:3) = 1, 2, 3
+   slice_x(:) = .false., .false., .true.
+   slice_y(:) = .true., .false.,  .false. 
+   slice_z(:) = .false., .true., .false.
+  /
+
+  &sampling_parameters
+    number_of_geometries  = 4
+    sampling_frequency(1:11) = 4*-1
+    type_of_geometry(1)   = 'plane'
+    plane_center(1:3,1)   = 0.5, 0.25, 0.25
+    plane_normal(1:3,1)   = 1.0, 0.0, 0.0
+    type_of_geometry(2)   = 'plane'
+    plane_center(1:3,2)   = 5.0, 0.25, 0.25
+    plane_normal(1:3,2)   = 1.0, 0.0, 0.0
+    type_of_geometry(3)   = 'plane'
+    plane_center(1:3,3)   = 9.0, 0.25, 0.25
+    plane_normal(1:3,3)   = 1.0, 0.0, 0.0
+    type_of_geometry(4)  = 'line'
+    p1_line(:,4)         = 5.0, 0.21,    0.
+    p2_line(:,4)         = 5.0, 0.21,  1.0E+05
+  /
+  
+  &sampling_output_variables
+    mu_t = T
+    turb1 = T
+    x     = T
+    y     = T
+    z     = T
+    cp    = T
+    u     = T
+    v     = T
+    w     = T
+    p     = T
+    slen  = T
+  /

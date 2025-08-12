@@ -1,0 +1,96 @@
+&project
+    project_rootname = "wing_mixed_ph.2"
+ /
+
+
+&raw_grid
+      grid_format = 'aflr3'
+      data_format = 'stream'
+ /
+
+&governing_equations
+    viscous_terms = "turbulent"
+    eqn_type = "cal_perf_compress"
+ /
+
+  &reference_physical_properties
+    mach_number       =      0.84
+    reynolds_number   =     14.6e6
+    angle_of_attack   =      3.06
+    temperature       =    540.0
+    temperature_units = "Rankine"
+/
+ 
+  &force_moment_integ_properties
+     area_reference = 1.15315084119231
+    x_moment_length = 0.801672958512342
+    y_moment_length = 1.47601797621980
+    x_moment_center = 0.0
+    y_moment_center = 0.0
+    z_moment_center = 0.0
+  /
+
+  &special_parameters
+    large_angle_fix = "on"
+ /
+
+  &turbulent_diffusion_models
+     turbulence_model = "sa-neg"
+  /
+
+ &inviscid_flux_method
+    flux_limiter           = "none"
+    flux_construction      = "roe"
+    flux_construction_lhs  = "vanleer"
+    first_order_iterations = 0
+ /
+
+ &nonlinear_solver_parameters
+     time_accuracy = "steady"
+     schedule_iteration =            1      500
+     schedule_cfl =      1.00000000000    100.000000000
+     schedule_cflturb =  0.010000000000   100.0000000000
+ /
+
+  &code_run_control
+    steps =  20000
+    stopping_tolerance =  1.0E-12
+    restart_write_freq =  2000
+    restart_read = "off"
+ /
+
+ &global
+   boundary_animation_freq    = -1
+   volume_animation_freq      = 0
+ /
+
+ &boundary_output_variables
+  number_of_boundaries = 1
+  boundary_list = '1'
+  cp = .true.
+ /
+
+  &volume_output_variables
+   export_to  = 'tecplot'
+   x          = .true.
+   y          = .true.
+   z          = .true.
+   primitive_variables= .true.
+  /
+
+  &sampling_parameters
+   number_of_geometries  = 1
+   sampling_frequency    = -1
+   label                 = 'OM6_turbulent'
+   type_of_geometry      = 'plane'
+   plane_center          = 0.0, 1.0, 0.0
+   plane_normal          = 0.0, 1.0, 0
+ /
+
+ &sampling_output_variables
+   x                     = .true.
+   y                     = .true.
+   z                     = .true.
+   primitive_variables   = .true.
+ /
+

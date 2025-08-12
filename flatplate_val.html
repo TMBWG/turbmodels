@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Zero Pressure Gradient Flat Plate Validation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2DZP: 2D Zero Pressure Gradient Flat Plate 
+Validation Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a validation
+case for turbulence models.  Unlike verification, which seeks to establish that a model has been implemented
+correctly, validation compares CFD results against data in an effort to establish a model's
+ability to reproduce physics. A large sequence of nested grids
+of the same family are provided here if desired.  Data are also provided for comparison.
+For this particular "essentially incompressible" flat plate case, the data are from theory.
+This case is the same case used for
+<a href="flatplate.html">Flat Plate Verification</a>; however, for the purpose of
+<strong>validation</strong> here, different quantities of interest are focused on and compared.
+
+<p>The turbulent flat plate case should be run at
+essentially incompressible conditions (for example, M = 0.2 or less in compressible CFD codes).
+For the grids given below, running at a Reynolds number per unit length of Re = 5 million 
+is sufficient to achieve desired Re<sub>theta</sub> levels.
+The following plot shows the layout of the simple
+flat plate grids, along with typical boundary conditions.
+(Note that particular variations of the BCs at the inflow, top wall, and outflow
+may also work and yield similar results for this problem.)
+
+<p>Note that for this case the maximum boundary layer thickness is about 0.03 L, so the grid height
+of y=L is far enough away to have very little influence.  For example, a test in which the upper extent
+was moved down to y=0.48 L only changed results (integrated drag or skin friction at x=0.97) by
+less than 0.2%.
+<p>Grids are provided below.  Note that different turbulence models exhibit different
+<a href="flatplate_val_ypluseffect.html">sensitivities to minimum wall-normal spacing</a>.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/Grids/plateBCpic.jpg" border="1" title="flat plate grid layout & BCs" alt="flat plate grid layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="flatplate_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+(same as those used for 
+<a href="flatplate.html">Flat Plate Verification</a> case)
+
+<p>Two quantities of interest are desired for comparison:
+<ul>
+<li>Wall skin friction coefficient vs. Re<sub>theta</sub> (for 4000 &lt; Re<sub>theta</sub> &lt; 13,000)</li>
+<li>u+ vs. y+ (at Re<sub>theta</sub>=10,000)</li>
+</ul>
+
+<p>Definitions are given here for the relevant quantities, including
+Re<sub>theta</sub>, Cf, u+, and y+
+<dl>
+<dd><img class="tex" alt="Re_{\theta} = \frac{\rho_{\infty} U_{\infty} \theta}{\mu_{\infty}}"
+  src="flatplateval_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\theta = \int_0^{\infty} \frac{\rho}{\rho_{\infty}} 
+\frac{u}{U_{\infty}} \left( 1 - \frac{u}{U_{\infty}} \right) dy"
+  src="flatplateval_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="c_f = \frac{\tau_w}{\frac{1}{2} \rho_{\infty} U_{\infty}^2}"
+  src="flatplateval_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tau_w = \mu_w \left( \frac{\partial u}{\partial y} \right)_w"
+  src="flatplateval_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="u^+ = \frac{u}{v^*} = \frac{u}{\sqrt{\tau_w / \rho_w}}"
+  src="flatplateval_eqns/img6.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="y^+ = \frac{y v^*}{\nu_w} = \frac{y \sqrt{\tau_w / \rho_w}}{\nu_w}"
+  src="flatplateval_eqns/img7.png" /></dd>
+</dl>
+
+<p>It should be noted that computing Re<sub>theta</sub> typically involves an additional post-processing
+step for many CFD codes (numerically integrating to obtain theta).  Although this
+step is relatively straightforward for the flat plate, nonetheless some numerical errors
+are unavoidably introduced which may vary depending on the postprocessing program employed.
+When viewing comparisons, this additonal potential source of error should be taken into
+consideration.</p>
+
+<p>The following plot shows Re<sub>theta</sub> as a function of x for this flat plate case, from a
+variety of different turbulence models.  Clearly, the particular model makes some difference, but
+the general trend can be discerned: Re<sub>theta</sub> increases from near zero at the plate
+leading edge to somewhat over 14,000 at x=2.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate_validation/retheta_variation_typical.jpg" border="1" title="Re_theta as function of x for flat plate case" alt="Re_theta as function of x for flat plate case">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>A data file with a typical variation of Re_theta as function of x is given here:
+<a href="FlatPlate_validation/retheta_variation_typical.dat">retheta_variation_typical.dat</a></li>.
+
+<p>Theoretical curves for comparison are given below. 
+For wall skin friction comparison, the Karman-Schoenherr (K-S) relation 
+(Schoenherr, K. E., Trans. SNAME. 40:279-313, 1932) is used:
+<dl>
+<dd><img class="tex" alt="c_f = \left( 17.08 \left({\rm log}_{10}Re_{\theta} \right)^2 + 25.11 \left( {\rm log}_{10}Re_{\theta} \right) +
+   6.012 \right)^{-1}"
+  src="flatplateval_eqns/img8.png" /></dd>
+</dl>
+<p>For
+u+ vs. y+, the law-of-the-wall based on Coles' mean velocity profile 
+(Coles, D., J. Fluid Mech. 1(2):191-226, 1956,
+<a href="https://doi.org/10.1017/S0022112056000135">https://doi.org/10.1017/S0022112056000135</a> and
+Coles, D., RAND Corp Rept. R-403-PR, 1962,
+<a href="https://www.rand.org/pubs/reports/R403.html">https://www.rand.org/pubs/reports/R403.html</a>)
+is used
+<dl>
+<dd><img class="tex" alt="u^+ = \frac{1}{\kappa} {\rm ln} \left( y^+ \right) + C + \frac{2 \Pi}{\kappa}
+   \left[ {\rm sin} \left( \frac{\pi y}{2 \delta} \right) \right]^2"
+  src="flatplateval_eqns/img9.png" /></dd>
+</dl>
+along with a van Driest type damping near the wall.
+A program provided by P. G. Huang was used to compute these mean profiles.
+See Bardina et al, NASA TM 110446, April 1997,
+<a href="https://ntrs.nasa.gov/citations/19970017828">https://ntrs.nasa.gov/citations/19970017828</a>
+for more details.
+The data files for these correlations are provided here:
+<ul>
+<li><a href="FlatPlate_validation/cf_K-S.dat">K-S Re<sub>theta</sub> vs. Cf</a></li>
+<li><a href="FlatPlate_validation/u+y+.dat">Coles u+ vs. y+ at Re<sub>theta</sub>=10,000</a></li>
+</ul>
+
+<!--<p>Plots of these curves are shown below.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate_validation/cf.jpg" border="1" title="skin friction correlation" alt="skin friction correlation">
+           <img
+src="FlatPlate_validation/u+y+.jpg" border="1" title="boundary layer similarity law at Re<sub>theta</sub>=10000" alt="boundary layer similarity law at Re<sub>theta</sub>=10000">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>-->
+
+<p>Note that these particular theoretical correlations are not necessarily perfect.  There is some uncertainty
+in trying to match a wide range of experimental data.  Results from these 
+correlations alongside other
+theories (from White, F. M., "Viscous Fluid Flow," McGraw Hill, New York, 1974) are
+plotted in the following figures:
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate_validation/cf-other.jpg" border="1" title="other skin friction correlations" alt="other skin friction correlations">
+        <p><img
+src="FlatPlate_validation/u+y+-other.jpg" border="1" title="other similarity laws" alt="other similarity laws">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>White ("Viscous Fluid Flow," McGraw Hill, New York, 1974) also provides various theories for flat plate Cf as a function
+of Re<sub>x</sub> (for example, see equations 6-112a, 6-121, and 6-134 in that reference).  For the current case of
+Re<sub>L</sub>=5 million (L=2), these equations can be plotted as a function of x, as follows (note that error bars
+of 5% have been included although it is not clear what the error levels actually are):
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate_validation/cf_vs_x_thiscase.png" border="1" width="790" title="Cf theories as function of x for current case" alt="Cf theories as function of x for current case">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>Like the earlier plot of Cf vs Re<sub>theta</sub>, this plot provides a feel for the approximate
+theoretical range of wall skin friction coefficients for this case.  The data file that produced the above plot is:
+<a href="FlatPlate_validation/cf_as_function_of_x.dat">cf_as_function_of_x.dat</a></li>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-std">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_sstv.html">SST-Vm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-v">SST-Vm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_bsl.html">BSLm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="bsl.html#bsl-std">BSLm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_ssglrrrsm.html">SSG/LRR-RSM-w2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-ssglrr.html">SSG/LRR-RSM-w2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_w06.html">Wilcox2006-klim-m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="wilcox.html#w06klim">Wilcox2006-klim-m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_kkl-meah.html">K-kL-MEAH2015m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="kkl.html#kkl-meah2015">K-kL-MEAH2015m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_easmkos.html">EASMko2003-S</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="easmko.html#easmko-s">EASMko2003-S eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_kert.html">K-e-Rt</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="ke-rt.html">K-e-Rt eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="flatplate_val_glvy.html">GLVY-RSM-2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-glvystressepsilon.html#glvy-rsm-2012">GLVY-RSM-2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2, SST, and SST-V
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+Recent significant updates:<br>
+04/12/2022 - added plot of theoretical Cf vs x and provided data file<br>
+08/28/2020 - changed SST-V naming to SST-Vm<br>
+11/07/2017 - added link to discussion on effect of minimum wall-normal grid spacing<br>
+05/13/2016 - added BSL link<br>
+06/16/2016 - changed K-kL-MEAH2013 to K-kL-MEAH2015<br>
+08/20/2014 - added SSG/LRR-RSM-w2012 link<br>
+06/23/2014 - added typical variation of Re_theta with x for this case
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 04/12/2022
+<br>&nbsp;
+
+</body>
+</html>

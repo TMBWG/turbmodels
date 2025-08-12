@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - Axisymmetric Separated Boundary Layer</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="driver_val.html">Axisymmetric Separated Boundary Layer Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids - Axisymmetric Separated 
+Boundary Layer Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A series of 5 nested grids, in units of m, 
+are provided.  All grid files have been gzipped.
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from the finest 1425 x 385
+to the coarsest 90 x 25 grid.
+The following figure shows a portion of
+the 357 x 97 grid (2 levels down from the finest grid).  The grid
+is not drawn to scale (the vertical direction has been expanded for clarity), and the
+full extent of the grid in the horizontal direction is not shown.
+Note that the solid wall begins at x = -1.1m, at index 33 on the finest grid.
+<u>Also note that for the Driver data, the wall-normal coordinate y' is defined such that y'=0 on the cylinder surface.
+However, in the CFD grid, y=0 represents the cylinder's axis of rotation, and the cylinder surface is at y=0.07 m).
+The simple transformation is given by: y' = y - 0.07.</u>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Driver_grids/drivergridportion.jpg" border="1" title="portion of Driver grid" alt="portion of Driver grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">STRUCTURED VERSIONS OF 
+GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>The structured PLOT3D grids are given in two different ways, as 2-D grids (x-y plane) or as 3-D 
+axisymmetric grids (two planes rotated through 1 deg from each other; one plane rotated +0.5 deg
+from the x-z plane, and the other plane rotated -0.5 deg from the x-z plane).
+You may use whichever is more convenient for your particular
+application.  <u>If you get the 2-D grid version, then you must create an axisymmetric grid from
+it on your own.</u>
+
+<p>Format for the structured 2D grids is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((x(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((y(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 2-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="Driver_grids/driver-1425-1zn-narrow2d.p2dfmt.gz">
+        (2-D) 1425x385 (gzipped) </a> (7.7 MB)
+<li><a href="Driver_grids/driver-713-1zn-narrow2d.p2dfmt.gz">
+        (2-D) 713x193 (gzipped) </a> (1.8 MB)
+<li><a href="Driver_grids/driver-357-1zn-narrow2d.p2dfmt.gz">
+        (2-D) 357x97 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Driver_grids/driver-179-1zn-narrow2d.p2dfmt.gz">
+        (2-D) 179x49 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Driver_grids/driver-90-1zn-narrow2d.p2dfmt.gz">
+        (2-D) 90x25 (gzipped) </a> (&lt; 1 MB)
+</ul>
+
+<p>Format for the 2-rotated-plane structured 3D grid is PLOT3D-type, 
+formatted, MG, 3D (nbl=1, and idim in this case is 2) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),kdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) (((x(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((y(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((z(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 3-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="Driver_grids/driver-1425-1zn-narrow.p3dfmt.gz">
+        (3-D) 2x1425x385 (gzipped) </a> (17.5 MB)
+<li><a href="Driver_grids/driver-713-1zn-narrow.p3dfmt.gz">
+        (3-D) 2x713x193 (gzipped) </a> (4.4 MB)
+<li><a href="Driver_grids/driver-357-1zn-narrow.p3dfmt.gz">
+        (3-D) 2x357x97 (gzipped) </a> (1.1 MB)
+<li><a href="Driver_grids/driver-179-1zn-narrow.p3dfmt.gz">
+        (3-D) 2x179x49 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Driver_grids/driver-90-1zn-narrow.p3dfmt.gz">
+        (3-D) 2x90x25 (gzipped) </a> (&lt; 1 MB)
+</ul>
+
+<p>If desired, example Neutral Map Files 
+associated with 3-D version of the grids are given here (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="Driver_grids/driver-1425-1zn-narrow.nmf">
+        Neutral Map File for (3-D) 2x1425x385</a>
+<li><a href="Driver_grids/driver-713-1zn-narrow.nmf">
+        Neutral Map File for (3-D) 2x713x193</a>
+<li><a href="Driver_grids/driver-357-1zn-narrow.nmf">
+        Neutral Map File for (3-D) 2x357x97</a>
+<li><a href="Driver_grids/driver-179-1zn-narrow.nmf">
+        Neutral Map File for (3-D) 2x179x49</a>
+<li><a href="Driver_grids/driver-90-1zn-narrow.nmf">
+        Neutral Map File for (3-D) 2x90x25</a>
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">UNSTRUCTURED VERSIONS OF 
+GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">AFLR3 Files</strong>
+
+<p>The unstructured versions of the same 3-D grids are all given as AFLR3 (UGRID) files. Note that the BCs given for these
+files are for guidance only, and may not reflect the appropriate BCs needed for your application.
+
+<p>Download the unstructured AFLR3 grids (gzipped) here:
+<ul>
+<li><a href="Driver_grids/driver-1425-1zn-narrow.b8.ugrid.gz">
+        (3-D) unstructured version of 2 x 1425 x 385 (gzipped) </a> (33.7 MB)
+<li><a href="Driver_grids/driver-713-1zn-narrow.b8.ugrid.gz">
+        (3-D) unstructured version of 2 x 721 x 193 (gzipped) </a> (8.5 MB)
+<li><a href="Driver_grids/driver-357-1zn-narrow.b8.ugrid.gz">
+        (3-D) unstructured version of 2 x 361 x 97 (gzipped) </a> (2.1 MB)
+<li><a href="Driver_grids/driver-179-1zn-narrow.b8.ugrid.gz">
+        (3-D) unstructured version of 2 x 181 x 49 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Driver_grids/driver-90-1zn-narrow.b8.ugrid.gz">
+        (3-D) unstructured version of 2 x 91 x 25 (gzipped) </a> (&lt; 1 MB)
+</ul>
+
+<p>All AFLR3 grids have the same mapbc file: <a href="Driver_grids/driver-all-1zn-narrow.mapbc">driver-all-1zn-narrow.mapbc</a>.
+
+<!--
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The structured grids are also available as CGNS files (3-D versions only, with two
+planes, rotated by 1 deg).
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>Download the 3-D version of the grids in CGNS format (gzipped) here:
+<ul>
+<li><a href="Driver_grids/driver-1425-1zn-narrow.cgns.gz">
+        (3-D) 2x1425x385 (gzipped) </a> (11.6 MB)
+<li><a href="Driver_grids/driver-713-1zn-narrow.cgns.gz">
+        (3-D) 2x713x193 (gzipped) </a> (3.0 MB)
+<li><a href="Driver_grids/driver-357-1zn-narrow.cgns.gz">
+        (3-D) 2x357x97 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Driver_grids/driver-179-1zn-narrow.cgns.gz">
+        (3-D) 2x179x49 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Driver_grids/driver-90-1zn-narrow.cgns.gz">
+        (3-D) 2x90x25 (gzipped) </a> (&lt; 1 MB)
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">UNSTRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The unstructured versions of the same grids are all given as CGNS files.
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>The unstructured grids are all given as 3-D grids (with two
+planes, rotated by 1 deg).
+They are given here only as hexahedra.
+
+<p>Download the unstructured CGNS grids (gzipped) as 3-D hexahedra (quadrilaterals in x-z plane) here:
+<ul>
+<li><a href="Driver_grids/Delville_mmfinal4_quad_737.cgns.gz">
+        (3-D) unstructured quad version of 2x1425x385 (gzipped) </a> (22.0 MB)
+<li><a href="Driver_grids/Delville_mmfinal4_quad_369.cgns.gz">
+        (3-D) unstructured quad version of 2x713x193 (gzipped) </a> (5.4 MB)
+<li><a href="Driver_grids/Delville_mmfinal4_quad_185.cgns.gz">
+        (3-D) unstructured quad version of 2x357x97 (gzipped) </a> (1.3 MB)
+<li><a href="Driver_grids/Delville_mmfinal4_quad_093.cgns.gz">
+        (3-D) unstructured quad version of 2x179x49 (gzipped) </a> (&lt; 1 MB)
+<li><a href="Driver_grids/Delville_mmfinal4_quad_047.cgns.gz">
+        (3-D) unstructured quad version of 2x90x25 (gzipped) </a> (&lt; 1 MB)
+</ul>
+-->
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="driver_val.html">Axisymmetric Separated Boundary Layer Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/11/2025
+<br>&nbsp;
+
+</body>
+</html>

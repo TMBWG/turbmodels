@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<head>
+<title>Grids - 2D Zero Pressure Gradient Flat Plate</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border="0" src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></a></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="flatplate.html">2D Zero Pressure Gradient Flat Plate Verification Case Intro Page</a></span></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids - 2D Zero Pressure Gradient Flat Plate
+Verification Case</span></strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A series of 5 nested 2-D grids are provided.
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from the finest 545 x 385 to the coarsest 35 x 25 grid.
+The finest grid has minimum spacing at the wall of y=5 x 10<sup>-7</sup>, giving an approximate average
+y+=0.1 over the plate at the Reynolds number run.
+Even the coarsest grid has reasonably fine wall-normal spacing, giving an approximate average
+y+=1.7 over the plate.  The grid is stretched in the wall-normal direction, and is also clustered
+near the plate leading edge.  The following figure shows the 69 x 49 grid (the location x=0.97,
+where several quantities are later looked at, is pointed out in the figure):
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/Grids/plateBCpic2.jpg" border="1" title="flat plate 69 x 49 grid" alt="flat plate 69 x 49 grid">
+</p>
+          <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">STRUCTURED VERSIONS OF GRIDS</span></strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</span></strong>
+
+<p>The structured PLOT3D grids are given in two different ways, as 2-D grids (x-y plane) or as 3-D grids (two
+identical x-z planes, separated by a distance y=1,
+giving one spanwise cell for all grid levels). You may use whichever is more convenient for your particular
+application.
+
+<p>Format for the structured 2D grids is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<pre>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((x(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((y(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</pre>
+</p>
+
+<p>Download the 2-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="FlatPlate/Grids/flatplate_clust2.p2dfmt.gz">
+        (2-D) 545 x 385 (449 points on solid plate) (gzipped) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_1leveldown_273x193.p2dfmt.gz">
+        (2-D) 273 x 193 (225 points on solid plate) (gzipped) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_2levelsdown_137x97.p2dfmt">
+        (2-D) 137 x 97 (113 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_3levelsdown_69x49.p2dfmt">
+        (2-D) 69 x 49 (57 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_4levelsdown_35x25.p2dfmt">
+        (2-D) 35 x 25 (29 points on solid plate) </a> (&lt; 1 MB)</li>
+</ul>
+
+<p>Format for the structured 3D grid is PLOT3D-type, formatted, MG, 3D (nbl=1, and idim in this case is 2) - note that you
+must use double precision when reading! :</p>
+<p>
+<pre>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),kdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) (((x(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((y(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n)),
+     +            (((z(i,j,k,n),i=1,idim(n)),j=1,jdim(n)),k=1,kdim(n))
+      enddo
+</pre>
+</p>
+
+<p>Download the 3-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="FlatPlate/Grids/flatplate_clust2.p3dfmt.gz">
+        (3-D) 2 x 545 x 385 (2 x 449 points on solid plate) (gzipped) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_1leveldown_273x193.p3dfmt.gz">
+        (3-D) 2 x 273 x 193 (2 x 225 points on solid plate) (gzipped) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_2levelsdown_137x97.p3dfmt.gz">
+        (3-D) 2 x 137 x 97 (2 x 113 points on solid plate) (gzipped) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_3levelsdown_69x49.p3dfmt">
+        (3-D) 2 x 69 x 49 (2 x 57 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_4levelsdown_35x25.p3dfmt">
+        (3-D) 2 x 35 x 25 (2 x 29 points on solid plate) </a> (&lt; 1 MB)</li>
+</ul>
+
+<p>If desired, example Neutral Map Files
+associated with 3-D version of the grids are given here (these files specify grid indices associated
+with each boundary condition - see
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="FlatPlate/Grids/flatplate_clust2_0levelsdown_545x385.nmf">
+        Neutral Map File for (3-D) 2 x 545 x 385 </a></li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_1leveldown_273x193.nmf">
+        Neutral Map File for (3-D) 2 x 273 x 193 </a></li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_2levelsdown_137x97.nmf">
+        Neutral Map File for (3-D) 2 x 137 x 97 </a></li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_3levelsdown_69x49.nmf">
+        Neutral Map File for (3-D) 2 x 69 x 49 </a></li>
+<li><a href="FlatPlate/Grids/flatplate_clust2_4levelsdown_35x25.nmf">
+        Neutral Map File for (3-D) 2 x 35 x 25 </a></li>
+</ul>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</span></strong>
+
+<p>The structured grids are also available as CGNS files (3-D versions only, with two
+identical x-z planes, separated by a distance y=1,
+giving one spanwise cell for all grid levels).
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>Download the 3-D version of the grids in CGNS format (gzipped) here:
+<ul>
+<li><a href="FlatPlate/Grids/grid_struct_545x385_vol.cgns.gz">
+        (3-D) 2 x 545 x 385 (2 x 449 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_struct_273x193_vol.cgns.gz">
+        (3-D) 2 x 273 x 193 (2 x 225 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_struct_137x97_vol.cgns.gz">
+        (3-D) 2 x 137 x 97 (2 x 113 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_struct_69x49_vol.cgns.gz">
+        (3-D) 2 x 69 x 49 (2 x 57 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_struct_35x25_vol.cgns.gz">
+        (3-D) 2 x 35 x 25 (2 x 29 points on solid plate) </a> (&lt; 1 MB)</li>
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">UNSTRUCTURED VERSIONS OF GRIDS</span></strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS and AFLR3 Files</span></strong>
+
+<p>The unstructured versions of the same grids are all given as CGNS and AFLR3 (UGRID) files.
+Note that the BCs written inside these files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>The unstructured grids are all given as 3-D grids (two identical x-z planes, separated by a
+distance y=1, giving one spanwise cell for all grid levels).  They are given two different
+ways: as hexahedra (quadrilaterals in the x-z plane), or cut into prisms (triangles in the
+x-z plane).
+
+<p>Download the unstructured CGNS grids (gzipped) as 3-D hexahedra (quadrilaterals in x-z plane) here:
+<ul>
+<li><a href="FlatPlate/Grids/grid_quad_545x385_vol.cgns.gz">
+        (3-D) unstructured quad version of 2 x 545 x 385 (2 x 449 points on solid plate) </a> (5 MB)</li>
+<li><a href="FlatPlate/Grids/grid_quad_273x193_vol.cgns.gz">
+        (3-D) unstructured quad version of 2 x 273 x 193 (2 x 225 points on solid plate) </a> (1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_quad_137x97_vol.cgns.gz">
+        (3-D) unstructured quad version of 2 x 137 x 97 (2 x 113 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_quad_69x49_vol.cgns.gz">
+        (3-D) unstructured quad version of 2 x 69 x 49 (2 x 57 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_quad_35x25_vol.cgns.gz">
+        (3-D) unstructured quad version of 2 x 35 x 25 (2 x 29 points on solid plate) </a> (&lt; 1 MB)</li>
+</ul>
+<p>Download the unstructured AFLR3 grids (gzipped) as 3-D hexahedra (quadrilaterals in x-z plane) here:
+<ul>
+<li><a href="FlatPlate/Grids/grid_quad_545x385_vol.b8.ugrid.gz">
+        (3-D) unstructured quad version of 2 x 545 x 385 (2 x 449 points on solid plate) </a> (6 MB)</li>
+<li><a href="FlatPlate/Grids/grid_quad_273x193_vol.b8.ugrid.gz">
+        (3-D) unstructured quad version of 2 x 273 x 193 (2 x 225 points on solid plate) </a> (2 MB)</li>
+<li><a href="FlatPlate/Grids/grid_quad_137x97_vol.b8.ugrid.gz">
+        (3-D) unstructured quad version of 2 x 137 x 97 (2 x 113 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_quad_69x49_vol.b8.ugrid.gz">
+        (3-D) unstructured quad version of 2 x 69 x 49 (2 x 57 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_quad_35x25_vol.b8.ugrid.gz">
+        (3-D) unstructured quad version of 2 x 35 x 25 (2 x 29 points on solid plate) </a> (&lt; 1 MB)</li>
+</ul>
+All AFLR3 grids have the same mapbc file: <a href="FlatPlate/Grids/grid_quad_all_vol.mapbc">grid_quad_all_vol.mapbc</a>.
+
+<br>&nbsp;
+<p>Download the unstructured CGNS grids (gzipped) as 3-D prisms (triangles in x-z plane) here:
+<ul>
+<li><a href="FlatPlate/Grids/grid_tri_545x385_vol.cgns.gz">
+        (3-D) unstructured tri version of 2 x 545 x 385 (2 x 449 points on solid plate) </a> (6 MB)</li>
+<li><a href="FlatPlate/Grids/grid_tri_273x193_vol.cgns.gz">
+        (3-D) unstructured tri version of 2 x 273 x 193 (2 x 225 points on solid plate) </a> (2 MB)</li>
+<li><a href="FlatPlate/Grids/grid_tri_137x97_vol.cgns.gz">
+        (3-D) unstructured tri version of 2 x 137 x 97 (2 x 113 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_tri_69x49_vol.cgns.gz">
+        (3-D) unstructured tri version of 2 x 69 x 49 (2 x 57 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_tri_35x25_vol.cgns.gz">
+        (3-D) unstructured tri version of 2 x 35 x 25 (2 x 29 points on solid plate) </a> (&lt; 1 MB)</li>
+</ul>
+<p>Download the unstructured AFLR3 grids (gzipped) as 3-D prisms (triangles in x-z plane) here:
+<ul>
+<li><a href="FlatPlate/Grids/grid_tri_545x385_vol.b8.ugrid.gz">
+        (3-D) unstructured tri version of 2 x 545 x 385 (2 x 449 points on solid plate) </a> (6 MB)</li>
+<li><a href="FlatPlate/Grids/grid_tri_273x193_vol.b8.ugrid.gz">
+        (3-D) unstructured tri version of 2 x 273 x 193 (2 x 225 points on solid plate) </a> (2 MB)</li>
+<li><a href="FlatPlate/Grids/grid_tri_137x97_vol.b8.ugrid.gz">
+        (3-D) unstructured tri version of 2 x 137 x 97 (2 x 113 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_tri_69x49_vol.b8.ugrid.gz">
+        (3-D) unstructured tri version of 2 x 69 x 49 (2 x 57 points on solid plate) </a> (&lt; 1 MB)</li>
+<li><a href="FlatPlate/Grids/grid_tri_35x25_vol.b8.ugrid.gz">
+        (3-D) unstructured tri version of 2 x 35 x 25 (2 x 29 points on solid plate) </a> (&lt; 1 MB)</li>
+</ul>
+All AFLR3 grids have the same mapbc file: <a href="FlatPlate/Grids/grid_tri_all_vol.mapbc">grid_tri_all_vol.mapbc</a>.
+
+<br>&nbsp;
+<p>The following figure shows the 69 x 49 grid cut into triangles (prisms in 3-D):
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/Grids/plateBCpic_triangles.jpg" border="1" title="flat plate 69 x 49 grid
+cut into triangles" alt="flat plate 69 x 49 grid
+cut into triangles">
+</p>
+           <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="flatplate.html">2D Zero Pressure Gradient Flat Plate Verification Case Intro Page</a></span></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr width="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+09/24/2023 - added AFLR3 (UGRID) versions of unstructured grids<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 02/10/2025
+<br>&nbsp;
+
+</body>
+</html>

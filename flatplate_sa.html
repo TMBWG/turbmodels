@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<head>
+<title>SA Expected Results - 2D Zero Pressure Gradient Flat Plate</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border="0" src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></a></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="flatplate.html">2D Zero Pressure Gradient Flat Plate Verification Case Intro Page</a></span></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">SA Expected Results - 2D Zero
+Pressure Gradient Flat Plate</span></strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Results are shown here from 2 compressible codes
+so that the user may compare their own compressible code results.  Multiple grids were
+used so the user can see trends with grid refinement.  Different codes will behave
+differently with grid refinement depending on many factors (including code order of accuracy
+and other numerics),
+but it would be expected that as the grid is refined the results
+will tend toward an "infinite grid" solution that is the same.
+Be careful when comparing details: any differences in boundary conditions or flow conditions
+may affect results.
+
+<p>Two independent compressible RANS codes,
+CFL3D and FUN3D, were used to compute this
+zero-pressure-gradient flat plate flow with the Spalart-Allmaras turbulence model
+(version <span style="color: blue">SA</span> - see full description on
+<a href="spalart.html">Spalart-Allmaras page</a>). The full series of 5 grids were used.
+CFL3D is a cell-centered structured-grid code, and FUN3D
+is a node-centered unstructured-grid code (FUN3D can solve on mixed element grids, so this case
+was computed on the same hexahedral grid used by CFL3D).  Both codes used Roe's Flux Difference
+Splitting and a UMUSCL upwind approach.  In CFL3D its standard UMUSCL (kappa=0.33333) scheme was
+used, whereas in FUN3D the option UMUSCL 0.5 was used.  Both codes were run with
+full Navier-Stokes (as opposed to thin-layer, which is CFL3D's default mode of operation),
+and both codes used first-order upwinding for the advective terms of the turbulence model.
+Details about the codes can be found on their respective websites,
+the links for which are given on this site's
+<a href="index.html">home page</a>.
+The codes were not run to machine-zero iterative convergence, but an attempt was made to converge
+sufficiently so that results of interest were well within normal engineering tolerance and
+plotting accuracy.  For example, for CFL3D the density residual was typically
+driven down below 10<sup>-13</sup>.  It should be kept in mind that many of the files given below
+contain computed values directly from the codes,
+using a precision <strong>greater</strong> than the convergence tolerance (i.e., the values
+in the files are not necessarily as precise as the number of digits given).
+
+<p>For the CFL3D and FUN3D tests reported below, the turbulent inflow boundary condition used for SA was:
+<img class="tex" alt="\tilde \nu_{farfield} \geq 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" />.
+In both CFL3D and FUN3D, this was not the default setting, so special keywords needed to be
+set in both codes.
+For the interested reader, typical input files for this problem are given here:
+<p>CFL3D V6.5:
+<ul>
+<li><a href="FlatPlate/SA/cfl3d_typical.inp">Typical Input File for 2D Flat Plate</a></li>
+</ul>
+<p>FUN3D (original):
+<ul>
+<li><a href="FlatPlate/SA/fun3d.nml_typical">Typical Namelist Input File for 2D Flat Plate</a></li>
+<li><a href="FlatPlate/SA/namelist.input_fun3d">Typical Auxiliary Namelist Input File for 2D Flat Plate</a></li>
+<li><a href="FlatPlate/SA/fun3d.info">Additional Information</a></li>
+</ul>
+<p>FUN3D (new - should yield nearly the same converged results as original):
+<ul>
+<li><a href="FlatPlate/SA/fun3d.nml_typical_2013">Typical Namelist Input File for 2D Flat Plate</a></li>
+<li><a href="FlatPlate/SA/fun3d.info_2013">Additional Information</a></li>
+</ul>
+
+<p>All FUN3D results below are from the original run (rev 32421).
+
+<p>Note: prior to April 2, 2010, the drag coefficient numbers posted on this page were scaled too high by a
+factor of 2, because an incorrect reference area (of 1 instead of 2) was used. This has been corrected here.
+
+<p>The following plot shows the convergence of the wall skin friction coefficient at x=0.97008 with
+grid size for the two codes.
+In the plot the x-axis is plotting 1/N<sup>1/2</sup>, which is proportional to
+grid spacing (h).
+At the left of the plot, h=0 represents an infinitely fine grid.
+As can be seen, CFL3D approaches from above and FUN3D approaches from
+below, but both go toward approximately the same result on an infinitely refined grid.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/cf_convergence_2_sa_1st.jpg" border="1" title="convergence of Cf at x=0.97 vs h" alt="convergence of Cf at x=0.97 vs h">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following for skin friction coefficient at x=0.97:
+
+<center><table border="2" cellspacing="0" cellpadding="5" nosave >
+<tr>
+<th bgcolor="#CCCCCC" nosave>Code</th>
+
+<th bgcolor="#CCCCCC" nosave>Computed apparent order, p</th>
+
+<th bgcolor="#CCCCCC" nosave>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.98</td>
+<td>0.041%</td>
+<td>0.014%</td>
+<td>0.017%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.34</td>
+<td>0.034%</td>
+<td>0.022%</td>
+<td>0.028%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plot is given here:
+<a href="FlatPlate/SA/cf_convergence.dat">cf_convergence.dat</a>.
+
+<p>Note that in this particular flat plate case, when looking at the total integrated drag coefficient on the plate,
+formal order-property convergence may not be generally achievable.  This is because the skin friction
+(which is the only contributor to the drag in this case)
+is singular (tends toward infinity) at the leading edge.  The finer the grid, the more nearly singular
+the local behavior on a finite grid.  FUN3D, which is a node-centered code, solves for flow variables
+at the leading edge, so it may be more sensitive to the singular behavior than CFL3D, which is a
+cell-centered code.  There also appears to be some locally minor
+anomalous behavior at the aft end of the plate, which is likely a function of
+how each code handles the interaction of the solid wall boundary condition with the
+outflow pressure boundary condition near the bottom right corner of the grid.
+Nonetheless, both codes are tending toward a similar integrated drag coefficient value
+as the grid is refined.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/drag_convergence_2_sa_1st.jpg" border="1" title="convergence of plate drag coefficient vs h" alt="convergence of plate drag coefficient vs h">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following for drag coefficient:
+
+<center><table border="2" cellspacing="0" cellpadding="5" nosave >
+<tr>
+<th bgcolor="#CCCCCC" nosave>Code</th>
+
+<th bgcolor="#CCCCCC" nosave>Computed apparent order, p</th>
+
+<th bgcolor="#CCCCCC" nosave>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.75</td>
+<td>0.051%</td>
+<td>0.022%</td>
+<td>0.027%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>0.80</td>
+<td>0.159%</td>
+<td>0.215%</td>
+<td>0.269%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plot is given here:
+<a href="FlatPlate/SA/drag_convergence.dat">drag_convergence.dat</a>.
+
+<p>The surface skin friction coefficient from both codes on the finest 545 x 385 grid
+over the entire plate is shown in the next plot. Again, local anomalous behavior exists near the leading
+edge (x=0) due to singular behavior of the solution,
+and near the trailing edge (x=2) most likely due to boundary condition
+interaction.  These behaviors differ for the two codes, and result in small local deviations that
+can be seen when zoomed into the two locations. But both codes are seen to yield nearly identical results
+over most of the plate.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/cf.jpg" border="1" title="skin friction coefficient over the plate" alt="skin friction coefficient over the plate">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given here:
+<a href="FlatPlate/SA/cf_plate.dat">cf_plate.dat</a>.
+
+<p>The eddy viscosity contours (nondimensionalized by freestream laminar viscosity)
+from the two codes on the finest 545 x 385 grid are shown
+in the following plots (y-scale expanded for clarity).  They are essentially indistinguishable.
+(Note legends do not necessarily reflect min and max values.)
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/mut_contours_cfl3d.jpg" border="1" title="eddy viscosity contours for CFL3D" alt="eddy viscosity contours for CFL3D">
+           <img
+src="FlatPlate/SA/mut_contours_fun3d.jpg" border="1" title="eddy viscosity contours for FUN3D" alt="eddy viscosity contours for FUN3D">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data files that generated the above plots are given here:
+<a href="FlatPlate/SA/mut_contours_cfl3d.dat.gz">mut_contours_cfl3d.dat.gz</a> (1.3 MB) (structured, at cell centers) and
+<a href="FlatPlate/SA/mut_contours_fun3d.dat.gz">mut_contours_fun3d.dat.gz</a> (2.6 MB) (unstructured, at grid points). Note
+that these are both gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted files, so you must either have Tecplot or know how to read their format in order to use these
+files.
+
+<p>Using the finest 545 x 385 grid, an extracted nondimensional eddy viscosity profile at
+x=0.97 is shown below, along with a plot of the maximum nondimensional
+eddy viscosity as a function of x.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/mut.jpg" border="1" title="eddy viscosity at x=0.97" alt="eddy viscosity at x=0.97">
+           <img
+src="FlatPlate/SA/find_peak_mut.jpg" border="1" title="max eddy viscosity vs. x" alt="max eddy viscosity vs. x">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the eddy viscosity profile at x=0.97 is given here:
+<a href="FlatPlate/SA/mut_0.97.dat">mut_0.97.dat</a>.
+The data file that generated the max eddy viscosity plot is given here:
+<a href="FlatPlate/SA/find_peak_mut.dat">find_peak_mut.dat</a> (extracted only for CFL3D).
+
+<p>In terms of inner wall variables, u+ and y+, the finest grid yields the following results, which
+are shown at two x-locations of x=0.97008 and x=1.90334. The
+law-of-the-wall theory with kappa=0.41 and B=5.0 is also shown
+(see White, F. M., <em>Viscous Fluid Flow</em>, McGraw-Hill Book Company, New York,
+1974, p. 472).
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/u+y+.jpg" border="1" title="velocity profiles in inner wall variables" alt="velocity profiles in inner wall variables">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given in
+<a href="FlatPlate/SA/flatplate_u+y+.dat">flatplate_u+y+.dat</a> for the CFD (extracted only for CFL3D), and in
+<a href="FlatPlate/SA/u+y+theory.dat">u+y+theory.dat</a> for the theory (other theoretical curves,
+not shown in the plot, are also included in this latter file).
+
+<p>Standard velocity profiles are shown at the same two x-locations of x=0.97008 and x=1.90334 for
+the finest grid in the following plot.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/uvel.jpg" border="1" title="standard velocity profiles" alt="standard velocity profiles">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given in
+<a href="FlatPlate/SA/flatplate_u.dat">flatplate_u.dat</a> (extracted only for CFL3D).
+
+<p>
+<hr width="100%">
+<p>FUN3D was also run for this case using the same grids cut into triangles.
+The following plot shows the convergence of the wall skin friction coefficient
+at x=0.97008, compared to the earlier results on quad grids. The solution is
+approaching the same result as the grid is refined.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/cf_convergence_2_sa_1st_w_tri.jpg" border="1"
+title="convergence of Cf at x=0.97 vs h, incl results on triangles" alt="convergence of Cf at x=0.97 vs h, incl results on triangles">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>The uncertainty estimation procedure applied to the "FUN3D, triangles" results yields:
+
+<center><table border="2" cellspacing="0" cellpadding="5" nosave >
+<tr>
+<th bgcolor="#CCCCCC" nosave>Code</th>
+
+<th bgcolor="#CCCCCC" nosave>Computed apparent order, p</th>
+
+<th bgcolor="#CCCCCC" nosave>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>FUN3D, triangles</td>
+<td>0.85</td>
+<td>0.380%</td>
+<td>0.471%</td>
+<td>0.592%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the "FUN3D, triangles" results in the above plot
+is given in
+<a href="FlatPlate/SA/cf_convergence_fun3d_tri.dat">cf_convergence_fun3d_tri.dat</a>.
+
+<p>Results for total integrated drag coefficient using the triangular grids
+are shown in the following plot, alongside the quad grid results.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/drag_convergence_2_sa_1st_w_tri.jpg" border="1"
+title="convergence of plate drag coefficient vs h, incl results on triangles" alt="convergence of plate drag coefficient vs h, incl results on triangles">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>The uncertainty estimation procedure applied to the "FUN3D, triangles" results yields:
+
+<center><table border="2" cellspacing="0" cellpadding="5" nosave >
+<tr>
+<th bgcolor="#CCCCCC" nosave>Code</th>
+
+<th bgcolor="#CCCCCC" nosave>Computed apparent order, p</th>
+
+<th bgcolor="#CCCCCC" nosave>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>FUN3D, triangles</td>
+<td>0.78</td>
+<td>0.490%</td>
+<td>0.679%</td>
+<td>0.854%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the "FUN3D, triangles" results in the above plot
+is given in
+<a href="FlatPlate/SA/drag_convergence_fun3d_tri.dat">drag_convergence_fun3d_tri.dat</a>.
+
+<p>The surface skin friction coefficient on the finest 545 x 385 grid cut into
+triangles is shown in the next plot.  To plotting accuracy,
+triangle-grid results are almost the same as the results
+on the finest quad grid.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/cf_triangles.jpg" border="1" title="skin friction
+coefficient over the plate, incl results on triangles" alt="skin friction
+coefficient over the plate, incl results on triangles">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the "FUN3D, triangles" results in the
+above plot is given here:
+<a href="FlatPlate/SA/cf_plate_fun3d_tri.dat">cf_plate_fun3d_tri.dat</a>.
+
+<p>Results from VULCAN, OVERFLOW, USM3D, and REFRESCO are shown alongside the CFL3D and FUN3D results below
+(note that SA-noft2 yields essentially identical results for this case as SA).
+<a href="Papers/NAS_Technical_Report_NAS-2014-03.pdf">NAS Technical Paper 2014-03 (pdf file)</a>
+(16.2 MB) by Childs, Pulliam, and Jespersen provides details of the OVERFLOW results for this case.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/cf_convergence_2_sa_1st+Vulcan+O+USM+Ref.png" width="790" border="1" title="convergence of Cf at x=0.97 vs h,
+incl VULCAN, OVERFLOW, USM3D, and REFRESCO results" alt="convergence of Cf at x=0.97 vs h,
+incl VULCAN, OVERFLOW, USM3D, and REFRESCO results">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/cf+Vulcan+O+USM+Ref.png" width="790" border="1" title="skin friction
+coefficient over the plate, incl VULCAN, OVERFLOW, USM3D, and REFRESCO results" alt="skin friction
+coefficient over the plate, incl VULCAN, OVERFLOW, USM3D, and REFRESCO results">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>Recall that all results above (and elsewhere on this website) are from compressible CFD codes.
+To give an indication of the magnitude of the difference between compressible (M=0.2) and incompressible results using SA
+for this case, sample skin friction convergence at x=0.97 using different compressible/incompressible codes are plotted below:
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/cf_inc_comparewithGeorge_sa.jpg" border="1" title="SA convergence of Cf at x=0.97 vs h,
+showing diff between compress and incompress" alt="SA convergence of Cf at x=0.97 vs h,
+showing diff between compress and incompress">
+</p>
+      <!--</td>-->
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file of incompressible results from the above plot is given here:
+<a href="FlatPlate_validation/cf_incomp_results_sa.dat">cf_incomp_results_sa.dat</a>.
+
+<p><a href="openfoam_issues.html">Note for users of OpenFOAM</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="flatplate.html">2D Zero Pressure Gradient Flat Plate Verification Case Intro Page</a></span></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr width="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+11/27/2024 - added REFRESCO results to plots of Cf<br>
+12/05/2014 - added link to NAS Technical paper of OVERFLOW results for the verification cases<br>
+9/18/2014 - added link to note for users of OpenFOAM<br>
+12/19/2013 - added USM3D results<br>
+7/11/2013 - added comparison with incompressible results
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/27/2024
+<br>&nbsp;
+
+</body>
+</html>

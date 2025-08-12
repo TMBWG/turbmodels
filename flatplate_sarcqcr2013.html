@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<head>
+<title>SA-RC-QCR2013 Expected Results - 2D Zero Pressure Gradient Flat Plate</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border="0" src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></a></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="flatplate.html">2D Zero Pressure Gradient Flat Plate Verification Case Intro Page</a></span></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">SA-RC-QCR2013 Expected Results - 2D Zero
+Pressure Gradient Flat Plate</span></strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Results are shown here from 3 compressible codes
+so that the user may compare their own compressible code results.  Multiple grids were
+used so the user can see trends with grid refinement.  Different codes will behave
+differently with grid refinement depending on many factors (including code order of accuracy
+and other numerics),
+but it would be expected that as the grid is refined the results
+will tend toward an "infinite grid" solution that is the same.
+Be careful when comparing details: any differences in boundary conditions or flow conditions
+may affect results.
+
+<p>Three independent compressible RANS codes,
+CFL3D, FUN3D, and OVERFLOW were used to compute this
+zero-pressure-gradient flat plate flow with the Spalart-Allmaras turbulence model
+(version <span style="color: blue">SA-RC-QCR2013</span> - see full description on
+<a href="spalart.html">Spalart-Allmaras page</a>). The full series of 5 grids were used.
+CFL3D is a cell-centered structured-grid code, FUN3D is a
+node-centered unstructured-grid code (it can solve on mixed element grids, so this case
+was computed on hexahedral grids), and OVERFLOW is a node-centered structured-grid code.
+All codes were run with full Navier-Stokes.
+and all used first-order upwinding for the advective terms of the turbulence model.
+The codes were run to nearly machine-zero iterative convergence, so
+results of interest were well within normal engineering tolerance and
+plotting accuracy.
+
+<p>For QCR2013, in current experience, the mu<sub>t</sub>*sqrt(2*S<sub>mn</sub>*S<sub>mn</sub>)
+term in the model can sometimes cause numerical
+problems.  The CFL3D and FUN3D results on this page employ a limiter, not allowing 2*S<sub>mn</sub>*S<sub>mn</sub>
+to exceed 1.2*[2*W<sub>mn</sub>*W<sub>mn</sub>].  A (more recent) recommended practice is to employ QCR2013-V instead.
+See description on the <a href="spalart.html#qcr2013">Spalart-Allmaras page</a>).
+
+<p>It should be noted that the RC and QCR2013 correction has very little effect in this case,
+but the influence <u>is detectable</u> (compared to SA) as the grid is refined.
+It is also important to note that - other than in the normal stresses themselves - the
+differences between SA-RC-QCR2000 and SA-RC-QCR2013 results are <u>not</u> detectable for
+this case.
+
+<p>For the tests reported below, the turbulent inflow boundary condition used for SA-RC-QCR2013 was:
+<img class="tex" alt="\tilde \nu_{farfield} \geq 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" />.
+For the interested reader, typical input files for this problem are given here:
+<p>CFL3D:
+<ul>
+<li><a href="FlatPlate/SARCQCR2013/cfl3d.inp_typical">Typical Input File for 2D Flat Plate</a></li>
+</ul>
+<p>FUN3D:
+<ul>
+<li><a href="FlatPlate/SARCQCR2013/fun3d.nml_typical">Typical Namelist Input File for 2D Flat Plate</a></li>
+<li><a href="FlatPlate/SARCQCR2013/fun3d.info">Additional Information</a></li>
+</ul>
+
+<p>Most of the following SA-RC-QCR2013 results are plotted below against standard SA results,
+for comparison.
+Note that the CFL3D and FUN3D SA results are from the
+<a href="flatplate_sa.html">SA Expected Results</a> page, and were run many years ago (CFL3D V6.5 and FUN3D rev 32421).
+However, the grid-converged solutions have not changed.
+If a comparison is desired between SA-RC-QCR2013 and SA-RC-QCR2000, the latter results can be found on the
+<a href="flatplate_sarcqcr.html">SA-RC-QCR2000 Expected Results</a> page.
+
+<p>The following plot shows the convergence of the wall skin friction coefficient at x=0.97008 with
+grid size for all three codes, for SA and SA-RC-QCR2013.
+In the plot, the x-axis is plotting 1/N<sup>1/2</sup>, which is proportional to
+grid spacing (h).
+At the left of the plot, h=0 represents an infinitely fine grid.
+As can be seen, the three codes agree well as the grid is refined.
+SA-RC-QCR2013 yields a slightly lower level of grid-converged skin friction than SA at this location.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SARCQCR2013/cf_convergence_sarcqcr2013_C+F+O.jpg" border="1" title="convergence of Cf at x=0.97 vs h" alt="convergence of Cf at x=0.97 vs h">
+</p>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following for skin friction coefficient for SA-RC-QCR2013 at x=0.97:
+
+<center><table border="2" cellspacing="0" cellpadding="5" nosave >
+<tr>
+<th bgcolor="#CCCCCC" nosave>Code</th>
+
+<th bgcolor="#CCCCCC" nosave>Computed apparent order, p</th>
+
+<th bgcolor="#CCCCCC" nosave>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td> 1.98</td>
+<td> 0.064%</td>
+<td> 0.022%</td>
+<td> 0.027%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td> 1.42</td>
+<td> 0.046%</td>
+<td> 0.027%</td>
+<td> 0.034%</td>
+</tr>
+
+<tr>
+<td>OVERFLOW</td>
+<td> 4.45</td>
+<td> 0.005%</td>
+<td> 0.000%</td>
+<td> 0.137%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plot is given here:
+<a href="FlatPlate/SARCQCR2013/cf_convergence_sarcqcr2013.dat">cf_convergence_sarcqcr2013.dat</a>.
+
+<p>Note that in this particular flat plate case, when looking at the total integrated drag coefficient on the plate,
+formal order-property convergence may not be generally achievable.  This is because the skin friction
+(which is the only contributor to the drag in this case)
+is singular (tends toward infinity) at the leading edge.  The finer the grid, the more nearly singular
+the local behavior on a finite grid.
+There also appears to be some locally minor
+anomalous behavior at the aft end of the plate, which is likely a function of
+how each code handles the interaction of the solid wall boundary condition with the
+outflow pressure boundary condition near the bottom right corner of the grid.
+Nonetheless, both codes are tending toward a similar integrated drag coefficient value
+as the grid is refined, and SA-RC-QCR2013 yields slightly lower grid-converged drag values than SA as the grid is refined.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SARCQCR2013/drag_convergence_sarcqcr2013_C+F+O.jpg" border="1" title="convergence of plate drag coefficient vs h" alt="convergence of plate drag coefficient vs h">
+</p>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following for drag coefficient for SA-RC-QCR2013:
+
+<center><table border="2" cellspacing="0" cellpadding="5" nosave >
+<tr>
+<th bgcolor="#CCCCCC" nosave>Code</th>
+
+<th bgcolor="#CCCCCC" nosave>Computed apparent order, p</th>
+
+<th bgcolor="#CCCCCC" nosave>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th bgcolor="#CCCCCC" nosave>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td> 1.77</td>
+<td> 0.076%</td>
+<td> 0.032%</td>
+<td> 0.039%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td> 0.92</td>
+<td> 0.219%</td>
+<td> 0.245%</td>
+<td> 0.308%</td>
+</tr>
+
+<tr>
+<td>OVERFLOW</td>
+<td>oscillatory convergence</td>
+<td> 0.042%</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plot is given here:
+<a href="FlatPlate/SARCQCR2013/drag_convergence_sarcqcr2013.dat">drag_convergence_sarcqcr2013.dat</a>.
+
+<p>The surface skin friction coefficient from all three codes on the finest 545 x 385 grid
+over a portion of the plate is shown in the next plot. Again, local anomalous behavior exists near the leading
+edge (x=0) due to singular behavior of the solution,
+and near the trailing edge (x=2) most likely due to boundary condition
+interaction.  These behaviors differ for the codes, and result in small local deviations that
+can be seen when zoomed into the two locations. But the codes are seen to yield nearly the same results
+over most of the plate.  Results from SA-RC-QCR2013 are
+slighty lower than SA.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SARCQCR2013/cf_sarcqcr2013_C+F+O.jpg" border="1" title="skin friction coefficient over the plate" alt="skin friction coefficient over the plate">
+</p>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given here:
+<a href="FlatPlate/SARCQCR2013/cf_plate_sarcqcr2013.dat">cf_plate_sarcqcr2013.dat</a>.
+
+<p>The eddy viscosity contours (nondimensionalized by freestream laminar viscosity) from SA-RC-QCR2013
+from two of the codes on the finest 545 x 385 grid are shown
+in the following plots (y-scale expanded for clarity).  They are essentially indistinguishable.
+(Note legends do not necessarily reflect min and max values.)
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SARCQCR2013/mut_contours_sarcqcr2013_cfl3d.jpg" border="1" title="eddy viscosity contours for CFL3D" alt="eddy viscosity contours for CFL3D">
+           <img
+src="FlatPlate/SARCQCR2013/mut_contours_sarcqcr2013_fun3d.jpg" border="1" title="eddy viscosity contours for FUN3D" alt="eddy viscosity contours for FUN3D">
+</p>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data files that generated the above plots are given here:
+<a href="FlatPlate/SARCQCR2013/mut_contours_sarcqcr2013_cfl3d.dat.gz">mut_contours_sarcqcr2013_cfl3d.dat.gz</a> (1.3 MB) (CFL3D) and
+<a href="FlatPlate/SARCQCR2013/mut_contours_sarcqcr2013_fun3d.dat.gz">mut_contours_sarcqcr2013_fun3d.dat.gz</a> (2.5 MB) (FUN3D).
+that these are both gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted files, so you must either have Tecplot or know how to read their format in order to use these
+files.
+
+<p>Using the finest 545 x 385 grid, a detail of the extracted nondimensional eddy viscosity profile at
+x=0.97 is shown below (for CFL3D and FUN3D only).  They are essentially the same for both codes.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SARCQCR2013/mut_0.97_sarcqcr2013_C+F.jpg" border="1" title="eddy viscosity at x=0.97" alt="eddy viscosity at x=0.97">
+</p>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the eddy viscosity profile at x=0.97 is given here:
+<a href="FlatPlate/SARCQCR2013/mut_97_sarcqcr2013.dat">mut_97_sarcqcr2013.dat</a>.
+
+<!--<p>In terms of inner wall variables, u+ and y+, the finest grid yields the following results, which
+are shown at two x-locations of x=0.97008 and x=1.90334. The
+law-of-the-wall theory with kappa=0.41 and B=5.0 is also shown
+(see White, F. M., <em>Viscous Fluid Flow</em>, McGraw-Hill Book Company, New York,
+1974, p. 472).
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/u+y+.jpg" border="1" title="velocity profiles in inner wall variables" alt="velocity profiles in inner wall variables">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given in
+<a href="FlatPlate/SA/flatplate_u+y+.dat">flatplate_u+y+.dat</a> for the CFD (extracted only for CFL3D), and in
+<a href="FlatPlate/SA/u+y+theory.dat">u+y+theory.dat</a> for the theory (other theoretical curves,
+not shown in the plot, are also included in this latter file).
+
+<p>Standard velocity profiles are shown at the same two x-locations of x=0.97008 and x=1.90334 for
+the finest grid in the following plot.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SA/uvel.jpg" border="1" title="standard velocity profiles" alt="standard velocity profiles">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given in
+<a href="FlatPlate/SA/flatplate_u.dat">flatplate_u.dat</a> (extracted only for CFL3D).
+-->
+
+<p>The main advantage to employing the quadratic constitutive relation (QCR) in SA-RC-QCR2013 is that it better represents
+the turbulent normal stress differences in boundary layers.  These may be important in some situations (for example,
+when computing flow near corners). Below, results for
+<dl>
+<dd><img class="tex" alt="\overline{u_i'u_i'} = - \frac{\tau_{ii}}{\overline{\rho}}"
+  src="FlatPlate/SARCQCR/img2.png" /></dd>
+</dl>
+are plotted for SA-RC-QCR2013 on the finest grid. Results from CFL3D, FUN3D, and OVERFLOW are nearly identical.
+Note that QCR2013 includes a term that approximates the 2/3*rho*k term that is often ignored for
+for SA-based models (because k does not "exist").
+In QCR2013 this approximate term is included when evaluating the
+turbulent stresses while solving the Navier-Stokes equations.
+The k itself is approximated (see AIAA-92-0439) in QCR2013 by:
+k = mu_t/rho*sqrt(2*Sij*Sij)/(2*a1), where a1 is taken to be 0.1333333.
+(Note that this a1 is different than that used for output of the normal stresses on the
+<a href="flatplate_saqcr.html">SA-QCR2000 Expected Results</a> page and the
+<a href="flatplate_sarcqcr.html">SA-RC-QCR2000 Expected Results</a> page.  So the u<sub>i</sub>'u<sub>i</sub>'
+levels are somewhat higher here.)
+
+<p>Note that, as shown, the v component is "up" and the w component is spanwise.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/SARCQCR2013/taus_0.97_sarcqcr2013.jpg" border="1" title="nondimensional ui'ui' at x=0.97" alt="nondimensional ui'ui' at x=0.97">
+</p>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given in
+<a href="FlatPlate/SARCQCR2013/uiprime_uiprime_sarcqcr2013_C+F+O.dat">uiprime_uiprime_sarcqcr2013_C+F+O.dat</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="flatplate.html">2D Zero Pressure Gradient Flat Plate Verification Case Intro Page</a></span></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr width="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+08/06/2019 - added mention of limiting used for QCR2013, including option of QCR2013-V<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 08/06/2019
+<br>&nbsp;
+
+</body>
+</html>

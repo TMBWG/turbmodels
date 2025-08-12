@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Zero Pressure Gradient Flat Plate Validation - SSTm Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<br>&nbsp;
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="flatplate_val_sa.html">SA Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-Vm Results</a>,&nbsp;
+         <a href="flatplate_val_bsl.html">BSLm Results</a>,&nbsp;
+         <a href="flatplate_val_ssglrrrsm.html">SSG/LRR-RSM-w2012 Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006-klim-m Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2015m Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_glvy.html">GLVY-RSM-2012 Results</a></p>
+<p>Return to: <a href="flatplate_val.html">Flat Plate Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2D Zero Pressure Gradient Flat Plate
+Validation Case</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">SSTm Model Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="sst.html#sst-std">Link to SSTm equations</a>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate_validation/cf-vs-retheta2_sstonly.jpg" border="1" title="SSTm - cf vs Retheta" alt="SSTm - cf vs Retheta">
+           <img
+src="FlatPlate_validation/u+y+_re10000_sstonly.jpg" border="1" title="SSTm - u+ vs y+ at Retheta=10000" alt="SSTm - u+ vs y+ at Retheta=10000">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Previously on this page the results were reported as SST solutions, but more properly they should be referred
+to as SSTm.  Essentially no difference is expected.
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Above SSTm results are from CFL3D on the 545x385 grid;
+FUN3D results on same grid are almost identical. 
+Both CFL3D and FUN3D used freestream turbulence intensity=0.039% and freestream turbulent viscosity (relative to laminar)=0.009
+(additional details can be found in the <a href="https://nasa.github.io/CFL3D/Cfl3dv6/cfl3dv6_v5manual.html">CFL3D User's Manual, Appendix H</a>).
+Please read note 5 on <a href="noteonrunning.html">Notes on running CFD</a> page.
+See also the
+<a href="flatplate.html">Flat Plate Verification</a> case.
+The right-hand plot is extracted from the location where Retheta=10000.
+Note that these are compressible code results
+at "essentially incompressible" conditions of M=0.2.
+There may be a very small influence of compressibility.
+Note that use of SST, SSTm, SST-V, or SST-Vm
+yield nearly identical results for this case.
+The CFD postprocessed data files are given here for reference:
+<a href="FlatPlate_validation/sst-cf_cfl3d.dat">sst-cf_cfl3d.dat</a> and
+<a href="FlatPlate_validation/sst-upyp_cfl3d.dat">sst-upyp_cfl3d.dat</a>.
+A typical CFL3D input file is:
+<a href="FlatPlate/SST/cfl3d_typical_sst.inp">cfl3d_typical_sst.inp</a>.
+A typical FUN3D input file is:
+<a href="FlatPlate/SST/fun3d.nml_typical_sst_2">fun3d.nml_typical_sst_2</a>.
+</p>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="flatplate_val_sa.html">SA Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-Vm Results</a>,&nbsp;
+         <a href="flatplate_val_bsl.html">BSLm Results</a>,&nbsp;
+         <a href="flatplate_val_ssglrrrsm.html">SSG/LRR-RSM-w2012 Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006-klim-m Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2015m Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_glvy.html">GLVY-RSM-2012 Results</a></p>
+<p>Return to: <a href="flatplate_val.html">Flat Plate Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 02/25/2025
+<br>&nbsp;
+
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Explicit Algebraic Stress k-kL Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<img border=0 src="construction.gif" title="under construction" alt="under construction">
+NOTE: This page still needs to be checked for consistency with the original reference
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Explicit Algebraic Stress k-kL
+   Turbulence Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for a version of an Explicit Algebraic Stress Model (EASM) in k-kL form.
+<u>Note: EASMs are also known as Explicit Algebraic Reynolds Stress Models (EARSM) and
+Algebraic Reynolds Stress Models (ARSM), but the monikers EASM, EARSM, and ARSM refer to the same thing.</u>
+EASMs as a class have been developed
+by several independent groups over the years.  See further discussion on the
+<a href="easmko.html">Explicit Algebraic Stress k-omega</a> page.
+</p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Nonlinear EASMs are fundamentally different
+from linear eddy viscosity models in the equation for obtaining the modeled turbulent stresses in the
+Reynolds-averaged or Favre-averaged Navier-Stokes equations.  Linear models use the Boussinesq
+assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+For nonlinear EASMs, this equation is altered to include 
+additional (nonlinear) terms, as detailed below.
+Thus, including nonlinear turbulence models like
+EASM is not simply a matter of computing <img class="tex" alt="\mu_t" src="easmko_eqns/img4.png" />
+alone.  One must also insure that the turbulent stress terms 
+<img class="tex" alt="\tau_{ij}" src="easmko_eqns/img5.png" /> are computed appropriately to include the
+additional nonlinear components in the Navier-Stokes equations.
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Nonlinear ARSM k-kL (2018) 
+   Model <span style="color: blue">(k-kL-ARSM2018+J)</span></strong>
+<p>The reference for this nonlinear two-equation model is:
+
+<ul>
+<li>Abdol-Hamid, K. S.,
+"Development and Documentation of kL-Based Linear, Nonlinear, and Full Reynolds Stress Turbulence Models,"
+NASA/TM-2018-219820, April 2018,
+<a href="https://ntrs.nasa.gov/citations/20180003199">https://ntrs.nasa.gov/citations/20180003199</a>.</li>
+</ul>
+
+<p>The model here is one of several described in the above reference.  It includes a jet
+correction (+J) by default, at the recommendation of the author of the model.
+<span style="color: red">Note that the author passed away prior to checking this 
+webpage for consistency; please report any errors or
+typos that you find to the page curator.</span>
+
+<p>In this model, the turbulent stress relationship is a blend between a linear model and an explicit
+algebraic stress relationship derived based on a three-basis approximation. It is given by:
+<dl>
+<dd><img class="tex" alt="\tau _{ij} = f_2 \tau _{ij}^{(ARSM)} + (1-f_2) \tau _{ij}^{(L)}"
+  src="easmkkl_eqns/img44.png" /></dd>
+</dl>
+with
+<dl>
+<dd><img class="tex" alt="\tau _{ij}^{(ARSM)} =  - \rho k\left( {{\beta _1}\;{T_{ij}^{(1)}} + {\beta _2}\;{T_{ij}^{(2)}} + 
+{\beta _4}\;{T_{ij}^{(4)}} + \frac{2}{3}{\delta _{ij}}} \right)"
+  src="easmkkl_eqns/img2.png" /></dd>
+</dl>
+and <img class="tex" alt="\tau _{ij}^{(L)}" src="easmkkl_eqns/img45.png" /> is the linear version of <u>this</u> model,
+with <img class="tex" alt="C_{\mu}^*" src="easmko_eqns/img15.png" /> = 0.09 = constant and
+<img class="tex" alt="\beta_2=\beta_4=0" src="easmkkl_eqns/img37.png" />.
+
+<p>Here,
+<dl>
+<dd><img class="tex" alt="{T_{ij}^{(1)}} = \left[ {{S_{ij}^*} - \frac{1}{3}tr\left\{ {{S^*}} \right\}} \right]"
+  src="easmkkl_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{T_{ij}^{(2)}} = \left[ {{S_{ik}^*S_{kj}^*} - \frac{1}{3}tr\left\{ {{S^{*2}}} \right\}} \right]"
+  src="easmkkl_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{T_{ij}^{(4)}} = \left[ {{S_{ik}^*}{W_{kj}^*} - {W_{ik}^*}{S_{kj}^*}} \right]"
+  src="easmkkl_eqns/img5.png" /></dd>
+</dl>
+
+<p>with <i>tr</i>{&nbsp;} indicating the trace, and
+<dl>
+<dd><img class="tex" alt="{S_{ij}^*} = \tau S_{ij}"
+  src="easmkkl_eqns/img6.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{W_{ij}^*} = \tau W_{ij}"
+  src="easmkkl_eqns/img7.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{S_{ij}} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} 
+             + \frac{\partial u_j}{\partial x_i}\right)"
+  src="easmkkl_eqns/img8.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{W_{ij}} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j}
+             - \frac{\partial u_j}{\partial x_i}\right)"
+  src="easmkkl_eqns/img9.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tau  = \frac{{C_\mu ^{1/4}}}{{{C_\mu }}}\frac{{(kL)}}{{{k^{3/2}}}}"
+  src="easmkkl_eqns/img10.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\beta_1 = -2 C_{\mu}^* = 2 \alpha"
+  src="easmkkl_eqns/img34.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\beta_2 = -2 a_4 a_3 \beta_1"
+  src="easmkkl_eqns/img35.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\beta_4 = a_4 a_2 \beta_1"
+  src="easmkkl_eqns/img36.png" /></dd>
+</dl>
+
+<p>The <i>T<sub>ij</sub></i><sup>(1)</sup> is the linear part of the model, whereas
+<i>T<sub>ij</sub></i><sup>(2)</sup> and <i>T<sub>ij</sub></i><sup>(4)</sup> are nonlinear terms
+that model the anisotropy.
+
+<p>The two-equation model is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{{\partial \rho k}}{{\partial t}} + \frac{{\partial \rho {u_j}k}}{{\partial {x_j}}} 
+   = {{P_k} + \frac{\partial }{{\partial {x_j}}}\left( {\left( {{\mu} + 
+   {\sigma _{k}}{\mu _t}} \right)\frac{{\partial \rho k}}{{\partial {x_j}}}} \right)  - 
+   C_w{\mu}\frac{k}{{{d^2}}}} - {C_{k}}\rho \frac{{{k^{2.5}}}}{{(kL)}}"
+  src="easmkkl_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{{\partial \rho (kL)}}{{\partial t}} + \frac{{\partial \rho {u_j}(kL)}}{{\partial {x_j}}} 
+   = {{C_{{(kL)}_{\scriptstyle 1}}}\frac{{(kL)}}{k}{P_{kL}} + 
+   \frac{\partial }{{\partial {x_j}}}\left( {\left( {{\mu} + 
+   {\sigma _{(kL)}}{\mu _t}} \right)\frac{{\partial \rho (kL)}}{{\partial {x_j}}}} \right) - 
+   6{\mu}\frac{{(kL)}}{{{d^2}}}{f_{(kL)}}}
+   - {C_{{(kL)}_{\scriptstyle 2}}}\rho {k^{1.5}}"
+  src="easmkkl_eqns/img12.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="P_k = \tau_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="easmkkl_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="P_{kL} = \max ({P_k},{\mu _t}^{(L)}{S^2})"
+  src="easmkkl_eqns/img14.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{\mu _t}^{(L)} = C_\mu ^{1/4}\frac{{\rho (kL)}}{{{k^{1/2}}}}"
+  src="easmkkl_eqns/img51.png" /></dd>
+</dl>
+<p>
+<!--(Note the above relation is not explicitly specified in the original reference.)-->
+The eddy viscosity from the model is given by:
+<dl>
+<dd><img class="tex" alt="{\mu _t} = \frac{{C_\mu ^*}}{{{C_\mu }}}C_\mu ^{1/4}\frac{{\rho (kL)}}{{{k^{1/2}}}}"
+  src="easmkkl_eqns/img15.png" /></dd>
+</dl>
+
+<p>The variable coefficient <img class="tex" alt="C_{\mu}^* \equiv -\alpha" src="easmkkl_eqns/img18.png" /> is obtained
+by solving the cubic equation:
+<dl>
+<dd><img class="tex" alt="\alpha^3 + p \alpha^2 + q \alpha + r = 0"
+  src="easmkkl_eqns/img19.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="p = - \frac{\gamma_1^*}{\eta^2 \tau^2 \gamma_0^*}"
+  src="easmko_eqns/img17.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="q = \frac{1}{(2 \eta^2 \tau^2 \gamma_0^*)^2} \left( \gamma_1^{*2} - 2 \eta^2 \tau^2 \gamma_0^* a_1
+  -\frac{2}{3} \eta^2 \tau^2 a_3^2 + 2 R^2 \eta^2 \tau^2 a_2^2 \right)"
+  src="easmko_eqns/img18.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="r = \frac{\gamma_1^* a_1}{(2 \eta^2 \tau^2 \gamma_0^*)^2}"
+  src="easmko_eqns/img19.png" /></dd>
+</dl>
+
+<p>The correct root to choose from this cubic equation is the root with the lowest real part.  
+The methodology for solving this equation is the same as for the
+<a href="easmko.html#easmko2003">EASMko2003</a> model.
+The algorithm for determining this root is as follows. 
+
+<p>If <img class="tex" alt="\eta^2 \tau^2 < 1 \times 10^{-6}" src="easmko_eqns/img65.png" />, then
+<dl>
+<dd><img class="tex" alt="C_{\mu}^* = \frac{\gamma_1^* a_1}{\gamma_1^{*2} - 2 \lbrace W^2 \rbrace \tau^2 a_2^2}"
+  src="easmko_eqns/img66.png" /></dd>
+</dl>
+Otherwise, define:
+<dl>
+<dd><img class="tex" alt="a \equiv q - \frac{p^2}{3}"
+  src="easmko_eqns/img67.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="b \equiv \frac{1}{27} \left( 2 p^3 - 9 p q + 27 r \right)"
+  src="easmko_eqns/img68.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="d \equiv \frac{b^2}{4} + \frac{a^3}{27}"
+  src="easmko_eqns/img69.png" /></dd>
+</dl>
+
+<p>If <img class="tex" alt="d > 0" src="easmko_eqns/img70.png" />, then
+<dl>
+<dd><img class="tex" alt="t_1 = \left( -\frac{b}{2} + \sqrt{d} \right)^{1/3}"
+  src="easmko_eqns/img71.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="t_2 = \left( -\frac{b}{2} - \sqrt{d} \right)^{1/3}"
+  src="easmko_eqns/img72.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{\mu}^* = -{\rm min} \left( -\frac{p}{3} + t_1 + t_2, -\frac{p}{3} -\frac{t_1}{2} - \frac{t_2}{2} \right)"
+  src="easmko_eqns/img73.png" /></dd>
+</dl>
+
+<p>If <img class="tex" alt="d \leq 0" src="easmko_eqns/img74.png" />, then
+<dl>
+<dd><img class="tex" alt="\theta = {\rm cos}^{-1} \left( - \frac{b/2}{\sqrt{-a^3/27} \right)"
+  src="easmko_eqns/img75.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="t_1 = -\frac{p}{3} + 2 \sqrt{-\frac{a}{3} } {\rm cos} \left( \frac{\theta}{3} \right)"
+  src="easmko_eqns/img76.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="t_2 = -\frac{p}{3} + 2 \sqrt{-\frac{a}{3} } {\rm cos} \left( \frac{2 \pi}{3} + \frac{\theta}{3} \right)"
+  src="easmko_eqns/img77.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="t_3 = -\frac{p}{3} + 2 \sqrt{-\frac{a}{3} } {\rm cos} \left( \frac{4 \pi}{3} + \frac{\theta}{3} \right)"
+  src="easmko_eqns/img78.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{\mu}^* = -{\rm min} \left( t_1 , t_2 , t_3 \right)"
+  src="easmko_eqns/img79.png" /></dd>
+</dl>
+
+<p>In this model, <img class="tex" alt="C_{\mu}^*" src="easmko_eqns/img15.png" /> is limited to be no
+smaller than 0.0005. <!--(not mentioned in the original reference)-->
+
+<p>Other parameters are:
+<dl>
+<dd><img class="tex" alt="\tau \equiv 1 / \omega"
+  src="easmko_eqns/img21.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\eta^2 = \lbrace S^2 \rbrace = S_{ij}S_{ij}"
+  src="easmko_eqns/img22.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\lbrace W^2 \rbrace = -W_{ij}W_{ij}"
+  src="easmko_eqns/img23.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="R^2 = - \frac{\lbrace W^2 \rbrace}{\lbrace S^2 \rbrace}"
+  src="easmko_eqns/img24.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="a_1 = \frac{1}{2} \left( \frac{4}{3} - C_2 \right)"
+  src="easmko_eqns/img25.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="a_2 = \frac{1}{2} \left( 2 - C_4 \right)"
+  src="easmko_eqns/img26.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="a_3 = \frac{1}{2} \left( 2 - C_3 \right)"
+  src="easmko_eqns/img27.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="a_4 = \left[ \gamma_1^* - 2 \gamma_0^* \left( -C_{\mu}^* \right) \eta^2 \tau^2 \right]^{-1}"
+  src="easmkkl_eqns/img52.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\gamma_0^* = \frac{C_1^1}{2}"
+  src="easmko_eqns/img29.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\gamma_1^* = \frac{1}{2} C_1^0 + \left( \frac{C_{\epsilon 2} - C_{\epsilon 1}}{C_{\epsilon 1} - 1} \right)"
+  src="easmko_eqns/img30.png" /></dd>
+</dl>
+
+<!--Also, the variables <img class="tex" alt="\tau_{11}" src="easmko_eqns/img38.png" />,
+<img class="tex" alt="\tau_{22}" src="easmko_eqns/img39.png" />, and
+<img class="tex" alt="\tau_{33}" src="easmko_eqns/img40.png" /> (as defined)
+are all limited to be negative
+(this is the realizability constraint).-->
+
+<p>The functions are:
+<dl>
+<dd><img class="tex" alt="C_{(kL)_1} = \left[ \zeta_1 - \zeta_2 \left( \frac{(kL)}{k L_{vk}} \right)^2 \right]"
+  src="easmkkl_eqns/img27.png" /></dd>
+</dl>
+<!--<dl>
+<dd><img class="tex" alt="C_{(kL)_2} = \zeta_3"
+  src="easmkkl_eqns/img28.png" /></dd>
+</dl>-->
+<dl>
+<dd><img class="tex" alt="f_{(kL)} = \frac{1+C_{d1} \xi}{1 + \xi^4}"
+  src="easmkkl_eqns/img29.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="L_{vk} = \kappa \left| \frac{U'}{U''} \right|"
+  src="kkl_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="U' = \sqrt{2 S_{ij} S_{ij}}"
+  src="kkl_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="U'' = \sqrt{ 
+  \left(\frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2} + \frac{\partial^2u}{\partial z^2} \right)^2 +
+  \left(\frac{\partial^2v}{\partial x^2} + \frac{\partial^2v}{\partial y^2} + \frac{\partial^2v}{\partial z^2} \right)^2 +
+  \left(\frac{\partial^2w}{\partial x^2} + \frac{\partial^2w}{\partial y^2} + \frac{\partial^2w}{\partial z^2} \right)^2 }"
+  src="kkl_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\xi = \frac{\rho d \sqrt{0.3 k}}{20 \mu}"
+  src="kkl_eqns/img14.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="\rho" src="kkl_eqns/img15.png" /> is the density,
+<img class="tex" alt="\mu" src="kkl_eqns/img16.png" /> is the
+molecular dynamic viscosity, and <em>d</em> is the distance from the field point to the nearest wall.
+Note that if U' = U'' = 0, then the (kL) production term should be identically zero.
+
+<p>A limiter is applied on <img class="tex" alt="L_{vk}" src="kkl_eqns/img17.png" />:
+<dl>
+<dd><img class="tex" alt="L_{vk,min} \leq L_{vk} \leq L_{vk,max}"
+  src="kkl_eqns/img18.png" /></dd>
+</dl>
+
+<p>with
+<dl>
+<dd><img class="tex" alt="L_{vk,min}=\frac{(kL)}{k C_{11}}"
+  src="kkl_eqns/img31.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="L_{vk,max}=C_{12} \kappa d f_p"
+  src="kkl_eqns/img32.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_p=min\left[ max\left(\frac{\cal P_k}{\left(C_{\mu}^{3/4} \rho k^{5/2}/(kL) \right)}
+ , C_{13} \right) , 1.0 \right]"
+  src="easmkkl_eqns/img32.png" /></dd>
+</dl>
+
+<p>The farfield boundary conditions given for this model are:
+<dl>
+<dd><img class="tex" alt="k_{farfield} = 9 \times 10^{-9} {a_{ref}^2}"
+  src="easmkkl_eqns/img20.png" />&nbsp; &nbsp; <!--(note typo in original reference)--> </dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="(kL)_{farfield} = 1.5589 \times 10^{-6} \frac{\mu_{ref} a_{ref}}{\rho_{ref}}"
+  src="easmkkl_eqns/img21.png" /></dd>
+</dl>
+where <img class="tex" alt="\rho_{ref}" src="easmkkl_eqns/img22.png" />,
+<img class="tex" alt="a_{ref}" src="easmkkl_eqns/img23.png" />, and 
+<img class="tex" alt="\mu_{ref}" src="easmkkl_eqns/img24.png" /> are the reference (typically freestream) density,
+speed of sound,
+and viscosity, respectively.
+
+<p>The solid wall boundary conditions are:
+<dl>
+<dd><img class="tex" alt="k_{wall} = (kL)_{wall} = 0"
+  src="easmkkl_eqns/img25.png" /></dd>
+</dl>
+
+<p>The constants for this model are:
+<dl>
+<dd><img class="tex" alt="\zeta_1 = 1.2"
+  src="kkl_eqns/img20.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\zeta_2 = 0.97"
+  src="kkl_eqns/img21.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\zeta_3 = 0.13"
+  src="kkl_eqns/img22.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{(kL)} = 1.0"
+  src="easmkkl_eqns/img26.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\kappa = 0.41"
+  src="kkl_eqns/img25.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\mu} = 0.09"
+  src="kkl_eqns/img26.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="C_{11} = 10.0"
+  src="kkl_eqns/img27.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{12} = 1.3"
+  src="kkl_eqns/img28.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{13} = 0.25"
+  src="easmkkl_eqns/img33.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{d1} = 4.7"
+  src="kkl_eqns/img29.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{w} = 1.5"
+  src="easmkkl_eqns/img30.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="C_{\epsilon 1} = 1.44"
+  src="easmko_eqns/img49.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{\epsilon 2} = 1.83"
+  src="easmko_eqns/img50.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_1^0 = 3.4"
+  src="easmko_eqns/img51.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_1^1 = 1.8"
+  src="easmko_eqns/img52.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_2 = 0.36"
+  src="easmko_eqns/img53.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_3 = 1.25"
+  src="easmko_eqns/img54.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_4 = 0.6"
+  src="easmkkl_eqns/img31.png" /></dd>
+</dl>
+
+<p>In the "+J" correction for free shear and compressibility (which is on by default for this model), the k-equation
+diffusion coefficient is given by:
+<dl>
+<dd><img class="tex" alt="\sigma_k = f_2 \sigma_{k1} + (1-f_2) \sigma_{k2}"
+  src="easmkkl_eqns/img38.png" /></dd>
+</dl>
+<dd><img class="tex" alt="\sigma_{k1} = 1.0"
+  src="easmkkl_eqns/img39.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{k2} = 0.5"
+  src="easmkkl_eqns/img40.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_2 = tanh \left(\Gamma^2\right)"
+  src="easmkkl_eqns/img41.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\Gamma = max\left(2 \frac{\sqrt{k}}{C_\mu \omega d}, \frac{500 \nu}{d^2 \omega}\right)"
+  src="easmkkl_eqns/img42.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega = \frac{k^{3/2}}{(kL) C_\mu^{1/4}}"
+  src="easmkkl_eqns/img43.png" /></dd>
+</dl>
+
+<p>Furthermore,
+<dl>
+<dd><img class="tex" alt="C_k = C_{\mu}^{3/4} (1+f_c)"
+  src="easmkkl_eqns/img46.png" /> &nbsp; &nbsp; <!--(note typo in original reference)--> </dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="C_{(kL)_2} = \zeta_3 + 2.5 C_{\mu}^{3/4} f_c"
+  src="easmkkl_eqns/img47.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_c = 1.5 (1.0-f_2)\left( M_t^2 - M_0^2 \right) \icalH \left[ M_t^2 - M_0^2 \right]"
+  src="easmkkl_eqns/img48.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="M_t = \sqrt{\frac{2 k}{a^2}}"
+  src="easmkkl_eqns/img49.png" /></dd>
+</dl>
+where <i>a</i> is the local speed of sound and
+<!--Note that <i>M<sub>0</sub></i> = 0.17 for the linear turbulence model
+(<img class="tex" alt="\tau _{ij}^{(L)}" src="easmkkl_eqns/img45.png" />), whereas-->
+<i>M<sub>0</sub></i> = 0.10.
+
+<p>Note that this ARSM model reduces to the linear
+<a href="kkl.html">k-kL-MEAH2015</a> model by setting:
+<ul>
+<li><img class="tex" alt="C_{\mu}^*" src="easmko_eqns/img15.png" /> = 0.09 = constant, 
+<li><img class="tex" alt="\beta_2=\beta_4=0" src="easmkkl_eqns/img37.png" />,
+<li><i>C<sub></i><sub>13</sub> = 0.5,
+<li><i>C<sub>w</sub></i> = 2.0, 
+<li><i>f</i><sub>2</sub> = 1,
+<li><i>f<sub>c</sub></i> = 0,
+<li>and employing different limiting on P<sub>k</sub> and P<sub>kL</sub>.
+</ul>
+
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 04/25/2022
+<br>&nbsp;
+
+</body>
+</html>

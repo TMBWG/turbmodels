@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE> Wilcox2006-klim-m Expected Results - 2D Zero Pressure Gradient Flat Plate</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script Type="text/javascript" >    <!-- language="JavaScript" -->
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<style Type="text/css">
+span.deletes {color:red;}
+span.news {color:#660099;}
+span.okchris {background-color:#000000;color:#FFFFFF;}
+span.keeps {color:#336633;}
+p.newp {color:#660099;}
+p.okchris {color:background-color:#000000;color:#FFFFFF;}
+p.deletep {color:red;}
+p.keepp {color:#336633;}
+a.deletea {color:red;}
+a.newa {color:#660099;}
+a.keepa {color:#336633;}
+
+</style>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo" alt="NASA Logo" ></a></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="flatplate.html">2D Zero Pressure Gradient Flat Plate Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span>Wilcox2006-klim-m Expected Results - 2D Zero
+Pressure Gradient Flat Plate</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Previously on this page the results were reported as Wilcox2006-klim solutions, but more properly they should be
+referred to as Wilcox2006-klim-m.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Results are shown here from 2 compressible codes
+so that the user may compare their own compressible code results.  Multiple grids were
+used so the user can see trends with grid refinement.  Different codes will behave
+differently with grid refinement depending on many factors (including code order of accuracy
+and other numerics),
+but it would be expected that as the grid is refined the results
+will tend toward an "infinite grid" solution that is the same.
+Be careful when comparing details: any differences in boundary conditions or flow conditions
+may affect results.
+
+<p>Two independent compressible RANS codes,
+CFL3D and FUN3D, were used to compute this
+zero-pressure-gradient flat plate flow with the Wilcox2006-klim-m model
+(see full description on
+<a href="wilcox.html">Wilcox k-omega page</a>). The full series of 5 grids were used.
+CFL3D is a cell-centered structured-grid code, and FUN3D
+is a node-centered unstructured-grid code (FUN3D can solve on mixed element grids, so this case
+was computed on the same hexahedral grid used by CFL3D).  Both codes used Roe's Flux Difference
+Splitting and a UMUSCL upwind approach.  In CFL3D its standard UMUSCL (kappa=0.33333) scheme was
+used, whereas in FUN3D the option UMUSCL 0.5 was used.  Both codes were run with
+full Navier-Stokes (as opposed to thin-layer, which is CFL3D's default mode of operation),
+and both codes used first-order upwinding for the advective terms of the turbulence model.
+Details about the codes can be found on their respective websites,
+the links for which are given on this site's 
+<a href="index.html">home page</a>.
+The codes were not run to machine-zero iterative convergence, but an attempt was made to converge
+sufficiently so that results of interest were well within normal engineering tolerance and
+plotting accuracy.  
+It should be kept in mind that many of the files given below
+contain computed values directly from the codes,
+using a precision <strong>greater</strong> than the convergence tolerance (i.e., the values
+in the files are not necessarily as precise as the number of digits given).
+
+<p>Note that in both CFL3D and FUN3D, the production term
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij}\frac{\partial u_i}{\partial x_j}"
+  src="bump_sst_eqns/img5.png" /></dd>
+</dl>
+is approximated by
+<dl>
+<dd><img class="tex" alt="P = 2 \mu_t S_{ij}S_{ij}"
+  src="bump_sst_eqns/img6.png" /></dd>
+</dl>which is exact for incompressible flow.  For this particular low-speed flow, the approximation is
+very accurate.
+(Previously on this page the results were reported as Wilcox2006-klim solutions, but more properly they should be referred
+to as Wilcox2006-klim-m because of this approximation and the fact that the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations.)
+
+<p>For the CFL3D and FUN3D tests reported below, the turbulent inflow boundary conditions used for Wilcox2006-klim-m
+were the following:
+<dl>
+<dd><img class="tex" alt="k_{farfield} = 9 \times 10^{-9} a_{\infty}^2"
+  src="bump_sst_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega_{farfield} = 1 \times 10^{-6} \frac{\rho_{\infty}a_{\infty}^2}{\mu_{\infty}}"
+  src="bump_sst_eqns/img3.png" /></dd>
+</dl>
+
+<p>The above two equations represent the "standard" Wilcox2006-klim-m boundary condition
+values used by both CFL3D and FUN3D, chosen to achieve
+a not-too-low level of freestream
+turbulent kinetic energy, a not-too-severe rate of freestream turbulence decay,
+and a reasonable level of freestream turbulent eddy viscosity of
+<img class="tex" alt="\mu_t/\mu_{\infty} = 0.009"
+  src="flatplate_sst_eqns/img7.png" />. 
+
+<p>For the interested reader, typical input files for this problem are given here:
+<p>CFL3D V6.5:
+<ul>
+<li><a href="FlatPlate/W06/cfl3d_typical_w06.inp">Typical Input File for 2D Flat Plate</a>
+</ul>
+<p>FUN3D:
+<ul>
+<li><a href="FlatPlate/W06/fun3d.nml_typical_w06">Typical Namelist Input File for 2D Flat Plate</a>
+<li><a href="FlatPlate/W06/fun3d.info">Additional Information</a>
+</ul>
+
+<p>The following plot shows the convergence of the wall skin friction coefficient at x=0.97008 with
+grid size for the two codes.
+In the plot the x-axis is plotting 1/N<sup>1/2</sup>, which is proportional to
+grid spacing (h).
+At the left of the plot, h=0 represents an infinitely fine grid.
+As can be seen, both codes go toward approximately the same result on an infinitely refined grid.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/cf_convergence_w06.jpg" border="1" title="convergence of Cf at x=0.97
+    vs h" alt="convergence of Cf at x=0.97
+    vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following for skin friction coefficient at x=0.97:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.08</td>
+<td>0.279%</td>
+<td>0.248%</td>
+<td>0.311%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.25</td>
+<td>0.258%</td>
+<td>0.187%</td>
+<td>0.234%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plot is given here:
+<a href="FlatPlate/W06/cf_convergence_w06.dat">cf_convergence w06.dat</a>.
+
+<p>Note that in this particular flat plate case, when looking at the total integrated drag coefficient on the plate,
+formal order-property convergence may not be generally achievable.  This is because the skin friction
+(which is the only contributor to the drag in this case)
+is singular (tends toward infinity) at the leading edge.  The finer the grid, the more nearly singular
+the local behavior on a finite grid.  FUN3D, which is a node-centered code, solves for flow variables
+at the leading edge, so it may be more sensitive to the singular behavior than CFL3D, which is a
+cell-centered code.  There also appears to be some locally minor
+anomalous behavior at the aft end of the plate, which is likely a function of
+how each code handles the interaction of the solid wall boundary condition with the
+outflow pressure boundary condition near the bottom right corner of the grid.
+Nonetheless, both codes are tending toward a similar integrated drag coefficient value
+as the grid is refined.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/drag_convergence_w06.jpg" border="1" title="convergence of plate drag
+    coefficient vs h" alt="convergence of plate drag
+    coefficient vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following for drag coefficient:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>1.71</td>
+<td>0.242%</td>
+<td>0.107%</td>
+<td>0.133%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>1.26</td>
+<td>0.530%</td>
+<td>0.378%</td>
+<td>0.474%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plot is given here:
+<a href="FlatPlate/W06/drag_convergence_w06.dat">drag_convergence_w06.dat</a>.
+
+<p>The surface skin friction coefficient from both codes on the finest 545 x 385 grid
+over the entire plate is shown in the next plot. Again, local anomalous behavior exists near the leading
+edge (x=0) due to singular behavior of the solution,
+and near the trailing edge (x=2) most likely due to boundary condition
+interaction.  These behaviors differ for the two codes, and result in small local deviations that
+can be seen when zoomed into the two locations. In addition, both codes indicate turbulence
+"activation" at slightly different locations very near the leading edge, 0 &lt; x &lt; 0.01
+("activation" is where the turbulence model transitions
+on its own from laminar to turbulent). But both codes are seen to yield nearly identical results
+over most of the plate.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/cf_w06.jpg" border="1" title="skin friction coefficient over the plate" alt="skin friction coefficient over the plate">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the above plot is given here:
+<a href="FlatPlate/W06/cf_plate_w06.dat">cf_plate_w06.dat</a>.
+
+<p>The nondimensionalized eddy viscosity contours, k contours, and omega contours
+from the two codes on the finest 545 x 385 grid are shown
+in the following plots (y-scale expanded for clarity).  
+Results from the two codes on this grid are essentially indistinguishable.
+(Note legends do not necessarily reflect min and max values.)
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/mut_contours_cfl3d_w06.jpg" border="1" title="eddy viscosity contours for CFL3D" alt="eddy viscosity contours for CFL3D">
+           <img
+src="FlatPlate/W06/mut_contours_fun3d_w06.jpg" border="1" title="eddy viscosity contours for FUN3D" alt="eddy viscosity contours for FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/k_contours_cfl3d_w06.jpg" border="1" title="k contours for CFL3D" alt="k contours for CFL3D">
+           <img
+src="FlatPlate/W06/k_contours_fun3d_w06.jpg" border="1" title="k contours for FUN3D" alt="k contours for FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/omega_contours_cfl3d_w06.jpg" border="1" title="omega contours for CFL3D" alt="omega contours for CFL3D">
+           <img
+src="FlatPlate/W06/omega_contours_fun3d_w06.jpg" border="1" title="omega contours for FUN3D" alt="omega contours for FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data files that generated the above plots are given here:
+<a href="FlatPlate/W06/mut_contours_cfl3d_w06.dat.gz">mut_contours_cfl3d_w06.dat.gz</a> (1.5 MB),
+<a href="FlatPlate/W06/k_contours_cfl3d_w06.dat.gz">k_contours_cfl3d_w06.dat.gz</a> (1.5 MB),
+<a href="FlatPlate/W06/omega_contours_cfl3d_w06.dat.gz">omega_contours_cfl3d_w06.dat.gz</a> (1.5 MB) (structured, 
+at cell centers) and
+<a href="FlatPlate/W06/mut_contours_fun3d_w06.dat.gz">mut_contours_fun3d_w06.dat.gz</a> (2.6 MB),
+<a href="FlatPlate/W06/k_contours_fun3d_w06.dat.gz">k_contours_fun3d_w06.dat.gz</a> (2.6 MB),
+<a href="FlatPlate/W06/omega_contours_fun3d_w06.dat.gz">omega_contours_fun3d_w06.dat.gz</a> (2.6 MB) (unstructured, 
+at grid points). Note that these are all gzipped 
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted files, so you must either have Tecplot or know how to read their format in order to use these
+files.
+
+<p>Using the finest 545 x 385 grid, an extracted nondimensional eddy viscosity profile at
+x=0.97 is shown below.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/mut_w06.jpg" border="1" title="eddy viscosity at x=0.97" alt="eddy viscosity at x=0.97">
+           </td>
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the eddy viscosity profile at x=0.97 is given here:
+<a href="FlatPlate/W06/mut_0.97_w06.dat">mut_0.97_w06.dat</a>.
+
+<p>The nondimensional k and omega profiles at x=0.97008 from the 545 x 385 grid are shown in the following plots.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/k_w06.jpg" border="1" title="nondimensional k profile at x=0.97" alt="nondimensional k profile at x=0.97">
+           <img
+src="FlatPlate/W06/omega_w06.jpg" border="1" title="nondimensional omega profile at x=0.97" alt="nondimensional omega profile at x=0.97">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data file that generated the eddy viscosity profile at x=0.97 is given here:
+<a href="FlatPlate/W06/w06_omega_k.dat">w06_omega_k.dat</a>.
+
+<p>In terms of inner wall variables, u+ and y+, the finest grid yields the following results, which
+are shown at two x-locations of x=0.97008 and x=1.90334. The
+law-of-the-wall theory with kappa=0.41 and B=5.0 is also shown
+(see White, F. M., <em>Viscous Fluid Flow</em>, McGraw-Hill Book Company, New York,
+1974, p. 472).
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/u+y+_w06.jpg" border="1" title="velocity profiles in inner wall variables" alt="velocity profiles in inner wall variables">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given in
+<a href="FlatPlate/W06/flatplate_u+y+_w06.dat">flatplate_u+y+_w06.dat</a> for the CFD (extracted only for CFL3D), and in
+<a href="FlatPlate/SA/u+y+theory.dat">u+y+theory.dat</a> for the theory (other theoretical curves,
+not shown in the plot, are also included in this latter file).
+
+<p>Standard velocity profiles are shown at the same two x-locations of x=0.97008 and x=1.90334 for
+the finest grid in the following plot.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="FlatPlate/W06/uvel_w06.jpg" border="1" title="standard velocity profiles" alt="standard velocity profiles">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data file that generated the above plot is given in
+<a href="FlatPlate/W06/flatplate_u_w06.dat">flatplate_u_w06.dat</a> (extracted only for CFL3D).
+
+<p><a href="openfoam_issues.html">Note for users of OpenFOAM</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="flatplate.html">2D Zero Pressure Gradient Flat Plate Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+9/18/2014 - added link to note for users of OpenFOAM<br>
+09/20/2013 - modified FUN3D results to use same UMUSCL as other pages
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/24/2021
+<br>&nbsp;
+
+</body>
+</html>

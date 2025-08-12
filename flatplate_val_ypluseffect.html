@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Zero Pressure Gradient Flat Plate Verification or Validation - Effect of Minimum y+</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<br>&nbsp;
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<p>Return to: <a href="jetsubsonic_val.html">Axisymmetric Subsonic Jet Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2D Zero Pressure Gradient Flat Plate Verification or Validation
+Cases</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">Effect of Minimum y+</span></strong>
+
+<br>&nbsp;
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+        <p><img
+src="FlatPlate_validation/Effect_of_yplus/cd_ypluseffect_expanded.jpg" border="1" title="Effect of min y+ on flat plate drag for several turbulence models, expanded y+" 
+alt="Effect of min y+ on flat plate drag for several turbulence models, expanded y+">
+           <img
+src="FlatPlate_validation/Effect_of_yplus/cf_ypluseffect_expanded.jpg" border="1" title="Effect of min y+ on flat plate skin friction coefficient at x=1.5 for several turbulence models, expanded y+" 
+alt="Effect of min y+ on flat plate skin friction coefficient at x=1.5 for several turbulence models, expanded y+">
+</p>
+        <p><img
+src="FlatPlate_validation/Effect_of_yplus/cd_ypluseffect.jpg" border="1" title="Zoom: Effect of min y+ on flat plate drag for several turbulence models, smaller y+ values only" 
+alt="Zoom: Effect of min y+ on flat plate drag for several turbulence models, smaller y+ values only">
+           <img
+src="FlatPlate_validation/Effect_of_yplus/cf_ypluseffect.jpg" border="1" title="Zoom: Effect of min y+ on flat plate skin friction coefficient at x=1.5 for several turbulence models, smaller y+ values only" 
+alt="Zoom: Effect of min y+ on flat plate skin friction coefficient at x=1.5 for several turbulence models, smaller y+ values only">
+</p>
+        <p><img
+src="FlatPlate_validation/Effect_of_yplus/omega_sst.jpg" border="1" title="Nondimensional omega very near the wall from SST model at x=1.505, smaller y+ values only" 
+alt="Nondimensional omega very near the wall from SST model at x=1.505, smaller y+ values only">
+           <img
+src="FlatPlate_validation/Effect_of_yplus/mut_sst.jpg" border="1" title="Nondimensional eddy viscosity very near the wall from SST model at x=1.505, smaller y+ values only"
+alt="Nondimensional eddy viscosity very near the wall from SST model at x=1.505, smaller y+ values only">
+</p>
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The files that produced the above plots are provided here:
+  <a href="FlatPlate_validation/Effect_of_yplus/effect_yplus.dat">effect_yplus.dat</a>,
+  <a href="FlatPlate_validation/Effect_of_yplus/flat_yplusstudy_sst_5e7.extractturb1.505.dat">flat_yplusstudy_sst_5e7.extractturb1.505.dat</a>,
+  <a href="FlatPlate_validation/Effect_of_yplus/flat_yplusstudy_sst_1e6.extractturb1.505.dat">flat_yplusstudy_sst_1e6.extractturb1.505.dat</a>,
+  <a href="FlatPlate_validation/Effect_of_yplus/flat_yplusstudy_sst_2e6.extractturb1.505.dat">flat_yplusstudy_sst_2e6.extractturb1.505.dat</a>,
+  <a href="FlatPlate_validation/Effect_of_yplus/flat_yplusstudy_sst_4e6.extractturb1.505.dat">flat_yplusstudy_sst_4e6.extractturb1.505.dat</a>,
+  <a href="FlatPlate_validation/Effect_of_yplus/flat_yplusstudy_sst_8e6.extractturb1.505.dat">flat_yplusstudy_sst_8e6.extractturb1.505.dat</a>.
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A turbulent flat plate study was conducted to explore the influence of
+minimum normal grid spacing on the sensitivity of the CFD results for a variety of turbulence models.
+This is different than a grid density study (found on many other pages
+on this TMR site).
+Instead, the question being asked here is: 
+what is the effect of the choice of placement of the first gridpoint off the wall?
+Note that the grids used in this study were <i>different</i> from those used for the 2DZP test cases.  The grids are not provided here,
+but they are very easy to construct.  
+A single grid size was employed:  225 x 97.  The grids each ran from x=-0.24 to x=2, with delta x spacing of 0.01 (no stretching in x).
+The solid wall plate lay between x=0 and x=2.
+In the wall-normal direction, the grids extended from y=0 to y approx = 1.  The minimum normal spacing (and hence average minimum y+) was
+varied along with the (constant) stretching factor, as described in the following table:
+
+<table style="text-align: left; height: 50px; width: 1000px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+  
+    <tr>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">Grid size<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">Delta y<sub>min</sub> at the wall<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">stretching factor<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">approx avg min y+<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">225 x 97 (finest)<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">0.5 x 10<sup>-6<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">1.13952<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">0.09<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">225 x 97<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">1 x 10<sup>-6<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">1.13054<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">0.19<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">225 x 97<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">2 x 10<sup>-6<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">1.12157<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">0.37<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">225 x 97<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">4 x 10<sup>-6<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">1.11262<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">0.74<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">225 x 97<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">8 x 10<sup>-6<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">1.10366<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">1.5<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">225 x 97<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">16 x 10<sup>-6<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">1.09470<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">2.9<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">225 x 97 (coarsest)<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">32 x 10<sup>-6<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">1.08570<br>
+      </td>
+      <td align="center" style="vertical-align: top; width: 50px; font-family: helvetica,arial,sans-serif;">5.9<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The flow conditions were identical to that of the 
+<a href="flatplate.html">VERIF/2DZP test case</a> and
+<a href="flatplate_val.html">2DZP test case</a>.
+
+<p>Conventional wisdom states that grids for turbulent flow RANS 
+(when integrating to the wall, i.e., <i>without</i> wall functions)
+should be constructed so that the average minimum y+ is less than 1.
+However, as can be seen from the first four plots above, the models that used an omega equation (SST/SST-V/SST-Vm, Wilcox2006-klim, and
+SSG/LRR-RSM-w2012) all demonstrated higher sensitivity to average minimum
+y+ than other models (SA or k-kL-MEAH2015).
+These first four plots show (a) drag coefficient of the plate
+and (b) skin friction coefficient at a specific location on the plate,
+as a function of the average minimum y+ of the grid.
+The SA and k-kL-MEAH2015 models exhibit less
+sensitivity to the average minimum y+ of the grid, whereas
+the omega-based models exhibit more sensitivity.
+(Note that we do <u>not</u> expect all models to give the same results
+as the average minimum y+ of the grid approaches zero; what we are looking for is the change in a given model.)
+
+<p>Therefore, the use of the omega equation and/or the omega wall boundary condition:
+<dl>
+<dd><img class="tex" alt="\omega_{wall} = 10 \frac{6 \nu}{\beta_1 (\Delta d_1)^2}"
+  src="sst_eqns/img33.png" /></dd>
+</dl>
+apparently causes a greater dependency on the average minimum y+ for a given grid size.
+For example, with the omega-based models,
+use of a grid with average minimum y+ of 0.8 produced a drag coefficient between 2-3% low compared to use of a grid
+with average minimum y+ of 0.1.  This increased dependency should be recognized when using omega-based models.
+
+<p>For reference, the final two plots above show the behavior of nondimensional omega and eddy viscosity very near the wall on the
+various grids, in this case for the SST/SST-V/SST-Vm model.  The smaller the average 
+minimum y+ of the grid, the better the high gradient of the
+near-wall omega is resolved.
+
+<p>These results are consistent with the results published in
+Bardina, J. E., Huang, P. G., and Coakley, T. J., "Turbulence Modeling Validation, Testing, and Development,"
+NASA TM 110446, April 1997.
+<a href="https://ntrs.nasa.gov/citations/19970017828">https://ntrs.nasa.gov/citations/19970017828</a>.
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<p>Return to: <a href="jetsubsonic_val.html">Axisymmetric Subsonic Jet Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+06/27/2019 - added expanded y+ results (first two plots), and added links to the data that produced the plots<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/18/2021
+<br>&nbsp;
+
+</body>
+</html>

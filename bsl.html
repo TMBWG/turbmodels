@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Menter Baseline Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The Menter Baseline Turbulence Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various forms of the
+Menter baseline (BSL) turbulence model. 
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><a ID="bsl-std"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">"Standard" Menter Baseline
+   Two-Equation Model <span style="color: blue">(BSL)</span> and <span style="color: blue">(BSLm)</span></strong>
+<p>The reference for the standard implementation of the Menter BSL
+model is:
+
+<ul>
+<li>Menter, F. R., "Two-Equation Eddy-Viscosity Turbulence Models for Engineering Applications,"
+<strong>AIAA Journal</strong>, Vol. 32, No. 8, August 1994, pp. 1598-1605,
+<a href="https://doi.org/10.2514/3.12149">https://doi.org/10.2514/3.12149</a>.
+</ul>
+
+<p>This model is almost identical to the
+<a href="sst.html">Menter SST model</a>.  Only one constant 
+(<img class="tex" alt="\sigma_{k 1}" src="bsl_eqns/img2.png" />)
+and the expression
+for turbulent eddy viscosity are different.  
+The two-equation model (written in conservation form) is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \beta^* \rho \omega k  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \sigma_k \mu_t \right)\frac{\partial k}{\partial x_j}\right]"
+  src="sst_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho u_j \omega)}{\partial x_j}
+  = \frac{\gamma}{\nu_t} \cal P -
+  \beta \rho \omega^2 + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\omega} \mu_t \right)
+  \frac{\partial \omega}{\partial x_j} \right] +
+  2(1-F_1) \frac{\rho \sigma_{\omega 2}}{\omega} \frac{\partial k}{\partial x_j}
+  \frac{\partial \omega}{\partial x_j}"
+  src="sst_eqns/img3.png" /></dd>
+</dl>
+
+<p>Note that in the reference, the Lagrangian derivative was used, which is not identical
+with the proper form of these equations as written by the author and others elsewhere. The equations have been
+written above to be in proper conservation form, consistent with, e.g., Wilcox (in Turbulence Modeling for CFD,
+DCW Industries, Inc., La Canada, CA, 2006), Menter et al (in Turbulence, Heat and Mass Transfer 4, 2003, pp. 625-632),
+and Menter (in NASA TM 103975, 1992,
+<a href="https://ntrs.nasa.gov/citations/19930013620">https://ntrs.nasa.gov/citations/19930013620</a>).
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="sst_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}"
+  src="sst_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)"
+  src="sst_eqns/img6.png" /></dd>
+</dl>
+
+<p>and the turbulent eddy viscosity is computed from:
+<dl>
+<dd><img class="tex" alt="\mu_t = \frac{\rho k}{\omega}"
+  src="wilcox1998_eqns/img4.png" /></dd>
+</dl>
+
+<p>Each of the constants is a blend of an inner (1) and outer (2) constant, blended via:
+<dl>
+<dd><img class="tex" alt="\phi = F_1 \phi_1 + (1-F_1) \phi_2"
+  src="sst_eqns/img8.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\phi_1" src="sst_eqns/img9.png" /> represents constant 1
+and <img class="tex" alt="\phi_2" src="sst_eqns/img10.png" /> represents constant 2.
+Additional functions are given by:
+<dl>
+<dd><img class="tex" alt="F_1 = {\rm tanh} \left({\rm arg}_1^4 \right)"
+  src="sst_eqns/img11.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{\rm arg}_1 = {\rm min} \left[ {\rm max} \left( \frac{\sqrt{k}}{\beta^*\omega d},
+   \frac{500 \nu}{d^2 \omega} \right) , \frac{4 \rho \sigma_{\omega 2} k}{{\rm CD}_{k \omega} d^2} \right]"
+  src="sst_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="{\rm CD}_{k \omega} = {\rm max} \left(2 \rho \sigma_{\omega 2} \frac{1}{\omega}
+   \frac{\partial k}{\partial x_j} \frac{\partial \omega}{\partial x_j}, 10^{-20} \right)"
+  src="sst_eqns/img13.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="\rho" src="sst_eqns/img16.png" /> is the density,
+<img class="tex" alt="\nu_t = \mu_t/\rho" src="sst_eqns/img17.png" /> is the
+turbulent kinematic viscosity, 
+<img class="tex" alt="\mu" src="sst_eqns/img18.png" /> is the
+molecular dynamic viscosity, and <em>d</em> is the distance from the field point to the nearest wall.
+
+<p>Note that it is generally recommended to use a production limiter (see
+Menter, F. R., "Zonal Two Equation k-omega Turbulence Models for Aerodynamic Flows,"
+AIAA Paper 93-2906, July 1993,
+<a href="https://doi.org/10.2514/6.1993-2906">https://doi.org/10.2514/6.1993-2906</a>). 
+In this reference, the term <em>P</em> in the <em>k</em>-equation
+is replaced by:
+<dl>
+<dd><img class="tex" alt="{\rm min}(\cal P, 20 \beta^* \rho \omega k)"
+  src="sst_eqns/img35.png" /></dd>
+</dl>
+
+<p>The boundary conditions recommended in the original reference are:
+
+<dl>
+<dd><img class="tex" alt="\frac{U_{\infty}{L} < \omega_{\rm farfield} < 10 \frac{U_{\infty}{L}"
+  src="sst_eqns/img20.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{10^{-5}U_{\infty}^2}{Re_L} < k_{\rm farfield} < \frac{0.1 U_{\infty}^2}{Re_L}"
+  src="sst_eqns/img21.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega_{wall} = 10 \frac{6 \nu}{\beta_1 (\Delta d_1)^2}"
+  src="sst_eqns/img33.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="k_{wall} = 0"
+  src="sst_eqns/img34.png" /></dd>
+</dl>
+
+<p>where "<em>L</em> is the approximate length of the computational domain,"
+and the combination of the two farfield values should yield a freestream turbulent viscosity
+between 10<sup>-5</sup> and 10<sup>-2</sup> times freestream laminar viscosity.
+Thus, the farfield turbulence boundary conditions are somewhat open to interpretation.
+Note that the turbulence variables decay (sometimes dramatically) from their set values in 
+the farfield for external aerodynamic problems.
+
+<p>The constants are:
+<dl>
+<dd><img class="tex" alt="\gamma_1 = \frac{\beta_1}{\beta^*} - \frac{\sigma_{\omega 1} \kappa^2}{\sqrt{\beta^*}}"
+  src="sst_eqns/img25.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\gamma_2 = \frac{\beta_2}{\beta^*} - \frac{\sigma_{\omega 2} \kappa^2}{\sqrt{\beta^*}}"
+  src="sst_eqns/img29.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\sigma_{k 1} = 0.5"
+  src="bsl_eqns/img3.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\omega 1} = 0.5"
+  src="sst_eqns/img23.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_1 = 0.075"
+  src="sst_eqns/img24.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\sigma_{k 2} = 1.0"
+  src="sst_eqns/img26.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\omega 2} = 0.856"
+  src="sst_eqns/img27.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_2 = 0.0828"
+  src="sst_eqns/img28.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\beta^*=0.09"
+  src="sst_eqns/img30.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\kappa=0.41"
+  src="sst_eqns/img31.png" /></dd>
+</dl>
+
+<p>Note: the <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" /> term
+in the Boussinesq approximation for tau_ij is sometimes ignored in the momentum and energy equations.
+Similarly, the production term in two-equation turbulence models is often approximated by <b>P = mu_t S<sup>2</sup></b>.
+This expression is exact for incompressible flows and is typically
+considered a very good approximation, except perhaps for very high Mach number flows (see items 4 and 7 on the page
+<a href="noteonrunning.html">Notes on Running the Cases with CFD</a>, and the
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a> page).
+There are various ways that these approximations can be implemented:
+ <ul>
+   <li><span style="color: blue">(BSLm)</span> (most common) - when the
+       <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+       term is IGNORED in tau_ij in the momentum and energy equations, and the production term is APPROXIMATED by
+       <b>P = mu_t S<sup>2</sup></b>.
+   <li><span style="color: blue">(BSLs)</span> - when the
+       <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+       term is INCLUDED in tau_ij in the momentum and energy equations, and the production term is APPROXIMATED by
+       <b>P = mu_t S<sup>2</sup></b>.
+   <li><span style="color: blue">(BSLe)</span> - when the
+       <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+       term is IGNORED in tau_ij in the momentum and energy equations, and the production term is THE EXACT expression.
+ </ul>
+<!--When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be employed:  <span style="color: blue">(BSLm)</span>.-->
+
+<br>&nbsp;
+<p><a ID="sst-v"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Menter Baseline
+   Two-Equation Model with Vorticity Source Term <span style="color: blue">(BSL-V)</span> and <span style="color: blue">(BSL-Vm)</span></strong>
+<p>This form of the BSL model is sometimes used because vorticity magnitude
+<img class="tex" alt="\Omega" src="sstvort_eqns/img3.png" /> is usually readily available in
+most Navier-Stokes codes. Furthermore, the vorticity source term is often nearly identical to the exact source
+term in simple boundary layer flows, and the use of the vorticity term can avoid some numerical difficulties
+sometimes associated with the use of the exact source term.
+The reference for this usage is:
+
+<ul>
+<li>Menter, F. R., "Improved Two-Equation k-omega Turbulence Models for Aerodynamic Flows,"
+NASA TM 103975, October 1992,
+<a href="https://ntrs.nasa.gov/citations/19930013620">https://ntrs.nasa.gov/citations/19930013620</a>.
+</ul>
+
+<p>The equations are the same as for the "standard" version <span style="color: blue">(BSL)</span>, 
+with the exception that the term <em>P</em> (in both equations) is approximated with the following:
+<dl>
+<dd><img class="tex" alt="P = \mu_t \Omega^2 - \frac{2}{3}\rho k \delta_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="sstvort_eqns/img2.png" /></dd>
+</dl>
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t*(Omega<sup>2</sup>)</b>,
+a modified naming convention should be employed:  <span style="color: blue">(BSL-Vm)</span>.
+
+<p>Note that this approximation is similar in spirit to the Kato-Launder correction
+(Kato, M. and Launder, B. E., "The Modelling of Turbulent Flow Around Stationary and Vibrating Square Cylinders,"
+9th Symposium on Turbulent Shear Flows, Kyoto, Japan, August 1993, paper 10-4), which uses
+<img class="tex" alt="\mu_t S \Omega" src="sstvort_eqns/img4.png" /> instead of
+<img class="tex" alt="\mu_t \Omega^2" src="sstvort_eqns/img5.png" />.  Implementation of the Kato-Launder
+correction should be called <span style="color: blue">(BSL-KL)</span>.
+If the <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and
+if the <img class="tex" alt="- (2/3) \rho k \delta_{ij} \partial u_i / \partial x_j" src="ZPGflatplateSS_eqns/img2.png" />
+term in <i>P</i> is ignored, then the naming convention is <span style="color: blue">(BSL-KLm)</span>.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+10/04/2024 - added "s" and "e" variant definitions<br>
+03/24/2021 - clarifications on use of "m" designation when P=mu_t S<sup>2</sup> and k term ignored in momentum and energy equations<br>
+6/30/2015 - mention Pr, Pr_t, and Sutherland's law<br>
+8/29/2013 - mention of Kato-Launder correction
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 10/04/2024
+<br>&nbsp;
+
+</body>
+</html>

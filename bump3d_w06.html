@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Wilcox2006-klim-m Expected Results - 3D Bump-in-channel</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="bump3d.html">3D Bump-in-channel Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Wilcox2006-klim-m Expected Results - 3D Bump-in-channel</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Previously on this page the results were reported as Wilcox2006-klim solutions, but more properly they should be
+referred to as Wilcox2006-klim-m.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Results are shown here from 2 compressible codes
+so that the user may compare their own compressible code results.  Multiple grids were
+used so the user can see trends with grid refinement.  Different codes will behave
+differently with grid refinement depending on many factors (including code order of accuracy
+and other numerics),
+but it would be expected that as the grid is refined the results
+will tend toward an "infinite grid" solution that is the same.
+Be careful when comparing details: any differences in boundary conditions or flow conditions
+may affect results.
+
+<p>Two independent compressible RANS codes,
+CFL3D and FUN3D, were used to compute this
+bump-in-channel flow with the Wilcox2006-klim-m model
+(see full description on
+<a href="wilcox.html">Wilcox k-omega page</a>).
+The full series of 5 grids were used.
+CFL3D is a cell-centered structured-grid code, and FUN3D
+is a node-centered unstructured-grid code (FUN3D can solve on mixed element grids, so this case
+was computed on the same hexahedral grid used by CFL3D).  Both codes used Roe's Flux Difference
+Splitting and a UMUSCL upwind approach.  In CFL3D its standard UMUSCL (kappa=0.33333) scheme was
+used, whereas in FUN3D the 3-D mixed-element default UMUSCL 0.5 was used.  Both codes were run with
+full Navier-Stokes (as opposed to thin-layer, which is CFL3D's default mode of operation),
+and both codes used first-order upwinding for the advective terms of the turbulence model.
+Details about the codes can be found on their respective websites,
+the links for which are given on this site's 
+<a href="index.html">home page</a>.
+The codes were not run to machine-zero iterative convergence, but an attempt was made to converge
+sufficiently so that results of interest were well within normal engineering tolerance and
+plotting accuracy.  For example, for CFL3D the density residual was typically
+driven down below 10<sup>-12</sup>.  It should be kept in mind that many of the files given below
+contain computed values directly from the codes,
+using a precision <strong>greater</strong> than the convergence tolerance (i.e., the values
+in the files are not necessarily as precise as the number of digits given).
+
+<p>Note that in both CFL3D and FUN3D, the production term
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij}\frac{\partial u_i}{\partial x_j}"
+  src="bump_sst_eqns/img5.png" /></dd>
+</dl>
+is approximated by
+<dl>
+<dd><img class="tex" alt="P = 2 \mu_t S_{ij}S_{ij}"
+  src="bump_sst_eqns/img6.png" /></dd>
+</dl>which is exact for incompressible flow.  For this particular low-speed flow, the approximation is
+very accurate.
+(Previously on this page the results were reported as Wilcox2006-klim solutions, but more properly they should be referred
+to as Wilcox2006-klim-m because of this approximation and the fact that the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations.)
+
+<p>For the CFL3D and FUN3D tests reported below, the turbulent inflow boundary conditions used for Wilcox2006-klim-m
+were the following:
+<dl>
+<dd><img class="tex" alt="k_{farfield} = 9 \times 10^{-9} a_{\infty}^2"
+  src="bump_sst_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\omega_{farfield} = 1 \times 10^{-6} \frac{\rho_{\infty}a_{\infty}^2}{\mu_{\infty}}"
+  src="bump_sst_eqns/img3.png" /></dd>
+</dl>
+
+<p>The above two equations represent the "standard" Wilcox2006-klim-m boundary condition
+values used by both CFL3D and FUN3D, chosen to achieve
+a not-too-low level of freestream
+turbulent kinetic energy, a not-too-severe rate of freestream turbulence decay,
+and a reasonable level of freestream turbulent eddy viscosity of
+<img class="tex" alt="\mu_t/\mu_{\infty} = 0.009"
+  src="bump_sst_eqns/img4.png" />. 
+
+<p>For the interested reader, typical input files for this problem are given here:
+<p>CFL3D V6.5:
+<ul>
+<li><a href="Bump3d/W06/cfl3d_typical.inp">Typical Input File for 3D Bump</a>
+</ul>
+<p>FUN3D:
+<ul>
+<li><a href="Bump3d/W06/fun3d.nml_typical">Typical Namelist Input File for 3D Bump</a>
+<li><a href="Bump3d/W06/fun3d.info">Additional Information</a>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+For this flow, an odd-even decoupling occurs in FUN3D on the finest grid using the default unweighted least-square
+gradient. This decoupling is particularly noticeable, for example, in plots of Cp along a spanwise grid line
+somewhat upstream of the bump peak.
+Preliminary studies indicate the decoupling is associated with gradients near the inflection point
+in the bump surface.
+Although not done for the results below, the decoupling can be eliminated in FUN3D
+by using a mapping method based on distance from the surface for
+the mean flow inviscid fluxes.  See the
+<a href="bump3d_mod_numerics_val_sa.html">3D Modified Bump-in-channel Validation</a> case
+for SA-neg in the Turbulence Model Numerical Analysis section of this website.
+Also see AIAA paper 2016-0858,
+<a href="https://doi.org/10.2514/6.2016-0858">https://doi.org/10.2514/6.2016-0858</a>.
+
+<p>The following plots show: (1) total drag coefficient, (2) pressure drag coefficient,
+(3) viscous drag coefficient, and (4) total lift coefficient for the 3D bump. 
+Both codes are tending toward similar integrated force coefficient values
+as the grid is refined. 
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/cd_w06_1st.jpg" border="1" title="convergence of 3D bump drag
+    coefficient vs h" alt="convergence of 3D bump drag
+    coefficient vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/cdp_w06_1st.jpg" border="1" title="convergence of 3D bump pressure drag
+    coefficient vs h" alt="convergence of 3D bump pressure drag
+    coefficient vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/cdv_w06_1st.jpg" border="1" title="convergence of 3D bump viscous drag
+    coefficient vs h" alt="convergence of 3D bump viscous drag
+    coefficient vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/cl_w06_1st.jpg" border="1" title="convergence of 3D bump lift
+    coefficient vs h" alt="convergence of 3D bump lift
+    coefficient vs h">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Using the uncertainty estimation procedure from the Fluids Engineering Division of the ASME (Celik, I. B.,
+Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., Raad, P. E.,
+"Procedure for Estimation and Reporting of Uncertainty Due
+to Discretization in CFD Applications," Journal of Fluids Engineering, Vol. 130, July 2008, 078001, <a href="https://doi.org/10.1115/1.2960953">https://doi.org/10.1115/1.2960953</a>), described in <a href="Papers/uncertainty_summary.pdf">Summary of Uncertainty Procedure</a>,
+the finest 3 grids yield the following:
+
+<center><table BORDER=2 CELLSPACING=0 CELLPADDING=5 NOSAVE >
+<tr>
+<th BGCOLOR="#CCCCCC" NOSAVE>Code</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Quantity</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Computed apparent order, p</th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Approx rel fine-grid error, e<sub>a</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Extrap rel fine-grid error, e<sub>ext</sub><sup>21</sup></th>
+
+<th BGCOLOR="#CCCCCC" NOSAVE>Fine-grid convergence index, GCI<sub>fine</sub><sup>21</sup></th>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>C<sub>d</sub></td>
+<td>3.70</td>
+<td>0.486%</td>
+<td>0.041%</td>
+<td>8.488%</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>C<sub>d,p</sub></td>
+<td>2.81</td>
+<td>9.150%</td>
+<td>1.543%</td>
+<td>1.899%</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>C<sub>d,v</sub></td>
+<td>1.24</td>
+<td>0.705%</td>
+<td>0.516%</td>
+<td>0.649%</td>
+</tr>
+
+<tr>
+<td>CFL3D</td>
+<td>C<sub>L</sub></td>
+<td>1.44</td>
+<td>0.422%</td>
+<td>0.244%</td>
+<td>0.306%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>C<sub>d</sub></td>
+<td>oscillatory convergence</td>
+<td>0.403%</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>C<sub>d,p</sub></td>
+<td>3.36</td>
+<td>6.480%</td>
+<td>0.706%</td>
+<td>91.035%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>C<sub>d,v</sub></td>
+<td>0.04</td>
+<td>1.378%</td>
+<td>32.192%</td>
+<td>8.149%</td>
+</tr>
+
+<tr>
+<td>FUN3D</td>
+<td>C<sub>L</sub></td>
+<td>1.14</td>
+<td>0.205%</td>
+<td>0.170%</td>
+<td>0.213%</td>
+</tr>
+
+</table></center>
+
+<p>The data file that generated the above plots is given here:
+<a href="Bump3d/W06/force_convergence_w06.dat">force_convergence_w06.dat</a>.
+
+<p>The surface pressure coefficient from both codes on the second-finest 
+33 x 353 x 161 grid
+over the bump wall and at y=0 is shown in the next plots. 
+Both codes yield nearly identical results.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/cp_surface_cfl3d.jpg" border="1" title="pressure coefficient over the bump using CFL3D" alt="pressure coefficient over the bump using CFL3D">
+           <img
+src="Bump3d/W06/cp_surface_fun3d.jpg" border="1" title="pressure coefficient over the bump using FUN3D" alt="pressure coefficient over the bump using FUN3D">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data files that generated the above plots are given here:
+<a href="Bump3d/W06/cp_surface_w06_cfl3d.dat.gz">cp_surface_w06_cfl3d.dat.gz</a>,
+<a href="Bump3d/W06/cp_y0_w06_cfl3d.dat.gz">cp_y0_w06_cfl3d.dat.gz</a>,
+<a href="Bump3d/W06/cp_surface_w06_fun3d.dat.gz">cp_surface_w06_fun3d.dat.gz</a>,
+<a href="Bump3d/W06/cp_y0_w06_fun3d.dat.gz">cp_y0_w06_fun3d.dat.gz</a>.
+Note that these are all gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted files, so you must either have Tecplot or know how to read their format in order to use these
+files.
+
+<p>The eddy viscosity contours (nondimensionalized by freestream laminar viscosity),
+as well as nondimensional k and omega contours
+from the two codes on the second-finest 33 x 353 x 161 grid are shown
+in the following plots, extracted at two different x-locations 
+(z-scale expanded for clarity).  Results from the two codes are reasonably similar on this grid size.
+(Note legends do not necessarily reflect min and max values.)
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/mut_0.3_cfl3d.jpg" border="1" title="eddy viscosity contours for CFL3D at x=0.3" alt="eddy viscosity contours for CFL3D at x=0.3">
+           <img
+src="Bump3d/W06/mut_0.3_fun3d.jpg" border="1" title="eddy viscosity contours for FUN3D at x=0.3" alt="eddy viscosity contours for FUN3D at x=0.3">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/mut_1.2_cfl3d.jpg" border="1" title="eddy viscosity contours
+for CFL3D at x=1.2" alt="eddy viscosity contours
+for CFL3D at x=1.2">
+           <img
+src="Bump3d/W06/mut_1.2_fun3d.jpg" border="1" title="eddy viscosity contours
+for FUN3D at x=1.2" alt="eddy viscosity contours
+for FUN3D at x=1.2">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/k_0.3_cfl3d.jpg" border="1" title="k contours for CFL3D at x=0.3" alt="k contours for CFL3D at x=0.3">
+           <img
+src="Bump3d/W06/k_0.3_fun3d.jpg" border="1" title="k contours for FUN3D at x=0.3" alt="k contours for FUN3D at x=0.3">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/k_1.2_cfl3d.jpg" border="1" title="k contours
+for CFL3D at x=1.2" alt="k contours
+for CFL3D at x=1.2">
+           <img
+src="Bump3d/W06/k_1.2_fun3d.jpg" border="1" title="k contours
+for FUN3D at x=1.2" alt="k contours
+for FUN3D at x=1.2">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/omega_0.3_cfl3d.jpg" border="1" title="omega contours for CFL3D at
+x=0.3" alt="omega contours for CFL3D at
+x=0.3">
+           <img
+src="Bump3d/W06/omega_0.3_fun3d.jpg" border="1" title="omega contours for FUN3D at
+x=0.3" alt="omega contours for FUN3D at
+x=0.3">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/W06/omega_1.2_cfl3d.jpg" border="1" title="omega contours
+for CFL3D at x=1.2" alt="omega contours
+for CFL3D at x=1.2">
+           <img
+src="Bump3d/W06/omega_1.2_fun3d.jpg" border="1" title="omega contours
+for FUN3D at x=1.2" alt="omega contours
+for FUN3D at x=1.2">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>The data files that generated the above plots are given here:
+<a href="Bump3d/W06/mut_0.3_cfl3d.dat.gz">mut_0.3_cfl3d.dat.gz</a>,
+<a href="Bump3d/W06/mut_0.3_fun3d.dat.gz">mut_0.3_fun3d.dat.gz</a>,
+<a href="Bump3d/W06/mut_1.2_cfl3d.dat.gz">mut_1.2_cfl3d.dat.gz</a>,
+<a href="Bump3d/W06/mut_1.2_fun3d.dat.gz">mut_1.2_fun3d.dat.gz</a>.
+Note that these are all gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted files, so you must either have Tecplot or know how to read their format
+in order to use these files.
+Also note that the slicing tool in Tecplot was used to generate this data,
+extracting data along x-constant planes.  These cutting planes do not necessarily
+coincide with grid locations. Thus, the x, y, and z locations
+given in the data files do <strong>not</strong> reflect actual points in
+the grid used.
+
+<p><a href="openfoam_issues.html">Note for users of OpenFOAM</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="bump3d.html">3D Bump-in-channel Verification Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+07/18/2018 - added note regarding odd-even decoupling in FUN3D on finest grid for this case<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

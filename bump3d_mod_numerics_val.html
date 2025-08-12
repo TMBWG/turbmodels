@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>3D Modified Bump-in-channel for Turbulence Model Numerical Analysis</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">3D Modified Bump-in-channel</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This case is designed primarily for numerical
+analysis of turbulence model simulations; e.g., convergence properties, effect of order of accuracy, etc.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This case is almost the same as the
+<a href="bump3d.html">3D Bump-in-channel Verification</a>
+case, except that the grid here is only half in spanwise extent of the original (because of symmetry, the results
+should be the same).
+A large sequence of nested grids
+of the same family are provided here if desired.
+
+<p>The 3D bump-in-channel case is a three-dimensional version of the
+<a href="bump.html">2D bump-in-channel verification case</a>,
+with spanwise variation added. 
+In this 3D case the z direction is "up" and y is "spanwise."
+It was run at
+M = 0.2, at a Reynolds number of Re = 3 million based on
+length "1" of the grid. 
+The body reference area is 0.75 units.
+This lower wall is a curved
+viscous-wall bump extending from x=0 to 1.5 at the side of the computational domain
+y=0, but starting and ending further downstream at y locations
+inbetween 0 and -0.5.
+The maximum bump height is 0.05. The "2D" definition of the bump at the y=0 plane is:
+
+<p><ul>z=0.05*(sin(pi*x/0.9-(pi/3.)))**4 &nbsp; for 0.3&le;x&le;1.2 along y=0
+</ul>
+<p><ul>z=0 &nbsp; for 0&le;x&lt;0.3 and 1.2 &lt;x &le;1.5
+</ul>
+
+<p>But the x-location of any position on the bump varies in the spanwise direction 
+between y=0 and y=-0.5 according to:
+
+<p><ul>x=x<sub>0</sub>+0.3(sin(pi*y))**4 &nbsp; for -0.5&le;y&lt;0
+</ul>
+
+<p>where x<sub>0</sub> is any given x-location of the "2D" shape at y=0, and 
+"pi"=3.1415927... The upstream and downstream farfield extends 25 units from
+the viscous-wall, with symmetry plane BCs imposed on the lower wall between the farfield and the solid
+wall.  The upper boundary is a distance of z=5.0 high.
+It is taken to be a symmetry plane.
+The left and right walls are also taken to be symmetry planes.
+The following plots show the layout of this case,
+along with the boundary conditions.
+They are the same as given for the <a href="bump3d.html">3D Bump-in-channel Verification</a>
+case (other than the fact that this modified bump is only half the span of the original,
+taking advantage of the center plane of symmetry).
+
+<p>Another important note: although M=0.2 is low enough that the flow is "essentially" incompressible,
+<u><em>this is a compressible flow verification case</em></u>.  Therefore, if you run this case with an incompressible
+code, your results may be close - but not quite the same - as the grid is refined.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d/Grids/bump3dBCpic1.jpg" border="1" title="modified bump grid layout & BCs" alt="modified bump grid layout & BCs">
+           <img
+src="Bump3d/Grids/bump3dBCpic2.jpg" border="1" title="close-up of modified bump" alt="close-up of modified bump">
+<img
+src="Bump3d_modified_numerics/Grids/bump3dmod_generalpic.jpg" border="1" title="picture of modified bump shape" alt="picture of modified bump shape">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="bump3d_mod_numerics_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="bump3d_mod_numerics_val_sa.html">SA-neg</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#saneg">SA-neg eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 01/05/2017
+<br>&nbsp;
+
+</body>
+</html>

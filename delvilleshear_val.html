@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Shear Mixing Layer Validation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2DML: 2D Mixing Layer
+Validation Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. A large sequence of nested grids of the same family are 
+provided here if desired. Data are also provided for comparison. For this 
+particular "essentially incompressible" mixing layer case (from Delville), the data are from experiments. 
+
+<p>The experiment utilizes a splitter plate of thickness 3 mm in a tunnel 300 mm wide.
+The end of the plate is located at x = 0, and the two streams of different velocity
+fluid merge downstream of this location.  The plate is modeled with a taper starting
+at x = -50 mm, ending up with a trailing edge thickness of 0.3 mm at x = 0.
+
+<p>In the experiment, the upper higher-velocity stream has a boundary layer thickness at x=-10 mm (near
+the plate trailing edge) of about 9.6 mm and a momentum thickness of about 1 mm.
+The lower slower-velocity stream has a boundary layer thickness 
+of about 6.3 mm and a momentum thickness of about 0.73 mm.
+The Reynolds number based on L (= 1 mm, which is length "1" of the grid) is 2900.
+Reference temperature is T<sub>ref</sub> = 293 K = 528 R, and speed of sound a<sub>ref</sub> = 343 m/s.
+If needed, the reference static pressure p<sub>ref</sub> is atmospheric (101325 Pa).
+The freestream velocities are: 41.54 m/s upper and 22.40 m/s lower.
+
+<p>If applicable to the particular turbulence model being employed, this case should be run 
+with a <strong>low</strong> freestream turbulence level.
+In the experiment, Tu was approximately 0.3%.
+
+<p>The upper and lower boundary layer thicknesses are approximated in the CFD by
+providing different appropriate "run" lengths, and allowing the fully turbulent boundary layers
+to develop naturally.  Isentropic relations are used to obtain inflow boundary conditions
+in terms of total pressure and total temperature.  The upper
+and lower boundaries are modeled as slip walls, and are contoured slightly
+in order to yield close to zero streamwise pressure gradient downstream of x=0.
+The following plot shows the layout of this case, along with the boundary conditions.
+"Pt" refers to total pressure, "P" refers to
+static pressure, and "Tt" refers to total temperature.
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Delvilleshear_grids/boundarycon.jpg" border="1" title="2D shear grid layout & BCs" alt="2D shear grid layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="delvilleshear_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<p>Some of the experimental data for this case will be shown below. 
+The profiles of interest are at x= 1, 50, 200, 650, and 950, 
+as well as x= -10 on the top and the bottom of the plate.
+
+<p>The experimental data reference is:  Delville, J., Bellin, S., Garem, J. H., and Bonnet  J. P., "Analysis of
+Structures in a Turbulent, Plane Mixing Layer by Use of a Pseudo Flow Visualization Method Based on
+Hot-Wire Anemometry," in: Advances in Turbulence 2, eds: H.-H. Fernholz and H. E. Fiedler, 
+Proceedings of the Second European Turbulence Conference, Berlin, Aug 30-Sept 2, 1988,
+Springer Verlag, Berlin, 1989, pp. 251-256,
+<a href="https://doi.org/10.1007/978-3-642-83822-4_38">https://doi.org/10.1007/978-3-642-83822-4_38</a>.
+The experimental data are available from:
+<ul>
+<li><a href="http://cfd.mace.manchester.ac.uk/ercoftac/">ERCOFTAC Database Classic Collection website</a> (Case C.34)
+<li><a href="ftp://torroja.dmt.upm.es/AGARD/chapter6/SHL04/">AGARD Advisory Report 345 ftp site</a>
+</ul>
+
+<p>In the experiment, the upper and lower tunnel walls were
+adjusted in order to attain as close to zero pressure gradient (ZPG)
+as possible. The specific angle adjustments were not provided.
+Because the experimental data in the merging region downstream of x=0 exhibited a
+bias upward in its mid-shear position away from the y=0 tunnel centerline
+position, the original experimental data's y-locations (in mm)
+have been adjusted in all data provided on the current website by the following:
+y<sub>corrected</sub> = y - 0.00688x, where x is also in mm.
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Delvilleshear_validation/u_vs_yshift_exp.jpg" border="1" title="Delville mixing layer experimental data U versus Y" alt="Delville mixing layer experimental data U versus Y">
+           <img
+src="Delvilleshear_validation/u_vs_yshift_normalized_exp.jpg" border="1" title="Delville mixing layer experimental data normalized U versus Y" alt="Delville mixing layer experimental data normalized U versus Y">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>
+The single wire experimental data plotted above (with y<sub>corrected</sub>) is provided in:
+<a href="Delvilleshear_grids/delville_exp_u.dat"><span style="text-align: left; font-weight: 400; font-size: medium">delville_exp_u.dat</a>. 
+The second plot above shows normalized quantities for x=50, 200, 650, and 950.
+It can be seen that the profiles at x=650 and 950 are approximately self-similar.
+The vorticity thickness data from the experiment (used in the second plot) are given in:
+<a href="Delvilleshear_grids/delville_exp_delomega.dat"><span style="text-align: left; font-weight: 400; font-size: medium">delville_exp_delomega.dat</a>.
+
+<p>
+<p>
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Delvilleshear_validation/upvp_vs_yshift_exp.jpg" border="1" title="Delville mixing layer experimental data u'v' versus Y" alt="Delville mixing layer experimental data u'v' versus Y">
+           <img
+src="Delvilleshear_validation/upvp_vs_yshift_normalized_exp.jpg" border="1" title="Delville mixing layer experimental data normalize
+d u'v' versus Y" alt="Delville mixing layer experimental data normalize
+d u'v' versus Y">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+<p>
+The X wire experimental data plotted above (with y<sub>corrected</sub>) is provided in:
+<a href="Delvilleshear_grids/delville_exp_turb.dat"><span style="text-align: left; font-weight: 400; font-size: medium">delville_exp_turb.dat</a>.
+The first plot of the set shows u'v' (specific turbulent shear stress) for x=200, 650, and 950.
+The second plot of the set shows the same quantities, but normalized.
+The Y values are normalized by the vorticity thickness as above.
+</p>
+<!--
+<p>Some of the experimental data for comparison are provided here:
+<ul>
+<li><a href="NACA0012_validation/CLCD_Ladson_expdata.dat">Ladson force data</a></li>
+<li><a href="NACA0012_validation/0012.mccroskeydata.cl.dat">McCroskey CL-alpha best fit line</a></li>
+<!--<li><a href="NACA0012_validation/CP_Ladson.dat">Ladson et al pressure data</a></li>
+<li><a href="NACA0012_validation/CP_Gregory_expdata.dat">Gregory & O'Reilly pressure data</a></li>
+</ul>
+-->
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="delvilleshear_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="delvilleshear_val_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-std">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="delvilleshear_val_sstv.html">SST-Vm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-v">SST-Vm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="delvilleshear_val_ssglrrrsm.html">SSG/LRR-RSM-w2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-ssglrr.html#ssg-lrrRSM">SSG/LRR-RSM-w2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="delvilleshear_val_w06.html">Wilcox2006-klim-m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="wilcox.html#w06klim">Wilcox2006-klim-m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="delvilleshear_val_kkl-meah.html">K-kL-MEAH2015m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="kkl.html#kkl-meah2015">K-kL-MEAH2015m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="delvilleshear_val_easmkos.html">EASMko2003-S</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="easmko.html#easmko-s">EASMko2003-S eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2, SST, and SST-V
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+08/28/2020 - changed SST-V naming to SST-Vm<br>
+04/25/2016 - included exp normal stresses in new file:  delville_exp_turb.dat<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/12/2021
+<br>&nbsp;
+
+</body>
+</html>

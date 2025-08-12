@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>3D Modified Bump-in-channel Validation for Turbulence Model Numerical Analysis - SA-neg Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<br>&nbsp;
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<!--Jump to: <a href="flatplate_val_sst.html">SST Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-V Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006 Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2013 Results</a></p>-->
+<p>Return to: <a href="bump3d_mod_numerics_val.html">3D Modified Bump-in-channel Validation for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">3D Modified Bump-in-channel Validation</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">SA-neg Model Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="spalart.html#saneg">Link to SA-neg equations</a>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results are shown for the 3D modified bump-in-channel at M=0.2, Re=3 million based on unit length, and reference temperature
+of 540 R.
+Three different CFD codes (FUN3D, USM3D, and CFL3D) have been employed
+in an effort to try to discern the grid-converged result for this case. 
+Results here
+are for the <a href="spalart.html#saneg">SA-neg</a> variant of the SA model.
+However, SA-neg is passive to the
+original (SA) model in well-resolved flowfields, and hence is expected to yield essentially identical
+results as SA for the cases here.
+FUN3D and USM3D both used clipping method "a" with cutoff 0.00001 for <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" />,
+while CFL3D used clipping method "c" (see <u>Note 1</u> on
+<a href="spalart.html">the Spalart-Allmaras equation page</a>).
+For all codes, the farfield value of the Spalart turbulence variable is
+<img class="tex" alt="\tilde \nu_{farfield} \geq 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" />.
+In all codes the Prandtl number Pr is taken to be constant at 0.72, and turbulent Prandtl
+number Pr<sub>t</sub> is taken to be constant at 0.9.
+The dynamic viscosity is computed using
+Sutherland's Law (See White, F. M., "Viscous Fluid Flow," McGraw Hill, New York, 1974, p. 28).
+In Sutherland's Law, the local value of dynamic viscosity is determined by plugging the local value of temperature 
+(<i>T</i>) into the following formula:
+
+<dl>
+<dd><img class="tex" alt="\mu = \mu_0 \left( \frac{T}{T_0} \right)^{3/2} \left(
+\frac{T_0 + S}{T+S} \right)"
+  src="sutherland_eqns/img2.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_0 = 1.716 \times 10^{-5} kg/(ms)" src="sutherland_eqns/img3.png" />,
+<img class="tex" alt="T_0 = 491.6 R" src="sutherland_eqns/img4.png" />, and
+<img class="tex" alt="S = 198.6 R" src="sutherland_eqns/img5.png" />.
+The same formula can be found <a href="http://www.cfd-online.com/Wiki/Sutherland%27s_law" target="_blank">online</a>
+(with temperature constants given in degrees K and some small conversion differences).
+Note that in terms of the reference quantities <u>for this particular case</u>, Sutherland's Law can equivalently be written:
+
+<dl>
+<dd><img class="tex" alt="\left( \frac{\mu}{\mu_{ref}} \right) = \left( \frac{T}{T_{ref}} \right)^{3/2} \left(
+\frac{T_{ref} + S}{T+S} \right)"
+  src="sutherland_eqns/img6.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_{ref}" src="sutherland_eqns/img7.png" />
+is the reference dynamic viscosity that corresponds to the freestream in this case, and
+freestream <img class="tex" alt="T_{ref}" src="sutherland_eqns/img8.png" /> (as defined on the 
+<a href="bump3d_mod_numerics_val.html">previous</a> 
+page) is 540R.  This latter form may be more convenient for nondimensional codes.
+(Specific details regarding an implementation of Sutherland's Law in nondimensional codes can be found in
+<a href="Papers/sutherland_notes_cfl3d_fun3d.pdf">handwritten notes describing Sutherland's Law in CFL3D and FUN3D</a>.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+For this flow, an odd-even decoupling was originally observed in FUN3D on finer grids using the unweighted least-square 
+gradient. This decoupling was particularly noticeable, for example, in plots of Cp along a spanwise grid line
+somewhat upstream of the bump peak.
+Preliminary studies indicate the decoupling is associated with gradients near the inflection point 
+in the bump surface. 
+<!--Although not reported here, the instability occurred even on very coarse grids 
+using a full Reynolds stress model.-->
+The decoupling was eliminated in FUN3D
+by using a mapping method based on distance from the surface for
+the mean flow inviscid fluxes.  See AIAA paper 2016-0858,
+<a href="https://doi.org/10.2514/6.2016-0858">https://doi.org/10.2514/6.2016-0858</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Note that FUN3D and USM3D both ran this
+case with first order spatial accuracy on the turbulence advection term, whereas CFL3D used second order.
+
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium"><span style="color: blue">NOTE: The results below
+used the original
+posted grids, which  were based on the scaled NACA 0012 airfoil shape with a small typo in one of the coefficients.  Through
+testing, the typo has been found to make insignificant differences in the CFD results.  Even though results are
+expected to be essentially the same, they will be updated to reflect the
+corrected grids at some point in the future.</span></p>-->
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">Grid Convergence Behavior of Forces and Maximum Eddy Viscosity
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Plots are shown to illustrate grid convergence for the lift and drag coefficients.
+The contributions to the drag coefficient due to the viscosity and pressure are presented separately.
+Recall that all codes were run using <a href="spalart.html#saneg">SA-neg</a>.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/cl_gridconvergence.jpg" border="1" title="SA - lift coefficient vs h" 
+alt="SA - lift coefficient vs h">
+           <img
+src="Bump3d_modified_numerics/SA/cd_gridconvergence.jpg" border="1" title="SA - drag coefficient vs h" 
+alt="SA - drag coefficient vs h">
+        </p>
+        <p><img
+src="Bump3d_modified_numerics/SA/cdp_gridconvergence.jpg" border="1" title="SA - pressure drag coefficient vs h" 
+alt="SA - pressure drag coefficient vs h">
+           <img
+src="Bump3d_modified_numerics/SA/cdv_gridconvergence.jpg" border="1" title="SA - viscous drag coefficient vs h" 
+alt="SA - viscous drag coefficient vs h">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data files:
+<a href="Bump3d_modified_numerics/SA/fun3d_liftdrag_convergence_sa.dat">fun3d_liftdrag_convergence_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/usm3d_liftdrag_convergence_sa.dat">usm3d_liftdrag_convergence_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/cfl3d_liftdrag_convergence_sa.dat">cfl3d_liftdrag_convergence_sa.dat</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The plot below shows grid convergence of the maximum nondimensional eddy viscosity in the field.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/mut_gridconvergence.jpg" border="1" title="SA - maximum eddy viscosity vs h" 
+alt="SA - maximum eddy viscosity vs h">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plot can be found in the following data files:
+<a href="Bump3d_modified_numerics/SA/fun3d_mut_convergence_sa.dat">fun3d_mut_convergence_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/usm3d_mut_convergence_sa.dat">usm3d_mut_convergence_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/cfl3d_mut_convergence_sa.dat">cfl3d_mut_convergence_sa.dat</a>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">Cp Axially
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The overall Cp distribution (axially, on the body along y=0) 
+from the three codes on the finest grid are shown in the following figure.  All
+results are indistinguishable to plotting accuracy.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/cp_fineonly_C+U+F.jpg" border="1" title="SA - Cp vs x along y=0" 
+alt="SA - Cp vs x along y=0">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Zooming in to the minimum Cp region, the effect of grid for each of the three codes is shown in the
+following figures:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/cp_all_zoom_F.jpg" border="1" title="SA - Zoomed in Cp along y=0 for FUN3D, 4 grids" 
+alt="SA - Zoomed in Cp along y=0 for FUN3D, 4 grids">
+           <img
+src="Bump3d_modified_numerics/SA/cp_all_zoom_U.jpg" border="1" title="SA - Zoomed in Cp along y=0 for USM3D, 4 grids" 
+alt="SA - Zoomed in Cp along y=0 for USM3D, 4 grids">
+        </p>
+        <p><img
+src="Bump3d_modified_numerics/SA/cp_all_zoom_C.jpg" border="1" title="SA - Zoomed in Cp along y=0 for CFL3D, 4 grids" 
+alt="SA - Zoomed in Cp along y=0 for CFL3D, 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data files:
+<a href="Bump3d_modified_numerics/SA/fun3d_cp_axial_sa.dat">fun3d_cp_axial_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/usm3d_cp_axial_sa.dat">usm3d_cp_axial_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/cfl3d_cp_axial_sa.dat">cfl3d_cp_axial_sa.dat</a>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">Cp Along a Spanwise Grid Line
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following plots show Cp along a line on the surface of the bump, defined along:
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+x=0.690420848175 + 0.3*(sin(pi*y))**4
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The effect of grid for each code is shown.  Grid 4 is too coarse, and yields very poor results.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/cp_speciallinespanwise_all_F.jpg" border="1" title="SA - Cp along spanwise grid line for FUN3D, 4 grids" 
+alt="SA - Cp along spanwise grid line for FUN3D, 4 grids">
+           <img
+src="Bump3d_modified_numerics/SA/cp_speciallinespanwise_all_U.jpg" border="1" title="SA - Cp along spanwise grid line for USM3D, 4 grids" 
+alt="SA - Cp along spanwise grid line for USM3D, 4 grids">
+        </p>
+        <p><img
+src="Bump3d_modified_numerics/SA/cp_speciallinespanwise_all_C.jpg" border="1" title="SA - Cp along spanwise grid line for CFL3D, 4 grids" 
+alt="SA - Cp along spanwise grid line for CFL3D, 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data files:
+<a href="Bump3d_modified_numerics/SA/fun3d_cp_spanwise_sa.dat">fun3d_cp_spanwise_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/usm3d_cp_spanwise_sa.dat">usm3d_cp_spanwise_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/cfl3d_cp_spanwise_sa.dat">cfl3d_cp_spanwise_sa.dat</a>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">Flowfield Along a Vertical Line Behind the Bump
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following plots show a variety of flowfield quantities along a vertical line located at x=1.207912207,
+y=-0.125.
+First, Cp is plotted.  Then, the following
+nondimensional variables are shown: u/a_ref, v/a_ref, w/a_ref, and mu_t/mu_ref.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/cp_linebehind_F.jpg" border="1" title="SA - Cp along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids" 
+alt="SA - Cp along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids">
+           <img
+src="Bump3d_modified_numerics/SA/cp_linebehind_U.jpg" border="1" title="SA - Cp along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids" 
+alt="SA - Cp along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids">
+        </p>
+        <p><img
+src="Bump3d_modified_numerics/SA/cp_linebehind_C.jpg" border="1" title="SA - Cp along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids" 
+alt="SA - Cp along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids">
+        </p> 
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/u_linebehind_F.jpg" border="1" title="SA - u/a_ref along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids" 
+alt="SA - u/a_ref along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids">
+           <img
+src="Bump3d_modified_numerics/SA/u_linebehind_U.jpg" border="1" title="SA - u/a_ref along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids" 
+alt="SA - u/a_ref along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids">
+        </p>
+        <p><img
+src="Bump3d_modified_numerics/SA/u_linebehind_C.jpg" border="1" title="SA - u/a_ref along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids" 
+alt="SA - u/a_ref along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/v_linebehind_F.jpg" border="1" title="SA - v/a_ref along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids" 
+alt="SA - v/a_ref along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids">
+           <img
+src="Bump3d_modified_numerics/SA/v_linebehind_U.jpg" border="1" title="SA - v/a_ref along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids" 
+alt="SA - v/a_ref along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids">
+        </p>
+        <p><img
+src="Bump3d_modified_numerics/SA/v_linebehind_C.jpg" border="1" title="SA - v/a_ref along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids" 
+alt="SA - v/a_ref along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/w_linebehind_F.jpg" border="1" title="SA - w/a_ref along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids" 
+alt="SA - w/a_ref along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids">
+           <img
+src="Bump3d_modified_numerics/SA/w_linebehind_U.jpg" border="1" title="SA - w/a_ref along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids" 
+alt="SA - w/a_ref along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids">
+        </p>
+        <p><img
+src="Bump3d_modified_numerics/SA/w_linebehind_C.jpg" border="1" title="SA - w/a_ref along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids" 
+alt="SA - w/a_ref along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data files:
+<a href="Bump3d_modified_numerics/SA/fun3d_flow_vert_sa.dat">fun3d_flow_vert_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/usm3d_flow_vert_sa.dat">usm3d_flow_vert_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/cfl3d_flow_vert_sa.dat">cfl3d_flow_vert_sa.dat</a>.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump3d_modified_numerics/SA/mut_linebehind_F.jpg" border="1" title="SA - eddy viscosity along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids" 
+alt="SA - eddy viscosity along vertical line at x=1.207912207, y=-0.125 for FUN3D, 4 grids">
+           <img
+src="Bump3d_modified_numerics/SA/mut_linebehind_U.jpg" border="1" title="SA - eddy viscosity along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids" 
+alt="SA - eddy viscosity along vertical line at x=1.207912207, y=-0.125 for USM3D, 4 grids">
+        </p>
+        <p><img
+src="Bump3d_modified_numerics/SA/mut_linebehind_C.jpg" border="1" title="SA - eddy viscosity along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids" 
+alt="SA - eddy viscosity along vertical line at x=1.207912207, y=-0.125 for CFL3D, 4 grids">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Results that generated the above plots can be found in the following data files:
+<a href="Bump3d_modified_numerics/SA/fun3d_mut_vert_sa.dat">fun3d_mut_vert_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/usm3d_mut_vert_sa.dat">usm3d_mut_vert_sa.dat</a>,
+<a href="Bump3d_modified_numerics/SA/cfl3d_mut_vert_sa.dat">cfl3d_mut_vert_sa.dat</a>.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Recall that the order of accuracy of the turbulent advection is 1st order for FUN3D and USM3D, and 2nd order
+for CFL3D in all the results shown so far. 
+This order of accuracy has some minor noticeable influence
+on the eddy viscosity in the solution, as can be demonstrated by running CFL3D with 1st order turbulence advection and comparing results.  
+Overall, the maximum eddy viscosity in the field is affected somewhat on any given grid, although it still
+appears to be approaching the same value on an infinite grid (see first plot below).
+The effect on a specific eddy viscosity profile located at x=1.207912207, y=-0.125 is demonstrated in the second plot below.
+As can be seen, on the finest grid the results from the three codes
+are almost identical when the same order of accuracy is employed.
+The effect of higher accuracy is to yield slightly larger maximum eddy viscosity, as well as to "sharpen"
+the edge of the profile near z = 0.022 - 0.024.
+The third plot shows detail near the edge of turbulence, including the progression with grid refinement
+on the three finest grids.  It appears (for both 1st and 2nd order turbulence advection) that grid refinement drives toward a
+"sharper" edge, but use of 2nd order turbulence advection approaches there faster (i.e., sharper result with less grid points). 
+The fourth plot shows detail near the peak eddy viscosity region, including the progression with grid refinement
+on the three finest grids.  Results using 1st order turbulence advection are still changing between grid levels, whereas
+for 2nd order turbulence advection, the peak results are essentially the same on the 2 finest grids.
+
+        <p><img
+src="Bump3d_modified_numerics/SA/mut_gridconvergence_turborder.jpg" border="1" title="SA - maximum eddy viscosity vs. h (including CFL3D 1st order turb advection)" 
+alt="SA - maximum eddy viscosity vs. h (including CFL3D 1st order turb advection)">
+           <img
+src="Bump3d_modified_numerics/SA/mut_linebehind_finest_C+U+F.jpg" border="1" title="SA - eddy viscosity along vertical line at x=1.207912207, y=-0.125 for all codes, finest grid" 
+alt="SA - eddy viscosity along vertical line at x=1.207912207, y=-0.125 for all codes, finest grid">
+        <p><img
+src="Bump3d_modified_numerics/SA/mut_linebehind_progression_C+U+F.jpg" border="1" title="SA - detail showing eddy viscosity progression on three finest grids near edge" 
+alt="SA - detail showing eddy viscosity progression on three finest grids near edge">
+           <img
+src="Bump3d_modified_numerics/SA/mut_linebehind_progression2_C+U+F.jpg" border="1" title="SA - detail showing eddy viscosity progression on three finest grids near peak" 
+alt="SA - detail showing eddy viscosity progression on three finest grids near peak">
+        </p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+CFL3D results with 1st order turbulence advection can be found in the following data file:
+<a href="Bump3d_modified_numerics/SA/cfl3d_mut_vert_sa_1storderturbadvect.dat">
+cfl3d_mut_vert_sa_1storderturbadvect.dat</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<!--Jump to: <a href="flatplate_val_sst.html">SST Results</a>,&nbsp;
+         <a href="flatplate_val_sstv.html">SST-V Results</a>,&nbsp;
+         <a href="flatplate_val_w06.html">Wilcox2006 Results</a>,&nbsp;
+         <a href="flatplate_val_easmkos.html">EASMko2003-S Results</a>,&nbsp;
+         <a href="flatplate_val_kert.html">K-e-Rt Results</a>,&nbsp;
+         <a href="flatplate_val_kkl-meah.html">K-kL-MEAH2013 Results</a></p>-->
+<p>Return to: <a href="bump3d_mod_numerics_val.html">3D Modified Bump-in-channel Validation for Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+11/10/2015 - sorted the FUN3D and USM3D data files
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/08/2021
+<br>&nbsp;
+
+</body>
+</html>

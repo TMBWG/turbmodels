@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Axisymmetric Transonic Bump</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">ATB: Axisymmetric Transonic Bump</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a 
+validation case for turbulence models. Unlike verification, which seeks to 
+establish that a model has been implemented correctly, validation compares 
+CFD results against data in an effort to establish a model's ability to 
+reproduce physics. A large sequence of nested grids of the same family are 
+provided here if desired. Data are also provided for comparison. For this 
+axisymmetric transonic bump case, 
+the data is from experiment (Bachalo, W. D. and Johnson D. A., "An Investigation of 
+Transonic Turbulent Boundary Layer Separation Generated on an Axisymmetric Flow Model," 
+AIAA Paper 79-1479,
+<a href="https://doi.org/10.2514/6.1979-1479">https://doi.org/10.2514/6.1979-1479</a> and
+the primary reference:
+Bachalo, W. D. and Johnson, D. A., "Transonic, Turbulent Boundary-Layer Separation 
+Generated on an Axisymmetric Flow Model," AIAA Journal, Vol. 24, No. 3, 1986, pp. 437-443,
+<a href="https://doi.org/10.2514/3.9286">https://doi.org/10.2514/3.9286</a>). 
+
+<p>The experiment utilized a circular-arc bump with a height of 1.905 cm and a 
+length of 20.32 cm attached to a thin-walled cylinder of 15.24 cm diameter.  The experiment 
+was performed in the NASA-Ames, 2ft x 2ft transonic wind tunnel (a closed return, 
+variable density, continuous-running tunnel with 21% open porous-slotted 
+upper and lower walls). The boundary layer incident on the bump was approximately 
+1 cm thick.  In the experimental case with Mach number of 0.875, the combination 
+of shock and trailing-edge adverse gradient caused flow separation. The flow 
+subsequently reattached downstream of the bump.
+
+<p>It is important to note that this axisymmetric case is not a 2-D computation; it uses a
+periodic (rotated) grid system with appropriate boundary conditions on the periodic sides of the grid.
+Also, the current BCs for this CFD case assume basically an unconstrained "freestream-type"
+boundary using a Riemann invariant BC (similar to
+the way this case was computed back in the 1990s).  This is very different from the wind tunnel 
+experiment itself (see below).  However, the results are still considered representative.
+
+<p>With the goal of obtaining more extensive flow field data at a lower chord Re number and 
+measurements of skin friction, experiments were conducted at the Sandia National Laboratories, 
+Albuquerque, New Mexico as described in "Experimental Characterization of an Axisymmetric Transonic 
+Separated Flow for Computational Fluid Dynamics Validation" by Lynch et al. (AIAA Journal,
+Vol. 61, No. 4, 2023, pp. 1623-1638,
+<a href="https://doi.org/10.2514/1.J062278">https://doi.org/10.2514/1.J062278</a>).
+An available download of the experimental data can be found on the TMR website at:
+<a href="Other_exp_Data/sandia_transonicaxibump_exp.html">Exp: Sandia Axisymmetric Transonic Bump (revisiting Bachalo-Johnson)</a>.
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Axi_Bump_validation/bcs.jpg" border="1" title="Axisymmetric Bump case layout & BCs" alt="Axisymmetric Bump case layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="axibump_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+
+<p>This axisymmetric bump was also tested in a solid-wall 6ft x 6ft tunnel (see AIAA Journal 22(7),1984:1001-1003, 
+<a href="https://doi.org/10.2514/3.48539">https://doi.org/10.2514/3.48539</a>,
+AIAA Paper 85-1683, 
+<a href="https://doi.org/10.2514/6.1985-1683">https://doi.org/10.2514/6.1985-1683</a>, 
+and AIAA Journal 25(2),1987:252-259, 
+<a href="https://doi.org/10.2514/3.9615">https://doi.org/10.2514/3.9615</a>. 
+Only surface pressure data and separation/reattachment locations as determined from oil-flow 
+visualizations were obtained in this larger wind tunnel.
+Surface pressures obtained at the same reported freestream Mach number of
+M = 0.875 (fig.1, AIAA J. 25(2)1987:252-259 and fig.2 AIAA Paper 85-1683) 
+showed only small differences from results in the 2ft x 2ft tunnel. However, in AIAA Paper 85-1683, it was noted that 
+the shock location was 0.01 to 0.015 chord forward in the larger wind tunnel at all supercritical 
+conditions.  Also, at the reported condition of M = 0.875 in the larger tunnel, 
+separation occurred at x/c approx 0.69 and reattachment at x/c approx 1.17, as compared 
+to x/c approx 0.7 and x/c approx 1.1 as reported by Bachalo and Johnson.
+
+<p>WRLES solutions have been obtained for this flow by Uzun and Malik, AIAA Journal, Vol. 57, No. 5, 2019, pp. 1955-1972,
+<a href="https://doi.org/10.2514/1.J057850">https://doi.org/10.2514/1.J057850</a>.  
+(See also the TMR page: 
+<a href="Other_LES_Data/transbump_uzun_2018.html">LES: Compressible Axisymmetric Transonic Separated Bump</a>.)
+In the calculations, characteristic (freestream) boundary conditions were applied at y/c = 10.
+
+<!--This axisymmetric bump was tested in both a 2ft x 2ft tunnel 
+(AIAA Journal, Vol. 24, No. 3, 1986, pp. 437-443,
+<a href="https://doi.org/10.2514/3.9286">https://doi.org/10.2514/3.9286</a>)
+as well as in a 6ft x 6ft tunnel (see AIAA Paper 85-1683,
+<a href="https://doi.org/10.2514/6.1985-1683">https://doi.org/10.2514/6.1985-1683</a>, 
+AIAA Journal 25(2),1987:252-259, 
+<a href="https://doi.org/10.2514/3.9615">https://doi.org/10.2514/3.9615</a> and 
+AIAA Journal 22(7),1984:1001-1003,
+<a href="https://doi.org/10.2514/3.48539">https://doi.org/10.2514/3.48539</a>). 
+Only surface pressure data and separation/reattachment locations as determined from 
+oil-flow visualizations were obtained in the larger wind tunnel.   Surface pressure 
+comparisons (fig. 1, AIAA J. 25(2)1987:252:259 and fig. 2, AIAA Paper 85-1683) 
+noted that tunnel wall effects in the smaller wind tunnel were minimal
+(shock wave locations 
+were only slightly forward in the larger wind tunnel compared to the smaller wind tunnel).
+The experimentalists noted that there was 
+very little difference in surface pressures, although the shock was always 
+about 0.01 to 0.015 chord further forward in the larger tunnel (see Fig. 2 in 
+AIAA Paper 85-1683).
+Also, the separation and reattachment locations may have 
+been slightly different.
+<p>In the 2ft x 2ft tunnel, the flow separation point 
+was near x/c = 0.7 and the reattachment point was estimated to be near x/c = 1.1.  
+In the 6ft x 6ft tunnel, the reattachment location appeared to be slightly further downstream,
+somewhere between x/c=1.1 and 1.2
+(see fig. 8 in AIAA Paper 85-1683).  However, it is difficult to give a
+precise value because there were very large changes with Mach number (steep slope)
+in the separation/reattachment locations near M=0.875.
+-->
+ 
+<p>Below are two oil flow photographs from the experiment at M=0.875 (courtesy 
+Dennis Johnson).  The first is from the 2ft x 2ft tunnel and the second is 
+from the 6ft x 6ft tunnel.  Flow is from right to left. 
+<!--A cautionary note:  
+these oil flows should only be used for illustrative purposes.  To truly 
+define the reattachment location, one would have needed to apply a very thin 
+coat of oil judiciously downstream of the bump. Also, in the 2x2 tunnel entries, 
+there was no emphasis on defining separation/reattachment as a function of 
+Mach number, as there was in the 6x6 tunnel entries.-->
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Axi_Bump_validation/oilflow_2x2_M0.875.jpg" border="1" width="750" title="Axisymmetric Transonic Bump oil flow in 2ft x 2ft tunnel" alt="Axisymmetric Transonic Bump oil flow in 2ft x 2ft tunnel">
+           <img
+src="Axi_Bump_validation/oilflow_6x6_M0.875.jpg" border="1" width="750" title="Axisymmetric Transonic Bump oil flow in 6ft x 6ft tunnel" alt="Axisymmetric Transonic Bump oil flow in 6ft x 6ft tunnel">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+ 
+<p>Some of the experimental data for this case are shown below
+(all of it is from the 2ft x 2ft tunnel test).
+Velocity and turbulence profiles of interest are chosen at the following x/c locations: 
+x/c=-0.25, 0.688, 0.813, 1.000,
+1.125, and 1.375. (The profile at x/c=0.688 is near the shock location.)
+The u and v velocity components are parallel and normal to the model axis, respectively.
+<u>Note that for the Transonic Bump data, the coordinate normal to the model axis, y'/c, 
+is defined such that y'/c=0 on the cylinder surface.</u>
+
+<p>As mentioned above, the primary experimental data reference is:  Bachalo, W. D. and Johnson, D. A., 
+"Transonic, Turbulent Boundary-Layer Separation Generated on an Axisymmetric Flow Model,"
+AIAA Journal, Vol. 24, No. 3, 1986, pp. 437-443,
+<a href="https://doi.org/10.2514/3.9286">https://doi.org/10.2514/3.9286</a>.
+
+<p>Note that the model was designed and built under the English measurement system:
+c = 8 inches, t = 3/4 inches, and d = 6 inches.
+AIAA insisted on conversion to metric dimensions and unfortunately, the conversions were rounded
+in the journal article.
+The shape the bump is a circular arc with length 20.32 cm and height 
+1.905 cm
+above the cylinder radius.  There is a leading edge fillet.  For the current grids,
+the shape of the fillet was taken from graphically-defined 
+estimations used in previous studies, because the radius
+definition given in Bachalo and Johnson does not lead to tangential intersections on both surfaces as
+described.  However, the leading edge fillet radius was believed to be
+somewhere in the range of 18.3 cm to 20.32 cm, with
+the references listing the former number.  Although there was <i>no</i> fillet at the trailing edge of
+the bump in the experiment, the current body definition
+applies a very small fillet at the trailing edge between the bump and the cylinder.
+This additional T.E. fillet was included in previous computations from several decades ago, and was
+left in place here for the time being.  CFD tests conducted at NTS (Russia) both with and without the small T.E. fillet 
+indicate minimal effect.
+A list of points (defining the bump shape used in the current grids and computations provided here) is given as
+<a href="Axi_Bump_grids/bumpgrd.surfpts_orig.dat">bumpgrd.surfpts_orig.dat</a>.
+
+<p>An older version of the experimental data is available on this site from:
+<ul>
+<li><a href="bradshaw.html">Data from "Collaborative Testing of Turbulence Models"</a> (Case F-8611)
+</ul>
+
+<p>These data and the present data have been corrected for velocity biasing as suggested by McLaughlin and Teiderman 
+(reference given in the Case F-8611 description).  Freestream turbulence level approx 0.6%, AIAA Paper 81-0156,
+<a href="https://doi.org/10.2514/6.1981-156">https://doi.org/10.2514/6.1981-156</a>.
+
+<!--<p>It is worth noting that this axisymmetric bump was tested in both a 2ft x 2ft tunnel as well as in a
+6ft x 6ft tunnel (see AIAA Paper 85-1683 and AIAA Journal 22(7),1984:1001-1003).
+The experimentalists noted that there was very little difference in surface
+pressures, although the shock was always about 0.01 to 0.015 chord further forward
+in the larger tunnel (see Fig. 2 in AIAA Paper 85-1683).
+The data given below is from the 2ft x 2ft tunnel test.-->
+
+<p>
+
+<p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Axi_Bump_validation/cp.exp.jpg" border="1" title="Axisymmetric Transonic Bump surface pressure coefficients" alt="Axisymmetric Transonic Bump surface pressure coefficients">
+           <img
+src="Axi_Bump_validation/exp.uprofile.jpg" border="1" title="Axisymmetric Transonic Bump u-velocities" alt="Axisymmetric Transonic Bump u-velocities">
+           <img
+src="Axi_Bump_validation/exp.upvpprofile.jpg" border="1" title="Axisymmetric Transonic Bump specific turbulent shear stress" alt="Axisymmetric Transonic Bump specific turbulent shear stress">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+Note that the point connecting lines have been added for plot clarity.
+<p>The experimental data used are provided here:
+<ul>
+<li><a href="Axi_Bump_validation/cp.exp.dat">Axi_Bump Cp data</a></li>
+<li><a href="Axi_Bump_validation/exp.uprofile.dat">Axi_Bump velocity profiles</a></li>
+<li><a href="Axi_Bump_validation/exp.upvpprofile.dat">Axi_Bump u'v' profiles</a></li>
+</ul>
+<p>Additional experimental data:
+<ul>
+<li><a href="Axi_Bump_validation/exp.kprofile.dat">Axi_Bump TKE profiles</a></li>
+<li><a href="Axi_Bump_validation/exp.alldata.875.dat">Axi_Bump - all data profiles</a> <- modification to comments section 11/17/2017</li>
+</ul>
+
+<br>&nbsp;
+<p>Dennis Johnson (NASA Ames, retired) is gratefully acknowledged for providing additional detailed
+information for this case.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axibump_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axibump_val_sarc.html">SA-RC</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#saRC">SA-RC eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axibump_val_sst.html">SSTm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-std">SSTm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axibump_val_sst2003.html">SST-2003m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-2003">SST-2003m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axibump_val_sstrc.html">SST-RCm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-rc">SST-RCm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axibump_val_bsl.html">BSLm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="bsl.html#bsl-std">BSLm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axibump_val_ssglrrrsm.html">SSG/LRR-RSM-w2012</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="rsm-ssglrr.html#ssg-lrrRSM">SSG/LRR-RSM-w2012 eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axibump_val_w06.html">Wilcox2006-klim-m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="wilcox.html#w06klim">Wilcox2006-klim-m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="axibump_val_kkl-meah.html">K-kL-MEAH2015m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="kkl.html#kkl-meah2015">K-kL-MEAH2015m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2 and SST
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+09/03/2024 - some clarifications made to the wording<br>
+07/15/2022 - added statement regarding newer Sandia test case, including link to its EXP page<br>
+11/17/2017 - modified wording for clarity, added oil flow photos<br>
+07/08/2016 - added link to SST-RC results<br>
+03/25/2016 - added "Axi_Bump - all data profiles"<br>
+01/13/2016 - added link to SA-RC results<br>
+02/19/2015 - added bump surface points used to create current grids<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 09/03/2024
+<br>&nbsp;
+
+</body>
+</html>

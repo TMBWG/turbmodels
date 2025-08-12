@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - 3D Supersonic Square Duct</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="3dsqduct_val.html">3D Supersonic Square Duct Validation Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids - 3D Supersonic Square Duct Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The methodology to create a series of 3 nested 3-D grids is provided.  
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from 961 x 161 x 161 (fine) to 481 x 81 x 81 (medium) to 241 x 41 x 41 (coarse) grid.
+The grids are built in nondimensional units, with full duct width D taken to be 1 unit.  Due to use of symmetry boundary
+conditions, only one quarter of the duct is computed (y and z ranges are from 0 to 0.5).
+The finest grid has minimum spacing at the wall of y=8.5 x 10<sup>-6</sup>, yielding an average minimum y+ of about 0.022.
+The grid is stretched in the two wall-normal directions.
+The figures below show a view of one plane of the 481 x 81 x 81 grid.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="3dsqduct_grids/3dsqduct_gridview.jpg" border="1" title="One plane of 481 x 81 x 81 3D square duct grid" alt="One plane of 481 x 81 x 81 3D square duct grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading (or writing) the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">STRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>A simple <a href="3dsqduct_grids/make_duct_grid3.f">FORTRAN program</a> (modified 7/17/2015 to correct a minor bug
+in writing out the indices for the (2-D) 41x41 plane of points) 
+is provided that can be used to generate the 3 grids in PLOT3D format.  All information has been hardwired 
+into the program.
+
+<p>Alternatively, three structured Y-Z planes are provided below.  
+Read these, then write your own program to duplicate the plane as appropriate in the x-direction.
+Format for the structured 2D grids is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((y(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((z(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 2-D planar grid sections in PLOT3D format here:
+<ul>
+<li><a href="3dsqduct_grids/duct.p2dfmt">
+        (2-D) 161 x 161 plane of points </a> (1.3 MB)
+<li><a href="3dsqduct_grids/duct_half.p2dfmt">
+        (2-D) 81 x 81 plane of points </a> (&lt; 1 MB)
+<li><a href="3dsqduct_grids/duct_quarter.p2dfmt">
+        (2-D) 41 x 41 plane of points </a> (&lt; 1 MB) (modified 7/17/2015 to fix minor bug in indices)
+</ul>
+
+<p>The 161 x 161 plane should be duplicated 961 times (961 planes in x, between x=0 and x=52 inclusive, with delta x = 0.054166666667.
+<p>The 81 x 81 plane should be duplicated 481 times (481 planes in x, between x=0 and x=52 inclusive, with delta x = 0.1083333333333.
+<p>The 41 x 41 plane should be duplicated 241 times (241 planes in x, between x=0 and x=52 inclusive, with delta x = 0.2166666666667.
+
+
+<p>If desired, example Neutral Map Files 
+associated with 3-D version of the grids are given here (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="3dsqduct_grids/duct.nmf">
+        Neutral Map File for (3-D) 961 x 161 x 161 </a> (updated 3/9/2015)
+<li><a href="3dsqduct_grids/duct_half.nmf">
+        Neutral Map File for (3-D) 481 x 81 x 81 </a> (updated 3/9/2015)
+<li><a href="3dsqduct_grids/duct_quarter.nmf">
+        Neutral Map File for (3-D) 241 x 41 x 41 </a> (updated 3/9/2015)
+</ul>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The structured grids are also available as CGNS files (3-D versions only). Note that the BCs written inside the 
+CGNS files are for guidance only, and may not reflect the appropriate BCs needed for your application. 
+To read/write CGNS files, (free) software may be necessary if your pre/post-processing tools do not already handle it. 
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>Download the 3-D version of the grids in CGNS format (gzipped) here:
+<ul>
+<li><a href="3dsqduct_grids/duct_961_161_161.cgns.gz">
+        (3-D) 961 x 161 x 161 CGNS</a> (2.4 MB)
+<li><a href="3dsqduct_grids/duct_481_81_81.cgns.gz">
+        (3-D) 481 x 81 x 81 CGNS</a> (&lt; 1 MB)
+<li><a href="3dsqduct_grids/duct_241_41_41.cgns.gz">
+        (3-D) 241 x 41 x 41 CGNS</a> (&lt; 1 MB)
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">UNSTRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The unstructured versions of the same grids are all given as CGNS files.
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+The unstructured grids are all given as hexahedra.
+
+<p>Download the unstructured CGNS grids (gzipped) as 3-D hexahedra here:
+<ul>
+<li><a href="3dsqduct_grids/duct_961_161_161_unstr.cgns.gz">
+        (3-D) unstructured hex version of 961 x 161 x 161 CGNS</a> (211.2 MB)
+<li><a href="3dsqduct_grids/duct_481_81_81_unstr.cgns.gz">
+        (3-D) unstructured hex version of 481 x 81 x 81 CGNS</a> (25.9 MB)
+<li><a href="3dsqduct_grids/duct_241_41_41_unstr.cgns.gz">
+        (3-D) unstructured hex version of 241 x 41 x 41 CGNS</a> (3.4 MB)
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="3dsqduct_val.html">3D Supersonic Square Duct Validation Case Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/13/2019
+<br>&nbsp;
+
+</body>
+</html>

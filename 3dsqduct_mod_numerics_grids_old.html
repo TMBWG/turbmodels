@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - 3D Modified Supersonic Square Duct for Turbulence Model Numerical Analysis (old)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="3dsqduct_mod_numerics_val.html">3D Modified Supersonic Square Duct Validation Case for Turbulence Model Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">TURBULENCE MODEL NUMERICAL ANALYSIS</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Grids - 3D Modified Supersonic Square Duct Case (old)</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><b>NOTE: These are older grids (pre-2021). Updated grids can be found at:
+<a href="3dsqduct_mod_numerics_grids.html">Grids - 3D Modified Supersonic Square Duct Case</a>.</b>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The methodology to create a series of 4 nested 3-D grids is provided.  
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from 673 x 193 x 193 (fine) to 337 x 97 x 97 (medium) to 169 x 49 x 49 (coarse) to
+85 x 25 x 25 (extra-coarse) grid.
+The grids are built in nondimensional units, with full duct width D taken to be 1 unit.  Due to use of symmetry boundary
+conditions, only one quarter of the duct is computed (y and z ranges are from 0 to 0.5).
+The finest grid has minimum spacing at the wall of y=8.5 x 10<sup>-6</sup>, yielding an average minimum y+ of about 0.022.
+The grid is stretched in the two wall-normal directions.
+The figure below shows a view of one plane of the 337 x 97 x 97 grid.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="3dsqduct_mod_numerics/3dsqduct_mod_gridview.jpg" border="1" title="One plane of 337 x 97 x 97 3D square duct grid" alt="One plane of 337 x 97 x 97 3D square duct grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading (or writing) the grids!
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">STRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">PLOT3D Files</strong>
+
+<p>A simple <a href="3dsqduct_mod_numerics/make_duct_grid_numerics.f">FORTRAN program</a>
+is provided that can be used to generate the 4 grids in PLOT3D format.  All information has been hardwired 
+into the program.
+These grids are different from the grids found for the
+<a href="3dsqduct_grids.html">3D Supersonic Square Duct Validation Case</a> in the following way:
+(1) the grid is extended upstream of x=0 (to x=-1.26829), to allow for a small run of symmetry side 
+wall boundary conditions prior to the start of the duct; (2) the grid size in the y-z plane has been
+<i>increased</i> somewhat; and (3) the grid size in the streamwise (x) direction has been <i>decreased</i>
+somewhat.
+
+<p>Four structured Y-Z planes are also provided below.  
+Read these, then write your own program to duplicate the plane as appropriate in the x-direction.
+Format for the structured 2D grids is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((y(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((z(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 2-D planar grid sections in PLOT3D format here:
+<ul>
+<li><a href="3dsqduct_mod_numerics/ductmod.p2dfmt">
+        (2-D) 193 x 193 plane of points </a> (1.8 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_half.p2dfmt">
+        (2-D) 97 x 97 plane of points </a> (&lt; 1 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_quarter.p2dfmt">
+        (2-D) 49 x 49 plane of points </a> (&lt; 1 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_eighth.p2dfmt">
+        (2-D) 25 x 25 plane of points </a> (&lt; 1 MB)
+</ul>
+
+<p>The 193 x 193 plane should be duplicated 673 times (673 planes in x, between x=-1.26829 and x=52 inclusive, with delta x = 0.079268292683.
+<p>The 97 x 97 plane should be duplicated 337 times (337 planes in x, between x=-1.26829 and x=52 inclusive, with delta x = 0.158536585366.
+<p>The 49 x 49 plane should be duplicated 169 times (169 planes in x, between x=-1.26829 and x=52 inclusive, with delta x = 0.317073170732.
+<p>The 25 x 25 plane should be duplicated 85 times (85 planes in x, between x=-1.26829 and x=52 inclusive, with delta x = 0.634146341463.
+
+<p>If desired, example Neutral Map Files 
+associated with 3-D version of the grids are given here (these files specify grid indices associated
+with each boundary condition - see 
+<a href="nmf_documentation.html" target="_blank">The Neutral Map File</a>):
+<ul>
+<li><a href="3dsqduct_mod_numerics/ductmod.nmf">
+        Neutral Map File for (3-D) 673 x 193 x 193 </a>
+<li><a href="3dsqduct_mod_numerics/ductmod_half.nmf">
+        Neutral Map File for (3-D) 337 x 97 x 97 </a>
+<li><a href="3dsqduct_mod_numerics/ductmod_quarter.nmf">
+        Neutral Map File for (3-D) 169 x 49 x 49 </a>
+<li><a href="3dsqduct_mod_numerics/ductmod_eighth.nmf">
+        Neutral Map File for (3-D) 85 x 25 x 25 </a>
+</ul>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The structured grids are also available as CGNS files (3-D versions only). Note that the BCs written inside the 
+CGNS files are for guidance only, and may not reflect the appropriate BCs needed for your application. 
+To read/write CGNS files, (free) software may be necessary if your pre/post-processing tools do not already handle it. 
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+
+<p>Download the 3-D version of the grids in CGNS format (gzipped) here:
+<ul>
+<li><a href="3dsqduct_mod_numerics/ductmod_673_193_193.cgns.gz">
+        (3-D) 673 x 193 x 193 CGNS</a> (2.2 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_337_97_97.cgns.gz">
+        (3-D) 337 x 97 x 97 CGNS</a> (&lt; 1 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_169_49_49.cgns.gz">
+        (3-D) 169 x 49 x 49 CGNS</a> (&lt; 1 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_85_25_25.cgns.gz">
+        (3-D) 85 x 25 x 25 CGNS</a> (&lt; 1 MB)
+</ul>
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">UNSTRUCTURED VERSIONS OF GRIDS</strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">CGNS Files</strong>
+
+<p>The unstructured versions of the same grids are all given as CGNS files.
+Note that the BCs written inside the CGNS files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.
+<!--Also note that the CGNS symmetry BC "BCSymmetryPlane" does not delineate which axis the symmetry is taken
+about, as is required by some solvers.-->
+To read/write CGNS files, (free) software
+may be necessary if your pre/post-processing tools do not already handle it.
+See: <a href="http://cgns.github.io/" target="_blank">CGNS Website</a> for details.
+The unstructured grids are all given as hexahedra.
+
+<p>Download the unstructured CGNS grids (gzipped) as 3-D hexahedra here:
+<ul>
+<li><a href="3dsqduct_mod_numerics/ductmod_673_193_193_unstr.cgns.gz">
+        (3-D) unstructured hex version of 673 x 193 x 193 CGNS</a> (206.8 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_337_97_97_unstr.cgns.gz">
+        (3-D) unstructured hex version of 337 x 97 x 97 CGNS</a> (26.5 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_169_49_49_unstr.cgns.gz">
+        (3-D) unstructured hex version of 169 x 49 x 49 CGNS</a> (3.4 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_85_25_25_unstr.cgns.gz">
+        (3-D) unstructured hex version of 85 x 25 x 25 CGNS</a> (&lt; 1 MB)
+</ul>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">AFLR3 Files for FUN3D</strong>
+
+<p>The unstructured versions of the same grids are provided here as AFLR3 files for use with
+FUN3D.  Note that the BCs given in the corresponding .mapbc files are for guidance only, and may not reflect
+the appropriate BCs needed for your application.  For example, bc type 5000, used here at the
+inflow, corresponds to farfield Riemann type.
+
+<p>Download the unstructured AFLR3 grids (gzipped) as 3-D hexahedra here:
+<ul>
+<li><a href="3dsqduct_mod_numerics/ductmod_673_193_193_unstr.b8.ugrid.gz">
+        (3-D) unstructured hex version of 673 x 193 x 193 AFLR3</a> (298.7 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_337_97_97_unstr.b8.ugrid.gz">
+        (3-D) unstructured hex version of 337 x 97 x 97 AFLR3</a> (36.3 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_169_49_49_unstr.b8.ugrid.gz">
+        (3-D) unstructured hex version of 169 x 49 x 49 AFLR3</a> (4.3 MB)
+<li><a href="3dsqduct_mod_numerics/ductmod_85_25_25_unstr.b8.ugrid.gz">
+        (3-D) unstructured hex version of 85 x 25 x 25 AFLR3</a> (&lt; 1 MB)
+</ul>
+<p>Download the corresponding .mapbc files here:
+<ul>
+<li><a href="3dsqduct_mod_numerics/ductmod_673_193_193_unstr.mapbc">
+        (3-D) mapbc file for 673 x 193 x 193 AFLR3</a>
+<li><a href="3dsqduct_mod_numerics/ductmod_337_97_97_unstr.mapbc">
+        (3-D) mapbc file for 337 x 97 x 97 AFLR3</a>
+<li><a href="3dsqduct_mod_numerics/ductmod_169_49_49_unstr.mapbc">
+        (3-D) mapbc file for 169 x 49 x 49 AFLR3</a>
+<li><a href="3dsqduct_mod_numerics/ductmod_85_25_25_unstr.mapbc">
+        (3-D) mapbc file for 85 x 25 x 25 AFLR3</a>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="3dsqduct_mod_numerics_val.html">3D Modified Supersonic Square Duct Validation Case for Turbulence Model Numerical Analysis Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/26/2021
+<br>&nbsp;
+
+</body>
+</html>

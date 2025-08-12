@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Zero Pressure Gradient High Mach Number Flat Plate Validation - K-e-Rt Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+<br>&nbsp;
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="ZPGflatplateSS_val_sa.html">SA Results</a>,&nbsp;
+         <a href="ZPGflatplateSS_val_sstv.html">SST-Vm Results</a>,&nbsp;
+         <a href="ZPGflatplateSS_val_w06.html">Wilcox2006-klim-m Results</a>,&nbsp;
+         <a href="ZPGflatplateSS_val_easmkos.html">EASMko2003-S Results</a></p>
+<p>Return to: <a href="ZPGflatplateSS_val.html">High Mach Number Flat Plate Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2D Zero Pressure Gradient High Mach Number Flat Plate
+Validation Case</strong>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">K-e-Rt Model Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="ke-rt.html">Link to k-e-Rt equations</a>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="ZPGflatplateSS_validation/cf_van2_kert.jpg" border="1" title="K-e-Rt - cf vs Retheta" alt="K-e-Rt - cf vs Retheta">
+           <img
+src="ZPGflatplateSS_validation/van1_kert.jpg" border="1" title="K-e-Rt - u+ vs y+ at Retheta=10000" alt="K-e-Rt - u+ vs y+ at Retheta=10000">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Note that thorough
+grid studies were not performed for <u>validation</u> cases such as this one.
+Some effort was made to ensure reasonable grid resolutions, but there may still be
+small noticeable discretization errors.  Therefore, these validation results shown should be considered
+representative, but not "truth."
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Above results are from CFD++ on the 545x385 grid.
+CFD++ used freestream turbulence intensity=1.0% and freestream turbulent viscosity (relative to laminar)=10.
+Please read note 5 on <a href="noteonrunning.html">Notes on running CFD</a> page.
+These are compressible code results using <u>no compressibility corrections</u>.
+Note that for these high-speed cases the Bradshaw realizability limiter 
+<img class="tex" alt="\phi = 0.31" src="kert_eqns/img27.png" /> in the k-e-Rt model
+was used (see the posted model description page).
+Also, rather than use integration to compute Re_theta, eqn 18b from the following
+reference was employed to estimate theta:
+"The Calculation of the Compressible Turbulent Boundary Layer in
+an Arbitrary Pressure Gradient - A Correlation of Certain Previous
+Methods" by B.S. Stratford and G.S. Beavers, 
+<a href="http://naca.central.cranfield.ac.uk/reports/arc/rm/3207.pdf">R. & M. No. 3207</a>,
+1961.
+The right-hand plot is extracted from the location where Retheta=10000.
+</p>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that this model is currently assigned
+<a href="modelreadiness.html">MRR Level</a> 1 for the purposes of this website.
+This is because at this time the TMBWG has results for this model
+from <u>only one code</u>.  The results on this page are therefore not necessarily
+reliable until additional independent code(s) can be used to verify the model implementation.
+</p>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="ZPGflatplateSS_val_sa.html">SA Results</a>,&nbsp;
+         <a href="ZPGflatplateSS_val_sstv.html">SST-Vm Results</a>,&nbsp;
+         <a href="ZPGflatplateSS_val_w06.html">Wilcox2006-klim-m Results</a>,&nbsp;
+         <a href="ZPGflatplateSS_val_easmkos.html">EASMko2003-S Results</a></p>
+<p>Return to: <a href="ZPGflatplateSS_val.html">High Mach Number Flat Plate Validation Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/23/2021
+<br>&nbsp;
+
+</body>
+</html>

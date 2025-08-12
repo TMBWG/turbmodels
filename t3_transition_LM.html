@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D T3A Flat Plate Verification - Intro Page</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+  <!--
+   /* Font Definitions */
+   * {
+      font-family: helvetica,arial,sans-serif;
+    }
+   p.MsoNormal, li.MsoNormal, div.MsoNormal
+    {margin-top:0in;
+    margin-right:0in;
+    margin-bottom:8.0pt;
+    margin-left:0in;
+    line-height:107%;
+    font-size:11.0pt;
+    font-family:"Calibri",sans-serif;}
+  a:link, span.MsoHyperlink
+    {color:blue;
+    text-decoration:underline;}
+  p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+    {margin-top:0in;
+    margin-right:0in;
+    margin-bottom:8.0pt;
+    margin-left:.5in;
+    line-height:107%;
+    font-size:11.0pt;
+    font-family:"Calibri",sans-serif;}
+  p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+    {margin-top:0in;
+    margin-right:0in;
+    margin-bottom:0in;
+    margin-left:.5in;
+    line-height:107%;
+    font-size:11.0pt;
+    font-family:"Calibri",sans-serif;}
+  p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+    {margin-top:0in;
+    margin-right:0in;
+    margin-bottom:0in;
+    margin-left:.5in;
+    line-height:107%;
+    font-size:11.0pt;
+    font-family:"Calibri",sans-serif;}
+  p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+    {margin-top:0in;
+    margin-right:0in;
+    margin-bottom:8.0pt;
+    margin-left:.5in;
+    line-height:107%;
+    font-size:11.0pt;
+    font-family:"Calibri",sans-serif;}
+  .MsoPapDefault
+    {margin-bottom:8.0pt;
+    line-height:107%;}
+  @page WordSection1
+    {size:8.5in 11.0in;
+    margin:1.0in 1.0in 1.0in 1.0in;}
+  div.WordSection1
+    {page:WordSection1;}
+   /* List Definitions */
+   ol
+    {margin-bottom:0in;}
+  ul
+    {margin-bottom:0in;}
+  -->
+  </style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+     <img border=0 src="construction.gif" title="under construction" alt="under construction">
+     This page under construction. Some links and files may not be here yet!
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<p>Return to: <a href="t3_transition_mainpage.html">T3A Transition Verification Main Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">VERIF/2DTFP: 2D T3A SST-2003-LM2009 Results</strong>
+
+  <p><span style="text-align: left; font-weight: 400; font-size: 13.5pt"> Results are shown here
+from 2 compressible codes so that the user may compare their own compressible
+code results. Multiple grids were used so the user can see trends with grid
+refinement. Different codes will behave differently with grid refinement depending
+on many factors (including code order of accuracy and other numerics), but it
+would be expected that as the grid is refined the results will tend toward an
+infinite grid solution that is the same. Be careful when comparing
+details: any differences in boundary conditions or flow conditions may affect
+results.</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>Two independent
+compressible RANS codes, OVERFLOW and FUN3D, were used to compute this 2-D flat
+plate case with the Menter SST-2003 turbulence model and the Langtry and Menter
+2009 transition model (see full descriptions on the  <a href="sst.html">SST-2003 </a> and <a href="langtrymenter_4eqn.html">SST-2003-LM2009 </a>
+pages). The full series of 8 grids were used. OVERFLOW is a finite volume,
+structured overset code and FUN3D is a node-centered, unstructured, finite
+volume code (FUN3D can solve on mixe</span><span style='font-size:13.5pt;
+line-height:107%;font-family:"Helvetica",sans-serif;color:black;background:
+white'>d element grids, so this case was computed on the same hexahedral grid
+used by OVERFLOW). Both codes used Roe flux splitting scheme. OVERFLOW utilized
+an SSOR implicit solution algorithm and FUN3D utilized a point-implicit
+procedure with implicit line relaxation. Both codes were run with the full
+Navier Stokes (as opposed to thin-layer), and both codes used first-order
+upwinding for the advective terms of the turbulence model. Details of each code
+can be found using the links below. </span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='text-indent:1.25in; font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'><a href=https://overflow.larc.nasa.gov/>Additional OVERFLOW Information</a></span></p>
+
+<p class=MsoListParagraphCxSpLast><span style='font-size:13.5pt;line-height:
+107%;font-family:"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='text-indent:1.25in; font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'><a href=https://fun3d.larc.nasa.gov/>Additional FUN3D Information</a></span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>The following plots show
+the drag coefficient based on the integrated drag over the entire plate, as
+well as the local skin friction coefficient at three points, one within the
+laminar region, one within the transition region, and one within the fully
+turbulent region. In the plot the x-axis is plotting 1/N</span><sup><span
+style='font-family:"Helvetica",sans-serif;color:black;background:white'>1/2</span></sup><span
+style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+color:black;background:white'>, which is proportional to grid spacing (h). At
+the left of the plot, h=0 represents an infinitely fine grid. Both codes go
+toward approximately the same integrated result on an infinitely refined grid.
+Note that the legend entries with hollow symbols (marked with an asterisk in the first figure) denote extrapoled (h=0) solutions based on the finest
+three mesh levels except for mesh level 8, i.e. meshes 5, 6, and 7. The filled diamond symbols represent extrapolated, (h=0) values based on
+mesh levels 6, 7, and 8..</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'><img border=0 width=1024
+height=903 id="Picture 1" src="TA3_transition_verification/t3a_cd_c2c_conv.png"
+alt="Chart&#10;&#10; blablabla "><img border=0
+width=1024 height=903 id="Picture 2"
+src="TA3_transition_verification/t3a_cflam_c2c_conv.png"
+alt="Chart, line chart&#10;&#10;AI-generated content may be incorrect."><img
+border=0 width=1024 height=904 id="Picture 3"
+src="TA3_transition_verification/t3a_cftran_c2c_conv.png"
+alt="Chart, line chart&#10;&#10;AI-generated content may be incorrect."><img
+border=0 width=1024 height=818 id="Picture 4"
+src="TA3_transition_verification/t3a_cfturb_c2c_conv.png"
+alt="Chart, line chart&#10;&#10;AI-generated content may be incorrect."></span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>Using the </span><span
+style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+color:black;background:white'>uncertainty estimation procedure from the Fluids
+Engineering Division of the ASME </span><span style='font-size:13.5pt;
+line-height:107%;font-family:"Helvetica",sans-serif;color:black;background:
+white'>(Celik, I. B., Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H.,
+Raad, P. E., "Procedure for Estimation and Reporting of Uncertainty Due to
+Discretization in CFD Applications"; Journal of Fluids Engineering, Vol.
+130, July 2008, 078001,&nbsp;</span><a href="https://doi.org/10.1115/1.2960953"><span
+style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+background:white'>https://doi.org/10.1115/1.2960953</span></a><span
+style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+color:black;background:white'>), described in&nbsp;</span><a
+href="Papers/uncertainty_summary.pdf"><span
+style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+background:white'>Summary of Uncertainty Procedure</span></a><span
+style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+color:black;background:white'>, the finest 3 grids yield the following:</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+<table class=MsoTable15Plain1 border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=125 valign=top style='width:93.5pt;border:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>CODE</span></b></p>
+  </td>
+  <td width=277 valign=top style='width:207.7pt;border:solid #BFBFBF 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>Computed apparent order, p</span></b></p>
+  </td>
+  <td width=324 valign=top style='width:243.0pt;border:solid #BFBFBF 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black'>Approx
+  rel fine-grid error, e<sub>a</sub><sup>21</sup></span></b></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border:solid #BFBFBF 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black'>Extrap
+  rel fine-grid error, e<sub>ext</sub><sup>21</sup></span></b></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border:solid #BFBFBF 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black'>Fine-grid
+  convergence index,<sub> </sub>GCI<sub>fine</sub><sup>21</sup></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=125 valign=top style='width:93.5pt;border:solid #BFBFBF 1.0pt;
+  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>C<sub>D</sub></span></b></p>
+  </td>
+  <td width=277 valign=top style='width:207.7pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>&nbsp;</span></p>
+  </td>
+  <td width=324 valign=top style='width:243.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>&nbsp;</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>&nbsp;</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=125 valign=top style='width:93.5pt;border:solid #BFBFBF 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>OVERFLOW</span></b></p>
+  </td>
+  <td width=277 valign=top style='width:207.7pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>1.25</span></p>
+  </td>
+  <td width=324 valign=top style='width:243.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.025%</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.018%</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.023%</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=125 valign=top style='width:93.5pt;border:solid #BFBFBF 1.0pt;
+  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>FUN3D</span></b></p>
+  </td>
+  <td width=277 valign=top style='width:207.7pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>1.41</span></p>
+  </td>
+  <td width=324 valign=top style='width:243.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.023%</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.013%</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.016%</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=125 valign=top style='width:93.5pt;border:solid #BFBFBF 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>C<sub>f,transitional</sub></span></b></p>
+  </td>
+  <td width=277 valign=top style='width:207.7pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>&nbsp;</span></p>
+  </td>
+  <td width=324 valign=top style='width:243.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>&nbsp;</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>&nbsp;</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=125 valign=top style='width:93.5pt;border:solid #BFBFBF 1.0pt;
+  border-top:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>OVERFLOW</span></b></p>
+  </td>
+  <td width=277 valign=top style='width:207.7pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.61</span></p>
+  </td>
+  <td width=324 valign=top style='width:243.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.148%</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.284%</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.468%</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=125 valign=top style='width:93.5pt;border:solid #BFBFBF 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>FUN3D</span></b></p>
+  </td>
+  <td width=277 valign=top style='width:207.7pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>1.01</span></p>
+  </td>
+  <td width=324 valign=top style='width:243.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.295%</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.293%</span></p>
+  </td>
+  <td width=300 valign=top style='width:225.0pt;border-top:none;border-left:
+  none;border-bottom:solid #BFBFBF 1.0pt;border-right:solid #BFBFBF 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:13.5pt;font-family:"Helvetica",sans-serif;color:black;
+  background:white'>0.366%</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>The data files and meshes
+used to generate this data will be made available in the near future. </span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>Profiles of the skin
+friction coefficient distribution obtained with OVERFLOW and FUN3D are also
+included in the figure below.</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'><img border=0 width=1048
+height=932 id="Picture 5" src="TA3_transition_verification/fun3d_overflow_t3a_cf_conv.png"
+alt="Comparison of CF profiles for OVERLOW and FUN3D on mesh level 7"><img
+border=0 width=1049 height=932 id="Picture 6"
+src="TA3_transition_verification/fun3d_t3a_cf_conv.png"
+alt="Convergenc of CF profile in FUN3D"><img
+border=0 width=1048 height=932 id="Picture 7"
+src="TA3_transition_verification/overflow_t3a_cf_conv.png"
+alt="Convergenc of CF profile in OVERLOW"></span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>NOTE: The predictions of
+the SST-2003-LM2009 model (like all turbulence and transition model pairs) is
+sensitive both to the implementation of the transition model and the underlying
+turbulence model. The results included on this page utilize codes for which the
+implementation SST-2003 model has already been verified. It is highly
+recommended that coders ensure that the turbulence model is verified against
+the turbulent verification data (link to </span><span style='font-size:13.5pt;
+line-height:107%;font-family:"Helvetica",sans-serif;color:black;background:
+white'><a href=t3_transition_mainpage.html>turbulence verification cases</a></span><span
+style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+color:black;background:white'>) before attempting to verify transition model
+implementations.</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+"Helvetica",sans-serif;color:black;background:white'>The results included on
+this page are provided in this reference: Venkatachari, B. S., Mysore, P., V.,
+Hildebrand, N., Choudhari, M., M., and Denison, M., F., "Verification of the
+&#947;-Re&#952;t Transition Model in OVERFLOW and FUN3D,", Journal of Aircraft
+2024 Vo. 61 No. 2, pp. 345-364, </span><a
+href="https://doi.org/10.2514/1.C037445"><span style='font-size:13.5pt;
+line-height:107%;font-family:"Helvetica",sans-serif;background:white'>https://doi.org/10.2514/1.C037445</span></a><span
+style='font-size:13.5pt;line-height:107%;font-family:"Helvetica",sans-serif;
+color:black;background:white'>, which also includes a description of several
+other verification cases. </span></p>
+
+</div>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<o></o>Jump to: <a href="sst.html">SST-2003 Equations</a>,
+<p>Jump to: <a href="langtrymenter_4eqn.html">SST-2003-LM2009 Equations</a></p>
+<p>Return to: <a href="t3_transition_mainpage.html">T3A Transition Verification Main Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+04/02/2024 - Page created
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href=mailto:ethan.a.vogel@nasa.gov>Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 4/7/2025
+<br>&nbsp;
+
+</body>
+</html>

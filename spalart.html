@@ -1,0 +1,1683 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Spalart-Allmaras Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The Spalart-Allmaras Turbulence
+   Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information 
+on the equations for various forms of the
+Spalart-Allmaras turbulence model. 
+All forms of the model given on this page (EXCEPT for 
+<a href="spalart.html#qcr2000">SA-QCR2000</a>, 
+<a href="spalart.html#qcr2013">SA-QCR2013 / SA-QCR2013-V</a>,
+<a href="spalart.html#qcr2020">SA-QCR2020</a>, and
+<a href="spalart.html#qcr2024">SA-QCR2024</a>) are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+<p>where the last term is generally ignored for one-equation models like this one
+because <em>k</em> is not readily available (the term
+is sometimes ignored for non-supersonic speed flows for other models as well).
+The <a href="spalart.html#qcr2000">SA-QCR2000</a> section below provides details regarding a nonlinear implementation.
+The <a href="spalart.html#qcr2013">SA-QCR2013 / SA-QCR2013-V</a>,
+<a href="spalart.html#qcr2020">SA-QCR2020</a> and
+<a href="spalart.html#qcr2024">SA-QCR2024</a> sections below provides details regarding a nonlinear implementation 
+<u>that also includes an approximation for the -2/3 rho k del_ij term</u>.
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page 
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas 
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">OVERVIEW </strong>
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">General Model </strong>
+
+<ul>
+  <li><span style="color: blue"><a href="#sa">(SA)</a></span>
+  <li><span style="color: blue"><a href="#saneg">(SA-neg)</a></span>
+  <li><span style="color: blue"><a href="#sanoft2">(SA-noft2)</a></span>
+  <li><span style="color: blue"><a href="#saIa">(SA-Ia)</a></span>
+</ul>
+
+<p><em>The first version listed <span style="color: blue">(SA)</span> is considered "standard".
+It is the original published version without the rarely-used primary trip term present in <span style="color: blue">(SA-Ia)</span>.
+The version <span style="color: blue">(SA-neg)</span> should yield essentially identical results
+to <span style="color: blue">(SA)</span>, and is generally recommended
+because of its more robust numerical behavior.
+The version <span style="color: blue">(SA-noft2)</span> is a commonly-used variant of 
+<span style="color: blue">(SA)</span>, and should yield essentially identical results for
+most problems of practical interest, since in <span style="color: blue">(SA)</span> the
+sufficiently large inflow values for the turbulence field variable over-rides the effect of the f<sub>t2</sub> term.
+However, note that when using Spalart-Allmaras as the basis for Detached-Eddy Simulation 
+(Proc. 1st AFOSR International Conference, ed. C. Liu and Z. Liu, Greyden Press, Columbus OH 1997, pp. 137-147) 
+or DDES (Theor. Comput. Fluid Dyn. (2006) 20:181-195,
+<a href="https://doi.org/10.1007/s00162-006-0015-0">https://doi.org/10.1007/s00162-006-0015-0</a>), 
+the f<sub>t2</sub> term present in <span style="color: blue">(SA)</span>
+may cause an undesirable delay in transition to turbulence in the RANS region;
+the version <span style="color: blue">(SA-noft2)</span> can help in this situation (see Vatsa et al, AIAA J 55(8), 2017, pp. 2842-2847,
+<a href="https://doi.org/10.2514/1.J055685">https://doi.org/10.2514/1.J055685</a>).
+The trip version <span style="color: blue">(SA-Ia)</span> is rarely used. </em>
+<br>&nbsp;
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Corrections to the General Model </strong>
+<p><span style="text-align: left; font-weight: 700; font-size: medium">These corrections can be applied individually
+or together in combination with the General Model.
+
+<ul>
+  <li><span style="color: blue"><a href="#saRC">(RC)</a></span> or <span style="color: blue"><a href="#saR">(R)</a></span>
+      or <span style="color: blue"><a href="#saKL">(KL)</a></span>
+  <li><span style="color: blue"><a href="#saLRe">(LRe)</a></span>
+  <li><span style="color: blue"><a href="#sacomp">(comp)</a></span>
+  <li><span style="color: blue"><a href="#sarough">(rough)</a></span>
+  <li><span style="color: blue"><a href="#saTC">(TC)</a></span>
+  <li><span style="color: blue"><a href="#qcr2000">(QCR2000)</a></span> or <span style="color: blue">
+<a href="#qcr2013">(QCR2013 / QCR2013-V)</a></span> or <span style="color: blue">
+<a href="#qcr2020">(QCR2020)</a> or <span style="color: blue">
+<a href="#qcr2024">(QCR2024)</a></span>
+  <li><span style="color: blue"><a href="#helicity">(Helicity)</a></span>
+</ul>
+<i>For example, one could implement various combinations like: 
+<u>SA</u><span style="color: red">-RC</span>, 
+<u>SA-neg</u><span style="color: red">-RC</span>, 
+<u>SA-noft2</u><span style="color: red">-RC</span>, 
+<u>SA-noft2</u><span style="color: red">-R</span>, 
+<u>SA</u><span style="color: red">-KL-LRe-QCR2013-V</span>, 
+<u>SA-neg</u><span style="color: red">-RC-QCR2020</span>, or even
+<u>SA-neg</u><span style="color: red">-RC-LRe-comp-rough-TC-QCR2000-Helicity</span>.  
+Here, for clarity, the particular "general model" being used is underlined, and the "corrections" are
+given in red.
+(Note that one could not
+combine R and RC, or different QCR variants, together in the same model implementation.)
+</i>
+<br>&nbsp;
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Other Versions of SA</strong>
+<p><span style="text-align: left; font-weight: 700; font-size: medium">The following represent some of the parallel versions of SA
+that have come out in the literature; they are considered different models, and, unlike the corrections, are not
+compatible with the General Model.
+
+<ul>
+  <li><span style="color: blue"><a href="#saCatris">(SA-noft2-Catris)</a></span>
+  <li><span style="color: blue"><a href="#saEdwards">(SA-noft2-Edwards)</a></span>
+  <li><span style="color: blue"><a href="#safv3">(SA-fv3)</a></span>
+  <li><span style="color: blue"><a href="#sasalsa">(SA-noft2-salsa)</a></span>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><a ID="sa"><strong><span style="text-align: left; font-weight: 700; font-size: large">"Standard" Spalart-Allmaras 
+   One-Equation Model <span style="color: blue">(SA)</span></strong>
+<p>The following equations represents the most commonly-used implementation of the Spalart-Allmaras
+model (written in non-conservation form).  The primary reference is:
+
+<ul>
+<li>Spalart, P. R. and Allmaras, S. R., 
+<a href="Papers/RechAerosp_1994_SpalartAllmaras.pdf">"A One-Equation Turbulence Model for
+Aerodynamic Flows,"</a> <strong>Recherche Aerospatiale</strong>, No. 1, 1994, pp. 5-21. (paper provided with permission of authors)
+</ul>
+
+<p>This journal reference is the official publication that arose from the AIAA Conference Paper
+AIAA-92-0439 (Reno, NV, January 1992).  However, there are some differences, and <u>the journal reference takes precedence</u>.
+For example, AIAA-92-0439 used c<sub>t3</sub>=1.1 and c<sub>t4</sub>=2.0; these constants are now different
+(although for fully turbulent solutions, these sets of constants should make negligible difference).
+Note that this journal reference had a small typo (appendix only) in its definition of the constant
+<em>c<sub>w1</sub></em> (missing square on the kappa term in the denominator).  The typo, which
+sometimes gets propagated to other reports/papers, is corrected below.
+The original reference made use of a trip term that most people do not include, because
+the model is most often employed for fully turbulent applications.
+Therefore, in this "standard" representation the trip term is being left out
+(see version <span style="color: blue">(SA-Ia)</span> below for the version including the trip term).  As a consequence, the 
+farfield boundary condition must be changed from that given in the above reference.  The
+new farfield boundary condition is taken from the following references:
+
+<ul>
+<li>Spalart, P. R.,
+"Trends in Turbulence Treatments,"
+<strong>AIAA 2000-2306</strong>, June 2000,
+<a href="https://doi.org/10.2514/6.2000-2306">https://doi.org/10.2514/6.2000-2306</a>.
+
+<li>Spalart, P. R. and Rumsey, C. L.,
+"Effective Inflow Conditions for Turbulence Models in Aerodynamic Calculations,"
+<strong>AIAA Journal</strong>, Vol. 45, No. 10, 2007, pp. 2544-2553,
+<a href="https://doi.org/10.2514/1.29373">https://doi.org/10.2514/1.29373</a>.
+</ul>
+
+<p>In all of the following, a "hat" is used over the turbulence field variable, rather than a "tilde" as given in
+the references, for the sole practical reason that the "tilde" showed up very poorly on the screen.
+
+<p>The one-equation model is given by the following equation:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \tilde \nu}{\partial t} + u_j \frac{\partial \tilde \nu}{\partial x_j} =
+    c_{b1}(1-f_{t2})\tilde S \tilde \nu -
+    \left[c_{w1}f_w - \frac{c_{b1}}{\kappa^2}f_{t2}\right]
+    \left(\frac{\tilde \nu}{d} \right)^2
+  + \frac{1}{\sigma} \left[ \frac{\partial}{\partial x_j}
+    \left( \left( \nu + \tilde \nu \right) \frac{\partial \tilde \nu}{\partial x_j} \right)
+    + c_{b2}\frac{\partial \tilde \nu}{\partial x_i} \frac{\partial \tilde \nu}{\partial x_i}
+    \right]" 
+  src="spalart_eqns/img2.png" /></dd>
+</dl>
+
+<p>and the turbulent eddy viscosity is computed from:
+<dl>
+<dd><img class="tex" alt="\mu_t = \rho \tilde \nu f_{v1}"
+  src="spalart_eqns/img24.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="f_{v1} = \frac{\chi^3}{\chi^3+c_{v1}^3}"
+  src="spalart_eqns/img23.png" /></dd>
+<dd><img class="tex" alt="\chi = \frac{\tilde \nu}{\nu}"
+  src="spalart_eqns/img3.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="\rho" src="spalart_eqns/img25.png" /> is the density,
+<img class="tex" alt="\nu = \mu/\rho" src="spalart_eqns/img26.png" /> is the
+molecular kinematic viscosity, and
+<img class="tex" alt="\mu" src="spalart_eqns/img27.png" /> is the
+molecular dynamic viscosity.  Additional definitions are given by the following equations:
+<dl>
+<dd><img class="tex" alt="\tilde S = \Omega + \frac{\tilde \nu}{\kappa^2 d^2} f_{v2}"
+  src="spalart_eqns/img5.png" /></dd>
+where 
+<img class="tex" alt="\Omega = \sqrt{2 W_{ij} W_{ij} }" src="spalart_eqns/img28.png" /> 
+is the magnitude of the vorticity, <em>d</em> is the distance from
+the field point to the nearest wall, and
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_{v2} = 1 - \frac{\chi}{1+\chi f_{v1}}"
+  src="spalart_eqns/img6.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="f_w = g \left[ \frac{1+c_{w3}^6}{g^6 + c_{w3}^6} \right]^{1/6}"
+  src="spalart_eqns/img7.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="g = r + c_{w2}(r^6 - r)"
+  src="spalart_eqns/img8.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="r = {\rm min} \left[ \frac{\tilde \nu}{\tilde S \kappa^2 d^2}, 10 \right]"
+  src="spalart_eqns/img9.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_{t2} = c_{t3} {\rm exp} \left( -c_{t4} \chi^2 \right)"
+  src="spalart_eqns/img10.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="W_{ij} = \frac{1}{2} \left(\frac{\partial u_i}{\partial x_j} -
+   \frac{\partial u_j}{\partial x_i} \right)"
+  src="spalart_eqns/img32.png" /></dd>
+</dl>
+
+<p>The boundary conditions are:
+<dl>
+<dd><img class="tex" alt="\tilde \nu_{wall} = 0"
+  src="spalart_eqns/img11.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\tilde \nu_{farfield} = 3 \nu_{\infty} : to : 5 \nu_{\infty}"
+  src="spalart_eqns/img29.png" /></dd>
+</dl>
+
+<p>Note that these boundary conditions on the SA turbulence field variable correspond to
+turbulent kinematic viscosity values of:
+<dl>
+<dd><img class="tex" alt="\nu_{t,wall} = 0"
+  src="spalart_eqns/img33.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\nu_{t,farfield} = 0.210438 \nu_{\infty} : to : 1.294234 \nu_{\infty}"
+  src="spalart_eqns/img34.png" /></dd>
+</dl>
+
+<p>The constants are:
+<dl>
+<dd><img class="tex" alt="c_{b1} = 0.1355"
+  src="spalart_eqns/img13.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma = 2/3"
+  src="spalart_eqns/img14.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="c_{b2} = 0.622"
+  src="spalart_eqns/img15.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\kappa = 0.41"
+  src="spalart_eqns/img16.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="c_{w2} = 0.3"
+  src="spalart_eqns/img18.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="c_{w3} = 2"
+  src="spalart_eqns/img19.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="c_{v1} = 7.1"
+  src="spalart_eqns/img20.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="c_{t3} = 1.2"
+  src="spalart_eqns/img21.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="c_{t4} = 0.5"
+  src="spalart_eqns/img22.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="c_{w1} = \frac{c_{b1}}{\kappa^2} + \frac{1+c_{b2}}{\sigma}"
+  src="spalart_eqns/img17.png" /></dd>
+</dl>
+
+Note that this model has source terms (production and destruction) that are non-zero in the freestream,
+even when vorticity is zero.
+The source terms are, however, very small: proportional to 1/d<sup>2</sup>.
+
+<p><a ID="mindistancefunction">It is important to note that computing minimum distance (<i>d</i>) by searching along grid lines or by
+finding the nearest wall gridpoint (or cell center) are
+incorrect, and are <strong>not</strong> the same as computing actual minimum distance to the nearest wall (in general). Using
+the former methods will yield grid-dependent differences in the results.  The following sketches
+demonstrate the concept of minimum distance.  Improperly-calculated minimum distance
+functions will particularly produce incorrect results for cases in which the
+grid lines are not perfectly normal to the body surface,
+or when the nearest body does not lie in the current grid zone.
+Note that when the nearest wall point is a sharp convex corner or edge (like an airfoil or wing trailing edge) then the 
+correct minimum distance is the distance to that corner or edge, which is not a wall normal.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Bump/mindistsketch.jpg" border="1" width="500" title="sketch 1 demonstrating the concept of minimum distance function" alt="sketch 1 demonstrating the concept of minimum distance function">
+           <img
+src="Bump/mindistsketch2.jpg" border="1" width="500" title="sketch 2 demonstrating the concept of minimum distance function" alt="sketch 2 demonstrating the concept of minimum distance function">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><u>Note 1</u>: To avoid possible numerical problems, the term
+<img class="tex" alt="\hat S" src="spalart_eqns/img30.png" />
+when it is supplied to the calculation of <i>r</i>
+must never be allowed to reach zero or go negative.  
+<ul>
+<li>(a) One common method limits the term to be greater than zero.
+<li>(b) Spalart (private communication) recommends limiting <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" />
+to be no smaller than 0.3*<img class="tex" alt="\Omega" src="spalart_dacles/img2.png" />.
+<li>(c) Another method (that avoids clipping for non-zero
+<img class="tex" alt="\Omega" src="spalart_dacles/img2.png" />) is described in
+Allmaras, S. R., Johnson, F. T., and Spalart, P. R., "Modifications and Clarifications for the
+Implementation of the Spalart-Allmaras Turbulence Model," ICCFD7-1902, 7th International
+Conference on Computational Fluid Dynamics, Big Island, Hawaii, 9-13 July 2012
+(<a href="https://www.iccfd.org/iccfd7/assets/pdf/papers/ICCFD7-1902_paper.pdf">https://www.iccfd.org/iccfd7/assets/pdf/papers/ICCFD7-1902_paper.pdf</a>).
+The equation
+for <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" /> (above) is replaced.
+First, define: 
+
+<dl>
+<dd><img class="tex" alt="\overline S = \frac{\hat \nu}{\kappa^2 d^2} f_{v2}"
+  src="spalart_eqns_addendum/img2.png" /></dd>
+</dl>
+
+Then:
+<dl>
+<dd><img class="tex" alt="\hat S = \Omega + \overline S"
+  src="spalart_eqns_addendum/img3.png" /> &nbsp; &nbsp; when &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\overline S \ge -c_2 \Omega"
+  src="spalart_eqns_addendum/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\hat S = \Omega + \frac{\Omega ( c_2^2\Omega + c_3 \overline S)}
+     {(c_3 - 2 c_2)\Omega - \overline S}"
+  src="spalart_eqns_addendum/img5.png" /> &nbsp; &nbsp; when &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\overline S < -c_2 \Omega"
+  src="spalart_eqns_addendum/img6.png" /></dd>
+</dl>
+where <img class="tex" alt="c_2=0.7" src="spalart_eqns_addendum/img7.png" /> and
+<img class="tex" alt="c_3=0.9" src="spalart_eqns_addendum/img8.png" />.
+Note that <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" /> may be zero in certain situations 
+when the vorticity magnitude is identically zero.  As a result, there needs to be a guard on the computation 
+of <i>r</i>, to avoid divide-by-zero: whenever 
+<img class="tex" alt="\hat S" src="spalart_eqns/img30.png" /> = 0, set <i>r</i> = 10.
+<p>The particular limiting method used should always be reported.
+</ul>
+
+<p><u>Note 2</u>: Allmaras, S. R., "Multigrid for the 2-D Compressible Navier-Stokes Equations,"
+AIAA Paper 99-3336, June-July 1999,
+<a href="https://doi.org/10.2514/6.1999-3336">https://doi.org/10.2514/6.1999-3336</a>
+discusses 
+two optional modifications to the model that have no effect on a non-negative
+(i.e., meaningful) steady-state turbulence solution, but are designed to help robustness for cases where
+grid stretching is excessive, grid smoothness poor, or grid resolution inadequate.
+These modifications were intended to aid solution of the original equations, and
+<strong>not</strong> to be a new model correction.  See the <span style="color: blue">(SA-neg)</span> description
+below for updated modifications.
+<!--Although
+unpublished, the model developer (P. R. Spalart of Boeing, private communication) further recommends that
+<img class="tex" alt="\hat S" src="spalart_eqns/img30.png" />
+be limited so that it never gets smaller than
+<img class="tex" alt="0.3 \Omega" src="spalart_eqns/img31.png" />.-->
+Other modifications along the same lines also exist in the literature; see, for example: Crivellini et al 
+(J. Computational Physics 241:388-415, 2013).
+
+<p><u>Note 3</u>: Spalart and Allmaras recommend the use of the following "turbulence index" <em>i<sub>t</sub></em> <u>at walls</u>
+to detect transition:  
+
+<dl>
+<dd><img class="tex" alt="i_t = \frac{1}{\kappa u_{\tau}} \frac{\partial \hat \nu}{\partial n}" 
+src="spalart_eqns/img_turbindex2.png" /></dd>
+</dl>
+
+where <em>n</em> is the wall-normal direction, and
+one can approximate
+<img class="tex" alt="u_{\tau}" src="spalart_eqns/img_turbindex3.png" /> with: 
+<img class="tex" alt="u_{\tau} \approx \sqrt{\nu \Omega}" src="spalart_eqns/img_turbindex4.png" />.  The index will be
+close to zero for a laminar region and close to 1 for a turbulent region.
+
+<p><u>Note 4</u>: Some implementations of SA have been noted to incorrectly introduce the density inside the derivatives
+of the SA equation (in contrast with the 
+<a href="#saCatris">Catris-Aupoix</a> proposal, which has a valid basis). This will alter the SA predictions for 
+supersonic flows. Users need to be aware of the equation details in the solver they are using.
+
+
+<br>&nbsp;
+<p><a ID="saneg"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Negative Spalart-Allmaras
+   One-Equation Model <span style="color: blue">(SA-neg)</span></strong>
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">under construction-->
+<p>This modification to the Spalart-Allmaras model was developed primarily to address issues with
+under-resolved grids and non-physical transient states in discrete settings.  It
+was formulated to "be passive to the original <span style="color: blue">(SA)</span> model in well-resolved flowfields and should
+produce negligible differences in most cases."  The reference is:
+
+<ul>
+<li>Allmaras, S. R., Johnson, F. T., and Spalart, P. R., "Modifications and Clarifications for the
+Implementation of the Spalart-Allmaras Turbulence Model," ICCFD7-1902, 7th International
+Conference on Computational Fluid Dynamics, Big Island, Hawaii, 9-13 July 2012
+(<a href="https://www.iccfd.org/iccfd7/assets/pdf/papers/ICCFD7-1902_paper.pdf">https://www.iccfd.org/iccfd7/assets/pdf/papers/ICCFD7-1902_paper.pdf</a>).
+</ul>
+
+<p>The model is the same as the "standard" version
+<span style="color: blue">(SA)</span> when the turbulence variable
+<img class="tex" alt="\tilde \nu" src="spalartneg_eqns/img7.png" /> is greater than or equal to zero;
+this includes Note 1 concerning issues with <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" />  and <i>r</i>
+(use of Note 1 (c) is considered standard for this model).  When 
+<img class="tex" alt="\tilde \nu" src="spalartneg_eqns/img7.png" /> is negative 
+the following equation is solved instead:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \tilde \nu}{\partial t} + u_j \frac{\partial \tilde \nu}{\partial x_j} =
+    c_{b1}(1-c_{t3})\Omega \tilde \nu +
+    c_{w1} \left(\frac{\tilde \nu}{d} \right)^2
+  + \frac{1}{\sigma} \left[\frac{\partial}{\partial x_j}
+    \left( \left( \nu + \tilde \nu f_n \right) \frac{\partial \tilde \nu}{\partial x_j} \right)
+    + c_{b2} \frac{\partial \tilde \nu}{\partial x_i} \frac{\partial \tilde \nu}{\partial x_i}
+    \right]"
+  src="spalartneg_eqns/img2.png" /></dd>
+</dl>
+
+<p>with
+<dl>
+<dd><img class="tex" alt="f_n = \frac{c_{n1} + \chi^3}{c_{n1} - \chi^3}"
+  src="spalartneg_eqns/img3.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="c_{n1}=16" src="spalartneg_eqns/img4.png" />. 
+
+<p><u>The turbulent eddy viscosity
+(<img class="tex" alt="\mu_t" src="spalartneg_eqns/img8.png" />)
+in the momentum and energy equations is set to zero when
+<img class="tex" alt="\tilde \nu" src="spalartneg_eqns/img7.png" /> is negative.</u>
+
+<p>Note that the sign of the destruction term 
+<img class="tex" alt="c_{w1}(\tilde \nu / d)^2" src="spalartneg_eqns/img9.png" />
+is "+" as written; this is opposite of the positive model.  
+
+All other constants and variables are the same as defined for the "standard" version
+<span style="color: blue">(SA)</span>.
+
+<p>The above paper also describes other important information regarding the SA model.  For example,
+the authors reaffirm that the original SA model, in which density does not appear,
+is applicable to both incompressible and 
+compressible flows, and it should be considered the standard form for compressible.
+However, they show that an equivalent conservation form can be constructed by combining
+SA with the mass conservation equation, yielding (for standard <span style="color: blue">SA</span>):
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \tilde \nu)}{\partial t} + \frac{\partial (\rho u_j \tilde \nu)}{\partial x_j} =
+    \rho c_{b1}(1-f_{t2})\tilde S \tilde \nu -
+    \rho \left[c_{w1}f_w - \frac{c_{b1}}{\kappa^2}f_{t2}\right]
+    \left(\frac{\tilde \nu}{d} \right)^2
+  + \frac{1}{\sigma} \left[ \frac{\partial}{\partial x_j}
+    \left( \rho \left( \nu + \tilde \nu \right) \frac{\partial \tilde \nu}{\partial x_j} \right)
+    + \rho c_{b2}\frac{\partial \tilde \nu}{\partial x_i} \frac{\partial \tilde \nu}{\partial x_i}
+    \right] - \frac{1}{\sigma} \left( \nu + \tilde \nu \right)\frac{\partial \rho}{\partial x_i}
+    \frac{\partial \tilde \nu}{\partial x_i}" 
+  src="spalartneg_eqns/img10.png" /></dd>
+</dl>
+Furthermore, the authors state that there should never be hard-wired limits on the maximum value of
+eddy viscosity produced by the model.  In attached boundary layers, the maximum value of
+<img class="tex" alt="\chi" src="spalartneg_eqns/img5.png" />
+across the profile grows with streamwise location like
+<img class="tex" alt="\chi_{max} \approx 0.00059 Re_x^{0.83}" src="spalartneg_eqns/img6.png" />.
+Asymptotic values in wakes and jets are independent of streamwise distance; 
+these particular relations can be found in the
+above-mentioned paper.
+
+<!--<p>The <u>Note 1</u> from the <span style="color: blue">(SA)</span> model still applies to the SA-neg model
+(i.e., one must avoid zero or negative values of <img class="tex" alt="\hat S" src="spalart_eqns/img30.png" />).
+The method described in Note 1 (c) is recommended.-->
+
+<br>&nbsp;
+<p><a ID="sanoft2"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model without f<sub>t2</sub> Term <span style="color: blue">(SA-noft2)</span></strong>
+<p>Many implementations of Spalart-Allmaras ignore the
+<img class="tex" alt="f_{t2}" src="spalartcatris_eqns/img5.png" /> term, which was a numerical
+fix in the original model in order to make zero a stable solution to the equation with a small basin
+of attraction (thus slightly delaying transition so that the trip term could be activated appropriately).
+It is argued that if the trip is not used, then
+<img class="tex" alt="f_{t2}" src="spalartcatris_eqns/img5.png" /> is not necessary.
+The equations are the same as for the "standard" version <span style="color: blue">(SA)</span>,
+except that the term
+<img class="tex" alt="f_{t2}" src="spalartcatris_eqns/img5.png" />
+does not appear at all (i.e., c<sub>t3</sub>=0 instead of 1.2).  Two examples of references that use this form are:
+
+<ul>
+<li>Eca, L., Hoekstra, M., Hay, A., and Pelletier, D., "A Manufactured Solution for a Two-Dimensional
+Steady Wall-Bounded Incompressible Turbulent Flow,"
+<strong>International Journal of Computational Fluid Dynamics</strong>, Vol. 21, Nos. 3-4, 2007, pp. 175-188,
+<a href="https://doi.org/10.1080/10618560701553436">https://doi.org/10.1080/10618560701553436</a>.
+<li>Aupoix, B. and Spalart, P. R., "Extensions of the Spalart-Allmaras Turbulence Model to Account
+for Wall Roughness,"
+<strong>International Journal of Heat and Fluid Flow</strong>, Vol. 24, No. 4, 2003, pp. 454-462,
+<a href="https://doi.org/10.1016/S0142-727X(03)00043-2">https://doi.org/10.1016/S0142-727X(03)00043-2</a>.
+</ul>
+
+<p>Based on studies (see, e.g., Rumsey, C. L., "Apparent Transition Behavior of Widely-Used Turbulence
+Models," <strong>International Journal of Heat and Fluid Flow</strong>, Vol. 28, 2007, pp. 1460-1471,
+<a href="https://doi.org/10.1016/j.ijheatfluidflow.2007.04.003">https://doi.org/10.1016/j.ijheatfluidflow.2007.04.003</a>), use
+of this form as opposed to the "standard" version <span style="color: blue">(SA)</span> probably makes very little difference, at 
+least at reasonably high Reynolds numbers,
+provided that the "standard" version use the appropriate boundary condition of
+<img class="tex" alt="\tilde \nu_{farfield} = 3 \nu_{\infty}"
+  src="spalart_eqns/img12.png" /> (or greater).
+
+<!--
+The following was removed because many solvers use
+SA-neg-noft2 without any additional problems. It is true 
+that -noft2 degrades smoothness of the SA-neg solution 
+to C0 at nutilde=0. However, if we expect the converged 
+SA-neg solution to be positive, this degradation does not matter.---
+<p>Note that <span style="color: blue">(SA-noft2)</span> is 
+not compatible with <span style="color: blue">(SA-neg)</span> (see ICCFD7-1902,
+<a href="https://www.iccfd.org/iccfd7/assets/pdf/papers/ICCFD7-1902_paper.pdf">
+https://www.iccfd.org/iccfd7/assets/pdf/papers/ICCFD7-1902_paper.pdf</a>),
+so <span style="color: blue">(SA-neg-noft2)</span> is currently not viable without additional modifications.-->
+
+<br>&nbsp;
+<p><a ID="saIa"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Trip Term <span style="color: blue">(SA-Ia)</span></strong>
+<p>The form of the Spalart-Allmaras model with the trip term included is given in the following
+reference:
+
+<ul>
+<li>Spalart, P. R. and Allmaras, S. R., 
+<a href="Papers/RechAerosp_1994_SpalartAllmaras.pdf">"A One-Equation Turbulence Model for
+Aerodynamic Flows,"</a> <strong>Recherche Aerospatiale</strong>, No. 1, 1994, pp. 5-21. (paper provided with permission of authors)
+</ul>
+
+<p>The equations are the same as for the "standard" version <span style="color: blue">(SA)</span>, 
+except there is an additional trip term
+on the right hand side of the equation:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \tilde \nu}{\partial t} + u_j \frac{\partial \tilde \nu}{\partial x_j} =
+    c_{b1}(1-f_{t2})\tilde S \tilde \nu -
+    \left[c_{w1}f_w - \frac{c_{b1}}{\kappa^2}f_{t2}\right]
+    \left(\frac{\tilde \nu}{d} \right)^2
+  + \frac{1}{\sigma} \left[ \frac{\partial}{\partial x_j}
+    \left( \left( \nu + \tilde \nu \right) \frac{\partial \tilde \nu}{\partial x_j} \right)
+    + c_{b2}\frac{\partial \tilde \nu}{\partial x_i} \frac{\partial \tilde \nu}{\partial x_i}
+    \right] + f_{t1} \Delta U^2"
+  src="spalart1a_eqns/img2.png" /></dd>
+</dl>
+
+<p>where:
+<dl>
+<dd><img class="tex" alt="f_{t1} = c_{t1} g_t {\rm exp} \left[ -c_{t2} \frac{\omega_t^2}{\Delta U^2}(d^2 + 
+    g_t^2d_t^2) \right]"
+  src="spalart1a_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="g_t = {\rm min} \left[ 0.1, \frac{\Delta U}{\omega_t \Delta x_t} \right]"
+  src="spalart1a_eqns/img4.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="\Delta U" src="spalart1a_eqns/img5.png" /> is the difference
+between the velocity at the field point and that at the trip (on the wall),
+<img class="tex" alt="\Delta x_t" src="spalart1a_eqns/img6.png" /> is the grid spacing along the
+wall at the trip,
+<img class="tex" alt="\omega_t" src="spalart1a_eqns/img7.png" /> is the wall vorticity at the trip, 
+<img class="tex" alt="d_t" src="spalart1a_eqns/img8.png" /> is the distance from the field point to the trip, 
+<img class="tex" alt="c_{t1}=1" src="spalart1a_eqns/img10.png" />, and
+<img class="tex" alt="c_{t2}=2" src="spalart1a_eqns/img11.png" />.
+
+<p>The farfield boundary condition is:
+<dl>
+<dd><img class="tex" alt="0 \leq \tilde \nu_{farfield} < \frac{1}{10}\nu_{\infty}"
+  src="spalart1a_eqns/img9.png" /></dd>
+</dl>
+
+<p>Note that this boundary condition on the SA turbulence field variable corresponds to
+turbulent kinematic viscosity values of:
+<dl>
+<dd><img class="tex" alt="0 \leq \nu_{t,farfield} < 0.27940 \times 10^{-6} \nu_{\infty}"
+  src="spalart1a_eqns/img12.png" /></dd>
+</dl>
+
+
+<br>&nbsp;
+<p><a ID="saRC"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Rotation/Curvature Correction <span style="color: blue">(SA-RC)</span></strong>
+<p>This form of the Spalart-Allmaras model attempts to account for rotation and curvature effects.
+The reference is:
+
+<ul>
+<li>Shur, M. L., Strelets, M. K., Travin, A. K., Spalart, P. R.,
+"Turbulence Modeling in Rotating and Curved Channels: Assessing the Spalart-Shur Correction,"
+<strong>AIAA Journal</strong> Vol. 38, No. 5, 2000, pp. 784-792,
+<a href="https://doi.org/10.2514/2.1058">https://doi.org/10.2514/2.1058</a>.
+</ul>
+
+<p>An earlier reference (Spalart & Shur, <strong>Aerospace Science and Technology</strong> 5:297-302, 1997) has
+typographical errors, but contains a useful physical discussion of the RC term.
+The model is the same as for the "standard" version <span style="color: blue">(SA)</span>, except that
+the <img class="tex" alt="c_{b1} \tilde S \tilde \nu" src="spalartrc_eqns/img2.png" /> term
+gets multiplied by the rotation
+function <img class="tex" alt="f_{r1}" src="spalartrc_eqns/img3.png" />:
+<dl>
+<dd><img class="tex" alt="f_{r1} = (1 + c_{r1}) \frac{2r^*}{1+r^*}\left[ 1 - c_{r3} 
+    {\rm tan}^{-1}(c_{r2} \tilde r)\right] - c_{r1}"
+  src="spalartrc_eqns/img4.png" /></dd>
+</dl>
+
+<p>Specifically, the first term on the RHS of the SA equation
+becomes:  <img class="tex" alt="c_{b1}(f_{r1}-f_{t2})\hat S \hat \nu" src="spalartrc_eqns/img18.png" />.
+The various terms are:
+<dl>
+<dd><img class="tex" alt="r^* = S/\omega"
+  src="spalartrc_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tilde r = \frac{2 \omega_{ik} S_{jk}}{D^4} \left( \frac{DS_{ij}}{Dt} + 
+   (\varepsilon_{imn}S_{jn}
+   +\varepsilon_{jmn}S_{in}) \Omega'_m \right)"
+  src="spalartrc_eqns/img6.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left(\frac{\partial u_i}{\partial x_j} +
+   \frac{\partial u_j}{\partial x_i} \right)"
+  src="spalartrc_eqns/img7.png" />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\omega_{ij} = \frac{1}{2} \left[ \left(\frac{\partial u_i}{\partial x_j} -
+   \frac{\partial u_j}{\partial x_i} \right) + 2 \varepsilon_{mji} \Omega'_m \right]"
+  src="spalartrc_eqns/img8.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="S^2 = 2 S_{ij}S_{ij}"
+  src="spalartrc_eqns/img9.png" />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\omega^2 = 2 \omega_{ij}\omega_{ij}"
+  src="spalartrc_eqns/img10.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="D^2 = \frac{1}{2} \left(S^2 + \omega^2 \right)"
+  src="spalartrc_eqns/img11.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="c_{r1} = 1.0"
+  src="spalartrc_eqns/img12.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="c_{r2} = 12"
+  src="spalartrc_eqns/img13.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<img class="tex" alt="c_{r3} = 1.0"
+  src="spalartrc_eqns/img14.png" /></dd>
+</dl>
+
+<p>The term <img class="tex" alt="DS_{ij}/Dt" src="spalartrc_eqns/img15.png" /> represents
+the components of the Lagrangian derivative of the strain rate tensor. The 
+rotation rate <img class="tex" alt="\Omega'" src="spalartrc_eqns/img16.png" /> is used only if the
+reference frame itself is rotating (note that all derivatives should be defined with respect to
+the reference frame).
+Note that the Lagrangian (or material) derivative is:
+
+<dl>
+<dd><img class="tex" alt="\frac{D S_{ij}}{Dt} \equiv \frac{\partial S_{ij}}{\partial t} +
+   u_k \frac{\partial S_{ij}}{\partial x_k}"
+  src="spalartrc_eqns/img17.png" /></dd>
+</dl>
+
+It is not unusual for RC implementations to ignore the time term, but this is only correct for 
+steady-state problems in which the time rate of change of the flowfield is zero. Without the 
+time term, the model is not correct in a time-dependent flowfield. This is especially relevant to 
+helicopter rotor simulations.
+
+<p>Note that if this model is applied to the <span style="color: blue">(SA-noft2)</span> version instead,
+then its naming convention becomes <span style="color: blue">(SA-noft2-RC)</span>.
+<i>Note also that the SA-RC production term can be negative.</i>
+
+<br>&nbsp;
+<p><a ID="saR"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Rotation Correction <span style="color: blue">(SA-R)</span></strong>
+<p>This correction to the SA model reduces the eddy viscosity in regions where vorticity
+exceeds strain rate, such as in vortex core regions where pure rotation should not produce
+turbulence, and should in fact suppress it according to some theories.  
+The modification should be passive in thin shear layers where vorticity
+and strain are very close.  This model can be viewed as a less capable but far simpler
+alternate to SA-RC. Two reference for this modification are:
+
+<ul>
+<li>Dacles-Mariani, J., Zilliac, G. G., Chow, J. S., and Bradshaw, P., "Numerical/Experimental
+Study of a Wingtip Vortex in the Near Field,"
+<strong>AIAA Journal</strong>, Vol. 33, No. 9, 1995, pp. 1561-1568,
+<a href="https://doi.org/10.2514/3.12826">https://doi.org/10.2514/3.12826</a>.
+<li>Dacles-Mariani, J., Kwak, D., and Zilliac, G. G., "On Numerical Errors and Turbulence
+Modeling in Tip Vortex Flow Prediction,"
+<strong>Int. J. for Numerical Methods in Fluids</strong>, Vol. 30, 1999, pp. 65-82,
+<a href="https://doi.org/10.1002/(SICI)1097-0363(19990515)30:1<65::AID-FLD839>3.0.CO;2-Y">
+https://doi.org/10.1002/(SICI)1097-0363(19990515)30:1<65::AID-FLD839>3.0.CO;2-Y</a>.
+</ul>
+
+<p>This model is the same as the "standard" version <span style="color: blue">(SA)</span>,
+except that the <span style="color: blue">(SA-R)</span> production term becomes:
+
+<dl>
+<dd><img class="tex" alt="c_{b1}(1-f_{t2})[\hat S + C_{rot} min(0,S - \Omega)]\hat \nu"
+src="spalart_dacles/img9.png"</dd>
+</dl>
+
+where <img class="tex" alt="S=\sqrt{2 S_{ij} S_{ij} }" src="spalart_dacles/img5.png" />, and
+
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left(\frac{\partial u_i}{\partial x_j} +
+   \frac{\partial u_j}{\partial x_i} \right)"
+src="spalart_dacles/img6.png"</dd>
+</dl>
+
+<p>The constant <img class="tex" alt="C_{rot}" src="spalart_dacles/img8.png" />
+represents an attempt to empirically adjust the production term for vortex dominated flows.
+The value of <img class="tex" alt="C_{rot}" src="spalart_dacles/img8.png" />=2 was recommended in the above references.
+Note that when <img class="tex" alt="C_{rot}" src="spalart_dacles/img8.png" /> is
+greater than unity, the production term
+can be negative.  When this occurs, the model is suppressing eddy viscosity, which is believed to be correct in solid-body
+rotation.
+
+<p>However, a negative production term is not acceptable for the negative branch 
+(<img class="tex" alt="\hat{\nu} < 0" src="spalart_dacles/img10.png"/>) of the <span style="color: blue">(SA-neg)</span> model. 
+If coding <span style="color: blue">(SA-neg-R)</span>, a 
+possible C0 continuous production term in the negative <span style="color: blue">(SA-neg-R)</span> branch is the following:
+
+<dl>
+<dd><img class="tex" alt="c_{b1} (1-c_{t3}) abs[ \Omega+C_{rot} min(0,S-\Omega) ]\hat{\nu}"
+src="spalart_dacles/img11.png"</dd>
+</dl>
+
+Note that if this model is applied to the <span style="color: blue">(SA-noft2)</span> version instead,
+then its naming convention becomes <span style="color: blue">(SA-noft2-R)</span>.
+Also note that if a different value for
+<img class="tex" alt="C_{rot}" src="spalart_dacles/img8.png" /> is employed, it should be indicated
+as well.  For example, when using a value of 1 instead of 2, the <span style="color: blue">(SA-noft2-R)</span>
+would instead have the naming convention
+<span style="color: blue">(SA-noft2-R(C<sub>rot</sub>=1))</span>.  (See, for example,
+AIAA Paper 2022-3743, June-July 2022,
+<a href="https://doi.org/10.2514/6.2022-3743">https://doi.org/10.2514/6.2022-3743</a>.)
+
+<p>Note that <span style="color: blue">(SA-noft2)</span> is
+not compatible with <span style="color: blue">(SA-neg)</span> (see ICCFD7-1902,
+<a href="https://www.iccfd.org/iccfd7/assets/pdf/papers/ICCFD7-1902_paper.pdf">
+https://www.iccfd.org/iccfd7/assets/pdf/papers/ICCFD7-1902_paper.pdf</a>),
+so <span style="color: blue">(SA-neg-noft2-R)</span> is currently not viable without additional modifications.
+
+
+<br>&nbsp;
+<p><a ID="saKL"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Kato-Launder Correction <span style="color: blue">(SA-KL)</span></strong>
+<p>This correction to the SA model reduces the eddy viscosity in regions where vorticity
+exceeds strain rate, such as in vortex core regions where pure rotation should not produce
+turbulence.  The modification should be passive in thin shear layers where vorticity
+and strain are very close.  Like SA-R, this model can be viewed as a less capable but far simpler
+alternate to SA-RC. Two reference for this modification are:
+
+<ul>
+<li>Kato, M. and Launder, B. E., "The Modelling of Turbulent Flow Around Stationary and Vibrating Square Cylinders,"
+9th Symposium on Turbulent Shear Flows, Kyoto, Japan, August 1993, paper 10-4,
+<a href="https://www.researchgate.net/publication/247931894_The_Modelling_of_Turbulent_Flow_Around_Stationary_and_Vibrating_Square_Cylinders">
+https://www.researchgate.net/publication/247931894_The_Modelling_of_Turbulent_Flow_Around_Stationary_and_Vibrating_Square_Cylinders</a>.
+<li>Nichols, R. H., "A Summary of the Turbulence Models in the CREATE<sup>TM</sup>-AV Kestrel Flow Solvers,"
+AIAA Paper 2019-1342, January 2019,
+<a href="https://doi.org/10.2514/6.2019-1342">https://doi.org/10.2514/6.2019-1342</a>.
+</ul>
+
+<p>This model is the same as the "standard" version <span style="color: blue">(SA)</span>,
+except that the magnitude of vorticity <img class="tex" alt="\Omega" src="spalart_dacles/img2.png" />
+(in the production term only) gets replaced by
+<img class="tex" alt="\sqrt{S \Omega}" src="spalart_eqns/img35.png" />
+
+<p>where <img class="tex" alt="S=\sqrt{2 S_{ij} S_{ij} }" src="spalart_dacles/img5.png" />, and
+
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left(\frac{\partial u_i}{\partial x_j} +
+   \frac{\partial u_j}{\partial x_i} \right)"
+src="spalart_dacles/img6.png"</dd>
+</dl>
+
+<p>In other words, the <img class="tex" alt="\Omega" src="spalart_dacles/img2.png" /> in
+<img class="tex" alt="\hat S" src="spalart_dacles/img3.png" /> gets replaced only where
+<img class="tex" alt="\hat S" src="spalart_dacles/img3.png" />
+appears in the production term, and <i>not</i> where 
+<img class="tex" alt="\hat S" src="spalart_dacles/img3.png" /> appears in the <i>r</i> term.
+
+<br>&nbsp;
+<p><a ID="saLRe"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   Low Reynolds Number Version <span style="color: blue">(SA-LRe)</span></strong>
+<p>This correction improves SA behavior for low Reynolds numbers, based on boundary-layer thickness.  The reference is:
+
+<ul>
+<li>Spalart, P. R. and Garbaruk, A. V.,
+"Correction to the Spalart-Allmaras Turbulence Model, Providing More Accurate Skin Friction,"
+<strong>AIAA Journal</strong>, Vol. 58, No. 5, May 2020, pp. 1903-1905,
+<a href="https://doi.org/10.2514/1.J059489">https://doi.org/10.2514/1.J059489</a>.
+</ul>
+
+<p>The model is identical to the original model, except that the constant <i>c<sub>w2</sub></i> is changed to
+the following function:
+
+<dl>
+<dd><img class="tex" alt="c_{w2,LRe} = c_{w4} + \frac{c_{w5}}{((\chi/40)+1)^2}"
+src="spalart_LRe/img2.png"</dd>
+</dl>
+
+<p>with <img class="tex" alt="c_{w4}=0.21" src="spalart_LRe/img3.png" /> and
+<img class="tex" alt="c_{w5}=1.5" src="spalart_LRe/img4.png" />.
+
+<br>&nbsp;
+<p><a ID="sacomp"><strong><span style="text-align: left; font-weight: 700; font-size: large">Mixing Layer Compressibility Correction in Spalart-Allmaras
+   One-Equation Model <span style="color: blue">(SA-comp)</span></strong> 
+<p>This correction improves SA behavior in compressible mixing
+layers.  The reference is:
+
+<ul>
+<li>Spalart, P. R.,
+"Trends in Turbulence Treatments,"
+<strong>AIAA 2000-2306</strong>, June 2000,
+<a href="https://doi.org/10.2514/6.2000-2306">https://doi.org/10.2514/6.2000-2306</a>.
+</ul>
+
+<p>This version is the same as for the "standard" version <span style="color: blue">(SA)</span>,
+ except that the following 
+additional term is included on the right hand side of the equation.
+
+<dl>
+<dd><img class="tex" alt="-C_5 \frac{\hat \nu^2}{a^2} \frac{\partial u_i}{\partial x_j}
+\frac{\partial u_i}{\partial x_j}" src="compress_eqns/img2.png"</dd>
+</dl>
+
+<p>where <em>a</em> is the local speed of sound and 
+<img class="tex" alt="C_5=3.5" src="compress_eqns/img3.png" />.
+
+<p>Note that this correction is based on work in
+Shur, M., Strelets, M., Zaikov, L., Gulyaev, A., Kozlov, V., and Secundov, A.,
+"Comparative Numerical Testing of One- and Two-Equation Turbulence Models for Flows
+with Separation and Reattachment,"
+AIAA 95-0863, January 1995,
+<a href="https://doi.org/10.2514/6.1995-863">https://doi.org/10.2514/6.1995-863</a>.
+However, the form of the correction is somewhat different.
+
+<p>If used in conjunction with <span style="color: blue">SA-noft2</span> instead
+(see for example Forsythe, J. R., Hoffmann, K. A., Squires, K. D., AIAA 2002-0586,
+2002,
+<a href="https://doi.org/10.2514/6.2002-586">https://doi.org/10.2514/6.2002-586</a>), 
+the model name would become <span style="color: blue">SA-noft2-comp</span>.
+
+<br>&nbsp;
+<p><a ID="sarough"><strong><span style="text-align: left; font-weight: 700; font-size: large">Wall Roughness Correction in Spalart-Allmaras
+   One-Equation Model <span style="color: blue">(SA-rough)</span></strong>
+<p>This correction gives SA capability for predicting rough walls.  The references are:
+
+<ul>
+<li>Aupoix, B. and Spalart, P. R., "Extensions of the Spalart-Allmaras Turbulence Model to Account
+for Wall Roughness,"
+<strong>International Journal of Heat and Fluid Flow</strong>, Vol. 24, 2003, pp. 454-462,
+<a href="https://doi.org/10.1016/S0142-727X(03)00043-2">https://doi.org/10.1016/S0142-727X(03)00043-2</a>.
+<li>Spalart, P. R.,
+"Trends in Turbulence Treatments,"
+<strong>AIAA 2000-2306</strong>, June 2000,
+<a href="https://doi.org/10.2514/6.2000-2306">https://doi.org/10.2514/6.2000-2306</a>.
+</ul>
+
+<p>Note that there is a misprint in the AIAA 2000-2306 reference in eq (6).
+The correct expression for <img class="tex" alt="f_{v2}" src="spalartrough_eqns/img8.png" />
+is given below.
+<p>The first reference describes two different rough wall methods, one due to Boeing and one due to ONERA. Here, only
+the method due to Boeing (which appears in both references) is described.  A description of the ONERA 
+method, which also includes the use of friction velocity, can be
+found in the first paper.
+<p>The roughness version is the same as for the "standard" version <span style="color: blue">(SA)</span>, with the following exceptions.
+To account for roughness, the distance function, which represents the distance from each field
+point to the nearest wall, is augmented to read
+
+<dl>
+<dd><img class="tex" alt="d_{new} = d + 0.03 k_s"
+src="spalartrough_eqns/img2.png"</dd>
+</dl>
+
+where <em>d</em> is the (original) distance to the nearest
+wall and <img class="tex" alt="k_s" src="spalartrough_eqns/img3.png" /> is the conventional Nikuradse sand
+roughness scale height.  Assuming that 
+<img class="tex" alt="k_s" src="spalartrough_eqns/img3.png" /> is uniform on the body,
+the new distance definition is used to replace all occurrences of <em>d</em> in the
+original model.
+The definition of <img class="tex" alt="\chi" src="spalartrough_eqns/img4.png" /> is modified to be:
+
+<dl>
+<dd><img class="tex" alt="\chi = \frac{\hat\nu}{\nu} + c_{R1} \frac{k_s}{d_{new}}"
+src="spalartrough_eqns/img5.png"</dd>
+</dl>
+
+with <img class="tex" alt="c_{R1} = 0.5" src="spalartrough_eqns/img6.png" />. The new definition of
+<img class="tex" alt="\chi" src="spalartrough_eqns/img4.png" /> should not affect 
+<img class="tex" alt="\hat S" src="spalartrough_eqns/img7.png" />, so the definition of
+<img class="tex" alt="f_{v2}" src="spalartrough_eqns/img8.png" /> needs to be rewritten to read:
+
+<dl>
+<dd><img class="tex" alt="f_{v2} = 1 - \frac{\hat \nu}{\nu + \hat \nu f_{v1}}"
+src="spalartrough_eqns/img9.png"</dd>
+</dl>
+
+<p>Finally, at the wall (where <i>d</i>=0), the boundary condition
+<img class="tex" alt="\hat \nu_{wall} = 0" src="spalartrough_eqns/img10.png" /> is replaced by:
+
+<dl>
+<dd><img class="tex" alt="\left( \frac{\partial \hat \nu}{\partial n}\right)_{wall} = \frac{\hat \nu_{wall}}{0.03 k_s}"
+src="spalartrough_eqns/img11.png"</dd>
+</dl>
+
+where <em>n</em> is along the wall normal.
+
+<p>Note that if this roughness model is applied to the <span style="color: blue">(SA-noft2)</span> version instead,
+then its naming convention becomes <span style="color: blue">(SA-noft2-rough)</span>.
+
+
+<br>&nbsp;
+<p><a ID="saTC"><strong><span style="text-align: left; font-weight: 700; font-size: large">Transverse Curvature Free-Shear
+Correction in Spalart-Allmaras One-Equation Model <span style="color: blue">(SA-TC)</span></strong>
+<p>This correction improves the behavior of the SA model in free-shear axisymmetric flows (for example, in
+axisymmetric jets).  The reference is:
+<ul>
+  <li>Spalart, P. R. and Garbaruk, A. V., "A New 'Lambda2' Term for the Spalart-Allmaras Turbulence Model,
+Active in Axisymmetric Flows," <strong>Flow, Turbulence, and Combustion</strong>, Vol. 107, 2021, pp. 245-256;
+<a href="https://doi.org/10.1007/s10494-020-00223-0">https://doi.org/10.1007/s10494-020-00223-0</a>.
+</ul>
+
+<p>The correction adds the following term to the right-hand side of the SA equation:
+
+<dl>
+<dd><img class="tex" alt="max(1-r,0)^3 c_{b3} \lambda_2 \hat \nu / \sigma"
+src="spalartaxi_eqns/img2.png"</dd>
+</dl>
+
+<p>where <i>c<sub>b3</sub></i>=6.  The <i>r</i> and 
+<img class="tex" <img class="tex" alt="\sigma = 2/3" src="spalart_eqns/img14.png" />
+are the same as in the original model.
+
+<p>The <img class="tex" <img class="tex" alt="\lambda_2" src="spalartaxi_eqns/img3.png" /> is the <u>middle</u> eigenvalue of the
+<a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian operator</a> of the local SA turbulence variable
+<img class="tex" <img class="tex" alt="\hat \nu" src="spalartaxi_eqns/img4.png" />.
+Thus, one must solve the following cubic equation to find the three eigenvalues (keeping the signs):
+
+<dl>
+<dd><img class="tex" alt="-\lambda^3 + (\hat \nu_{xx} + \hat \nu_{yy} + \hat \nu_{zz}) \lambda^2
++(\hat \nu_{xy}^2 + \hat \nu_{xz}^2 + \hat \nu_{yz}^2 
+- \hat \nu_{xx} \hat \nu_{yy} - \hat \nu_{xx} \hat \nu_{zz} - \hat \nu_{yy} \hat \nu_{zz}) \lambda
++(\hat \nu_{xx} \hat \nu_{yy} \hat \nu_{zz}
++2 \hat \nu_{xy} \hat \nu_{xz} \hat \nu_{yz}
+-\hat \nu_{xy}^2 \hat \nu_{zz} - \hat \nu_{xz}^2 \hat \nu_{yy} - \hat \nu_{yz}^2 \hat \nu_{xx}) = 0"
+src="spalartaxi_eqns/img5.png"</dd>
+</dl>
+
+<p>then keep only the middle one, calling it
+<img class="tex" <img class="tex" alt="\lambda_2" src="spalartaxi_eqns/img3.png" />.  
+One way to find the middle eigenvalue 
+<img class="tex" <img class="tex" alt="\lambda_2" src="spalartaxi_eqns/img3.png" />
+is via: sum(L<sub>1</sub>+L<sub>2</sub>+L<sub>3</sub>) - min(L<sub>1</sub>,L<sub>2</sub>,L<sub>3</sub>) 
+- max(L<sub>1</sub>,L<sub>2</sub>,L<sub>3</sub>), where L<sub>i</sub> denotes the eigenvalues.
+The units of <img class="tex" <img class="tex" alt="\lambda_2" src="spalartaxi_eqns/img3.png" />
+are the same as the units of the Hessian matrix.
+Regarding the above notation, note that, for example, 
+
+<dl>
+<dd><img class="tex" alt="\hat \nu_{xy} = \frac{\partial^2 \hat \nu}{\partial x \partial y}" 
+src="spalartaxi_eqns/img6.png"</dd>
+</dl>
+
+<p>The method for solving a cubic equation can be found at:
+<a href="https://en.wikibooks.org/wiki/Trigonometry/The_solution_of_cubic_equations">Wikibooks solution of cubic equations</a>.
+Also see:
+<a href="https://en.wikipedia.org/wiki/Eigenvalue_algorithm">Wikipedia Eigenvalue Algorithm</a>.
+
+
+<br>&nbsp;
+<p><a ID="qcr2000"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Quadratic Constitutive Relation, 2000 version <span style="color: blue">(SA-QCR2000)</span></strong>
+<p>This nonlinear model version of Spalart-Allmaras is described in:
+<ul>
+<li>Spalart, P. R., "Strategies for Turbulence Modelling and Simulation,"
+<strong>International Journal of Heat and Fluid Flow</strong>, Vol. 21, 2000, pp. 252-263,
+<a href="https://doi.org/10.1016/S0142-727X(00)00007-2">https://doi.org/10.1016/S0142-727X(00)00007-2</a>.
+</ul>
+
+<p>The model is computed the same as <span style="color: blue">SA</span>, but instead of the traditional linear
+Boussinesq relation, the following form for the turbulent stress is used:
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij,QCR} = \tau_{ij} - C_{cr1} \left[ O_{ik} \tau_{jk} + O_{jk} \tau_{ik} \right]"
+src="spalartqcr_eqns/img2.png"</dd>
+</dl>
+
+<p>where <img class="tex" alt="\tau_{ij}" src="spalartqcr_eqns/img3.png" /> are the turbulent stresses computed from the
+Boussinesq relation, and
+<img class="tex" alt="O_{ik}" src="spalartqcr_eqns/img4.png" /> is an antisymmetric normalized
+rotation tensor, defined by:
+
+<dl>
+<dd><img class="tex" alt="O_{ik} = 2W_{ik} / \sqrt{\frac{\partial u_m}{\partial x_n}\frac{\partial u_m}{\partial x_n}}"
+src="spalartqcr_eqns/img5.png"</dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="W_{ik} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_k} - \frac{\partial u_k}{\partial x_i} \right)"
+src="spalartqcr_eqns/img6.png"</dd>
+</dl>
+
+<p>Note that Einstein index notation is used, so that the denominator of the equation for
+<img class="tex" alt="O_{ik}" src="spalartqcr_eqns/img4.png" /> expands to:
+
+<dl>
+<dd><img class="tex" alt="\sqrt{\frac{\partial u_m}{\partial x_n}\frac{\partial u_m}{\partial x_n}} =
+\sqrt{u_x^2 + u_y^2 + u_z^2 + v_x^2 + v_y^2 + v_z^2 + w_x^2 + w_y^2 + w_z^2}"
+src="spalartqcr_eqns/img7.png"</dd>
+</dl>
+
+<p>In practice, 
+one must avoid division by zero in the 
+<img class="tex" alt="O_{ik}" src="spalartqcr_eqns/img4.png" /> term in regions of zero gradient, where
+QCR should have no effect.
+<!--this denominator term must be limited to prevent possible division by zero in regions
+of zero gradient.-->
+The constant in the model is <img class="tex" alt="C_{cr1} = 0.3" src="spalartqcr_eqns/img8.png" />.
+Note that if the QCR2000 correction is added to a different base Spalart-Allmaras model, the naming of the model 
+should reflect it. For example, if adding QCR2000 to <span style="color: blue">(SA-noft2)</span>, the new model should be 
+referred to as <span style="color: blue">(SA-noft2-QCR2000)</span>.  A very common combination is:
+<span style="color: blue">(SA-RC-QCR2000)</span>
+
+<p>(Note also that the QCR2000 methodology can be used for <em>any</em> turbulence models that normally use the Boussinesq
+relation. When <em>k</em> is available, it does not matter whether the 
+<img class="tex" alt="-2 \rho k \delta_{ij}/3" src="spalartqcr_eqns/img13.png" /> term
+is included in the expression for <img class="tex" alt="\tau_{ij}" src="spalartqcr_eqns/img3.png" />
+or whether it is added to <img class="tex" alt="\tau_{ij,QCR}" src="spalartqcr_eqns/img15.png" /> afterward.
+The addition is proportional to del_ij, and then the antisymmetry of O_ij makes the two terms cancel.)
+
+
+<br>&nbsp;
+<p><a ID="qcr2013"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Quadratic Constitutive Relation, 2013 version <span style="color: blue">(SA-QCR2013
+and SA-QCR2013-V)</span></strong>
+<p>The QCR2013 nonlinear model version of Spalart-Allmaras is described in:
+<ul>
+<li>Mani, M., Babcock, D. A., Winkler, C. M., and Spalart, P. R., "Predictions of a Supersonic Turbulent
+Flow in a Square Duct,"
+AIAA Paper 2013-0860, January 2013,
+<a href="https://doi.org/10.2514/6.2013-860">https://doi.org/10.2514/6.2013-860</a>.
+</ul>
+
+<p>This version of QCR is similar to <span style="color: blue">(SA-QCR2000)</span>, the only difference being that the modified
+turbulent stress has an additional term that approximately accounts for the
+<img class="tex" alt="-2 \rho k \delta_{ij}/3" src="spalartqcr_eqns/img13.png" /> term in the Boussinesq relation,
+although only in regions with non-zero strain.
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij,QCR} = \tau_{ij} - C_{cr1} \left[ O_{ik} \tau_{jk} + O_{jk} \tau_{ik} \right] 
+- C_{cr2} \mu_t \sqrt{2 S^*_{mn}S^*_{mn}}\delta_{ij}"
+src="spalartqcr_eqns/img9.png"</dd>
+</dl>
+
+<p>where 
+
+<dl>
+<dd><img class="tex" alt="S^*_{ij} = S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij}"
+src="spalartqcr_eqns/img10.png"</dd>
+</dl>
+
+<p>and <img class="tex" alt="S_{ij} = (\partial u_i / \partial x_j + \partial u_j / \partial x_i)/2" 
+src="spalartqcr_eqns/img11.png" />.  The new
+constant is <img class="tex" alt="C_{cr2} = 2.5" src="spalartqcr_eqns/img12.png" />.
+Note that if the QCR2013 correction is added to a different base Spalart-Allmaras model, the naming of the model
+should reflect it. For example, if adding QCR2013 to <span style="color: blue">(SA-noft2)</span>, the new model should be
+referred to as <span style="color: blue">(SA-noft2-QCR2013)</span>.
+
+<p>Some applications have noted numerical problems with the term
+<img class="tex" alt="C_{cr2} \mu_t \sqrt{2 S^*_{mn}S^*_{mn}}\delta_{ij}" src="spalartqcr_eqns/img16.png" />,
+notably in wake regions where mu_t is not small (see AIAA-2019-0079).  
+A recommended fix for this problem is to use vorticity instead of strain in this term (as documented in
+Rumsey, C. L., Lee, H. C., and Pulliam, T. H., "Reynolds-Averaged Navier-Stokes Computations of the NASA
+Juncture Flow Model Using FUN3D and OVERFLOW," AIAA Paper 2020-1304, January 2020).  This form
+is referred to as <span style="color: blue">(SA-QCR2013-V)</span>, as follows:
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij,QCR} = \tau_{ij} - C_{cr1} \left[ O_{ik} \tau_{jk} + O_{jk} \tau_{ik} \right] 
+- C_{cr2} \mu_t \sqrt{2 W_{mn}W_{mn}}\delta_{ij}"
+src="spalartqcr_eqns/img19.png"</dd>
+</dl>
+
+<!--One possible fix noted in AIAA-2019-0079 was to
+use a limiter, replacing
+<img class="tex" alt="\sqrt{2 S^*_{mn}S^*_{mn}}" src="spalartqcr_eqns/img17.png" />
+with
+<img class="tex" alt="\left[{\rm min}\left(\sqrt{2 S^*_{mn}S^*_{mn}},A\sqrt{2 W_{mn}W_{mn}}\right)\right]"
+src="spalartqcr_eqns/img18.png" />, with <i>A</i> chosen to be between 1.2 and 2.-->
+
+<p>(Note that the QCR2013 and QCR2013-V methodologies can be used for <em>any</em> turbulence 
+models that normally use the Boussinesq
+relation.  However, if the model provides <em>k</em>, then the 
+<img class="tex" alt="C_{cr2}" src="spalartqcr_eqns/img14.png" /> term is redundant with the 
+<img class="tex" alt="-2 \rho k \delta_{ij}/3" src="spalartqcr_eqns/img13.png" /> term in the Boussinesq relation,
+and the latter term should be used instead.)
+
+<br>&nbsp;
+<p><a ID="qcr2020"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Quadratic Constitutive Relation, 2020 version <span style="color: blue">(SA-QCR2020)</span></strong>
+<p>The QCR2020 nonlinear model version of Spalart-Allmaras is described in:
+<ul>
+<li>Rumsey, C. L., Carlson, J.-R., Pulliam, T. H., and Spalart, P. R.,
+"Improvements to the Quadratic Constitutive Relation Based on NASA Juncture Flow Data,"
+<b>AIAA Journal</b>, Vol. 58, No. 10, 2020, pp. 4374-4384,
+<a href="https://doi.org/10.2514/1.J059683">https://doi.org/10.2514/1.J059683</a>.
+</ul>
+
+<p>This version of QCR uses:
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij,QCR2020} = \tau_{ij} - C_{cr1}'' 
+\left[ O_{ik} \tau_{jk} + O_{jk} \tau_{ik} \right]
+- C_{cr2}'' \mu_t \sqrt{2 W_{mn}W_{mn}}\delta_{ij}"
+src="spalartqcr2020_eqns/img2.png"</dd>
+</dl>
+
+<p>with
+
+<dl>
+<dd><img class="tex" alt="C_{cr1}'' = C_{cr1}'(1 + C_{fw1} f_w)"
+src="spalartqcr2020_eqns/img3.png"</dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="C_{cr2}'' = C_{cr2}'(1 + C_{fw2} f_w)"
+src="spalartqcr2020_eqns/img4.png"</dd>
+</dl>
+
+<p>and <img class="tex" alt="C_{cr1}'=0.20" src="spalartqcr2020_eqns/img5.png" />,
+<img class="tex" alt="C_{cr2}'=1/(3 a_1)=2.15054" src="spalartqcr2020_eqns/img6.png" />,
+<img class="tex" alt="C_{fw1}=2.0" src="spalartqcr2020_eqns/img7.png" />,
+<img class="tex" alt="C_{fw2}=0.3" src="spalartqcr2020_eqns/img8.png" />, and
+<img class="tex" alt="a_1 = 0.155" src="spalartqcr2020_eqns/img9.png" />.
+
+<p>The <i>f<sub>w</sub></i> function is originally from Spalart and Allmaras (Recherche Aerospatiale,
+Vol. 1, 1994, pp. 5-21), later modified in ICCFD7, paper 1902, July 2012 
+to recover from small negative excursions:
+
+<dl>
+<dd><img class="tex" alt="f_w = g \left[ \frac{1 + c_{w3}^6}{g^6 + c_{w3}^6} \right]^{1/6}"
+src="spalartqcr2020_eqns/img10.png"</dd>
+</dl>
+
+<p>where
+
+<dl>
+<dd><img class="tex" alt="g = r + c_{w2}(r^6 - r)"
+src="spalartqcr2020_eqns/img11.png"</dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="r = min \left[ \frac{\hat \nu}{\hat S \kappa^2 d^2}, 10 \right]"
+src="spalartqcr2020_eqns/img12.png"</dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\hat S = \Omega_s + \bar S, \quad for \quad \bar S \geq -C_2 \Omega_s"
+src="spalartqcr2020_eqns/img13.png"</dd>
+<dd><img class="tex" alt="\hat S = \Omega_s + \frac{\Omega_s(C_2^2\Omega_s + C_3 \bar S)}{(C_3-2C_2)\Omega_s - \bar S}, \quad for \quad \bar S < -C_2 \Omega_s"
+src="spalartqcr2020_eqns/img14.png"</dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\bar S = \frac{\hat \nu}{\kappa^2 d^2} f_{v2}"
+src="spalartqcr2020_eqns/img15.png"</dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_{v2} = 1 - \frac{\chi}{1 + \chi f_{v1}}"
+src="spalartqcr2020_eqns/img16.png"</dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_{v1} = \frac{\chi^3}{\chi^3 + c_{v1}^3}"
+src="spalartqcr2020_eqns/img17.png"</dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\chi = \hat \nu / \nu"
+src="spalartqcr2020_eqns/img18.png"</dd>
+</dl>
+
+<p>with <img class="tex" alt="c_{w2}=0.3" src="spalartqcr2020_eqns/img19.png" />,
+<img class="tex" alt="c_{w3}=2" src="spalartqcr2020_eqns/img20.png" />,
+<img class="tex" alt="\kappa=0.41" src="spalartqcr2020_eqns/img21.png" />,
+<img class="tex" alt="c_{v1}=7.1" src="spalartqcr2020_eqns/img22.png" />,
+<img class="tex" alt="C_2=0.7" src="spalartqcr2020_eqns/img23.png" />, and
+<img class="tex" alt="C_3=0.9" src="spalartqcr2020_eqns/img24.png" />.
+
+<p>For QCR2020, a modified function is
+recommended to replace the vorticity that typically goes into the computation of <i>f<sub>w</sub></i>:
+
+<dl>
+<dd><img class="tex" alt="\Omega_s = [0.5(2 W_{ij}W_{ij}+2 S_{ij}S_{ij})]^{1/2}"
+src="spalartqcr2020_eqns/img25.png"</dd>
+</dl>
+
+<p>With this change, converged results are essentially unaffected, but a "smoother" <i>f<sub>w</sub></i>
+results, which may help numerical convergence behavior.
+
+<p>As with QCR2013 and QCR2013-V, the QCR2020 methodology can be employed for other turbulence models that use the 
+Boussinesq relation.  However, if the model provides <i>k</i> and it is included in the
+Boussinesq relation via <img class="tex" alt="-2 \rho k \delta_{ij}/3" src="spalartqcr_eqns/img13.png" />,
+then the last term in the <img class="tex" alt="\tau_{ij,QCR2020}" src="spalartqcr2020_eqns/img26.png" />
+equation above is redundant and should not be included.
+If using a non-SA-based model with QCR2020, 
+<i>f<sub>w</sub></i> is not available because <img class="tex" alt="\tilde \nu" src="spalartneg_eqns/img7.png" /> 
+(in <i>r</i>) is not. 
+One simple approximate solution is to use <img class="tex" alt="\nu_t" src="spalartqcr2020_eqns/img27.png" /> instead of 
+<img class="tex" alt="\tilde \nu" src="spalartneg_eqns/img7.png" /> to calculate <i>r</i> if 
+<img class="tex" alt="\nu_t / \nu > 10" src="spalartqcr2020_eqns/img28.png" />, and to set <i>r</i> = 1 if 
+<img class="tex" alt="\nu_t / \nu \leq 10" src="spalartqcr2020_eqns/img29.png" /> (then use <i>r</i>
+to compute <i>g</i> and <i>f<sub>w</sub></i>).
+<!--the model's eddy viscosity 
+<img class="tex" alt="\mu_t" src="spalartneg_eqns/img8.png" /> would need to be translated to
+<img class="tex" alt="\tilde \nu" src="spalartneg_eqns/img7.png" />, when computing 
+<i>f<sub>w</sub></i>.  This is achievable via
+Newton iteration or other appropriate root-finding method, by solving for
+<img class="tex" alt="\tilde \nu" src="spalartneg_eqns/img7.png" /> in the equation:
+<dl>
+<dd><img class="tex" alt="\mu_t = \rho \tilde \nu f_{v1}"
+  src="spalart_eqns/img24.png" /></dd>
+</dl>
+with <i>f<sub>v1</sub></i> also a function of 
+<img class="tex" alt="\tilde \nu" src="spalartneg_eqns/img7.png" />.
+-->
+
+<p>The minimum distance to the nearest wall (<i>d</i>) is required for QCR2020.
+
+<br>&nbsp;
+<p><a ID="qcr2024"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Quadratic Constitutive Relation, 2024 version <span style="color: blue">(SA-QCR2024)</span></strong>
+<p>(This section was contributed by Y. Tamaki of Tohoku University.)  The QCR2024 nonlinear model version of Spalart-Allmaras is described in:
+<ul>
+<li>Tamaki, Y. and Kawai, S., "Turbulence Anisotropy Effects on Corner-Flow Separation: Physics and Turbulence Modelling,"
+<b>Journal of Fluid Mechanics</b>, Vol. 980 (2024), A21,
+<a href="https://doi.org/10.1017/jfm.2024.25">https://doi.org/10.1017/jfm.2024.25</a>.
+</ul>
+
+<p>This model is shown to improve predictions in a bulging square duct at Re_L=1 million, Re_tau approx 690.
+Although the original paper shows a slightly different form, the model can be equivalently rewritten into a form similar to QCR2000:
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij,QCR2024}=\tau_{ij} - C_{cr1}[O_{ik}\tau_{jk}+O_{jk}\tau_{ik}]-
+C_{cr2}\mu_t \left[S^*_{ik}S^*_{jk}-\frac{1}{3}S^*_{mn}S^*_{mn}\delta_{ij}\right]/\sqrt{\frac{\partial u_m}
+{\partial x_n}\frac{\partial u_m}{\partial x_n}}-C_{cr3}\mu_t\sqrt{2W_{mn}W_{mn}}\delta_{ij}"
+src="spalartqcr2024_eqns/temp-sa-qcr20240x.png"</dd>
+</dl>
+
+<p>where <i>O<sub>ik</sub></i> and <i>W<sub>ik</sub></i> are defined in the SA-QCR2000 section above, and
+
+<dl>
+<dd><img class="tex" alt="S^*_{ij} = S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij}"
+src="spalartqcr_eqns/img10.png"</dd>
+</dl>
+
+<p>with <img class="tex" alt="S_{ij} = (\partial u_i / \partial x_j + \partial u_j / \partial x_i)/2" 
+src="spalartqcr_eqns/img11.png" />.  The constants are:
+<img class="tex" alt="C_{cr1}=0.5" src="spalartqcr2024_eqns/temp-sa-qcr20241x.png" />,
+<img class="tex" alt="C_{cr2}=1.0" src="spalartqcr2024_eqns/temp-sa-qcr20242x.png" />, and
+<img class="tex" alt="C_{cr3}=2.15" src="spalartqcr2024_eqns/temp-sa-qcr20243x.png" />.
+
+<p>As with QCR2013, QCR2013-V, and QCR2020, the QCR2024 methodology can be employed for other turbulence models that use the
+Boussinesq relation.  However, if the model provides <i>k</i> and it is included in the
+Boussinesq relation via <img class="tex" alt="-2 \rho k \delta_{ij}/3" src="spalartqcr_eqns/img13.png" />,
+then the last term in the <img class="tex" alt="\tau_{ij,QCR2024}" src="spalartqcr2024_eqns/temp-sa-qcr20244x.png" />
+equation above is redundant and should not be included.
+
+
+<br>&nbsp;
+<p><a ID="helicity"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Velocity Helicity <span style="color: blue">(SA-noft2-Helicity)</span></strong>
+<p>
+<span style="color: red"><i>Warning:  the additional term in the SA-noft2-Helicity model is 
+<strong><u>not Galilean invariant</u></strong>, since it involves 
+the velocity vector.  Therefore results will be dependent on your frame of reference. Such a 
+dependence has been avoided in conventional turbulence modeling, and certainly in the original 
+SA model. This lack of Galilean invariance makes this version of the model less general.</i></span>
+<p>
+This form of the Spalart-Allmaras model attempts to account for turbulence energy backscatter using 
+velocity helicity. The modification can significantly improve the predictive accuracy for complex 
+3D vortical flows (such as corner separation in compressors). The reference is:
+<ul>
+<li>Liu, Y.W., Lu, L.P., Fang, L., Gao, F., "Modification of Spalart-Allmaras Model with 
+Consideration of Turbulence Energy Backscatter Using Velocity Helicity," <strong>Physics Letters A</strong>, 
+Vol. 375(24), 2011, pp. 2377-2381,
+<a href="https://doi.org/10.1016/j.physleta.2011.05.023">https://doi.org/10.1016/j.physleta.2011.05.023</a>.
+</ul>
+
+<p>This version was implemented by the authors on top of
+<span style="color: blue">(SA-noft2)</span> (hence the naming convention above).  The new feature in this model
+is that 
+<!--<img class="tex" alt="f_{t2}" src="salsa_eqns/img2.png" /> is ignored, and -->
+the magnitude of vorticity <img class="tex" alt="\Omega" src="spalartedwards_eqns/img7.png" />
+(in the <img class="tex" alt="\hat S" src="spalartrough_eqns/img7.png" /> production term) gets replaced with:
+
+<dl>
+<dd><img class="tex" alt="(1.0+C_{h1}h^{C_{h2}})\Omega"
+src="spalarthelicity_eqns/img2.png"</dd>
+</dl>
+
+<p>The final definition of modified <img class="tex" alt="\hat S" src="spalartrough_eqns/img7.png" /> is:
+
+<dl>
+<dd><img class="tex" alt="\hat S=\left(1.0+C_{h1}h^{C_{h2}}\right)\Omega+\frac{\hat \nu}{\kappa^2 d^2}f_{\nu2}"
+src="spalarthelicity_eqns/img3.png"</dd>
+</dl>
+
+<p>where
+
+<dl>
+<dd><img class="tex" alt="h=\frac{\vert\omega_{i}u_{i}\vert}{\Omega U}"
+  src="spalarthelicity_eqns/img4.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\omega_{i}=\epsilon_{ijk}\frac{\partial u_{j}}{\partial x_{k}}"
+  src="spalarthelicity_eqns/img5.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="U=\sqrt{u_{i}u_{i}}"
+  src="spalarthelicity_eqns/img6.png" /> </dd>
+</dl>
+
+<p>
+The relative helicity density <i>h</i> is employed to represent the turbulence energy backscatter.
+Note: the authors added 0.00001 m/s<sup>2</sup> to the denominator of the equation for <i>h</i>
+to avoid division by zero (private communication).
+The two constants in the modification are:
+
+<dl>
+<dd><img class="tex" alt="C_{h1}=0.71"
+  src="spalarthelicity_eqns/img7.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{h2}=0.6"
+  src="spalarthelicity_eqns/img8.png" /> </dd>
+</dl>
+
+<p>The modification will switch-off automatically in many classical flows that have been 
+validated for the <span style="color: blue">(SA-noft2)</span> model, because <i>h</i> is zero.
+Although the "Helicity" fix was implemented on top of 
+<span style="color: blue">(SA-noft2)</span>, it could also presumably be
+implemented on top of the general model <span style="color: blue">(SA)</span> or
+<span style="color: blue">(SA-neg)</span>, for example.
+
+<br>&nbsp;
+<p><a ID="saCatris"><strong><span style="text-align: left; font-weight: 700; font-size: large">A Compressible Form of Spalart-Allmaras
+   One-Equation Model <span style="color: blue">(SA-noft2-Catris)</span></strong>
+<p>This particular compressible form was developed by Catris and Aupoix, and is given in the following reference:
+
+<ul>
+<li>Catris, S. and Aupoix, B.,
+"Density Corrections for Turbulence Models,"
+<strong>Aerospace Science and Technology</strong>, Vol. 4, 2000, pp. 1-11,
+<a href="https://doi.org/10.1016/S1270-9638(00)00112-7">https://doi.org/10.1016/S1270-9638(00)00112-7</a>.
+</ul>
+
+<!--<p>In this version, the diffused quantity
+is taken to be <img class="tex" alt="\sqrt{\rho} \tilde \nu" src="spalartcatris_eqns/img4.png" /> (the
+transported quantity remains as <img class="tex" alt="\tilde \nu" src="spalartcatris_eqns/img3.png" />).-->
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial \rho \tilde \nu}{\partial t} + u_j \frac{\partial \rho \tilde \nu}{\partial x_j} =
+    c_{b1} \hat S \rho \tilde \nu -
+    c_{w1}f_w\rho \left(\frac{\tilde \nu}{d} \right)^2
+  + \frac{1}{\sigma} \frac{\partial}{\partial x_j}
+    \left(\mu \frac{\partial \tilde \nu}{\partial x_j} \right)
+  + \frac{1}{\sigma} \frac{\partial}{\partial x_j}
+    \left( \sqrt{\rho} \tilde \nu \frac{\partial \sqrt{\rho}\tilde \nu}{\partial x_j} \right)
+  + \frac{c_{b2}}{\sigma} \frac{\partial \sqrt{\rho}\tilde \nu}{\partial x_i}
+                          \frac{\partial \sqrt{\rho}\tilde \nu}{\partial x_i}"
+  src="spalartcatris_eqns/img2.png" /></dd>
+</dl>
+
+<p>There is no trip term, and this model does not include the term
+<img class="tex" alt="f_{t2}" src="spalartcatris_eqns/img5.png" /> from the original model.
+Because the analysis is restricted to the logarithmic region and, for density gradient effects, to zero pressure gradient flows,
+Catris and Aupoix do not mention the 
+<img class="tex" alt="f_{v1}" src="spalartcatris_eqns/img7.png" /> and
+<img class="tex" alt="f_{v2}" src="spalartcatris_eqns/img6.png" /> terms that appear in the original model (in the 
+production term, in the definition of <em>r</em>, and in the definition of turbulent eddy viscosity).
+However, in the numerical implementation of the model, these should be coded as usual (ref: private communication with the 
+authors).
+All other functions and constants should be the same as for the "standard" version <span style="color: blue">(SA)</span>.
+
+<p>According to Waligura et al. (AIAA-2022-0587, 
+<a href="https://doi.org/10.2514/6.2022-0587">https://doi.org/10.2514/6.2022-0587</a>), 
+this model can be written in a different way that makes it easier to implement:
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial \rho \hat{\nu}}{\partial t} + \frac{\partial \rho u_j \hat{\nu}}{\partial x_j} - 
+\beta {\rho \hat{\nu}\frac{\partial u_j}{\partial x_j}} = \rho c_{b1}(1-f_{t2})\hat{S}\hat{\nu}- 
+\rho \Big(c_{w1} f_w - \frac{c_{b1}}{\kappa^2} f_{t2}\Big) \Big[\frac{\hat{\nu}}{d}\Big]^2 
++ \frac{1}{\sigma}\Big[\frac{\partial}{\partial x_j} \Big(\rho(\nu+\hat{\nu})\frac{\partial \hat{\nu}}{\partial x_j}+ 
+{\frac{\hat{\nu}^2}{2}\frac{{\partial \rho}}{\partial x_j}} \Big) + 
+\rho c_{b2} \frac{\partial \hat{\nu}}{\partial x_i}\frac{\partial \hat{\nu}}{\partial x_i}\Big] + 
+\frac{{c_{b2}}}{\sigma}\Big( \hat{\nu}\frac{\partial \rho}{\partial x_i}\frac{\partial \hat{\nu}}{\partial x_i} + 
+{\frac{1}{4}\frac{\hat{\nu}^2}{\rho}\frac{\partial \rho}{\partial x_i}\frac{\partial \rho}{\partial x_i}} \Big)"
+  src="spalartcatris_eqns/img8.png" /></dd>
+</dl>
+
+<p>In this equation, the 
+<img class="tex" alt="f_{t2}" src="spalartcatris_eqns/img5.png" /> term is included, along with an additional
+<img class="tex" alt="\beta" src="spalartcatris_eqns/img9.png" /> term to differentiate between the
+original nonconservative form and a (different) conservative form.
+When <img class="tex" alt="\beta=1" src="spalartcatris_eqns/img10.png" /> and
+<img class="tex" alt="f_{t2}" src="spalartcatris_eqns/img5.png" /> is set to zero, the original
+<span style="color: blue">SA-noft2-Catris</span> is recovered.
+Setting <img class="tex" alt="\beta=1" src="spalartcatris_eqns/img10.png" /> and including
+<img class="tex" alt="f_{t2}" src="spalartcatris_eqns/img5.png" /> would yield
+<span style="color: blue">SA-Catris</span>.
+Setting <img class="tex" alt="\beta=0" src="spalartcatris_eqns/img11.png" /> and ignoring
+<img class="tex" alt="f_{t2}" src="spalartcatris_eqns/img5.png" /> yields
+<span style="color: blue">SA-noft2-CatrisCons</span>.  And
+setting <img class="tex" alt="\beta=0" src="spalartcatris_eqns/img11.png" /> and including
+<img class="tex" alt="f_{t2}" src="spalartcatris_eqns/img5.png" /> yields
+<span style="color: blue">SA-CatrisCons</span>.
+
+<p>Note that there was a typo in AIAA-2022-0587: the
+c<sub>b2</sub> term should be added (as shown above), not subtracted.
+
+<p>Many other papers have been written that either discuss or explore <span style="color: blue">SA-noft2-Catris</span>.
+A few examples include: AIAA-2016-0586,
+<a href="https://doi.org/10.2514/6.2016-0586">https://doi.org/10.2514/6.2016-0586</a>,
+J. Thermophysics and Heat Transfer 2015, 29(2):423-428,
+<a href="https://doi.org/10.2514/1.T3864">https://doi.org/10.2514/1.T3864</a>,
+Prog. Aer. Sci. 2006, 42:469-530,
+<a href="https://doi.org/10.1016/j.paerosci.2006.12.002">https://doi.org/10.1016/j.paerosci.2006.12.002</a>,
+Eng. Applications of Comp. Fluid Mech., 2018, 12(1):459-472,
+<a href="https://doi.org/10.1080/19942060.2018.1451389">https://doi.org/10.1080/19942060.2018.1451389</a>, and
+Int. J. Heat and Fluid Flow, 2018, 73:114-123,
+<a href="https://doi.org/10.1016/j.ijheatfluidflow.2018.07.005">https://doi.org/10.1016/j.ijheatfluidflow.2018.07.005</a>.
+
+<br>&nbsp;
+<p><a ID="saEdwards"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with Edwards Modification <span style="color: blue">(SA-noft2-Edwards)</span></strong>
+<p>This form was developed primarily to improve the near-wall numerical behavior of the model (i.e.,
+the goal was to improve the convergence behavior).  The reference is:
+
+<ul>
+<li>Edwards, J. R. and Chandra, S. "Comparison of Eddy Viscosity-Transport
+Turbulence Models for Three-Dimensional, Shock-Separated Flowfields,"
+<strong>AIAA Journal</strong>, Vol. 34, No. 4, 1996, pp. 756-763,
+<a href="https://doi.org/10.2514/3.13137">https://doi.org/10.2514/3.13137</a>.
+</ul>
+
+<p>This version is the same as for the "standard" version <span style="color: blue">(SA)</span>, except that
+<img class="tex" alt="f_{t2}" src="spalartedwards_eqns/img2.png" /> is ignored, and the following
+two variables are redefined:
+<dl>
+<dd><img class="tex" alt="\tilde S = S^{1/2} \left[ \frac{1}{\chi} + f_{v1} \right]"
+  src="spalartedwards_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="r = \frac{{\rm tanh} \left[ \tilde \nu/(\tilde S \kappa^2 d^2)\right]}{{\rm tanh}(1.0)}"
+  src="spalartedwards_eqns/img4.png" /></dd>
+</dl>
+
+<p>Note that this method makes use of <img class="tex" alt="S^{1/2}" src="spalartedwards_eqns/img6.png" />
+(rather than vorticity <img class="tex" alt="\Omega" src="spalartedwards_eqns/img7.png" />), where:
+<dl>
+<dd><img class="tex" alt="S= \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+   \frac{\partial u_i}{\partial x_j} - \frac{2}{3}
+   \left( \frac{\partial u_k}{\partial x_k} \right)^2"
+  src="spalartedwards_eqns/img5.png" /></dd>
+</dl>
+
+<br>&nbsp;
+<p><a ID="safv3"><strong><span style="text-align: left; font-weight: 700; font-size: large">Spalart-Allmaras
+   One-Equation Model with f<sub>v3</sub> Term <span style="color: blue">(SA-fv3)</span></strong>
+<p>This form of the Spalart-Allmaras model came about as a
+result of e-mail exchanges between the model developer and early implementers.  It was devised
+to prevent negative values of the source term, and is not recommended because of unusual transition
+behavior at low Reynolds numbers (see Spalart, P. R., <strong>AIAA 2000-2306</strong>, 2000). Unfortunately,
+coding of this version still persists.  Because this method came about through private
+communications, there is no official reference for it.  However, see the following for a
+brief description:
+
+<ul>
+<li>Rumsey, C. L., Allison, D. O., Biedron, R. T., Buning, P.G.,
+Gainer, T. G., Morrison, J. H., Rivers, S. M., Mysko, S. J., and Witkowski, D. P.,
+"CFD Sensitivity Analysis of a Modern Civil Transport Near Buffet-Onset
+Conditions,"
+NASA/TM-2001-211263, December 2001,
+<a href="https://ntrs.nasa.gov/citations/20020015798">https://ntrs.nasa.gov/citations/20020015798</a>.
+</ul>
+
+<p>The equations are the same as for the "standard" version <span style="color: blue">(SA)</span>,
+with the following exceptions:
+<dl>
+<dd><img class="tex" alt="\tilde S = f_{v3} \Omega + \frac{\tilde \nu}{\kappa^2 d^2} f_{v2}"
+  src="spalartfv3_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_{v2} = \frac{1}{(1+\chi/c_{v2})^3}"
+  src="spalartfv3_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="f_{v3} = \frac{(1+\chi f_{v1})(1-f_{v2})}{\chi}"
+  src="spalartfv3_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="c_{v2} = 5"
+  src="spalartfv3_eqns/img5.png" /></dd>
+</dl>
+
+<br>&nbsp;
+<p><a ID="sasalsa"><strong><span style="text-align: left; font-weight: 700; font-size: large">Strain Adaptive Formulation of Spalart-Allmaras
+   One-Equation Model <span style="color: blue">(SA-noft2-salsa)</span></strong>
+<p>This form was developed primarily to extend the predictive capabiliy of the model for
+nonequilibrium conditions.  It also makes use of some of the aspects of the 
+<span style="color: blue">(SA-Edwards)</span> version.  The reference is:
+
+<ul>
+<li>Rung, T., Bunge, U., Schatz, M., and Thiele, F., "Restatement of the Spalart-Allmaras Eddy-Viscosity
+Model in Strain-Adaptive Formulation,"
+<strong>AIAA Journal</strong>, Vol. 41, No. 7, 2003, pp. 1396-1399,
+<a href="https://doi.org/10.2514/2.2089">https://doi.org/10.2514/2.2089</a>.
+</ul>
+
+<p>This version is the same as for the "standard" version <span style="color: blue">(SA)</span>, except for
+the following changes.
+First, <img class="tex" alt="f_{t2}" src="salsa_eqns/img2.png" /> is ignored.  Second, the term
+<dl>
+<dd><img class="tex" alt="\frac{1}{\sigma}\left[\frac{\partial}{\partial x_j}\left(\left(\nu + \hat \nu \right)
+     \frac{\partial \hat \nu}{\partial x_j}\right)\right]"
+  src="salsa_eqns/img3.png" /></dd>
+</dl>
+is written slightly differently as:
+<dl>
+<dd><img class="tex" alt="\frac{\partial}{\partial x_j}\left[\left(\nu + \frac{\hat \nu}{\sigma} \right)
+     \frac{\partial \hat \nu}{\partial x_j}\right]"
+  src="salsa_eqns/img4.png" /></dd>
+</dl>
+Third, the following two variables are redefined:
+<dl>
+<dd><img class="tex" alt="\hat S = S^* \left[ \frac{1}{\chi} + f_{v1} \right]"
+  src="salsa_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="r = 1.6 {\rm tanh} \left[ 0.7 \sqrt{\frac{\rho_0}{\rho}} \left( \frac{\hat \nu}{\hat S \kappa^2 d^2} \right) \right]"
+  src="salsa_eqns/img6.png" /></dd>
+</dl>
+where <img class="tex" alt="\rho_0" src="salsa_eqns/img7.png" /> is the freestream stagnation density, and
+<dl>
+<dd><img class="tex" alt="S^* = \sqrt{2 S_{ij}' S_{ij}'}"
+  src="salsa_eqns/img8.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij}' = \frac{1}{2}\left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+   - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij}"
+  src="salsa_eqns/img9.png" /></dd>
+</dl>
+
+<p>Fourth, the sensitization to nonequilibrium effects comes in through a change in 
+<img class="tex" alt="c_{b1}" src="salsa_eqns/img10.png" />, which is no longer a constant.
+The source term changes from
+<img class="tex" alt="c_{b1} \hat S \hat \nu" src="salsa_eqns/img11.png" />
+to
+<img class="tex" alt="c_{b1}' \hat S \hat \nu" src="salsa_eqns/img12.png" />
+and
+<img class="tex" alt="c_{w1}" src="salsa_eqns/img13.png" /> changes from
+<dl>
+<dd><img class="tex" alt="c_{w1} = \frac{c_{b1}}{\kappa^2} + \frac{1+c_{b2}}{\sigma}"
+  src="salsa_eqns/img14.png" /></dd>
+</dl>
+to
+<dl>
+<dd><img class="tex" alt="c_{w1} = \frac{c_{b1}'}{\kappa^2} + \frac{1+c_{b2}}{\sigma}"
+  src="salsa_eqns/img15.png" /></dd>
+</dl>
+where the new variable is
+<dl>
+<dd><img class="tex" alt="c_{b1}' = 0.1355 \sqrt{\Gamma}"
+  src="salsa_eqns/img16.png" /></dd>
+</dl>
+and
+<dl>
+<dd><img class="tex" alt="\Gamma = {\rm min}[1.25, {\rm max} (\gamma, 0.75)]"
+  src="salsa_eqns/img17.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\gamma = {\rm max}(\alpha_1, \alpha_2)"
+  src="salsa_eqns/img18.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\alpha_1 = \left[1.01 \left( \frac{\hat \nu}{S^* \kappa^2 d^2} \right) \right]^{0.65}"
+  src="salsa_eqns/img19.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\alpha_2 = {\rm max} \left[ 0,1-{\rm tanh} \left( \frac{\chi}{68} \right) \right]^{0.65}"
+  src="salsa_eqns/img20.png" /></dd>
+</dl>
+
+<p>Note that in this model the <img class="tex" alt="(2/3)\rho k \delta_{ij}" 
+src="salsa_eqns/img21.png" />
+term is <u>not</u> ignored in the Boussinesq assumption, and <i>k</i> is approximated by
+<dl>
+<dd><img class="tex" alt="k = \nu_t S^* / \sqrt{0.09}"
+  src="salsa_eqns/img22.png" /></dd>
+</dl>
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Special notes for users of
+<a href="openfoam_issues.html">OpenFOAM</a> and 
+<a href="fluent_issues.html">Fluent</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+09/06/2024 - added description of QCR2024<br>
+03/13/2023 - change to specific recommendation for QCR2020 when used with non-SA-based model<br>
+03/01/2023 - clarification about min distance<br>
+10/17/2022 - additional clarifications in SA-R<br>
+08/16/2022 - clarification on modification to production term in SA-R and SA-KL<br>
+02/04/2022 - minor revision on "noft2" designation to SA-Helicity, SA-Catris, SA-Edwards, and SA-salsa,
+and examples added on how to add corrections<br>
+01/24/2021 - added "noft2" designation to SA-Helicity, SA-Catris, SA-Edwards, and SA-salsa to be more accurately descriptive<br>
+04/07/2021 - added description of SA-TC<br>
+09/15/2020 - added description of QCR2020<br>
+07/21/2020 - added description of SA-LRe<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 12/05/2024
+<br>&nbsp;
+
+</body>
+</html>

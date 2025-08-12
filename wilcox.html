@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Wilcox k-omega Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">The Wilcox k-omega
+   Turbulence Model</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This web page gives detailed information
+on the equations for various forms of the
+Wilcox k-omega turbulence model.
+All forms of the model given on this page are linear eddy viscosity models.
+Linear models use the Boussinesq assumption for the constitutive relation:
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = 2 \mu_t \left(S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right) -
+  \frac{2}{3} \rho k \delta_{ij}"
+  src="easmko_eqns/img2.png" /></dd>
+</dl>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<br>&nbsp;
+
+<p><em>The first version listed <span style="color: blue">(Wilcox2006)</span> is the latest "standard"
+version of this model.</em>
+<br>&nbsp;
+
+<p><a ID="w06"><strong><span style="text-align: left; font-weight: 700; font-size: large">Wilcox (2006) k-omega 
+   Two-Equation Model <span style="color: blue">(Wilcox2006)</span> and <span style="color: blue">(Wilcox2006m)</span></strong>
+<p>The references for this model are:
+
+<ul>
+<li>Wilcox, D. C., "Formulation of the k-omega Turbulence Model Revisited,"
+<strong>AIAA Journal</strong>, Vol. 46, No. 11, 2008, pp. 2823-2838,
+<a href="https://doi.org/10.2514/1.36541">https://doi.org/10.2514/1.36541</a>.
+<li>Wilcox, D. C., <strong>Turbulence Modeling for CFD</strong>,
+3rd edition, DCW Industries, Inc., La Canada CA, 2006.
+</ul>
+
+<p>The two-equation model (written in conservation form) is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \beta^* \rho \omega k  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \sigma_k \frac{\rho k}{\omega} \right)\frac{\partial k}{\partial x_j}\right]"
+  src="wilcox2006_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho u_j \omega)}{\partial x_j}
+  = \frac{\gamma \omega}{k} \cal P -
+  \beta \rho \omega^2 + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\omega} \frac{\rho k}{\omega} \right)
+  \frac{\partial \omega}{\partial x_j} \right] +
+  \frac{\rho \sigma_d}{\omega} \frac{\partial k}{\partial x_j}
+  \frac{\partial \omega}{\partial x_j}"
+  src="wilcox2006_eqns/img3.png" /></dd>
+</dl>
+
+<p>where
+<dl>
+<dd><img class="tex" alt="P = \tau_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="wilcox2006_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tau_{ij} = \mu_t \left(2S_{ij} - \frac{2}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij} \right)
+   - \frac{2}{3} \rho k \delta_{ij}"
+  src="wilcox2006_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)"
+  src="wilcox2006_eqns/img6.png" /></dd>
+</dl>
+
+<p>and the turbulent eddy viscosity is computed from:
+<dl>
+<dd><img class="tex" alt="\mu_t = \frac{\rho k}{\hat \omega}"
+  src="wilcox2006_eqns/img7.png" /></dd>
+</dl>
+
+<p>where:
+<dl>
+<dd><img class="tex" alt="\hat \omega = {\rm max} \left[ \omega, C_{lim}
+\sqrt{\frac{2 \overline S_{ij} \overline S_{ij}}{\beta^*}} \right]"
+  src="wilcox2006_eqns/img8.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\overline S_{ij} = S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij}"
+  src="wilcox2006_eqns/img9.png" /></dd>
+</dl>
+
+<p>and <img class="tex" alt="\rho" src="wilcox2006_eqns/img10.png" /> is the density
+and
+<img class="tex" alt="\mu" src="wilcox2006_eqns/img11.png" /> is the
+molecular dynamic viscosity.
+
+<p>There are no specific farfield boundary conditions recommended for this model.
+See <a href="sst.html"><span style="text-align: left; font-weight: 700; font-size: large">Menter k-omega SST</a>
+for farfield values recommended there.
+Note that the Wilcox k-omega two-equation models exhibit some sensitivity to freestream
+boundary conditions on <img class="tex" alt="\omega" src="wilcox2006_eqns/img13.png" />
+(see Wilcox, D. C., Turbulence Modeling for CFD, 3rd edition, DCW Industries, Inc., La Canada CA, 2006
+for details). An example of the sensitivity can be found on the
+<a href="delvilleshear_val_w06.html">2D Mixing Layer Validation - Wilcox2006 Model Results</a> page.
+
+<p>At solid walls:
+
+<dl>
+<dd><img class="tex" alt="k_{wall} = 0"
+  src="wilcox2006_eqns/img12.png" /></dd>
+</dl>
+
+<p>There are various wall boundary conditions mentioned for 
+<img class="tex" alt="\omega" src="wilcox2006_eqns/img13.png" />
+in the references above, including both smooth and rough walls.  For smooth walls, the
+asymptotic behavior is
+
+<dl>
+<dd><img class="tex" alt="\omega_{wall} \rightarrow \frac{6 \nu_{wall}}{\beta_0 d^2}"
+  src="wilcox2006_eqns/img14.png" /></dd>
+</dl>
+
+<p> as <img class="tex" alt="y \rightarrow 0" src="wilcox2006_eqns/img15.png" />,
+where <em>d</em> is the distance to the nearest wall.
+However, according to Menter (AIAA J 32(8):1598-1605, 1994), it is not appropriate to
+use this asymptotic value for the BC <strong>at</strong> a wall.  Instead, many CFD codes employ the approximate
+<img class="tex" alt="\omega" src="wilcox2006_eqns/img13.png" />
+wall boundary condition from Menter for this model
+(see <a href="sst.html"><span style="text-align: left; font-weight: 700; font-size: large">Menter k-omega SST</a>).
+
+<p>Alternatively, the Wilcox references also specify a so-called "slightly-rough-surface" boundary
+condition for <img class="tex" alt="\omega" src="wilcox2006_eqns/img13.png" />:
+
+<dl>
+<dd><img class="tex" alt="\omega_{wall} = \frac{40000 \nu_{wall}}{k_s^2}"
+  src="wilcox2006_eqns/img30.png" /></dd>
+</dl>
+
+<p>where it is important for smooth walls to "select a small enough value" of
+<img class="tex" alt="k_s" src="wilcox2006_eqns/img31.png" />
+to insure that
+<img class="tex" alt="u_{\tau} k_s / \nu < 5" src="wilcox2006_eqns/img32.png" />.
+
+<p>The constants and auxiliary functions are:
+<dl>
+<dd><img class="tex" alt="\sigma_k = 0.6"
+  src="wilcox2006_eqns/img17.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\omega} = 0.5"
+  src="wilcox2006_eqns/img18.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\beta^* = 0.09"
+  src="wilcox2006_eqns/img19.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\gamma = \frac{13}{25}"
+  src="wilcox2006_eqns/img20.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="C_{lim} = \frac{7}{8}"
+  src="wilcox2006_eqns/img21.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\beta = \beta_0 f_{\beta}"
+  src="wilcox2006_eqns/img22.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_0 = 0.0708"
+  src="wilcox2006_eqns/img23.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_{\beta} = \frac{1 + 85 \chi_{\omega}}{1 + 100 \chi_{\omega}}"
+  src="wilcox2006_eqns/img24.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\chi_{\omega} = \left| \frac{\Omega_{ij} \Omega_{ij} \hat S_{ki}}
+  {(\beta^* \omega)^3} \right|"
+  src="wilcox2006_eqns/img25.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\hat S_{ki} = S_{ki} - \frac{1}{2} \frac{\partial u_m}{\partial x_m} \delta_{ki}"
+  src="wilcox2006_eqns/img26.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\Omega_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} - \frac{\partial u_j}{\partial x_i} \right)"
+  src="wilcox2006_eqns/img27.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\sigma_d = 0, \quad for \quad \frac{\partial k}{\partial x_j}
+   \frac{\partial \omega}{\partial x_j} \leq 0"
+  src="wilcox2006_eqns/img28.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_d = \frac{1}{8}, \quad for \quad \frac{\partial k}{\partial x_j}
+   \frac{\partial \omega}{\partial x_j} > 0"
+  src="wilcox2006_eqns/img29.png" /></dd>
+</dl>
+
+<p>Note that the <img class="tex" alt="\gamma" src="wilcox2006_eqns/img34.png" />
+coefficient (termed <img class="tex" alt="\alpha" src="wilcox2006_eqns/img35.png" /> in Wilcox's book)
+was chosen in order to yield an appropriate value for the Karman constant 
+(<img class="tex" alt="\kappa = 0.40" src="wilcox2006_eqns/img36.png" />), via the expression:
+<dl>
+<dd><img class="tex" alt="\gamma = \frac{\beta_0}{\beta^*} - \frac{\sigma_{\omega} \kappa^2}{\sqrt{\beta^*}}"
+  src="wilcox2006_eqns/img37.png" /></dd>
+</dl>
+
+<p>Also note that in the so-called "Pope correction" for this model, the term
+<img class="tex" alt="\chi_{\omega}" src="wilcox2006_eqns/img33.png" />
+is zero for 2-D.  If the Pope correction is specifically turned off for a 3-D computation, then the model should be
+referred to as <span style="color: blue">(Wilcox2006-noPope)</span>.
+
+<p>Note: the <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" /> term
+in the Boussinesq approximation for tau_ij is sometimes ignored in the momentum and energy equations.
+Similarly, the production term in two-equation turbulence models is often approximated by <b>P = mu_t S<sup>2</sup></b>.
+This expression is exact for incompressible flows and is typically
+considered a very good approximation, except perhaps for very high Mach number flows (see items 4 and 7 on the page
+<a href="noteonrunning.html">Notes on Running the Cases with CFD</a>, and the
+<a href="implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a> page).
+There are various ways that these approximations can be implemented:
+ <ul>
+   <li><span style="color: blue">(Wilcox2006m)</span> (most common) - when the
+       <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+       term is IGNORED in tau_ij in the momentum and energy equations, and the production term is APPROXIMATED by
+       <b>P = mu_t S<sup>2</sup></b>.
+   <li><span style="color: blue">(Wilcox2006s)</span> - when the
+       <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+       term is INCLUDED in tau_ij in the momentum and energy equations, and the production term is APPROXIMATED by
+       <b>P = mu_t S<sup>2</sup></b>.
+   <li><span style="color: blue">(Wilcox2006e)</span> - when the
+       <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+       term is IGNORED in tau_ij in the momentum and energy equations, and the production term is THE EXACT expression.
+ </ul>
+<!--When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be employed:  <span style="color: blue">(Wilcox2006m)</span>.-->
+
+<br>&nbsp;
+<p><a ID="w06klim"></a><strong><span style="text-align: left; font-weight: 700; font-size: large">Wilcox (2006) k-omega
+   Two-Equation Model with k-equation Production Limiter <span style="color: blue">(Wilcox2006-klim)</span> and
+<span style="color: blue">(Wilcox2006-klim-m)</span></strong>
+
+<p>Although the official model described above does not include it, some applications use a production limiter 
+in the k-equation (patterned after the <a href="sst.html">SST model</a>).
+Everything is identical to the <span style="color: blue">(Wilcox2006)</span> model above except that
+the term <em>P</em> in the <em>k</em>-equation is replaced by:
+<dl>
+<dd><img class="tex" alt="{\rm min}(\cal P, 20 \beta^* \rho \omega k)"
+  src="sst_eqns/img35.png" /></dd>
+</dl>
+<p>There has been only limited experience to date, but
+the use of this form as opposed to the "standard" version <span style="color: blue">(Wilcox2006)</span> appears to
+makes very little difference.
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be used:  <span style="color: blue">(Wilcox2006-klim-m)</span>.
+Other variants (s and e) follow the naming conventions described above at the end of the Wilcox2006 section.
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Wilcox (1998) k-omega
+   Two-Equation Model <span style="color: blue">(Wilcox1998)</span> and <span style="color: blue">(Wilcox1998m)</span></strong>
+<p>The reference for this model is:
+
+<ul>
+<li>Wilcox, D. C., <strong>Turbulence Modeling for CFD</strong>,
+2nd edition, DCW Industries, Inc., La Canada CA, 1998.
+</ul>
+
+<p>The two-equation model (written in conservation form) is given by the following:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \beta^* \rho \omega k  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \sigma_k \frac{\rho k}{\omega} \right)\frac{\partial k}{\partial x_j}\right]"
+  src="wilcox1998_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho u_j \omega)}{\partial x_j}
+  = \frac{\gamma \omega}{k} \cal P -
+  \beta \rho \omega^2 + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\omega} \frac{\rho k}{\omega} \right)
+  \frac{\partial \omega}{\partial x_j} \right]"
+  src="wilcox1998_eqns/img3.png" /></dd>
+</dl>
+
+<p>and the turbulent eddy viscosity is computed from:
+<dl>
+<dd><img class="tex" alt="\mu_t = \frac{\rho k}{\omega}"
+  src="wilcox1998_eqns/img4.png" /></dd>
+</dl>
+
+<p>Meanings of variables and definitions of boundary conditions are the same as for
+<span style="color: blue">(Wilcox2006)</span>.
+
+<p>The constants and auxiliary functions are:
+<dl>
+<dd><img class="tex" alt="\sigma_k = 0.5"
+  src="wilcox1998_eqns/img5.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\omega} = 0.5"
+  src="wilcox1998_eqns/img6.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\beta_0^* = 0.09"
+  src="wilcox1998_eqns/img7.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\gamma = \frac{13}{25}"
+  src="wilcox1998_eqns/img8.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\beta = \beta_0 f_{\beta}"
+  src="wilcox1998_eqns/img9.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_0 = \frac{9}{125}"
+  src="wilcox1998_eqns/img10.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_{\beta} = \frac{1 + 70 \chi_{\omega}}{1 + 80 \chi_{\omega}}"
+  src="wilcox1998_eqns/img11.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\chi_{\omega} = \left| \frac{\Omega_{ij} \Omega_{jk} S_{ki}}
+  {(\beta_0^* \omega)^3} \right|"
+  src="wilcox1998_eqns/img12.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\beta^* = \beta_0^* f_{\beta^*}"
+  src="wilcox1998_eqns/img13.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="f_{\beta^*} = 1, \quad for \quad \chi_k \leq 0"
+  src="wilcox1998_eqns/img14.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="f_{\beta^*} = \frac{1+680 \chi_k^2}{1+400 \chi_k^2}, \quad for \quad \chi_k > 0"
+  src="wilcox1998_eqns/img15.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\chi_k = \frac{1}{\omega^3} \frac{\partial k}{\partial x_j}
+  \frac{\partial \omega}{\partial x_j}"
+  src="wilcox1998_eqns/img16.png" /></dd>
+</dl>
+
+<p>Note that the <img class="tex" alt="\gamma" src="wilcox1998_eqns/img17.png" />
+coefficient (termed <img class="tex" alt="\alpha" src="wilcox1998_eqns/img18.png" /> in Wilcox's book)
+was chosen in order to yield an appropriate value for the Karman constant
+(<img class="tex" alt="\kappa \approx 0.41" src="wilcox1998_eqns/img19.png" />), via the expression:
+<dl>
+<dd><img class="tex" alt="\gamma = \frac{\beta_0}{\beta_0^*} - \frac{\sigma_{\omega} \kappa^2}{\sqrt{\beta_0^*}}"
+  src="wilcox1998_eqns/img20.png" /></dd>
+</dl>
+
+<p>Also note that in the so-called "Pope correction" for this model, the term
+<img class="tex" alt="\chi_{\omega}" src="wilcox2006_eqns/img33.png" />
+is zero for 2-D.
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be used:  <span style="color: blue">(Wilcox1998m)</span>.
+Other variants (s and e) follow the naming conventions described above at the end of the Wilcox2006 section.
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Wilcox (1988) k-omega
+   Two-Equation Model <span style="color: blue">(Wilcox1988)</span> and <span style="color: blue">(Wilcox1988m)</span></strong>
+<p>The references for this model are:
+
+<ul>
+<li>Wilcox, D. C., "Reassessment of the Scale-Determining Equation for Advanced
+Turbulence Models," <strong>AIAA Journal</strong>, Vol. 26, No. 11, 1988, pp. 1299-1310,
+<a href="https://doi.org/10.2514/3.10041">https://doi.org/10.2514/3.10041</a>.
+<li>Wilcox, D. C., <strong>Turbulence Modeling for CFD</strong>,
+1st edition, DCW Industries, Inc., La Canada CA, 1993.
+</ul>
+
+<p>The basic equations for this two-equation model are
+the same as for <span style="color: blue">(Wilcox1998)</span>:
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho u_j k)}{\partial x_j}
+  = \cal P - \beta^* \rho \omega k  + \frac{\partial}{\partial x_j}
+  \left[\left(\mu + \sigma_k \frac{\rho k}{\omega} \right)\frac{\partial k}{\partial x_j}\right]"
+  src="wilcox1988_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho u_j \omega)}{\partial x_j}
+  = \frac{\gamma \omega}{k} \cal P -
+  \beta \rho \omega^2 + \frac{\partial}{\partial x_j}
+  \left[ \left( \mu + \sigma_{\omega} \frac{\rho k}{\omega} \right)
+  \frac{\partial \omega}{\partial x_j} \right]"
+  src="wilcox1988_eqns/img3.png" /></dd>
+</dl>
+
+<p>and the turbulent eddy viscosity is computed from:
+<dl>
+<dd><img class="tex" alt="\mu_t = \frac{\rho k}{\omega}"
+  src="wilcox1988_eqns/img4.png" /></dd>
+</dl>
+
+The only difference is in the values taken by some of the variables:
+<dl>
+<dd><img class="tex" alt="\sigma_k = 0.5"
+  src="wilcox1988_eqns/img5.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\sigma_{\omega} = 0.5"
+  src="wilcox1988_eqns/img6.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\beta^* = 0.09"
+  src="wilcox1988_eqns/img7.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta = \frac{3}{40}"
+  src="wilcox1988_eqns/img8.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\gamma = \frac{5}{9}"
+  src="wilcox1988_eqns/img9.png" /></dd>
+</dl>
+
+<p>Note that the <img class="tex" alt="\gamma" src="wilcox1988_eqns/img10.png" />
+coefficient (termed <img class="tex" alt="\alpha" src="wilcox1988_eqns/img11.png" /> in Wilcox's book)
+was chosen in order to yield an appropriate value for the Karman constant
+(<img class="tex" alt="\kappa \approx 0.408" src="wilcox1988_eqns/img12.png" />), via the expression:
+<dl>
+<dd><img class="tex" alt="\gamma = \frac{\beta}{\beta^*} - \frac{\sigma_{\omega} \kappa^2}{\sqrt{\beta^*}}"
+  src="wilcox1988_eqns/img13.png" /></dd>
+</dl>
+
+<p>When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t S<sup>2</sup></b>,
+a modified naming convention should be used:  <span style="color: blue">(Wilcox1988m)</span>.
+Other variants (s and e) follow the naming conventions described above at the end of the Wilcox2006 section.
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Wilcox k-omega
+   Two-Equation Models with Vorticity Source Term 
+<span style="color: blue">(Wilcox2006-V, Wilcox1998-V, Wilcox1988-V)</span></strong>
+<p>This form of two-equation models is sometimes used because vorticity magnitude
+<img class="tex" alt="\Omega" src="sstvort_eqns/img3.png" /> is usually readily available in
+most Navier-Stokes codes. Furthermore, the vorticity source term is often nearly identical to the exact source
+term in simple boundary layer flows, and the use of the vorticity term can avoid some numerical difficulties
+sometimes associated with the use of the exact source term.
+The reference for this usage is:
+
+<ul>
+<li>Menter, F. R., "Improved Two-Equation k-omega Turbulence Models for Aerodynamic Flows,"
+NASA TM 103975, October 1992,
+<a href="https://ntrs.nasa.gov/citations/19930013620">https://ntrs.nasa.gov/citations/19930013620</a>.
+</ul>
+
+<p>The equations are the same as for the "standard" versions of the Wilcox models,
+with the exception that the term <em>P</em> (in both equations) is approximated with the following:
+<dl>
+<dd><img class="tex" alt="P = \mu_t \Omega^2 - \frac{2}{3}\rho k \delta_{ij} \frac{\partial u_i}{\partial x_j}"
+  src="sstvort_eqns/img2.png" /></dd>
+</dl>
+
+<p>Note: When the
+<img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and the production term is approximated by
+<b>P = mu_t*(Omega<sup>2</sup>)</b>,
+a modified naming convention should be employed:  <span style="color: blue">(Wilcox2006-Vm)</span> or
+<span style="color: blue">(Wilcox1998-Vm)</span> or <span style="color: blue">(Wilcox1988-Vm)</span>.
+
+<p>Note that this approximation is similar in spirit to the Kato-Launder correction
+(Kato, M. and Launder, B. E., "The Modelling of Turbulent Flow Around Stationary and Vibrating Square Cylinders,"
+9th Symposium on Turbulent Shear Flows, Kyoto, Japan, August 1993, paper 10-4), which uses
+<img class="tex" alt="\mu_t S \Omega" src="sstvort_eqns/img4.png" /> instead of
+<img class="tex" alt="\mu_t \Omega^2" src="sstvort_eqns/img5.png" />.  Implementation of the Kato-Launder
+correction would be called <span style="color: blue">(Wilcox2006-KL)</span>, <span style="color: blue">(Wilcox1998-KL)</span>, or
+<span style="color: blue">(Wilcox1988-KL)</span>.
+If the <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is ignored in tau_ij in the momentum and energy equations and
+if the <img class="tex" alt="- (2/3) \rho k \delta_{ij} \partial u_i / \partial x_j" src="ZPGflatplateSS_eqns/img2.png" />
+term in <i>P</i> is ignored, then the naming convention is
+<span style="color: blue">(Wilcox2006-KLm)</span>, <span style="color: blue">(Wilcox1998-KLm)</span>, or
+<span style="color: blue">(Wilcox1988-KLm)</span>.
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">Low Reynolds Number
+Version of Wilcox (2006) k-omega
+   Two-Equation Model <span style="color: blue">(Wilcox2006-LRN)</span></strong>
+<p>The reference for this model is:
+
+<ul>
+<li>Wilcox, D. C., <strong>Turbulence Modeling for CFD</strong>,
+3rd edition, DCW Industries, Inc., La Canada CA, 2006.
+</ul>
+
+<p>This model is the same as the <span style="color: blue">(Wilcox2006)</span> model, with the following
+changes:
+
+<p>Instead of <img class="tex" alt="\beta^* = 0.09" src="wilcox2006_lrn/img2.png" /> use:
+<dl>
+<dd><img class="tex" alt="\beta^* = 0.09 \left( \frac{100 \beta_0 / 27 + (Re_T/R_{\beta})^4}
+{1 + (Re_T/R_{\beta})^4} \right)"
+  src="wilcox2006_lrn/img3.png" /></dd>
+</dl>
+
+<p>Instead of <img class="tex" alt="\gamma = 13/25" src="wilcox2006_lrn/img4.png" /> use:
+<dl>
+<dd><img class="tex" alt="\gamma = 13/25 \left( \frac{\alpha_0 + Re_T/R_{\omega}}
+{1 + Re_T/R_{\omega}} \right) (\alpha^*)^{-1}"
+  src="wilcox2006_lrn/img5.png" /></dd>
+</dl>
+
+<p>Instead of <img class="tex" alt="\mu_t = \rho k / \hat\omega" src="wilcox2006_lrn/img6.png" /> use:
+<dl>
+<dd><img class="tex" alt="\mu_t = \alpha^* \frac{\rho k}{\hat\omega}"
+  src="wilcox2006_lrn/img7.png" /></dd>
+</dl>
+
+<p>Instead of <img class="tex" alt="\hat\omega = {\rm max} (\omega, C_{lim} 
+\sqrt{2 \overline S_{ij} \overline S_{ij} / \beta^*} )" src="wilcox2006_lrn/img8.png" /> use:
+<dl>
+<dd><img class="tex" alt="\hat\omega = {\rm max} \left(\omega, C_{lim} 
+\sqrt{ \frac{2 \overline S_{ij} \overline S_{ij}}{\beta_0^*/\alpha^*}} \right)"
+  src="wilcox2006_lrn/img9.png" /></dd>
+</dl>
+
+<p>Instead of <img class="tex" alt="(\mu + \sigma_k (\rho k / \omega))" src="wilcox2006_lrn/img10.png" /> in
+the <img class="tex" alt="k" src="wilcox2006_lrn/img11.png" /> diffusion term use:
+<dl>
+<dd><img class="tex" alt="\left(\mu + \sigma_k \alpha^* \frac{\rho k}{\omega} \right)"
+  src="wilcox2006_lrn/img12.png" /></dd>
+</dl>
+
+<p>Instead of <img class="tex" alt="(\mu + \sigma_{\omega} (\rho k / \omega))" src="wilcox2006_lrn/img13.png" /> in
+the <img class="tex" alt="\omega" src="wilcox2006_lrn/img14.png" /> diffusion term use:
+<dl>
+<dd><img class="tex" alt="\left(\mu + \sigma_{\omega} \alpha^* \frac{\rho k}{\omega} \right)"
+  src="wilcox2006_lrn/img15.png" /></dd>
+</dl>
+
+<p>with:
+<dl>
+<dd><img class="tex" alt="Re_T = \frac{\rho k}{\mu \omega}"
+  src="wilcox2006_lrn/img16.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\alpha^* = \frac{\alpha_0^* + Re_T/R_k}{1 + Re_T/R_k}"
+  src="wilcox2006_lrn/img17.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="R_{\beta} = 8"
+  src="wilcox2006_lrn/img18.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="R_k = 6"
+  src="wilcox2006_lrn/img19.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="R_{\omega} = 2.61"
+  src="wilcox2006_lrn/img20.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\alpha_0 = \frac{1}{9}"
+  src="wilcox2006_lrn/img21.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\alpha_0^* = \frac{\beta_0}{3}"
+  src="wilcox2006_lrn/img22.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_0 = 0.0708"
+  src="wilcox2006_lrn/img23.png" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img class="tex" alt="\beta_0^* = 0.09"
+  src="wilcox2006_lrn/img24.png" /></dd>
+</dl>
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Special notes for users of
+<a href="openfoam_issues.html">OpenFOAM</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+10/04/2024 - added "s" and "e" variant definitions<br>
+03/24/2021 - clarifications on use of "m" designation when P=mu_t S<sup>2</sup> and k term ignored in momentum and energy equations<br>
+08/08/2016 - added Wilcox2006-klim naming convention<br>
+06/30/2015 - mention Pr, Pr_t, and Sutherland's law<br>
+07/08/2014 - mention of equation relating gamma and Karman's constant kappa<br>
+04/02/2014 - added Wilcox2006-noPope designation<br>
+12/16/2013 - added clarification that chi_w term is zero in 2-D (Pope correction)<br>
+8/29/2013 - mention of Kato-Launder correction
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 10/04/2024
+<br>&nbsp;
+
+</body>
+</html>

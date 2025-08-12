@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2D Zero Pressure Gradient High Mach Number Flat Plate Validation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">2DZPH: 2D Zero Pressure Gradient High Mach Number Flat Plate 
+Validation Case</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose here is to provide a validation
+case for turbulence models.  Unlike verification, which seeks to establish that a model has been implemented
+correctly, validation compares CFD results against data in an effort to establish a model's
+ability to reproduce physics. A large sequence of nested grids
+of the same family are provided here if desired.  Data are also provided for comparison.
+For this particular flat plate case, the data are from theory.
+<!--This case is the same case used for
+<a href="flatplate.html">Flat Plate Verification</a>; however, for the purpose of
+<strong>validation</strong> here, different quantities of interest are focused on and compared.-->
+
+<p>
+For the grids given below, running at a Reynolds number per unit length of Re = 15 million 
+is sufficient to achieve desired Re<sub>theta</sub> levels, and to allow the turbulence
+models to fully activate far enough upstream.
+The following plot shows the layout of the simple
+flat plate grids, along with typical boundary conditions for supersonic flow.
+(Note that particular variations of the BCs at the inflow, top wall, and outflow
+may also work and yield similar results for this problem.)
+
+<p>Note: at high Mach numbers (e.g., M &gt; 2), CFD transition to fully turbulent wall-bounded flow can be delayed
+compared with flow at lower M.  Also, the delayed transition location can vary significantly with
+the freestream levels set.  See, for example, Journal of Spacecraft and Rockets, Vol. 47, No. 1, 2010, pp. 11-20,
+<a href="https://doi.org/10.2514/1.45350">https://doi.org/10.2514/1.45350</a> and
+AIAA Journal, Vol. 47, No. 4, 2009, pp. 982-993,
+<a href="https://doi.org/10.2514/1.39947">https://doi.org/10.2514/1.39947</a> (which is based on
+<a href="Papers/aiaa2008-4403lowRe.pdf">AIAA Paper 2008-4403</a>).
+For this test case, results are only plotted for regions of the flow that were fully turbulent.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="ZPGflatplateSS_grids/plateBCpicSS.jpg" border="1" title="supersonic flat plate grid layout & BCs" alt="supersonic flat plate grid layout & BCs">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>
+<a href="flatplate_grids.html"><span style="text-align: left; font-weight: 700; font-size: x-large">GRIDS</a>
+(same as those used for 
+<a href="flatplate.html">Flat Plate Verification</a> case)
+
+<p>The following supersonic flat plate cases are under consideration:
+<ul>
+<li>M<sub>freestream</sub>=2, T<sub>w</sub>/T<sub>freestream</sub>=1.712 (T<sub>w</sub>/T<sub>aw</sub> approx =1.0)</li>
+<li>M<sub>freestream</sub>=5, T<sub>w</sub>/T<sub>freestream</sub>=1.090 (T<sub>w</sub>/T<sub>aw</sub> approx =0.2)</li>
+<li>M<sub>freestream</sub>=5, T<sub>w</sub>/T<sub>freestream</sub>=2.725 (T<sub>w</sub>/T<sub>aw</sub> approx =0.5)</li>
+<li>M<sub>freestream</sub>=5, T<sub>w</sub>/T<sub>freestream</sub>=5.450 (T<sub>w</sub>/T<sub>aw</sub> approx =1.0)</li>
+</ul>
+
+<p>Two quantities of interest are desired for comparison:
+<ul>
+<li>Wall skin friction coefficient vs. Re<sub>theta</sub> (for 4000 &lt; Re<sub>theta</sub> &lt; 13,000)</li>
+<li>u+ vs. y+ (at Re<sub>theta</sub>=10,000)</li>
+</ul>
+<p>(It is worth noting that the second case - M=5, T<sub>w</sub>/T<sub>aw</sub> approx 0.2 - tends
+to exhibit greater grid sensitivity in its CFD results than the other cases for wall skin friction coefficient.)
+
+<p>Definitions are given here for the relevant quantities, including
+Re<sub>theta</sub>, Cf, u+, and y+
+<dl>
+<dd><img class="tex" alt="Re_{\theta} = \frac{\rho_{\infty} U_{\infty} \theta}{\mu_{\infty}}"
+  src="ZPGflatplate_eqns/img2.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\theta = \int_0^{\infty} \frac{\rho}{\rho_{\infty}} 
+\frac{u}{U_{\infty}} \left( 1 - \frac{u}{U_{\infty}} \right) dy"
+  src="ZPGflatplate_eqns/img3.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="c_f = \frac{\tau_w}{\frac{1}{2} \rho_{\infty} U_{\infty}^2}"
+  src="ZPGflatplate_eqns/img4.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\tau_w = \mu_w \left( \frac{\partial u}{\partial y} \right)_w"
+  src="ZPGflatplate_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="u^+ = \frac{u}{v^*} = \frac{u}{\sqrt{\tau_w / \rho_w}}"
+  src="ZPGflatplate_eqns/img6.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="y^+ = \frac{y v^*}{\nu_w} = \frac{y \sqrt{\tau_w / \rho_w}}{\nu_w}"
+  src="ZPGflatplate_eqns/img7.png" /></dd>
+</dl>
+
+<p>It should be noted that computing Re<sub>theta</sub> typically involves an additional post-processing
+step for many CFD codes (numerically integrating to obtain theta).  Although this
+step is relatively straightforward for the flat plate, nonetheless some numerical errors
+are unavoidably introduced which may vary depending on the postprocessing program employed.
+When viewing comparisons, this additonal potential source of error should be taken into
+consideration.</p>
+
+<p>The so-called van Driest transformations (see, e.g., White, F. M., "Viscous Fluid Flow,"
+McGraw-Hill, 1974, New York, pp. 632 ff) are used to obtain theoretical correlations for the
+compressible wall skin friction coefficient and wall variables.
+
+<p>For incompressible wall skin friction, the Karman-Schoenherr (K-S) relation 
+(Schoenherr, K. E., Trans. SNAME. 40:279-313, 1932) is:
+<dl>
+<dd><img class="tex" alt="c_{f,incomp}(Re_{\theta}) = \left( 17.08 \left({\rm log}_{10}Re_{\theta} \right)^2 + 25.11 \left( {\rm log}_{10}Re_{\theta} \right) +
+   6.012 \right)^{-1}"
+  src="ZPGflatplate_eqns/img8.png" /></dd>
+</dl>
+
+<p>The van Driest II transformation can be used to transform the incompressible levels
+to levels valid for supersonic flows with various wall temperatures.
+Details are as follows:
+
+<p>The approximate adiabatic wall temperature is:
+<dl>
+<dd><img class="tex" alt="T_{aw}=T_{\infty}\left(1+r\frac{\gamma-1}{2}M^2 \right)"
+  src="ZPGflatplate_eqns/img10.png" /></dd>
+</dl>
+
+<p>where r=0.89 is the recovery factor (an empirical factor introduced because in practice energy recovery
+is not perfect). The compressible skin friction is related to the incompressible value in van Driest II via:
+<dl>
+<dd><img class="tex" alt="C_f = \frac{1}{F_c} {c_{f,incomp}} \left(Re_{\theta}^{'}\right)"
+  src="ZPGflatplate_eqns/img11.png" /></dd>
+</dl>
+
+where:
+<dl>
+<dd><img class="tex" alt="{Re}_{\theta}^{'}=Re_{\theta}F_{Re\theta}"
+  src="ZPGflatplate_eqns/img28.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="F_{Re\theta}=\frac{\mu_\infty}{\mu_w}"
+  src="ZPGflatplate_eqns/img12.png" /></dd>
+</dl>
+
+<p>Using Sutherland's law, this becomes:
+<dl>
+<dd><img class="tex" alt="F_{Re\theta}={\left(\frac{T_\infty}{T_w}}\right)^{3/2}\frac{T_w+110.4}{T_\infty+110.4}"
+  src="ZPGflatplate_eqns/img13.png" /></dd>
+</dl>
+where temperatures are in degrees K.  Other correlation parameters are:
+
+<dl>
+<dd><img class="tex" alt="F_c=\frac{T_{aw}/T_\infty-1}{\left(sin^{-1}A+sin^{-1}B)\right^2}"
+  src="ZPGflatplate_eqns/img14.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="A=\frac{2a^{2}-b}{\left(b^{2}+4a^{2})\right^{1/2}"
+  src="ZPGflatplate_eqns/img15.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="B=\frac{b}{\left(b^{2}+4a^{2})\right^{1/2}"
+  src="ZPGflatplate_eqns/img16.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="a=\left(r\frac{\gamma-1}{2}M^{2}\frac{T_\infty}{T_w}\right)^{1/2}=\left[\left(\frac{T_{aw}}{T_\infty}-1\right)\frac{T_\infty}{T_w}\right]^{1/2}"
+  src="ZPGflatplate_eqns/img17.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="b=\frac{T_{aw}}{T_w}-1"
+  src="ZPGflatplate_eqns/img18.png" /></dd>
+</dl>
+
+<p>For
+u+ vs. y+, the incompressible law-of-the-wall based on Coles' mean velocity profile 
+(Coles, D., J. Fluid Mech. 1(2):191-226, 1956,
+<a href="https://doi.org/10.1017/S0022112056000135">https://doi.org/10.1017/S0022112056000135</a>
+Coles, D., RAND Corp Rept. R-403-PR, 1962,
+<a href="https://www.rand.org/pubs/reports/R403.html">https://www.rand.org/pubs/reports/R403.html</a>),
+is:
+<dl>
+<dd><img class="tex" alt="u^+_{incomp} = \frac{1}{\kappa} {\rm ln} \left( y^+ \right) + C + \frac{2 \Pi}{\kappa}
+   \left[ {\rm sin} \left( \frac{\pi y}{2 \delta} \right) \right]^2"
+  src="ZPGflatplate_eqns/img9.png" /></dd>
+</dl>
+along with a van Driest type damping near the wall.
+A program provided by P. G. Huang was used to compute these mean incompressible profiles.
+See Bardina et al, NASA TM 110446, April 1997,
+<a href="https://ntrs.nasa.gov/citations/19970017828">https://ntrs.nasa.gov/citations/19970017828</a>
+for more details.
+
+<p>The van Driest I transformation can be used to transform the incompressible
+law-of-the-wall to one valid for supersonic flows with various wall temperatures.  Details are as follows.
+The transformation uses:
+<dl>
+<dd><img class="tex" alt="u_{eqiv}^{+}=\frac{u_{eqiv}}{u_\tau}=\frac{u_\infty}{au_\tau}\left(sin^{-1}\frac{2a^{2}\frac{u}{u_\infty}-b}{Q}+sin^{-1}\frac{b}{Q}\right)"
+  src="ZPGflatplate_eqns/img21.png" /></dd>
+</dl>
+
+so that:
+<dl>
+<dd><img class="tex" alt="u^{+}=\frac{u}{u_\tau}=\frac{u_\infty}{2u_{\tau}a^2}\left[Q*sin\left(\frac{au_\tau}{u_\infty}u_{incomp}^{+}-sin^{-1}\frac{b}{Q}\right)+b\right]"
+  src="ZPGflatplate_eqns/img22.png" /></dd>
+</dl>
+
+where:
+<dl>
+<dd><img class="tex" alt="Q=\left(b^{2}+4a^{2}\right)^{1/2}"
+  src="ZPGflatplate_eqns/img20.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="u_\tau=\sqrt{\frac{\tau_w}{\rho_w}}"
+  src="ZPGflatplate_eqns/img23.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\tau_w=\frac{1}{2}\rho_{\infty}u_{\infty}^{2}c_f"
+  src="ZPGflatplate_eqns/img24.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\rho_\infty=\frac{p_\infty}{R_{gas}T_\infty}"
+  src="ZPGflatplate_eqns/img25.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\rho_w=\frac{p_\infty}{R_{gas}T_w}"
+  src="ZPGflatplate_eqns/img26.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="u_\infty=\sqrt{{\gamma}R_{gas}T_\infty}M_\infty"
+  src="ZPGflatplate_eqns/img27.png" /></dd>
+</dl>
+
+<p>Note that the theoretical correlations are imperfect.  Not only is there some uncertainty in
+the incompressible correlations themselves (see discussion on the
+<a href="flatplate_val.html">Subsonic Flat Plate Validation Case</a> webpage), but there is further
+uncertainty about the best transformations for producing compressible correlations (see, e.g.,
+White, F. M., "Viscous Fluid Flow," McGraw-Hill, New York, 1974).  For example,
+the van Driest II transformation may yield too-high skin friction for strongly-cooled walls
+(Huang, P. G., Bradshaw, P., and Coakley, T. J., AIAA Journal, Vol. 31, No. 9, Sept. 1993, pp. 1600-1604,
+<a href="https://doi.org/10.2514/3.11820">https://doi.org/10.2514/3.11820</a>).
+Results from the van Driest transformations are plotted in the following figures, using 
+freestream temperature of 300K and standard air conditions:
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="ZPGflatplateSS_validation/cf.jpg" border="1" title="other skin friction correlations" alt="other skin friction correlations">
+        <p><img
+src="ZPGflatplateSS_validation/u+y+.jpg" border="1" title="other similarity laws" alt="other similarity laws">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>The data files for these correlations are provided here:
+<ul>
+<li><a href="ZPGflatplateSS_validation/cf_vandriestII.dat">Van Driest II Wall skin friction</a></li>
+<li><a href="ZPGflatplateSS_validation/LOTW_vandriestI.dat">Van Driest I u+ vs. y+ at Re<sub>theta</sub>=10,000</a></li>
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">What to Expect:</strong>
+
+<table style="text-align: center; width: 600px;" border="1"
+ cellpadding="2" cellspacing="2">
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><strong>RESULTS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><strong>LINK TO EQUATIONS</strong><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="modelreadiness.html"><strong>MRR Level</strong></a><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="ZPGflatplateSS_val_sa.html">SA</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="spalart.html#sa">SA eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">4<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="ZPGflatplateSS_val_sstv.html">SST-Vm</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="sst.html#sst-v">SST-Vm eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">3<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="ZPGflatplateSS_val_w06.html">Wilcox2006-klim-m</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="wilcox.html#w06klim">Wilcox2006-klim-m eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">2<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="ZPGflatplateSS_val_easmkos.html">EASMko2003-S</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="easmko.html#easmko-s">EASMko2003-S eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: left; font-weight: 700; font-size: x-large"><a href="ZPGflatplateSS_val_kert.html">K-e-Rt</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large"><a href="ke-rt.html">K-e-Rt eqns</a><br>
+      </td>
+      <td style="vertical-align: center; width: 100px; font-family: helvetica,arial,sans-serif;">
+<span style="text-align: center; font-weight: 700; font-size: large">1<br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<p>(Other turbulence model results may be added in the future.)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Note that the OVERFLOW code has documented its results for this validation case (for the SA-noft2 and SST-V
+turbulence models) in <a href="Papers/NAS_Technical_Report_NAS-2016-01.pdf">NAS Technical Paper 2016-01 (pdf file)</a>
+(18.3 MB) by Jespersen, Pulliam, and Childs.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+03/21/2023 - mentioned possible delay in transition to fully turbulent flow at higher M<br>
+08/28/2020 - changed SST-V naming to SST-Vm<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/12/2025
+<br>&nbsp;
+
+</body>
+</html>

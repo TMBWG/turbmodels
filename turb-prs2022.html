@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>2022 Symposium on Turbulence Modeling: Roadblocks, and the Potential for Machine Learning</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Some changes are possible!-->
+
+<br>&nbsp;
+<div style="text-align: center;">
+  <img src="Pics/machine_learning.png" style="width: 700px; " title="Symposium logo pic" alt="Symposium logo pic"></div>
+
+   </center>
+
+<p>
+<div style="text-align: right; font-size: 12px;"">Note: the logo is not meant to imply the necessity of
+using neural networks,<br>
+but rather is simply intended as a visual cue that most people<br>
+associate with data-driven, machine-learning, or AI concepts.
+</div>
+</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">2022 Symposium on
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Turbulence Modeling: Roadblocks, and the 
+Potential for Machine Learning</strong>
+<br>&nbsp;
+
+<!--<p>
+<img border=0 src="as_150x120_tn.jpg" title="logo from NASA ARMD website showing LES simulation over backward facing step" 
+alt="logo from NASA ARMD website showing LES simulation over backward facing step">-->
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<!--<span style="color: red">This symposium was originally planned to take place in March 2021.  However, due to COVID, it had
+to be postponed (twice), until Summer 2022.</span>-->
+This in-person symposium was a follow-on to the 
+<a href="http://turbgate.engin.umich.edu/symposium">UMich/NASA Symposium on Advances in Turbulence Modeling (2017)</a> and
+<a href="http://turbgate.engin.umich.edu/symposium/index21.html">UMich Symposium on Model-Consistent Data-driven Turbulence Modeling (2021)</a>. 
+It was also held in honor of Philippe R. Spalart's contributions to the turbulence modeling field.
+Hence, it is sometimes referred to by the moniker "PRS2022".
+(This symposium was originally planned to take place in March 2021.  However, due to COVID, it had
+to be postponed (twice), until Summer 2022.)
+
+<ul>
+  <li><b>Dates: <span style="color: red">27-29 July, 2022</span></b>
+  <li>Location: 
+      <a href="https://www.lockheedmartin.com/en-us/capabilities/research-labs/center-for-innovation.html">Lockheed 
+      Martin Center of Innovation ("The Lighthouse")</a>, 8000 Harbour View Blvd, Suffolk, VA 23435
+</ul>
+
+<center>
+<div style="text-align: center;">
+  <img src="Pics/Dismal_Swamp.jpg" style="height: 210px; " title="Great Dismal Swamp" alt="Great Dismal Swamp">
+  <img src="Pics/train_in_suffolk.jpg" style="height: 210px; " title="Train (The Pocahontas) arriving in Suffolk VA in 1969" alt="Train (The Pocahontas) arriving in Suffolk VA in 1969">
+  <img src="Pics/Map_of_Virginia_highlighting_Suffolk_City.png" style="width: 400px; " title="Map of Virginia highlighting Suffolk" alt="Map of Virginia highlighting Suffolk">
+  <img src="Pics/Lighthouse_LockheedMartin.png" style="height: 210px; " title="Image from Lockheed Martin Lighthouse Visitor Guide" alt="Image from Lockheed Martin Lighthouse Visitor Guide"></div>
+</center>
+
+<!--<p>Timeline:
+<ul>
+  <li><b>March 18, 2022</b>: 1 page abstract due.  Specify whether:
+    <ul>
+      <li>Giving a talk (include title and short description),
+      <li>Entering the Collaborative Testing Challenge (see below), or
+      <li>Both
+      <li><span style="color: red">CLOSED</span>
+    </ul>
+  <li><b>July 15, 2022</b>: Deadline for Registration
+      <span style="color: red">CLOSED</span>
+  <li><b>July 18, 2022</b>: Deadline for Collaborative Testing Challenge submissions
+      <span style="color: red">CLOSED</span>
+  <li><b>July 20, 2022</b>: Final agenda posted
+</ul>-->
+<!--<br>&nbsp;
+<b>Registration is open until July 15, 2022</b> - contact c.l.rumsey@nasa.gov and gary.n.coleman@nasa.gov if you want to attend<sup>*</sup>
+<p><sup>*</sup><span style="text-align: left; font-weight: 400; font-size: small">
+Note: There is currently space for new attendees, but the 
+venue capacity is limited.  Speakers and panelists have first priority.  For other registrants, 
+if/when the venue limit is reached, we will have to put registrants on a waitlist.
+</span>
+
+<br>&nbsp;-->
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<a href="Turb-prs2022/turb-prs2022-detailed-information.html"><b>LINK TO SYMPOSIUM PRESENTATIONS AND OTHER DETAILS</b></a>
+<!--<span style="color: red"><- NEW!</span>-->
+</span>
+<br>&nbsp;
+<br>&nbsp;
+
+<p>The symposium was IN-PERSON only, and had two themes:
+<ol>
+  <li>Identification of critical issues for Reynolds-averaged Navier-Stokes (RANS) models, 
+      as well as possible ways forward
+  <li>A "Collaborative Testing Challenge" for data-driven RANS models
+</ol>
+
+<p>The goals of the first theme were to discuss turbulence modeling from both academic and industrial perspectives; 
+new developments in RANS, including advancements enabled by data-driven techniques; 
+synergies between turbulence theory, traditional modeling, experiments, simulations, and emergent 
+ideas; limitations and perceived stagnation of turbulence models; and the latest developments in turbulence scale-resolving simulation capabilities.
+Some time was also dedicated to the discussion of transition modeling.
+
+<p>The goal of the second theme was to foster shared understanding of the needs of data-driven model developers, traditional CFD developers and 
+especially end users.  Details regarding the Collaborative Testing Challenge can be found below.
+
+<p>Participants could choose to give a presentation on a subject related to the goals of the symposium, to participate in the 
+Collaborative Testing Challenge, or both.  Talks (including presentation material) were required in both cases.
+<!--Depending upon the number of written papers submitted, we may bring out a special issue of a peer-reviewed journal.-->
+
+<p>Like the symposium held in Ann Arbor in 2017, this one included several invited speakers, and prioritized adequate time for 
+formal and informal discussions.
+
+<p><!--<u>There is no registration fee, but there is a mandatory nominal charge of $10 per day
+to cover refreshments.</u>  For those who want a boxed lunch provided, there will be an additional
+fee of $10 per lunch.  These fees will be collected (in cash) at the symposium.
+An optional no-host dinner to honor Philippe Spalart is being held the first evening.-->
+This was an open symposium, with no proprietary information presented.
+<!--You do <i>not</i> have to give a talk in order to attend.-->
+
+<p>Keynote Speakers:
+<ul>
+  <li>Charles Hirsch, Cadence-Belgium
+  <li>George Huang, Wright State University
+  <li>Richard Sandberg, University of Melbourne
+  <li>Philippe Spalart, Boeing (retired)
+</ul>
+
+<p>RANS-modeling Panel (<u>Philippe Spalart</u>, Boeing - moderator):
+<ul>
+  <li>Paul Batten, Metacomp Technologies
+  <li>Paul Durbin, Iowa State University
+  <li>Charles Hirsch, Cadence-Belgium
+  <li>Brian Smith, Lockheed-Martin
+</ul>
+
+<p>Machine-Learning Panel (<u>Karthik Duraisamy</u>, University of Michigan - moderator):
+<ul>
+  <li>Andrew Banko, West Point
+  <li>Paola Cinnella, Sorbonne University
+  <li>Richard Dwight, TU Delft
+  <li>Sharath Girimaji, Texas A&ampM University
+  <li>Robert Moser, University of Texas at Austin
+</ul>
+
+<p>Transition-modeling Panel (<u>Paul Durbin</u>, Iowa State University - moderator):
+<ul>
+  <li>Karthik Duraisamy, University of Michigan
+  <li>Heng Xiao, Virginia Tech
+</ul>
+
+<p><strong>Symposium Links:</strong>
+<ul>
+  <li><a href="Turb-prs2022/Center-for-Innovation-Visitor.pdf">Lodging Info and Visitor Guide</a>
+  <li><a href="http://www.visitsuffolkva.com">Suffolk Virginia Tourism website</a>
+  <li>Symposium information:
+     <ul>
+        <li><a href="Turb-prs2022/prs2022-agenda17.pdf">Workshop Agenda (V17)</a>
+        <li><a href="Turb-prs2022/Registration_PRS2022_v27.pdf">Registered Attendees (V27)</a> 
+          <!--<span style="color: red">(please contact us ASAP if you are not on the list and wish to attend)</span>-->
+     </ul>
+</ul>
+
+<p>Suffolk VA is served by both the Norfolk International Airport and Newport News/Williamsburg
+International Airport (both 30+ minute drive from the venue).  Richmond VA is about
+1-1.5 hour drive away, and Washington DC is a 3-3.5 hour drive away.
+
+<p><strong>COVID Information:</strong>
+<p>COVID information for Suffolk and surrounding areas can be found on the
+<a href="https://covid.cdc.gov/covid-data-tracker" target="_blank">CDC COVID Data Tracker</a>.
+The Lighthouse adjusts its room usage and protocols accordingly.
+A pre-screening form will be sent to all attendees (to be filled out) when the Lighthouse puts in the
+visit requests prior to the Symposium.  This form asks health-related
+questions, including vaccination status.
+
+<br>&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Collaborative Testing Challenge for 
+Data-Driven Turbulence Models</strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A key part of this symposium is a friendly turbulence model testing challenge, intended to assess the potential of <u>data-driven 
+improvements</u> to turbulence models.
+<ul>
+  <li><u>Goals</u>: (1) Quantify the impact of recent
+      data-driven developments for RANS turbulence models for flows relevant to aerospace CFD;
+      (2) Foster shared understanding of turbulence modeling challenges and
+      needs between the data-driven model developers and the end users.
+  <li><u>Ground Rules</u>:  Each participant to apply their best turbulence model scheme (framework) derived from a data-driven (or other) 
+      approach to a range of flows specified by the conference organizers.
+</ul>
+
+<p>Note that the term "data-driven" is used loosely.  The derivation of any new model being used for
+these cases can involve machine learning, the human brain, or both.
+Either compressible or incompressible CFD solvers can be used.
+The intent here is <i>not</i> to apply standard turbulence models from the literature, but rather to explore capabilities of data-driven
+enhancements.
+To be a valid entry, the same turbulence model must be applied to each of the following cases (use the same grids employed for
+the results shown on the TMR website if possible):
+<ul>
+  <li><a href="flatplate_val.html">2DZP: 2D Zero Pressure Gradient Flat Plate Validation Case</a>
+    <ul>
+      <li>Show (1) Cf vs. x and (2) u+ vs. log(y+) at x=0.97; compare with theory
+    </ul>
+  <li><a href="channelflow_val.html">2DFDC: 2D Fully-Developed Channel Flow at High Reynolds Number Validation Case</a>
+    <ul>
+      <li>Show u+ vs. log(y+) at x=500; compare with theory
+    </ul>
+  <li><a href="jetsubsonic_val.html">ASJ: Axisymmetric Subsonic Jet</a>
+    <ul>
+      <li>Show (1) u/Ujet vs. x/Djet, (2) u/Ujet vs. y/Djet at 5 specified stations, and (3) u'v'/(Ujet^2) vs. y/Djet at 5 specified stations;
+          compare with experiment
+    </ul>
+  <li><a href="nasahump_val.html">2DWMH: 2D NASA Wall-Mounted Hump Separated Flow Validation Case</a>
+    <ul>
+      <li>Show (1) Cp vs. x/c, (2) Cf vs. x/c, (3) u/Uinf vs. y/c at 7 specified stations, and (4) u'v'/(Uinf^2) vs. y/c at 7 specified stations;
+          compare with experiment
+    </ul>
+  <li><a href="naca0012_val.html">2DN00: 2D NACA 0012 Airfoil Validation Cases (4 separate cases)</a>
+    <ul>
+      <li>Angles of attack = 10, 15, 17, and 18 deg.
+      <li>Show (1) CL vs. alpha, (2) CD vs. CL, (3) Cp vs. x/c, and (4) Cf (upper surface) vs. x/c;
+          compare with experiment (except for Cf)
+    </ul>
+</ul>
+
+<p><b>Prior to the event</b>, the participants of the Collaborative Testing Challenge must send in their results.
+<b>See <a href="turb-prs2022-collabdataforms.html">Collaborative Testing Challenge Data Forms</a> page.</b>
+This is for the possibility of independent analysis by the Symposium organizers either before or
+after the event.
+
+<p><b>At the event</b>, the participants of the Collaborative Testing Challenge will:
+<ul>
+  <li>Present their own results for all specified test cases, using the same model for each case
+  <li>Describe their model, including development process and challenges
+  <li>Discuss cost and implementation issues (e.g., what interface would be needed for implementation by others)
+</ul>
+
+<p><u>Requirement</u>: the turbulence model (equations, neural network, or other) must be completely open, and
+participants must, if requested, agree to submit it to the organizers in some appropriate way 
+(e.g., via equations, subroutine, or whatever makes sense), with the goal of possible implementation by someone
+other than the originator of the model.
+
+
+
+<br>&nbsp;
+<br>&nbsp;
+<p>All correspondence, including specific questions about the symposium should be addressed to:  Gary Coleman (<u>gary.n.coleman@nasa.gov</u>)
+or Chris Rumsey (<u>c.l.rumsey@nasa.gov</u>).
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+08/02/2022 - Added link to Symposium Presentations and Other Details<br>
+07/18/2022 - Registration closed<br>
+05/10/2022 - Registration open; first attendee list posted<br>
+03/13/2022 - added link to Data Forms page<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 04/08/2025
+<br>&nbsp;
+
+</body>
+</html>

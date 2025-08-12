@@ -1,0 +1,30 @@
+FUN3D auxiliary information:
+
+For Results on Family 1:
+Version 13.4-8b9e962
+For Results on Family 1 with 2nd order turbulent advection:
+Version 13.7-b3b47a4
+
+FUN3D's mapbc file contents for Family 1:
+         6             
+         1     6662    bc-2
+         2     6662    bc-3
+         3     5000    bc-7
+         4     4000    flap
+         5     4000    main
+         6     4000    slat
+
+
+For Results on Family 2:
+Version 13.7-b3b47a4
+
+FUN3D's mapbc file contents for Family 2:
+         8
+         1     6662    symm1                           
+         2     6662    symm2                           
+         3     5000    farfield                        
+         4     4000    flap                            
+         5     4000    main
+         6     4000    slat
+         7     6662    symm1                           
+         8     6662    symm2

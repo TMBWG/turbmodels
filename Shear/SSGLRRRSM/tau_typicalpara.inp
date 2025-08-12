@@ -1,0 +1,166 @@
+ -----------------------------------------------------
+ BOUNDARY MAPPING
+ -----------------------------------------------------
+ -----------------------------------------------------
+ BOUNDARY MAPPING
+ -----------------------------------------------------
+
+            Markers: 2
+               Type: viscous wall
+            Subtype: turbulent
+               Name: Wall
+Write surface data (0/1): 1
+    Monitor forces (0/1): 1
+ block end
+ ---------------------------
+
+            Markers: 21
+               Type: symmetry plane
+               Name: Symmetry left
+ block end
+ ---------------------------
+
+            Markers: 22
+               Type: symmetry plane
+               Name: Symmetry right
+Cutting plane allowed (0/1): 1
+ block end
+ ---------------------------
+
+            Markers: 31
+               Type: symmetry plane
+               Name: Symmetry top
+ block end
+ ---------------------------
+
+            Markers: 32
+               Type: symmetry plane
+               Name: Symmetry bottom
+Write surface data (0/1): 1
+ block end
+ ---------------------------
+
+            Markers: 41
+               Type: reservoir-pressure inflow
+               Name: Inflow bottom
+   Inflow direction: 1,0,0
+      Total density: 0.006009010716 #1.1862/1.05*rhoref
+     Total pressure: 543.244613818 #1.1862*Pref
+Write surface data (0/1): 0
+ block end
+ ---------------------------
+
+            Markers: 42
+               Type: reservoir-pressure inflow
+               Name: Inflow top
+   Inflow direction: 1,0,0
+      Total density: 0.005563729953 #1.046*rhoref
+     Total pressure: 479.037148924 #1.046*Pref
+Write surface data (0/1): 0
+ block end
+ ---------------------------
+
+            Markers: 43
+               Type: exit-pressure outflow
+               Name: Outflow
+   Inflow direction: 1,0,0
+     Exit pressure: 457.970505663048
+Write surface data (0/1): 0
+ block end
+ ---------------------------
+
+-----------------------------------------------------
+    Logfile control ---------------------------------: -
+           Enable logfile output on all domains (0/1): 1
+                                      Use Theta (0/1): 0
+     Files/IO ----------------------------------------: -
+                             Boundary mapping filename: (thisfile)
+                                 Primary grid filename: nasa_2d_planeshear_L1.grid
+                                           Grid prefix: dualgrid
+                                   Output files prefix: SSG-LRR-w
+                       Surface output description file: (thisfile)
+                                 Surface output values: xyz_restart
+                         Field output description file: (thisfile)
+-----------------------------------------------------
+ Cut plane output
+ -----------------------------------------------------
+  Plane output description file: (thisfile)
+            Plane output period: 999999
+               Number of planes: 3
+                Plane support x: 2.71623  29.2468  95.501
+                Plane support y: 0. 0. 0.
+                Plane support z: 0. 0. 0.
+                 Plane normal x: 1. 1. 1.
+                 Plane normal y: 0. 0. 0.
+                 Plane normal z: 0. 0. 0.
+                      Automatic parameter update (0/1): 1
+-------------------------------------------------------
+ PREPROCESSING
+-------------------------------------------------------
+     Parameter ---------------------------------------: -
+                            Number of multigrid levels: 6
+                                          Output level: 5
+                                           Grid metric: Cell_Vertex
+     Runtime optimisation ----------------------------: -
+                 Cache-coloring (0/max_faces in color): 0
+                          Bandwidth optimisation (0/1): 1
+                    2D offset vector (0 / x=1,y=2,z=3): 2
+                           Compute lusgs mapping (0/1): 1
+     Agglomeration -----------------------------------: -
+                                 Type of agglomeration: private
+                                 Agglomeration version: 1
+                            Structured grid coarsening: 0.5
+-------------------------------------------------------
+ SOLVER
+-------------------------------------------------------
+      Timestepping Start/Stop -------------------------: -
+                                          Output period: 1000000
+                                    Field output period: 1000000
+                                  Surface output period: 1000000
+                               Maximal time step number: 1
+
+                                       Minimum residual: 1e-16
+      Geometry ----------------------------------------: -
+                                             Grid scale: 1.0
+      Transport coefficients --------------------------: -
+                                        Reynolds number: 5.e4
+      References --------------------------------------: -
+                                        Reynolds length: 1.0
+                                  Reference Mach number: 0.5
+                                  Reference temperature: 300.
+                                Reference relation area: -1
+      Monitoring --------------------------------------: -
+                                  Monitor history (0/1): 1
+                         Residual monitoring type (0/1): 1
+                                      Monitoring values: Residual_dr11/dt_dr22/dt_dr33/dt_dr13/dt_dw-rsm/dt_C-lift_C-drag_C-my
+      Flux main ---------------------------------------: -
+                      Inviscid flux discretization type: Central
+                       Viscous flux type TSL/Full (0/1): 1
+      Central flux ------------------------------------: -
+                             Central dissipation scheme: Matrix_dissipation
+                       Central convective meanflow flux: Average_of_flux
+                     Central convective turbulence flux: Roe
+                      2nd order dissipation coefficient: 0.0
+              Inverse 4th order dissipation coefficient: 64
+                  Use modified dissipation for 2D (0/1): 1
+      Relaxation --------------------------------------: -
+                                      Relaxation solver: Backward_Euler
+    Multigrid ------------------------------------------------: -
+                                       MG description filename: 3v
+                                     Number of MG-cycle levels: 4
+                      Turbulence equations use multigrid (0/1): 0
+    Use source terms in coarse grid turbulence equations (0/1): 0
+             Use face gradient correction on coarse grid (0/1): 0
+                Set boundary fluxes for forcing function (0/1): 0
+             Timestepsize ------------------------------------: -
+                                                    CFL number: 10.
+             Preconditioning ---------------------------------: -
+                                               Preconditioning: PrimNew
+                                                 Cut-off value: 1
+             Turbulence --------------------------------------: -
+                                      Turbulence model version: RSM
+
+-------------------------------------------------
+ UPDATE
+-------------------------------------------------
+

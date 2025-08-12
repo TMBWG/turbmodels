@@ -1,0 +1,11 @@
+FUN3D auxiliary information:
+Version 13.7-73f8ad3
+
+FUN3D's mapbc file contents:
+6             
+1              6662           bc-2
+2              6662           bc-3
+3              5000           bc-7
+4              4000           flap
+5              4000           main
+6              4000           slat

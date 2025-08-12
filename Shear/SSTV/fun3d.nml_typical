@@ -1,0 +1,38 @@
+ &version_number
+    input_version = 2.0
+    namelist_verbosity = "on"
+ /
+ &project
+    project_rootname = "jet_case5_1levelsdown"
+ /
+ &reference_physical_properties
+    temperature_units = "Rankine"
+    mach_number =  0.50
+    reynolds_number =  50000.
+    temperature =  540.0
+    angle_of_attack =  0.0
+ /
+ &force_moment_integ_properties
+    area_reference  =  10.0
+    x_moment_length =  10.0
+    y_moment_length =  1.0
+    x_moment_center =  0.25
+    y_moment_center =  0.0
+    z_moment_center =  0.0
+ /
+ &inviscid_flux_method
+    flux_limiter = "none"
+ /
+ &turbulent_diffusion_models
+    turb_model = "menter-sst"
+ /
+ &nonlinear_solver_parameters
+    schedule_iteration =  1   500
+    schedule_cfl =      50.   50.
+    schedule_cflturb =  20.   20.
+ /
+ &code_run_control
+    steps =  16000
+    restart_write_freq =  5000
+    restart_read = "off"
+ /

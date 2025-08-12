@@ -1,0 +1,72 @@
+ &global
+    boundary_animation_freq = -1
+ /
+
+ &reference_physical_properties
+    mach_number       = 0.2
+    reynolds_number   = 5.0e+6
+    temperature       = 540.0
+    temperature_units = 'Rankine'
+ /
+
+ &force_moment_integ_properties
+    area_reference = 2.0
+/
+ &inviscid_flux_method
+    flux_limiter = 'none' 
+ /
+
+ &turbulent_diffusion_models
+    turbulence_model = 'sa' 
+    reynolds_stress_model = 'qcr2013'
+ /
+ &spalart
+  sarc = T
+/
+ &nonlinear_solver_parameters
+    schedule_iteration = 1  500
+    schedule_cfl       = 1. 50.
+    schedule_cflturb   =   1. 30.
+ /
+ &inviscid_flux_method
+    kappa_umuscl = 0.5
+ /
+&linear_solver_parameters
+  linear_projection = .true.
+ /
+
+ &code_run_control
+    steps              = 50000
+    restart_write_freq = 5000
+    restart_read       = 'on' 
+ /
+
+ &boundary_conditions
+    total_pressure_ratio(3) = 1.02828
+    total_temperature_ratio(3) = 1.0080
+    static_pressure_ratio(4) = 1.
+ /
+
+ &boundary_output_variables
+    number_of_boundaries=2
+    boundary_list='1,6'
+    skinfr = T
+    cp = T
+    turb1  = T
+    turb2  = T
+    mu_t   = T
+    uuprime = T
+    vvprime = T
+    wwprime = T
+    uwprime = T
+ /
+
+ &project
+    project_rootname = 'flatplate_clust2_0levelsdown_545x385'
+ /
+
+ &raw_grid
+    grid_format = 'aflr3'
+    data_format = 'stream'
+    twod_mode   = .true.
+ /

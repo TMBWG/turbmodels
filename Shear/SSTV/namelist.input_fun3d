@@ -1,0 +1,11 @@
+&boundary_conditions        !<- WARNING: this namelist method will change after V10.7
+bc_count=3,
+bc_patch(1)=7,
+total_pressure_ratio(1)=1.1862,
+total_temperature_ratio(1)=1.05,
+bc_patch(2)=8,
+total_pressure_ratio(2)=1.046,
+total_temperature_ratio(2)=1.0,
+bc_patch(3)=9,
+static_pressure_ratio(3)=1.000,
+/

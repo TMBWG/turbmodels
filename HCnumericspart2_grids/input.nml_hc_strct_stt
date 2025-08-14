@@ -1,0 +1,46 @@
+&input_parameters
+          target_reynolds_number = 350000                       !Target Reynolds number based on the root chord (=1.0 in the grid).
+                   target_y_plus = 0.5                          !Target y-plus value
+                      igrid_type = 5                            !1=prsm, 2=tets, 3=prsm/tets, 4=prsm/hex, 5=Strct
+                              x2 = 10.0                         !Length of hemisphere-cylinder (apex to base = x2)
+                         R_outer = 100                          !Distance to outer boundary (=radius of the outer hemisphere)
+           nnodes_cylinder_input = 256                          !Elements along the cylinder
+                           nr_gs = 64                           !Elements along the hemisphere (x=0 to 0.5)
+                             nre = 1280                         !Elements in the radial direction (from HC to farfield)
+                      domain_cut = 2                            !1: full geometry, 2: a half domain (y > 0 only).
+             generate_ugrid_file = T                            !T = Write a .ugrid file.(required by the coarsening program)
+          ugrid_file_unformatted = T                            !T = unformatted .ugrid/.ufmt, F = formatted .ugrid/.p3d
+          generate_p3d_ufmt_file = T                            !T = Write p3d file for a structured grid (only for 5=Strct).
+           generate_su2grid_file = F                            !T = Write a .su2 file (the native grid-format for Stanford's SU2).
+                 generate_k_file = T                            !T = Write a 'k'-file  (required by the coarsening program)
+              k_file_unformatted = T                            !T = unformatted .k file, F = formatted .k file.
+           generate_line_file_nc = T                            !T = Write node line files  (required by the coarsening program)
+           generate_line_file_cc = T                            !T = Write cell line files  (required by the coarsening program)
+             generate_tec_file_b = T                            !T = Write a boundary grid (Tecplot)
+             generate_tec_file_v = F                            !T = Write a volume grid (Tecplot)
+         separate_boundary_group = F                            !T = Treat hemisphere and cylinder as two separated boundaries.
+/
+
+
+! NOTE: # of elements around the cylinder is automatically set as
+!          6*(Elements along the hemisphere) for full geometry
+!          3*(Elements along the hemisphere) for half geometry.
+
+! NOTE: For regular coarsening, choose the input values such that
+!       (Elements along the cylinder)+(Elements along the hemisphere) = 2^n
+!     c*(Elements along the hemisphere) = 2^m , c=6 (full) and c=3 (half)
+!       (Elements in the radial direction) = 2^l
+!       where n, m and l are integers.
+
+!            <-Hemisphere-> <--- Cylinder --------->
+!                      .   . .......................z=0.5
+!                .         .                       |         z
+!             .            .                       |         ^
+!           .              .                       |         |
+!           .......................................|         ------> x
+!         x=0.0          x=0.5                    x=x2
+
+! NOTE: To generate a .su2 grid file, set 
+!          generate_su2grid_file = T
+!
+

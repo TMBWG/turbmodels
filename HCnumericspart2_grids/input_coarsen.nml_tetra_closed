@@ -1,0 +1,11 @@
+&input_parameters
+                         project = 'hch_tetra'
+          ugrid_file_unformatted = T
+              k_file_unformatted = T
+            rmp_file_unformatted = T
+        prolong_file_unformatted = F
+             generate_tec_file_b = T
+           generate_tec_file_vol = F
+        generate_heff_vol_report = F
+/
+

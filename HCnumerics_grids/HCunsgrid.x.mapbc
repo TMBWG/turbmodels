@@ -1,0 +1,4 @@
+           3              ! Number of boundary parts (boundary conditions)
+           1        4000  ! Viscous wall in FUN3D
+           2        7012  ! Outflow with specified pressure (taken as freestream pressure) in FUN3D
+           3        5000  ! Characteristic-based inflow/outflow in FUN3D

@@ -1,0 +1,9 @@
+3    mixed
+2    constrained smoothing for hemisphere surface triangulation
+no   remove corner nodes
+40.  Outer boundary length
+1.0  Stretching factor at hemisphere-cylinder junction
+20.  Length of body
+25   Divisions of the generating sector (>17)
+
+

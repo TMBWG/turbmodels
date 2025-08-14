@@ -1,0 +1,35 @@
+350000   !Target Reynolds number 
+0.5      !Target y-plus value
+2        !Element-type: 1=prsm, 2=tets, 3=prsm/tets, 4=prsm/hex, 5=Strct
+T        !T = unformatted .ugrid/.ufmt, F = formatted .ugrid/.p3d
+100      !Distance to outer boundary (=radius of the outer hemisphere)
+256      !Elements along the cylinder
+10       !Length of hemisphere-cylinder (apex to base = x2)
+64       !Elements along the hemisphere (x=0 to 0.5)
+1280     !Elements in the radial direction
+2        !1: full geometry, 2: a half domain (y > 0 only).
+T        !T = Write a boundary grid (Tecplot)
+F        !T = Write a volume grid (Tecplot)
+T        !T = Write a 'k'-file  (required by the coarsening program)
+T        !T = Write line files  (required by the coarsening program) 
+T        !T = Write .ugrid file (required by the coarsening program)
+T        !T = Write .p3d/.umft and .nmf files (igrid_type = 5 only).
+
+
+! NOTE: # of elements around the cylinder is automatically set as
+!          6*(Elements along the hemisphere) for full geometry
+!          3*(Elements along the hemisphere) for half geometry.
+
+! NOTE: For regular coarsening, choose the input values such that
+!       (Elements along the cylinder)+(Elements along the hemisphere) = 2^n
+!     c*(Elements along the hemisphere) = 2^m , c=6 (full) and c=3 (half)
+!       (Elements in the radial direction) = 2^l
+!       where n, m and l are integers.
+
+!            <-Hemisphere-> <--- Cylinder --------->
+!                      .   . .......................z=0.5
+!                .         .                       |         z
+!             .            .                       |         ^
+!           .              .                       |         |
+!           .......................................|         ------> x
+!         x=0.0          x=0.5                    x=x2

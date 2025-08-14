@@ -1,0 +1,43 @@
+&input_parameters
+          target_reynolds_number = 350000.                      !Target Reynolds number based on the root chord (=1.0 in the grid).
+                   target_y_plus = 0.5                          !Target y-plus value
+                      igrid_type = 2                            !1=prsm, 2=tets, 3=prsm/tets, 4=prsm/hex, 5=Strct
+                       body_type = 5                            !1=Suboff model, 2=Hemisphere nose, 3=Sine, 4=Ellipse, 5=Matching HC
+              non_orthog_near_te = F                            !(body_type = 5) You can keep orthogonality for body_type = 5.
+          length_suboff_tail_hc5 = -1.0                         !(body_type = 5) Length of the suboff tail attached to HC.
+                     body_length = 10.0                         !(body_type = 5) Length of Hemisphere-Cylinder (HC).
+                     x_coord_tip = 0.00                         !X-coordinate of the tip.
+                         R_outer = 100                          !Distance to outer boundary (=radius of the outer hemisphere)
+           nnodes_cylinder_input = 256                          !Elements along the CH body (not counting nr_gs elements at rear closure))
+                           nr_gs = 64                           !Elements along the front hemisphere (x=0 to 0.5) and rear closure
+                                                                !Elements on CH body will be nodes_cylinder_input + nr_gs
+                             nre = 512                          !Elements in the radial direction (from HC to farfield)
+                      domain_cut = 2                            !1: full geometry, 2: a half domain (y > 0 only).
+             generate_ugrid_file = T                            !T = Write a .ugrid file.(required by the coarsening program)
+          ugrid_file_unformatted = T                            !T = unformatted .ugrid/.ufmt, F = formatted .ugrid/.p3d
+          generate_p3d_ufmt_file = F                            !T = Write p3d file for a structured grid (only for 5=Strct).
+                 generate_k_file = T                            !T = Write a 'k'-file  (required by the coarsening program)
+              k_file_unformatted = T                            !T = unformatted .k file, F = formatted .k file.
+           generate_line_file_nc = T                            !T = Write node line files  (required by the coarsening program)
+           generate_line_file_cc = T                            !T = Write cell line files  (required by the coarsening program)
+             generate_tec_file_b = T                           !T = Write a boundary grid (Tecplot)
+             generate_tec_file_v = F                            !T = Write a volume grid (Tecplot)
+/
+
+
+! Geometry of HCH is determined by a shape function provided in the code.
+! R_hemi is a parameter that controls the extent of the hemisphere;
+! it does not affect the shape of the body; it only controls the grid.
+! Below is the baseline HCH geometry.
+!
+!           <--Hemisphere-> <--- Cylinder ---------> <-Hemisphere->
+!                      .   . .......................  .
+!                .         .                       .        .             z
+!             .            .                       .            .         ^
+!           .        H     .            C          .      H       .       |
+!           .......................................................        ------> x
+!         x=x_coord_tip  x=x1                   x=x2             x3
+!
+!         x1 = x_coord_tip +  R_hemi  (R_hemi=radius of the hemisphere)
+!         x2 = x_coord_tip + (body_length-R_hemi)
+!         x3 = x_coord_tip +  body_length

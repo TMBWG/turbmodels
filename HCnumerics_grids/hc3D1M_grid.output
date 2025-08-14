@@ -1,0 +1,157 @@
+ 
+ Grid type = 1: Prismatic grid
+           = 2: Tetrahedral grid
+           = 3: Mixed grid
+ grid_type = ?
+ 
+  Smoothing the hemisphere surface triangulation
+    0 : No smoothing
+    1 : Smoothing
+    2 : Constrained smoothing
+ 
+ --- Node removal recommended if smoothing applied...
+  Remove_corner_nodes? (Input yes or no)
+ 
+ --- Location of outer boundary...
+  Distance to the outer boundary from the body = ? (e.g., 10.0)
+ 
+ --- Transition of spacing from hemisphere to cylinder...
+     Specify the ratio, h_cyl/h_hemi (>1.0 for larger spacing in cylinder)
+  Spacing ratio = ?
+ 
+ --- Length of the hemisphere-cylinder...
+     Apex of the hemisphere is at x=0, this is the position of
+     the end of the cylinder, which is equal to the length of HC.
+  Length of the hemisphere-cylinder = ?
+ ***********************************************************
+ 1. Triangulate the generating sector, the building block
+ ***********************************************************
+ Division of the generating sector = ?
+  Radius of the isotropic triangle, r_gs =   0.785398163397448     
+  dr_gs =   3.141592653589793E-002
+  nnodes_gs =          351
+  ntrias_gs =          625
+ ***********************************************************
+ 2. Generate a disk by copying the generating sector
+ ***********************************************************
+  nnodes_disk =         1951
+  ntrias_disk =         3750
+ Applying smoothing...
+  Smoothing converged at          149
+ ***********************************************************
+ 3. Place the disk onto the hemisphere 
+ ***********************************************************
+  s =   3.141592653589793E-002
+  nnodes, nnodes_disk =         1951        1951
+ ***********************************************************
+ 4. Triangulate the cylinder surface
+ ***********************************************************
+  nnodes along the cylinder =           51
+  nnodes around the cylinder =          150
+ Determined stretching factor =    3.69999999999996       at iterations = 
+         501
+           First spacing on the cylinder =   3.691991470660060E-002
+   Edge length on the hemisphere surface =   3.141592653589793E-002
+ ***********************************************************
+ 5. Go up to the outer boundary and generate interior nodes
+ ***********************************************************
+  Boundary layer grid thickness =   0.100000000000000     
+  AR =    415.554583808174     
+ hx (mesh spacing along the cylinder in x) =   3.141592653589793E-002
+ rmax (the end of the boundary layer)      =   0.100000000000000     
+ dr1 =   7.559999999999999E-005
+ drN =   3.141592653589793E-002
+ nm (elements) =           18
+ gr =    1.42572887613658     
+ dr1*gr**(nm-1) =   3.141592653589795E-002
+ nm (nodes) =           19
+ nr =          109
+ 
+ Vertical spacing of the first interior node =   7.559999999999999E-005
+ Actual last spacing =   3.141592653589795E-002
+ Actual end of the prismatic layer =   0.105031620214715     
+ 
+ Determined stretching factor =    2.58999999999999       at iterations = 
+          60
+  Space above must be close to spave below for smooth transition
+  from the prismatic layer to the tet region.
+   Space below =   3.141592653589795E-002
+   Space above =   9.471662512411086E-002
+  nnodes_body =        9601
+ Applying smoothing (OUTER BOUNDARY)...
+ ***********************************************************
+ 6. Write a boudnary info file
+ ***********************************************************
+ 
+ - Contents of the file -
+ 3       !Number of boundary parts (boundary conditions)
+ 1, 4000 !Viscous wall in FUN3D
+ 2, 7012 !Outflow in FUN3D
+ 3, 5000 !Free stream in FUN3D
+ 
+  Boundary info file written:
+ hemisphere_tetprism.mapbc                                                      
+  
+ ***********************************************************
+  8. Generate a mixed grid
+ ***********************************************************
+ 3. Mixed grid 
+     nodes      =      1046509
+   Volume elements:
+     prisms     =       342900
+     tetrahedra =      5143500
+   Boundary elements:
+      triangles =        70482
+          quads =         2700
+   Volume elements:
+     prisms     =       342900
+     tetrahedra =      5143500
+   Boundary elements:
+      triangles =        65100
+          quads =         2700
+  Mixed has been generated.
+ ***********************************************************
+  9. Generate lin-info files
+ ***********************************************************
+ 
+ Writing a regular line-info file....
+  Total number of lines =         9601
+             max points =           19
+             min points =           19
+ 
+ lines_fmt file has been written: 
+ hemisphere_tetprism.lines_fmt                                                  
+  
+ 
+ Writing an all-node line-info file....
+  Total number of lines =         9601
+             max points =          109
+             min points =          109
+ 
+ lines_fmt file has been written: 
+ hemisphere_tetprism.lines_fmt_all                                              
+  
+ ***********************************************************
+  10. Generate a tecplot file for viewing boundaries
+ ***********************************************************
+ Writing a Tecplot file for boundaries....
+ Tecplot file for boundaries written : 
+ debug_hemisphere_cylinder_boundary.dat                                         
+  
+ ***********************************************************
+  11. Generate a tecplot file for viewing a volume grid
+ ***********************************************************
+ Writing a Tecplot file for volumes....
+ Tecplot file for volume grid written : 
+ debug_hemisphere_cylinder_volume.dat                                           
+  
+ ***********************************************************
+  12. Generate a .ugrid for running a flow solver
+ ***********************************************************
+ Writing a ugrid file....
+ UGRID file written : 
+ hemisphere_tetprism.ugrid                                                      
+  
+ 
+ Congratulations!
+ Grid generation successfuly completed.

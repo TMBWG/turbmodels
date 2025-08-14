@@ -1,0 +1,48 @@
+&input_parameters
+          target_reynolds_number = 14.6e6                       !Target Reynolds number based on the root chord (=1.0 in the grid).
+                   target_y_plus = 0.5                          !Target y-plus value
+                      igrid_type = 5                            !1=prsm, 2=tets, 3=prsm/tets, 4=prsm/hex, 5=Strct
+                    airfoil_type = 0                            !airfoil_type: =0 discrete airfoil data, =1 NACA00XX
+               airfoil_data_file = "om6_wing_section_sharp.dat" !Datafile for the discrete airfoil data ; not used if airfoil_type = 1
+                              tr = 0.5625159852668158           !Taper ratio = (tip chord)/(root chord)
+                            beta = 29.9990                      !Swept angle of LE line in degrees (not too large, please: e.g., < 40).
+                         R_outer = 100                          !Distance to outer boundary (=radius of the outer hemisphere)
+           nnodes_cylinder_input = 192                          !Elements along the semi-wingspan
+                               b = 1.476017976219800            !b = semi-span: per unit root chord.
+                           nr_gs = 64                           !# of Elements across the rounded tip /2 (-> HC: x=0 to 0.5)
+                             nre = 704                          !# of Elements in the radial direction (from wing to farfield)
+                       wing_side = 2                            !wing_side: =1 for left wing, =2 for right wing.
+                       root_le_x = 0.0                          !root_le_x: = x coordinate of the LE at the root.
+    stretching_tanh_towards_lete = 4.5                          !Cluster points to LE/TE by a larger value.
+             generate_ugrid_file = T                            !T = Write a .ugrid file. (required by the coarsening program)
+          ugrid_file_unformatted = T                            !T = unformatted .ugrid/.ufmt, F = formatted .ugrid/.p3d
+          generate_p3d_ufmt_file = T                            !T = Write p3d file for a structured grid (only for 5=Strct).
+           generate_su2grid_file = F                            !T = Write a .su2 file (the native grid-format for Stanford's SU2).
+                 generate_k_file = T                            !T = Write a 'k'-file  (required by the coarsening program)
+              k_file_unformatted = T                            !T = unformatted .k file, F = formatted .k file.
+           generate_line_file_nc = T                            !T = Write node line files  (required by the coarsening program)
+           generate_line_file_cc = T                            !T = Write cell line files  (required by the coarsening program)
+             generate_tec_file_b = T                            !T = Write a boundary grid (Tecplot)
+             generate_tec_file_v = F                            !T = Write a volume grid (Tecplot)
+/
+
+
+! NOTE: The above parameters will generate a grid over an ONERA M6 wing.
+
+! NOTE: Root chord will be normalized as 1.0 for any input airfoil data.
+
+! NOTE: wing-side-change/root_le_x-shifting will be applied after
+!       a grid with unit wing-root chord is generated.
+
+! NOTE: # of elements around the wing-section is automatically set as
+!          6*(Elements along the hemisphere).
+
+! NOTE: For regular coarsening, choose the input values such that
+!       (# of Elements along the the semi-wingspan) = 2^l
+!     6*(# of Elements along the rounded tip)       = 2^n
+!       (# of Elements in the radial direction)     = 2^m
+!       where l, n, and m are integers.
+
+! NOTE: To generate a .su2 grid file, set 
+!          generate_su2grid_file = T
+!

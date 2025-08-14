@@ -1,0 +1,28 @@
+&input_parameters
+                         project = 'wing_strct'
+                       tet2prism = F
+          ugrid_file_unformatted = T
+              k_file_unformatted = T
+            rmp_file_unformatted = T
+        prolong_file_unformatted = T
+           generate_su2grid_file = F  !T = Write a .su2 file (the native grid-format for Stanford's SU2).
+           generate_tec_file_b   = T
+           generate_tec_file_vol = F
+   generate_ntrl_partition_files = T  !T = write natural-partition files.
+        generate_heff_vol_report = F  !T = write volume and mesh spacing information file.
+       generate_nc_prolong_file  = T  !T = write NC prolongation information files.
+               generate_rmp_file = T  !T = write files containing removed nodes.
+        generate_cc_prolong_file = T  !T = write CC prolongation information files.
+          check_negative_elm_vol = T  !T = check the negative element volumes.
+             check_non_planarity = T  !T = check non-planarity for quad faces.
+/
+
+! NOTE: To generate a .su2 grid file, set 
+!          generate_su2grid_file = T
+!
+
+! Input parameters below must match those in the input file used to generate the fine grid:
+! 
+!  ugrid_file_unformatted
+!      k_file_unformatted
+!

@@ -1,0 +1,1367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: Smooth Body Separation Experiment (SBSE) - Boeing Gaussian Bump with Error Function Shoulders</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta property="og:title” content="Smooth Body Separation Experiment (SBSE)" />
+<meta property="og:description” content="The Smooth Body Separation Experiment (SBSE) database provides validation-quality experimental data with uncertainties to aid the development, improvement, and validation of CFD models and processes." />
+<meta property="og:image” content="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_3_FluorOilFlowVis/FlowVizExample.png" />
+<meta property="og:image:width” content="1186" />
+<meta property="og:image:height” content="902" />
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+    body {
+	margin-left: 100px;
+	margin-right: 100px;
+    }
+	div {
+    background-color: #F5F5F5;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../construction.gif" title="under construction" alt="under construction">
+This page under construction-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Exp: Smooth Body Separation 
+Experiment (SBSE) - Boeing Gaussian Bump with Error Function Shoulders</strong>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">(also known as Boeing Speed Bump)</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The data on this page were provided by 
+<a href="mailto:joseph.c.straccia@boeing.com">Joseph Straccia</a> and
+<a href="mailto:pgray2@nd.edu">Patrick Gray</a>.
+
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">High-Level Table of Contents:</strong>
+
+<ol>
+  <li><span style="color: blue"><a href="#summary">Test Program Summary</a></span>
+  <li><span style="color: blue"><a href="#WTdescription">Wind Tunnel Description and Layout</a></span>
+  <li><span style="color: blue"><a href="#geometry">Geometry Definition</a></span>
+    <ol>
+       <li><span style="color: blue"><a href="#parametric">Bump Model Parametric Representation</a></span>
+       <li><span style="color: blue"><a href="#CAD">CAD Definitions</a></span>
+       <li><span style="color: blue"><a href="#cmm">CMM Data</a></span>
+       <li><span style="color: blue"><a href="#surface">Steps and Surface Roughness</a></span>
+    </ol>
+  <li><span style="color: blue"><a href="#exp_conditions">Experimental Conditions</a></span>
+  <li><span style="color: blue"><a href="#expdata">Experimental Data</a></span>
+    <ol>
+       <li><span style="color: blue"><a href="#notes">Notes on Data Format</a></span>
+       <li><span style="color: blue"><a href="#guide">Guide to Importing the Data</a></span>
+       <li><span style="color: blue"><a href="#empty">Empty Test Section Data</a></span>
+       <li><span style="color: blue"><a href="#splitter">Splitter Plate Only Data (No Bump)</a></span>
+       <li><span style="color: blue"><a href="#bumpinstalled">Bump Installed Data</a></span>
+    </ol>
+  <li><span style="color: blue"><a href="#cfdpapers">List of Related CFD Papers</a></span>
+</ol>
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<br>&nbsp;
+<p><a ID="summary"><span style="text-align: left; font-weight: 400; font-size: large">1. Test Program Summary</p>
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A geometry named the Boeing Bump was conceived in 2015 with the goal of producing a highly separated flow 
+region downstream of the bump apex while minimizing the tunnel sidewall boundary layer interactions 
+that have previously been the cause of coupling between the flow separation and the corner flow physics. 
+The three-dimensional wall mounted bump model initially accelerates the flow due to a favorable pressure 
+gradient (FPG) and then quickly decelerates the flow in an adverse pressure gradient (APG) region to 
+induce a strong separated flow region. A three-year test campaign conducted at the University of Notre 
+Dame between 2020 and 2023 sought to explore the flow characteristics that give rise to the highly 
+turbulent, three-dimensional separation downstream of the bump apex. The goals, methods and results 
+of the Smooth Body Separation Experiment (SBSE) are documented in detail in the test reports available here:
+<ul>
+  <li><a href="Speedbump_sep_exp/SBSE_Final_Exper_Report_072023_20240001012.pdf">SBSE_Final_Exper_Report_072023_20240001012.pdf</a>
+(see <a href="https://ntrs.nasa.gov/citations/20240001012">https://ntrs.nasa.gov/citations/20240001012</a>) <- updated 02/09/2024
+  <li><a href="Speedbump_sep_exp/SBSE_Final_CFD_Report_07192023_20240001100.pdf">SBSE_Final_CFD_Report_07192023_20240001100.pdf</a>
+(see <a href="https://ntrs.nasa.gov/citations/20240001100">https://ntrs.nasa.gov/citations/20240001100</a>)
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Additional documentation can be found in the following publications:
+  <li><span style="text-align: left; font-weight: 400; font-size: medium">Gray, P. D., Lakebrink, M., Straccia, J., Thomas, F., 
+  Corke, T., Gluzman, I., "Experimental and Computational Evaluation of Smooth-Body Separated Flow over Boeing Bump," 
+  AIAA Paper 2023-3981, Jun 2023, 
+  <a href="https://doi.org/10.2514/6.2023-3981">https://doi.org/10.2514/6.2023-3981</a>.
+  <li><span style="text-align: left; font-weight: 400; font-size: medium">Gluzman, I., Gray, P., Mejia, K., Corke, T. C., 
+  and Thomas, F. O.,
+  "A Simplified Photogrammetry Procedure in Oil-film Interferometry for Accurate Skin Friction Measurement over Arbitrary Geometries,"
+  <i>Experiments in Fluids</i>, Vol. 63, Article No. 118, 2022,
+  <a href="https://doi.org/10.1007/s00348-022-03466-x">https://doi.org/10.1007/s00348-022-03466-x</a>.
+  <li><span style="text-align: left; font-weight: 400; font-size: medium">Gray, P., Gluzman, I., Thomas, F., Corke, T.,
+  Mejia, K.,
+  "Characterization of Separated Flow over the Boeing Bump,"
+  AIAA Paper 2022-3342, June-July 2022,
+  <a href="https://doi.org/10.2514/6.2022-3342">https://doi.org/10.2514/6.2022-3342</a>.
+  <li><span style="text-align: left; font-weight: 400; font-size: medium">Gray, P., Gluzman, I., Thomas, F., Corke, T., 
+  Mejia, K.,
+  "Experimental Characterization of Smooth Body Flow Separation
+  OverWall-Mounted Gaussian Bump,"
+  AIAA Paper 2022-1209, January 2022,
+  <a href="https://doi.org/10.2514/6.2022-1209">https://doi.org/10.2514/6.2022-1209</a>.
+  <li><span style="text-align: left; font-weight: 400; font-size: medium">Gray, P., Gluzman, I., Thomas, F., Corke, T., 
+  Lakebrink, M. T., Mejia, K.,
+  "A New Validation Experiment for Smooth-Body Separation,"
+  AIAA Paper 2021-2810, August 2021, 
+  <a href="https://doi.org/10.2514/6.2021-2810">https://doi.org/10.2514/6.2021-2810</a>.
+</ul>
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">The experimental documentation has 
+not yet appeared in a journal.
+-->
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A zip file containing all geometry definition 
+and data files from the experiment can be downloaded here. The download size is 3.1 GB. 
+<ul>
+  <li><a href="https://hiliftpw-ftp.larc.nasa.gov/Speedbump/ArchiveData08242023.zip">ArchiveData08242023.zip</a>
+</ul>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Alternatively,
+smaller zip files containing specific data types are linked in the following subsections of the web page.
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<br>&nbsp;
+<p><a ID="WTdescription"><span style="text-align: left; font-weight: 400; font-size: large">2. Wind Tunnel Description and Layout</p>
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The experiments were conducted in the University of Notre Dame's Mach 0.6 closed-loop wind tunnel. 
+The tunnel has a test section with a 0.91 x 0.91 m square cross section that extends 2.73 m in the 
+flow direction. Turbulence management consists of a honeycomb section followed by five seamless, 
+low-solidity screens, resulting in a turbulence intensity level of approximately 0.05% throughout 
+the tunnel Mach number range. The tunnel's turning vanes act as heat exchangers through which 
+water from a 125 ton chiller coupled with a 1000 ton-hr ice-storage system is pumped. This 
+allows the tunnel temperature to equilibrate to within 1 degree C for experimental runs up 
+to M = 0.5. The test facility is discussed in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=18">Section 2.1</a> of the test report.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="Speedbump_sep_exp/WebsiteFigures/2_WindTunnelDescrip/WindTunnel.png" title="wind tunnel" alt="wind tunnel">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The bump model was installed into a 2.64m long splitter plate with a 4:1 elliptical leading edge and an 
+adjustable trailing edge flap, although the flap angle was fixed throughout the experiments. 
+Customized CADCUT cylindrical trip dots (flat top with sharp edges) that were 0.292 mm tall, 1.27 mm 
+in diameter and spaced 2.5 mm between centers were placed 51 mm downstream of the elliptical leading 
+edge (and the upstream edge of the removable test section) on the splitter plate surface and along the 
+interior sidewalls and ceiling of the wind tunnel test section. The trip dots were present for the 
+splitter plate and bump installed testing but not for the empty test section qualification 
+measurements. See 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=19">Section 2.2</a>
+in the test report for more details on the splitter plate and trip dots.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="625"
+src="Speedbump_sep_exp/WebsiteFigures/2_WindTunnelDescrip/TripDotsLocation.PNG" title="trip dot locations" alt="trip dot locations">
+</p>
+        <p><img width="650"
+src="Speedbump_sep_exp/WebsiteFigures/2_WindTunnelDescrip/features.png" title="features" alt="features">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<br>&nbsp;
+<p><a ID="geometry"><span style="text-align: left; font-weight: 400; font-size: large">3. Geometry Definition</p>
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><a ID="parametric"><span style="text-align: left; font-weight: 400; font-size: medium"><blockquote>    3.1. Bump Model Parametric Representation</blockquote></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The Boeing Bump geometry consists of a surface whose height is a Gaussian function in the streamwise direction, 
+x, and is tapered in the spanwise direction, z, by an error function to give the bump its "shoulders."
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="450"
+src="Speedbump_sep_exp/WebsiteFigures/3_GeometryDefn/3_1_BumpModelParametric/BumpParametricEqn.png" title="equation of Boeing bump" alt="equation of Boeing bump">
+</p>
+           </td>
+           
+       </tr>
+     </center>
+     </table>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="Speedbump_sep_exp/WebsiteFigures/3_GeometryDefn/3_1_BumpModelParametric/bumpgeometryspanwise.png" title="plot of of Boeing bump shape spanwise" 
+alt="plot of of Boeing bump shape spanwise">
+           <img width="500"
+src="Speedbump_sep_exp/WebsiteFigures/3_GeometryDefn/3_1_BumpModelParametric/bumpgeometrystreamwise.png" title="plot of of Boeing bump shape streamwise" 
+alt="plot of of Boeing bump shape streamwise">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p> For the geometric parameters, the model uses L = 36 inches = 0.9144 m (the width of the tunnel), x<sub>0</sub>/L = 0.195, 
+z<sub>0</sub>/L = 0.06, and h/L = 0.085.
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=19">Section 2.2</a>
+in the test report describes the bump model.
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><a ID="CAD"><span style="text-align: left; font-weight: 400; font-size: medium"><blockquote>    3.2. CAD Definitions</blockquote></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>        3.2.1. Bump Geometry</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following files provide the definition for the bump alone at the test scale (L=0.9144m). 
+The two files represent the test model which was fabricated with one half wider that the other 
+so that the joining seam was off centerline. Therefore, the left-hand side and right-hand side 
+definitions are not exact halves of the configuration. Files are in IGS format.
+     <ul>
+        <li><a href="Speedbump_sep_exp/BumpModel.zip">BumpModel.zip</a>
+     </ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="Speedbump_sep_exp/WebsiteFigures/3_GeometryDefn/3_2_CADDefn/3_2_1_BumpGeom/SBSE_Bump.jpg" title="3D view of Boeing bump shape" alt="3D view of Boeing bump shape">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    3.2.2. Wind Tunnel Test Section, Splitter Plate and Bump Model</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following assembly includes the test section walls, the splitter plate with the leading edge 
+ogive and trailing edge flap, the wall seals and the bump installed with its apex 0.9144m 
+(X<sub>apex</sub>/L=1) downstream from the splitter plate leading edge (i.e., Configuration A). Note that the 
+orientation of this CAD assembly is different than the bump alone files. Like with the CAD of the 
+bump alone, the bump CAD definition comes in two pieces, with the joining seam offset from the tunnel 
+centerline. Files are in IGS, X_T, STEP and SLDASM formats.
+     <ul>
+        <li><a href="Speedbump_sep_exp/TestSection.zip">TestSection.zip</a>
+     </ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="625"
+src="Speedbump_sep_exp/WebsiteFigures/3_GeometryDefn/3_2_CADDefn/3_2_2_TestSection/Bump_in_TestSection5.png" title="Bump in test section" alt="Bump in test section">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    3.2.3. Wind Tunnel Contraction and Downstream Extension</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following assemblies include the wind tunnel contraction, the test section walls and a downstream extension. 
+In the test section the splitter plate with the leading-edge ogive and trailing edge flap is installed including 
+the definition for the mounting L-brackets and plate mounting fixtures. In one assembly the bump model apex 
+is located 0.9144 m (X<sub>apex</sub>/L=1) downstream from the splitter plate leading edge (Configuration A) and in the 
+other the bump apex is located 1.8288 m (X<sub>apex</sub>/L=2) downstream from the leading edge (Configuration B). 
+Files are provided in IGS format.
+     <ul>
+        <li><a href="Speedbump_sep_exp/Contraction_TestSection_Extension.zip">Contraction_TestSection_Extension.zip</a>
+     </ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="625"
+src="Speedbump_sep_exp/WebsiteFigures/3_GeometryDefn/3_2_CADDefn/3_2_3_Contraction_TestSection_Extension/wind_tunnel_contaction_test_section_extension3.png" 
+title="Contraction and test section extension" alt="Contraction and test section extension">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><a ID="cmm"><span style="text-align: left; font-weight: 400; font-size: medium"><blockquote>    3.3 CMM Data</blockquote></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The as-manufactured geometry was verified with a coordinate measuring machine (CMM). The measured contours were 
+confirmed to be within +-0.125 mm of the CAD model for each of the plate sections. 
+Reports containing the CMM measurements can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/CMM.zip">CMM.zip</a>
+     </ul>
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><a ID="surface"><span style="text-align: left; font-weight: 400; font-size: medium"><blockquote>    3.4 Steps and Surface Roughness</blockquote></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The test article including the splitter plate and bump sections were fabricated with a surface roughness 
+RMS approx 305 micrometer. The steps between plates were measured to be < 0.063 mm. 
+A more detailed report of the panel step and surface finish measurements can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/BumpStepError_and_SurfRMS.XLSX">BumpStepError_and_SurfRMS.XLSX</a>
+     </ul>
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<br>&nbsp;
+<p><a ID="exp_conditions"><span style="text-align: left; font-weight: 400; font-size: large">4. Experimental Conditions</p>
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The wind tunnel experiments were conducted in air at ambient conditions. Although cooling via the turning 
+vanes was utilized during the experiments its purpose was to hold air temperature to within a 1 degree 
+C band within the wind tunnel. Details on the reference conditions within the test section during a 
+specific measurement are documented in the header section of the corresponding data file. 
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Two aerodynamic parameters were varied in the experiments to understand their influence on smooth 
+body separation. The first was the flow Mach number or Reynolds number which was varied by changing the 
+air speed via the fan RPM. For most measurements the emphasis was on M=0.1 and M=0.2, however, in several 
+cases data were obtained across a larger set of conditions. The following table lists all Mach numbers 
+tested along with the corresponding free steam velocity and Reynolds number (based on the test section width).
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="331"
+src="Speedbump_sep_exp/WebsiteFigures/4_ExpConditions/Table4_1_test_conditions.png" 
+title="Table of experimental conditions" alt="Table of experimental conditions">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The second aerodynamic parameter varied was the boundary layer thickness upstream of the bump. 
+This was varied independently of freestream velocity by placing the bump at different locations on the 
+splitter plate so that the boundary layer had more or less distance to develop. Accordingly, 
+two bump configurations were tested in this experimental study: configuration A where the bump 
+apex was postitioned one test section width downstream from the splitter plate leading edge and 
+configuration B where the bump apex was two test section widths downstream from the leading edge. 
+An emphasis was placed on obtaining data with the bump in configuration A.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="625"
+src="Speedbump_sep_exp/WebsiteFigures/4_ExpConditions/BumpConfigurations.png" 
+title="Bump configurations" alt="Bump configurations">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=20">Section 2.3</a>
+of the test report provides information on the coordinate systems and notation for the bump configurations tested. 
+See <a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=77">Section 4.1</a>
+of the test report for details on the experimental test conditions. 
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<br>&nbsp;
+<p><a ID="expdata"><span style="text-align: left; font-weight: 400; font-size: large">5. Experimental Data</p>
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><a ID="notes"><span style="text-align: left; font-weight: 400; font-size: medium"><blockquote>    5.1. Notes on Data Format</blockquote></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+All experimental data are provided in human-readable ASCII DAT file format (.dat). The beginning of these 
+files includes a commented block of text which specifies the bump geometry, test configuration, references 
+conditions, derived quantities and variable name descriptions, with units. The data table consists of a 
+single uncommented line with the parameter names followed by the data itself. These DAT files are readable 
+by Microsoft Excel, MATLAB, Python and Tecplot. Additionally, the PIV and Kulite data are also provided 
+in binary MATLAB MAT file format (.mat). The MAT files have smaller file sizes than the DAT files and 
+for the PIV data the MAT file format preserves the 2D array structure whereas the DAT files store the 
+2D data as 1D arrays which have to reshaped after import. The MAT files can be read by MATLAB and Python.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Two coordinate systems are utilized in the data files. First, a right-handed global coordinate system 
+with respect to the test section is denoted using capital X, Y, and Z to represent streamwise, vertical, 
+and spanwise distances from its origin, respectively. The origin of the global coordinate system is 
+located at the inlet of the test section, on the bottom wall, and at the center span between the left 
+and right side walls. Second, a right-handed bump-based coordinate system is implemented when distances 
+with respect to the bump are referenced, regardless of the global position of the bump apex. Here, 
+lower case symbols x, y, and z represent streamwise, vertical, and spanwise directions, respectively. 
+The origin of the bump-centric coordinate system is in the same streamwise plane as the bump apex, and 
+located vertically at the top surface of the flat plate, and at the center span of the tunnel between 
+the left and right side walls. For data files where the filename includes the position of the measurement 
+the global coordinate system (X,Y,Z) is used. Within the data files the data coordinates are provided 
+in both the global (X,Y,Z) and bump-centric (x,y,z) coordinate systems. 
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><a ID="guide"><span style="text-align: left; font-weight: 400; font-size: medium"><blockquote>    5.2. Guide to Importing the Data</blockquote></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.2.1. Importing .dat files into MATLAB</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Generally, the .dat files can be imported into MATLAB by simply entering <b>data=readtable('filename.dat');</b> in 
+the command window. For some files MATLAB does not correctly handle the commented header section and 
+throws an error. Therefore, a more robust way to import the data is to use the following commands in an m-file.
+
+<div>
+<pre>
+<p style="font-family:courier;">
+  infile = 'EmptyTunnel_TotalPressureBL_X486mmProfileB_M0p10.dat';
+  comment= '%';
+  
+  S=readlines(infile);
+  ch = S{1};, line=1;
+  while ch(1) == comment
+  	line = line + 1;
+  	ch = S{line};
+  end
+  clear S
+  
+  data=readtable(infile,'NumHeaderLines',line-1);
+</p>
+</pre>
+</div>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Data are then accessed from the structure using <b>data.variablename</b>, e.g., <b>data.U</b>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+PIV data which are obtained as a 2D array will import from DAT files as 1D vectors. The following is an example of how to 
+reshape and plot the SPIV data:
+
+<div>
+<pre>
+<p style="font-family:courier;">
+  data = readtable('BumpConfigA_SPIVcrossplanes_X1143mm_M0p200.dat');
+  ydim = length(unique(data.y_L)); zdim = length(unique(data.z_L));
+  zL = reshape(data.z_L,ydim,zdim);
+  yL = reshape(data.y_L,ydim,zdim);
+  U = reshape(data.U,ydim,zdim);
+  figure
+  contourf(zL,yL,U,256,'EdgeColor','none')
+  c = colorbar;
+  title(c,'$U$ [m/s]','interpreter','latex');
+  axis equal
+  xlabel('$z/L$','interpreter','latex')
+  ylabel('$y/L$','interpreter','latex')
+</p>
+</pre>
+</div>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.2.2. Importing .mat files into MATLAB</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+MAT files are imported into MATLAB by entering <b>load('filename.mat')</b> in the command window.
+Data are then accessed from the structure using <b>data.variablename</b>, e.g., <b>data.U</b>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.2.3. Importing .dat files into Python</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following commands will import the data in the .dat file and preserve parameter names while ignoring commented lines in the header.
+
+<div>
+<pre>
+<p style="font-family:courier;">
+  import numpy as np
+  from io import StringIO
+  
+  infile = 'EmptyTunnel_TotalPressureBL_X486mmProfileB_M0p10.dat'
+  input_data = open(infile,'r')
+  input_text = ''
+  comment = '%'
+  
+  for line in input_data:
+      if not line[0] == comment:
+          input_text += line
+  data = np.genfromtxt(StringIO(input_text),delimiter='\t',names=True)
+</p>
+</pre>
+</div>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Data are then accessed from the structure using <b>data['VariableName']</b>, e.g. <b>data['U']</b>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.2.4. Importing .mat files into Python</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+
+<div>
+<pre>
+<p style="font-family:courier;">
+  import scipy.io
+  mat = scipy.io.loadmat('filename.mat')
+</p>
+</pre>
+</div>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.2.5. Importing .dat files into Tecplot</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Open the .dat file in a text editor and note the line number with the variable names and the line number of the first row of the data table.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Within Tecplot click <b>File > Load Data...</b> and navigate to the .dat file. Under <b>Files of type</b> 
+select <b>All Files (*)</b> if not already in that mode and click on the .dat file and then <b>Open</b>. 
+Under loader type select <b>General Text Loader</b> and then <b>OK</b>. Click <b>Variables</b> button and in the variables 
+window select <b>Scan for Variable Names</b> radio button and enter the line number of the variables in both the 
+<b>Start Line</b> and <b>End Line</b> boxes then press <b>OK</b> (the delimiter can be left as <b>Auto</b>). 
+Next click the <b>Data</b> button and in the data window enter the line number of the first row of the data table under 
+<b>Start Line</b> and select <b>End of File</b> radio button for the end line then click <b>OK</b> 
+(delimited can be left as <b>Auto</b>). Under <b>Data Preview</b> select the <b>View Processed Data</b> 
+radio button and then click <b>Scan File</b>. The data table should appear in the display window. Click <b>OK</b>. 
+The data should now be available for plotting in Tecplot under the <b>Mapping Style</b> dialog.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.2.6. Importing .dat files into Microsoft Excel</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Within Excel click <b>File > Open</b> and navigate to the .dat file location. Change the file type drop down from 
+<b>All Excel Files</b> to <b>All Files (*.*)</b>. Click on the desired .dat file and click <b>Open</b>. 
+Under <b>Original data type</b> select <b>Delimited</b> then click <b>Next</b>. Under <b>Delimiters</b> check only the 
+<b>Tab</b> box then click <b>Next</b>. Under <b>Column data format</b> leave the radio button on <b>General</b> then click <b>Finish</b>. 
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Alternatively, the .dat file can be opened in a text editor (e.g. notepad, notepad++, etc) and the contents selected and copied. 
+Next within Excel, right click in the cell A1 and select paste. Excel will automatically apply a 
+tab delimiter when pasting the .dat file contents.
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><a ID="empty"><span style="text-align: left; font-weight: 400; font-size: medium"><blockquote>    5.3. Empty Test Section Data</blockquote></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Prior to installation of the test article, an investigation of the empty test section was conducted to 
+quantify incoming flow quality. See 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=54">Section 3.1</a>
+in the test report for more information on this test phase.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.3.1. Pitot-Static Rakes: Freestream Velocity</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A traversing Pitot-static probe was used to investigate the uniformity of the empty test section 
+flow prior to installation of the test model or fixtures. Measurements were made at M=0.2. See 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=54">Section 3.1.1</a>
+in the test report for more information on the data obtained.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="350"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_3_EmptyTestSection/5_3_1_PitotStaticRakes/EmptyPitotStaticMeasLoc.png" 
+title="Empty tunnel pitot static measurement locations" alt="Empty tunnel pitot static measurement locations">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the flow velocity data obtained with the pitot-static probe in the empty test section can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/PitotTraverse.zip">PitotTraverse.zip</a>
+     </ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.3.2. X-Wire: Three-Component Freestream Velocity and Turbulence Intensity</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A traversing X-wire probe was used to investigate the freestream angularity and turbulence intensities within the 
+empty test section prior to installation of the test model or fixtures. The measurements were made at 
+M=0.1 and 0.2. See 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=57">Section 3.1.2</a>
+in the test report for more information on the data obtained.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="350"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_3_EmptyTestSection/5_3_2_Xwire/EmptyXWireMeasLoc.png" 
+title="Empty tunnel x-wire measurement locations" alt="Empty tunnel x-wire measurement locations">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the flow velocity data obtained with the X-wire probe can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/XWireTraverse.zip">XWireTraverse.zip</a>
+     </ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.3.3. Total Pressure Probe: Test Section Wall Boundary Layer Measurements</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A traversing total pressure boundary layer style probe was used to investigate the boundary layer development 
+on each of the four test section walls prior to the installation of the test model or fixtures. The 
+measurements were made at M=0.05, 0.1 and 0.2. See 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=63">Section 3.1.3</a>
+in the test report for more information on the data obtained. The 
+following figure visually depicts where the boundary layer profiles were measured within the empty test section.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="333"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_3_EmptyTestSection/5_3_3_TotalPressureProbe/EmptyBLMeasLoc.png" 
+title="Empty tunnel boundary layer measurement locations" alt="Empty tunnel boundary layer measurement locations">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the boundary layer profiles obtained on the empty test section walls using a total pressure probe can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/TotalPressureProbeBoundaryLayers.zip">TotalPressureProbeBoundaryLayers.zip</a>
+     </ul>
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><a ID="splitter"><span style="text-align: left; font-weight: 400; font-size: medium"><blockquote>    5.4. Splitter Plate Only Data (No Bump)</blockquote></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+After the first test phase investigating the flow quality within the empty test section, the 
+splitter plate and associated fixtures were inserted into the test section. Without the bump installed, the 
+test bed consisted only of flat plate sections which allowed canonical boundary layer development with near 
+zero pressure gradient. See 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=68">Section 3.2</a>
+in the test report for more information on this test phase.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.4.1. Hot-wire: Splitter Plate Boundary Layer Profiles</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The hot-wire anemometry and traversing system described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=26">Section 2.4.3</a> in the 
+test report was used to obtain mean velocity profiles of the boundary layer on the splitter plate. The measurements were 
+made at M=0.1 and 0.2 for the splitter plate only configuration. See 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=69">Section 3.2.2</a>
+in the test report for more information on the data obtained. The following figure visually depicts 
+where the hot-wire data were obtained within the test section.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="333"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_4_SplitterPlate/5_4_1_HotWire/SplitterPlateBLMeasLoc.png" 
+title="Splitter plate boundary layer profile locations using hotwire" 
+alt="Splitter plate boundary layer profile locations using hotwire">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the boundary layer profiles obtained on the splitter plate using hot-wire anemometry can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/HotwireBoundaryLayerProfiles.zip">HotwireBoundaryLayerProfiles.zip</a>
+     </ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.4.2. Oil Film Interferometry (OFI): Splitter Plate Skin Friction</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The photogrammetric OFI technique described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=30">Section 2.4.4</a>
+in the test report was used to measure skin friction on the splitter plate prior to bump installation. 
+The measurements were made at M=0.2 for the splitter plate only configuration. See 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=72">Section 3.2.3</a> 
+in the test report for more information on the data obtained. A zip file containing the skin friction 
+measurements obtained on the splitter plate using OFI can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/SkinFriction_splitter.zip">SkinFriction_splitter.zip</a>
+     </ul>
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><a ID="bumpinstalled"><span style="text-align: left; font-weight: 400; font-size: medium"><blockquote>    5.5. Bump Installed Data</blockquote></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+To achieve the core objective of this program, a series of flow diagnostics were conducted with the 
+speed bump model installed in the splitter plate. A high-level tabular summary of all experimental data 
+obtained with the bump model installed is provided in the following table which shows the flow speeds tested 
+using each of the diagnostic tools. The table also specifies the bump configuration tested at the reference 
+condition (A, B, or both). The quantities measured and corresponding experimental techniques employed 
+include: the boundary layer profiles using the hot-wire anemometry system (HW), the flow fields upstream 
+of the bump using SPIV (SPIV), the surface streamlines in the separated flow region using flow visualization 
+oil (FlowViz), the mean and instantaneous static pressure over the bump (Cp and Kulite, respectively), 
+the mean skin friction over the bump (Cf ), the separated flow field downstream of the bump using PIV (PIV), 
+and the separated flow field downstream of the bump in cross-planes using SPIV (SPIVcross). Additional data 
+summary tables are provided at the start of each of the following subsections which indicate the specific 
+locations where data were obtained within the flow field for the measurement type being discussed.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="653"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/Table4_2_all_bump_data_summary.png" 
+title="Table summary of all bump data" 
+alt="Table summary of all bump data">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=20">Section 2.3</a> 
+of the test report provides information on the coordinate systems and notation for the bump configurations tested. 
+See <a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=77">Section 4.1</a> 
+of the test report for details on the experimental test conditions.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.5.1. Hot-wire: Upstream Boundary Layer Profile Development</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The hot-wire anemometry and traversing system described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=26">Section 2.4.3</a> of the 
+test report was used to obtain mean velocity and turbulence profiles of the boundary layer upstream of the bump apex on centerline. 
+See <a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=78">Section 4.2.1</a> 
+in the test report for more information on the data obtained.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_1_HotWire/HWBL_2.PNG" 
+title="Hot wire configuration used for boundary layer measurements" 
+alt="Hot wire configuration used for boundary layer measurements">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following table outlines where hot-wire data were obtained and for what conditions:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="753"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_1_HotWire/Table4_3_upstream_hot_wire.png" 
+title="Table of hot wire locations" 
+alt="Table of hot wire locations">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following figure visually depicts where the hot-wire data were obtained relative to the bump:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="600"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_1_HotWire/bumpconfigs_coordinates_HWloc.png" 
+title="Locations of hot wire measurements relative to hump" 
+alt="Locations of hot wire measurements relative to hump">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the hot-wire data obtained upstream of the bump can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/HotwireBoundaryLayerProfiles.zip">HotwireBoundaryLayerProfiles.zip</a>
+     </ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.5.2. Stereoscopic PIV (SPIV): Upstream Flow Field Development on Centerline</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The upstream SPIV setup described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=44">Section 2.4.6.2</a> of the 
+test report was used to measure the mean velocities and Reynolds stresses upstream of the bump apex. See 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=82">Section 4.2.2</a> 
+in the test report for more information on the data obtained.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="440"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_2_SPIVUpstream/SPIVupstream_1.PNG" 
+title="Upstream SPIV" 
+alt="Upstream SPIV">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following table outlines where SPIV data were obtained and for what conditions.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="507"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_2_SPIVUpstream/Table4_6_upstream_SPIV.png" 
+title="Table outlining where SPIV data were obtained" 
+alt="Table outlining where SPIV data were obtained">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following figures visually depict where the SPIV data were obtained relative to the bump.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="520"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_2_SPIVUpstream/SPIV_uTotStreamlines_ConfigA.png" 
+title="SPIV locations for Configuration A" 
+alt="SPIV locations for Configuration A">
+           <img width="520"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_2_SPIVUpstream/SPIV_uTotStreamlines_ConfigB.png" 
+title="SPIV locations for Configuration B" 
+alt="SPIV locations for Configuration B">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the SPIV data obtained upstream of the bump can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/SPIVupstream.zip">SPIVupstream.zip</a>
+     </ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.5.3. Fluorescent Oil Flow Visualization: Bump Surface Streamlines Within the Separation</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The fluorescent oil mixture described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=23">Section 2.4.1</a>
+was applied to the downstream region of the bump to visualize the time-mean surface streamlines produced by the separated flow. 
+See <a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=88">Section 4.3</a> 
+in the test report for more information on the images obtained. 
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following figure is an example fluorescent oil flow image obtained at M=0.2 for Configuration A. 
+In the image the apex of the bump is indicated by the annotation and the bump centerline is delineated with three parallel orange lines.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="480"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_3_FluorOilFlowVis/FlowVizExample.png" 
+title="Oil flow visualization example" 
+alt="Oil flow visualization example">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The location of the surface foci at M=0.2 for Configuration A were extracted by applying a 
+photogrammetry technique to map the fluorescent oil flow image onto the 3D bump surface. 
+The foci locations are provided below in local bump-relative coordinates and have an 
+estimated uncertainty of +/-2mm, based on how the center of the foci were visually identified.
+
+<pre>
+F1: (x,z) = (124.7, 113.8) mm
+F2: (x,z) = (129.3, -109.6) mm
+</pre>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Fluorescent oil flow images are provided for both configuration A and B at M=0.1 and M=0.2. 
+A zip file containing the images can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/OilFlowVis.zip">OilFlowVis.zip</a>
+     </ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.5.4. Pressure Taps: Bump Surface Static Pressure</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The static pressure taps described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=48">Section 2.4.7.1</a> 
+of the test report were used to measure the mean surface pressure field along the bump. 
+The ports were aligned on five arrays, three arrays in the streamwise direction and two arrays in the spanwise direction. 
+See <a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=89">Section 4.4.1</a> 
+in the test report for more information on the data obtained. 
+The following table outlines where the static pressure data were obtained and for what conditions.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="747"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_4_PressureTaps/Table4_7_avg_surf_static_pressure2.png"
+title="Table outlining static pressure data locations and conditions"
+alt="Table outlining static pressure data locations and conditions">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following figure visually depicts where the static pressure data were obtained on the bump.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_4_PressureTaps/Cp_1.PNG"
+title="Pictorial representation of pressure tap locations"
+alt="Pictorial representation of pressure tap locations">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the static pressure data obtained on the bump can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/SurfacePressure_timeaverage.zip">SurfacePressure_timeaverage.zip</a>
+     </ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.5.5. Kulites: Bump Surface Dynamic Pressure</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The Kulite dynamic pressure sensors described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=51">Section 2.4.7.2</a>
+of the test report were used to measure instantaneous pressure fluctuations downstream of the bump apex. 
+See <a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=92">Section 4.4.2</a>
+in the test report for more information on the data obtained.
+The following table outlines where the dynamic pressure data were obtained and for what conditions.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="507"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_5_Kulites/Table4_8_kulite_dynamic_pressure.png"
+title="Table outlining unsteady pressure data locations and conditions"
+alt="Table outlining unsteady pressure data locations and conditions">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following figure visually depicts where the Kulite sensors were installed on the bump.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="540"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_5_Kulites/kulite_1.PNG"
+title="Pictorial representation of Kulite sensor locations"
+alt="Pictorial representation of Kulite sensor locations">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the dynamic pressure data obtained on the bump can be downloaded here:
+<ul>
+  <li><a href="https://hiliftpw-ftp.larc.nasa.gov/Speedbump/SurfacePressure_instantaneous.zip">SurfacePressure_instantaneous.zip</a>
+</ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.5.6. Oil Film Interferometry (OFI): Bump Surface Skin Friction</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The photogrammetric OFI technique described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=30">Section 2.4.4</a>
+in the test report was used to measure the skin friction coefficient along the bump. 
+See <a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=96">Section 4.5</a>
+in the test report for more information on the data obtained.
+The following figure depicts an example distribution of OFI measurements along the splitter plate and bump.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="620"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_6_OFI/OFI_pic.png"
+title="Example OFI measurement locations along the splitter plate and bump"
+alt="Example OFI measurement locations along the splitter plate and bump">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The OFI measurements were made at M=0.05, 0.1 and 0.2 for bump configurations A and B.
+A zip file containing the skin friction measurements obtained on the bump using OFI can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/SkinFriction.zip">SkinFriction.zip</a>
+     </ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.5.7 Particle Image Velocimetry (PIV): Downstream Flow Field on Streamwise Planes</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The PIV setup described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=35">Section 2.4.5</a>
+of the test report was used to measure two-component mean velocity and 
+Reynolds stresses in the separated flow region downstream of the bump apex. 
+See <a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=97">Section 4.6</a>
+in the test report for more information on the data obtained.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_7_PIV/PIV_1.PNG"
+title="PIV schematic"
+alt="PIV schematic">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following table outlines where the downstream PIV data were obtained and for what conditions.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="506"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_7_PIV/Table4_9_downstream_PIV.png"
+title="Table outlining downstream PIV locations and conditions"
+alt="Table outlining downstream PIV locations and conditions">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following figure visually depicts on what planes PIV data were obtained on the downstream side of the bump.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="450"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_7_PIV/PIV_locations.png"
+title="PIV locations on the downstream side of the bump"
+alt="PIV locations on the downstream side of the bump">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the downstream PIV data can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/PIV.zip">PIV.zip</a>
+     </ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium"><i><blockquote>    5.5.8 Stereoscopic PIV (SPIV): Downstream Flow Field on Cross-Planes</blockquote></i></p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The cross planar SPIV setup described in 
+<a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=40">Section 2.4.6.1</a>
+was used to measure three-component mean velocity and Reynolds stresses downstream of the bump apex. 
+See <a href="Speedbump_sep_exp/Smooth_Body_Separation_Exp_Final_Report.pdf#page=101">Section 4.7</a>
+in the test report for more information on the data obtained.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="400"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_8_SPIVCross/SPIVcross_1.PNG"
+title="SPIV schematic"
+alt="SPIV schematic">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following table outlines where the downstream SPIV data were obtained and for what conditions.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="400"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_8_SPIVCross/Table4_10_crossplane_SPIV.png"
+title="Table outlining downstream SPIV locations and conditions"
+alt="Table outlining downstream SPIV locations and conditions">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following figure visually depicts on what planes SPIV data were obtained on the downstream side of the bump.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="450"
+src="Speedbump_sep_exp/WebsiteFigures/5_ExpData/5_5_BumpInstalled/5_5_8_SPIVCross/SPIV_locations.png"
+title="SPIV locations on the downstream side of the bump"
+alt="SPIV locations on the downstream side of the bump">
+</p>
+           </td>
+
+       </tr>
+     </center>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A zip file containing the downstream SPIV data can be downloaded here:
+     <ul>
+        <li><a href="Speedbump_sep_exp/SPIVcrossplanes.zip">SPIVcrossplanes.zip</a>
+     </ul>
+
+<br>&nbsp;
+<hr WIDTH="100%">
+<br>&nbsp;
+<p><a ID="cfdpapers"><span style="text-align: left; font-weight: 400; font-size: large">6. List of Related CFD Papers</p>
+<br>&nbsp;
+<hr WIDTH="100%">
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following is a list of known CFD papers that report scale-resolving computations of the SBSE configuration (including
+both the full configuration as well as a centerplane or center-region "slice").
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+DNS (Direct Numerical Simulation) Papers:
+<ul>
+<li>Uzun, A., Malik, M. R. (2021). Simulation of a turbulent flow subjected to favorable and adverse pressure gradients. 
+  Theoretical and Computational Fluid Dynamics, 35, 293-329,
+  <a href="https://doi.org/10.1007/s00162-020-00558-4">https://doi.org/10.1007/s00162-020-00558-4</a>.<br>
+  <span style="color: red">DNS data from this paper is provided on the page: 
+  <a href="../Other_DNS_Data/gaussianbump_nasadns.html">DNS: Gaussian Bump at Two Reynolds Numbers</a></span>
+<li>Shur, M. L., Spalart, P. R., Strelets, M. K.,  Travin, A. K. (2021). Direct numerical simulation of the 
+  two-dimensional speed bump flow at increasing Reynolds numbers. International Journal of Heat and Fluid Flow, 90, 108840,
+  <a href="https://doi.org/10.1016/j.ijheatfluidflow.2021.108840">https://doi.org/10.1016/j.ijheatfluidflow.2021.108840</a>.
+<li>Balin, R., Jansen, K. E. (2021). Direct numerical simulation of a turbulent boundary layer over a bump with 
+  strong pressure gradients. Journal of Fluid Mechanics, 918, A14,
+  <a href="https://doi.org/10.1017/jfm.2021.312">https://doi.org/10.1017/jfm.2021.312</a>.
+<li>Uzun, A., Malik, M. R. (2022). High-fidelity simulation of turbulent flow past Gaussian bump. 
+  AIAA Journal, 60(4), 2130-2149,
+  <a href="https://doi.org/10.2514/1.J060760">https://doi.org/10.2514/1.J060760</a>.<br>
+  <span style="color: red">DNS data from this paper is provided on the page: 
+  <a href="../Other_DNS_Data/gaussianbump_nasadns.html">DNS: Gaussian Bump at Two Reynolds Numbers</a></span>
+</ul>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+WRLES (Wall-Resolved Large-Eddy Simulation) Papers:
+<ul>
+<li>Wright, J. R., Balin, R., Jansen, K. E., Evans, J. A. (2021). Unstructured LES_DNS of a turbulent boundary 
+  layer over a Gaussian bump. In AIAA Scitech 2021 Forum (AIAA-2021-1746),
+  <a href="https://doi.org/10.2514/6.2021-1746">https://doi.org/10.2514/6.2021-1746</a>.
+<li>Uzun, A., Malik, M. R. (2022). A Dynamic Nonlinear Subgrid-Scale Model for Large-Eddy Simulation 
+  of Complex Turbulent Flows, NASA/TM-20220013891,
+  <a href="https://ntrs.nasa.gov/citations/20220013891">https://ntrs.nasa.gov/citations/20220013891</a>.
+<li>Rizzetta, D. P., Garmann, D. J. (2023). Wall-resolved large-eddy simulation of flow over a 
+  three-dimensional gaussian bump. In AIAA SCITECH 2023 Forum (AIAA-2023-0286),
+  <a href="https://doi.org/10.2514/6.2023-0286">https://doi.org/10.2514/6.2023-0286</a>.
+<li>Rizzetta, D. P., Garmann, D. J. (2023). Wall-Resolved Large-Eddy Simulation of Flow over a Parametric 
+  Set of Gaussian Bumps. In AIAA AVIATION 2023 Forum (AIAA-2023-3983),
+  <a href="https://doi.org/10.2514/6.2023-3983">https://doi.org/10.2514/6.2023-3983</a>.
+<li>Rizzetta, D. P., Garmann, D. J. (2023). Arch Vortex in Flow over a Three-Dimensional Gaussian Bump. 
+  AIAA Journal, 61(11), 5176-5179,
+  <a href="https://doi.org/10.2514/1.J062876">https://doi.org/10.2514/1.J062876</a>.
+</ul>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+WMLES/DDES (Wall-Modeled Large-Eddy Simulation/Delayed Detached Eddy Simulation) Papers:
+<ul>
+<li>Balin, R., Jansen, K. E., Spalart, P. R. (2020). Wall-modeled LES of flow over a Gaussian bump with 
+  strong pressure gradients and separation. In AIAA Aviation 2020 Forum (AIAA-2020-3012),
+  <a href="https://doi.org/10.2514/6.2020-3012">https://doi.org/10.2514/6.2020-3012</a>.
+<li>Iyer, P. S., Malik, M. R. (2021). Wall-modeled LES of flow over a Gaussian bump. 
+  In AIAA Scitech 2021 Forum (AIAA-2021-1438),
+  <a href="https://doi.org/10.2514/6.2021-1438">https://doi.org/10.2514/6.2021-1438</a>.
+<li>Gray, P. D., Gluzman, I., Thomas, F., Corke, T., Lakebrink, M., Mejia, K. (2021). A new validation 
+  experiment for smooth-body separation. In AIAA Aviation 2021 Forum (AIAA-2021-2810),
+  <a href="https://doi.org/10.2514/6.2021-2810">https://doi.org/10.2514/6.2021-2810</a>.
+<li>Whitmore, M. P., Griffin, K. P., Bose, S. T., Moin, P. (2021). Large-eddy simulation of a Gaussian 
+  bump with slip-wall boundary conditions. Center for Turbulence Research Annual Research Briefs, 45-58,
+  <a href="https://web.stanford.edu/group/ctr/ResBriefs/2021/06_Whitmore.pdf">
+  https://web.stanford.edu/group/ctr/ResBriefs/2021/06_Whitmore.pdf</a>.
+<li>Agrawal, R., Whitmore, M., Griffin, K., Moin, P. (2021). Dynamic modeling of non-Boussinesq 
+  subgrid-scale models for large-eddy simulations. Center for Turbulence Research Annual Research Briefs, 31-43,
+  <a href="https://web.stanford.edu/group/ctr/ResBriefs/2021/05_Agrawal.pdf">
+  https://web.stanford.edu/group/ctr/ResBriefs/2021/05_Agrawal.pdf</a>.
+<li>Prakash, A., Balin, R., Evans, J. A., Jansen, K. E. (2022). Wall-modeled large eddy simulations of a 
+  turbulent boundary layer over the Boeing speed bump at ReL= 2 million. In AIAA SciTech 2022 Forum (AIAA-2022-0338),
+  <a href="https://doi.org/10.2514/6.2022-0338">https://doi.org/10.2514/6.2022-0338</a>.
+<li>Iyer, P. S., Malik, M. R. (2022). Wall-modeled LES of turbulent flow over a two 
+  dimensional Gaussian bump. ICCFD11 Paper, 204, 2022,
+  <a href="https://www.iccfd.org/iccfd11/assets/pdf/papers/ICCFD11_Paper-0204.pdf">
+  https://www.iccfd.org/iccfd11/assets/pdf/papers/ICCFD11_Paper-0204.pdf</a>.
+<li>Agrawal, R., Bose, S. T., Moin, P. (2022). Wall modeled LES of the Boeing speed bump using a 
+  non-Boussinesq modeling framework. Center for Turbulence Research, Annual Research Briefs, 43-58,
+  <a href="https://web.stanford.edu/group/ctr/ResBriefs/2022/06_Agrawal.pdf">
+  https://web.stanford.edu/group/ctr/ResBriefs/2022/06_Agrawal.pdf</a>.
+<li>Agrawal, R., Whitmore, M. P., Griffin, K. P., Bose, S. T., Moin, P. (2022). Non-Boussinesq subgrid-scale 
+  model with dynamic tensorial coefficients. Physical Review Fluids, 7(7), 074602,
+  <a href="https://doi.org/10.1103/PhysRevFluids.7.074602">https://doi.org/10.1103/PhysRevFluids.7.074602</a>.
+<li>Iyer, P. S., Malik, M. R. (2023). Wall-modeled LES of the three-dimensional speed bump 
+  experiment. In AIAA SCITECH 2023 Forum (AIAA-2023-0253),
+  <a href="https://doi.org/10.2514/6.2023-0253">https://doi.org/10.2514/6.2023-0253</a>.
+<li>Gray, P. D., Lakebrink, M. T., Thomas, F. O., Corke, T. C., Gluzman, I., Straccia, J. (2023). Experimental 
+  and Computational Evaluation of Smooth-Body Separated Flow over Boeing Bump. In AIAA AVIATION 2023 Forum (AIAA-2023-3981),
+  <a href="https://doi.org/10.2514/6.2023-3981">https://doi.org/10.2514/6.2023-3981</a>.
+<li>Arranz, G., Ling, Y., Lozano-Duran, A. (2023). Wall-modeled LES based on building-block flows: 
+  Application to the Gaussian Bump. In AIAA AVIATION 2023 Forum (AIAA-2023-3984),
+  <a href="https://doi.org/10.2514/6.2023-3984">https://doi.org/10.2514/6.2023-3984</a>.
+<li>Zhou, D., Whitmore, M. P., Griffin, K. P., Bae, H. J. (2023). Large-Eddy Simulation of Flow over Boeing 
+Gaussian Bump Using Multi-Agent Reinforcement Learning Wall Model. In AIAA AVIATION 2023 Forum (AIAA-2023-3985),
+  <a href="https://doi.org/10.2514/6.2023-3985">https://doi.org/10.2514/6.2023-3985</a>.
+<li>Iyer, P. S., Malik, M. R. (2023). Assessing Reynolds Number Effects for flow over a Gaussian bump 
+  using Wall-modeled LES. In AIAA AVIATION 2023 Forum (AIAA-2023-3982),
+  <a href="https://doi.org/10.2514/6.2023-3982">https://doi.org/10.2514/6.2023-3982</a>.
+</ul>
+
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p><span style="text-align: left; font-weight: 400; font-size: large">Acknowledgements</p>
+
+<p>The Boeing bump model geometry was developed by Philippe Spalart 
+(Senior Technical Fellow, the Boeing Company, Retired) in close 
+collaboration with Jeffrey Slotnick (Technical Fellow, the Boeing Company) 
+and the New Technologies and Services (NTS) group under Professor Strelets 
+in St. Petersburg. The wind tunnel experiments were conducted by the 
+University of Notre Dame. Program oversight and accompanying CFD analysis 
+performed by Boeing Research & Technology.
+
+<p>This work was funded through a cooperative agreement between the 
+Office of Naval Research, the National Aeronautics and Space Administration, 
+the Army Research Office, the Air Force Research Lab, and The Boeing Company. 
+Government funding for the work was provided through ONR Cooperative 
+Agreement No. N00014-20-2-1002. Any opinions, findings, and conclusions 
+or recommendations expressed in this material are those of the authors 
+and do not necessarily reflect the views of the Office of Naval Research. 
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+02/09/2024 - updated the experimental test report, and added the CFD test report<br>
+08/28/2023 - posted final data<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 10/08/2024
+<br>&nbsp;
+
+</body>
+</html>

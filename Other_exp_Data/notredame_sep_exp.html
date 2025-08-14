@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: Two-Dimensional Backward-Facing Convex Ramp with Flow Separation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Exp: Two-Dimensional Backward-Facing Convex Ramp with Flow Separation</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The data on this page were provided by 
+<a href="mailto:flint.o.thomas.1@nd.edu">Flint Thomas</a>,
+<a href="mailto:tcorke@nd.edu">Thomas Corke</a>, and 
+<a href="mailto:daniel.j.simmons.47@nd.edu">Daniel Simmons</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">These experimental data are for a large-scale
+flow separation experiment using a two-dimensional backward-facing convex ramp.  A key feature of the experiment
+was the ability to vary the streamwise pressure gradient via modification of the top wall shape, allowing the
+flow over the ramp to vary from fully attached to large-scale separation.  Although the geometry was
+two-dimensional, the experiment produced highly three-dimensional behavior near the surface, especially
+for the separated cases. This type of information is relevant for the understanding of separated flows over more complex
+configurations.
+Documentation can be found in:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Simmons, D. J., Thomas, F. O., Corke, T. C., Hussain, F.,
+"Experimental Characterization of Smooth Body Flow Separation Topography and Topology on a Two-Dimensional
+Geometry of Finite Span,"
+<b>Journal of Fluid Mechanics</b>, Vol. 944, A42, 2022,
+<a href="https://doi.org/10.1017/jfm.2022.465">https://doi.org/10.1017/jfm.2022.465</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Simmons, D. J., Thomas, F. O., Corke, T. C., Gluzman, I.,
+"Experimental Characterization and Similarity Scaling of Smooth-Body Flow Separation and Reattachment on a Two-Dimensional
+Ramp Geometry,"
+<b>Journal of Fluid Mechanics</b>, Vol. 1000, A12, 2024,
+<a href="https://doi.org/10.1017/jfm.2024.824">https://doi.org/10.1017/jfm.2024.824</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Simmons, D. J.,
+<a href="Notredame_sep/Documentation/Simmons_Dissertation_2020.pdf" target=_blank>"An Experimental Investigation of Smooth-Body Flow Separation,"</a>
+PhD Thesis, Aerospace and Mechanical Engineering, University of Notre Dame, July 2020 (thesis provided with permission of the author).
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Simmons, D. J., Thomas, F. O., Corke, T. C.,
+"Evidence of Surface Curvature Effects in Smooth Body Flow Separation Experiments,"
+AIAA Paper 2019-2849, June 2019,
+<a href="https://doi.org/10.2514/6.2019-2849">https://doi.org/10.2514/6.2019-2849</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Simmons, D. J., Thomas, F. O., Corke, T. C.,
+"Smooth Body Flow Separation Experiments and Their Surface Topology Characterization,"
+AIAA Paper 2019-3085, June 2019,
+<a href="https://doi.org/10.2514/6.2019-3085">https://doi.org/10.2514/6.2019-3085</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Simmons, D. J., Thomas, F. O., Corke, T. C.,
+"A Smooth Body, Large-Scale Flow Separation Experiment,"
+AIAA Paper 2018-0572, January 2018 (preliminary data only),
+<a href="https://doi.org/10.2514/6.2018-0572">https://doi.org/10.2514/6.2018-0572</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Simmons, D. J., Thomas, F. O., Corke, T. C.,
+"Benchmark Smooth Body Flow Separation Experiments,"
+AIAA Paper 2017-4128, June 2017 (preliminary data only),
+<a href="https://doi.org/10.2514/6.2017-4128">https://doi.org/10.2514/6.2017-4128</a>.
+</ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="Notredame_sep/Detailed_Test_Section_Schematic.PNG" title="detailed test section schematic" alt="detailed test section schematic">
+           <img width="500"
+src="Notredame_sep/Coordinate_System_1.PNG" title="coordinate system 1" alt="coordinate system 1">
+</p>
+        <p><img width="500"
+src="Notredame_sep/Coordinate_System_2.PNG" title="coordinate system 2" alt="coordinate system 2">
+           <img width="500"
+src="Notredame_sep/Test_Section_Image.png" title="test section image" alt="test section image">
+</p>
+        <p><img width="500"
+src="Notredame_sep/Test_Section_Overview.PNG" title="test section overview" alt="test section overview">
+           <img width="500"
+src="Notredame_sep/WF_M0p6_wind_tunnel.PNG" title="sketch of wind tunnel" alt="sketch of wind tunnel">
+</p>
+        <p><img width="500"
+src="Notredame_sep/LDV_Schematic.PNG" title="LDV schematic" alt="LDV schematic">
+           <img width="500"
+src="Notredame_sep/LDV_Setup.jpg" title="LDV setup" alt="LDV setup">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The convex ramp geometry is a 5th order polynomial contour:
+<ul>
+  <li>y = a<sub>1</sub> + a<sub>2</sub>x<sup>3</sup> + a<sub>3</sub>x<sup>4</sup> + a<sub>4</sub>x<sup>5</sup>
+</ul>
+
+where a<sub>1</sub>=(H + H<sub>off</sub>), a<sub>2</sub>=-10H/(L<sup>3</sup>), a<sub>3</sub>=15H/(L<sup>4</sup>), and a<sub>4</sub>=-6H/(L<sup>5</sup>) and
+H=0.2 m, H<sub>off</sub>=0.152 m, and L=0.9 m.
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="700"
+src="Notredame_sep/plot_bottomwall_shape.png" title="shape of convex ramp" alt="shape of convex ramp">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Some 
+relevant information is given here, but the 
+interested reader is referred to the above publications for complete details:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Mach number was held fixed at M = 0.2 
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Nominal U_inf = 70 m/s
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Nominal Re = 4.1 x 10<sup>6</sup> per m
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Tunnel test section: 3 ft x 3 ft (0.9144 m x 0.9144 m)
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Ramp height is H = 0.2 m
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Downstream plate is offset 0.152 m from tunnel floor
+<!--<li><span style="text-align: left; font-weight: 400; font-size: medium">Freestream turbulence roughly sqrt((u')<sup>2</sup>)/U_inf = 0.2% (documented in previous tests)-->
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Vortex generators were used at the trailing 
+edge of the flexible ceiling
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Diffuser grids were located in each of the four
+quadrants of the diffuser (roughly 0.5 m downstream of the test section)
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Leading edge of development plate is at x=-1.46 m
+(i.e., 1.46 m upstream of the start of the ramp)
+<li><span style="text-align: left; font-weight: 400; font-size: medium">At x=-1.2 m, there is a 101.6 mm wide strip of 
+distributed sand grain roughness with average roughness element size of 46 x 10<sup>-6</sup> m (located on development plate and both side walls)
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Approximate incoming boundary layer thickness on
+development plate (at x=-0.678 m):  delta99 = 15-17 mm
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Approximate incoming boundary layer thicknesses 
+on tunnel side walls
+(at x=-0.678 m): delta99 = 16-17 mm
+<!--  <ul>
+    <li>Re<sub>theta</sub> = 9,900
+    <li>Re<sub>tau</sub> = 3,000
+    <li>Shape factor H = 1.42
+    <li>u<sub>tau</sub> = 2.42 m/s
+    <li>c<sub>f</sub> = 0.0024
+    <li>delta approx 2.9 cm
+  </ul>
+-->
+</ul>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="Notredame_sep/bottomwallBL_u_caseABC.png" title="incoming plate boundary layer at x=-0.678 m" alt="incoming plate boundary layer at x=-0.678 m">
+           <img width="500"
+src="Notredame_sep/sidewallBL_u_caseABC.png" title="incoming sidewall boundary layers at x=-0.678 m" alt="incoming sidewall boundary layers at x=-0.678 m">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Bottom and top wall shapes:
+<ul>
+  <li><a href="Notredame_sep/Geometry_Coordinates_Bottom.txt">Bottom wall coordinates</a>
+      (use exact polynomial definition instead, for more resolution)
+  <li><a href="Notredame_sep/Geometry_Coordinates_Top_Case_A.txt">Top wall coordinates Case A, Larger separation case</a>
+  <li><a href="Notredame_sep/Geometry_Coordinates_Top_Case_B.txt">Top wall coordinates Case B, Smaller separation case</a>
+  <li><a href="Notredame_sep/Geometry_Coordinates_Top_Case_C.txt">Top wall coordinates Case C, Centerplane attached flow case</a>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Documentation (pdf files):
+<ul>
+  <li><a href="Notredame_sep/Documentation/Experiment-Documentation.pdf">Experimental Geometry</a>
+  <li><a href="Notredame_sep/Documentation/Experimental-Facility-and-Lab-Conditions.pdf">Experimental Facility
+          and Lab Test Conditions</a>
+  <li><a href="Notredame_sep/Documentation/Hot-Wire-Documentation-V2.pdf">Hot-Wire Measurements</a> <- updated 6/5/2020
+  <li><a href="Notredame_sep/Documentation/LDV-Documentation.pdf">Laser Doppler Velocimetry Measurements</a>
+  <li><a href="Notredame_sep/Documentation/OFI-Documentation.pdf">Oil-Film Interferometry Measurements</a>
+  <li><a href="Notredame_sep/Documentation/Pitot-Tube-Measurements.pdf">Pitot-Tube Measurements</a>
+  <li><a href="Notredame_sep/Documentation/Static-Pressure-Documentation.pdf">Pressure Measurements</a>
+  <li><a href="Notredame_sep/Documentation/Surface-Flow-Visualization-Documentation.pdf">Surface Flow Visualization</a>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Experimental data:
+<ul>
+  <li><a href="Notredame_sep/Incoming_BL_Data.tar.gz">
+           Incoming_Boundary Layer Data for Cases A, B, and C</a> (gzipped tar file)
+     <ul>
+       <li>Note: Near-wall peak u'u' levels from hotwire are believed to be underrepresented
+           (see Hotwire documentation above and Simmons PhD thesis)
+     </ul>
+  <br>
+  <br>
+  <li>Surface Pressure Coefficients
+     <ul>
+       <li><a href="Notredame_sep/Pressure_Data_Case_A.dat">
+           Surface Pressure Coefficient Data, Case A</a>
+       <li><a href="Notredame_sep/Pressure_Data_Case_B.dat">
+           Surface Pressure Coefficient Data, Case B</a>
+       <li><a href="Notredame_sep/Pressure_Data_Case_C.dat">
+           Surface Pressure Coefficient Data, Case C</a>
+     </ul>
+  <br>
+  <li>Flowfield Velocities and Reynolds Stresses
+     <ul>
+       <li><a href="Notredame_sep/Case_A_LDV_Data-Archival.tar.gz">
+           Flowfield LDV Data, Case A</a> (gzipped tar file)
+       <li><a href="Notredame_sep/Case_B_LDV_Data-Archival.tar.gz">
+           Flowfield LDV Data, Case B</a> (gzipped tar file)
+       <li><a href="Notredame_sep/Case_C_LDV_Data-Archival.tar.gz">
+           Flowfield LDV Data, Case C</a> (gzipped tar file)
+     </ul>
+  <br>
+  <li><a href="Notredame_sep/Skin_Friction_Measurements.dat">
+           Skin Friction Measurements for Cases A, B, and C</a>
+</ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+11/18/2020 - added link to PhD thesis<br>
+06/15/2020 - added Surface Flow Visualization documentation<br>
+06/05/2020 - added note regarding hotwire data, and updated Hotwire documentation<br>
+01/31/2020 - added Documentation files<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 12/02/2024
+<br>&nbsp;
+
+</body>
+</html>

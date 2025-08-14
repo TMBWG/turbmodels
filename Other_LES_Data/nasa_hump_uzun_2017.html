@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>LES: Compressible 2-D NASA Wall-Mounted Hump</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">LES: Compressible 2-D NASA Wall-Mounted Hump</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_les.html">Data from LES - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The data on this page were provided by <a href="mailto:ali.uzun@nasa.gov">A. Uzun</a> of NIA.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This compressible LES case is for 2-D separating flow over the NASA Wall-Mounted Hump (no flow control).
+The link to the experimental data can be found by clicking here:
+<a href="../Other_exp_Data/cfdval2004_exp.html" target="blank">NASA CFDVAL2004 Workshop webpage</a>.
+The LES was run using a compressible code.  The publication is: 
+<ul>
+<li>Uzun, A. and Malik, M. R., "Wall-Resolved Large-Eddy Simulation of Flow Separation Over
+NASA Wall-Mounted Hump," <a href="NASA_hump_uzun_2017/AIAA-2017-0538-Uzun-hump.pdf">AIAA Paper 2017-0538</a>, January 2017,
+<a href="https://doi.org/10.2514/6.2017-0538">https://doi.org/10.2514/6.2017-0538</a>.
+<li>Uzun, A. and Malik, M. R., "Large-Eddy Simulation of Flow over a Wall-Mounted Hump with
+Separation and Reattachment,"
+<strong>AIAA Journal</strong>, Vol. 56, No. 2, February 2018, pp. 715-730,
+<a href="https://doi.org/10.2514/1.J056397">https://doi.org/10.2514/1.J056397</a>.
+</li>
+</ul>
+<!--<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+<a href="NASA_hump_uzun_2017/Ali-NIASeminar-Feb16.pdf">"Wall-Resolved Large Eddy Simulations of Separated Flows," NIA Seminar at National Institute of Aerospace,
+Feb 10, 2016</a>
+</ul>-->
+
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">A subset of this LES data is also available on the 
+<a href="http://qnet-ercoftac.cfms.org.uk/w/index.php/QNET-CFD">QNET-CFD Knowledge Base</a>, Case xx.-->
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This is a wall-resolved compressible-flow LES computation
+at M=0.1.  Several different variants were run. Here, 3 variants are reported.  Some relevant information is given here, but the 
+interested reader is referred to the above paper for more details.  For all runs:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">M=0.1
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Reynolds number (based on U<sub>in</sub> and c) = 936,000, where 
+U<sub>in</sub> is the freestream velocity and c is the hump chord.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">To reduce the grid requirements, an overset 
+grid was used whose overlap region occurred within the boundary layer.
+</ul>
+
+The following variants are reported here:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Incoming Re<sub>theta</sub>=5000 with span=0.2c and "original" top wall shape, Vreman SGS model
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Incoming Re<sub>theta</sub>=6500 with span=0.4c and "original" top wall shape, Implicit LES
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Incoming Re<sub>theta</sub>=6500 with span=0.4c and "modified" top wall shape, Implicit LES
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The "modified" top wall shape was attempted because it was
+felt that the original shape (intended to mimic the blockage effect of the end plates in the experimental configuration) may not have included the
+influence of the boundary layers.  The shape was increased arbitrarily by 50% to attempt to account for the possible additional flow blockage.
+Long-time averaged LES data are provided below (on a grid
+normalized by the hump chord).
+Details regarding the NASA wall-mounted hump geometry can be found at:
+<a href="Other_exp_Data/CFDVAL2004/case3_cfdval2004.html" target="_blank">Separated
+Flow over Wall-mounted Hump with and without Flow Control</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The following figure is from the Re<sub>theta</sub>=5000 case:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="NASA_hump_uzun_2017/stream_uzun_5000.jpg" title="generic picture of NASA wall-mounted hump case, compressible LES" alt="generic picture of NASA wall-mounted hump case, compressible LES">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The field data below contains LES time-averaged results, including mean flow variables density, u-velocity, v-velocity, and pressure;
+and turbulence quantities uu, vv, ww, and uv.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Nondimensional mean flow and turbulence mean field data
+is provided here (note that this is a gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted file, so you must either have Tecplot or know how to read their format in order to use it.
+See <a href="NASA_hump_uzun_2017/README.tecplot">README.tecplot</a>):
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-Retheta5000.dat.gz">WallHump-Retheta5000.dat.gz</a> (26.4 Mb)
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-WideSpan-OriginalTopWallContour.dat.gz">WallHump-WideSpan-OriginalTopWallContour.dat.gz</a> (55.9 Mb)
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-WideSpan-ModifiedTopWallContour.dat.gz">WallHump-WideSpan-ModifiedTopWallContour.dat.gz</a> (55.8 Mb)
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Nondimensional velocity derivatives are
+provided here (note that this is a gzipped
+<a href="http://www.tecplot.com">Tecplot</a>
+formatted file, so you must either have Tecplot or know how to read their format in order to use it.
+See <a href="NASA_hump_uzun_2017/README.velderivs.tecplot">README.velderivs.tecplot</a>):
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-Retheta5000-VelocityDerivatives.dat.gz">WallHump-Retheta5000-VelocityDerivatives.dat.gz</a> (17.1 Mb)
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-WideSpan-OriginalTopWallContour-VelocityDerivatives.dat.gz">
+     WallHump-WideSpan-OriginalTopWallContour-VelocityDerivatives.dat.gz</a> (36.2 Mb)
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-WideSpan-ModifiedTopWallContour-VelocityDerivatives.dat.gz">
+     WallHump-WideSpan-ModifiedTopWallContour-VelocityDerivatives.dat.gz</a> (36.2 Mb)
+</ul>
+
+<!--<p><span style="text-align: left; font-weight: 400; font-size: medium">Extracted velocity and turbulence profiles at 
+x/c=-2.0, 0.65, 0.8, 0.9, 1.0, 1.1, 1.2, and 1.3:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/LESextracted_profiles_Retheta5000.dat">LESextracted_profiles_Retheta5000.dat</a>
+</ul>-->
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Surface pressure coefficients:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-Cp-Retheta5000.dat">WallHump-Cp-Retheta5000.dat</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-WideSpan-Cp-OriginalTopWallContour.dat">WallHump-WideSpan-Cp-OriginalTopWallContour.dat</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-WideSpan-Cp-ModifiedTopWallContour.dat">WallHump-WideSpan-Cp-ModifiedTopWallContour.dat</a>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Surface skin friction coefficients:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-Cf-Retheta5000.dat">WallHump-Cf-Retheta5000.dat</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-WideSpan-Cf-OriginalTopWallContour.dat">WallHump-WideSpan-Cf-OriginalTopWallContour.dat</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+  <a href="NASA_hump_uzun_2017/WallHump-WideSpan-Cf-ModifiedTopWallContour.dat">WallHump-WideSpan-Cf-ModifiedTopWallContour.dat</a>
+</ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_les.html">Data from LES - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+04/03/2017 - added velocity derivative data<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/05/2021
+<br>&nbsp;
+
+</body>
+</html>

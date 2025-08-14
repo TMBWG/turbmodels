@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>LES: 2-D Periodic Hill</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">LES: 2-D Periodic Hill</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_les.html">Data from LES - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The data on this page were provided by <a href="mailto:lionel.temmerman@numeca.be">L. Temmerman</a>, Y. Bentaleb, and M. Leschziner.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This LES case is for 2-D separating flow over periodic hills.
+This is a similar case to that computed using DNS with a compressible code, documented on the page:
+<a href="../Other_DNS_Data/2dhill_periodic_compress.html">DNS: 2-D Compressible Periodic Hill</a>; however this LES is at a higher Reynolds number.
+The LES was run using an incompressible code, and has been documented in several publications:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Frohlich, J., Mellen, C. P., Rodi, W., Temmerman, L., and
+Leschziner, M. A., 2005. "Highly resolved large-eddy simulation of
+separated flow in a channel with streamwise
+periodic constrictions," J. Fluid Mech. 526, pp. 19-66,
+<a href="https://doi.org/10.1017/S0022112004002812">https://doi.org/10.1017/S0022112004002812</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Temmerman, L., Leschziner, M. A., Mellen, C. P., and 
+Frohlich, J., 2003.
+"Investigation of wall-function approximations and
+subgrid-scale models in large eddy simulation of separated
+flow in a channel with streamwise periodic constrictions," Int. J. Heat and Fluid Flow 24, pp. 157-180,
+<a href="https://doi.org/10.1016/S0142-727X(02)00222-9">https://doi.org/10.1016/S0142-727X(02)00222-9</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Jang, Y. J., Leschziner, M. A., Abe, K., and Temmerman, L., 2002.
+"Investigation of Anisotropy-Resolving Turbulence
+Models by Reference to Highly-Resolved LES Data
+for Separated Flow," Flow, Turbulence, and Combustion 69, pp. 161-203,
+<a href="https://doi.org/10.1023/A:1024764307706">https://doi.org/10.1023/A:1024764307706</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Temmerman, L. and Leschziner, M. A., 2001.
+"Large Eddy Simulation of separated flow in a streamwise periodic channel construction,"
+Int. Symp. on Turbulence and Shear Flow Phenomena, Stockholm, June 27-29.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Mellen, C. P., Frohlich, J., and Rodi, W., 2000.
+"Large Eddy Simulation of the flow over periodic hills," 16th IMACS World Congress, Lausanne. 
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A subset of this LES data is also available on the 
+<a href="http://cfd.mace.manchester.ac.uk/ercoftac">ERCOFTAC Database Classic Collection</a>, Case 81.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="2Dhill_periodic/hill_streamlines.jpg" title="generic picture of periodic hill case" alt="generic picture of periodic hill case">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Some relevant information is given here, but the 
+interested reader is referred to the above publications (or ERCOFTAC website) for complete details:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Hill crest, h = 28 mm
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Hill crests are separated by L<sub>x</sub> = 9h
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Channel height L<sub>y</sub> = 3.035h
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Reynolds number (based on U<sub>b</sub> and h) = 10595
+<li><span style="text-align: left; font-weight: 400; font-size: medium">U<sub>b</sub> is the bulk velocity at the crest of the first hill
+<li><span style="text-align: left; font-weight: 400; font-size: medium">The flow is periodic in the streamwise direction
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Separation is near x=0.2h and reattachment is near 4.6-4.7h
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Long-time averaged LES data are provided below (on a grid
+normalized to hill height h=1).
+These results are from a grid with approximately 4.7 million grid cells, covering a spanwise extent of 4.5 h with 186 cells in the
+spanwise direction.
+Additional details about the LES grid and methodology can be found in the above 
+references.
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/hill-geometry.dat">
+       Hill geometry definition</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/README_gridpoints_hill.txt">README_gridpoints_hill.txt</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/hill_grid.dat.gz">
+       Grid points in x-y plane</a>, gzipped file hill_grid.dat.gz (0.2 MB)
+<br>&nbsp;
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/README_p_vel_and_turb_hill.txt">README_p_vel_and_turb_hill.txt</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/hill_LES_avgresults.dat.gz">
+       Average pressures, velocities & turbulence quantities</a>, gzipped file hill_LES_avgresults.dat.gz (1.7 MB)
+<br>&nbsp;
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/README_budgets_hill.txt">README_budgets_hill.txt</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/hill_LES_budgets_all.dat.gz">
+       Budget terms</a>, gzipped file hill_LES_budgets_all.dat.gz (7.8 MB)
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Note:
+related experimental data and different LES and DNS results for the 2-D hill are available from the 
+<a href="https://kbwiki.ercoftac.org/w/index.php?title=Abstr:2D_Periodic_Hill_Flow">ERCOFTAC Knowledge Base Wiki</a>,
+case number UFR3-30.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Auxiliary postprocessed information (<u>not</u> part of the original LES data set
+from Temmerman et al):
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/README_vel_derivs_hill.txt">README_vel_derivs_hill.txt</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/hill_LES_vel_derivs-derived.dat.gz">
+       Postprocessed velocity derivatives</a>, gzipped file hill_LES_vel_derivs-derived.dat.gz (1.0 MB)
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic/hill_LES_cf_digitized.dat">Approximate wall Cf from LES (digitized)</a>
+</ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_les.html">Data from LES - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/05/2021
+<br>&nbsp;
+
+</body>
+</html>

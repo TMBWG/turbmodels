@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>DNS: High-Order Moments in Unstrained and Strained Channel Flow</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">DNS: High-Order Moments in 
+Unstrained and Strained Channel Flow</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_dns.html">Data from DNS - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The data on this page were provided by E. Jeyapaul and <a href="mailto:gary.n.coleman@nasa.gov">G. Coleman</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This DNS was conducted to extract all 
+terms in the budgets for higher (3rd and 4th) order
+moments for both unstrained and strained turbulent channel flow.  
+The strained flow was in adverse-pressure gradient (APG).  Data are included for the unstrained
+case as well as at 7 different times in the strained flow's evolution.  
+The nominal Re<sub>tau</sub> of the flow to which the strain is applied was approximately 392
+(based on friction velocity and channel half-width), 
+the bulk Re (based on bulk mixed-mean velocity and full channel width) was approximately 13750, and the initial
+Reynolds number (based on centerline velocity and channel half-width) was approximately 7910.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The flow was computed on a grid with over 21 million grid points
+(384 x 193 x 288, or 256 x 193 x 192 spectral modes) 
+using the incompressible Navier-Stokes equations in a pseudo-spectral code.  
+For the unstrained case, the grid spacings corresponded to approximately 
+Delta x<sup>+</sup>=10 and
+Delta z<sup>+</sup>=6.5.  
+The minimum y-spacing (adjacent to the wall) corresponded to Delta y<sup>+</sup>=0.1,
+The data were averaged over 159 statistically independent realizations.  
+For the strained APG flow,
+uniform irrotational temporal deformations were applied to the flow
+domain of a conventional direct numerical simulation channel code. The velocity
+difference between the inner and outer layer was also controlled by accelerating the
+walls in the streamwise plane, in order to duplicate the defining features of both the
+inner and outer regions of an APG boundary layer.  
+A relatively weak APG was specified, with uniform strain magnitude (deceleration in
+streamwise direction and divergence in wall-normal direction) set to 31% of the 
+ratio of the initial friction velocity to the initial channel half-width.
+Initial channel size was 2*pi*delta by 2*delta by pi*delta (where delta is the channel half-width).
+Additional details concerning the data,
+code, and computational methodology can be found in:
+
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Jeyapaul, E., Coleman, G. N., and
+Rumsey, C. L., "Higher-Order and Length-Scale Statistics from DNS of a Decelerated Planar Wall-Bounded
+Turbulent Flow,"
+International Journal of Heat and Fluid Flow, Vol. 54, 2015, pp. 14-27,
+<a href="https://doi.org/10.1016/j.ijheatfluidflow.2015.04.002">https://doi.org/10.1016/j.ijheatfluidflow.2015.04.002</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Jeyapaul, E., Coleman, G. N., and
+Rumsey, C. L., "Assessment of Higher-order RANS Closures in a Decelerated Planar Wall-bounded Turbulent Flow,"
+AIAA-2014-2088, June 2014,
+<a href="https://doi.org/10.2514/6.2014-2088">https://doi.org/10.2514/6.2014-2088</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Coleman, G. N., Kim, J., and Spalart, P. R.,
+"Direct numerical simulation of a decelerated
+wall-bounded turbulent shear flow," J. Fluid Mech, Vol. 495, 2003, pp. 1-18,
+<a href="https://doi.org/10.1017/S0022112003005883">https://doi.org/10.1017/S0022112003005883</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Sciberras, M. A. and Coleman, G. N.,
+"Testing of Reynolds-stress-transport closures by comparison with DNS of an idealized adverse-pressure-gradient
+boundary layer," European Journal of Mechanics B/Fluids, Vol. 26, 2007, pp. 551-582,
+<a href="https://doi.org/10.1016/j.euromechflu.2006.11.001">https://doi.org/10.1016/j.euromechflu.2006.11.001</a>.
+</ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="High-order-channel/u_instant.png" width="450" title="generic picture of unstrained/strained channel flow case" alt="generic picture of unstrained/strained channel flow case">
+           <img
+src="High-order-channel/flowReversal_picture.png" width="450" title="profiles and tau_wall for strained channel flow case" alt="profiles and tau_wall for strained channel flow case">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The data files include:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Basic 2nd-order statistics, including mean velocity components, velocity
+gradients, RMS turbulent fluctuations, TKE, shear stress components, turbulent shear stress components.  
+<li><span style="text-align: left; font-weight: 400; font-size: medium">2nd-order pressure statistics, including abs(Pbar), abs(dP/dy), PP_bar, rms_P  
+<li><span style="text-align: left; font-weight: 400; font-size: medium">2nd-order budgets for vv, ww, uu, uv, TKE 
+<li><span style="text-align: left; font-weight: 400; font-size: medium">2nd-order S(u), S(v), S(w), S(p), F(u), F(v), F(w), F(p) 
+<li><span style="text-align: left; font-weight: 400; font-size: medium">3rd-order correlations, including uuv, uvv, vvv, uuu 
+<li><span style="text-align: left; font-weight: 400; font-size: medium">3rd-order budgets for uuu, uuv, uvv, vvv 
+<li><span style="text-align: left; font-weight: 400; font-size: medium">4th-order correlations, including u3v, u2v2, uv3, v4, u4 
+<li><span style="text-align: left; font-weight: 400; font-size: medium">4th-order budgets for uuuu, uuuv, uuvv, uvvv, vvvv 
+<li><span style="text-align: left; font-weight: 400; font-size: medium">5th-order correlations, including u4v, u3v2, u2v3, uv4, v5, u5, w5 
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Other miscellaneous correlations 
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The DNS data files are provided below (updated 7/29/2014):
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/strain000_folded_avg159_plus.cpr">
+       Unstrained channel data</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/strain001_folded_avg159_plus.cpr">
+       APG strained channel data, strain time A<sub>22</sub>t= 0.020</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/strain002_folded_avg159_plus.cpr">
+       APG strained channel data, strain time A<sub>22</sub>t= 0.100</a> 
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/strain003_folded_avg159_plus.cpr">
+       APG strained channel data, strain time A<sub>22</sub>t= 0.191</a> 
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/strain004_folded_avg159_plus.cpr">
+       APG strained channel data, strain time A<sub>22</sub>t= 0.281</a> 
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/strain005_folded_avg159_plus.cpr">
+       APG strained channel data, strain time A<sub>22</sub>t= 0.365</a> 
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/strain006_folded_avg159_plus.cpr">
+       APG strained channel data, strain time A<sub>22</sub>t= 0.675</a> 
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/strain007_folded_avg159_plus.cpr">
+       APG strained channel data, strain time A<sub>22</sub>t= 0.772</a> 
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">PDF of the fluctuation velocity at three different strain times are
+given here:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/pdf_unstrained.dat">
+       Unstrained channel PDF data</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/pdf_strained005.dat">
+       APG strained channel PDF data, strain time A<sub>22</sub>t= 0.365</a></a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/pdf_strained007.dat">
+       APG strained channel PDF data, strain time A<sub>22</sub>t= 0.772</a></a>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Equations and an explanation of the terms in the data files are given here:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/HOMchannel_v03.pdf">
+       HOMchannel_v03.pdf</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="High-order-channel/explanation_of_terms.txt">
+       explanation_of_terms.txt</a> (updated 7/29/2014)
+</ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_dns.html">Data from DNS - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+7/29/2014 - updated all DNS files (fixed bug in rms_p); explanation of all changes given in explanation_of_terms.txt<br>
+6/11/2014 - updated all DNS files, nondimensionalized now by u_tau(0) rather than Uref=26.330*utau(0); added PDF data<br>
+5/19/2014 - updated Retau value to be more precise; made minor addition to explanation_of_terms.txt
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/05/2021
+<br>&nbsp;
+
+</body>
+</html>

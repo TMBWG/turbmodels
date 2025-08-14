@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>LES: 2-D Coanda Airfoil with Tangential Wall Jet</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">LES: 2-D Coanda Airfoil with Tangential Wall Jet</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_les.html">Data from LES - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The data on this page were provided by <a href="mailto:t.nishino@cranfield.ac.uk">T. Nishino</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This LES case is for an airfoil with rounded (circular) trailing edge,
+over which a tangential jet is blown, causing reduced trailing edge flow separation due to the Coanda effect.
+The LES was run using an incompressible code, and has been documented in several publications:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Nishino, T., Hahn, S., Shariff, K., 2010.
+"Calculation of the turbulent characteristics of flow around a circulation
+control airfoil using LES (invited),"
+AIAA Paper 2010-347,
+<a href="https://doi.org/10.2514/6.2010-347">https://doi.org/10.2514/6.2010-347</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Nishino, T., Hahn, S., Shariff, K., 2010.
+"LES of high-Reynolds-number coanda flow separating From
+a rounded trailing edge of a circulation control airfoil,"
+8th International ERCOFTAC Symposium on Engineering Turbulence Modelling and
+Measurements, Marseille, France, June.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Nishino, T., Hahn, S., Shariff, K., 2010.
+"Large-eddy simulations of a turbulent Coanda jet on a circulation control airfoil,"
+Physics of Fluids 22, 125105,
+<a href="https://doi.org/10.1063/1.3526757">https://doi.org/10.1063/1.3526757</a>.
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Rumsey, C. L., Nishino, T., 2011.
+"Numerical study comparing RANS and LES approaches on a circulation control airfoil,"
+Int. J. Heat and Fluid Flow, Vol. 32, 2011, pp. 847-864,
+<a href="https://doi.org/10.1016/j.ijheatfluidflow.2011.06.011">https://doi.org/10.1016/j.ijheatfluidflow.2011.06.011</a>; 
+also AIAA Paper 2011-1179,
+<a href="https://doi.org/10.2514/6.2011-1179">https://doi.org/10.2514/6.2011-1179</a>.
+</ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Coanda_airfoil/coanda-streamline-generic-plot.jpg" title="generic picture of Coanda airfoil case" alt="generic picture of Coanda airfoil case">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Some relevant information is given here, but the 
+interested reader is referred to the above publications for complete details:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Airfoil chord = 0.2183 m
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Reference Re = 2.24 million per m
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Reference velocity = 34 m/s
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Reference density = 1.2 kg/m<sup>3</sup>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Reference speed of sound = 344 m/s
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Height of inflow plenum chamber inlet = 0.01262 m
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Height of jet slot exit = 0.000503 m
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Tunnel walls located at +-0.508 m
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Airfoil angle of attack = 0
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Long-time averaged LES data are provided for two different 
+blowing conditions:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">M<sub>jet</sub> approx 0.39: mdot per unit span = 0.0636 kg/(m-s), 
+U<sub>inlet</sub> = 4.203 m/s, rho<sub>inlet</sub> = 1.2 kg/m<sup>3</sup>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">M<sub>jet</sub> approx 0.64: mdot per unit span = 0.1048 kg/(m-s), 
+U<sub>inlet</sub> = 6.924 m/s, rho<sub>inlet</sub> = 1.2 kg/m<sup>3</sup>
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Available LES data are provided below.
+The files include geometry definition and long-time-averaged LES results from a grid with
+800 tangential grid points around the Coanda surface, 256 spanwise grid points,
+and a total of 116 million grid points in the flow field.  
+Other details about the LES grid and methodology can be found in the above 
+references.
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="Coanda_airfoil/coanda_bodyonly.dat">
+       Coanda airfoil surface and plenum points definition</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="Coanda_airfoil/coanda_LES_avgCp_mj039.dat">
+       M<sub>jet</sub> = 0.39, Cp_avg on surface</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="Coanda_airfoil/coanda_LES_avgCp_mj064.dat">
+       M<sub>jet</sub> = 0.64, Cp_avg on surface</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="Coanda_airfoil/README_vel_and_turb_coanda.txt">README_vel_and_turb_coanda.txt</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="Coanda_airfoil/coanda_LES_avgresults_mj039.dat.gz">
+       M<sub>jet</sub> = 0.39, avg velocities & turbulence quantities in the field</a>, gzipped file (14.6 MB)
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="Coanda_airfoil/coanda_LES_avgresults_mj064.dat.gz">
+       M<sub>jet</sub> = 0.64, avg velocities & turbulence quantities in the field</a>, gzipped file (14.6 MB)
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="Coanda_airfoil/takagrid.p3dfmt.gz">
+       Coanda airfoil "2-D" (2 planes) version of grid in PLOT3D format</a>, gzipped file (9.3 MB)
+</ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_les.html">Data from LES - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+12/18/2019 - added "2-D" version of grid in PLOT3D format<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/05/2021
+<br>&nbsp;
+
+</body>
+</html>

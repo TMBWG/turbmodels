@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>DNS: Periodic Hills of Parameterized Geometries</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">DNS: Periodic Hills of Parameterized Geometries</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_dns.html">Data from DNS - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The data on this page were provided by <a href="https://www.imperial.ac.uk/people/s.laizet"
+target="_blank">Sylvain Laizet</a>, and organized by
+<a href="https://scholar.google.com/citations?user=XarsL58AAAAJ&hl=en" target="_blank">Xuhui Zhou</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+For the purpose of deriving data-driven, machine-learning-based turbulence models, existing benchmark datasets are often unsuitable.
+Data are needed from systematically and continuously varied flow configurations with maximum coverage in the parameter space. 
+To this end, DNS of flows over periodic hills with parameterized geometries have been performed, resulting in a family of flows 
+ranging from incipient to mild and massive separations. The dataset consists of 29 simulations with different geometries, all at a 
+Reynolds number of 5600 (based on hill crest height H and bulk velocity U<sub>b</sub> at the crest).
+
+The design of the parameterization of the periodic hill geometry is described in the following paper:
+
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Xiao, H., Wu, J.-L., Laizet, S., and Duan, L.,
+"Flows Over Periodic Hills of Parameterized Geometries: A Dataset for Data-Driven Turbulence Modeling from Direct Simulations,"
+Computers & Fluids, Vol. 200, 104431, 2020,
+<a href="https://doi.org/10.1016/j.compfluid.2020.104431">https://doi.org/10.1016/j.compfluid.2020.104431</a>.
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Other details regarding the general setup of this test case can be
+found in Breuer, M., Peller, N., Rapp, C., and Manhart, M., "Flow Over Periodic Hills: Numerical and Experimental Study in a Wide Range of 
+Reynolds Numbers", Computers & Fluids, Vol. 38, No. 2, 2009, pp. 433-457, 
+<a href="https://doi.org/10.1016/j.compfluid.2008.05.002">https://doi.org/10.1016/j.compfluid.2008.05.002</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+When the above paper by Xiao et al. was written, only five cases were simulated, with the hill width (L<sub>w</sub>) varied.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The 27+2 flow configurations provided here were generated by systematically varying the following parameters of the hill:
+  <ul>
+    <li>Hill width, L<sub>w</sub>
+    <li>Length of the bottom flat section, L<sub>f</sub>
+    <li>Domain height, L<sub>y</sub>
+  </ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Parameterized_periodic_hills/hill_1.png" width="550" title="sketch of hill configuration" alt="sketch of hill configuration">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Variation of hill width: Five different hill widths were obtained by scaling the width of the baseline hill (i.e.,
+L<sub>w</sub>/H = 1.929) by a factor of slope parameter alpha = 0.5, 0.75, 1.0 (baseline), 1.25, and 1.5.
+Later, the length and height of the channel were also varied, leading to the full 27+2 DNS database presented here:
+  <ul>
+    <li>Variation of the length of bottom flat section: Three different lengths for the bottom flat section were used with
+        L<sub>f</sub> = 2.142, 5.142, and 8.142, leading to total horizontal lengths of the domain equal to
+        L<sub>x</sub>/H = 3.858*alpha + 2.142, L<sub>x</sub>/H = 3.858*alpha + 5.142, and
+        L<sub>x</sub>/H = 3.858*alpha + 8.142.
+    <li>Variation of domain height: Three different domain heights were used with
+        L<sub>y</sub>/H =  2.024, 3.036, and 4.048.
+  </ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Parameterized_periodic_hills/para-shapes.png" width="850" title="graphic showing 5 of the hill widths" alt="graphic showing 5 of the hill widths">
+           <img
+src="Parameterized_periodic_hills/colorful-figure.png" width="850" title="graphic showing 5 different hill results" alt="graphic showing 5 different hill results">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+ 
+&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The DNS data files are given here:
+<ul>
+<li><a href="Parameterized_periodic_hills/DNS_29_Periodic_Hills.zip">DNS_29_Periodic_Hills.zip</a> (zipped directory, 1.2 GB)
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+When unzipped, you will find 29 files with names: alphXX-YYYY-ZZZZ.dat
+  <ul>
+    <li>XX is the slope parameter with alpha = 0.5, 0.75, 1.0, 1.25, or 1.5.
+    <li>YYYY is the streamwise length of the domain with L<sub>x</sub>/H = 4.071, 7.071, 10.071 for
+        alpha = 0.5, L<sub>x</sub>/H = 6, 9, 12 for alpha=1, L<sub>x</sub>/H = 7.929, 10.929, 13.929 for
+        alpha = 1.5, L<sub>x</sub>/H = 8.0355 for alpha = 0.75, and L<sub>x</sub>/H = 9.9645 for alpha=1.25.
+    <li>ZZZZ is the domain height with L<sub>y</sub> = 2.024, 3.036, 4.048.
+  </ul>
+
+For example, alph075-80355-3036.dat is the data file with alpha = 0.75, L<sub>x</sub>/H = 8.0355, and L<sub>y</sub>/H = 3.036.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<u>Data loading:</u> Each file alphXX-YYYY-ZZZZ.dat contains (1) x and y coordinates,
+(2) mean velocity, pressure, dissipation, and vorticity fields, (3) Reynolds stresses and root-mean-square (RMS) pressure fluctuations. 
+Example for loading the data is as follows:
+
+<pre>
+<span style="text-align: left; font-weight: 400; font-size: small">
+     import numpy as np
+     import pandas as pd
+     data = np.loadtxt("alph075-80355-3036.dat", skiprows=20)
+     df = pd.DataFrame(data, columns = ["x","y","u_mean","v_mean","w_mean","p_mean","dissipation_mean","vorticity_mean",\
+                                        "uu","vv","ww","uv","uw","vw","pp"])
+</span>
+</pre>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The DNS data for these 29 cases have been interpolated to coarse meshes for use in OpenFOAM by
+<a href="https://scholar.google.com/citations?user=XarsL58AAAAJ&hl=en" target="_blank">Xuhui Zhou</a>, 
+who also organized the dataset shared here. The RANS-resolution data (along with the original DNS data), are available at the
+GitHub site 
+<a href="https://github.com/xiaoh/para-database-for-PIML" target="_blank">https://github.com/xiaoh/para-database-for-PIML</a> of 
+<a href="https://www.hengx.org" target="_blank">Heng Xiao</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The 29 Direct Numerical Simulations (DNS) are performed by solving the forced incompressible Navier-Stokes equations for a fluid 
+with a constant density. A forcing field f(x,t) is used to enforce boundary conditions through an immersed boundary method and to ensure a 
+specified mass flux. The data are collected after a transitional period, from the point when the flow is fully developed. 
+A simulation time step delta t = 0.0005H/U<sub>b</sub> is used. For all the calculations, turbulent statistical data have been 
+collected over a time period T = 750H/U<sub>b</sub>.
+Data are averaged in time and in the spanwise direction for which L<sub>z</sub>/H = 4.5
+is always discretised with n<sub>z</sub> = 192.
+Additional details concerning the code and computational methodology can be found in:
+Laizet, S. and Lamballais, E., "High-Order Compact Schemes for Incompressible Flows: A Simple and Efficient Method with Quasi-Spectral Accuracy," 
+Journal of Computational Physics, Vol. 228, No 16, pp. 5989-6015, 2009,
+<a href="https://doi.org/10.1016/j.jcp.2009.05.010">https://doi.org/10.1016/j.jcp.2009.05.010</a>,
+Laizet, S., "Incompressible Navier-Stokes Equations Solver with Multiple Scalar Transport Equations,"
+<a href="https://github.com/xcompact3d/Incompact3d">https://github.com/xcompact3d/Incompact3d</a>,
+and the references found therein.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+This new dataset has been used in the following paper:
+Han, J., Zhou, X.-H., and Xiao, H., "An Equivariant Neural Operator for Developing Nonlocal Tensorial Constitutive Models,"
+<a href="https://arxiv.org/abs/2201.01287">https://arxiv.org/abs/2201.01287</a>.
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_dns.html">Data from DNS - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+none<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/17/2023
+<br>&nbsp;
+
+</body>
+</html>

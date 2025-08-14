@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>DNS: Periodic Hill</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">DNS: Periodic Hill</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_dns.html">Data from DNS - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The data on this page were provided by <a href="mailto:ponnampalam.balakumar-1@nasa.gov">P. Balakumar</a>.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This DNS case is for 2-D separating flow over periodic hills.
+The DNS was run using a compressible code, using a compact high order scheme.
+This is a similar case to that computed using LES with an incompressible code, documented on the page:
+<a href="../Other_LES_Data/2dhill_periodic.html">LES: 2-D Periodic Hill</a>; however this DNS is at a lower Reynolds number.
+These DNS results have been documented in the following publication:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">
+Balakumar, P., "DNS/LES Simulations of Separated Flows at High Reynolds Numbers," AIAA Paper 2015-2783, June 2015,
+<a href="https://doi.org/10.2514/6.2015-2783">https://doi.org/10.2514/6.2015-2783</a>.
+</ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="2Dhill_periodic_compress/u-instant.jpg" title="compressible periodic hill case, instantaneous" alt="compressible periodic hill case, instantaneous">
+           <img
+src="2Dhill_periodic_compress/u-avg.jpg" title="compressible periodic hill case, average" alt="compressible periodic hill case, average">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Some relevant information is given here, but the 
+interested reader is referred to the above publication for complete details:
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Hill crests are separated by L<sub>x</sub> = 9h
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Channel height L<sub>y</sub> = 3.035h
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Reynolds number (based on U<sub>b</sub> and h) = 2800
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Mach number is 0.2
+<li><span style="text-align: left; font-weight: 400; font-size: medium">U<sub>b</sub> is the bulk velocity at the crest of the first hill
+<li><span style="text-align: left; font-weight: 400; font-size: medium">The flow is periodic in the streamwise direction
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Spanwise extent of the grid is 4.5h
+<li><span style="text-align: left; font-weight: 400; font-size: medium">Separation is near x=0.233h and reattachment is near 5.50h
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">DNS data are provided below.
+These results are from a grid with resolution 801x351x513 (streamwise, normal, spanwise).
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic_compress/README.txt">README.txt</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic_compress/uvw-instant.dat.gz">
+       Example instantaneous u,v,w</a>, gzipped file uvw-instant.dat.gz (9.6 MB)
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic_compress/dns-avg.dat.gz">
+       Averaged flowfield quantities</a>, gzipped file dns-avg.dat.gz (22.4 MB)
+<br>&nbsp;
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic_compress/profiles.dat">
+       Profiles of averaged velocity and turbulence quantities at specific x-stations</a>, file profiles.dat
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic_compress/balance.dat">
+       Profiles of balance terms in tau11, tau22, tau33, tau13, and k equations at specific x-stations</a>, file balance.dat
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic_compress/CP.dat">
+       Averaged wall pressure coefficients</a>
+<li><span style="text-align: left; font-weight: 400; font-size: medium"><a href="2Dhill_periodic_compress/CF.dat">
+       Averaged wall skin friction coefficients</a>
+</ul>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../other_dns.html">Data from DNS - Intro Page</a></p>
+Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/05/2021
+<br>&nbsp;
+
+</body>
+</html>

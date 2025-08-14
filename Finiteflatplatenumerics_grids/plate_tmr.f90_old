@@ -1,0 +1,537 @@
+!Compile options:
+! ifort -O2                             -o plate_tmr  plate_tmr.f90
+! g95 -O0 -g -Werror -Wall -Wextra -Wno=140,141,165 -fmodule-private
+!                                       -o plate_tmr  plate_tmr.f90
+! ifort -O0 -debug -g -check all -fpe0 -debug full -warn
+! -stack_temps -traceback -check bounds -o plate_tmr  plate_tmr.f90
+
+module kinds
+
+  implicit none
+
+  private
+
+  public :: dp
+
+  integer, parameter :: dp = selected_real_kind(P=15)
+
+end module kinds
+
+program main
+
+  use kinds, only : dp
+
+  implicit none
+
+  real(dp), allocatable, dimension(:,:,:) :: x, y, z
+
+  integer :: i, j, k, ni, nj, nk, kk, jj, nj1, nj3, ns1, ns2
+  integer :: x_stretching
+
+  character(80) :: fmt1
+  character(1)  :: pr = "'"
+
+  integer :: level, ncell_y, ncell_x_le, n_unity_ar, fact, ncell_x_part
+
+  real(dp) :: ys_min, ys_max, dys_min, dx_at_ys_min, beta_y
+  real(dp) :: xs_min, xs_max, dxs_min, dy_at_xs_min, beta_x, xs_part
+  real(dp) :: dx, dy, dz, vol_min, vol_max, dx1, dx2
+  real(dp) :: bl_dy, bl_delta, yplus, reL
+  real(dp), dimension(2*384+1) :: yspacing
+  real(dp), dimension(2*320+1) :: xspacing
+
+  integer :: ngrid_max, viscous_flag
+  logical :: reference_fine_grid
+
+continue
+
+  ngrid_max = 8
+  write(*,*) 'ngrid_max=',ngrid_max
+  write(*,*) "Input grid level (1 is finest, ngrid_max is coarsest)= ?"
+  write(*,*) ' =1,         TMR website finest grid'
+  write(*,*) ' =ngrid_max, TMR website coarsest grid'
+  write(*,*) ' <=0,        specify some grid generation parameters'
+  read(*,*) level
+  write(*,*) ' level=',level
+
+  reference_fine_grid = .true.
+  if ( level > 0 .and. level <= ngrid_max ) then
+    fact = 2**(level-1)
+  elseif ( level <= 0 ) then
+    reference_fine_grid = .false.
+    level = 1
+    fact  = 1
+  else
+    write(*,*)
+    write(*,*) 'Error:level cannot be greater than ngrid_max=',ngrid_max
+    stop
+  endif
+
+  if ( reference_fine_grid ) then
+
+    x_stretching = 1
+    write(*,*) "Grid stretched near LE and TE (x=0 and x=2)"
+
+  else
+
+    write(*,*) "Input x-stretching flag (0, none, /=0, stretching)= ?"
+    read(*,*) x_stretching
+
+  endif
+
+  write(*,*) '        x_stretching_flag=',x_stretching
+
+  ncell_x_le = 5*2**(ngrid_max-1)
+  ncell_y    = 6*2**(ngrid_max-1)
+
+  ys_min  = 0._dp
+  ys_max  = 1._dp
+
+  if ( reference_fine_grid ) then
+
+    dys_min = (5.0e-07_dp)/2._dp  !turbulent ReL=5million yplus=0.1
+
+  else
+
+    write(*,*) 'Minimum viscous spacing sized from flat plate boundary'
+    write(*,*) 'at x = 1'
+
+    write(*,*)
+    write(*,*) 'Input viscous_flag:'
+    write(*,*) '  =1, Laminar'
+    write(*,*) '  =2, Turbulent'
+    read(*,*) viscous_flag
+    write(*,*) ' ...viscous_flag=',viscous_flag
+
+    write(*,*)
+    write(*,*) 'Input ReL (at x=1):'
+    read(*,*) reL
+    write(*,*) ' ...Reynolds number=',reL
+
+    if ( viscous_flag == 2 ) then
+      write(*,*)
+      write(*,*) 'Input yplus (at x=1):'
+      read(*,*) yplus
+      write(*,*) ' ...yplus=',yplus
+    endif
+
+    call bl_spacing( yplus, reL, viscous_flag, bl_dy, bl_delta )
+
+    dys_min = bl_dy
+
+  endif
+
+  write(*,*) '    ncell_y( finest)=',ncell_y
+  write(*,*) '      y_min( finest)=',ys_min
+  write(*,*) '      y_max( finest)=',ys_max
+  write(*,*) '     dy_min( finest)=',dys_min
+
+  dx_at_ys_min = 1.0e+40_dp
+
+  call stretch_function( ncell_y+1, ys_min, ys_max, dys_min, &
+                         dx_at_ys_min, .false., yspacing, beta_y, n_unity_ar )
+
+  write(90,*) ' beta_y=',beta_y
+
+  yspacing(ncell_y+1) = ys_max
+  do k=1,ncell_y+1,2**(ngrid_max-1)
+    write(*,*) ' k,y=',k,yspacing(k)
+  enddo
+
+  xs_min  = 0._dp
+  xs_max  = 1._dp
+
+  if ( x_stretching > 0 ) then
+
+    dxs_min = 1200._dp*dys_min
+
+    dy_at_xs_min = 1.0e+40_dp
+
+    ncell_x_part = (4*ncell_x_le)/5
+
+    xs_part = xs_max*0.6000_dp!926_dp
+
+    call stretch_function( ncell_x_part+1, xs_min, xs_part, dxs_min, &
+                           dy_at_xs_min, .false., xspacing,          &
+                           beta_x, n_unity_ar )
+
+    xspacing(ncell_x_part+1) = xs_part
+
+    dx1 = xspacing(ncell_x_part+1)-xspacing(ncell_x_part)
+    dx2 = ( xs_max - xs_part )/real( ncell_x_le - ncell_x_part, dp )
+
+    write(*,"(1x,5(a,e12.5))") ' beta_x=',beta_x,&
+    ' dx1=',dx1,' dx2=',dx2,' ratio=',dx1/dx2
+
+    do j=ncell_x_part+2,ncell_x_le+1
+      xspacing(j) = xspacing(j-1) + dx2
+    enddo
+
+  else
+
+    dxs_min = 1._dp/real(ncell_x_le,dp)
+
+    do j=1,ncell_x_le+1
+      xspacing(j) = real(j-1,dp)*dxs_min
+    enddo
+
+  endif
+
+  xspacing(ncell_x_le+1) = xs_max
+
+  write(*,*) ' ncell_x_le( finest)=',ncell_x_le
+  write(*,*) '   x_le_min( finest)=',xs_min
+  write(*,*) '   x_le_max( finest)=',xs_max
+  write(*,*) '  dx_le_min( finest)=',dxs_min
+
+  do j=1,ncell_x_le+1,2**(ngrid_max-1)
+    write(*,*) ' j,x=',j,xspacing(j)
+  enddo
+
+  write(*,*) ' ncell_x_le(current)=',ncell_x_le/fact
+  write(*,*) '    ncell_y(current)=',ncell_y/fact
+
+  nj = 4*(ncell_x_le)/fact + 1
+  nk =   (ncell_y   )/fact + 1
+  ni = 2
+
+  write(*,*) '    ni( current)=',ni
+  write(*,*) '    nj( current)=',nj
+  write(*,*) '    nk( current)=',nk
+
+  allocate( x(ni,nj,nk) )
+  allocate( y(ni,nj,nk) )
+  allocate( z(ni,nj,nk) )
+
+  kk = 0
+  do k=1,ncell_y+1,fact
+    kk = kk + 1
+    z(1,1,kk) = yspacing(k)
+    write(90,*) ' kk,z=',kk,z(1,1,kk)
+  enddo
+
+  jj = 0
+  do j=ncell_x_le+1,1,-fact
+    jj =jj + 1
+    x(1,jj,1) = -xspacing(j)
+    write(90,*) ' 1:jj,x=',jj,x(1,jj,1)
+  enddo
+  jj = jj - 1
+  do j=1,ncell_x_le+1,fact
+    jj =jj + 1
+    x(1,jj,1) = xspacing(j)
+    write(90,*) ' 2:jj,x=',jj,x(1,jj,1)
+  enddo
+  jj = jj - 1
+  do j=ncell_x_le+1,1,-fact
+    jj =jj + 1
+    x(1,jj,1) = 2._dp - xspacing(j)
+    write(90,*) ' 3:jj,x=',jj,x(1,jj,1)
+  enddo
+  jj = jj - 1
+  do j=1,ncell_x_le+1,fact
+    jj =jj + 1
+    x(1,jj,1) = 2._dp + xspacing(j)
+    write(90,*) ' 4:jj,x=',jj,x(1,jj,1)
+  enddo
+
+  y(1,:,:) =  0._dp
+  y(2,:,:) = -1._dp  !delta_y = 1 scaled to 2 in FUN3D
+
+  do j=1,nj
+    do k=1,nk
+      x(1,j,k) = x(1,j,1)
+      z(1,j,k) = z(1,1,k)
+    enddo
+  enddo
+
+  x(2,:,:) = x(1,:,:)
+  z(2,:,:) = z(1,:,:)
+
+  write(*,*)
+  write(*,*) "...Generating Plot3d grid file=",'grid.p3d'
+  write(*,*) '.....ni,nj,nk=',ni,nj,nk,' unformatted'
+  open(80, file='grid.p3d', form='unformatted')
+
+  write(80) 1
+
+  write(80) ni, nj, nk
+
+  write(80) (((x(i,j,k),i=1,ni),j=1,nj),k=1,nk), &
+            (((y(i,j,k),i=1,ni),j=1,nj),k=1,nk), &
+            (((z(i,j,k),i=1,ni),j=1,nj),k=1,nk)
+  close(80)
+
+  write(*,*)
+  write(*,*) "...Generating .nmf file=",'grid.nmf'
+  open(80, file='grid.nmf', form='formatted')
+
+  write(80,"(a)") '# =============&
+  & NASA Langley Geometry Laboratory TOG Neutral Map File ==============='
+  write(80,"(a)") '# =============&
+  &======================================================================'
+  write(80,"(a)") '# Block#   IDIM   JDIM   KDIM'
+  write(80,"(a)") '# =============&
+  &======================================================================'
+
+  write(80,"(i6)") 1
+  write(80,*)
+  write(80,"(i6,3i10)") 1, ni, nj, nk
+  write(80,*)
+
+  write(80,"(a)") '# =============&
+  &======================================================================'
+  write(80,"(a)") '# Type         &
+  &B1  F1     S1   E1     S2   E2    B2  F2     S1   E1     S2   E2  Swap'
+  write(80,"(a)") '#--------------&
+  &----------------------------------------------------------------------'
+
+  fmt1 = '(1x,a,a,a,2(1x,i6,i2,1x,4i6),1x,a10)'
+
+  write(80,fmt1) pr, 'symmetry_y_strong',pr,1, 3, 1, nj, 1, nk  !i=constant
+  write(80,fmt1) pr, 'symmetry_y_strong',pr,1, 4, 1, nj, 1, nk
+
+  write(80,fmt1) pr,'subsonic_inflow_pt',pr,1, 5, 1, nk, 1, ni !j=constant
+  write(80,fmt1) pr,     'back_pressure',pr,1, 6, 1, nk, 1, ni
+
+  nj1 =   (nj-1)/4 + 1
+  nj3 = 3*(nj-1)/4 + 1
+  write(80,fmt1) pr, 'symmetry_z_strong',pr,1, 1, 1, ni,   1, nj1 !k=constant
+  ns1 = nj1 + 4*( (nj-1)/4 )/5
+  ns2 = ns1 + 2*( (nj-1)/4 )/5
+  write(80,fmt1) pr,     'viscous_solid',pr,1, 1, 1, ni, nj1, ns1
+  write(80,fmt1) pr,     'viscous_solid',pr,1, 1, 1, ni, ns1, ns2
+  write(80,fmt1) pr,     'viscous_solid',pr,1, 1, 1, ni, ns2, nj3
+  write(80,fmt1) pr, 'symmetry_z_strong',pr,1, 1, 1, ni, nj3, nj
+
+  write(80,fmt1) pr,     'farfield_riem',pr,1, 2, 1, ni, 1, nj   !k=constant
+
+  vol_min = huge(1._dp)
+  vol_max =-huge(1._dp)
+  do j=1,nj-1
+    do k=1,nk-1
+      do i=1,ni-1
+        dx = x(i,j+1,k) - x(i,j,k)  !j-direction (x)
+        dz = z(i,j,k+1) - z(i,j,k)  !k-direction (z)
+        dy = y(i+1,j,k) - y(i,j,k)  !i-direction (y)
+        vol_min = min( vol_min, -dx*dy*dz )
+        vol_max = max( vol_max, -dx*dy*dz )
+        if ( -dx*dy*dz < 1.0e-15_dp ) stop
+      enddo
+    enddo
+  enddo
+
+  write(*,*)
+  write(*,*) ' min_volume( current)=',vol_min
+  write(*,*) ' max_volume( current)=',vol_max
+
+contains
+
+!================================== STRETCH_FUNCTION =========================80
+!
+! Stretch the grid and freeze stretching factor when ar reaches unity.
+!
+!=============================================================================80
+
+subroutine stretch_function( n, y_min, y_max, dy_min, dx_at_y_min, radial,     &
+                             y, beta, n_unity_ar )
+
+  implicit none
+
+  !integer, parameter :: dp = selected_real_kind(12)
+
+  integer, intent(in)  :: n
+  integer, intent(out) :: n_unity_ar
+
+  logical, intent(in) :: radial
+
+  real(kind=dp), intent(in)  :: y_min, y_max, dy_min, dx_at_y_min
+  real(kind=dp), intent(out) :: beta
+
+  real (kind=dp), intent(out)  :: y(n)
+
+  integer :: k, outer, tries, nbeta
+
+  real(kind=dp) :: beta_last, y_last, dydb, dc, beta_new, beta_initial, dbeta
+
+  logical :: found
+
+continue
+
+  write(90,"(1x,a,i5,2f20.10)") ' n,y_min,y_max=',n,y_min,y_max
+
+  y(1) = y_min
+
+  dc = dx_at_y_min
+
+  dydb = 0._dp
+
+  dbeta = 0.0001_dp
+
+  beta   = 1.0_dp
+  beta_initial = beta
+  do tries = 1,20
+    !beta = beta_initial
+    found = .false.
+    dbeta = 0.002_dp*real(tries,dp)
+    nbeta = ( 10._dp - 1._dp ) / dbeta
+
+    write(90,*)
+    write(90,*) ' tries,nbeta,dbeta,beta=',tries,nbeta,dbeta,beta
+
+    do k=1,nbeta
+
+      beta = beta + dbeta
+
+      call stretch_distance( n, y_min, dy_min, dx_at_y_min, radial, &
+                             y, beta, n_unity_ar )
+
+      if ( y(n) > y_max ) then
+        found = .true.
+        exit
+      else
+        beta_last = beta
+        y_last    = y(n)
+      endif
+
+    enddo
+    if ( found ) then
+      write(90,*) ' found...tries=',tries,k,dbeta,beta,y(n),y_max
+      exit
+    else
+      write(90,*) '         tries=',tries,k,dbeta,beta,y(n),y_max
+    endif
+  enddo
+
+  do outer = 1,20
+
+    write(90,"(1x,a,i5,2f20.10)") ' outer,beta,target=',&
+                                    outer,beta,y(n)-y_max
+
+    if ( abs( y(n) - y_max ) < 1.0e-13_dp ) exit
+
+    dydb  = ( y(n) - y_last )/( beta - beta_last )
+    beta_new  = beta + ( y_max - y(n) )/dydb
+
+    y_last    = y(n)
+    beta_last = beta
+
+    beta = beta_new
+
+    call stretch_distance( n, y_min, dy_min, dx_at_y_min, radial, &
+                           y, beta, n_unity_ar )
+
+  enddo
+
+  ! Set final spacing
+
+  write(90,*) '....dydb = ',dydb
+
+  call stretch_distance( n, y_min, dy_min, dx_at_y_min, radial, &
+                         y, beta, n_unity_ar )
+
+  write(90,"(i10,1x,a,i10)") n_unity_ar," Value for n_unity_ar...n=",n
+
+end subroutine stretch_function
+
+!================================== STRETCH_DISTANCE =========================80
+!
+! Distance reached by stretching with stretching frozen when ar reaches unity.
+!
+!=============================================================================80
+
+subroutine stretch_distance( n, y_min, dy_min, dx_at_y_min, radial,            &
+                             y, beta, n_unity_ar )
+
+  implicit none
+
+  !integer, parameter :: dp = selected_real_kind(12)
+
+  integer, intent(in)  :: n
+  integer, intent(out) :: n_unity_ar
+
+  logical, intent(in) :: radial
+
+  real(kind=dp), intent(in)  :: y_min, dy_min, dx_at_y_min, beta
+
+  real (kind=dp), intent(out)  :: y(n)
+
+  integer :: j
+
+  real(kind=dp) :: dy, dc
+
+continue
+
+  y(1) = y_min
+
+  dc = dx_at_y_min
+
+  n_unity_ar = 0
+
+  dy = dy_min
+  do j=2,n
+    y(j) = y(j-1) + dy
+    if ( radial ) dc = dx_at_y_min*y(j)/y_min
+    if ( dy < dc .and. n_unity_ar == 0 ) then
+      dy = dy*beta
+    elseif( radial ) then
+      dy = y(j)*( dx_at_y_min / (1._dp - 0.5_dp*dx_at_y_min ) )
+      if ( n_unity_ar == 0 ) n_unity_ar = j
+    else
+      if ( n_unity_ar == 0 ) n_unity_ar = j
+    endif
+  end do
+
+end subroutine stretch_distance
+
+subroutine bl_spacing( yplus, reL, bl_flag, bl_dy, bl_delta )
+
+  implicit none
+
+  !integer, parameter :: dp = selected_real_kind(12)
+
+  integer,  intent(in) :: bl_flag
+  real(dp), intent(in)  :: yplus, reL
+
+  real(dp), intent(out) :: bl_dy, bl_delta
+
+  real(dp) :: yminl, ymint, cf
+
+continue
+
+  !   determines approximate appropriate min spacing necessary for
+  !   laminar or turbulent computations
+
+  if ( bl_flag == 1 ) then
+
+    !laminar assumes bl=1/sqrt(reL), then takes 1/20th for ymin
+
+    yminl=1./(sqrt(reL)*20._dp)  !bl_delta/10
+
+    bl_delta = 4.91_dp/sqrt(reL)
+
+    bl_dy = yminl
+    write(6,*) ' laminar  min spacing required=',yminl
+
+  else
+
+    ! turbulent assumes ymin=sqrt(2/cf)*yplus/reL
+    ! where cf is for flat plate
+
+    cf=.455_dp/((log(.06_dp*reL))**2)
+    ymint=sqrt(2._dp/cf)*yplus/reL
+
+    bl_delta = 0.382_dp/sqrt(reL**0.2_dp)
+
+    bl_dy = ymint
+    write(6,*) ' turbulent min spacing required=', ymint
+
+  endif
+
+    write(6,*) ' ...boundary layer height=',bl_delta
+    write(*,*) ' ...boundary layer height/min_spacing=',bl_delta/bl_dy
+
+end subroutine bl_spacing
+
+end program main
+

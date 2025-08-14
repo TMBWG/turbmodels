@@ -1,0 +1,38 @@
+14.6e6                     !Target Reynolds number based on the root chord (=1.0 in the grid).
+0.5                        !Target y-plus value
+2                          !Element-type: 1=prsm, 2=tets, 3=prsm/tets, 4=prsm/hex, 5=Strct
+T                          !T = unformatted .ugrid/.ufmt, F = formatted .ugrid/.p3d
+0                          !airfoil_type: =0 discrete airfoil data, =1 NACA00XX
+om6_wing_section_sharp.dat !Datafile for the discrete airfoil data       ; not used if airfoil_type = 1
+0                          !Last two digits of NACA00XX (15 for NACA0015); not used if airfoil_type = 0
+0.5625159852668158         !Taper ratio = (tip chord)/(root chord)
+29.9990                    !Swept angle of LE line in degrees (not too large, please: e.g., < 40).
+100                        !Distance to outer boundary (=radius of the outer hemisphere)
+192                        !Elements along the semi-wingspan
+1.476017976219800          !b = semi-span: per unit root chord.
+64                         !# of Elements across the rounded tip /2 (-> HC: x=0 to 0.5)
+704                        !# of Elements in the radial direction (from wing to farfield)
+2                          !wing_side: =1 for left wing, =2 for right wing.
+0.0                        !root_le_x: = x coordinate of the LE at the root.
+T                          !T = Write a boundary grid (Tecplot)
+F                          !T = Write a volume grid (Tecplot)
+T                          !T = Write a 'k'-file  (required by the coarsening program)
+T                          !T = Write line files  (required by the coarsening program)
+T                          !T = Write .ugrid file (required by the coarsening program)
+T                          !T = Write .p3d/.umft and .nmf files (igrid_type = 5 only)
+
+! NOTE: The above parameters will generate a grid over an ONERA M6 wing.
+
+! NOTE: Root chord will be normalized as 1.0 for any input airfoil data.
+
+! NOTE: wing-side-change/root_le_x-shifting will be applied after
+!       a grid with unit wing-root chord is generated.
+
+! NOTE: # of elements around the wing-section is automatically set as
+!          6*(Elements along the hemisphere).
+
+! NOTE: For regular coarsening, choose the input values such that
+!       (# of Elements along the the semi-wingspan) = 2^l
+!     6*(# of Elements along the rounded tip)       = 2^n
+!       (# of Elements in the radial direction)     = 2^m
+!       where l, n, and m are integers.

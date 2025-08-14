@@ -1,0 +1,9 @@
+         8
+         1      7011      BC1_on_VELOCITY-INLET           
+         2      5051      BC1_on_PRESSURE-OUTLET          
+         3      4000      BC1_on_WALL-ROTATING            
+         4      4000      BC1_on_WALL-STATIONARY          
+         5      6022      BC1_on_PERIODIC                 
+         6      6022      BC1_on_SHADOW_PERIODIC          
+         7      7011      BC1_on_VELOCITY-INLET           
+         8      5051      BC1_on_PRESSURE-OUTLET          

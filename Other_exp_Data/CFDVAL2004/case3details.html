@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: CFDVAL2004 Case 3 Details and Submission Guidelines</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">
+Exp: CFDVAL2004 Case 3 Details and Submission Guidelines</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="case3_cfdval2004.html">CFDVAL2004 Case 3 - Intro Page</a></p>
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: large">Relevant details for Case 3 are as follows:
+</p>
+<p>M_freestream = 0.10
+</p>
+
+<p>The atmospheric conditions varied, but were essentially
+standard atmospheric conditions at sea level in a wind tunnel
+vented to the atmosphere, in a
+temperature-controlled room.  These conditions can be
+given as approximately:
+</p>
+
+<p>p_ambient = approx 101325 kg/(m-s^2)
+</p>
+<p>T_ambient = approx 298 K
+</p>
+
+<p>Some derived relevant conditions are:
+</p>
+<p>density_ambient = approx 1.185 kg/m^3
+</p>
+<p>viscosity_ambient = approx 18.4e-6 kg/(m-s)
+</p>
+<p>u_freestream = approx 34.6 m/s
+</p>
+<p>Re_freestream = approx 2.23e6 per meter, or approx 9.36e5 per chord length of hump
+</p>
+
+<p>The upstream boundary conditions from the experiment (associated with the boundary
+  layer on the plate at location x/c=-2.14
+  upstream of the start of the hump, where c = 16.536 inches = 0.4200 m),
+  to be used to help set/verify CFD inflow BCs, are
+  given in the following files:
+
+<ul>   
+<li><a href="Case3_exp/case3_pitot_inflow_stats.dat">u-velocity BCs from experiment (pitot probe)</a>,
+     updated 29 October 2003</li> 
+<li><a href="Case3_exp/uprime_hw.dat">u' streamwise turbulent intensity 
+     BCs from experiment (hot wire)</a></li>
+<!--<li><a href="Case3_exp/case3_piv_inflow_stats.dat">u-velocity and Reynolds stress BCs 
+     from experiment (PIV)</a></li> -->
+<li>To complete the Reynolds stress matrix for the upstream BCs at x/c=-2.14, assume 
+incompressible fully-developed boundary layer distributions</li>
+</ul>  
+</p>
+
+<p>There are two required conditions for case 3:
+(1) no suction case and (2) suction case.  A third
+oscillatory control case is also defined; however,
+there is no experimental data available for it as of the March 2004 workshop
+date, so the condition is optional.
+<ul>
+<li>Condition 1: no flow control (no flow through the 23-inch-span slot; slot left <em>open</em>
+    with no suction or blowing through it)</li>
+<li>Condition 2: suction rate of 0.01518 kg/s (27.13 CFM) 
+    through the 23-inch-span slot (updated 5 September 2003)</li>
+<li>Condition 3 (optional): 
+    zero-net-mass-flux oscillatory suction/blowing, frequency = 138.5 Hz,
+    peak velocity out of slot (Ujetmax) during blowing part of cycle = 26.6 m/s
+    (This condition corresponds to an oscillatory blowing momentum coefficient of approximately
+    &lt;cmu&gt; = &lt;J&gt;/(cq) = rho*h*(Ujetrms)<sup>2</sup>/(c*0.5*rhoinf*Uinf<sup>2</sup>) = 0.111%,
+    where h is the slot width).
+    Note:  the oscillatory suction/blowing case used a different unit underneath the
+splitter plate, feeding into the slot.  As a result, the blockage beneath the splitter
+plate was different, which slightly affected the incoming flow field above the plate.  Thus, the
+boundary layer thickness at x/c=-2.14 for the oscillatory case was slightly smaller
+than for the no-flow and steady suction cases.  The corresponding data with
+these upstream BCs are in the following files (not available in time for the March 2004
+workshop):
+<a href="Case3_exp/case3_pitot_inflow_stats_osc.dat">u-velocity BCs</a>,
+<a href="Case3_exp/uprime_hw_osc.dat">u'-turbulence BCs</a>,
+posted 12 August 2004
+    </li>
+</ul>
+</p>
+
+<br>&nbsp;
+<!--<img SRC="construction.gif"  align=CENTER> -->
+<p><span style="text-align: left; font-weight: 400; font-size: large">Submission Guidelines:
+</p>
+
+<p>(Last updated for the March 2004 workshop:  18 November 2003)<br>
+(Additional update for optional condition 3 posted:  20 January 2005)</p>
+
+<!--<p>Specific submission guidelines have not been established yet...
+they will be posted here in the near future.
+</p>-->
+
+<p>Submissions for this case should include <em>both</em> conditions of
+no-flow-control and steady-suction.  The third condition of oscillatory
+blowing control is optional. 
+The purpose here is to determine the state-of-the-art in modeling
+these types of flows, so we want to explore which CFD
+methods work and which do not.</p>
+
+<p>
+  <ul>
+    <li type=square>You can either model the internal cavity or specify a
+        boundary condition at the slot exit. </li>
+    <li type=square>You may choose to model the flowfield two-dimensionally or
+        three-dimensionally (if three-dimensionally, you may choose to model the 
+        endplates or you may employ periodic or some other appropriate spanwise
+        boundary condition). </li>
+  </ul>
+
+<p>There is the requirement that you detail specifically how you choose
+to model the case, including all boundary conditions and approximations made.
+As we assess the methodologies used at the workshop, it will be important to
+know as many details as possible about the calculations/simulations. </p>
+
+<p>Detailed requirements include:
+
+<p>1. The no-flow-control and steady-suction conditions may be run either
+time-accurately or in steady-state mode, depending on your computational method.  
+The optional oscillatory blowing control condition (if computed) must be 
+run time-accurately, in order to simulate the unsteady
+nature of the case.
+
+<p>
+ <ul>
+   <li>1a. RANS codes run in time-accurate mode (e.g., URANS) solve directly for
+phase-averaged variables, i.e. &lt;u<sub>i</sub>&gt; and
+&lt;u'<sub>i</sub>u'<sub>j</sub>&gt;.
+Click on <a href="DataSetCases_theor.pdf">link to PDF write-up</a>
+for more details.
+Therefore, time-accurate RANS
+simulations should result in repeating or very-nearly-repeating periodic
+solutions.  When periodicity is achieved, averages over one or more
+periods of oscillation yields the long-time-averaged (time-independent mean)
+values for these quantities. </li>
+
+   <li>1b. DNS, LES, or DES simulations will need to be post-processed to obtain
+the long-time-averaged (time-independent mean) values. </li>
+ </ul>
+
+<p>2. GRID STUDY:  If you choose to model this case two-dimensionally, then it is
+<em>strongly suggested</em> that you perform the computation using at least two
+different grid sizes in order to assess the effect of spatial
+discretization error on the solution.  If you model it
+three-dimensionally, then solutions using more than one grid
+size are encouraged, but not required.  If you use more than
+one grid, submit each set of results separately.
+
+<p>3. TIME STEP STUDY (for time-accurate computations only):  
+If you choose to model this case two-dimensionally, then it is
+<em>strongly suggested</em> that you perform the computation using at least two
+different time step sizes in order to assess the effect of temporal
+discretization error on the solution.  If you model it
+three-dimensionally, then solutions using more than one time step
+are encouraged, but not required.  If you use more than
+one time step, submit each set of results separately.
+
+<p>Specific quantities that result from your computations
+at particular locations will be required for submission.
+Note that for all the following, we adopt the coordinate system
+with x downstream and y up, with the (x,y)=(0,0) origin
+at the start of the hump.  All results from 3-D
+computations are to be given at the z=0 location (centerplane
+of the tunnel).  The chord "c" is the length of the bump: 16.536 inches.  
+The requirements follow (if you are unable to provide a particular
+quantity, simply leave it out of the "variable" list, and reduce
+the number of columns  of data submitted):
+</p>
+
+<p>
+<pre>
+a. x/c vs. Cp on the lower wall for no-flow and
+suction cases.  For time-accurate computations,
+this should be the long-time-averaged Cp.  The definition for Cp
+is Cp=(p-pinf)/(0.5*rhoinf*uinf^2), where the "inf" values should
+correspond to the upstream "freestream" location where M=0.1.
+Submit these results for both conditions of
+no-flow-through-the-slot, and for that of constant suction.
+Include results at least as far upstream as x/c=-2.14, and
+at least as far downstream as x/c=2.0.
+Do not include the data on the walls deep inside the slot.
+   Name this file: case3.cp.ANYTHING.dat
+    -where "ANYTHING" can be any descriptor you choose (should
+     be different for each file if you are submitting multiple
+     runs)
+    -the file should be in 2-column format:
+      1st line: #your name (pound sign needed)
+      2nd line: #your affiliation (pound sign needed)
+      3rd line: #your contact info (pound sign needed)
+      4th line: #brief description of grid (pound sign needed)
+      5th line: #brief description of code/method (pound sign needed)
+      6th line: #other info about the case, such as spatial accuracy (pound sign needed)
+      7th line: #other info about the case, such as turb model (pound sign needed)
+      8th line: #other info about the case (pound sign needed)
+      9th line: variables="x/c","Cp"
+     10th line: zone t="surface Cp, no flow case"
+     subsequent lines:  x/c  Cp  <- this is the data for no flow case
+     next line: zone t="surface Cp, suction case"
+     subsequent lines:  x/c  Cp  <- this is the data for suction case
+</pre>
+  <ul>
+    <li type=square> Download sample file <a href="Case3_sample/case3.cp.SAMPLE.dat">
+case3.cp.SAMPLE.dat</a>
+  </ul>
+</p>
+<p>
+<pre>
+b. x/c vs. Cf on the lower wall for no-flow and
+suction cases.  For time-accurate computations,
+this should be the long-time-averaged Cf.  The definition for Cf
+is Cf=tauw/(0.5*rhoinf*uinf^2), , where the "inf" values should
+correspond to the upstream "freestream" location where M=0.1.
+The term tauw stands for mu*(du/dy) at the wall.
+Give these results for both conditions of
+no-flow-through-the-slot, and that of constant suction.
+Include results at least as far upstream as x/c=-2.14, and
+at least as far downstream as x/c=2.0.
+Do not include the data on the walls deep inside the slot.
+   Name this file: case3.cf.ANYTHING.dat
+    -where "ANYTHING" can be any descriptor you choose (should
+     be different for each file if you are submitting multiple
+     runs)
+    -the file should be in 2-column format:
+      1st line: #your name (pound sign needed)
+      2nd line: #your affiliation (pound sign needed)
+      3rd line: #your contact info (pound sign needed)
+      4th line: #brief description of grid (pound sign needed)
+      5th line: #brief description of code/method (pound sign needed)
+      6th line: #other info about the case, such as spatial accuracy (pound sign needed)
+      7th line: #other info about the case, such as turb model (pound sign needed)
+      8th line: #other info about the case (pound sign needed)
+      9th line: variables="x/c","Cf"
+     10th line: zone t="surface Cf, no flow case"
+     subsequent lines:  x/c  Cf  <- this is the data for no flow case
+     next line: zone t="surface Cf, suction case"
+     subsequent lines:  x/c  Cf  <- this is the data for suction case
+</pre>
+  <ul>
+    <li type=square> Download sample file <a href="Case3_sample/case3.cf.SAMPLE.dat">
+case3.cf.SAMPLE.dat</a>
+  </ul>
+</p>
+<p>
+<pre>
+c. Velocity profiles and turbulence data at several stations along 
+the lower wall for no-flow and suction cases.
+For time-accurate computations, these should be the long-time-averaged
+profiles.  The 15 required stations are:  x/c=-2.14,
+0,.2,.4,.65,.66,.8,.9,1.0,1.1,1.2,1.3,1.4,1.6,2.0.  The profiles
+should be taken along a VERTICAL line at each given x-location
+(not necessarily normal to the hump surface), extending from the
+wall up to at least past the boundary layer and/or separation bubble.  
+Also, if your computations included the inside of the slot, include
+profiles along one line at x/c=0.647 inside the slot (from the lower
+wall to the upper wall, y/c goes from approximately 0.1105 to 0.1142
+at this x location).  Submit the following quantities:
+u/Uinf, v/Uinf, u'u'bar/Uinf^2, v'v'bar/Uinf^2, and u'v'bar/Uinf^2, where:
+   u = horizontal velocity component
+   v = vertical velocity component
+   u'u'bar = turbulent normal stress in horizontal direction (optional)
+   v'v'bar = turbulent normal stress in vertical direction (optional)
+   u'v'bar = turbulent shear stress in x-y plane
+Submit two separate files, one for no-flow-control, and one for
+constant suction.
+   Name these files: case3.pro.noflow.ANYTHING.dat
+                     case3.pro.suction.ANYTHING.dat
+    -where "ANYTHING" can be any descriptor you choose (should
+     be different for each file if you are submitting multiple
+     runs)
+    -the file should be in 7-column format:
+      1st line: #your name (pound sign needed)
+      2nd line: #your affiliation (pound sign needed)
+      3rd line: #your contact info (pound sign needed)
+      4th line: #brief description of grid (pound sign needed)
+      5th line: #brief description of code/method (pound sign needed)
+      6th line: #other info about the case, such as spatial accuracy (pound sign needed)
+      7th line: #other info about the case, such as turb model (pound sign needed)
+      8th line: #other info about the case (pound sign needed)
+      9th line: variables="x/c","y/c","u/Uinf","v/Uinf","uu/Uinf^2",
+        "vv/Uinf^2","uv/Uinf^2"
+     10th line: zone t="x/c=-2.14"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=-2.14
+     next line: zone t="x/c=0"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0
+     next line: zone t="x/c=0.2"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.2
+     next line: zone t="x/c=0.4"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.4
+     next line: zone t="x/c=0.65"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.65
+     next line: zone t="x/c=0.66"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.66
+     next line: zone t="x/c=0.8"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.8
+     next line: zone t="x/c=0.9"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.9
+     next line: zone t="x/c=1.0"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=1.0
+     next line: zone t="x/c=1.1"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=1.1
+     next line: zone t="x/c=1.2"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=1.2
+     next line: zone t="x/c=1.3"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=1.3
+     next line: zone t="x/c=1.4"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=1.4
+     next line: zone t="x/c=1.6"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=1.6
+     next line: zone t="x/c=2.0"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=2.0
+     next line: zone t="inside slot, x/c=0.647"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data inside slot at x/c=0.647
+</pre>
+  <ul>
+    <li type=square> Download sample file <a href="Case3_sample/case3.pro.noflow.SAMPLE.dat">
+case3.pro.noflow.SAMPLE.dat</a>
+  </ul>
+</p>
+<p>
+<pre>
+d.  Field line-contour-plots (in one of the following formats: ps, eps, or jpg)
+of streamlines (average streamlines for time-accurate computations) 
+for no-flow and suction cases.  These
+plots should be black-and-white line plots only.
+The plots should go from approximately x/c=0.6 to 1.6, and should contain
+enough streamlines to show the approximate size and shape of the
+separation bubble.  The x-to-y ratio of the plot should be 1.0.
+The purpose of submitting these plots is to get
+a qualitative picture of the flowfields.  Altogether, submit 2 plots files,
+one for the no-flow-control case and one for the steady suction case.
+   Name these files: case3.stream.noflow.ANYTHING.eps
+                     case3.stream.suction.ANYTHING.eps
+(where the "eps" in this case means encapsulated postscript - use ps,
+or jpg instead if appropriate).
+</pre>
+</p>
+<p>
+<pre>
+e. (For optional condition 3 only) x/c vs. long-time-averaged Cp 
+on the lower wall for oscillatory case.
+Include results at least as far upstream as x/c=-2.14, and
+at least as far downstream as x/c=2.0.
+Do not include the data on the walls deep inside the slot.
+   Name this file: case3.cposc.ANYTHING.dat
+    -where "ANYTHING" can be any descriptor you choose (should
+     be different for each file if you are submitting multiple
+     runs)
+    -the file should be in 2-column format:
+      1st line: #your name (pound sign needed)
+      2nd line: #your affiliation (pound sign needed)
+      3rd line: #your contact info (pound sign needed)
+      4th line: #brief description of grid (pound sign needed)
+      5th line: #number of time steps per cycle (pound sign needed)
+      6th line: #brief description of code/method (pound sign needed)
+      7th line: #other info about the case, such as spatial accuracy (pound sign needed)
+      8th line: #other info about the case, such as turb model (pound sign needed)
+      9th line: #other info about the case (pound sign needed)
+     10th line: variables="x/c","Cp"
+     11th line: zone t="surface Cp, oscillatory case"
+     subsequent lines:  x/c  Cp  <- this is the data for oscillatory case
+</pre>
+  <ul>
+    <li type=square> Download sample file <a href="Case3_sample/case3.cposc.SAMPLE.dat">
+case3.cposc.SAMPLE.dat</a>
+  </ul>
+</p>
+
+<p>
+<pre>
+f. (For optional condition 3 only - added after March 2004 Workshop) 
+x/c vs. phase-averaged &lt;Cp&gt; on the lower 
+wall for oscillatory case, at phases = 80 deg, 170 deg (peak blowing at slot),
+260 deg, and 350 deg.
+Include results at least as far upstream as x/c=0.6, and
+at least as far downstream as x/c=1.8.
+Do not include the data on the walls deep inside the slot.
+   Name this file: case3.cposcphase.ANYTHING.dat
+    -where "ANYTHING" can be any descriptor you choose (should
+     be different for each file if you are submitting multiple
+     runs)
+    -the file should be in 2-column format:
+      1st line: #your name (pound sign needed)
+      2nd line: #your affiliation (pound sign needed)
+      3rd line: #your contact info (pound sign needed)
+      4th line: #brief description of grid (pound sign needed)
+      5th line: #number of time steps per cycle (pound sign needed)
+      6th line: #brief description of code/method (pound sign needed)
+      7th line: #other info about the case, such as spatial accuracy (pound sign needed)
+      8th line: #other info about the case, such as turb model (pound sign needed)
+      9th line: #other info about the case (pound sign needed)
+     10th line: variables="x/c","Cp"
+     11th line: zone t="phase=80 deg surface Cp, oscillatory case"
+     subsequent lines:  x/c  Cp  <- this is the phase=80 data for oscillatory case
+     next line: zone t="phase=170 deg surface Cp, oscillatory case"
+     subsequent lines:  x/c  Cp  <- this is the phase=170 data for oscillatory case
+     next line: zone t="phase=260 deg surface Cp, oscillatory case"
+     subsequent lines:  x/c  Cp  <- this is the phase=260 data for oscillatory case
+     next line: zone t="phase=350 deg surface Cp, oscillatory case"
+     subsequent lines:  x/c  Cp  <- this is the phase=350 data for oscillatory case
+</pre>
+  <ul>
+    <li type=square> Download sample file <a href="Case3_sample/case3.cposcphase.SAMPLE.dat">
+case3.cposcphase.SAMPLE.dat</a>
+  </ul>
+</p>
+
+<p>
+<pre>
+g. (For optional condition 3 only - added after March 2004 Workshop), updated 24 January 2005 
+Phase-averaged velocity profiles and turbulence
+data at 4 different phases during the cycle:  80 deg, 170 deg (peak blowing at slot), 
+260 deg, and 350 deg.  Submit the following phase-averaged
+&lt;&gt; quantities:  u/Uinf, v/Uinf, u'u'bar/Uinf^2, v'v'bar/Uinf^2,
+and u'v'bar/Uinf^2, where:
+   u = phase-averaged horizontal velocity component
+   v = phase-averaged vertical velocity component
+   u'u'bar = phase-averaged turbulent normal stress in horizontal direction (optional)
+   v'v'bar = phase-averaged turbulent normal stress in vertical direction (optional)
+   u'v'bar = phase-averaged turbulent shear stress in x-y plane
+The 9 required stations are: x/c=0.65, 0.66, 0.67, 0.68, 0.8, 0.9, 1.0, 1.1, 1.2.
+The profiles should be taken along a VERTICAL line at each given x-location
+(not necessarily normal to the hump surface), extending from the
+wall up to at least past the boundary layer and/or separation bubble.
+Additionally, include profiles at a 10th station along one line right at the slot exit 
+from approximately (x/c,y/c)=(0.65416,0.11501) to (0.65848,0.11358) (this line is 
+aligned with the body surface over the slot).
+   Name these files: case3.pro.oscphase080.ANYTHING.dat
+                     case3.pro.oscphase170.ANYTHING.dat
+                     case3.pro.oscphase260.ANYTHING.dat
+                     case3.pro.oscphase350.ANYTHING.dat
+    -where "ANYTHING" can be any descriptor you choose (should
+     be different for each file if you are submitting multiple
+     runs)
+    -the file should be in 7-column format:
+      1st line: #your name (pound sign needed)
+      2nd line: #your affiliation (pound sign needed)
+      3rd line: #your contact info (pound sign needed)
+      4th line: #brief description of grid (pound sign needed)
+      5th line: #number of time steps per cycle (pound sign needed)
+      6th line: #brief description of code/method (pound sign needed)
+      7th line: #other info about the case, such as spatial accuracy (pound sign needed)
+      8th line: #other info about the case, such as turb model (pound sign needed)
+      9th line: #other info about the case (pound sign needed)
+     10th line: variables="x/c","y/c","u/Uinf","v/Uinf","uu/Uinf^2",
+        "vv/Uinf^2","uv/Uinf^2"
+     11th line: zone t="x/c=0.65"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.65
+     next line: zone t="x/c=0.66"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.66
+     next line: zone t="x/c=0.67"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.67
+     next line: zone t="x/c=0.68"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.68
+     next line: zone t="x/c=0.8"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.8
+     next line: zone t="x/c=0.9"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=0.9
+     next line: zone t="x/c=1.0"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=1.0
+     next line: zone t="x/c=1.1"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=1.1
+     next line: zone t="x/c=1.2"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data at x/c=1.2
+     next line: zone t="slot exit, (x/c,y/c)=(0.65416,0.11501) to (0.65848,0.11358)"
+     subsequent lines:  x/c  y/c  u/Uinf  v/Uinf
+            uu/Uinf^2  vv/Uinf^2  uv/Uinf^2 <- this is the data along the slot exit
+</pre>
+  <ul>
+    <li type=square> Download sample file <a href="Case3_sample/case3.pro.oscphase080.SAMPLE.dat">
+case3.pro.oscphase080.SAMPLE.dat</a>
+  </ul>
+</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="case3_cfdval2004.html">CFDVAL2004 Case 3 - Intro Page</a></p>
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/15/2021
+<br>&nbsp;
+
+</body>
+</html>

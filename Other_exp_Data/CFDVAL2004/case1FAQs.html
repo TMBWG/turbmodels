@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: CFDVAL2004 Case 1 Frequently Asked Questions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">
+Exp: CFDVAL2004 Case 1 Frequently Asked Questions</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="case1_cfdval2004.html">CFDVAL2004 Case 1 - Intro Page</a></p>
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">How is the "phase angle 0 deg" defined in the experiment?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">The phase angle in the experiment is based on the input voltage
+that drives the actuator (see the file "BCs from PIV experiment" under
+<a href="case1details.html">Case 1 Details and Submission Guidelines</a>).  
+There is naturally a phase lag
+between the voltage input and the actual velocity that emanates from the
+slot opening.  It ends up that the peak (maximum) velocity out of the
+slot occurs somewhere between 0 and 90 deg, as shown in the second figure
+on that webpage (plot of velc_combined.dat).  Ultimately, the goal is
+to align CFD's phase to approximately match the PIV experiment as best as
+possible over the course of the entire 360 degrees of phase at the slot
+exit shown in this figure.  We have tried to choose criteria for
+determining phase that approximates experiment at this location AND is
+specific enough so that different CFD solutions can be meaningfully
+compared.  This method is described near the bottom of the above-mentioned webpage.
+Although participants are given some
+latitude to determine phase as appropriate, we encourage everyone to use
+the prescribed method for consistency, if possible.</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">What is the volume of the cavity?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">The nominal volume of the
+cavity in Case 1 is approximately 0.46065 in<sup>3</sup> (computed from the
+3-D structured grid).  This includes the volume of the slot up to the tunnel floor. 
+</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">Can you give some details about the physical
+properties of the diaphragm?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">The Case 1 diaphragm is a Murata piezo-electric
+type 7BB-50M-1.  It has a 50mm diameter brass shim with thickness 0.2mm.  The
+piezoceramic part is 23mm in diameter.  The total thickness of piezoceamic + epoxy + shim
+is 0.44mm.  The mudulus of elasticity for brass is 15.e6 psi.</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">The file "BCs from PIV experiment" (under
+<a href="case1details.html">Case 1 Details and Submission Guidelines</a>)
+lists the voltage to the diaphragm <em>prior</em> to being amplified.  What is the
+voltage actually received by the diaphragm after amplification?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">Input voltage to piezo-electric diaphragm is 
++100.97 volts to -102.58 volts.</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">How is the piezo-electric actuator held in place?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">Here is a rough sketch
+showing some case 1 cavity details:
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+        <p><img
+src="Case1_sample/sketch_case1.jpg" height="824" border="3"
+     title="sketch of case 1 cavity details" alt="sketch of case 1 cavity details"></p>
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="case1_cfdval2004.html">CFDVAL2004 Case 1 - Intro Page</a></p>
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/15/2021
+<br>&nbsp;
+
+</body>
+</html>

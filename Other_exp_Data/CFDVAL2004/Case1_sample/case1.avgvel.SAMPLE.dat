@@ -1,0 +1,70 @@
+# Ima C. Effdeer
+# Colorful Fluid Dynamics, Inc.
+# i.c.e@cfdtillithurts.com,  (911) 911-9111
+# Provided structured 2D grid number 2, 9-zone, 198,545 grid points total
+# 8 time steps per cycle (way too few!)
+# Code: CFL9D: upwind-biased, finite-volume, structured, RANS
+# globally 2nd order in space, 2nd order in time
+# Spalart-Allmaras turb model
+# other info
+variables="x, mm","y, mm","u, m/s","v, m/s"
+zone t="centerline"
+  0.   0.     1.4908   21.0988
+  ...etc
+  0.  10.0    2.4455   15.1334
+  ...etc
+  0.  20.0    1.3344   10.1123
+zone t="y=0.1 mm"
+ -10.  0.1    0.4747    1.1234
+  ...etc
+   0.  0.1    1.5867   11.1234
+  ...etc
+  10.  0.1    0.0023    1.1234
+zone t="y=1 mm"
+ -10.  1.0    0.4843    1.1234
+  ...etc
+   0.  1.0    2.4757   21.1234
+  ...etc
+  10.  1.0    1.1234    1.1234
+zone t="y=2 mm"
+ -10.  2.0    0.1234    1.1234
+  ...etc
+   0.  2.0    2.1234   31.1234
+  ...etc
+  10.  2.0    2.1234    1.1234
+zone t="y=3 mm"
+ -10.  3.0    0.1234    1.1234
+  ...etc
+   0.  3.0    1.1234   21.1234
+  ...etc
+  10.  3.0    1.1234    1.1234
+zone t="y=4 mm"
+ -10.  4.0    1.1234    1.1234
+  ...etc
+   0.  4.0    1.1234   11.1234
+  ...etc
+  10.  4.0   -1.1234    1.1234
+zone t="y=5 mm"
+ -10.  5.0   -1.1234    1.1234
+  ...etc
+   0.  5.0    1.1234    9.1234
+  ...etc
+  10.  5.0    0.1234    1.1234
+zone t="y=6 mm"
+ -10.  6.0   -1.1234    1.1234
+  ...etc
+   0.  6.0    0.1234    8.1234
+  ...etc
+  10.  6.0    1.1234    1.1234
+zone t="y=7 mm"
+ -10.  7.0    0.1234    1.1234
+  ...etc
+   0.  7.0    0.1234    7.1234
+  ...etc
+  10.  7.0    0.1234    1.1234
+zone t="y=8 mm"
+ -10.  8.0    0.1234    1.1234
+  ...etc
+   0.  8.0    1.1234    6.1234
+  ...etc
+  10.  8.0    0.1234    1.1234

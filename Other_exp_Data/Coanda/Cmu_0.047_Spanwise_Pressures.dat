@@ -1,0 +1,48 @@
+#
+# Spanwise velocity profile on the Englar GTRI CCW model
+#
+# Test was conducted in the BART facility at the NASA Langley Research Tunnel
+# Test T100, Run 37, point 3
+#
+# Tunnel conditions
+# M: 0.10049
+# Re/ft: 680556.40000
+# dynamic pressure: 14.98311 psf
+# total pressure: 14.78802 psi
+# total temperature: 72.90023 F
+# density: 0.00230 slugs/ft^3
+#
+# Air delivery system conditions
+# Cmu: 0.04680
+# NPR (nozzle pressure ratio): 1.08755
+# plenum total pressure:  15.96948 psi
+# plenum total temperature: 76.61926 F
+# mass flow rate: 0.09656 lbm/sec
+#
+# Note that z=0 is 2 inches beneath the tunnel floor;
+# The model abuts the tunnel ceiling at z=30 inches.
+# Spanwise data taken at x = 5.93 inches on the "top" 
+# (side where blowing slot is located) of the model.
+#
+# Variable description
+# z: spanwise coordinate, inches
+# Cp: coefficient of pressure
+#
+variables = "z","cp"
+2.620	-0.66816
+5.200	-0.83216
+7.770	-0.91751
+10.270	-0.95889
+12.690	-0.98101
+15.000	-0.98650
+17.200	-0.98534
+19.280	-0.97565
+21.210	-0.95147
+22.500	-0.94393
+22.980	-0.94585
+24.580	-0.92322
+26.000	-0.88738
+27.200	-0.82156
+28.200	-0.75890
+29.000	-0.69952
+29.780	-0.67128

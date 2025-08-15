@@ -1,0 +1,26 @@
+QA_VS_THEORETICAL/:
+Picture files that show differences between the NASA QA geometry
+and ATI theoretical model.
+
+	AftIsoVerify.jpg, AftIsoVerify.ps
+	FrontIsoVerify.jpg, FrontIsoVerify.ps
+	TopVerify.jpg, TopVerify.ps
+
+QA_GEOMETRY/: 
+Ascii file of the NASA QA geometry:
+
+	HumpGeomQA.asc
+
+
+Estimated Test Conditions to Be Investigated:
+Freestream M = .1  (V_max = 40 m/sec)
+Rn = 1 million
+Velocity at slot exit for suction case (V_max < 60 m/sec)
+Frequencies for oscillatory suction/blowing < 300 - 400Hz
+
+
+
+
+
+
+Sally Viken 3/18/03

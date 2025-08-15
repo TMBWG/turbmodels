@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: CFDVAL2004 Case 3: Flow over a Hump Model (Actuator Control)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">
+Exp: CFDVAL2004 Case 3: Flow over a Hump Model (Actuator Control)</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">
+<b>Case 3 is a part of the
+      ERCOFTAC Database (Classic Collection).
+      It is listed as Case C.83: Wall-mounted two-dimensional hump with oscillatory zero-mass-flux jet or 
+      suction through a slot (keyword: hump).
+(Note that Case 3 was also a test case for the
+      11th ERCOFTAC/IAHR Workshop on
+      Refined Turbulence Modelling,
+      April 7-8, 2005, Chalmers Univ. of Technology,
+      Sweden, and a test case for the
+      12th ERCOFTAC/IAHR Workshop on Refined Turbulence Modelling, October 12-13, 2006,
+      Institute for Fluid Mechanics and Technical Acoustics,
+      Technical University of Berlin, Germany, and a test case for the
+      V&V I: Code Verification and Solution Verification & Validation Workshop at ECCOMAS CFD 2010,
+      June 14-17, 2010, Lisbon, Portugal.)</b>
+
+&nbsp;<br>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+&nbsp;<br>
+Case 3 is a Wall-mounted Glauert-Goldschmied type body, geometrically
+similar to that employed by Seifert & Pack (2002). Full details of the current case 
+are given in Greenblatt et al (2004, 2005) and Naughton et al (2004). The model is
+mounted between two glass endplate frames and both leading edge and trailing
+edges are faired smoothly with a wind tunnel splitter plate. This is a
+nominally two-dimensional experiment, although there are side-wall
+effects (3-D flow) near the end-plates.  The tunnel dimensions at the
+test section are 28 inches wide by 20 inches high, but the hump model is
+mounted on a splitter plate (0.5 inches thick), yielding a nominal test section
+height of 15.032 inches (distance from the splitter plate to the top wall).  
+The splitter plate extends 76.188 inches upstream of the model's leading
+edge.  Also, 44.437 inches downstream of the model's leading edge,
+the splitter plate is equipped with a flap (3.75 inches long), which
+is deflected up during the experiment in order to control the air flow 
+beneath the splitter plate.  This control affects the stagnation point 
+at the leading edge of the splitter plate, avoiding massive separation
+in that region.
+</p>
+
+<p>The characteristic reference length of the model is defined here as the 
+length of the bump on the wall, 16.536 inches.  (In Seifert & Pack's 
+original work on the hump model, the reference length was defined as 
+the airfoil chord length of 7.874 inches (x = 0.0 to x = 7.874 inches).  
+Their leading edge was then faired smoothly into the wall from x = -.3937 
+to x = .3937 inches; however this additional length ahead of x = 0.0 was not 
+accounted for in their definition of the reference length.  For the current
+experiment it was felt to be more straightforward to use the <em>actual</em> bump
+length as the reference length.  As a result
+of this, the current scaled (nondimensional) coordinates of the overall body
+shape are slightly different from those of Seifert & Pack. A simple rescaling
+operation can recover it.)
+</p>
+
+<p>The model itself
+is 23 inches wide between the endplates at both sides (each endplate is approximately
+9.25 inches high, 34 inches long, and 0.5 inches thick with an elliptical-shaped
+leading edge).  The model is 2.116 inches
+high at its maximum thickness point.  Both uncontrolled (baseline)
+and controlled flow scenarios are considered under the conditions
+of M = 0.1 and Re somewhat less than 1 million 
+per chord.  The tunnel medium is air at sea level.  The model
+experiences a fully-developed turbulent boundary layer whose delta
+(thickness) at the leading edge of the model is between 1 - 2 inches.
+The boundary
+layer is subjected to a favorable pressure gradient over the front
+convex portion of the body and separates over a relatively short
+concave section in the aft part of the body.  A slot opening of 0.00187*chord
+(chord=0.4200 m) at approximately
+the 65% chord station on the model extends across the entire span of
+the hump ("slot opening" here means vertical opening below the lip - see figure
+below). 
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="slot_width.jpg" height="300" border="3" title="detail near slot" alt="detail near slot">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Flow control is supplied by means of the
+two-dimensional slot across the span, immediately upstream of the
+concave surface.  One type of control uses steady suction, which
+is driven by a suction pump with the mass flow monitored.  
+The following two figures show a schematic of the hump model
+and a sample 2-D CFD result.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="SetupBW.jpg" height="300" border="3" title="schematic of hump model" alt="schematic of hump model">
+           <img
+src="sampleflow.jpg" height="300" border="3" title="sample CFD results for no-flow case" alt="sample CFD results for no-flow case"></p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>For the oscillatory test, separation control is performed using zero efflux oscillatory 
+blowing introduced from the spanwise slot, where careful attention is paid to 
+maintaining slot two-dimensionality. This is achieved by means of a rigid piston that  
+spans the model. The piston is secured to a flange by means of a flexible membrane 
+and the flange is bolted to the base of the plenum. The piston is driven externally by 
+six voice-coil-based actuator modules (Kiedaisch, Nagib and Associates, IIT), generating 
+slot velocities up to 80m/s at frequencies ranging from 60Hz to 500Hz. A schematic view 
+of the assembly from the side is shown in fig. 1 below; a view 
+from the underside of the model, with three modules removed for 
+purposes of illustrating the piston and membrane, is show in fig. 2. A photograph of the 
+underside of the model, prior to tunnel installation, is shown in fig. 3. The slot-flow 
+is calibrated and characterized for both tunnel flow-off (quiescent) and flow-on 
+(non-quiescent) conditions, using hot-wire anemometry, throat dynamic pressure 
+measurements and two-dimensional PIV.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p>Fig. 1<img
+src="fig1.jpg" width="440" border="3" title="figure 1 schematic of hump model with piston, side view" alt="figure 1 schematic of hump model with piston, side view"></p>
+        <p>Fig. 2<img
+src="fig2.jpg" width="440" border="3" title="figure 2 schematic of hump model with piston, bottom view" alt="figure 2 schematic of hump model with piston, bottom view"></p>
+        <p>Fig. 3<img
+src="fig3.jpg" width="400" border="3" title="figure 3 photograph of piston assembly" alt="figure 3 photograph of piston assembly"></p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+</p>
+
+<p>Note that the two endplate frames create blockage which affects all the
+measurements for this case.  See "Experimantalist's Note 3", in the
+Experimental Data link below.  Also, one of the questions in the FAQS link
+below addresses this issue.
+</p>
+
+<p>References:</p>
+<ul>
+  <li>Greenblatt, D., Paschal, K. B., Yao, C.-S., Harris, J., Schaeffler, N. W.,
+Washburn, A. E., "A Separation Control CFD Validation Test Case, Part 1:
+Baseline and Steady Suction," AIAA Journal, Vol. 44, No. 12, 2006, pp. 2820-2830,
+<a href="https://doi.org/10.2514/1.13817">https://doi.org/10.2514/1.13817</a>
+  <li>Greenblatt, D., Paschal, K. B., Yao, C.-S., Harris, J.,
+"A Separation Control CFD Validation Test Case, Part 2:
+Zero Efflux Oscillatory Blowing," AIAA Journal, Vol. 44, No. 12, 2006, pp. 2831-2845,
+<a href="https://doi.org/10.2514/1.19324">https://doi.org/10.2514/1.19324</a>.
+  <li>Naughton, J. W., Viken, S. A., Greenblatt, D., "Skin-Friction
+Measurements on the NASA Hump Model," AIAA Journal, Vol. 44, No. 6, 2006, pp. 1255-1265,
+<a href="https://doi.org/10.2514/1.14192">https://doi.org/10.2514/1.14192</a>.
+  <li>Seifert, A. and Pack, L. G., "Active Flow Separation Control on Wall-Mounted
+Hump at High Reynolds Numbers," AIAA Journal, Vol. 40, No. 7,
+July 2002,
+<a href="https://doi.org/10.2514/2.1796">https://doi.org/10.2514/2.1796</a>.
+</ul>
+
+<br>&nbsp;
+<br>&nbsp;
+<a href="case3details.html"><span style="text-align: left; font-weight: 400; font-size: x-large">DETAILS AND SUBMISSION GUIDELINES</a>
+<br>&nbsp;
+<br>&nbsp;
+<a href="case3geometry.html"><span style="text-align: left; font-weight: 400; font-size: x-large">GEOMETRY</a>
+<br>&nbsp;
+<br>&nbsp;
+<a href="case3expdata.html"><span style="text-align: left; font-weight: 400; font-size: x-large">EXPERIMENTAL DATA</a>
+<br>&nbsp;
+<br>&nbsp;
+<a href="case3FAQs.html"><span style="text-align: left; font-weight: 400; font-size: x-large">FAQS</a>
+<br>&nbsp;
+<br>&nbsp;
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/04/2021
+<br>&nbsp;
+
+</body>
+</html>

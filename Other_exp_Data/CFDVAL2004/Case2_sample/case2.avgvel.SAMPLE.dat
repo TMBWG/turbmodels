@@ -1,0 +1,70 @@
+# Ima C. Effdeer
+# Colorful Fluid Dynamics, Inc.
+# i.c.e@cfdtillithurts.com,  (911) 911-9111
+# Provided structured 3D grid number 1, 7-zone, 4.09 million grid points total
+# 8 time steps per cycle (way too few!)
+# Code: CFL9D: upwind-biased, finite-volume, structured, RANS
+# globally 2nd order in space, 2nd order in time
+# Spalart-Allmaras turb model
+# other info
+variables="x, mm","y, mm","z, mm","u/Uinf","v/Uinf","w/Uinf"
+zone t="data along x=0, y=0"
+   0.     0.   0.   0.2344   0.0000  0.0023
+  ...etc
+   0.     0.  50.   1.2344   0.0000  0.0003
+zone t="data along x=44.45mm, y=0"
+  44.45   0.   0.   0.2344   0.0000  0.0023
+  ...etc
+  44.45   0.  50.   1.2344   0.0030  0.0001
+zone t="data along x=50.8mm, y=0"
+  50.80   0.   0.   0.2344   0.0000  0.0023
+  ...etc
+  50.80   0.  50.   1.2344   0.0000  0.0001
+zone t="data along x=57.15mm, y=0"
+  57.15   0.   0.   0.2344   0.0000  0.0023
+  ...etc
+  57.15   0.  50.   1.2344   0.0000  0.0001
+zone t="data along x=63.5mm, y=0"
+  63.50   0.   0.   0.2344   0.0000  0.0023
+  ...etc
+  63.50   0.  50.   1.2344   0.0000  0.0001
+zone t="data along x=76.2mm, y=0"
+  76.20   0.   0.   0.2344   0.0000  0.0023
+  ...etc
+  76.20   0.  50.   1.2344   0.0000  0.0001
+zone t="data along x=101.6mm, y=0"
+ 101.60   0.   0.   0.2344   0.0000  0.0023
+  ...etc
+ 101.60   0.  50.   1.2344   0.0000  0.0001
+zone t="data along x=57.15mm, z=5mm"
+  57.15 -25.0  5.   0.2344   0.0000  0.0023
+  ...etc
+  57.15  25.0  5.   1.2344   0.0000  0.0003
+zone t="data along x=57.15mm, z=10mm"
+  57.15 -25.0 10.   0.2344   0.0000  0.0023
+  ...etc
+  57.15  25.0 10.   1.2344   0.0000  0.0003
+zone t="data along x=57.15mm, z=20mm"
+  57.15 -25.0 20.   0.2344   0.0000  0.0023
+  ...etc
+  57.15  25.0 20.   1.2344   0.0000  0.0003
+zone t="data along x=63.5mm, z=5mm"
+  63.50 -25.0  5.   0.2344   0.0000  0.0023
+  ...etc
+  63.50  25.0  5.   1.2344   0.0000  0.0003
+zone t="data along x=63.5mm, z=10mm"
+  63.50 -25.0 10.   0.2344   0.0000  0.0023
+  ...etc
+  63.50  25.0 10.   1.2344   0.0000  0.0003
+zone t="data along x=63.5mm, z=20mm"
+  63.50 -25.0 20.   0.2344   0.0000  0.0023
+  ...etc
+  63.50  25.0 20.   1.2344   0.0000  0.0003
+zone t="data along z=0.4mm, y=0"
+  47.625  0.   0.4  0.2344   0.0000  0.0023
+  ...etc
+  53.975  0.   0.4  1.2344   0.0000  0.0003
+zone t="data along z=10mm, y=0"
+  45.00   0.  10.   0.2344   0.0000  0.0023
+  ...etc
+  70.00   0.  10.   1.2344   0.0000  0.0003

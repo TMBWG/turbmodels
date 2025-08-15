@@ -1,0 +1,103 @@
+This grid is VERY similar to Grid #1 (case3.struct.1.p2dfmt), 
+with the exception that the top wall's shape has been adjusted to 
+APPROXIMATELY account for blockage caused by the side plates in 
+the experiment.
+
+This grid is in nondimensional units (nondimensionalized by hump chord
+of 16.536 inches).
+
+This is a 4-zone grid, with 1-to-1 interface connectivity,
+created using Gridgen V14.
+
+The zone sizes are as follows:
+ 793x217
+ 161x121
+  65x121
+  49x217
+
+
+The 1-to-1 blocking data is as follows:
+
+   1-1 BLOCKING DATA:
+      NBLI
+         3
+ NUMBER   GRID     :    ISTA   JSTA   KSTA   IEND   JEND   KEND  ISVA1  ISVA2
+      1      1             1    233      1      2    353      1      1      2
+      2      3             1      1      1      2      1    121      1      3
+      3      1             1      1      1      2      1    217      1      3
+ NUMBER   GRID     :    ISTA   JSTA   KSTA   IEND   JEND   KEND  ISVA1  ISVA2
+      1      3             1     65    121      2     65      1      1      3
+      2      2             1    161      1      2    161    121      1      3
+      3      4             1     49      1      2     49    217      1      3
+
+The way to read the above table is to match the number 
+from the 1st set with the number from the 2nd set.  For
+example, for interface number 1, grid 1 connects with grid 3.
+Because this is a 2-D grid, the i-indices ISTA and IEND
+are irrelevant.  The j-index from zone 1 from 233-353 
+(at k=1) matches up with the k-index from zone 3 from
+121-65 (reverse ordering) (at j=65).  The parameters isva1 
+and iva2 indicate which index is varying (but because
+this is a 2-D grid, the fact that the i-index is varying
+(ISVA1=1) is irrelevant)... for interface
+number 1 the j-index (ISVA2=2) is varying in grid 1, 
+and the k-index (ISVA=3) is varying in grid 3.
+
+
+The B.C.s are as follows:
+
+Zone 1 J0  : 1-to-1 interface with zone 4
+       JDIM: downstream tunnel outflow (set back pressure)
+       K0  : wall from 1-233 and 353-793; 1-to-1 interface with zone 3 from 233-353
+       KDIM: inviscid wall
+Zone 2 J0  : bottom of bell-shaped chamber
+               this BC may be inviscid wall when there is no flow control
+               or else it may be the BC that defines suction/blowing
+       JDIM: 1-to-1 interface with zone 3
+       K0  : wall
+       KDIM: wall
+Zone 3 J0  : 1-to-1 interface with zone 2
+       JDIM: 1-to-1 interface with part of zone 1
+       K0  : wall
+       KDIM: wall
+Zone 4 J0  : upstream tunnel inflow
+       JDIM: 1-to-1 interface with zone 1
+       K0  : wall
+       KDIM: inviscid wall
+
+----------
+
+This grid system extends to x/c=-6.39 upstream of the
+bump's leading edge, and to x/c=4.0 downstream.  The grid
+height is modified from the original height of
+y/c=0.90905 (which corresponds with the actual
+tunnel height of 15.032 inches from the splitter plate to
+the top tunnel wall).  The tunnel top wall is adjusted
+to APPROXIMATELY account for tunnel blockage due to the
+side plates.  The top wall contour shape was obtained by computing
+the approximate local cross-sectional area of the side
+plates and dividing it by the local cross-sectional
+area of the tunnel (above the splitter plate and hump), then 
+scaling the top wall shape in the 2-D grid by this factor.
+
+Also, note that if you desire to input boundary conditions
+directly at the "inflow" location of x/c=-2.14 (the location
+where upstream data was taken in the experiment), then zone 4
+can be omitted (i.e., zone 1 has a forward extent to 
+exactly x/c=-2.14).
+
+The min spacing at viscous walls was set to be approximately
+8.e-6.  This minimum spacing yields a y+ value less than 1, 
+even for the grid when every other point is removed in each 
+coordinate direction.  The top tunnel wall has inviscid-type 
+wall grid spacing.
+
+Format for the structured grid is PLOT3D-type, formatted, 
+MG, 2D:
+
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((x(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((y(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo

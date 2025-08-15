@@ -1,0 +1,92 @@
+#
+# Midspan chordwise velocity profile on the Englar GTRI CCW model
+#
+# Test was conducted in the BART facility at the NASA Langley Research Tunnel
+# Test T100, Run 37, point 5
+#
+# Tunnel conditions
+# M: 0.10057
+# Re/ft:  680129.00000
+# dynamic pressure: 15.00855 psf
+# total pressure: 14.78698 psi
+# total temperature: 72.96265 F
+# density: 0.00229 slugs/ft^3
+#
+# Air delivery system conditions
+# Cmu: 0.11411
+# NPR (nozzle pressure ratio): 1.22330
+# plenum total pressure:  17.96140 psi
+# plenum total temperature: 76.89649 F
+# mass flow rate: 0.15341 lbm/sec
+#
+# Note that z=0 is 2 inches beneath the tunnel floor;
+# The model abuts the tunnel ceiling at z=30 inches.
+# Midspan data taken at z = 15 in., but the model is 2 in. beneath the tunnel floor
+# so this location is actually 13 in. above the floor and 15 in. beneath the ceiling.
+#
+# Variable description
+# x: chordwise coordinate, inches
+# Cp: coefficient of pressure
+#
+variables = "x","cp"
+0.000	-6.85564
+0.084	-4.83082
+0.167	-4.43055
+0.328	-3.62869
+0.489	-3.16119
+0.634	-2.89365
+1.107	-2.43277
+1.558	-2.18790
+2.324	-1.96000
+3.105	-1.89413
+4.310	-1.72539
+5.082	-1.67433
+5.693	-1.73793
+5.929	-1.80774
+6.481	-2.03604
+7.330	-2.82099
+7.784	-8.51704
+7.877	-6.52942
+7.982	-7.48914
+8.061	-7.97342
+8.126	-7.87005
+8.206	-8.26613
+8.276	-8.16799
+8.340	-7.87505
+8.394	-7.19680
+8.450	-6.56920
+8.496	-5.70941
+8.528	-4.98650
+8.560	-4.67053
+8.582	-3.13201
+8.595	-1.99486
+8.600	-0.13119
+8.595	0.38346
+8.582	0.49382
+8.560	0.60671
+8.529	0.65827
+8.491	0.68616
+8.446	0.70041
+8.397	0.70406
+8.327	0.70351
+8.274	0.70190
+8.200	0.69916
+8.119	0.69816
+8.050	0.68852
+7.965	0.67482
+7.879	0.64978
+7.788	0.63708
+7.225	0.63368
+6.550	0.59647
+5.927	0.56875
+5.065	0.53349
+4.300	0.49906
+3.091	0.49618
+2.315	0.51253
+1.565	0.64850
+1.108	0.73959
+0.677	0.86324
+0.515	0.93863
+0.334	0.99484
+0.194	0.90515
+0.083	0.43291

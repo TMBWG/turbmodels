@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: CFDVAL2004 Case 2 Frequently Asked Questions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">
+Exp: CFDVAL2004 Case 2 Frequently Asked Questions</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="case2_cfdval2004.html">CFDVAL2004 Case 2 - Intro Page</a></p>
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">How is the "phase angle 0 deg" defined in the experiment?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">The phase angle in the experiment is based on the input voltage
+that drives the actuator (see the file "Driver BCs from experiment" under
+<a href="case2details.html">Case 2 Details and Submission Guidelines</a>).  
+There is naturally a phase lag
+between the voltage input and the actual velocity that emanates from the
+orifice opening.  It ends up that the peak (maximum) velocity out of the
+orifice occurs somewhere near 110-120 deg, as shown in the first figure
+on that webpage (plot of OverExit.dat).  Ultimately, the goal is
+to align CFD's phase to approximately match the experiment as best as
+possible over the course of the entire 360 degrees of phase at the orifice
+exit shown in this figure.  We have tried to choose criteria for
+determining phase that approximates experiment at this location AND is
+specific enough so that different CFD solutions can be meaningfully
+compared.  This method is described near the bottom of the above-mentioned webpage.
+Although participants are given some
+latitude to determine phase as appropriate, we encourage everyone to use
+the prescribed method for consistency, if possible.</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">What is the nominal tunnel "freestream" turbulence level in the
+15 x 9.8 inch tunnel?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">In previous testing, the Tu level was measured 
+at approximately 0.13% at M=0.1.</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">What is the volume of the cavity?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">The nominal <em>as-built</em> volume of the
+cavity in Case 2 is approximately 22674 mm<sup>3</sup> (computed from the
+3-D structured grid).  This includes the volume of the 
+orifice up to the tunnel floor.  However, note that when the wind tunnel is 
+on and when the moveable piston is operating, the neutral position of the plate
+moves up by about 1.1 mm (see brief discussion under
+<a href="case2details.html">Case 2 Details and Submission Guidelines</a>).
+The amount that the volume is reduced because of this movement
+is difficult to calculate because the
+piston wall (bottom floor of the cavity) is part flexible membrane and part
+solid piston face.  An estimate is a reduction of roughly 4600 mm<sup>3</sup>.
+</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">What is the excitation voltage delivered 
+to the actuator?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">5.17 Volts rms.
+</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: blue">Q:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">Can you describe the piston arrangement for Case 2?</p>
+<p><span style="text-align: left; font-weight: 400; font-size: medium; color: red">A:<span style="text-align: left; font-weight: 400; font-size: medium; color: black">The piston 
+consists of a solid plate mounted on a flexible membrane; it is driven
+electro-mechanically. As shown under
+<a href="case2geometry.html">Case 2 Geometry</a>,
+the flexible membrane face is approximately 76 mm by 76.3 mm in size, and the
+solid plate, crudely centered on the membrane, is roughly 51 mm by 50.4 mm in size.
+The solid plate is 2 mm thick.
+At rest, the top of the piston face is located 2.78 mm below the top inside of the driver
+cavity.  However, as mentioned above (under "What is the volume of the cavity?")
+and in the brief discussion under
+<a href="case2details.html">Case 2 Details and Submission Guidelines</a>,
+when the wind tunnel is 
+on and when the moveable piston is operating, the neutral position of the plate
+moves up by about 1.1 mm.</p>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+        <p><img
+src="Case2_sample/membrane.jpg" height="524" border="3"
+     title="sketch of case 2 cavity details" alt="sketch of case 2 cavity details"></p>
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="case2_cfdval2004.html">CFDVAL2004 Case 2 - Intro Page</a></p>
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/15/2021
+<br>&nbsp;
+
+</body>
+</html>

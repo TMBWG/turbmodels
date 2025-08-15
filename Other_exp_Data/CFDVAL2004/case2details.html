@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: CFDVAL2004 Case 2 Details and Submission Guidelines</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">
+Exp: CFDVAL2004 Case 2 Details and Submission Guidelines</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="case2_cfdval2004.html">CFDVAL2004 Case 2 - Intro Page</a></p>
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: large">Relevant details for Case 2 are as follows:
+</p>
+
+<p>M_freestream = 0.10
+</p>
+
+<p>The atmospheric conditions varied, but were essentially
+standard atmospheric conditions at sea level in a wind tunnel
+vented to the atmosphere, in a
+temperature-controlled room.  These conditions can be
+given as approximately:
+</p>
+
+<p>p_ambient = approx 101325 kg/(m-s^2)
+</p>
+<p>T_ambient = approx 75 deg F (approx 297 K)
+</p>
+
+<p>Some derived relevant conditions are:
+</p>
+<p>density_ambient = approx 1.185 kg/m^3
+</p>
+<p>viscosity_ambient = approx 18.4e-6 kg/(m-s)
+</p>
+<p>u_freestream = approx 34.6 m/s
+</p>
+<p>Re_freestream = approx 2.23e6 per meter
+</p>
+
+<p>The upstream boundary conditions from the experiment (associated with the boundary
+  layer on the plate at location x=50800 microns (50.8 mm)
+  upstream of the center of the jet orifice),
+  to be used to help set/verify CFD inflow BCs, are
+  given in the following file:
+<ul>
+<li><a href="Case2_exp/UpstreamBC.dat">LV-derived Upstream BCs from experiment</a></li>
+</ul>
+</p>
+
+<p>The diaphragm frequency = 150.0 Hz.
+  The "neutral position" of the moveable diaphragm plate at rest inside the cavity is
+  approximately 2.8 mm below the upper cavity wall (see 
+  <a href="case2geometry.html">Geometry page</a> for
+  details).  However, when the wind tunnel is on and when the moveable piston is
+  operating, the neutral position of the plate moves up so that it is
+  approximately 1.7 mm below the upper cavity wall.  <em>This change in the neutral
+  position is not accounted for in the current CFD grids available from this
+  website.</em>  However, it is not known whether accounting for this shift is
+  important or not.  The plate then displaces sinusoidally about this new neutral 
+  position with a maximum displacement of approximately +-0.77 mm.  The following
+  file lists data from the cavity, including cavity pressure, voltage input,
+  and displacement data about its neutral position:
+<ul> 
+<li><a href="Case2_exp/DriverBCrevised.dat">Driver BCs from experiment</a>, updated 
+     24 December 2003</li>
+</ul>
+  The pressure is measured inside the cavity on its top wall, to one side of the orifice,
+  approximately on the order of 10 mm from the side wall.  The pressure 
+  is measured with respect to the tunnel static pressure.
+</p>
+
+<p>The following figure (updated on 24 December 2003) shows the measured 
+phase-averaged streamwise and vertical velocities 
+over the (approximate) center of the orifice as a function of phase.</p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="Case2_exp/OverExitrevised.jpg" height="824" border="3"
+     title="plot of near-centerline velocities as function of phase" alt="plot of near-centerline velocities as function of phase"></p>
+       </tr>
+     </center>
+     </table>
+<p> These LV-derived data over the orifice (plus other quantities of interest) 
+are given in the following file:
+<ul>
+<li><a href="Case2_exp/OverExitrevised.dat">OverExitrevised.dat</a>, updated
+     12 February 2004 (minor fix: previous file label had X, Y, and Z in
+     microns... it should have said mm)</li>
+</ul>
+Note in the data file that the spanwise (v) velocity as measured is not near zero.
+</p>
+
+<br>&nbsp;
+<!--  <img SRC="construction.gif"  align=CENTER>  -->
+<p><span style="text-align: left; font-weight: 400; font-size: large">Submission Guidelines:
+</p>
+
+<p>(Last updated:  24 December 2003)</p>
+
+<!--<p>Specific submission guidelines have not been established yet...
+they will be posted here in the near future.
+</p>-->
+
+<p>Numerical predictions of this type of statistically unsteady flow are
+relatively new. The purpose here is to determine the state-of-the-art in modeling
+these types of unsteady synthetic-jet-type flows, so we want to explore which CFD
+methods work and which do not.</p>
+
+<p>
+  <ul>
+    <li type=square>You can either model the internal cavity or specify an
+        unsteady boundary condition at the orifice exit. </li>
+    <li type=square>You may choose to model the moving diaphragm, or you may employ
+        an unsteady boundary condition that approximates its effect
+        within the cavity. </li>
+  </ul>
+
+<p>There is the requirement that you detail specifically how you choose
+to model the case, including all boundary conditions and approximations made.
+As we assess the methodologies used at the workshop, it will be important to
+know as many details as possible about the calculations/simulations. </p>
+
+<p>Detailed requirements include:
+
+<p>1. The case must be run time-accurately and in three-dimensions, in order to
+simulate the unsteady 3-D nature of the case.
+
+<p>
+ <ul>
+   <li>1a. RANS codes run in time-accurate mode (e.g., URANS) solve directly for
+phase-averaged variables, i.e. &lt;u<sub>i</sub>&gt; and 
+&lt;u'<sub>i</sub>u'<sub>j</sub>&gt;.  
+Click on <a href="DataSetCases_theor.pdf">link to PDF write-up</a>
+for more details.
+Therefore, RANS
+simulations should result in repeating or very-nearly-repeating periodic
+solutions.  When periodicity is achieved, averages over one or more
+periods of oscillation yields the long-time-averaged (time-independent mean)
+values for these quantities. </li>
+
+   <li>1b. DNS, LES, or DES simulations will need to be post-processed to obtain both
+the phase-averaged and long-time-averaged (time-independent mean) values. </li>
+ </ul>
+
+<p>2. GRID STUDY:  Solutions using more than one grid
+size are encouraged, but not required.  If you use more than
+one grid, submit each set of results separately.
+
+<p>3. TIME STEP STUDY:  Solutions using more than one time step
+are encouraged, but not required.  If you use more than
+one time step, submit each set of results separately.
+
+<p>Specific quantities that result from your computations
+at particular locations will be required for submission.
+Note that for all the following, we adopt the coordinate system
+with x downstream, z up, and y spanwise, with the (x,y,z)=(0,0,0) origin
+on the tunnel splitter plate 8 diameters (50.8 mm) directly upstream of
+the center of the orifice (the orifice diameter is 0.25 inches = 6.35 mm).
+The requirements follow (if you are unable to provide a particular
+quantity, simply leave it out of the "variable" list, and reduce
+the number of columns of data submitted):
+</p>
+
+<p>
+<pre>
+a. Long-time-averaged downstream velocity (u), spanwise velocity (v), and
+vertical velocity (w) profiles (nondimensionalized by Uinf) along
+vertical lines at the centerplane (y=0) and: x=0 mm, x=44.45 mm (-1D upstream),
+x=50.8 mm (center of orifice),
+x=57.15 mm (1D downstream), x=63.5 mm (2D downstream), x=76.2 mm (4D downstream),
+and x=101.6 mm (8D downstream).  Give these data to at least a height of 50 mm.
+Also, submit horizontal lines of results at
+x=57.15 mm and: z=5 mm, z=10 mm, and z=20 mm; and also at
+x=63.5 mm and: z=5 mm, z=10 mm, and z=20 mm.  Give these data to at least a
+width of 25 mm to either side of the orifice.  Also, submit horizontal
+lines of results at y=0, z=0.4 mm over the slot (from approx x=47.625 mm to
+x=53.975 mm), and at y=0, z=10 mm from at least x=45 mm to x=70 mm.
+   Name this file: case2.avgvel.ANYTHING.dat
+    -where "ANYTHING" can be any descriptor you choose (should
+     be different for each file if you are submitting multiple
+     runs)
+    -the file should be in 6-column format:
+      1st line: #your name (pound sign needed)
+      2nd line: #your affiliation (pound sign needed)
+      3rd line: #your contact info (pound sign needed)
+      4th line: #brief description of grid (pound sign needed)
+      5th line: #number of time steps per cycle (pound sign needed)
+      6th line: #brief description of code/method (pound sign needed)
+      7th line: #other info about the case, such as spatial accuracy (pound sign needed)
+      8th line: #other info about the case, such as turb model (pound sign needed)
+      9th line: #other info about the case (pound sign needed)
+     10th line: variables="x, mm","y, mm","z, mm","u/Uinf","v/Uinf","w/Uinf"
+     11th line: zone t="data along x=0, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=0, y=0
+     next line: zone t="data along x=44.45mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=44.45, y=0
+     next line: zone t="data along x=50.8mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=50.8, y=0
+     next line: zone t="data along x=57.15mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=57.15, y=0
+     next line: zone t="data along x=63.5mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=63.5, y=0
+     next line: zone t="data along x=76.2mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=76.2, y=0
+     next line: zone t="data along x=101.6mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=101.6, y=0
+     next line: zone t="data along x=57.15mm, z=5mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=57.15, z=5
+     next line: zone t="data along x=57.15mm, z=10mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=57.15, z=10
+     next line: zone t="data along x=57.15mm, z=20mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=57.15, z=20
+     next line: zone t="data along x=63.5mm, z=5mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=63.5, z=5
+     next line: zone t="data along x=63.5mm, z=10mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=63.5, z=10
+     next line: zone t="data along x=63.5mm, z=20mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along x=63.5, z=20
+     next line: zone t="data along z=0.4mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along z=0.4, y=0
+     next line: zone t="data along z=10mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf <- this is the data along z=10, y=0
+</pre>
+  <ul>
+    <li type=square> Download sample file <a href="Case2_sample/case2.avgvel.SAMPLE.dat">
+case2.avgvel.SAMPLE.dat</a> (updated 9 December 2003)
+  </ul>
+</p>
+<p>
+<pre>
+b. Phase-averaged quantities at 9 different phases during
+the cycle:  0 deg, 40 deg, 80 deg, 120 deg, 160 deg,
+200 deg, 240 deg, 280 deg, 320 deg.; where you should align the phases of
+your computation as described below.  Submit the following phase-averaged
+&lt;&gt; quantities:  u/Uinf, v/Uinf, w/Uinf, u'u'bar/Uinf^2, v'v'bar/Uinf^2,
+w'w'bar/Uinf^2, u'v'bar/Uinf^2, u'w'bar/Uinf^2, v'w'bar/Uinf^2
+(nondimensionalized),
+where:
+   u = phase-averaged downstream velocity component
+   v = phase-averaged spanwise velocity component
+   w = phase-averaged vertical velocity component
+   u'u'bar = phase-averaged turbulent normal stress in downstream direction
+   v'v'bar = phase-averaged turbulent normal stress in spanwise direction
+   w'w'bar = phase-averaged turbulent normal stress in vertical direction
+   u'v'bar = phase-averaged turbulent shear stress in x-y plane
+   u'w'bar = phase-averaged turbulent shear stress in x-z plane
+   v'w'bar = phase-averaged turbulent shear stress in y-z plane
+The locations for these data are the same as for the long-time-averaged
+quantities.
+   Name these files: case2.phase000.ANYTHING.dat
+                     case2.phase040.ANYTHING.dat
+                     case2.phase080.ANYTHING.dat
+                     case2.phase120.ANYTHING.dat
+                     case2.phase160.ANYTHING.dat
+                     case2.phase200.ANYTHING.dat
+                     case2.phase240.ANYTHING.dat
+                     case2.phase280.ANYTHING.dat
+                     case2.phase320.ANYTHING.dat
+    -where "ANYTHING" can be any descriptor you choose (should
+     be different for each file if you are submitting multiple
+     runs)
+    -the file should be in 12-column format:
+      1st line: #your name (pound sign needed)
+      2nd line: #your affiliation (pound sign needed)
+      3rd line: #your contact info (pound sign needed)
+      4th line: #brief description of grid (pound sign needed)
+      5th line: #number of time steps per cycle (pound sign needed)
+      6th line: #brief description of code/method (pound sign needed)
+      7th line: #other info about the case, such as spatial accuracy (pound sign needed)
+      8th line: #other info about the case, such as turb model (pound sign needed)
+      9th line: #other info about the case (pound sign needed)
+     10th line: variables="x, mm","y, mm","z, mm","u/Uinf","v/Uinf","w/Uinf",
+        "uu/Uinf^2","vv/Uinf^2","ww/Uinf^2","uv/Uinf^2","uw/Uinf^2",
+        "vw/Uinf^2"
+     11th line: zone t="data along x=0, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=0, y=0
+     next line: zone t="data along x=44.45mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=44.45, y=0
+     next line: zone t="data along x=50.8mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=50.8, y=0
+     next line: zone t="data along x=57.15mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=57.15, y=0
+     next line: zone t="data along x=63.5mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=63.5, y=0
+     next line: zone t="data along x=76.2mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=76.2, y=0
+     next line: zone t="data along x=101.6mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=101.6, y=0
+     next line: zone t="data along x=57.15mm, z=5mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=57.15, z=5
+     next line: zone t="data along x=57.15mm, z=10mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=57.15, z=10
+     next line: zone t="data along x=57.15mm, z=20mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=57.15, z=20
+     next line: zone t="data along x=63.5mm, z=5mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=63.5, z=5
+     next line: zone t="data along x=63.5mm, z=10mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=63.5, z=10
+     next line: zone t="data along x=63.5mm, z=20mm"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along x=63.5, z=20
+     next line: zone t="data along z=0.4mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along z=0.4, y=0
+     next line: zone t="data along z=10mm, y=0"
+     subsequent lines:  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf
+       uu/Uinf^2  vv/Uinf^2  ww/Uinf^2  uv/Uinf^2  uw/Uinf^2  vw/Uinf^2 <- this is the data along z=10, y=0
+</pre>
+  <ul>
+    <li type=square> Download sample file <a href="Case2_sample/case2.phase000.SAMPLE.dat">
+case2.phase000.SAMPLE.dat</a> (updated 9 December 2003)
+  </ul>
+</p>
+<p>
+<pre>
+c.  Phase-averaged time-history values of &lt;u&gt;, &lt;v&gt;, and &lt;w&gt;
+(nondimensionalized by Uinf) as a
+function of phase (deg) at three approximate point locations:
+(x,y,z)=(50.63, 0, 0.40)mm, (57.15, 0, 10)mm, and
+(63.5, 0, 10)mm.  Give the data at
+every time step taken.  In other words, if your time step yields
+100 steps per cycle, then give 100 phases between 0 deg and 360 deg.
+You should align the phases of your computation as described below.
+   Name this file: case2.phasehist.ANYTHING.dat
+    -where "ANYTHING" can be any descriptor you choose (should
+     be different for each file if you are submitting multiple
+     runs)
+    -the file should be in 7-column format:
+      1st line: #your name (pound sign needed)
+      2nd line: #your affiliation (pound sign needed)
+      3rd line: #your contact info (pound sign needed)
+      4th line: #brief description of grid (pound sign needed)
+      5th line: #number of time steps per cycle (pound sign needed)
+      6th line: #brief description of code/method (pound sign needed)
+      7th line: #other info about the case, such as spatial accuracy (pound sign needed)
+      8th line: #other info about the case, such as turb model (pound sign needed)
+      9th line: #other info about the case (pound sign needed)
+     10th line: variables="phase, deg","x, mm","y, mm","z, mm","u/Uinf","v/Uinf","w/Uinf"
+     11th line: zone t="x=50.63mm, y=0mm, z=0.4mm"
+     subsequent lines:  phase  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf  <- this is the data at x=50.63, y=0, z=0.4
+     next line: zone t="x=57.15mm, y=0mm, z=10mm"
+     subsequent lines:  phase  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf  <- this is the data at x=57.15, y=0, z=10
+     next line: zone t="x=63.5mm, y=0mm, z=10mm"
+     subsequent lines:  phase  x(mm)  y(mm)  z(mm)  u/Uinf  v/Uinf  w/Uinf  <- this is the data at x=63.5, y=0, z=10
+</pre>
+  <ul>
+    <li type=square> Download sample file <a href="Case2_sample/case2.phasehist.SAMPLE.dat">
+case2.phasehist.SAMPLE.dat</a>
+  </ul>
+</p>
+<p>
+<pre>
+d.  Field line-contour-plots (in one of the following formats: ps, eps, or jpg)
+of long-time-averaged streamwise velocity (u/Uinf) in the planes y=0mm (centerplane),
+x=57.15mm (1D downstream), and x=76.2mm (4D downstream).  
+These plots should be black-and-white line plots.
+The y=0 plane plot should go from approx x=45mm to 125mm and z=0 to 36mm.
+The x=const-plane plots should go from approx y=-18mm to +18mm, and z=0 to 36mm.
+The x-to-z ratio of the plots should be 1.0.
+Plot u/Uinf line contours of -0.5 through 1.5 in increments of
+0.1.  Label the contour lines, if possible.
+The purpose of submitting these plots is to get
+a qualitative picture of the long-time-averaged flowfield,
+indicative of the dynamic range of the orifice's influence.
+Altogether, submit 3 plot files.
+   Name these files: case2.uavg.y0.ANYTHING.eps
+                     case2.uavg.x57.15.ANYTHING.eps
+                     case2.uavg.x76.2.ANYTHING.eps
+(where the "eps" in this case means encapsulated postscript - use ps,
+or jpg instead if appropriate).
+</pre>
+</p>
+<p>
+<pre>
+e.  Field line-contour-plots (in one of the following formats: ps, eps, or jpg)
+of phase-averaged streamwise velocity (&lt;u&gt;/Uinf) in the planes y=0mm (centerplane),
+x=57.15mm (1D downstream), and x=76.2mm (4D downstream) at the following phases:
+40 deg, 120 deg, 200 deg, and 280 deg.; where you should align the phases of your computation
+as described below.  These plots should be black-and-white line plots.
+The y=0 plane plots should go from approx x=45mm to 125mm and z=0 to 36mm.
+The x=const-plane plots should go from approx y=-18mm to +18mm, and z=0 to 36mm.
+The x-to-z or x-to-y ratio of the plot should be 1.0.  For
+all plot files, plot &lt;u&gt;/Uinf line contours of -1.0 through 2.0 in increments of
+0.1.  Either (a) plot the lines of negative velocity as dashed lines
+and the lines of positive velocity as solid lines, or (b) label the
+contour lines, or (c) do both.  The purpose of submitting these plots is to get
+a qualitative picture of the phase-averaged flowfield at
+particular selected times of interest.  Altogether, submit 12 plots files.
+   Name these files: case2.phase040.y0.ANYTHING.eps
+                     case2.phase120.y0.ANYTHING.eps
+                     case2.phase200.y0.ANYTHING.eps
+                     case2.phase280.y0.ANYTHING.eps
+                     case2.phase040.x57.15.ANYTHING.eps
+                     case2.phase120.x57.15.ANYTHING.eps
+                     case2.phase200.x57.15.ANYTHING.eps
+                     case2.phase280.x57.15.ANYTHING.eps
+                     case2.phase040.x76.2.ANYTHING.eps
+                     case2.phase120.x76.2.ANYTHING.eps
+                     case2.phase200.x76.2.ANYTHING.eps
+                     case2.phase280.x76.2.ANYTHING.eps
+(where the "eps" in this case means encapsulated postscript - use ps,
+or jpg instead if appropriate).
+</pre>
+</p>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Definition of Phase for the Computations (modified 24 December 2003)</p>
+
+<p>Matching the same phases with the experiment is not necessarily straightforward.
+One way to do it is to try to align a quantity from
+experiment (such as vertical velocity near the jet exit), but this
+can be imprecise because the CFD and experimental data are not necessarily
+well-behaved sine-waves.  The best criteria for determining
+phase may in fact be a different measure altogether.</p>
+
+<p>On the other hand, in this workshop we want to be able to compare CFD results
+with each other, so it is important to try to achieve the same
+phase definitions in order that all computations are similarly aligned.
+We have tried to choose criteria for determining phase that
+approximates experiment AND is specific enough so that different
+CFD solutions can be meaningfully compared.</p>
+
+<p>Therefore, although participants are given some latitude to determine
+phase as appropriate, we encourage everyone to use the following steps
+to define phase in a uniform fashion for Case 2:</p>
+
+<p>
+ <ul>
+   <li><strong>Step 1</strong>.  Output vertical phase-averaged velocity (w) at the following point in space
+(over the orifice) as a function of your iteration or time step number:
+(x,y,z)=(50.63, 0, 0.40)mm.  Find wmax and wmin over the course of one
+phase-averaged period.</li>
+   <li><strong>Step 2</strong>.  Compute the mid-value <strong>wavg</strong>=(wmax+wmin)/2</li>
+   <li><strong>Step 3</strong>.  Define Phase=50 deg as the time when your velocity at this location
+approximately equals <strong>wavg</strong> (INCREASING).  All other phases can be referenced
+from this, via the following relation:</li>
+   <p><dd>Phase=(iter-it50)*360/nstep+50</dd></p>
+<p>where:</p>
+   <dd>iter =iteration (or time step) number</dd>
+   <dd>nstep=no. of time steps per cycle</dd>
+   <dd>it50=iteration number when Phase=50 according to the above criteria</dd>
+ </ul>
+</p>
+
+<p>For example, if you are running 360 steps per cycle and
+you match the above criteria at time step number 5492, then</p>
+  <dd>Phase=iter-5442</dd>
+<p>Thus, when iter=5442, then Phase=0; when iter=5622, then Phase=180;
+when iter=5802, then Phase=360.  Note that Phase=360 also corresponds
+with Phase=0 (it repeats every 360 deg). This is illustrated
+in the following figure (updated on 24 December 2003):</p>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+        <p><img
+src="Case2_sample/phaseexample2.jpg" height="674" border="3"
+     title="plot showing how to determine phase" alt="plot showing how to determine phase"></p>
+       </tr>
+     </center>
+     </table>
+
+<p>As another example, say you are running 1080 steps per cycle and
+you match the above criteria at time step number 10002, then</p>
+  <dd>Phase=(iter-10002)/3+50</dd>
+<p>Thus, when iter=9852, then Phase=0; when iter=10392, then Phase=180;
+when iter=10932, then Phase=360.</p>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="case2_cfdval2004.html">CFDVAL2004 Case 2 - Intro Page</a></p>
+Return to: <a href="../cfdval2004_exp.html">CFDVAL2004 - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 05/15/2021
+<br>&nbsp;
+
+</body>
+</html>

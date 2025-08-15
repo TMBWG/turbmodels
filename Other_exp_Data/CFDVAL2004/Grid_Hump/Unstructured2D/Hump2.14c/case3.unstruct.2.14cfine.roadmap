@@ -1,0 +1,53 @@
+The grid is in nondimensional units (nondimensionalized by hump chord of 16.536 inches).
+
+This grid has 116110 nodes, 345880 faces, and 232218 cells.  The grid was created using AFLR2.
+
+This grid extends to x/c = -2.14 upstream of the bump's leading edge, and to x/c = 4.0 downstream.
+The grid height is y/c = 0.90905, which corresponds with the actual hieght of 15.032 inches from
+the splitter plate to the top of the tunnel.
+
+This grid should only be used if one wants to specify boundary conditions directly at the
+"inflow" location of x/c = -2.14 (the location where upstream data was taken in the experiment).
+
+The minimum spacing at the viscous walls was set to be approximately 8.e-06.  This minimum
+spacing yields a y+ value less than 1. The top tunnel wall was not set up to use viscous spacing.
+
+File format:
+-----------
+
+hump2.14cfine.0.faces is in FUN2D code format which is specified below. The floor and hump model are defined
+as nviscousfaces, the bottom of bell-shaped chamber and the top tunnel wall are defined as ninvicidfaces,
+and inflow and outflow boundaries are defined as nfarfieldfaces below:
+
+
+      write(2,*)mk,mj,mi0,nsface,nvface,nfface   !nnodes,nfaces,ncells,ninviscidfaces,nviscousfaces,nfarfieldfaces
+      write(2,2)((jk(j,l),l=1,4),j=1,mj)         !all the faces jk() array
+          ! The line in question writes 2 nodes and 2 cells for each edge/face:
+          ! 1st entry is the node on the "left"
+          ! 2nd entry is the node on the "right"
+          ! 3rd entry is the cell to the left of the edge
+          ! 4th entry is the cell to the right of the edge
+    2 format(10i12)
+c
+      if(nsface.gt.0)then
+      write(2,*)' symmetry faces:'
+      write(2,2)(isface(j),j=1,nsface)           !isface(j) is the sym. bface index to the jk() array
+      endif
+c
+      if(nvface.gt.0)then
+      write(2,*)' no-slip faces:'
+      write(2,2)(ivface(j),j=1,nvface)           !ivface(j) is the no-slip bface index to the jk() array
+      endif
+c
+      if(nfface.gt.0)then
+      write(2,*)' farfield faces:'
+      write(2,2)(ifface(j),j=1,nfface)           !ifface(j) is the farfield bface index to the jk() array
+      endif
+c
+      write(2,*)' x,y coordinates:'
+      do 20 k=1,mk
+   20 write(2,3)x(k),y(k)
+    3 format(2e19.10)
+c
+
+

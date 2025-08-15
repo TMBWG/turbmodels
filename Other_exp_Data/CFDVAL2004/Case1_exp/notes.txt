@@ -1,0 +1,19 @@
+Some informal experimentalist's notes concerning Case 1:
+
+1) The PIV and hot-wire data were taken with different actuators
+(over time, the first actuator failed and needed to be replaced);
+the pressure signatures in the actuator cavity, however, were very
+similar.
+
+2) The PIV data may have problems close to the surface due to the 
+acceleration of the particles.
+
+3) The hot-wire has several problems with this flowfield.  Close to 
+the jet exit the hot-wire data has unknown errors because of 
+non-linearities arising from the high fluctuation level.  The 
+temperature differences between the hot-wire calibration and the jet 
+flow may not be accounted for completely, although an attempt was 
+made to measure the fluctuating temperature of the jet.  Also, the 
+PIV data suggest that the jet may be moving back and forth so the 
+hot-wire may not always be acquiring data on the precise centerline 
+of the jet.

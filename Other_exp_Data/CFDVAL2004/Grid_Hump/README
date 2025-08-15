@@ -1,0 +1,7 @@
+
+Directories Iges and ProE both contain THEORETICAL
+geometry (which we decided was close enough to QA
+to use)
+
+Directory QA_Compare contains comparisons between QA and
+theoretical geometries

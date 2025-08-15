@@ -1,0 +1,16 @@
+# Ima C. Effdeer
+# Colorful Fluid Dynamics, Inc.
+# i.c.e@cfdtillithurts.com,  (911) 911-9111
+# Provided structured 2D grid number 2, 9-zone, 198,545 grid points total
+# 8 time steps per cycle (way too few!)
+# Code: CFL9D: upwind-biased, finite-volume, structured, RANS
+# globally 2nd order in space, 2nd order in time
+# Spalart-Allmaras turb model
+# other info
+variables="y, mm","avg jet width, mm"
+zone t="jet width"
+  0.     1.01
+  ...etc
+ 10.0    1.34
+  ...etc
+ 20.0    1.59

@@ -1,0 +1,17 @@
+# Ima C. Effdeer
+# Colorful Fluid Dynamics, Inc.
+# i.c.e@cfdtillithurts.com,  (911) 911-9111
+# Provided unstructured 2D grid number 3, 116110 nodes, 345880 faces, and 232218 cells
+# Code: FUN9D: upwind-biased, finite-difference, unstructured, RANS
+# globally 2nd order in space, 2nd order in time
+# Explicit Algebraic Stress turb model in k-omega form
+# other info 
+variables="x/c","Cp"
+zone t="surface Cp, no flow case"
+ -6.1456    0.0156
+  ...etc
+  4.0000   -0.1245
+zone t="surface Cp, suction case"
+ -6.1456    0.0256
+  ...etc
+  4.0000   -0.2349

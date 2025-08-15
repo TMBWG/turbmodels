@@ -1,0 +1,40 @@
+#
+# LDV Mean velocity profiles on the Englar GTRI CCW model
+#
+# Test was conducted in the BART facility at the NASA Langley Research Tunnel
+# Test T100
+#
+# Tunnel conditions
+# M: 0.100
+#
+# Air delivery system conditions
+# Cmu: 0.047
+# NPR: 1.088
+# mass flow rate: 0.097 lbm/sec
+#
+# Variable description
+# u/U: normalized streamwise velocity
+# v/U: normalized wall-normal velocity
+# u'/U: normalized streamwise turbulence stress
+# v'/U: normalized wall-normal turbulence stress
+# uv/U^2: normallized reynolds stress
+# y/c: wall-normal coordinate divided by model chord
+#
+variables = "y/c","u/U","v/U","u'/U","v'/U","uv/U^2"
+0.000593	0.6245	0.005208	0.081105	0.040153	-0.00130751
+0.000826	0.6372	0.003613	0.080286	0.043784	-0.00144214
+0.001186	0.6504	0.001649	0.075558	0.046288	-0.00141653
+0.001791	0.6716	0.005498	0.074518	0.048168	-0.00157347
+0.003674	0.7113	0.004406	0.070865	0.047075	-0.00148013
+0.004721	0.7308	0.003771	0.069041	0.047651	-0.00148591
+0.006744	0.7757	-0.000817	0.064674	0.044076	-0.00135459
+0.008756	0.8188	-0.002049	0.057191	0.036602	-0.00103741
+0.010767	0.8470	-0.008001	0.049161	0.033725	-0.00066028
+0.012826	0.8711	-0.008174	0.038354	0.026823	-0.00035310
+0.014802	0.8823	-0.004598	0.021698	0.015313	-0.00009639
+0.018826	0.8832	-0.004006	0.017590	0.009497	-0.00002474
+0.023500	0.8826	-0.005616	0.016487	0.008064	-0.00002427
+0.028163	0.8823	-0.005748	0.015968	0.007940	-0.00000981
+0.057233	0.8797	-0.007498	0.017791	0.008417	-0.00003312
+0.115372	0.8728	-0.001384	0.015380	0.007541	-0.00002482
+

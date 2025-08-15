@@ -1,0 +1,124 @@
+Update as of 7/29/2014
+Explanation of terms in the DNS data files:
+
+Unless otherwise stated, all variables are normalized by the initial channel
+half-width delta(0) and initial friction velocity u_tau(0).  The initial
+conditions are based on the unstrained channel flow.
+(Data posted prior to 6/11/2014 were nondimensionalized differently:
+by initial channel half-width delta(0) and reference velocity Uref=26.330*utau(0).)
+Note that in the header section in each data file the variable 
+u_tau provided is utau(t)/Uref.
+
+From the unstrained data, Re_tau(0) = RE*(u_tau(0)/u_ref)=391.68274815
+
+Upper case U,V,W,P represent (unsteady, plane/cross-centerline/ensemble-averaged) 
+mean values, and lower case u,v,w,p represent fluctuations
+
+strain_time  = time over which the straining has been applied
+yw           = wall-normal distance wrt delta(t), where delta(t)=delta(0)*exp(A22*t)
+A22          = uniform strain magnitude in wall-normal direction
+A11          = uniform streamwise deceleration (=-A22) (A13=A33=0 for this 2-D flow)
+B22          = exp(-A22*t)
+B11          = exp(-A11*t)
+B33          = exp(-A33*t) = 1 for this 2-D flow
+Ubar         = mean streamwise velocity U
+dU/dy        = partial derivative of U wrt y
+Wbar         = mean spanwise velocity W (approx = 0 for this 2-D case)
+|dW/dy|      = absolute value of partial derivative of W wrt y
+rms_u        = root-mean-square of streamwise velocity fluctuations
+rms_v        = root-mean-square of vertical velocity fluctuations
+rms_w        = root-mean-square of spanwise velocity fluctuations
+.5*q2        = turbulent kinetic energy (TKE) = 0.5*(rms_u**2 + rms_v**2 + rms_w**2)
+-uv,-vw,|uw| = 2nd order turbulence velocity correlations = turbulent shear stress components
+tau_x        = total (viscous plus turbulent) kinematic shear stress in the streamwise direction
+tau_x+       = tau_x in local (i.e., wrt utau(t)) wall units
+tau_z        = total kinematic shear stress in the spanwise direction
+tau_z+       = tau_z in local wall units
+tau/q**2     = sqrt(uv(plane)**2+vw(plane)**2)/q2(plane) (Townsend structure parameter)
+|Pbar|       = mean (i.e., the (k_x,k_z)=(0,0) mode) static kinematic pressure abs(P) wrt an arbitrary reference value
+|dP/dy|      = absolute value of partial derivative of Pbar wrt y
+PP_bar       = square of instantaneous pressure <(Pbar+p)(Pbar+p)>
+rms_p        = root-mean-square of static kinematic pressure fluctuations
+Pk_Aii       = production due to applied strain in the k-equation
+k^(3/2)/eps_k= turbulence length scale [k**(3/2)]/eps
+RE           = Reynolds number with respect to ref velocity (Uref) and initial
+               channel half-width (delta(0)) = 10313
+S(u)         = skewness of u
+S(v)         = skewness of v
+S(w)         = skewness of w
+S(p)         = skewness of p
+F(u)         = flatness of u
+F(v)         = flatness of v
+F(w)         = flatness of w
+F(p)         = flatness of p
+
+p(s)         = probability density function of s (these are given in separate pdf_*.dat files)
+
+uuv,uvv,vvv,uuu            = 3rd order turbulence velocity correlations
+u3v,u2v2,uv3,v4,u4         = 4th order turbulence velocity correlations
+u4v,u3v2,u2v3,uv4,v5,u5,w5 = 5th order turbulence velocity correlations 
+
+In the following, xx denotes term in particular budget; 
+for example 22 for vv budget, 33 for ww budget, k for TKE budget
+(see also : Sciberras, M. A. and Coleman, G. N., "Testing of
+Reynolds-stress-transport closures by comparison with DNS of an idealized
+adverse-pressure-gradient boundary layer," European Journal of Mechanics
+B/Fluids, Vol. 26, 2007, pp. 551-582.). All terms are normalized by
+Uref**4/nu.  For example, to convert the following to wall units wrt 
+initial conditions, divide by (utau(0)/Uref)**4 = (1/26.330)**4:
+P_xx        = production term
+\eps_xx     = dissipation term
+T_xx        = turbulent transport term
+D_xx        = viscous diffusion term
+\Pi_xx      = velocity pressure-gradient term
+Pxx_Axx     = production terms due to applied straining
+d/dt        = sum of RHS terms in transport equation ("balance" of the eqn)
+\phi_xx     = pressure-strain term
+
+In the following, xxx denotes term in particular budget; 
+for example 111 for uuu budget, 112 for uuv budget. All terms are normalized
+by Uref**5/nu.  For example, to convert the following to wall units wrt 
+initial conditions, divide by (utau(0)/Uref)**5 = (1/26.330)**5:
+PS_xxx      = production term due to gradients of mean flow terms
+T_xxx       = turbulent transport term
+D_xxx       = viscous diffusion term
+PT_xxx      = production term due to gradients of lower-order moment terms
+\Pi_xxx     = velocity pressure-gradient term
+\eps_xxx    = dissipation term
+PA_xxx      = production term due to applied straining
+balance     = sum of RHS terms in transport equation ("balance" of the eqn)
+\psi_xxx    = pressure transport term
+
+In the following, xxxx denotes term in particular budget; 
+for example 1111 for uuuu budget, 1112 for uuuv budget. All terms are
+normalized by Uref**6/nu.  For example, to convert the following to wall units
+wrt initial conditions, divide by (utau(0)/Uref)**6 = (1/26.330)**6:
+PS_xxxx     = production term due to gradients of mean flow terms
+T_xxxx      = turbulent transport term
+D_xxxx      = viscous diffusion term
+PT_xxxx     = production term due to gradients of lower-order moment terms
+\Pi_xxxx    = velocity pressure-gradient term
+\eps_xxxx   = dissipation term
+PA_xxxx     = production term due to applied straining
+balance     = sum of RHS terms in transport equation ("balance" of the eqn)
+\psi_xxxx   = pressure transport term
+
+Other turbulence velocity correlations provided:
+w3,w4,uw2,vw2,u2w2,v2w2,uvw2,u6,v6,w6
+
+Other supplementary correlations provided:
+wdpdy,wdpdx,wdpdz,vdpdz,udpdz,w2dpdx,w2dpdy,uvdpdz,u2dpdz,v2dpdz,w2dpdz,d<w2>dy
+(where, for example, dpdz represents partial derivative of p wrt z, and
+d<w2>dy = partial derivative of correlation of w**2 wrt y)
+
+ 
+Changes between revisions:
+
+Changes between 6/11/2014 and 7/29/2014:
+1. Pressure statistics were previously incorrect in all files (bug).
+2. Minor differences in the unstrained data due to previous use of lower number of digits of accuracy in utau0 (used for non-dimensionalizing all quantities).
+3. Minor differences in rms_p in unstrained data, due to revised method now consistent with how it was done for strained data.
+
+Changes between 5/19/2014 and 6/11/2014:
+1. New data nondimensionalized by u_tau(0) rather than Uref=26.330*utau(0).
+

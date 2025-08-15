@@ -1,0 +1,30 @@
+DNS results from Case F of Spalart, Jansen & Coleman (SJC24): "Direct numerical simulation of two boundary layers 
+with the same pressure distribution but different surface curvatures", 2024; arXiv2409.00555v1. 
+
+Results provided in Tecplot format. 
+
+All variables are normalized with respect to U_\infty and L (see SJC24).
+
+The one-dimensional/streamwise (x) data in "Qofx.dat" include:
+
+C_p (wall-pressure coefficient; as in figure 2b of SJC24)
+delta995 (99.5% thickness based on generalised velocity; figure 3a of SJC24)
+deltastar (displacement thickness; figure 3a)
+theta (momentum thickness; figure 3a)
+U_infty theta / nu (momentum-thickness Reynolds number; figure 3a)
+C_f (mean skin-friction coefficient, with respect to U_\infty; figure 4a)
+
+The two-dimensional/streamwise,wall-normal (x,y) data in "Qofxy.dat" include:
+U (mean streamwise velocity)
+V (mean wall-normal velocity)
+Omega_z (mean spanwise vorticity)
+Psi (mean streamfunction)
+P (mean kinematic pressure p/\rho)
+omi'omi' (mean vorticity fluctuation variance)
+u'u' (mean streamwise Reynolds stress)
+v'v' (mean wall-normal Reynolds stress)
+w'w' (mean spanwise Reynolds stress)
+u'v' (mean Reynolds shear stress)
+Utilde (generalized/vorticity-based velocity; see (3.1) of Coleman, Rumsey & Spalart (2018), cited in SJC24)
+
+Please direct queries to g.n.coleman@nasa.gov. 

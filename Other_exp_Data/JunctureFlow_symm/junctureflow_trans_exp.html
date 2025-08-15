@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: NASA Juncture Flow - Natural Transition on Symmetric Wing</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Exp: NASA Juncture Flow (JF) -
+Natural Transition on Symmetric Wing</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../junctureflow_exp.html">Exp: NASA Juncture Flow - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<!--<br>&nbsp;
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="1000"
+src="JunctureFlow/jf_generic1.png" title="generic picture of Juncture Flow case: model" alt="generic picture of JunctureFlow case: model">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+-->
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">This is a sub-page of the 
+<a href="../junctureflow_exp.html">NASA Juncture Flow (JF)</a> website.
+These data are from the Phase 3 TRANSITIONAL testing on a symmetric wing shape. 
+The boundary layers on the wing upper and lower surfaces were not tripped for this portion of the campaign. 
+The wing itself is a blend of NACA 0015 at the root, 
+NACA 0012 mid-span, and NACA 0010 near the tip. The wing also includes a horn 
+(a fillet or extension between the wing and body at the wing leading edge, whose 
+purpose is to eliminate or lessen the strength/influence of the horseshoe vortex). 
+This symmetric wing produces a much smaller separation than on the F6-based wing.
+
+<!--</ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="JunctureFlow/rightwingTEjuncture.JPG" title="generic picture of Juncture Flow case: view near trailing edge juncture region" 
+alt="generic picture of JunctureFlow case: view near trailing edge juncture region">
+           <img width="500"
+src="JunctureFlow/jfm_headon.JPG" title="generic picture of Juncture Flow case: view head on with person for scale" 
+alt="generic picture of JunctureFlow case: view head on with person for scale">
+           <img width="500"
+src="JunctureFlow/corner_sep_generic1.jpg" title="generic picture of Juncture Flow case: corner separation near wing root trailing edge" 
+alt="generic picture of JunctureFlow case: corner separation near wing root trailing edge">
+           <img width="500"
+src="JunctureFlow/JF-lasers-shooting2.png" title="generic picture of Juncture Flow case: lasers" alt="generic picture of JunctureFlow case: lasers">
+           <img width="500"
+src="JunctureFlow/nohorn_vs_horn.png" title="generic picture of Juncture Flow case: no horn (Test 638) vs. horn (Test 640) shape" 
+  alt="generic picture of Juncture Flow case: no horn (Test 638) vs. horn (Test 640) shape">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+-->
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Some relevant information is given here.
+<ul>
+<li><span style="text-align: left; font-weight: 400; font-size: medium">14x22 is a closed-circuit wind tunnel with air near sea level
+<li>Reynolds number was held fixed in the wind tunnel throughout the transition part of the test 
+  at 2.4 million (+-0.30%) 
+  <span style="color: red">based on crank chord</span><sup>1</sup>
+<li>Crank chord = 580.716 mm 
+  (the crank is the location of the break in the wing at around y=869.693 mm) (different than for the F6-based wing)<sup>1</sup>
+<li>Nominal model incidence angles (deg) in tunnel (for the IR data) ranged from -10 to 10 (+-0.02)
+  in 2.5-deg increments, from -10 to 10 (+-0.02) in 1-deg increments, and -6 to -2 (+-0.02) in 0.25-deg increments
+<li>Nominal model incidence angles (deg) in tunnel (for the Cp data used to determine transition location) ranged from -2 to 8 (+-0.02) in 1-deg increments
+<li>Mach number in the transition part of the test ranged from about 0.174 to 0.192 (nominally<sup>2</sup> 0.189)
+<li>Temperature in the transition part of the test ranged from about 282 to 300 K (nominally<sup>2</sup> 288.84 K)
+<li>Velocity in the transition part of the test ranged from about 58 to 67 m/sec (nominally 64.4 m/s)
+<li>Dynamic pressure in the transition part of the test ranged from about Q = 2115 to 2530 Pa (nominally 2385 Pa)
+<li>Fuselage was the same used with the F6-based wing; length was nominally 4839.233 mm
+<li>Wing span tip-to-tip was nominally 3326.932 mm, and the wing had no dihedral; the entire configuration was top-bottom symmetric (different than for the F6-based wing)
+<li>Leading edge wing sweep was approximately 37.3 degrees (different than for the F6-based wing)
+<li>Reference area used for symmetric wing with horn: 903701.52 mm<sup>2</sup> for semi-span model, 
+  1807403.04 mm<sup>2</sup> for full-span model (different than for the F6-based wing)
+</ul>
+
+<p><sup>1</sup><span style="text-align: left; font-weight: 400; font-size: small">Because the crank chord was 
+different between the F6-based wing and the symmetric wing, the Reynolds number 
+per mm was different (
+<span style="color: red">4307.4515</span> 
+for the F6-based wing and 
+<span style="color: red">4132.8291</span> 
+for the symmetric wing ).<br>
+<sup>2</sup>For the purpose of maintaining some consistency between input parameters for nondimensional CFD codes, 
+the nominal M and T were chosen to be the same between the F6 and symmetric wing
+(because they were both well within the ranges experienced during each test).
+However, note that the velocity and Q end up to be somewhat different for the two wings because of the 
+<span style="color: red">different unit Reynolds numbers</span>.
+</span>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<a href="junctureflow_trans_geometry.html">TRANSITIONAL SYMMETRIC WING GEOMETRY</a>
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<a href="junctureflow_trans_bcs.html">TRANSITIONAL SYMMETRIC WING BOUNDARY CONDITIONS</a>
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<a href="junctureflow_trans_data.html">TRANSITIONAL EXPERIMENTAL DATA</a>
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<!--<a href="https://hiliftpw-ftp.larc.nasa.gov/JunctureFlow/F6wing_plus_Horn/">LINK TO EXISTING CFD 
+GRIDS AND SOLUTIONS</a>-->
+LINK TO EXISTING TRANSITIONAL SYMMETRIC WING CFD GRIDS AND SOLUTIONS (not available yet)
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../junctureflow_exp.html">Exp: NASA Juncture Flow - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 04/07/2023
+<br>&nbsp;
+
+</body>
+</html>

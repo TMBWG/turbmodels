@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: NASA Juncture Flow - Turbulent Symmetric Wing Boundary Conditions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Exp: NASA Juncture Flow (JF) - Turbulent Symmetric Wing Boundary Conditions</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="junctureflow_symm_exp.html">Exp: NASA Juncture Flow - Intro Page for Turbulent Symmetric Wing</a></p>
+Return to: <a href="../junctureflow_exp.html">Exp: NASA Juncture Flow - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+This page provides information from the Juncture Flow test
+to help users determine appropriate boundary conditions for CFD runs.
+The most important information for running CFD is listed under "GENERAL" below.
+Some of the other data are not strictly boundary conditions, but
+rather may be useful for checking aspects of the CFD methodology.
+For example, data were collected on the model itself well upstream of the separated region of
+interest, with the intent that these data could serve as references for CFD comparisons
+(see MODEL NOSE REGION section below).
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The following limited information about wind tunnel inflow characterization is provided:
+turbulence level, wall boundary layer thickness, and "other" (total pressure and flow angularity).
+Note that collecting inflow conditions is particularly difficult during a model entry in a major
+wind tunnel like the 14x22, so some of this was
+done in separate tests; analysis of much of it is still ongoing.
+The effects of including realistic nonuniform inflow conditions in a CFD in-tunnel
+run are not yet known on the quantities of interest for this case.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<u>GENERAL</u>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+As described on the
+<a href="junctureflow_symm_exp.html">Exp: NASA Juncture Flow - Intro Page for Turbulent Symmetric Wing</a>,
+for the purpose of maintaining some consistency between input parameters for nondimensional CFD codes, 
+the nominal M and T were chosen to be the same between the F6 and symmetric wing because they were both 
+well within the ranges experienced during each test.
+The nominal conditions were:
+<ul>
+  <li><b>Re=2.4 million</b> based on crank chord of 580.716 mm (variation in Re was +-0.25% in Test 662).
+  <li><b>M=0.189</b> (at median dynamic pressure run); (range was 0.171 to 0.199 in Test 662).
+  <li><b>T=288.84 K</b> (at median dynamic pressure run); (range was 281 to 309 K in Test 662).
+  <li>Angle of incidence in the wind tunnel varied.  For the symmetric wing with horn,
+      LDV flowfield data were taken at <b>0.0, 1.0, and 5.0 deg</b>.  Actual ranges were
+      -0.04 to +0.03, +0.99 to +1.03, and +4.99 to +5.03 deg, respectively.
+</ul>
+See notes on the
+<a href="junctureflow_symm_geometry.html">Exp: NASA Juncture Flow - Turbulent Symmetric Wing Geometry)</a> page
+for discussions regarding angle-of-attack corrections, aeroelasticity, and model adherence to
+as-designed shape.  Strictly speaking, running a CFD model in tunnel should best represent
+the experiment, but the effect on many quantities of interest (QoI) may be relatively minor.  
+<!--See 
+<a href="Papers/AIAA-2019-0080-Lee-OVERFLOWCFD.pdf">AIAA-2019-0080</a>, 
+<a href="Papers/AIAA-2020-1304-Rumsey-JF-fun3doverflow.pdf">AIAA-2020-1304</a>, and 
+<a href="Papers/AIAA-2021-1428-Nashat-JF-tunnel.pdf">AIAA-2021-1428</a> 
+for CFD results both in free air and in tunnel.)-->
+
+<p>Description of the model tripping can be found 
+<!--in 
+<a href="../JunctureFlow/Papers/NASA-TM-2019-220286-Kegerise-Neuhart-JF.pdf">NASA/TM-2019-220286</a>
+as well as-->
+in the notes on the
+<a href="junctureflow_symm_geometry.html">Exp: NASA Juncture Flow - Turbulent Symmetric Wing Geometry)</a> page.
+It is important to note 
+that the inboard-most portion of the wing (extending 
+roughly 25 mm away from the fuselage) 
+is located within the fuselage's turbulent boundary layer.  Information about the
+boundary layer on the leading edge extension (horn) is detailed in the following document:
+<a href="transition_on_LEX.pdf">Slides Describing T662 IR Results</a> (pdf file).
+<!--Further outboard, however, 
+the boundary layer on the horn and wing leading edge is laminar up to the trip dots, 
+as evidenced by infrared images acquired on the upper wing surface.
+Additional details are provided in the following document for earlier tests on the F6-based wing:
+<a href="../JunctureFlow/T653_IR_results.pdf">Slides Describing T653 IR Results</a> (pdf file).-->
+
+<p>The 14x22 wind tunnel is controlled by measuring total pressure, static pressure (actually delta p
+between the total and the static), stagnation temperature,
+and dewpoint at specific locations in the tunnel and applying calibration equations.  Details can
+be found in
+<a href="../JunctureFlow/Papers/NASA-TM-2014-218513-Boney-14x22datareduction.pdf">NASA/TM-2014-218513</a>,
+<a href="../JunctureFlow/Papers/NASA-TM-2018-219812-Carlson-tunnelcontroller.pdf">NASA/TM-2018-219812</a>,
+and
+<a href="../JunctureFlow/Papers/NASA-TR-NF1676L-32662-Quinto-20190018049.pdf">NASA Technical Report 20190018049, 2019</a>.
+
+<p><b><a href="../JunctureFlow/rumsey-strategies-to-run-in-tunnel-3.pdf">Strategies for Running Juncture Flow CFD in the Tunnel</a>
+(pdf file) summarizes important information regarding in-tunnel computations.</b>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<u>MODEL NOSE REGION</u>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Extensive flowfield data in the model nose region (near x=1168 mm), well
+upstream of the wing, are included in the LDV results provided on the
+<a href="junctureflow_symm_data.html">Exp: NASA Juncture Flow (JF) - Turbulent Symmetric Wing Experimental Data</a> page.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<u>TUNNEL INFLOW TURBULENCE LEVEL</u>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Tunnel inflow turbulence was not measured during this test.  However, it was measured previously,
+as reported in 
+<a href="../JunctureFlow/Papers/nasa-tp-2004-213247-neuhart-14x22freestream.pdf">NASA/TP-2004-213247</a>.  
+Using the results from that report, the presumed 
+<b>freestream turbulence intensity for this test is approximately 0.07% - 0.08%</b>.
+Recall, however, that the model was tripped in the JF test.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<u>TUNNEL WALL INCOMING BOUNDARY LAYER THICKNESS</u>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Using wall rake data from this test, the 14x22 wall boundary layer thickness measured upstream of 
+the model (behind the start of the test section, away from the corners) was consistent on the 
+top and both side walls.  These measures were also consistent with measurements for the earlier F6-based wing
+as well as with earlier unpublished 
+measurements of the boundary layer on the floor.  Therefore, it can be assumed that <b>the tunnel 
+wall boundary layers were roughly 4 - 5 inches (100 - 125 mm) thick at 5 - 6 feet (1.5 - 1.8 m) 
+behind the start of the test section for the JF test.</b> The following slides provide details from
+the F6-based wing testing:
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<a href="../JunctureFlow/rumsey-wallrakes-4.pdf">Slides Describing Tunnel Wall Rake Data</a> (pdf file)
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+These data are consistent with previously-measured 14x22 wall boundary layer thickness
+(<a href="../JunctureFlow/14x22_Boundary_Layer_Summary.pdf.gz">14x22_Boundary_Layer_Summary.pdf.gz (gzipped)</a>).  Note
+the previous measurements also included the effect of the Boundary Layer Removal
+System (BLRS) on the bottom wall. The BLRS was <u>not</u> used in the JF test.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<u>OTHER KNOWN TUNNEL INFLOW CHARACTERISTICS</u>
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+        <p><img width="200"
+src="../JunctureFlow/112-115_fwd_dp5psf_triangulated_basicfig.png" title="generic picture showing QWSS data in 14x22 tunnel" 
+alt="generic picture showing QWSS data in 14x22 tunnel">
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<a href="../JunctureFlow/rumsey-qwss-relevantinfo-3.pdf">Slides Describing Measured Inflow Characteristics</a> (pdf file)
+       </td>
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+For additional 14x22 wind tunnel details, see
+      <a href="../JunctureFlow/Papers/nasa-tp-3008-Gentry-14x22general.pdf">NASA TP 3008, September 1990</a> and
+      <a href="../JunctureFlow/Papers/nasa-tm-85662-1983-Applin-14x22improvements.pdf">NASA TM 85662, December 1983</a>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<u>TUNNEL SIDE AND TOP WALL PRESSURES</u>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+<a href="T662CpWallData.tar.gz">T662CpWallData.tar.gz</a> (0.1 MB)
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="junctureflow_symm_exp.html">Exp: NASA Juncture Flow - Intro Page for Turbulent Symmetric Wing</a></p>
+Return to: <a href="../junctureflow_exp.html">Exp: NASA Juncture Flow - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+03/13/2023 - Added pdf file describing IR results for transition on the horn<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 08/14/2025
+<br>&nbsp;
+
+</body>
+</html>

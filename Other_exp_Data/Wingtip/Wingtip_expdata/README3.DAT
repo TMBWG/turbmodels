@@ -1,0 +1,52 @@
+There are 24 "QPLOT" blocks of surface pressure data in the file 'CHORDQPL.DAT'.
+Each block is preceded by a header block.  The actual data block consists of 
+4 columns of data:
+
+Column #1:  Surface Pressure Tap Row Number (these rows run chordwise).
+Column #2:  X/c of the individual pressure tap.  
+            'X' starts at the L.E. of the wing section.
+Column #3:  Y/c of the individual pressure tap...
+            really not needed if you already know that the
+            section is 0012.
+Column #4:  Cp
+
+The coordinate system here 
+(which is different from the one used to describe the probe measurements) 
+is a wing-fixed system whose origin lies at the leading-edge/root of the wing.
+X goes chordwise, Y is 'up', and Z is spanwise.  
+
+The  'Z' location of the data blocks is as follows:
+
+Data Block #          Z (inches)               			Theta (deg)
+	1		6, lower wing surface		
+	2		6, upper wing surface
+	3		12, lower wing surface		
+	4		12, upper wing surface
+	5		24, lower wing surface		
+	6		24, upper wing surface
+	7		28, lower wing surface		
+	8		28, upper wing surface
+	9		30, lower wing surface		
+	10		30, upper wing surface
+	11		31, lower wing surface		
+	12		31, upper wing surface
+	13		32, lower wing surface		
+	14		32, upper wing surface
+	15						10, lower wing half
+	16						10, upper wing half
+	17						22.5, lower wing half	
+	18						22.5, upper wing half
+	19						45, lower wing half
+	20						45, upper wing half
+	21						67.5, lower wing half
+	22						67.5,  upper wing half
+	23						90.0, lower wing half
+	24						90.0, upper wing half 
+                                                 (nominally same as block #23)
+
+The 'Theta' describes the wingtip region
+...at Theta = 0 degrees we are at the edge of the 
+   constant chord section of the wing (Z = 33.12 inches)
+...at Theta = 90 degrees we are at the edge of the wingtip.
+
+For questions, please send e-mail to:            jchow@ida.org

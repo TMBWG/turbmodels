@@ -1,0 +1,40 @@
+Almeida et al. 1993
+Wake flows behind two-dimensional model hills
+Accurate geometry specification, x ranges from 0. to 54.
+(spline going through the following measured points:
+0.	28.0
+9.0	27.0
+14.0	24.0
+20.0	19.0
+30.0	11.0
+40.0	4.0
+54.0	0.0)
+
+Between x=0. and x=9.
+h(x)=min(28.,
+       2.800000000000E+01      +0.000000000000E+00*x
+      +6.775070969851E-03*x^2  -2.124527775800E-03*x^3
+        ) 
+Between x=9. and x=14.
+h(x)=  2.507355893131E+01      +9.754803562315E-01*x
+      -1.016116352781E-01*x^2  +1.889794677828E-03*x^3
+
+Between x=14. and x=20.
+h(x)=  2.579601052357E+01      +8.206693007457E-01*x
+      -9.055370274339E-02*x^2  +1.626510569859E-03*x^3  
+
+Between x=20. and x=30.
+h(x)=  4.046435022819E+01      -1.379581654948E+00*x
+      +1.945884504128E-02*x^2  -2.070318932190E-04*x^3
+
+Between x=30. and x=40.
+h(x)=  1.792461334664E+01      +8.743920332081E-01*x
+      -5.567361123058E-02*x^2  +6.277731764683E-04*x^3
+
+Between x=40. and x=54.
+h(x)=max(0., 
+       5.639011190988E+01      -2.010520359035E+00*x
+       1.644919857549E-02*x^2  +2.674976141766E-05*x^3
+        )
+
+In the LES, the geometry has been nondimensionalized so that the hill height is 1.

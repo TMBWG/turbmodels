@@ -1,0 +1,30 @@
+LES of family of bumps
+
+Inlet ReTheta = 2500
+Reference velocity/inlet velocity for Cf and Cp = 16.77m/s
+Inlet reference theta = 0.0037m
+C = 0.305m (length of bump/chord length)
+Cf files have x/C vs Cf (Skin friction coefficient)
+Cp files have x/C vs Cp with reference pressure being the inlet pressure (Pressure coefficient)
+All tecplot files have time and span averaged Ux,Uy,P,UU,VV,WW,UV  (note: Ux=U and Uy=V velocities)
+  Units: 
+     Ux - m/s
+     Uy - m/s
+     P  - m^2/s^2 (since in OpenFOAM P/rho is computed when using incompressible)
+     UU - m^2/s^2
+     VV - m^2/s^2
+     WW - m^2/s^2
+     UV - m^2/s^2
+Bump geometries have been provided in an IGES file which can be read by most meshing/CAD software. 
+OpenFOAM was used for the simulations with dynamic Smagorinsky used for subgrid stresses. 
+
+References: 
+     Matai R, Durbin PA (2018) LES of turbulent flow over a parametric set of bumps. Journal of Fluid Mechanics, under review.
+     Singh, A. P., Matai, R., Duraisamy, K., Durbin, P. A. (2017) Data-Driven Augmentation of Turbulence Models for Adverse Pressure
+            Gradient Flows, AIAA-2017-3626, AIAA Aviation Forum, Denver, CO. (includes earlier version of these computations)
+
+References for original bump geometry: 
+     Webster, D., DeGraaff, D., & Eaton, J. (1996)Turbulence characteristics of a boundary layer over a two-dimensional bump. 
+            Journal of Fluid Mechanics 320, 53–69. 
+     Wu, X. & Squires, K. D. (1998) Numerical investigation of the turbulent boundary layer over a bump. 
+            Journal of Fluid Mechanics 362, 229–271.

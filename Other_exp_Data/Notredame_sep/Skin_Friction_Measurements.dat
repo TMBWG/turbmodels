@@ -1,0 +1,39 @@
+variables= "X","u_X","Y","u_Y","Z","u_Z","Cf","u_cf"
+#
+# Notes: This data is for ceiling positions corresponding to: Case A - Larger-scale separation case, Case B - Smaller-scale separation case, and Case C - Attached flow case.
+#	 These skin friction coefficient results were determined via the oil-film interferometry method.
+#
+# Reference conditions:
+#   M=0.2, via pitot tube located at X = -0.97 [m], Y  = 0.58 [m], Z = 0.19 [m]
+#   Re=8.26e+05 based on ramp height
+# 
+# Ramp geometry: Y(X) = a1 + a2*X^3 + a3*X^4 + a4*X^5 [m]
+#   Ramp length: L1 = 0.9 [m]
+#   Ramp height: H1 = 0.2 [m]
+#   Parameters: a1 = (H1 + 0.152), a2 = -10H1/L1^3, a3 = 15H1/L1^4, a4 = -6H1/L1^5
+#   Domain: [0 < X < 0.9] [m]
+#
+# Definition of variables and [units]:
+#   The global, tunnel, coordinate system (X,Y,Z) is used to represent the physical geometry.
+#   X = x-location in global coordinates, pointing downstream, [m]
+#   u_X = uncertainty in x-location, [m], (mainly due to spatial averaging)
+#   Y = y-location in global coordinates, pointing up, [m]
+#   u_Y = uncertainty in y-location, [m]
+#   Z = z-location in global coordinates, pointing right (when facing downstream), [m]
+#   u_Z = uncertainty in z-location, [m], (mainly due to spatial averaging and the selection of best fringe quality)
+#       Note: (X,Y,Z)=(0,0,0) has its origin at the start of the ramp, and bottom and mid-span of the test section.
+#   Cf = skin friction coefficient, [dimensionless]
+#   u_Cf = uncertainty in skin friction coefficient, [dimensionless]
+#
+Zone, T="Case A"
+ -0.67800   0.01270   0.35240   0.00025   0.00000   0.05000   0.00235   0.00016
+  0.00700   0.01270   0.35240   0.00025   0.00000   0.05000   0.00268   0.00019
+  0.90700   0.01270   0.15240   0.00025   0.00000   0.05000   0.00019   0.00002
+Zone, T="Case B"
+ -0.67800   0.01270   0.35240   0.00025   0.00000   0.05000   0.00229   0.00017
+  0.00700   0.01270   0.35240   0.00025   0.00000   0.05000   0.00272   0.00020
+  0.90700   0.01270   0.15240   0.00025   0.00000   0.05000   0.00055   0.00005
+Zone, T="Case C"
+ -0.67800   0.01270   0.35240   0.00025   0.00000   0.05000   0.00211   0.00017
+  0.00700   0.01270   0.35240   0.00025   0.00000   0.05000   0.00241   0.00020
+  0.90700   0.01270   0.15240   0.00025   0.00000   0.05000   0.00084   0.00007

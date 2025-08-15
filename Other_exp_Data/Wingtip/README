@@ -1,0 +1,26 @@
+Chris,
+I have attached the dataset for the wingtip vortex experiment. It was chosen as a Flomania CFD validation case and I went through the paperwork (i.e. NASA 1676 form) at that time and so it is freely available for distribution.  It can be posted to the turbmodels.larc.nasa.gov website because it is already in the public domain. Please add a "p" to the filename and unzip (note that "p" was removed from the filename to get past e-mail filters). There are a few README files included that explain the data format. Below is a list of publications related to the dataset that were written by people directly involved in the project (others have used the data and published but I don't have an up-to-date comprehensive list). Reference 4 below (NASA TM 110418) is Jim Chow's PhD thesis and it is available on the NASA Technical Reports server as a scanned PDF.  Please let me know if you need anything else. Can you send me a message to confirm that you have received the data? Thanks, Greg Zilliac
+
+ 
+
+1.	Dacles-Mariani, J., Kwak, D. and Zilliac, G.G. "On Numerical Errors and Turbulence Modelling in Tip Vortex Flow Prediction," International Journal for Numerical Methods in Fluids Vol 30: P. 65-82 1999.
+
+2.	Zilliac, G.G, "Skin Friction Distribution on a Wingtip," AIAA 98-0584, Reno NV, Jan 12-15 1998.
+
+3.	Chow, J.S., Zilliac, G.G. and Bradshaw, P. "Mean and Turbulence Measurements in the Near Field of a Wingtip Vortex," AIAA J. Vol 35, No. 10 1997.
+
+4.	Chow, J.S., Zilliac, G.G., and Bradshaw, P., "Turbulence Measurements in the Near Field of a Wingtip Vortex," NASA TM 110418, February, 1997
+
+5.	Dacles-Mariani, J., Kwak, D. and Zilliac, G., "Accuracy Assessment of a Wingtip Vortex Flowfield in the Near Field Region," AIAA 96-0208. Reno NV., Jan 15-18 1996.
+
+6.	Dacles-Mariani, J., Zilliac, G., Chow, J. and Bradshaw, P. "A Numerical/Experimental Study of a Wingtip Vortex in the Near Field," AIAA J., Vol 33, No. 9, Sept. 1995. 
+
+7.	Dacles-Mariani, J., D. Kwak, and Zilliac, G., "Incompressible Navier-Stokes Simulation Procedure for a Wingtip Vortex Flow Analysis," Presented at  the Int'l. Symposium on Computational Fluid Dynamics, Sept. 4-8, Lake Tahoe, NV, 1995.
+
+8.	Chow, Jim S., Zilliac, Greg G., and Bradshaw, Peter, "Turbulence Measurements in the Near-Field of a Wingtip Vortex," Presented at the ASME Forum on Turbulence in Complex Flows, Chicago, Il. Nov. 6-11, 1994.
+
+9.	Zilliac, G.G., Chow J.S., Dacles-Mariani, J., and Bradshaw, P., "Turbulent Structure of a Wingtip Vortex in the Near Field," AIAA 93-3011 AIAA Conference, Orlando, FL., June, 1993.
+
+10.	Dacles-Mariani, J., Rogers, S., Kwak, D., Zilliac, G.G., and Chow, J.S., "A Computational Study of a Wingtip Vortex Flowfield," AIAA 93-3010 AIAA Conference, Orlando, FL., June, 1993.
+
+11.	Chow, J.S., Zilliac, G.G.,  and Bradshaw, P., "Near-Field Formation of a Turbulent Wingtip Vortex," AIAA 93-0551, AIAA Aerospace Sciences Meeting, Reno, Nv., Jan. 11-14, 1993.

@@ -1,0 +1,46 @@
+
+Oil Film Interferometry, ND Mach 0.6 closed-loop wind-tunnel
+Skin Friction Coefficient along the bump surface
+Nominal Mach = 0.2
+Apex Location = 1828.80 [mm] from LE
+
+Variables:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+X: streamwise distance from LE of test section to center of measurement region [mm]
+Y: vertical distance from the top of splitter plate to center of measurment region [mm]
+Z: spanwise distance from centerline of test section to center of measurement region [mm]
+dX: measurement region size in streamwise direction [mm]
+dZ: measurement region size in spanwise direction [mm]
+Uinf: incoming freestream velocity measured by Pitot-static probe [m/s]
+Minf: incoming freestream Mach number = Uinf/sqrt(gamma*R*(T+273.15)), gamma = 1.4, R = 287.06 J/kgK
+Pamb: ambient lab pressure [hPa]
+RH: lab relative humidity [%]
+T: freestream air temperature [C]
+Cf: Skin friction coefficient
+e_Cf: Uncertainty in Cf measurement
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Uinf = 68.89
+Minf = 0.199
+Pamb = 987
+RH = 77
+T = 25.8
+VARIABLES = "X", "Y", "Z", "dX", "dZ", "Cf", "e_Cf"
+   1032.00       0.00       0.00      10.00       1.25   0.002572   0.000051
+   1183.40       0.00       0.00       9.75       2.00   0.002582   0.000052
+   1349.80       0.06     228.60      15.00       3.00   0.002281   0.000046
+   1400.60       0.24     203.20       6.25       3.00   0.002071   0.000041
+   1436.40       0.61     177.80       6.25       1.25   0.001883   0.000038
+   1488.20       2.02     152.40       8.00       2.00   0.001792   0.000036
+   1536.00       5.24     127.00       6.00       1.25   0.001819   0.000036
+   1591.80      13.28     101.60       8.75       1.75   0.001883   0.000038
+   1642.60      26.12      76.20       7.00       1.00   0.002555   0.000051
+   1706.40      48.52      50.80       3.75       0.75   0.004133   0.000083
+   1754.20      65.24      25.40       6.50       2.00   0.006718   0.000134
+   1828.80      77.72     -25.40       6.00       1.50   0.007991   0.000160
+   1891.60      68.66       0.00       1.75       1.25   0.000209   0.000004
+   2011.20      27.30       0.00       8.25       1.50  -0.000842   0.000017
+   2113.80       6.04       0.00       5.50       1.25  -0.000323   0.000006
+   2209.40       0.82       0.00       6.75       1.75   0.000623   0.000012
+   2499.20       0.00       0.00       6.75       1.75   0.002063   0.000041

@@ -1,0 +1,76 @@
+The step shape is described by the following 3 relations,
+with the origin x/H=0 being the upstream edge of the ramp.
+Note that the intersection points are NOT perfectly continuous.
+The Fortran program used to generate the geometry is also included.
+
+Between x/H=0. and x/H=2.29936508
+y_wall = (1-4.03174603*H) + sqrt((4.03174603*H)**2 - x**2)
+
+Between x/H=2.29936508 and x/H=2.83492064
+y_wall = 1.93587302*H - sqrt(0.25*(4.03174603*H)**2 - (3.44888889*H-x)**2)
+
+Between x/H=2.83492064 and x/H=2.93650794
+y_wall = 0.33396825*H - sqrt((0.33396825*H)**2 - (2.93650794-x)**2)
+
+
+-----------------------
+Fortran program used to generate geometry:
+generateRamp.f90
+-----------------------
+! Compilation : gfortran -fdefault-real-8 generateRamp.f90
+      program generateRamp
+!
+      INTEGER LX
+      PARAMETER(LX=768)
+!
+      DIMENSION X0(0:LX),Y0(0:LX)
+
+      H=31.5D0
+      
+      X_START_DOMAIN = -200.0D0/H
+      X_END_DOMAIN   =  450.0D0/H
+
+      DX = (X_END_DOMAIN - X_START_DOMAIN)/FLOAT(LX)
+
+      X0(0) = X_START_DOMAIN
+      DO I=1,LX
+         X0(I)=X0(I-1) + DX
+      ENDDO
+
+      X_START_RAMP   =  0.0D0/H
+      X_END_RAMP   = X_START_RAMP + 92.50D0/H
+
+! Geometry defined in terms of radii of curvature of the two sections
+
+      R1 = 127.0D0  /H
+      R2 = R1/2.0D0
+      R3 = 10.52D0/H
+
+! Centre of curvature of the second arc
+
+      XC2 = 108.64D0/H
+      YC2 = 60.98D0/H
+
+      X_JOIN_RAMP  = X_START_RAMP + 72.43D0/H
+      X_JOIN_RAMP2 = X_START_RAMP + 89.30D0/H
+        
+      DO I=0,LX
+         IF(X0(I).LT.X_START_RAMP)THEN
+           Y0(I)=1.0
+         ELSEIF(X0(I).LT.X_JOIN_RAMP)THEN
+           Y0(I)=(1.0-R1)+SQRT(R1**2-(X0(I)-X_START_RAMP)**2)
+         ELSEIF(X0(I).LT.X_JOIN_RAMP2)THEN
+           Y0(I)=YC2-SQRT(R2**2-(XC2-X0(I))**2)
+         ELSEIF(X0(I).LT.X_END_RAMP)THEN
+           Y0(I)=R3-SQRT(R3**2-(X_END_RAMP-X0(I))**2)
+         ELSE
+           Y0(I)=0.0D0
+         ENDIF
+      ENDDO
+!
+      OPEN(20,FILE='BackstepCurved.dat',FORM='FORMATTED')
+      DO I=0,LX
+         WRITE(20,*) X0(I),Y0(I)
+      ENDDO
+!
+      END

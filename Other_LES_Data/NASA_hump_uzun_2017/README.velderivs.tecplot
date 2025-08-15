@@ -1,0 +1,20 @@
+The data file is "Tecplot-format".  For example, for one particular zone in the Re_theta=5000 case:
+
+ZONE T="Fine Grid"
+ STRANDID=0, SOLUTIONTIME=0
+ I=4971, J=45, K=1, ZONETYPE=Ordered
+ DATAPACKING=BLOCK
+
+the data should be read from the file (ignoring title, zone,
+variables, and other header lines) via:
+
+      idim=4971
+      jdim=45
+      read(2,*) ((x(i,j),i=1,idim),j=1,jdim)
+      read(2,*) ((y(i,j),i=1,idim),j=1,jdim)
+      read(2,*) ((dudx(i,j),i=1,idim),j=1,jdim)
+      read(2,*) ((dvdx(i,j),i=1,idim),j=1,jdim)
+      read(2,*) ((dudy(i,j),i=1,idim),j=1,jdim)
+      read(2,*) ((dvdy(i,j),i=1,idim),j=1,jdim)
+
+Follow a similar procedure for other zones.

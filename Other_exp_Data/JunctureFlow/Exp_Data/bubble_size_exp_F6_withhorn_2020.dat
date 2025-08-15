@@ -1,0 +1,24 @@
+# Measured widths and lengths (with uncertainties) of the corner-flow separation 
+# for the F6 wing with leading-edge extension (port side)
+#
+# NOTE: This is an update, based on the additional Test 653 info in 2020
+#
+#  alpha(deg) = model angle of incidence (deg)
+#  w(mm)      = separation width (mm)
+#  U_w(mm)    = estimated uncertainty in width (mm)
+#  l(mm)      = separation length (mm)
+#  U_l(mm)    = estimated uncertainty in length (mm)
+#
+# Note: Length l is along wing surface in streamwise direction
+#       Width w is along wing surface in spanwise direction
+#       (see fig 15(c) in AIAA-2019-0077)
+#   In CFD, if you measure only deltaX, then L approx=deltaX/cos(17.5deg) due to slope of wing
+#   In CFD, if you measure only deltaY, then W approx=deltaY/cos(9.9deg) due to dihedral of wing
+#
+variables="alpha(deg)","w(mm)","U_w(mm)","l(mm)","U_l(mm)"
+-2.5   21.7   3.5   72.0    9.6
+ 0.0   29.5   4.7   89.0   11.7
+ 2.5   38.0   6.1  104.0   13.7
+ 5.0   40.9   6.6  115.4   15.1
+ 7.5   48.0   7.7  131.0   17.1
+10.0   54.0   8.7  152.0   19.9

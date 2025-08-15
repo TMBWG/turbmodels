@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: NASA Juncture Flow - Turbulent F6-Based Geometry</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Exp: NASA Juncture Flow (JF) - Turbulent F6-Based Geometry</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="junctureflow_f6_exp.html">Exp: NASA Juncture Flow - Intro Page for Turbulent F6-Based Wing</a></p>
+Return to: <a href="../junctureflow_exp.html">Exp: NASA Juncture Flow - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: large">CAD FILES FOR THE F6-BASED CONFIGURATIONS (WITH AND WITHOUT HORN)
+
+<ul>
+  <li>As-designed F6-based wing and body <u>with</u> horn/leading edge extension (Tests 640 and 653):
+    <ul>
+      <li><a href="jfm_dlr_f6_wHorn_harrison_fuselage-2017_02_06_fullspan.x_t.gz">Parasolid format (gzipped)</a> (units of meters)
+      <li><a href="jfm_dlr_f6_wHorn_harrison_fuselage-2017_02_06_fullspan_mm_cf.stp.gz">STEP format (gzipped)</a> (units of mm)
+      <li><a href="jfm_dlr_f6_wHorn_harrison_fuselage-2017_02_06_fullspan_mm_cf.igs.gz">IGES format (gzipped)</a> (units of mm)
+      <br>&nbsp;
+      <li><a href="jfm_clean_wing_2022_02_14_mm_v4.stp.gz">Cleaned-up version of the CAD (STEP format, gzipped)</a> (units of mm)
+         <span style="color: red"><- new as of 02/16/2022</span>
+          <ul>
+          <li>This STEP file removes the fractured faces, edges, and strips present in the official CAD above, 
+              while maintaining very small deviation (less than about 0.085 mm) from the original geometry.
+              If you use this file, be aware of the slight differences from the official original.
+          </ul>
+      <br>&nbsp;
+      <li><a href="In_tunnel_v2.tar.gz">In_tunnel_v2.tar.gz</a> (gzipped tar file, 39.2 MB, revised 8/31/2020)
+         <ul>
+            <li>Contains 14x22 tunnel 
+      definition, as-designed F6-based wing and body <u>with</u> horn/leading edge extension placed
+      with respect to the tunnel at 5 different angles of incidence (-2.5. 5.0, and 7.5 deg model upright, and
+      -5.0 and 2.5 deg model inverted), and approximated mast/sting definitions).
+            <li>The V2 revision includes new CAD positioning for AoA=7.5 deg, which was examined extensively in Test 653.
+                The other CAD data in the directory remains unchanged.
+            <li>Some important information needed for running Juncture Flow CFD in the tunnel is provided on the
+                <a href="junctureflow_bcs.html">JF Turbulent F6-Based Boundary Conditions</a> page.
+         </ul>
+    </ul>
+  <p>
+  <li>As-designed F6-based wing and body <u>without</u> horn/leading edge extension (Test 638):
+    <ul>
+      <li><a href="jfm_dlr_f6_harrison_fuselage_2017_02_06_fullspan.x_t.gz">Parasolid format (gzipped)</a> (units of meters)
+      <li><a href="jfm_dlr_f6_harrison_fuselage_2017_02_06_fullspan_mm_cf.stp.gz">STEP format (gzipped)</a> (units of mm)
+      <li><a href="jfm_dlr_f6_harrison_fuselage_2017_02_06_fullspan_mm_cf.igs.gz">IGES format (gzipped)</a> (units of mm)
+    </ul>
+  <p>
+  <li>Note that the STEP and IGES files above were updated on 10/15/2021.
+      For an unknown reason, somewhat larger-than-expected trimming gaps appeared when NX originally exported these files.
+      The "improved" files above, created directly from the master Parasolid data by Mark Gammon of
+      ITI-Global, have smaller trimming gaps.  If desired, the old files with larger trimming
+      gaps can still be found here:
+      <a href="jfm_dlr_f6_wHorn_harrison_fuselage-2017_02_06_fullspan_mm.stp.gz">
+               jfm_dlr_f6_wHorn_harrison_fuselage-2017_02_06_fullspan_mm.stp.gz</a>,
+      <a href="jfm_dlr_f6_wHorn_harrison_fuselage-2017_02_06_fullspan_mm.igs.gz">
+               jfm_dlr_f6_wHorn_harrison_fuselage-2017_02_06_fullspan_mm.igs.gz</a>,
+      <a href="jfm_dlr_f6_harrison_fuselage_2017_02_06_fullspan_mm.stp.gz">
+               jfm_dlr_f6_harrison_fuselage_2017_02_06_fullspan_mm.stp.gz</a>,
+      <a href="jfm_dlr_f6_harrison_fuselage_2017_02_06_fullspan_mm.igs.gz">
+               jfm_dlr_f6_harrison_fuselage_2017_02_06_fullspan_mm.igs.gz</a>.
+</ul>
+
+<p>Notes:
+<ol>
+  <li>Three CAD formats are provided:  The Parasolid (x_t) files are the "native" files, with default units of meters.  The
+      STEP (stp) and IGES (igs) file versions are given in mm. Because the experimental data are provided in mm, for direct 
+      comparisons it is recommended that units of mm be used when building CFD grids.
+  <li>The experimental data has the fuselage nose at (0,0,0), x axis along the body axis, z up, and y out     
+      the starboard side.  Also, all LDV data profiles (as well as all surface pressure taps) are aligned with this
+      body axis system.  When extracting velocities, Reynolds stresses, etc. from CFD, this is the coordinate system
+      that you need to use when comparing with the experimental data.  The "as-designed F6-based wing and body"
+      CAD definitions are already in this coordinate system, but the "in tunnel" CAD is not (the "in tunnel" x=0 is
+      positioned at the start of the test section and x runs horizontally with respect to the tunnel).
+      Therefore, when running a
+      CFD simulation in the tunnel, it may be useful to shift and rotate the coordinate system to match the above.  In
+      this way, extraction of the data will be easier, and the velocities and Reynolds stresses will already be in
+      the correct coordinate system.
+  <li>Sting and mast models are included in "In_tunnel_v2.tar.gz", but these are only crude approximations.  
+      Their positioning relative to the tunnel 
+      was based on GIS laser scans.  Also, there were cables that ran along
+      the bottom of the sting and then down the outside of the mast and along the tunnel floor.  The entire sting was wrapped with 
+      tape to secure the cables in place.  The shape due to cables/tape is not included in the approximated models.
+      See photos immediately below for typical cabling setup (which was not always the same - the cables occasionally had to be 
+      repositioned - throughout the test).
+  <li>Distance from the model nose to the centerline of the mast (measured along a line passing through the center of the model 
+      and sting) is 9229.912 mm.
+  <li>None of the files provided above account for any aeroelastic deflection.
+  <li>The CAD of the wind tunnel high-speed leg was created from a laser scan, but was simplified (many recesses etc were faired
+      over or ignored).  This simplified as-built model was also used/evaluated in AIAA Paper 2015-2022.
+      The wind tunnel CAD is positioned with x=0 at the start of the test section, and y=z=0 is along the "centerline" (z=up).
+  <li>The wind tunnel's outer wall (sometimes referred to as the "north wall") is located to the left when facing forward (pilot's view);
+      the inner wall ("south wall") is located to the right.
+  <li>The wind tunnel has a 127 mm wide flow-straightening honeycomb centered near x = -20.117 m, followed by 4 screens
+      near x = -19.291, -19.063, -18.885, and -18.707 m.  For this and other 14x22
+      wind tunnel details, see 
+      <a href="Papers/nasa-tp-3008-Gentry-14x22general.pdf">NASA TP 3008, September 1990</a> and
+      <a href="Papers/nasa-tm-85662-1983-Applin-14x22improvements.pdf">NASA TM 85662, December 1983</a>.
+      (Note the latter paper title refers to the 14x22 tunnel in metric units: 4- by 7-Meter.  However, nowadays
+      the tunnel is typically referred to by its name referenced in feet.)
+  <li>In the wind tunnel, the approximate locations of the probes used to determine running conditions are:
+      <ul>
+        <li>Total Pressure: (x,y,z) = (-18.105, -7.010, -4.084) m  (1.646 m away from the north wall)
+        <li>Static Pressure: (x,y,z) = (-3.658, -3.048, 0) m  (355.60 mm away from the north wall)
+        <li>Stagnation Temperature: (x,y,z) = (-0.140, -3.234, -0.269) m  (82.55 mm away from the north wall)
+        <li>Dewpoint sensor orifice: (x,y,z) = (-0.140, -3.317, -0.187) m  (on the north wall)
+      </ul>
+  <li>The F6-based wing is based on the original DLR-F6 wing shape, but it has been truncated to have a shorter span.
+      The fuselage used in the Juncture Flow experiment is unique.
+  <li>At the wing-root juncture near the wing trailing edge where separation occurs, the fuselage body is at y=-236.098 mm and the
+      wing trailing edge is at x=2961.929 mm.
+  <li>The approximate rotations/translations (in order) to get the model (with nose at (0,0,0), x axis along the body axis, z up, and y out
+      the starboard side) into position in the wind tunnel (all units in mm) are:
+      <ul>
+        <li>Incidence angle = 5 deg:
+           <ul>
+              <li>X-rotation = 0.02622944 deg
+              <li>Z-rotation = -0.021198898 deg
+              <li>Y-rotation = 5.00004783 deg
+              <li>X-translation = 2873.098936
+              <li>Y-translation = -6.155033
+              <li>Z-translation = 217.321846
+           </ul>
+        <li>Incidence angle = -2.5 deg:
+           <ul>
+              <li>X-rotation = 0.02323800 deg
+              <li>Z-rotation = -0.02444117 deg
+              <li>Y-rotation = -2.49995206 deg
+              <li>X-translation = 2908.038625
+              <li>Y-translation = -6.031538
+              <li>Z-translation = -107.753423
+           </ul>
+        <li>Incidence angle = 7.5 deg (from Test 653):
+           <ul>
+              <li>X-rotation = 0.0 deg
+              <li>Z-rotation = -0.020035 deg
+              <li>Y-rotation = 7.50 deg
+              <li>X-translation = 2814.29889840845
+              <li>Y-translation = -5.64586024643
+              <li>Z-translation = 333.05294534274
+           </ul>
+      </ul>
+  <li>Data were <i>not</i> taken to determine angle of attack corrections (accounting for influence of the tunnel walls).
+Therefore, in free-air CFD runs to date, the nominal incidence angles of 7.5, 5, and -2.5 degrees were used for freestream angle of attack
+(see AIAA-2019-0079, AIAA-2019-0080, and AIAA-2020-1304).  This is obviously not strictly correct, but arguably the effect on many 
+quantities of interest (QoI) is relatively minor (see AIAA-2019-0080 and AIAA-2020-1304).  
+  <li>In the experiment, forces and moments were <i>not</i> measured.
+  <li>During the tunnel runs, the goal was to try to keep a reference point on the model (2.448 m behind the model nose tip and on the fuselage
+centerline) located approximately 5.4 m from the test section entrance and at the center of the test section (2.2098 m above
+the floor).  
+Laser scans of the model were taken at angles of -2.5, 5, and 7.5 deg, providing information used to make CAD
+representations of the <i>actual</i> model positions, provided in the file In_tunnel_v2.tar.gz (given above).
+However, the laser scans were performed wind off, so the test article position in the CAD files had to be adjusted slightly
+to achieve the wind-on angle of incidence.  This was done by keeping the mast location as measured, and adjusting the test article and
+sting positions.  The real sting had some bending (wind on), but in the CAD the sting is represented as straight.
+Note that at the lowest pitch angles of -10 deg and -7.5 deg, the desired height could not be achieved due to geometrical constraints on the
+sting/mast.  Reference point height was reduced to 1.7907 m and 2.0574 m above the floor, respectively, for those two angles.
+  <li>The average roughness and the rms roughness for the painted model surface was 2.70 +- 0.94 &mu;m and 3.33 +- 1.12 &mu;m,
+respectively.
+</ol>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="800"
+src="mast-sting-fig-0825.png" title="photo of model in tunnel, showing mast, sting, and typical cabling" 
+alt="photo of model in tunnel, showing mast, sting, and typical cabling">
+        <p><img width="400"
+src="DSC_0818_bottomofsting.JPG" title="photo showing bottom of sting, with typical cabling" 
+alt="photo showing bottom of sting, with typical cabling">
+           <img width="400"
+src="DSC_0819_cablewraponsting.JPG" title="photo showing cables coming out of back of model and wrapping around outside of sting"
+alt="photo showing cables coming out of back of model and wrapping around outside of sting">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">DISCUSSION OF MODEL TRIPS
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The boundary layers on the JF
+model were tripped using trip dots (their effectiveness was verified by infrared thermography).  
+Three types of trip dots were used: orange trip dots were used on the upper wing surfaces, green trip dots were used on 
+the lower wing surfaces, and blue trip dots were used on the fuselage.
+The characteristics of each of these trip dots are provided in the following figure:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="800"
+src="trip_dot_QA.png" title="trip dot characteristics" alt="trip dot characteristics">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Trip dots were placed by hand around the nose of the fuselage.  Nominally, the goal was to place 
+them on the side of the fuselage a specific distance from the nose (running along the surface), then to maintain 
+this x-location all the way around.  From the laser scan, the actual x-location varied in the 
+range 333 &lt; x &lt; 351 mm, approximately as follows:
+  <ul>
+    <li>On the flat port side: x=333 mm top, increasing to x=336 mm bottom
+    <li>On the flat starboard side: x=338 mm top, increasing to x=340 mm bottom
+    <li>On the top: x=333 mm left, increasing to x=338 mm right
+    <li>On the bottom: x=336 mm left, increasing to x=351 mm near bottom, then decreasing to x=340 mm right
+  </ul>
+
+<p>The following figure is from an STL file created from the scanned points of the F6-based wing and 
+body with horn/leading edge extension (note that the STL file 
+introduces additional wiggles and non-smoothness that is not present in the real geometry).  This scan
+result can be used to visualize and verify the trip dot placement.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="800"
+src="plot_stl_new_trip1_line336.png" title="trip dots on the fuselage nose as measured by the laser scan" 
+alt="trip dots on the fuselage nose as measured by the laser scan">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>On the wing, trip dots were placed by creating 5 forms that fit around the leading edge at stations along the span,
+and marking out roughly 1.6% local chord for the upper surface and 10% local chord for the lower surface.
+Between these locations and over the horn, the trip dots were applied by hand in roughly straight lines.
+Although the laser scan shows some variations (particularly on the right wing lower surface), these trip locations can 
+very crudely be approximated by the following lines projected onto the wing surface (in mm):
+  <ul>
+    <li>Lower surface left wing:  x = (4144-y)/2.082
+    <li>Lower surface right wing: x = (4144+y)/2.082
+    <li>Upper surface left wing:  x = (3775-y)/1.975 (outboard of y=-362)
+    <li>Upper surface left wing:  x = (2847-y)/1.532 (inboard of y=-362)
+    <li>Upper surface right wing: x = (3775+y)/1.975 (outboard of y=362)
+    <li>Upper surface right wing: x = (2847+y)/1.532 (inboard of y=362)
+  </ul>
+
+<p>From the scan information, these equations appear to be accurate (in x) to about +-2 mm on the upper surfaces, to +-3 mm
+on the lower left wing, and to +-10 mm on the lower right wing.
+The following figures show the approximate wing tripline locations (recall that the STL
+version of the scanned points introduces non-physical geometric behavior that appears as 
+surface wiggles and non-smoothness in these figures).
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="500"
+src="plot_stl_new_trip2_upperleft.png" title="approximate trip line upper surface left wing" 
+alt="approximate trip line upper surface left wing">
+           <img width="500"
+src="plot_stl_new_trip2_upperright.png" title="approximate trip line upper surface right wing" 
+alt="approximate trip line upper surface right wing">
+           <img width="500"
+src="plot_stl_new_trip2_lowerleft.png" title="approximate trip line lower surface left wing" 
+alt="approximate trip line lower surface left wing">
+           <img width="500"
+src="plot_stl_new_trip2_lowerright.png" title="approximate trip line lower surface right wing" 
+alt="approximate trip line lower surface right wing">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><a ID="deformation"><span style="text-align: left; font-weight: 400; font-size: large">DISCUSSION OF MODEL DEFORMATION
+<p><span style="text-align: left; font-weight: 400; font-size: medium">There are always aeroelastic deflections in any
+model.  These are not accounted for in any of the files provided above, but these effects were measured
+during Test 638 using photogrammetry. A brief discussion is provided here.
+
+<p>The model was supplied with an on-board measurement of incidence angle, so, regardless of the aeroelastic deflections of
+the mast/sting, the model itself was positioned nominally at the specified incidence angle (e.g., 7.5 deg, 5 deg, or -2.5 deg) 
+relative to the oncoming flow.
+(It should be noted that the actual ranges at these particular angles were 7.48 &lt; incidence angle &lt; 7.53 deg,
+4.97 &lt; incidence angle &lt; 5.04 deg,
+ and -2.54 &lt; incidence angle &lt; -2.48 deg.)
+To give a feel for the amount of aeroelastic deflection present in the mast/sting during wind-on operation, the on-board incidence angle
+measurement typically changed from 5.0 deg (wind on) to 4.75 -> 4.78 deg (wind off) for the 5 deg case.
+For the -2.5 deg case, the angle measurement typically changed from -2.5 deg (wind on) to -2.56 -> -2.58 deg (wind off).
+
+<p>From photogrammetry measurements on the wing (comparing tunnel off with tunnel on operation), the following was observed
+for tunnel on:
+<ul>
+  <li>Incidence angle = -2.5 deg:
+    <ul>
+      <li>Near wing tip close to trailing edge deflects up approx 0.24 mm
+      <li>Near wing tip close to leading edge deflects down approx 0.04 mm
+      <li>Approx twist down at tip = 0.040 deg
+    </ul>
+  <li>Incidence angle = 5 deg:
+    <ul>
+      <li>Near wing tip close to trailing edge deflects up approx 2.4 mm
+      <li>Near wing tip close to leading edge deflects up approx 1.8 mm
+      <li>Approx twist down at tip = 0.086 deg
+    </ul>
+  <li>Incidence angle = 7.5 deg:
+    <ul>
+      <li>Near wing tip close to trailing edge deflects up approx 3.0 mm
+      <li>Near wing tip close to leading edge deflects up approx 2.5 mm
+      <li>Approx twist down at tip = 0.075 deg
+    </ul>
+</ul>
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="1000"
+src="photogrammetry.jpg" title="photo showing photogrammetry measurement locations on the left wing upper surface" alt="photo showing photogrammetry measurement locations on the left wing upper surface">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">DISCUSSION OF AS-BUILT VS. AS-DESIGNED SHAPE OF THE MODEL
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The as-designed model shape is provided above.
+In addition to aeroelasticity influence, there is also the question of how close the as-built shape was to the as-designed.
+The requested model manufacturing tolerance for most parts was 0.005 inches (0.127 mm), but the assembly of the model parts
+no doubt adds uncertainty.
+Another potential source of uncertainty is the fact that the original CAD was translated into inches
+for the engineering drawings, from which the model was built.
+A known difference is additional thickness due to paint (the model was painted to reduce flare during LDV data 
+acquisition).  This paint thickness is estimated to be roughly 0.010 - 0.014 inches (0.254 - 0.356 mm).
+
+<p>Detailed laser scanning was done for the F6-based wing and body with horn/leading edge extension
+in situ (in the tunnel with wind off) during both Test 640 and 653 (approximately 2 years apart).
+Between the tests, the model was disassembled and stored.  When reassembled, new seals were used between the
+wings and fuselage to insure that no airflow passed through the junctions.
+An API Arm Portable Coordinate Measuring Machine was used for the detailed scans.  
+To date, analysis of this data has proved to be difficult.
+The measurement accuracy of the machine is reported to be
+less than about 0.1 mm (about 0.004 inches).  However, movement of the laser scan operator around the
+model while holding the machine's arm (with the machine's tripod base standing on the wind tunnel floor 
+near the model) was seen to
+yield instantaneous deviations of as much as 4 times this level (about 0.015 inches).
+In any case, attempting to create a smooth surface from the points is very difficult and
+often results in additional wiggles, steps, and other non-physical features.  
+Also, the scanning apparently picked up
+wing "drooping" due to gravity, which will not match the as-designed shape. The drooped shape is also not appropriate
+for a wind-on situation.
+
+<p>One can try to compare the scanned points with the as-built shape, but alignment can be challenging.
+By allowing CAD software to find the "best fit", <b>the estimated RMS deviation of the as-built shape compared
+to the as-designed shape appeared to be near 0.0186 inches (0.472 mm) for the 2018 scan and
+0.0235 inches (0.597 mm) for the 2020 scan</b>.
+These are both larger than the estimated paint thickness.  The reason for the difference is unknown.
+The reason for the larger RMS deviation in 2020 compared to 2018 is also not known.
+Overall, the 2020 scan appeared to be similar to the 2018 scan, except that the deviations from the as-designed
+CAD were slightly larger.  An attempt was made to reposition the nose and wing leading edges of the 2020 scan, 
+to align these better with the as-designed
+CAD, but this worsened the overall RMS and standard deviations.
+
+<p>As seen in the figures below (from the 2018 scan comparison), there are many regions where the scanned points
+deviate from the as-designed shape by well more than the RMS deviations (deep red and dark blue colors).
+Many of these larger deviations are on the fuselage, and some appear to be indicative of 
+hatch locations, joints, and window frames on the model. Some details regarding these are as follows:
+ <ul>
+    <li>The nose connects to the main body of the fuselage at approximately x=1511 mm.  The recessed bolts that connected the
+        nose cone to the main body were covered with Kapton tape.
+    <li>A large upper hatch on top of the fuselage is about 950 mm long and 434 mm wide, extending from near x=1942 to near 2892 mm.
+    <li>Three smaller lower hatches exist on the bottom of the fuselage.  The front-most is on the nose cone; it is 
+        about 400 mm long and 202 mm wide, starting near x=738 mm.  The other two are each about 356 mm long and 202 mm wide, one starting near
+        x=1727 mm and the other starting near x=2768 mm.
+    <li>Kapton tape was also used to cover mounting holes on the port side above the windows, as well as to cover Kulite
+        sensors while using the LDV.
+    <li>Most of the hatches were opened/closed and the nose was removed/replaced many times during the wind tunnel entry.
+    <li>Note: the lines in the figures below do NOT represent joints in the model; they are solely representative of
+        geometric entities present in the CAD file.
+ </ul>
+
+<p>It is not yet clear if any of the scanned differences are significant or not, from a CFD perspective.
+Nor is it clear precisely how to make use of the scanned information in a CFD analysis.
+The scanned points are available below.  <u>Note that the alignments of the files vary, and should not be
+considered absolute "truth"; some manipulation may be required to get the files appropriately aligned with
+the as-designed CAD and/or with each other.</u>
+  <ul>
+    <li>2018 Scan:
+       <ul>
+         <li>Aligned raw points:
+            <a href="Raw-Scans-f6horn-mm-corrected.dat.gz">Raw-Scans-f6horn-mm-corrected.dat.gz</a> (gzipped data file, 106.8 MB).
+            Note this is approximately aligned with the as-designed CAD.
+         <li>STL file created from the scanned data:
+            <a href="04.06.18-NASA_WindTunnel-mm-final.stl.gz">04.06.18-NASA_WindTunnel-mm-final.stl.gz</a>
+            (gzipped STL file, 172.8 MB).  Note this is approximately inverted (upside-down, rotated 180 degrees) from the as-designed CAD.
+         <li>STL file rotated and converted to Tecplot format:
+            <a href="Raw-Scans-f6horn-mm-corrected-to-stl-tecplot.dat.gz">Raw-Scans-f6horn-mm-corrected-to-stl-tecplot.dat.gz</a> 
+            (gzipped Tecplot file, 103.9 MB).  Note this is approximately aligned with the as-designed CAD.
+       </ul>
+    <li>2020 Scan:
+       <ul>
+         <li>Original raw points:
+            <a href="WindTunnel-RawPoints-mm.dat.gz">WindTunnel-RawPoints-mm.dat.gz</a> (gzipped data file, 375.9 MB).
+            Note this is the original file, randomly placed in space, with no alignment to the as-designed CAD.
+         <li>STL file created from the scanned data:
+            <a href="03.08.20-NASA_WindTunnel-mm.stl.gz">03.08.20-NASA_WindTunnel-mm.stl.gz</a>
+            (gzipped STL file, 156.9 MB). Note this is approximately inverted (upside-down, rotated 180 degrees) from the as-designed CAD.
+       </ul>
+  </ul>
+Recall that the STL version of the scanned points introduces some non-physical geometric behavior, and the
+raw data itself includes some errant points. <u>Also, small "pucks," which are temporarily placed on the model during the laser scanning
+process, are supposed to be removed from the final raw-points file, but this is not always successful.  For example, in the above file
+Raw-Scans-f6horn-mm-corrected.dat.gz, a "puck" was inadvertently left in the file near x=4640 mm on the upper surface of the fuselage.
+These types of non-physical protuberances should be removed/ignored.</u>
+
+<p>Pictures from 2018 scan comparison:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="1000"
+src="scan_comparison1.png" title="differences between 2018 scan points and as-designed model, upper left" alt="differences between 2018 scan points and as-designed model, upper left">
+           <img width="1000"
+src="scan_comparison2.png" title="differences between 2018 scan points and as-designed model, lower left" alt="differences between 2018 scan points and as-designed model, lower left">
+           <img width="1000"
+src="scan_comparison_wing_upper.png" title="differences between 2018 scan points and as-designed model on left wing upper surface" alt="differences between 2018 scan points and as-designed model on left wing upper surface">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Pictures from 2020 scan comparison:
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="1000"
+src="scan_comparison_2020_2.png" title="differences between 2020 scan points and as-designed model, upper right" alt="differences between 2020 scan points and as-designed model, upper right">
+           <img width="1000"
+src="scan_comparison_2020_1.png" title="differences between 2020 scan points and as-designed model, lower left" alt="differences between 2020 scan points and as-designed model, lower left">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="junctureflow_f6_exp.html">Exp: NASA Juncture Flow - Intro Page for Turbulent F6-Based Wing</a></p>
+Return to: <a href="../junctureflow_exp.html">Exp: NASA Juncture Flow - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+02/16/2022 - added "cleaned-up" version of the F6+horn CAD<br>
+10/15/2021 - updated the STEP and IGES geometry files<br>
+08/31/2020 - updated In_tunnel_v2.tar.gz file to v2, to include AoA=7.5 degrees; added more scan data to 
+as-built vs. as-designed discussion<br>
+08/03/2020 - added STL file of scanned as-built geometry<br>
+05/07/2020 - added rotations/translations for incidence angle 7.5 deg (from Test 653)<br>
+07/31/2019 - added CAD files for the F6-based wing <u>without</u> horn/leading edge extension<br>
+05/31/2019 - added note 15<br>
+04/04/2019 - expanded in-tunnel CAD to include additional formats, 
+             expanded note 1 about CAD file units and note 2 about experimental data coordinate system<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 08/13/2025
+<br>&nbsp;
+
+</body>
+</html>

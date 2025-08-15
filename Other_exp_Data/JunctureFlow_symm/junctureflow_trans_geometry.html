@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Exp: NASA Juncture Flow - Transitional Symmetric Wing Geometry</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="../../colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="../../construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Exp: NASA Juncture Flow (JF) - Transitional
+Symmetric Wing Geometry</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="junctureflow_trans_exp.html">Exp: NASA Juncture Flow - Intro Page for Transitional Symmetric Wing</a></p>
+Return to: <a href="../junctureflow_exp.html">Exp: NASA Juncture Flow - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<p><span style="text-align: left; font-weight: 400; font-size: large">CAD FILES FOR THE SYMMETRIC CONFIGURATION (WITH HORN)
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The CAD files are the same for the turbulent symmetric wing and transitional symmetric wing.
+
+<ul>
+  <li>As-designed symmetric wing and body <u>with</u> horn/leading edge extension:
+    <ul>
+      <li><a href="jfm_0015_based_wHorn_harrison_fuselage_2017_02_06_fullspan.x_t">Parasolid format</a> (units of meters)
+      <li><a href="jfm_0015_based_wHorn_harrison_fuselage_2017_02_06_fullspan_mm.stp">STEP format</a> (units of mm)
+      <li><a href="jfm_0015_based_wHorn_harrison_fuselage_2017_02_06_fullspan_mm.igs">IGES format</a> (units of mm)
+    </ul>
+
+      <br>&nbsp;
+      <li>
+          <a href="In_tunnel_symmetric.tar.gz">In_tunnel_symmetric.tar.gz</a> (gzipped tar file, 10.3 MB)
+         <ul>
+            <li>Contains 14x22 tunnel
+      definition, as-designed symmetric wing and body with horn/leading edge extension placed
+      with respect to the tunnel at 3 different angles of incidence (0, 1, and 5 deg), and approximated mast/sting definitions).
+            <li>Some important information needed for running Juncture Flow CFD in the tunnel is provided on the
+                <a href="junctureflow_symm_bcs.html">JF Turbulent Symmetric Wing Boundary Conditions</a> page.
+         </ul>
+</ul>
+
+<p>Notes:
+<ol>
+  <li>Three CAD formats are provided:  The Parasolid (x_t) files are the "native" files, with default units of meters.  The
+      STEP (stp) and IGES (igs) file versions are given in mm. Because the experimental data are provided in mm, for direct 
+      comparisons it is recommended that units of mm be used when building CFD grids.
+  <li>The experimental data has the fuselage nose at (0,0,0), x axis along the body axis, z up, and y out     
+      the starboard side.  Also, all LDV data profiles (as well as all surface pressure taps) are aligned with this
+      body axis system.  When extracting velocities, Reynolds stresses, etc. from CFD, this is the coordinate system
+      that you need to use when comparing with the experimental data.  The "as-designed symmetric wing and body"
+      CAD definitions are already in this coordinate system.
+  <li>None of the files provided above account for any aeroelastic deflection.
+  <li>The CAD of the wind tunnel high-speed leg was created from a laser scan, but was simplified (many recesses etc were faired
+      over or ignored).  This simplified as-built model was also used/evaluated in AIAA Paper 2015-2022.
+      The wind tunnel CAD is positioned with x=0 at the start of the test section, and y=z=0 is along the "centerline" (z=up).
+  <li>The wind tunnel's outer wall (sometimes referred to as the "north wall") is located to the left when facing forward (pilot's view);
+      the inner wall ("south wall") is located to the right.
+  <li>The wind tunnel has a 127 mm wide flow-straightening honeycomb centered near x = -20.117 m, followed by 4 screens
+      near x = -19.291, -19.063, -18.885, and -18.707 m.  For this and other 14x22
+      wind tunnel details, see
+      <a href="Papers/nasa-tp-3008-Gentry-14x22general.pdf">NASA TP 3008, September 1990</a> and
+      <a href="Papers/nasa-tm-85662-1983-Applin-14x22improvements.pdf">NASA TM 85662, December 1983</a>.
+      (Note the latter paper title refers to the 14x22 tunnel in metric units: 4- by 7-Meter.  However, nowadays
+      the tunnel is typically referred to by its name referenced in feet.)
+  <li>In the wind tunnel, the approximate locations of the probes used to determine running conditions are:
+      <ul>
+        <li>Total Pressure: (x,y,z) = (-18.105, -7.010, -4.084) m  (1.646 m away from the north wall)
+        <li>Static Pressure: (x,y,z) = (-3.658, -3.048, 0) m  (355.60 mm away from the north wall)
+        <li>Stagnation Temperature: (x,y,z) = (-0.140, -3.234, -0.269) m  (82.55 mm away from the north wall)
+        <li>Dewpoint sensor orifice: (x,y,z) = (-0.140, -3.317, -0.187) m  (on the north wall)
+      </ul>
+  <li>The symmetric wing is a unique blend of NACA 0015 shape near the root, with other (thinner) NACA 0012 and 0010 shapes outboard.
+      The horn (leading edge fillet) at the wing root leading edge of course alters the wing shape inboard.
+      The fuselage used in the Juncture Flow experiment is the same for all tests.
+  <li>Data were <i>not</i> taken to determine angle of attack corrections (accounting for influence of the tunnel walls).
+Therefore, in free-air CFD runs to date, nominal incidence angles were used for freestream angle of attack.
+This is obviously not strictly correct, but arguably the effect on many
+quantities of interest (QoI) is relatively minor.
+  <li>In the experiment, forces and moments were <i>not</i> measured.
+  <li>During the tunnel runs, the goal was to try to keep a reference point on the model (2.448 m behind the model nose tip 
+and on the fuselage centerline) located approximately 5.4 m from the test section entrance and at the center of the test 
+section (approx 2.2098 m above the floor). However, at some negative angles, this was
+impossible.  The equations for the height of the model's reference point (x=2448 mm, z=0 mm) above the floor can
+be approximately expressed as:
+      <ul>
+         <li>For -10 &le; alpha &lt; -2.75, H = 2540.1 + 117.91*alpha (mm)
+         <li>For -2.75 &le; alpha &le; 10, H = 2209.8 mm
+      </ul>
+  <li>The roll angle was never intentionally adjusted but did show a roughly
+linear relationship with the angle of incidence, ranging from approximately -0.07 deg at pitch angle = 10 deg to 0.07 deg at -10 deg.
+  <li>The average roughness and the rms roughness for the painted model surface was 2.70 +- 0.94 &mu;m and 3.33 +- 1.12 &mu;m,
+respectively.
+</ol>
+
+<!--     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="800"
+src="mast-sting-fig-0825.png" title="photo of model in tunnel, showing mast, sting, and typical cabling" 
+alt="photo of model in tunnel, showing mast, sting, and typical cabling">
+        <p><img width="400"
+src="DSC_0818_bottomofsting.JPG" title="photo showing bottom of sting, with typical cabling" 
+alt="photo showing bottom of sting, with typical cabling">
+           <img width="400"
+src="DSC_0819_cablewraponsting.JPG" title="photo showing cables coming out of back of model and wrapping around outside of sting"
+alt="photo showing cables coming out of back of model and wrapping around outside of sting">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+-->
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">DISCUSSION OF MODEL TRIPS
+<p><span style="text-align: left; font-weight: 400; font-size: medium">Some of the transition test was
+performed with boundary layer tripping on the fuselage nose, and some without.  (There were no trips on the wings 
+for the transition test.)
+For fuselage tripping,
+11.4 mil (289.4 micrometer) high trip dots (blue color) were placed on the fuselage at an arc distance of approximately 16 inches
+(406 mm) from the fuselage nose, or at an x location of approximately x=336 mm.
+The trips were cylindrical with diameter 1.16 mm and center-to-center spacing of 2.47 mm.
+Their effectiveness was verified by infrared thermography.
+
+<p>For the trip dots placed by hand around the nose of the fuselage, nominally the goal was to place
+them on the side of the fuselage a specific distance from the nose (running along the surface), then to maintain
+this x-location all the way around.  From the laser scan, the actual x-location varied in the
+range 324 &lt; x &lt; 359 mm, approximately as follows:
+  <ul>
+    <li>On the flat port side: x=329 mm top flat section, increasing to x=339 mm bottom flat section
+    <li>On the flat starboard side: x=340 mm top flat section, increasing to x=343 mm bottom flat section
+    <li>On the top: x=329 mm left, decreasing to 324 mm near y=-112 mm, then increasing to x=340 mm right
+    <li>On the bottom: x=339 mm left, increasing to x=359 mm near y=-8 mm, then decreasing to x=343 mm right
+  </ul>
+
+<p>The following figure is from an STL file created from the scanned points of the symmetric wing and
+body with horn/leading edge extension (note that the STL file
+introduces additional wiggles and non-smoothness that is not present in the real geometry).  This scan
+result can be used to visualize and verify the trip dot placement.
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img width="800"
+src="trip_nose.png" title="trip dots on the fuselage nose as measured by the laser scan" 
+alt="trip dots on the fuselage nose as measured by the laser scan">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">DISCUSSION OF MODEL DEFORMATION
+<p><span style="text-align: left; font-weight: 400; font-size: medium">There are always aeroelastic deflections in any
+model.  These are not accounted for in any of the files provided above.  Details for the symmetric wing are
+not currently available.  However, see the
+<a href="../JunctureFlow/junctureflow_geometry.html#deformation">Turbulent F6-Based Geometry page</a> for discussion of photogrammetry
+results for the F6-based wing.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: large">DISCUSSION OF AS-BUILT VS. AS-DESIGNED SHAPE OF THE MODEL
+<p><span style="text-align: left; font-weight: 400; font-size: medium">A detailed discussion of the as-built
+shape of the symmetric model is provided on the page:
+
+<a href="junctureflow_symm_geometry.html#asbuilt">Turbulent Symmetric Wing Geometry</a>.
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="junctureflow_trans_exp.html">Exp: NASA Juncture Flow - Intro Page for Transitional Symmetric Wing</a></p>
+Return to: <a href="../junctureflow_exp.html">Exp: NASA Juncture Flow - Intro Page</a></p>
+Return to: <a href="../../other_exp.html">Data from Experiments - Intro Page</a></p>
+Return to: <a href="../../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 04/07/2023
+<br>&nbsp;
+
+</body>
+</html>

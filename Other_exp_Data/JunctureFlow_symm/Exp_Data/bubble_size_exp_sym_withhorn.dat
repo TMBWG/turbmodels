@@ -1,0 +1,16 @@
+# Measured widths and lengths (with uncertainties) of the corner-flow separation
+# for the symmetric wing with leading-edge extension (port side)
+#
+#  alpha(deg) = model angle of incidence (deg)
+#  w(mm)      = separation width (mm)
+#  U_w(mm)    = estimated uncertainty in width (mm)
+#  l(mm)      = separation length (mm)
+#  U_l(mm)    = estimated uncertainty in length (mm)
+#
+# Note: Length l is along wing surface in streamwise direction
+#       Width w is along wing surface in spanwise direction
+#       (see fig 15(c) in AIAA-2019-0077)
+
+variables="alpha(deg)","w(mm)","U_w(mm)","l(mm)","U_l(mm)"
+5.0   3.5   0.8   23.5   3.7
+7.5   8.0   1.4   42.0   5.8	

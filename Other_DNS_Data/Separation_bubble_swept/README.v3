@@ -1,0 +1,46 @@
+These data are from the Case C35 DNS of Coleman, Rumsey & Spalart (CRS19): 
+"Numerical study of a turbulent separation bubble with sweep",
+J. Fluid Mech., 2019, 880, 684--706.
+
+Results are provided in Tecplot format.
+
+All variables are normalized with respect to U_\infty and Y (see CRS19).
+
+The one-dimensional/chordwise (x) data in "Qofx_CaseC35_xavg.dat"^* include:
+x:  chordwise component (locations correspond to every 3rd collocation point of DNS).
+Cp_wall:  wall-pressure coefficient, as in figure 2b of CRS19.
+Ue_tilde_x:  edge velocity based on mean spanwise vorticity; see (3.2) of CRS18 (J. Fluid Mech., 847, 28--70).
+\delta995_x:  chordwise 99.5% thickness, based on Ue_tilde_x (fig 7a); see (3.1) of CRS18.
+\delta*_tilde_x:  chordwise displacement thickness, based on mean spanwise vorticity (fig 7a); see (3.3) of CRS18.
+\theta_tilde_x:  chordwise momentum thickness, based on mean spanwise vorticity (fig 7a); see (3.4) of CRS18. 
+\delta995_z:  spanwise 99.5% thickness, based on mean spanwise velocity (fig 7b).
+\delta*_z:  spanwise displacement thickness, based on mean spanwise velocity (fig 7b).
+\theta_z:  spanawise momentum thickness, based on mean spanwise velocity (fig 7b). 
+Rtheta_x:  chordwise momentum-thickness Reynolds number, based on \theta_tilde_x and upstream (chordwise) reference velocity U_\infty (fig 2d).
+   (In collateral/ZPG regions, momentum-thickness Reynolds number based on total upstream velocity Q_\infty is Rtheta_x/cos(35deg).)
+\gamma_r_x:  fraction of chordwise reversed wall shear (fig 6a).
+C_fx:  chordwise mean-skin-friction coefficient, with respect to U_\infty (fig 6b).
+C_fz:  spanwise mean-skin-friction coefficient, with respect to U_\infty (fig 6b).
+
+The two-dimensional/chordwise,wall-normal (x,y) data in "Qofxy_CaseC35_xavg.dat"^* include:
+x:  chordwise component (locations correspond to every 3rd collocation point of DNS).
+y:  wall-normal component (locations correspond to collocation points of DNS).
+U:  mean chordwise velocity, \bar(u).
+V:  mean wall-normal velocity, \bar(v).
+W:  mean spanwise velocity, \bar(w).
+Psi:  mean (U,V) streamfunction.
+Omega_x:  mean chordwise vorticity, \bar(\omega_x.
+Omega_z:  mean spanwise vorticity, \bar(\omega_z).
+P/\rho:  mean kinematic pressure, \bar(p)/\rho.
+\bar(\omega'_j \omega'_j):  mean vorticity fluctuation variance.
+\bar(u'u'): chordwise Reynolds normal stress.
+\bar(v'v'): wall-normal Reynolds normal stress.
+\bar(w'w'): spanwise Reynolds normal stress.
+-\bar(u'v'): (x,y) Reynolds shear stress.
+-\bar(v'w'): (y,z) Reynolds shear stress.
+-\bar(u'w'): (x,z) Reynolds shear stress.
+
+(^* These results have been locally averaged in x (via Tecplot macro available from GNC).)
+
+Please direct queries to g.n.coleman@nasa.gov. 
+

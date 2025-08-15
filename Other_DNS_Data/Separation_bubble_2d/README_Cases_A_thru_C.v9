@@ -1,0 +1,44 @@
+These DNS data are from Coleman, Rumsey & Spalart (CRS): "Numerical study of turbulent separation bubbles with 
+varying pressure gradient and Reynolds number", J. Fluid Mech., 2018, 847, 28--70.
+
+Results are provided in Tecplot format.  Statistics have been locally averaged in x (contact g.n.coleman@nasa.gov for details).
+
+All variables are normalized with respect to U_\infty and Y (see CRS).
+
+**NOTE/CORRECTION: To most accurately impose the top-wall transpiration profile used in the DNS, Vmax in (2.1) of CRS should be changed from 
+0.400 for Case A (the value cited in CRS) to 0.3962, and from 0.1333 to 0.1324 for Cases B and C.  All other parameters remain unchanged.
+
+The one-dimensional/streamwise (x) data in "Qofx_Case[A,B,C]_xavg.dat" include:
+Cp_wall (wall-pressure coefficient; as in figure 3 of CRS)
+Ue_tilde (vorticity-based edge velocity; see (3.2) of CRS for definition)
+\delta_995 (99.5% thickness based on generalised velocity; see (3.1) of CRS)
+\delta* (displacement thickness; see (3.3))
+\theta (momentum thickness; see (3.4)) 
+Rtheta (momentum-thickness Reynolds number, based on upstream reference velocity U_\infty)
+\gamma_r (fraction of reversed wall shear)
+C_f (mean-skin-friction coefficient, with respect to U_\infty
+
+The two-dimensional/streamwise,wall-normal (x,y) data in "Qofxy_Case[A,B,C]_xavg.dat" include:
+U (mean streamwise velocity, \bar(u))
+V (mean wall-normal velocity, \bar(v))
+Omega_z (mean spanwise vorticity, \bar(\omega_z))
+\bar(\omega'_j \omega'_j) (mean vorticity fluctuation variance)
+\bar(u'u') (streamwise Reynolds stress)
+\bar(v'v') (wall-normal Reynolds stress)
+\bar(w'w') (spanwise Reynolds stress)
+-\bar(u'v') (Reynolds shear stress)
+
+Cases B and C also include:
+Psi (mean streamfunction)
+P/\rho (mean kinematic pressure, \bar(p)/\rho)
+
+For Case C, the TKE budget terms are given in "btkeofxy_CaseC_TMR.dat" (with symbols defined as in figures 6 and 12 of CRS):
+k
+Dk/Dt
+P_k
+-eps_k
+T_k
+D_k
+Pi_k
+
+Please direct queries to g.n.coleman@nasa.gov. 

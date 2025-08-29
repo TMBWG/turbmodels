@@ -1,0 +1,65 @@
+For turbmodels, we use GitHub's LFS system for all files with extension gz or zip.
+These are usually large files.
+
+This was done with:
+  First, install git-lfs.com on your computer
+    (see https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)
+  
+  git lfs track "*.gz"
+  git lfs track "*.zip"
+    (This command amends your repository's .gitattributes file and associates large files with Git LFS.)
+
+Max size allowed for an LFS file on GitHub Free is 2 GB.
+
+The pointer to any LFS file needs to be the repository itself (not the file location in the directory).  E.g.:
+  https://github.com/crumsey/turbmodels/blob/main/Jet_mach1p63_grids/mach_163_fine.p2dfmt.x.gz
+
+
+
+GitHub creates source code archives of your repository in the form of ZIP files and tarballs. People can download these 
+archives on the main page of your repository or as release assets. By default, Git LFS objects are *NOT* included in 
+these archives, only the pointer files to these objects. To improve the usability of archives for your repository, 
+you can choose to include the Git LFS objects instead. To be included, the Git LFS objects must be covered by tracking 
+rules in a .gitattributes file that has been committed to the repository.
+
+If you choose to include Git LFS objects in archives of your repository, every download of those archives will count 
+towards bandwidth usage for your account. Each account receives 1 GiB per month of bandwidth for free, and you can pay 
+for additional usage. See Git Large File Storage billing.
+
+If you use an external LFS server (configured in your .lfsconfig), those LFS files will not be included in archives of 
+the repository. The archive will only contain files that have been committed to GitHub.
+
+
+   -If you push a 500 MB file to Git LFS, you'll use 500 MB of the repository owner's storage and none of their bandwidth. 
+    If you make a 1 byte change and push the file again, you'll use another 500 MB of storage and no bandwidth, bringing 
+    the total usage for these two pushes to 1 GB of storage and zero bandwidth.
+   -If you download a 500 MB file that's tracked with Git LFS, you'll use 500 MB of the repository owner's bandwidth. 
+    If a collaborator pushes a change to the file and you pull the new version to your local repository, you'll use another 
+    500 MB of bandwidth, bringing the total usage for these two downloads to 1 GB of bandwidth.
+   -If GitHub Actions downloads a 500 MB file that is tracked with Git LFS, it will use 500 MB of the repository owner's bandwidth.
+
+Regarding LFS, the following amounts of storage and bandwidth for downloads are included:
+   GitHub Free    10 GiB bandwidth     10 GiB storage
+Regarding GitHub in general, the following amounts of time for standard runners and artifact storage are included in the 
+GitHub plan. At the start of each month, the minutes used by the account are reset to zero.  The limits are:
+   GitHub Free:   500 MB storage       2000 minutes per month
+
+If you use more than your included quota of storage without a payment method on file:
+
+   -You can still clone repositories with large assets
+   -You will only retrieve the pointer files, see About Git Large File Storage:
+      https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage#pointer-file-format
+   -You will not be able to push new files back up
+
+If you use more than your included quota of bandwidth per month without a payment method on file, Git LFS support is 
+disabled on your account until the next month.
+
+When someone clones your public repository or downloads a ZIP archive of it, this activity is typically considered part of the 
+free services provided for public repositories on GitHub. It does not directly impact your billed minutes or storage quotas.
+
+If your repository utilizes Git Large File Storage (LFS) to handle large files, then downloads of these LFS objects do 
+count towards your Git LFS bandwidth usage. GitHub provides a certain amount of free Git LFS storage and bandwidth, and 
+exceeding these limits will result in charges.
+
+If your account does not have a valid payment method on file, usage is blocked once you use up your quota.
+

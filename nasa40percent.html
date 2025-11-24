@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>NASA's 40% Challenge and CFD Prediction Error Assessment Workshop 2018</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=LARC" id="_fed_an_ua_tag"></script>
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+      <td width="144"><a href="http://www.nasa.gov/"><img border=0 src="colormeatball.jpg" width="144"
+height="119" title="NASA Logo" alt="NASA Logo"></td>
+         <td>
+         <p><h2 style="text-align: left"><strong>
+              Langley Research Center</strong></h2></p>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!--<img border=0 src="construction.gif" title="under construction" alt="under construction">
+This page under construction... Come back later!-->
+
+   </center>
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">NASA's 40% Challenge and
+CFD Prediction Error Assessment Workshop 2018</strong>
+
+<p>
+<img border=0 src="as_150x120_tn.jpg" title="logo from NASA ARMD website showing LES simulation over backward facing step" 
+alt="logo from NASA ARMD website showing LES simulation over backward facing step">
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+As a project under
+<a href="https://www.hq.nasa.gov/office/aero/tacp/ttt/index.html" target="_blank">
+NASA's Aeronautics Research Mission Directorate</a>,
+the Transformational Tools and Technologies (T^3) Project defined a Technical Challenge to:
+
+<ul>
+<li>Identify and down-select critical turbulence, transition, and numerical method technologies for 40% 
+reduction in predictive error against standard test cases for turbulent separated flows, evolution of 
+free shear flows and shock-boundary layer interactions on state-of-the-art high performance computing hardware.
+</ul>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The deadline for achieving this improvement was May 2018.
+The <a href="Papers/StandardTestCasesFinal6.pdf" target="_blank">Standard Test Cases Document</a> (version 6, pdf file, 3.3 MB) describes
+the proposed test cases as well as metrics.  Additional optional test cases are also listed.
+This challenge applies to both RANS as well as scale-resolving methods, as described in the document.
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+The 5 primary cases in the Standard Test Cases Document are as follows:
+<ul>
+  <li><b>2-D NASA Hump</b>
+    <ul>
+       <li>This is case <a href="nasahump_val.html">2DWMH</a> on the TMR website
+           (experimental data and other details can be found here)
+    </ul>
+  <li><b>Axisymmetric Transonic Bump</b>
+    <ul>
+       <li>This is case <a href="axibump_val.html">ATB</a> on the TMR website
+           (experimental data and other details can be found here)
+    </ul>
+  <li><b>2-D Compressible Mixing Layer</b>
+    <ul>
+       <li>This case is currently <u>not</u> covered on the TMR website
+       <li>Details can be found in the references listed in the Standard Test Cases Document
+       <li>Experimental data: <a href="CompressMixingLayer/Goebel_data.tar.gz">Goebel_data.tar.gz</a> (tarred and gzipped)
+    </ul>
+  <li><b>Round Jet</b>
+    <ul>
+       <li>These are cases <a href="jetsubsonic_val.html">ASJ</a> (set point 3),
+           <a href="jetsubsonichot_val.html">AHSJ</a> (set point 23), and
+           <a href="jetnearsonic_val.html">ANSJ</a> (set point 7) on the TMR website
+           (experimental data and other details can be found here)
+    </ul>
+  <li><b>Axisymmetric Shock Wave Boundary Layer Interaction at M=2.85</b>
+    <ul>
+       <li>This case is currently <u>not</u> covered on the TMR website 
+       <li>Details can be found in the references listed in the Standard Test Cases Document
+       <li>Experimental data: <a href="SWBLI_Brown/axi_swbli_data.tar.gz">axi_swbli_data.tar.gz</a> (tarred and gzipped)
+    </ul>
+</ul>
+
+<hr WIDTH="100%">
+<p><span style="text-align: left; font-weight: 400; font-size: large">
+<b>CFD Prediction Error Assessment Workshop 2018</b>
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+March 20-22, 2018<br>
+Suffolk, Virginia
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+As this challenge under NASA's Revolutionary Computational
+Aerosciences (RCA) drew to a close,
+NASA's Transformational Tools and Technologies (T^3) Project held
+a workshop to highlight and discuss progress made.
+This workshop was comprehensive (not just related to the RCA standard
+test cases), covering the entire  research portfolio, including
+experimental work.  There was also discussion concerning
+the status and future of turbulence modeling (both within NASA and
+within the aerospace community in general), along the lines of the
+<a href="http://turbgate.engin.umich.edu/symposium/" target="_blank">U Mich/NASA Symposium 
+on Advances in Turbulence Modeling</a>, held in 2017.
+
+<p>The venue for the March 20-22 workshop was the 
+<a href="https://www.lockheedmartin.com/us/who-we-are/center-for-innovation.html"
+target="_blank">Lockheed-Martin Center for Innovation</a> on 8000 Harbourview Boulevard, Suffolk, VA 23435.  
+<!--Access to the innovation center will only be available for pre-approved registrants.
+<u>All attendees (including speakers) must be pre-registered.</u>
+Space may be limited, so be sure to register early.
+
+<p>Note that there is no registration fee, but there will be a charge per day for coffee/snacks/lunch.-->
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Links:
+<ul>
+<li><a href="RCA_workshop2018/Agenda_CFD_Prediction_Error_Assessment_Workshop_V10.pdf" target="_blank">
+Workshop Agenda</a>
+<li><a href="RCA_workshop2018/Center_for_Innovation_Suffolk_VA.pdf" target="_blank">Lodging Info and Visitor Guide</a>
+</ul>
+
+<!--<p><b><u>Workshop registration is now closed.</u></b>-->
+<!--To register to attend the workshop</u>: 
+  <ul>
+    <li>Prior to the deadline of <u>February 28, 2018</u>, 
+send an email to Mary Bunde: mary.bunde@nianet.org
+    <li>State that you want to attend the CFD Prediction Error Assessment Workshop March 20-22
+    <li>Provide your name and organization, and if not a US citizen indicate 
+(a) country of citizenship (b) legal permanent resident? Yes/no.
+    <li>Space may be limited; you will be informed by March 2 if you can be accommodated in the workshop.</b>
+  </ul>-->
+<!--<p>For logistics questions:  contact Mary Bunde at mary.bunde@nianet.org-->
+<p>Specific questions about the workshop should be addressed to:  mujeeb.r.malik@nasa.gov
+<!--<p>NASA Conference Tracking System (NCTS) No. 33277-18.-->
+
+<p><b><u>The talks from this workshop are not available here.  If you are interested in any specific talk,
+please contact the author of the talk directly (it is up to each author whether or not to make their talk
+available).</u></b></p>
+
+<br>&nbsp;
+<p>IN OVERVIEW:
+  <ul>
+    <li>RANS models showed the potential to be more accurate when suitably tailored, 
+        but most of the improvements remain problem-specific
+    <li>Intermediate level fidelity (WMLES and HRLES) methods showed potential, 
+        but model sensitivity needs extensive further assessment
+    <li>High-fidelity methods (WRLES) of impressive size are clearly capable, but grid 
+        convergence and expense considerations require more work even for moderate Reynolds numbers
+  </ul>
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+12/04/2018 - added overview<br>
+03/15/2018 - updated agenda posted (V9)<br>
+02/28/2018 - workshop registration closed<br>
+02/08/2018 - clarification about limited attendance<br>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Privacy Act Statement</a> </p>
+<p style="font-family: helvetica,arial,sans-serif;"><a href="https://www.nasa.gov/accessibility" target="_blank">Accessibility Statement</a> </p>
+<p align="right" style="font-family: helvetica,arial,sans-serif;"><strong>Responsible NASA Official:</strong>
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a> <br>
+<strong>Page Curator:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 11/05/2021
+<br>&nbsp;
+
+</body>
+</html>

@@ -16,41 +16,76 @@
                  PRE { color: #000000 }
                  A:visited { color: #551a8b }
                  A:link { color: #0000ee }
+                 html, body {
+                   margin: 0;
+                   padding: 0;
+                   width: 100%;
+                   overflow-x: hidden; /* Prevents accidental horizontal scrolling */
+                 }
+                 .initial-content, .search-content { 
+                   margin: 0;
+                   padding: 0;
+                   max-width: 100%;
+                   flex: 1 0 auto;
+                 }
+                 #main {
+                   clear: both;
+                   margin-inline: auto;
+                   padding-inline: 1em;
+                   -webkit-animation: intro 0.3s both;
+                   animation: intro 0.3s both;
+                   max-width: 1280px;
+                   -webkit-animation-delay: 0.15s;
+                   animation-delay: 0.15s;
+                 }
+                 .wrapper { margin-inline: auto; width: 100%; }
+                 .page__lead { font-size: 1.25em; line-height: 1.5}
+                 .page__title { margin-top: 0; line-height: 1; }
+                 .page__hero { position: relative; margin-bottom: 2em; clear: both; -webkit-animation: intro 0.3s both; animation: intro 0.3s both; -webkit-animation-delay: 0.25s; animation-delay: 0.25s; }
+                 .page__hero::after { clear: both; content: ""; display: table; }
+                 .page__hero--overlay { position: relative; margin-bottom: 2em; padding: 3em 0; clear: both; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-animation: intro 0.3s both; animation: intro 0.3s both; -webkit-animation-delay: 0.25s; animation-delay: 0.25s; }
+                 .page__hero--overlay::after { clear: both; content: ""; display: table; }
+                 .page__hero--overlay a { color: #fff; }
+                 .page__hero--overlay .wrapper { padding-inline: 1em; }
+                 @media (min-width: 80em) { .page__hero--overlay .wrapper { max-width: 1280px; } }
+                 .page__hero--overlay .page__title, .page__hero--overlay .page__meta, .page__hero--overlay .comment__date, .page__hero--overlay .page__lead, .page__hero--overlay .btn { color: #fff; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); }
+                 .page__hero--overlay .page__lead { max-width: 768px; }
+                 .page__hero--overlay .page__title { font-size: 1.953em; }
+                 @media (min-width: 37.5em) { .page__hero--overlay .page__title { font-size: 2.441em; } }
+
+                 .page__hero-image { width: 100%; height: auto; -ms-interpolation-mode: bicubic; }
+
+                 .page__hero-caption { position: absolute; bottom: 0; inset-inline-end: 0; margin: 0 auto; padding: 2px 5px; color: #fff; font-family: Georgia, Times, serif; font-size: 0.6875em; background: #000; text-align: end; z-index: 5; opacity: 0.5; border-radius: 4px 0 0 0; }
+                 @media (min-width: 64em) { .page__hero-caption { padding: 5px 10px; } }
+                 .page__hero-caption a { color: #fff; text-decoration: none; }
          -->
          </style>
 
 </HEAD>
 <body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
 alink="#FF0000">
-<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
 <style>
     * {
       font-family: helvetica,arial,sans-serif;
     }
 </style>
-<a id="main-content"></a>
-<p>
-   <center>
-     <table width="775" border="0">
-       <tr>
 
+<div class="initial-content">
+  <div class="page__hero--overlay" style="background-color: #5e616c; background-image: url('tmr_bump_2000.png');">
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+            Turbulence Modeling Resource
+      </h1>
+      <p class="page__lead">
+        for the validation and verification of turbulence models
+      </p>
+      </br>
+    </div>
+  </div>
+</div>
 
-         <td>
-         <p><h1 style="text-align: left"><strong>
-              Turbulence Modeling Resource</strong></h1></p>
-         </td>
-       </tr>
-     </table>
+<div id="main" role="main">
 
-<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
-<br>
-<div style="text-align: center;">
-  <img src="turb-pic.jpg" style="width: 600px; " title="Logo pic" alt="Logo pic"></div>
-
-   </center>
-
-
-<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><u>Turbulence Modeling Resource</u></strong>
 <p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Purpose</strong>
 
 <p><span style="text-align: left; font-weight: 400; font-size: medium">The purpose of this site is to
@@ -2430,5 +2465,6 @@ in 2-equation models (throughout site)<br>
 <strong>Last Updated:</strong> 10/23/2025
 <br>&nbsp;
 
+</div>
 </body>
 </html>

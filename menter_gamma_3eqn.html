@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xml:lang="en" lang="en">
 <HEAD>
-<TITLE>Menter 3-equation Transitional Gamma SST Model</TITLE>
+<TITLE>SST-2003-Menter-Gamma-2015</TITLE>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -98,7 +98,7 @@ Tu_L=\text{min}(100\frac{\sqrt{2k/3}}{\omega d_w},100)
 %\]</span></p>
 <p style="text-align: left" ><span class="math display">\[
 \lambda_{\theta L} = -7.57\cdot10^{-3}\frac{dV}{dy}\frac{d_w^2}{\nu}+0.0128
-\]</span> In the above equations, <span class="math inline">\(V\)</span> and <span class="math inline">\(y\)</span> are the wall-normal velocity and coordinate in the freestream respectively. For a general geometry case, <span class="math inline">\(\frac{dV}{dy}\)</span> can be computed as follows:</p>
+\]</span> In the above equations, <span class="math inline">\(V\)</span> and <span class="math inline">\(y\)</span> are the local wall-normal velocity and the wall-normal direction respectively. For a general geometry case, <span class="math inline">\(\frac{dV}{dy}\)</span> can be computed as follows:</p>
 <p style="text-align: left" ><span class="math display">\[
 \frac{dV}{dy}= \nabla(\vec{n}\cdot \vec{V})\cdot \vec{n}
 \]</span></p>
@@ -131,7 +131,7 @@ F_{PG}=
 <p style="text-align: left" >The <span class="math inline">\(\gamma\)</span> transition model is coupled to the SST-2003 turbulence model, similar to the Langtry-Menter transition model. The coupling process, requires a few modifications to the standard SST-2003 model.The equations describing the turbulence model, as coupled to the transition model, are as follows:</p>
 <p style="text-align: left" ><span class="math display">\[
     \frac{\partial \rho k}{\partial t} +  \frac{\partial \rho u_j k}{\partial x_j}
-    =\tilde{P_k} + P_k^{lim} - \tilde{D_k} + \frac{\partial }{\partial x_k}
+    =\widetilde{P_k} + P_k^{lim} - \widetilde{D_k} + \frac{\partial }{\partial x_k}
     [(\mu+\sigma_k\mu_t)\frac{\partial k}{\partial x_j}]
 \]</span> <span class="math display">\[
     \frac{\partial \rho \omega}{\partial t} +  \frac{\partial \rho u_j \omega}{\partial x_j}
@@ -141,9 +141,9 @@ F_{PG}=
     \frac{\partial \omega}{\partial x_j}
 \]</span> The source terms in the above two equations are defined as follows: <span class="math display">\[
 \begin{aligned}
-    &amp; \tilde{P_k}=\gamma P_{k} \\
+    &amp; \widetilde{{P_k}}=\gamma P_{k} \\
     &amp; P_k = \mu_t S \Omega \\
-    &amp; \tilde{D_k}= \text{max}(\gamma,0.1)\cdot D_{k,SST} \\
+    &amp; \widetilde{D_k}= \text{max}(\gamma,0.1)\cdot D_{k,SST} \\
     &amp; \mu_t=\frac{\rho a_1 k}{\text{max}(a_1\omega, SF_2)} \\
     &amp; P_k^{lim} = 5C_k \text{max}(\gamma -0.2,0)(1-\gamma)F_{on}^{lim}
     \text{max}(3C_{sep}\mu-\mu_t,0)S\Omega\\

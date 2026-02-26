@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Generalized k-omega (GEKO) Turbulence Model</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.0.0/tex-mml-chtml.js"></script>
+
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    h1 {
+      font-family: helvetica,arial,sans-serif;
+      font-weight: 700;
+      font-size: x-large;
+    }
+    h2 {
+      font-family: helvetica,arial,sans-serif;
+      font-weight: 700;
+      font-size: large;
+    }
+    p, li {
+      font-family: helvetica,arial,sans-serif;
+      font-weight: 400;
+      font-size: medium;
+    }
+    .centered-table {
+      font-family: helvetica,arial;
+      margin-left: auto;
+      margin-right: auto;
+      width: 20em;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+    }
+    .centered-table th {
+      border-bottom: 1px solid black;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+
+      <td width="144"><img border=0 src="turb-pic.jpg" width="144"
+height="89" title="Logo pic" alt="Logo pic"></td>
+         <td>
+         <p style="text-align: left; font-weight: bold; font-size: 2em"><strong>
+              Turbulence Modeling Resource</strong></p>
+         </td>
+       </tr>
+     </table>
+   </center>
+</p>
+
+<span>
+<h1 style="text-align: left; font-weight: 700; font-size: x-large">
+  The Generalized k-omega (GEKO) Turbulence Model
+</h1>
+</span>
+
+<p>
+This web page gives detailed information on the equations for various forms of the
+Generalized \(k\)-\(\omega\) (GEKO) turbulence model.
+The reference for the standard implementation of the GEKO model by Menter and Matyushenko is:</p>
+<ul>
+<li>
+  Menter, F. R., & Matyushenko, A., "Generalized k-\(\omega\) (GEKO) Two-Equation Turbulence Model," <strong>AIAA Journal</strong> Vol. 63, No. 11, 2025, pp. 4590-4606.
+  <a href="https://doi.org/10.2514/1.J065393">https://doi.org/10.2514/1.J065393</a>
+</li>
+</ul>
+<p>
+Several options are discussed for the constitutive relationship in the paper.
+The standard implementation uses the Boussinesq hypothesis, also known as a linear eddy-viscosity model.
+Including all terms, the Boussinesq hypothesis gives the following constitutive relationship:
+</p>
+$$
+\tau_{ij} = 2 \mu_t \left( S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij}\right) - \frac{2}{3} \rho k \delta_{ij}
+$$
+<p>
+Menter and Matyushenko recommend a simplified constitutive relationship for compressible flows:
+</p>
+$$
+\tau_{ij} = 2 \mu_t \left( S_{ij} - \frac{1}{3} \frac{\partial u_k}{\partial x_k} \delta_{ij}\right)
+$$
+<p>
+And the following version is suggested for incompressible flows:
+</p>
+$$
+\tau_{ij} = 2 \mu_t S_{ij}
+$$
+<p>
+The term \( 1/3 \partial u_k / \partial x_k \delta_{ij} \) should be zero for incompressible flows, and is omitted.
+The standard version of GEKO omits the isotropic portion, \(2/3 \rho k \delta_{ij}\), for both compressible and incompressible flows.
+</p>
+
+<p>Unless otherwise stated, for compressible flow with heat transfer this model is implemented as described on the page
+<a href="https://tmbwg.github.io/turbmodels/implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
+assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.</p>
+
+<h2> GEKO </h2>
+<p>The two-equation model (written in conservation form) is given by the following:</p>
+$$
+\begin{aligned}
+\frac{\partial (\rho k)}{\partial t} +
+\frac{\partial (\rho u_j k)}{\partial x_j} &=
+\tilde{P}_k - C_\mu \rho k \omega +
+\frac{\partial}{\partial x_j}\left[ \left(\mu + \frac{\tilde \mu_t}{\sigma_k}\right)\frac{\partial k}{\partial x_j}\right] \\
+\frac{\partial (\rho \omega)}{\partial t} +
+\frac{\partial (\rho u_j \omega)}{\partial x_j} &=
+C_{\omega 1}P_\omega - C_{\omega2} F_\mathrm{MIX}\rho \omega^2 + F_\mathrm{NW} CD +
+\frac{\partial}{\partial x_j}\left[ \left(\mu + \frac{\tilde \mu_t}{\sigma_k}\right)\frac{\partial \omega}{\partial x_j}\right] \\
+\end{aligned}
+$$
+<p>where:</p>
+$$
+P_k = \mu_t S^2
+$$
+$$
+\tilde P_k = \min(P_k, C_{PK} C_\mu \rho k \omega)
+$$
+$$
+P_\omega = \frac{\rho \tilde{P}_k}{\tilde{\mu}_t + 0.001\mu}
+$$
+$$
+CD = \rho \frac{2}{\sigma_\omega}\frac{1}{\omega}\frac{\partial k}{\partial x_j}\frac{\partial \omega}{\partial x_j}
+$$
+<p>and \( S = \sqrt{2 S_{ij} S_{ij}} \), with the rate-of-strain tensor defined as:</p>
+$$
+S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+$$
+<p>and the turbulent eddy viscosity is computed from:</p>
+$$
+\mu_t = \tilde{\mu}_t = \frac{\rho k}{\max(\omega, S/C_R)}
+$$
+<p>
+The maximum of \(S / C_R \) is a realizability limit. Both \(\mu_t\) and \(\tilde{\mu}_t\) are used to denote the eddy viscosity and are identical in the standard model.
+These two eddy-viscosities only differ when submodels are used that alter the eddy viscosity definition, such as explicit algebraic Reynolds stress models (EARSM).
+</p>
+<p>
+Menter and Matyushenko also recommend a production limiter similar to the production limiter in 
+<a href="https://tmbwg.github.io/turbmodels/sst.html">SST</a>.
+<!--- I use HTML code for Pk here instead of LaTeX because \tilde{P}_k made the line height very tall and it looked strange visually -->
+This is accomplished by replacing the unlimited production, <i>P<sub>k</sub></i>, with a limited version, <i>P&#771<sub>k</sub></i>, in the <i>k</i>- and omega-equations. 
+While the original reference does not mention production limiters on \( P_\omega \), the authors have clarified that the same limited production (P&#771<sub>k</sub>) was used in both equations, as shown in the equations here.
+The standard version of GEKO uses both the realizability limit on the eddy viscosity and the production limiter.
+</p>
+
+<p>The GEKO model relies on several functions, including \(F_{MIX}\), \(F_{NW}\), \(F_{JET}\), \(F_{SEP}\), and \(F_{Blend}\).</p>
+<p>Similar to SST, there is a blending function \(F_{Blend} \) which is equal to 1 close to the wall but equal to 0 in shear layers away from the walls:</p>
+$$
+\begin{aligned}
+L_T &= \frac{\sqrt{\tilde k}}{C_\mu \omega} \\
+\tilde k &= \max(k, CFb_{Lam}\nu\omega) \\
+x_{blend} &= CFb_{Turb} L_T / y \\
+F_{Blend} &= \tanh(x_{blend}^4)
+\end{aligned}
+$$
+
+<p>The \(F_{SEP}\) function is defined as:</p>
+$$ F_{SEP} = 1 + f_D \psi$$
+$$ \psi = C_\psi (C_{SEP} - 1)F_{Blend}$$
+$$f_D = \frac{1}{1 + (\tilde y^+ / A^+)^2}$$
+$$C_\psi = 0.2454 C_{sep}^{-0.803}$$
+$$\tilde y^+ = \frac{1}{\kappa}\frac{k/\omega}{\nu}$$
+
+<p>The \(F_{NW} \) function is defined as:</p>
+$$F_{NW} = \begin{cases}
+1 &\text{ if }CD &gt; 0,\\
+[C_{NW} - (C_{c1} + C_{c2}C_{NW})f_D]F_{Lim} &\text{else}
+\end{cases}$$
+<p>where the \(F_{Lim} \) function is defined as:</p>
+$$ F_{Lim} = \frac{D_\omega}{\max(D_\omega, 2CD)}$$
+$$ D_\omega = C_{\omega 2} F_{MIX} \rho \omega^2 $$
+
+<p>The \(F_{MIX} \) function is defined as:</p>
+$$ F_{MIX} = F_{SEP} + [C_{MIX} + 0.13 C_{JET}(F_{JET} - 1)](1 - F_{Blend})$$
+
+<p>The \(F_{JET} \) function is defined as:
+$$x_{jet} = 4\left(\frac{Soo - 0.9}{0.15}-\frac{1}{2}\right)$$
+$$ Soo = \frac{\min(S,\Omega,\omega)}{0.3\omega}$$
+$$ F_{JET} = 1/2(1 + \tanh(x_{jet}))$$
+where \(\Omega = \sqrt{2 \Omega_{ij} \Omega_{ij}}\) is the voriticity magnitude and \(\Omega_{ij}\) is the rate-of-rotation tensor:
+$$
+\Omega_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} - \frac{\partial u_j}{\partial x_i}\right)
+$$
+The diffusion constants \(\sigma_k\) and \(\sigma_\omega\) are also blended using the \(F_{Blend}\) function:</p>
+$$
+\begin{aligned}
+\sigma_k &= \tilde \sigma_k \left[ 1 + 0.25(C_{SEP} - 1)F_{Blend}\right] \\
+\sigma_\omega &= \tilde \sigma_\omega \left[1 + (C_{SEP} - 1)F_{Blend}\right]
+\end{aligned}
+$$
+<p>Note that the \(C_{\omega1}\) coefficient was chosen in order to yield a log-law velocity profile via the expression:</p>
+$$
+C_{\omega1} = \frac{1}{C_\mu}\left(C_{\omega 2} - \frac{\kappa^2 C_\mu^{1/2}}{\sigma_\omega}\right)
+$$
+The other non-tunable coefficients are prescribed as:
+$$
+\begin{aligned}
+C_\mu &= 0.09 
+&C_{\omega2} &= 0.083 \\
+\tilde \sigma_k &= 1.0 
+&\tilde \sigma_\omega &= 1.17 \\
+C_{c1} &= 1.7
+&C_{c2} &= 1.4 \\
+CFb_{Turb} &= 2.0
+&CFb_{Lam} &= 1.0 \\
+\end{aligned}
+$$
+$$
+\begin{aligned}
+C_{PK} &= 10 \\
+C_R &= 1 / \sqrt{3} \approx 0.557 \\
+\kappa &= 0.41 \\
+A^+ &= 15
+\end{aligned}
+$$
+<p> Menter and Matyushenko recommend \(CFb_{Lam}=1\) but state that \(CFb_{Lam}\) can be increased to 25 in transition simulations to shield a laminar boundary layer.</p>
+
+<p>The main difference between GEKO and other k-omega models such as
+<a href="https://tmbwg.github.io/turbmodels/sst.html">SST</a>
+is the introduction of free parameters, which can be tuned by the user.
+These parameters and their sensible ranges are:</p>
+$$
+\begin{aligned}
+0.7 &\le C_{SEP}&\le 2.5 \\
+-2.0 &\le C_{NW}&\le 2.0 \\
+-0.2 &\le C_{MIX}&\le 1.0 \\
+0.0 &\le C_{JET}&\le 1.2 \\
+\end{aligned}
+$$
+<p>Menter and Matyushenko provide the following default values:</p>
+ <table class="centered-table">
+  <tr>
+    <th style="text-align: left">Parameter</th>
+    <th style="text-align: right">\(C_{SEP}\)</th>
+    <th style="text-align: right">\(C_{NW}\)</th>
+    <th style="text-align: right">\(C_{MIX}\)</th>
+    <th style="text-align: right">\(C_{JET}\)</th>
+  </tr>
+  <tr>
+    <td>Default</td>
+    <td style="text-align: right">1.75</td>
+    <td style="text-align: right">0.5</td>
+    <td style="text-align: right">0.0</td>
+    <td style="text-align: right">1.0</td>
+  </tr>
+  <tr>
+    <td>GEKO \(k-\varepsilon\)</td>
+    <td style="text-align: right">1.00</td>
+    <td style="text-align: right">1.0</td>
+    <td style="text-align: right">0.0</td>
+    <td style="text-align: right">0.0</td>
+  </tr>
+</table> 
+<p>
+To avoid confusion and facilitate comparisons, the default values should be used unless systematic differences are observed relative to reliable data.
+There is extensive discussion in the original reference on the purpose and the proper calibration of each tunable coefficient.
+</p>
+<p>
+Menter and Matyushenko prescribe a naming convention to facilitate sharing of results. 
+The model name should be followed by the constants \((C_{SEP}, C_{NW}, C_{MIX}, C_{JET})\).
+Under this convention, the standard model is then GEKO (1.75, 0.5, 0.0, 1.0).
+The "exact" \(k\)\(\varepsilon\) model would be GEKO (1.0, 1.0, 0.0, 0.0).
+Since many applications only change the \(C_{SEP}\) coefficient, a simplified notation can be used with GEKO-(\(C_{SEP}\)), where \(C_{SEP}\) is the specified value.
+For example, the standard model would be GEKO-1.75 while a model with \(C_{SEP} = 1\) and all other constants untouched would be GEKO-1.0.
+</p>
+<p>The GEKO model can be used with the same boundary conditions as the
+<a href="https://tmbwg.github.io/turbmodels/sst.html">SST model</a>.
+The authors also state that for meshes with a first cell-height of \(y^+ &lt; 2\),
+the value of \(\omega\) at the first cell center can be imposed as:</p>
+$$
+\omega_1 = C_{\mathrm{wall}} \frac{6 \nu}{C_{\omega2} y_1^2}
+$$
+<p>where \(C_{\mathrm{wall}}\) is a constant that is dependent on the code and numerics.
+The SST model used a similar boundary condition with a value of \( C_{\mathrm{wall}} = 10\).
+There are several other boundary conditions which are described in more detail in Appendix B of the paper by Menter and Matyushenko.</p>
+
+<h2>GEKO-KL</h2>
+
+<p>Menter and Matyushenko state that the Kato-Launder correction can be used to suppress spurious production;
+this modification is not the default because it can have a noticeable effect on flows with rotation and swirl relative to the original model calibration.
+This correction was originally published in:</p>
+<ul>
+  <li>Kato, M. and Launder, B. E., "The Modelling of Turbulent Flow Around Stationary and Vibrating Square Cylinders,"
+9th Symposium on Turbulent Shear Flows, Kyoto, Japan, August 1993, paper 10-4</li>
+</ul>
+<p>The Kato-Launder correction models production as \(P_k = \mu_t S \Omega\)
+instead of \(P_k = \mu_t S^2\) or a more complete production model.
+Implementation with the Kato-Launder correction should be called <span style="color: blue">(GEKO-KL)</span>.</p>
+
+<br>&nbsp;
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p></p>
+<hr WIDTH="100%">
+
+<p align="right" style="font-family: helvetica,arial,sans-serif;"> <br>
+<strong>Page Curators:</strong> <a href="mailto:c.l.rumsey@nasa.gov">Christopher Rumsey</a>,
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a>,
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 2/26/2026
+</p>
+<br>&nbsp;
+
+</body>
+</html>

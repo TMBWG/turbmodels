@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Implementing Turbulence Models into the Compressible RANS Equations</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+
+      <td width="144"><img border=0 src="turb-pic.jpg" width="144"
+height="89" title="Logo pic" alt="Logo pic"></td>
+         <td>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+<br>&nbsp;
+<p>Note that the use of overbars and hats, indicating time averaging and density-weighted averaging 
+(described on this page) is not always followed throughout the
+rest of the website.  Often, they are dropped for convenience.
+<br>&nbsp;
+
+&nbsp;
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large">Implementing Turbulence Models 
+into the Compressible RANS Equations</strong>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">There are many technical papers and texts that derive and/or
+describe the compressible Reynolds-averaged Navier-Stokes equations (also termed the Favre-averaged
+Navier-Stokes equations).  See, for example,
+(1) Gatski, T. B. and Bonnet, J.-P., "Compressibility, Turbulence and High Speed Flow,"
+2009, Elsevier, Amsterdam, (2) Wilcox, D. C., "Turbulence Modeling for CFD," 2006, DCW Industries, La Canada, CA, or
+(3) Hirsch, C., "Numerical Computation of Internal and External Flows, Vol. 2," 1990, John Wiley & Sons,
+Chichester.
+The equations can be written as follows:
+<dl>
+<dd><img class="tex" alt="\frac{\partial \overline\rho}{\partial t} + \frac{\partial}{\partial x_j}
+(\overline\rho \hat u_j) = 0"
+  src="implementrans_eqns/img2.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\overline\rho \hat u_i)}{\partial t} +
+\frac{\partial}{\partial x_j}(\hat u_j \overline\rho \hat u_i) = 
+-\frac{\partial p}{\partial x_i} + \frac{\partial \overline\sigma_{ij}}{\partial x_j}
++\frac{\partial \tau_{ij}}{\partial x_j}"
+  src="implementrans_eqns/img3.png" /></dd>
+</dl>
+
+<dl>
+<dd><img class="tex" alt="\frac{\partial (\overline\rho \hat E)}{\partial t} +
+\frac{\partial}{\partial x_j}(\hat u_j \overline\rho \hat H) =
+\frac{\partial}{\partial x_j} ( \overline \sigma_{ij} \hat u_i + \overline{\sigma_{ij} u_i''})
+-\frac{\partial}{\partial x_j} ( \overline q_j + 
+c_p \overline {\rho u_j'' T''} - \hat u_i \tau_{ij} +
+\frac{1}{2} \overline{\rho u_i'' u_i'' u_j''})"
+  src="implementrans_eqns/img4.png" /></dd>
+</dl>
+
+<p>where
+
+<dl>
+<dd><img class="tex" alt="\hat H = \hat E + \overline p / \overline\rho"
+  src="implementrans_eqns/img5.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\overline q_j = -\overline{k_T \partial T/\partial x_j}
+\approx -\frac{c_p \hat \mu}{Pr} \frac{\partial \hat T}{\partial x_j}"
+  src="implementrans_eqns/img6.png" /></dd>
+</dl>
+
+<p>and the viscous stress tensor is:
+<dl>
+<dd><img class="tex" alt="\overline\sigma_{ij} \approx 2 \hat \mu \left( \hat S_{ij} - \frac{1}{3} 
+\frac{\partial \hat u_k}{\partial x_k}\delta_{ij} \right)"
+  src="implementrans_eqns/img22.png" /></dd>
+</dl>
+
+<p>Note  that the Reynolds stress term 
+<img class="tex" alt="\tau_{ij} \equiv -\overline {\rho u_i''u_j''}" src="implementrans_eqns/img7.png" />
+is defined in the literature both as shown here, as well as
+with the opposite sign, and sometimes without the density included in the definition.
+(This different terminology does not matter, as long as consistency is maintained throughout the derivation.)
+The term c<sub>p</sub> is the heat capacity at constant pressure, and Pr is the Prandtl number (e.g.,
+around 0.72 for air).
+On this page the overbar indicates conventional time-average mean, with the averaging time scale assumed to be
+long compared to turbulent fluctuations, and short compared to unsteadiness in the mean flow.
+The hat here represents the Favre (density-weighted) average:
+<img class="tex" alt="\hat f = \overline{\rho f}/\overline\rho" src="implementrans_eqns/img8.png" />.
+Note that <img class="tex" alt="f = \overline f + f' = \hat f + f''" src="implementrans_eqns/img9.png" />.
+The dynamic viscosity, <img class="tex" alt="\hat \mu" src="implementrans_eqns/img23.png" />, is
+often computed using 
+Sutherland's Law, which gives a relationship between the dynamic viscosity
+and the temperature of an ideal gas (See White, F. M., "Viscous Fluid Flow," McGraw Hill, New York, 1974, p. 28).
+In Sutherland's Law, the local value of dynamic viscosity is determined by plugging the local value of temperature
+(<i>T</i>) into the following formula:
+
+<dl>
+<dd><img class="tex" alt="\mu = \mu_0 \left( \frac{T}{T_0} \right)^{3/2} \left(
+\frac{T_0 + S}{T+S} \right)"
+  src="sutherland_eqns/img2.png" /></dd>
+</dl>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">where
+<img class="tex" alt="\mu_0 = 1.716 \times 10^{-5} kg/(ms)" src="sutherland_eqns/img3.png" />,
+<img class="tex" alt="T_0 = 491.6 R" src="sutherland_eqns/img4.png" />, and
+<img class="tex" alt="S = 198.6 R" src="sutherland_eqns/img5.png" />.
+The same formula can be found <a href="http://www.cfd-online.com/Wiki/Sutherland%27s_law" target="_blank">online</a>
+(with temperature constants given in degrees K and some small conversion differences).
+
+<p>The equation of state is:
+<dl>
+<dd><img class="tex" alt="\overline p = (\gamma - 1)[\overline\rho \hat E - 
+\frac{1}{2}\overline\rho ( \hat u^2 + \hat v^2 + \hat w^2) - \overline\rho k]"
+  src="implementrans_eqns/img10.png" /></dd>
+</dl>
+
+<p>where <i>k</i> is the local turbulent kinetic energy (the kinetic energy of the fluctuating field):  
+<img class="tex" alt="k = [(\hat {u_i''})^2 + (\hat {v_i''})^2 + (\hat {w_i''})^2]/2" src="implementrans_eqns/img18.png" />.
+(The <i>k</i> term is sometimes ignored in the equation of state for non-supersonic speed flows.)
+The heat capacity ratio (<img class="tex" alt="\gamma" src="implementrans_eqns/img28.png" />) is typically
+taken as constant at 1.4 for air.
+The following terms in the Favre-averaged equations need to be modeled:
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij}"
+  src="implementrans_eqns/img11.png" /></dd>
+</dl>
+<dd><img class="tex" alt="c_p \overline {\rho u_j'' T''}"
+  src="implementrans_eqns/img13.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\overline{\sigma_{ij} u_i''}"
+  src="implementrans_eqns/img12.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt="\frac{1}{2} \overline{\rho u_i'' u_i'' u_j''}"
+  src="implementrans_eqns/img14.png" /></dd>
+</dl>
+
+<p>Most turbulence modeling focuses on the Reynolds stress terms 
+(<img class="tex" alt="\tau_{ij}" src="implementrans_eqns/img11.png" />).
+These are either solved directly (as in full second-moment Reynolds stress models) or
+defined via a constitutive relation for simpler models.
+For example, the common Boussinesq approximation is:
+
+<dl>
+<dd><img class="tex" alt="\tau_{ij}=2 \hat \mu_t \left( \hat S_{ij} - \frac{1}{3}
+\frac{\partial \hat u_k}{\partial x_k} \delta_{ij} \right) - \frac{2}{3} \overline \rho k \delta_{ij}"
+  src="implementrans_eqns/img15.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\hat S_{ij} = (\partial \hat u_i / \partial x_j +
+\partial \hat u_j / \partial x_i) / 2" src="implementrans_eqns/img16.png" />, and
+<img class="tex" alt="\hat \mu_t" src="implementrans_eqns/img21.png" /> is the eddy viscosity
+obtained by the turbulence model.
+(In the equation above, the <img class="tex" alt="(2/3) \overline \rho k \delta_{ij}" src="implementrans_eqns/img27.png" />
+term is sometimes ignored for non-supersonic
+speed flows, and the second term in parentheses is identically zero for incompressible flows.)
+
+<p>Less attention is typically given to the other terms that need to be modeled.
+Most commonly, a Reynolds analogy is used to model the turbulent heat flux:
+
+<dl>
+<dd><img class="tex" alt="c_p \overline {\rho u_j'' T''} \approx
+-\frac{c_p \hat \mu_t}{Pr_t} \frac{\partial \hat T}{\partial x_j}"
+  src="implementrans_eqns/img17.png" /></dd>
+</dl>
+
+<p>where Pr<sub>t</sub> is a "turbulent Prandtl number," often taken to be constant (e.g.,
+around 0.9 for air).
+Ideal gas relations are typically used to resolve the heat capacity at constant pressure (c<sub>p</sub>);
+if required, the specific gas constant for air is usually taken as 287.058 J/(kgK).
+The terms associated with molecular diffusion and turbulent transport 
+in the energy equation are modeled different ways (often lumped together). For example, one model is:
+
+<dl>
+<dd><img class="tex" alt="\overline{\sigma_{ij} u_i''} - \frac{1}{2} \overline{\rho u_i'' u_i'' u_j''} \approx
+\left( \hat \mu + \frac{\hat \mu_t}{\sigma_k} \right) \frac{\partial k}{\partial x_j}"
+  src="implementrans_eqns/img19.png" /></dd>
+</dl>
+
+<p>where <img class="tex" alt="\sigma_k" src="implementrans_eqns/img20.png" />
+(which is sometimes shown like this, in the denominator, and sometimes in
+the numerator with its value adjusted accordingly) is a coefficient associated with the modeling equation for k.
+This expression in the energy equation is also sometimes neglected.
+
+
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p style="font-family: helvetica,arial,sans-serif;">Recent significant updates:<br>
+    07/10/2021 - mentioned that sigma_k sometimes is written in the numerator<br>
+    01/10/2017 - added mention of gamma and specific gas constant for air<br>
+    08/22/2013 - added equation for Sutherland's Law<br>
+    07/08/2013 - fixed typo in energy equation
+
+<p align="right" style="font-family: helvetica,arial,sans-serif;"> <br>
+<strong>Page Curators:</strong> <a href="mailto:c.l.rumsey@nasa.gov">Christopher Rumsey</a>,
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a>,
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 10/10/2024
+<br>&nbsp;
+
+</body>
+</html>

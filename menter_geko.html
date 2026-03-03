@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xml:lang="en" lang="en">
 <HEAD>
-<TITLE>Generalized k-omega (GEKO) Turbulence Model</TITLE>
+<TITLE>Generalized K-Omega (GEKO) Turbulence Model</TITLE>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
 <script language="JavaScript">
 <!--
@@ -51,6 +51,12 @@ alink="#FF0000">
       font-weight: 400;
       font-size: medium;
     }
+    .model-shorthand {
+      text-align: left;
+      font-weight: 700;
+      font-size: large;
+      color: blue
+    }
     .centered-table {
       font-family: helvetica,arial;
       margin-left: auto;
@@ -83,7 +89,7 @@ height="89" title="Logo pic" alt="Logo pic"></td>
 
 <span>
 <h1 style="text-align: left; font-weight: 700; font-size: x-large">
-  The Generalized k-omega (GEKO) Turbulence Model
+  The Generalized K-Omega (GEKO) Turbulence Model
 </h1>
 </span>
 
@@ -126,7 +132,7 @@ The standard version of GEKO omits the isotropic portion, \(2/3 \rho k \delta_{i
 <a href="https://tmbwg.github.io/turbmodels/implementrans.html">Implementing Turbulence Models into the Compressible RANS Equations</a>, with perfect gas
 assumed and Pr = 0.72, Pr<sub>t</sub> = 0.90, and Sutherland's law for dynamic viscosity.</p>
 
-<h2> GEKO </h2>
+<h2 id="geko"> Generalized K-Omega Model <span class="model-shorthand"> (GEKO) </span></h2>
 <p>The two-equation model (written in conservation form) is given by the following:</p>
 $$
 \begin{aligned}
@@ -168,9 +174,8 @@ These two eddy-viscosities only differ when submodels are used that alter the ed
 <p>
 Menter and Matyushenko also recommend a production limiter similar to the production limiter in 
 <a href="https://tmbwg.github.io/turbmodels/sst.html">SST</a>.
-<!--- I use HTML code for Pk here instead of LaTeX because \tilde{P}_k made the line height very tall and it looked strange visually -->
-This is accomplished by replacing the unlimited production, <i>P<sub>k</sub></i>, with a limited version, <i>P&#771<sub>k</sub></i>, in the <i>k</i>- and omega-equations. 
-While the original reference does not mention production limiters on \( P_\omega \), the authors have clarified that the same limited production (P&#771<sub>k</sub>) was used in both equations, as shown in the equations here.
+This is accomplished by replacing the unlimited production, \( P_k \), with a limited version, \( \tilde{P}_k \), in the <i>k</i>- and omega-equations. 
+While the original reference does not mention production limiters on \( P_\omega \), the authors have clarified that the same limited production \( \tilde{P}_k \) was used in both equations, as shown in the equations here (ref: private communication with the authors).
 The standard version of GEKO uses both the realizability limit on the eddy viscosity and the production limiter.
 </p>
 
@@ -305,7 +310,7 @@ $$
 The SST model used a similar boundary condition with a value of \( C_{\mathrm{wall}} = 10\).
 There are several other boundary conditions which are described in more detail in Appendix B of the paper by Menter and Matyushenko.</p>
 
-<h2>GEKO-KL</h2>
+<h2 id="geko-kl">Generalized K-Omega Model with Kato-Launder Source Term <span class="model-shorthand"> (GEKO-KL) </span></h2>
 
 <p>Menter and Matyushenko state that the Kato-Launder correction can be used to suppress spurious production;
 this modification is not the default because it can have a noticeable effect on flows with rotation and swirl relative to the original model calibration.

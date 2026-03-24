@@ -1,0 +1,9 @@
+8             
+1           7011              x0_BCTunnelInflow
+2           5051              x1_BCTunnelOutflow
+3           6662              y0_BCSymmetryPlane
+4           6662              y1_BCSymmetryPlane
+5           4000              z0_bump_BCWallViscous
+6           6663              z0_dwnstrm_BCSymmetryPlane
+7           6663              z0_upstrm_BCSymmetryPlane
+8           6663              z1_BCSymmetryPlane

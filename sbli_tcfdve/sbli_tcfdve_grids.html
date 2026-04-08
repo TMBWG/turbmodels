@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Grids - Axisymmetric Shock Boundary-Layer Interaction</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+
+      <td width="144"><img border=0 src="../turb-pic.jpg" width="144"
+height="89" title="Logo pic" alt="Logo pic"></td>
+         <td>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<p><img border=0 src="../construction.gif" title="under construction" alt="under construction">
+This page is under construction... Come back later!</p>
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../sbli_tcfdve.html">Axisymmetric Shock Boundary-Layer Interaction - Intro Page</a></p>
+<p>Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<h1>Grids - Axisymmetric Shock Boundary Layer Interaction</h1>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+A series of 4 nested grids are provided.
+The larger grid files have been gzipped.
+Each coarser grid is exactly every-other-point
+of the next finer grid, ranging from the finest grid with 6,072 cells
+to the coarsest grid with 759 cells.
+The following figure shows a portion of the coarse grid grid (2 levels down from the finest grid).
+
+     <table width="675" border="0">
+     <center>
+       <tr align="center" valign="bottom">
+
+        <p><img
+src="grids/sbli_tcfdve_coarse_grid.png" border="1" title="portion of axisymmetric SBLI grid" alt="portion of axisymmetric SBLI grid">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p>Note: be sure to use <u>double precision</u> when reading the grids!
+
+<hr width="100%">
+<p><strong><span style="text-align: left; font-weight: 700; font-size: large">All grid files below can be downloaded together in one zip file:
+<a href="https://www.nasa.gov/wp-content/uploads/2026/04/sbli-tcfve-grids.zip">sbli-tcfve-grids.zip</a></span></strong>
+<hr width="100%">
+
+<h2>PLOT3D Files</h2>
+
+<p>The structured PLOT3D grids are given in two different ways, as 2-D grids (x-y plane) or as 3-D 
+axisymmetric grids (two planes rotated through 1 deg from each other; one plane rotated 1 deg
+from the x-z plane).
+You may use whichever is more convenient for your particular
+application.  <u>If you get the 2-D grid version, then you must create an axisymmetric grid from
+it on your own.</u>
+
+<h3>Structured 2D grids</h3>
+
+<p>Format for the structured 2D grids is PLOT3D-type, formatted, MG, 2D (nbl=1) - note that you
+must use double precision when reading! :</p>
+<p>
+<PRE>
+      read(2,*) nbl
+      read(2,*) (idim(n),jdim(n),n=1,nbl)
+      do n=1,nbl
+        read(2,*) ((x(i,j,n),i=1,idim(n)),j=1,jdim(n)),
+     +            ((y(i,j,n),i=1,idim(n)),j=1,jdim(n))
+      enddo
+</PRE>
+</p>
+
+<p>Download the 2-D version of the grids in PLOT3D format here:
+<ul>
+<li><a href="https://github.com/TMBWG/turbmodels/blob/main/sbli_tcfdve/grids/cone_16_v8b_final_4_2D_fine.x.gz">
+        Fine grid (2-D) (gzipped) </a> (6.2 MB)
+<li><a href="https://github.com/TMBWG/turbmodels/blob/main/sbli_tcfdve/grids/cone_16_v8b_final_4_2D_med.x.gz">
+        Medium grid (2-D) (gzipped) </a> (1.6 MB)
+<li><a href="https://github.com/TMBWG/turbmodels/blob/main/sbli_tcfdve/grids/cone_16_v8b_final_4_2D_coarse.x">
+        Coarse grid (2-D) </a> (1.6 MB)
+<li><a href="https://github.com/TMBWG/turbmodels/blob/main/sbli_tcfdve/grids/cone_16_v8b_final_4_2D_tiny.x">
+        Very coarse grid (2-D) </a> (&lt; 1 MB)
+</ul>
+
+<h3>Structured 3D grids</h3>
+
+Coming soon!
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Return to: <a href="../sbli_tcfdve.html">Axisymmetric Shock Boundary-Layer Interaction Validation - Intro Page</a></p>
+<p>Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+
+
+<p align="right" style="font-family: helvetica,arial,sans-serif;"> <br>
+<strong>Page Curators:</strong> <a href="mailto:c.l.rumsey@nasa.gov">Christopher Rumsey</a>,
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a>,
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+<strong>Last Updated:</strong> 03/10/2026
+<br>&nbsp;
+
+</body>
+</html>

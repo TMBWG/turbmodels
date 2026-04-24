@@ -14,8 +14,6 @@ Max size allowed for an LFS file on GitHub Free is 2 GB.
 The pointer to any LFS file needs to be the repository itself (not the file location in the directory).  E.g.:
   https://github.com/crumsey/turbmodels/blob/main/Jet_mach1p63_grids/mach_163_fine.p2dfmt.x.gz
 
-
-
 GitHub creates source code archives of your repository in the form of ZIP files and tarballs. People can download these 
 archives on the main page of your repository or as release assets. By default, Git LFS objects are *NOT* included in 
 these archives, only the pointer files to these objects. To improve the usability of archives for your repository, 
@@ -62,4 +60,17 @@ count towards your Git LFS bandwidth usage. GitHub provides a certain amount of 
 exceeding these limits will result in charges.
 
 If your account does not have a valid payment method on file, usage is blocked once you use up your quota.
+
+--------------------------------------------------
+Hide Deletion (Keep in Repo & Keep Tracking)
+If you want the file to remain in the repository for everyone else but want to delete it from your local machine to save space
+without Git showing it as "deleted" every time you run git status, use the assume-unchanged flag.
+
+    Mark as unchanged: git update-index --assume-unchanged <file_path>
+    Delete locally: rm <file_path>
+
+    Result: Git will ignore the fact that the file is missing locally.
+
+If you ever need it back, run git update-index --no-assume-unchanged <file_path> followed by git checkout <file_path>.
+--------------------------------------------------
 

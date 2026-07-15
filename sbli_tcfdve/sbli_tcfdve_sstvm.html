@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xml:lang="en" lang="en">
 <HEAD>
-<TITLE>Axisymmetric Shock Boundary-Layer Interaction - SA Model Results</TITLE>
+<TITLE>Axisymmetric Impinging Shock Boundary-Layer Interaction - SA Model Results</TITLE>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
 <script language="JavaScript">
 <!--
@@ -65,10 +65,10 @@ This page is under construction... Come back later!</p>
 <p><span style="text-align: left; font-weight: 400; font-size: medium">
 Jump to: <a href="sbli_tcfdve_sa.html">SA Results</a>
 </p>
-<p>Return to: <a href="../sbli_tcfdve.html">Axisymmetric Shock Boundary-Layer Interaction Validation - Intro Page</a></p>
+<p>Return to: <a href="../sbli_tcfdve.html">Axisymmetric Impinging Shock Boundary-Layer Interaction Validation - Intro Page</a></p>
 <p>Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
 <br>&nbsp;
-<h1>Axisymmetric Shock Boundary-Layer Interaction Validation Case</h1>
+<h1>Axisymmetric Impinging Shock Boundary-Layer Interaction Validation Case</h1>
 <p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">SST-Vm Model Results</span></strong>
 
 <br>&nbsp;
@@ -78,14 +78,19 @@ Jump to: <a href="sbli_tcfdve_sa.html">SA Results</a>
      <center>
        <tr align="center" valign="bottom">
         <p><img
-src="sbli_tcfdve_cp_sstvm.jpg" border="1" title="SST-Vm - surface pressure coefficient" alt="SST-Vm - surface pressure coefficient">
+src="sstvm/sstvm_results/sbli_tcfdve_incoming_u_sstv_m.svg" border="1" title="SST-Vm - incoming axial velocity" alt="SST-Vm - incoming axial velocity ">
            <img
-src="sbli_tcfdve_sstvm_C+F.jpg" border="1" title="SST-Vm - surface skin friction coefficient" alt="SST-Vm - surface skin friction coefficient">
+src="sstvm/sstvm_results/sbli_tcfdve_incoming_mut_sstv_m.svg" border="1" title="SST-Vm - incoming eddy viscosity" alt="SST-Vm - incoming eddy viscosity">
 </p>
         <p><img
-src="sbli_tcfdve_u_sstvm.jpg" border="1" title="SST-Vm - u velocites" alt="SST-Vm - u velocites">
+src="sstvm/sstvm_results/sbli_tcfdve_cp_sstv_m.svg" border="1" title="SST-Vm - surface pressure coefficient" alt="SST-Vm - surface pressure coefficient">
+           <img
+src="sstvm/sstvm_results/sbli_tcfdve_cf_sstv_m.svg" border="1" title="SST-Vm - surface skin friction coefficient" alt="SST-Vm - surface skin friction coefficient">
+</p>
+        <p><img
+src="sstvm/sstvm_results/sbli_tcfdve_u_sstv_m.svg" border="1" title="SST-Vm - u velocites" alt="SST-Vm - u velocites">
         <img
-src="sbli_tcfdve_uv_sstvm.jpg" border="1" title="SST-Vm - turbulent shear stresses" alt="SST-Vm - turbulent shear stresses">
+src="sstvm/sstvm_results/sbli_tcfdve_ds_u_sstv_m.svg" border="1" title="SST-Vm - downstream u velocities" alt="SST-Vm - downstream u velocities">
 </p>
            </td>
 
@@ -93,11 +98,24 @@ src="sbli_tcfdve_uv_sstvm.jpg" border="1" title="SST-Vm - turbulent shear stress
      </center>
      </table>
 
-<p><span style="text-align: left; font-weight: 400; font-size: medium">The plots compare the SST-Vm results from FUN3D, VULCAN-CFD, and Wind-US with experimental data. 
-<!--- FIXME: Both codes used freestream value of the SA turbulence field variable (relative to laminar)=3. --->
-Please read note 5 on <a href="../noteonrunning.html">Notes on running CFD</a> page.
-These results are from the finest grid. <!--- FIXME: Add grid resolution here-->
-Both codes yield nearly identical results.
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The plots compare the SST-Vm results from FUN3D, Wind-US, and VULCAN-CFD with experimental data. 
+</p>
+<p>For Wind-US, &mu;<sub>t</sub> = 0.001 &mu;<sub>lam</sub> at the inflow, or &mu;<sub>t</sub> = 1.89e-8 kg/(m*s).  Next, &omega; at the inflow is set according to &omega; = 10 U/L<sub>ref</sub>.  Then k = &omega; * &mu;<sub>t</sub>.  The turbulent kinetic energy = 5.15e-3 m<sup>2</sup>/s<sup>2</sup>.  For FUN3D, &mu;<sub>t</sub> = 6.36e-7 kg/(m*s).  The turbulent kinetic energy, k = 4.98e-4 m<sup>2</sup>/s<sup>2</sup>.  For VULCAN-CFD, &mu;<sub>t</sub> = 9.44e-9 kg/(m*s). The turbulent kinetic energy, k = 6.81e-3 m<sup>2</sup>/s<sup>2</sup>.
+</p>
+<p>
+Please read note 5 on <a href="../noteonrunning.html">Notes on running CFD</a> page as well as the page on <a href="../boundaryconditions.html">Defining Boundary Conditions</a>
+These results are from the finest grid (161x361; 81x361; 161x361; 217x361; 321x321; 721x321) and all codes yield nearly identical results.
+</p>
+
+<p>The data files from all three codes are given here:
+<ul>
+  <li><a href="sstvm/sstvm_data/sstv_m_incoming.zip">Axisymmetric Impinging SBLI reference station</a></li>
+  <li><a href="sstvm/sstvm_data/sstv_m_wall_pressure.dat">Axisymmetric Impinging SBLI wall static pressure</a></li>
+  <li><a href="sstvm/sstvm_data/sstv_m_radial_profiles.zip">Axisymmetric Impinging SBLI radial profiles</a></li>
+</ul>
+</p>
+
+<p>
 A typical FUN3D input file is:
 <a href="fun3d_typical_sstm.nml">fun3d.nml</a>.
 </p>
@@ -119,7 +137,7 @@ Jump to: <a href="sbli_tcfdve_sa.html">SA Results</a>&nbsp;
 <strong>Page Curators:</strong> <a href="mailto:c.l.rumsey@nasa.gov">Christopher Rumsey</a>,
   <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a>,
   <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
-<strong>Last Updated:</strong> 03/06/2025
+<strong>Last Updated:</strong> 07/15/2026
 <br>&nbsp;
 
 </body>

@@ -94,7 +94,7 @@ height="89" title="Logo pic" alt="Logo pic"></td>
 
 <p>
 For RANS turbulence models, the inflow boundary conditions are often specified as nondimensional variables.
-For example, the variable in the <a href="https://tmbwg.github.io/turbmodels/spalart.html">SA model</a> can be defined using a fraction of \( \tilde{\nu}/\nu_r = 3\), where \( \nu_r \) is some reference viscosity.
+For example, the inflow value of the \( \tilde{\nu} \) variable in the <a href="https://tmbwg.github.io/turbmodels/spalart.html">SA model</a> can be set with a nondimensional value of \( \tilde{\nu}/\nu_r = 3\), where \( \nu_r \) is some reference viscosity.
 Similarly, the boundary condition for turbulent kinetic energy can be expressed using a turbulence intensity, defined as:
 $$
 I = \sqrt{\frac{2 k}{3 u_r^2}}.
@@ -102,6 +102,7 @@ $$
 where \( u_r \) is a reference velocity.
 An intensity can be specified at the inflow boundary condition, which then is combined with a reference velocity to give a value for \(k\). 
 Alternately, the boundary condition for \(k\) can be specified using the reference velocity directly as \(k/u_r^2\).
+Similar nondimensional boundary conditions exist for \(\varepsilon\), \(\omega\), etc.
 </p>
 
 <p>
@@ -112,7 +113,7 @@ For simple external flows, the choice of reference conditions is straightforward
 
 <p>
 The situation grows more complicated for internal flows, jets, or mixing layers.
-Consider the case of a planar mixing layer, where there is low-speed inflow and a high-speed inflow.
+In a planar mixing layer there is a low-speed inflow and a high-speed inflow.
 Which velocity should be used for the reference velocity, the low-speed or the high-speed?
 Should the different inlet conditions use different reference velocities?
 If a single reference velocity is specified, the two sides of the mixing layer will have different turbulence intensities.
@@ -120,8 +121,9 @@ This can have unintended and surprising consequences.
 </p>
 
 <p>
-Consider the case where the boundary condition is selected as some small value of \( k/u_r^2 = C\), where \(C\) is a small constant.
-This nondimensional value of \(k\) is then imposed with a single reference velocity for all boundaries.
+Consider the following example:
+The boundary condition on \(k\) could be specified as some small value of \( k/u_r^2 = C\), where \(C\) is a small constant.
+This nondimensional value of \(k\) could then imposed with a single reference velocity for all boundaries.
 If a high velocity is selected as a the reference velocity, \( u_r = u_{\mathrm{high}} \),
 a low-speed inflow with velocity \( u_{\mathrm{low}} \) would then have the inflow value of \( k/u_{\mathrm{low}}^2 = C u_{\mathrm{high}}^2/u_{\mathrm{low}}^2 \).
 If \( u_{\mathrm{high}} / u_{\mathrm{low}} \) is large, the turbulence intensity at the low-speed inflow can also be large even if C is small.
@@ -138,7 +140,8 @@ There are two common approaches in CFD codes:
 <p>
 These two different approaches should be kept in mind when performing code-to-code comparisons.
 Different codes may be imposing different boundary conditions on the turbulent variables, even if density, velocity, or temperature are identical.
-Consider a wind-tunnel case with a converging-diverging nozzle and a test section, simulated with two CFD codes.
+This has been seen in validation cases where a full wind tunnel is modeled with a converging-diverging nozzle and a test section.
+Two different CFD codes may specify the inflow differently:
 </p>
 <ul>
   <li> Code #1 may specify the turbulent BCs using the conditions in the test section. </li>

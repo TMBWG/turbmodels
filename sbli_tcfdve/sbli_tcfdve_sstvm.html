@@ -55,10 +55,6 @@ height="89" title="Logo pic" alt="Logo pic"></td>
        </tr>
      </table>
 
-<p><img border=0 src="../construction.gif" title="under construction" alt="under construction">
-This page is under construction... Come back later!</p>
-<br>&nbsp;
-
    </center>
 
 <br>&nbsp;
@@ -100,10 +96,16 @@ src="sstvm/sstvm_results/sbli_tcfdve_ds_u_sstv_m.svg" border="1" title="SST-Vm -
 
 <p><span style="text-align: left; font-weight: 400; font-size: medium">The plots compare the SST-Vm results from FUN3D, Wind-US, and VULCAN-CFD with experimental data. 
 </p>
-<p>For Wind-US, &mu;<sub>t</sub> = 0.001 &mu;<sub>lam</sub> at the inflow, or &mu;<sub>t</sub> = 1.89e-8 kg/(m*s).  Next, &omega; at the inflow is set according to &omega; = 10 U/L<sub>ref</sub>.  Then k = &omega; * &mu;<sub>t</sub>.  The turbulent kinetic energy = 5.15e-3 m<sup>2</sup>/s<sup>2</sup>.  For FUN3D, &mu;<sub>t</sub> = 6.36e-7 kg/(m*s).  The turbulent kinetic energy, k = 4.98e-4 m<sup>2</sup>/s<sup>2</sup>.  For VULCAN-CFD, &mu;<sub>t</sub> = 9.44e-9 kg/(m*s). The turbulent kinetic energy, k = 6.81e-3 m<sup>2</sup>/s<sup>2</sup>.
-</p>
 <p>
-Please read note 5 on <a href="../noteonrunning.html">Notes on running CFD</a> page as well as the page on <a href="../boundaryconditions.html">Defining Boundary Conditions</a>
+Slightly different boundary conditions were used for different codes:
+</p>
+<ul>
+ <li>For Wind-US, &mu;<sub>t</sub> = 0.001 &mu;<sub>lam</sub> at the inflow, or &mu;<sub>t</sub> = 1.89e-8 kg/(m*s).  Next, &omega; at the inflow is set according to &omega; = 10 U/L<sub>ref</sub>.  Then k = &omega; * &mu;<sub>t</sub>.  This resulted in a turbulent kinetic energy of k = 5.15e-3 m<sup>2</sup>/s<sup>2</sup>.</li>
+ <li>For FUN3D, &mu;<sub>t</sub> = 6.36e-7 kg/(m*s).  The turbulent kinetic energy was k = 4.98e-4 m<sup>2</sup>/s<sup>2</sup>.</li>
+ <li>For VULCAN-CFD, &mu;<sub>t</sub> = 9.44e-9 kg/(m*s). The turbulent kinetic energy was k = 6.81e-3 m<sup>2</sup>/s<sup>2</sup>.</li>
+</ul>
+<p>
+Please read note 5 on <a href="../noteonrunning.html">Notes on running CFD</a> page as well as the page on <a href="../boundaryconditions.html">Defining Boundary Conditions</a>.
 These results are from the finest grid (161x361; 81x361; 161x361; 217x361; 321x321; 721x321) and all codes yield nearly identical results.
 </p>
 
@@ -134,10 +136,11 @@ Jump to: <a href="sbli_tcfdve_sa.html">SA Results</a>&nbsp;
 <hr WIDTH="100%">
 
 <p align="right" style="font-family: helvetica,arial,sans-serif;"> <br>
-<strong>Page Curators:</strong> <a href="mailto:c.l.rumsey@nasa.gov">Christopher Rumsey</a>,
-  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a>,
-  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
-<strong>Last Updated:</strong> 07/15/2026
+<strong>Page Curators:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a>,
+  <a href="mailto:prahladh.s.iyer@nasa.gov">Prahladh Iyer</a>,
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a><br>
+<strong>Last Updated:</strong> 07/30/2026
 <br>&nbsp;
 
 </body>

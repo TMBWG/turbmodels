@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Defining Freestream Boundary Conditions for RANS Models</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.0.0/tex-mml-chtml.js"></script>
+
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    h1 {
+      font-family: helvetica,arial,sans-serif;
+      font-weight: 700;
+      font-size: x-large;
+    }
+    h2 {
+      font-family: helvetica,arial,sans-serif;
+      font-weight: 700;
+      font-size: large;
+    }
+    p, li {
+      font-family: helvetica,arial,sans-serif;
+      font-weight: 400;
+      font-size: medium;
+    }
+    .model-shorthand {
+      text-align: left;
+      font-weight: 700;
+      font-size: large;
+      color: blue
+    }
+    .centered-table {
+      font-family: helvetica,arial;
+      margin-left: auto;
+      margin-right: auto;
+      width: 20em;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+    }
+    .centered-table th {
+      border-bottom: 1px solid black;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+
+      <td width="144"><img border=0 src="turb-pic.jpg" width="144"
+height="89" title="Logo pic" alt="Logo pic"></td>
+         <td>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+<!-- <img border=0 src="construction.gif" title="under construction" alt="under construction"> -->
+
+   </center>
+
+&nbsp;
+<h1>Defining Boundary Conditions for RANS Turbulence Models</h1>
+
+<p>
+For RANS turbulence models, the inflow boundary conditions are often specified as nondimensional variables.
+For example, the variable in the <a href="https://tmbwg.github.io/turbmodels/spalart.html">SA model</a> can be defined using a fraction of \( \tilde{\nu}/\nu_r = 3\), where \( \nu_r \) is some reference viscosity.
+Similarly, the boundary condition for turbulent kinetic energy can be expressed using a turbulence intensity, defined as:
+$$
+I = \sqrt{\frac{2 k}{3 u_r^2}}.
+$$
+where \( u_r \) is a reference velocity.
+An intensity can be specified at the inflow boundary condition, which then is combined with a reference velocity to give a value for \(k\). 
+Alternately, the boundary condition for \(k\) can be specified using the reference velocity directly as \(k/u_r^2\).
+</p>
+
+<p>
+All of these approaches require some reference condition to nondimensionalize the turbulent variables.
+This choice may be implicit in a nondimensional CFD code, where the reference conditions are assumed and no dimensional quantities are present.
+For simple external flows, the choice of reference conditions is straightforward: the freestream conditions are used as the "reference" condition.
+</p>
+
+<p>
+The situation grows more complicated for internal flows, jets, or mixing layers.
+Consider the case of a planar mixing layer, where there is low-speed inflow and a high-speed inflow.
+Which velocity should be used for the reference velocity, the low-speed or the high-speed?
+Should the different inlet conditions use different reference velocities?
+If a single reference velocity is specified, the two sides of the mixing layer will have different turbulence intensities.
+This can have unintended and surprising consequences.
+</p>
+
+<p>
+Consider the case where the boundary condition is selected as some small value of \( k/u_r^2 = C\), where \(C\) is a small constant.
+This nondimensional value of \(k\) is then imposed with a single reference velocity for all boundaries.
+If a high velocity is selected as a the reference velocity, \( u_r = u_{\mathrm{high}} \),
+a low-speed inflow with velocity \( u_{\mathrm{low}} \) would then have the inflow value of \( k/u_{\mathrm{low}}^2 = C u_{\mathrm{high}}^2/u_{\mathrm{low}}^2 \).
+If \( u_{\mathrm{high}} / u_{\mathrm{low}} \) is large, the turbulence intensity at the low-speed inflow can also be large even if C is small.
+</p>
+
+<p>
+There are two common approaches in CFD codes:
+</p>
+<ol>
+  <li> A single reference condition is specified. For external flows, this is commonly the freestream state. For wind-tunnel simulations, this may be the conditions in the test section. </li>
+  <li> Each inflow boundary defines its reference conditions separately.</li>
+</ol>
+
+<p>
+These two different approaches should be kept in mind when performing code-to-code comparisons.
+Different codes may be imposing different boundary conditions on the turbulent variables, even if density, velocity, or temperature are identical.
+Consider a wind-tunnel case with a converging-diverging nozzle and a test section, simulated with two CFD codes.
+</p>
+<ul>
+  <li> Code #1 may specify the turbulent BCs using the conditions in the test section. </li>
+  <li> Code #2 may specify the turbulent BCs using the conditions at the inflow plane, upstream of the converging-diverging nozzle. </li> 
+</ul>
+<p>
+These two approaches may lead to very different predictions for the turbulent quantities in the test section.
+</p>
+
+<br>&nbsp;
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+
+<p align="right" style="font-family: helvetica,arial,sans-serif;"> <br>
+  <strong>Page Curators:</strong> <a href="mailto:c.l.rumsey@nasa.gov">Christopher Rumsey</a>,
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a>,
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a> <br>
+  <strong>Last Updated:</strong> 07/14/2026
+</p>
+<br>&nbsp;
+
+</body>
+</html>

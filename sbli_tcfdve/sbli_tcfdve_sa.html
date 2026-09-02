@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xml:lang="en" lang="en">
+<HEAD>
+<TITLE>Axisymmetric Impinging Shock Boundary-Layer Interaction - SA Model Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+
+</HEAD>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B"
+alink="#FF0000">
+<p><a href="#main-content"><img src="spacer.gif" width="0" height="0" border="0" alt="skip to content" /></a></p>
+<style>
+    * {
+      font-family: helvetica,arial,sans-serif;
+    }
+</style>
+<a id="main-content"></a>
+<p>
+   <center>
+     <table width="775" border="0">
+       <tr>
+
+
+      <td width="144"><img border=0 src="../turb-pic.jpg" width="144"
+height="89" title="Logo pic" alt="Logo pic"></td>
+         <td>
+         <p><h1 style="text-align: left"><strong>
+              Turbulence Modeling Resource</strong></h1></p>
+         </td>
+       </tr>
+     </table>
+
+   </center>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="sbli_tcfdve_sstvm.html">SST-Vm Results</a>
+</p>
+<p>Return to: <a href="../sbli_tcfdve.html">Axisymmetric Impinging Shock Boundary-Layer Interaction Validation - Intro Page</a></p>
+<p>Return to: <a href="../index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+<h1>Axisymmetric Impinging Shock Boundary-Layer Interaction Validation Case</h1>
+<p><strong><span style="text-align: left; font-weight: 700; font-size: x-large"><span style="color: blue">SA Model Results</span></strong>
+
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 700; font-size: large">
+<a href="../spalart.html#sa">Link to SA equations</a>
+     <table border="0">
+     <center>
+       <tr align="center" valign="bottom">
+        <p><img
+src="sa/sa_results/sbli_tcfdve_incoming_u_sa.svg" width="600" border="1" title="SA - incoming axial velocity" alt="SA - incoming axial velocity ">
+           <img
+src="sa/sa_results/sbli_tcfdve_incoming_mut_sa.svg" width="600" border="1" title="SA - incoming eddy viscosity" alt="SA - incoming eddy viscosity">
+</p>
+        <p><img
+src="sa/sa_results/sbli_tcfdve_cp_sa.svg" width="600" border="1" title="SA - surface pressure coefficient" alt="SA - surface pressure coefficient">
+           <img
+src="sa/sa_results/sbli_tcfdve_cf_sa.svg" width="600" border="1" title="SA - surface skin friction coefficient" alt="SA - surface skin friction coefficient">
+</p>
+        <p><img
+src="sa/sa_results/sbli_tcfdve_u_sa.svg" width="600" border="1" title="SA - u velocites" alt="SA - u velocites">
+        <img
+src="sa/sa_results/sbli_tcfdve_ds_u_sa.svg" width="600" border="1" title="SA - downstream u velocities" alt="SA - downstream u velocities">
+</p>
+         <p><img
+src="sa/sa_results/sbli_tcfdve_uv_sa.svg" width="600" border="1" title="SA - u'v' profiles" alt="SA - u'v' profiles">
+        <img
+src="sa/sa_results/sbli_tcfdve_ds_uv_sa.svg" width="600" border="1" title="SA - downstream u'v' profiles" alt="SA - downstream u'v' profiles">
+</p>
+           </td>
+
+       </tr>
+     </center>
+     </table>
+
+<p><span style="text-align: left; font-weight: 400; font-size: medium">The plots compare the SA results from FUN3D, VULCAN-CFD, and Wind-US with experimental data. 
+  Please read note 5 on <a href="../noteonrunning.html">Notes on running CFD</a> page as well as the page on <a href="../boundaryconditions.html">Defining Boundary Conditions</a>.
+These results are from the finest grid.
+Both codes yield nearly identical results.
+A typical FUN3D input file is:
+<a href="fun3d_typical_sa.nml">fun3d.nml</a>.
+</p>
+
+<p>The data files from all three codes are given here:
+<ul>
+  <li><a href="sa/sa_data/sa_incoming.zip">Axisymmetric Impinging SBLI reference station</a></li>
+  <li><a href="sa/sa_data/sa_wall_pressure.dat">Axisymmetric Impinging SBLI wall static pressure</a></li>
+  <li><a href="sa/sa_data/sa_radial_profiles.zip">Axisymmetric Impinging SBLI radial profiles</a></li>
+</ul>
+</p>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><span style="text-align: left; font-weight: 400; font-size: medium">
+Jump to: <a href="sbli_tcfdve_sstvm.html">SST-Vm Results</a>&nbsp;
+</p>
+<p>Return to: <a href="../sbli_tcfdve.html">Axisymmetric Impinging Shock Boundary-Layer Interaction Validation - Intro Page</a></p>
+<p>Return to: <a href="index.html">Turbulence Modeling Resource Home Page</a></p>
+<br>&nbsp;
+
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+
+<p align="right" style="font-family: helvetica,arial,sans-serif;"> <br>
+<strong>Page Curators:</strong>
+  <a href="mailto:clark.c.pederson@nasa.gov">Clark Pederson</a>,
+  <a href="mailto:prahladh.s.iyer@nasa.gov">Prahladh Iyer</a>,
+  <a href="mailto:ethan.a.vogel@nasa.gov">Ethan Vogel</a><br>
+<strong>Last Updated:</strong> 07/30/2026
+<br>&nbsp;
+
+</body>
+</html>
